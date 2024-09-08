@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>Welcomt to my world</title>
-    <link href="/2024/09/08/My-New-Post/"/>
-    <url>/2024/09/08/My-New-Post/</url>
+    <title>数学公式用法整理</title>
+    <link href="/2024/09/08/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%94%A8%E6%B3%95%E6%95%B4%E7%90%86/"/>
+    <url>/2024/09/08/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%94%A8%E6%B3%95%E6%95%B4%E7%90%86/</url>
     
-    <content type="html"><![CDATA[<p>这里是偷偷，先做一个自我介绍</p><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">dajfjoajfoiajiosf<br></code></pre></td></tr></table></figure><h1 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h1><p>$$<br>y&#x3D;<br>\begin{cases}<br>-x,\quad x\leq 0\<br>x, \quad x&gt;0<br>\end{cases}<br>\tag{1}<br>$$</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h1><script type="math/tex; mode=display">y=\begin{cases}-x,\quad x\leq 0 \\\\x, \quad x>0\end{cases}\tag{1}</script>]]></content>
     
     
     
