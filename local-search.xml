@@ -4,9 +4,28 @@
   
   
   <entry>
+    <title>Data Structure &amp; Algorithms</title>
+    <link href="/2024/09/10/DSA/"/>
+    <url>/2024/09/10/DSA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Data-Structure-amp-Algorithms"><a href="#Data-Structure-amp-Algorithms" class="headerlink" title="Data Structure &amp; Algorithms"></a>Data Structure &amp; Algorithms</h1><p>This is for test takers to quickly review the basics and key points of DSA. Moreover, this is the masterpiece written by toutou(<strong>偷偷</strong>).The main language is Chinese but you can see some concepts in English &amp; Japanese. Let’s quickly review this subject!</p><h2 id="1-Introduction-to-algorithms"><a href="#1-Introduction-to-algorithms" class="headerlink" title="1. Introduction to algorithms"></a>1. Introduction to algorithms</h2><p>这一章主要计划复习时间复杂度和空间复杂度两个概念，然后再仔细回顾分治递归(DIvide &amp; Conquer)这一重要的概念。</p><h3 id="1-1-Time-complexity-amp-Space-complexity"><a href="#1-1-Time-complexity-amp-Space-complexity" class="headerlink" title="1.1 Time complexity &amp; Space complexity"></a>1.1 Time complexity &amp; Space complexity</h3>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>DSA</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>日本語勉強</title>
-    <link href="/2024/09/10/My-New-Post/"/>
-    <url>/2024/09/10/My-New-Post/</url>
+    <link href="/2024/09/10/JPN/"/>
+    <url>/2024/09/10/JPN/</url>
     
     <content type="html"><![CDATA[<h3 id="1-〜あっての"><a href="#1-〜あっての" class="headerlink" title="1.〜あっての"></a>1.〜あっての</h3><div class="note note-success">            <p>説明：あるものが存在するのは他のもののおかげであることを強調する表現です。名詞 + あっての + 名詞</p>          </div><p>健康あっての人生なんだから、体調管理には十分気をつけなさい。</p><p>家族の支えがあったからこそ成功できた。</p><h3 id="2-以外の何ものでもない。"><a href="#2-以外の何ものでもない。" class="headerlink" title="2.~以外の何ものでもない。"></a>2.~以外の何ものでもない。</h3><div class="note note-success">            <p>「Aが唯一の理由・原因である」という意味になります。</p>          </div><p>この結果は偶然以外の何ものでもない。</p><h3 id="3-〜いかんで-いかんでは"><a href="#3-〜いかんで-いかんでは" class="headerlink" title="3.〜いかんで&#x2F;いかんでは"></a>3.〜いかんで&#x2F;いかんでは</h3><div class="note note-success">            <p>どちらも「〜によって」「〜次第で」という意味を持ち、前の事柄によって後の結果が変わることを示す表現です。ただし、微妙なニュアンスの違いがあります。</p>          </div><p>天候いかんでは、収穫は全てできないこともある。</p>]]></content>
     
