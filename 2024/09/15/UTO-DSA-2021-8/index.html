@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/img/DSA/swap_compare3.jpg">
 <meta property="og:image" content="http://example.com/img/DSA/swap_compare4.jpg">
 <meta property="article:published_time" content="2024-09-15T12:45:44.000Z">
-<meta property="article:modified_time" content="2024-09-15T17:17:47.104Z">
+<meta property="article:modified_time" content="2024-09-15T17:47:04.311Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="DSA">
 <meta property="article:tag" content="修考">
@@ -309,7 +309,7 @@
 <p>根据递归树可以写出主定理公式(Master theorem):<br>$$T(n) &#x3D; 3T(3n&#x2F;4) + O(n) $$<br>根据套路：这里b &#x3D; 4&#x2F;3, a &#x3D; 3.<br>$$O(n ^{\log_{b}{a}}) &#x3D; O(n^{log_{4&#x2F;3}{3}}) &gt; O(n) $$<br>所以有<br>$$T(n) &#x3D; O(\log_{4&#x2F;3}{3})$$</p>
 <p>(3) (4, 2, 3, 3), (4, 3, 2, 3), (4, 3, 3, 2) can always work properly. (4, 2, 3, 2) can’t always work properly.</p>
 <blockquote>
-<p>可以看下图演示：前两次的sort调用的交集部分是排好数组最大的部门，第三次sort调用要覆盖剩余没有排好的部分；对于(4, 2, 3, 2), 前两次调用排好了数组最大的1&#x2F;4部门，所以第三次调用至少要覆盖数组前3&#x2F;4的大小，而第三次调用只覆盖了前1&#x2F;2，所以这个组合不行。</p>
+<p>可以看下图演示：前两次的sort调用的交集部分是排好数组最大的部分，第三次sort调用要覆盖剩余没有排好的部分；对于(4, 2, 3, 2), 前两次调用排好了数组最大的1&#x2F;4部分，所以第三次调用至少要覆盖数组前3&#x2F;4的大小，而第三次调用只覆盖了前1&#x2F;2，所以这个组合不行。</p>
 </blockquote>
 <img src="/img/DSA/swap_compare3.jpg" srcset="/img/loading.gif" lazyload alt="排序演示" style="max-width: 100%; height: auto;" />
 
