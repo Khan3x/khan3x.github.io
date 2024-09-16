@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-size="24" text-anchor="middle" fill="#333">二分查找: 分治递归示意图</text>
+  
+  <!-- 初始数组 -->
+  <g transform="translate(50, 70)">
+    <rect width="700" height="40" fill="#e0e0e0" stroke="#333"/>
+    <text x="350" y="25" font-size="14" text-anchor="middle">1 3 4 6 8 9 11 13 15 17 19 21</text>
+  </g>
+  
+  <!-- 第一次分割 -->
+  <g transform="translate(50, 140)">
+    <rect width="340" height="40" fill="#ffd700" stroke="#333"/>
+    <rect x="360" width="340" height="40" fill="#87ceeb" stroke="#333"/>
+    <text x="170" y="25" font-size="14" text-anchor="middle">1 3 4 6 8 9</text>
+    <text x="530" y="25" font-size="14" text-anchor="middle">11 13 15 17 19 21</text>
+    <text x="350" y="60" font-size="14" text-anchor="middle">中间元素: 9</text>
+  </g>
+  
+  <!-- 第二次分割 -->
+  <g transform="translate(50, 230)">
+    <rect width="160" height="40" fill="#ffd700" stroke="#333"/>
+    <rect x="540" width="160" height="40" fill="#87ceeb" stroke="#333"/>
+    <text x="80" y="25" font-size="14" text-anchor="middle">1 3 4</text>
+    <text x="620" y="25" font-size="14" text-anchor="middle">17 19 21</text>
+    <text x="80" y="60" font-size="14" text-anchor="middle">中间元素: 3</text>
+    <text x="620" y="60" font-size="14" text-anchor="middle">中间元素: 19</text>
+  </g>
+  
+  <!-- 箭头 -->
+  <g fill="none" stroke="#333" stroke-width="2">
+    <path d="M400,110 L400,140"/>
+    <path d="M220,180 L130,230"/>
+    <path d="M580,180 L620,230"/>
+  </g>
+  
+  <!-- 说明文字 -->
+  <text x="400" y="380" font-size="16" text-anchor="middle" fill="#333">递归分割数组,直到找到目标元素或确定元素不存在</text>
+</svg>
