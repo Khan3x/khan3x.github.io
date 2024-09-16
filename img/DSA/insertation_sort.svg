@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <style>
+    text { font-family: Arial, sans-serif; font-size: 14px; }
+    .step-text { font-size: 16px; font-weight: bold; }
+  </style>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-size="24" font-weight="bold">插入排序过程可视化</text>
+  
+  <!-- 初始数组 -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="-10" class="step-text">初始数组:</text>
+    <rect x="0" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="60" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="120" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="180" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="240" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <text x="25" y="30" text-anchor="middle">5</text>
+    <text x="85" y="30" text-anchor="middle">2</text>
+    <text x="145" y="30" text-anchor="middle">8</text>
+    <text x="205" y="30" text-anchor="middle">12</text>
+    <text x="265" y="30" text-anchor="middle">1</text>
+  </g>
+  
+  <!-- 第一步 -->
+  <g transform="translate(50, 160)">
+    <text x="0" y="-10" class="step-text">第1步: 2插入到正确位置</text>
+    <rect x="0" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="60" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="120" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="180" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="240" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <text x="25" y="30" text-anchor="middle">2</text>
+    <text x="85" y="30" text-anchor="middle">5</text>
+    <text x="145" y="30" text-anchor="middle">8</text>
+    <text x="205" y="30" text-anchor="middle">12</text>
+    <text x="265" y="30" text-anchor="middle">1</text>
+  </g>
+  
+  <!-- 第二步 -->
+  <g transform="translate(50, 240)">
+    <text x="0" y="-10" class="step-text">第2步: 8已在正确位置</text>
+    <rect x="0" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="60" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="120" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="180" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <rect x="240" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <text x="25" y="30" text-anchor="middle">2</text>
+    <text x="85" y="30" text-anchor="middle">5</text>
+    <text x="145" y="30" text-anchor="middle">8</text>
+    <text x="205" y="30" text-anchor="middle">12</text>
+    <text x="265" y="30" text-anchor="middle">1</text>
+  </g>
+  
+  <!-- 第三步 -->
+  <g transform="translate(50, 320)">
+    <text x="0" y="-10" class="step-text">第3步: 12已在正确位置</text>
+    <rect x="0" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="60" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="120" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="180" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="240" y="0" width="50" height="50" fill="#ff9999" stroke="black"/>
+    <text x="25" y="30" text-anchor="middle">2</text>
+    <text x="85" y="30" text-anchor="middle">5</text>
+    <text x="145" y="30" text-anchor="middle">8</text>
+    <text x="205" y="30" text-anchor="middle">12</text>
+    <text x="265" y="30" text-anchor="middle">1</text>
+  </g>
+  
+  <!-- 最终结果 -->
+  <g transform="translate(400, 160)">
+    <text x="0" y="-10" class="step-text">最终排序结果:</text>
+    <rect x="0" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="60" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="120" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="180" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <rect x="240" y="0" width="50" height="50" fill="#99ff99" stroke="black"/>
+    <text x="25" y="30" text-anchor="middle">1</text>
+    <text x="85" y="30" text-anchor="middle">2</text>
+    <text x="145" y="30" text-anchor="middle">5</text>
+    <text x="205" y="30" text-anchor="middle">8</text>
+    <text x="265" y="30" text-anchor="middle">12</text>
+  </g>
+</svg>
