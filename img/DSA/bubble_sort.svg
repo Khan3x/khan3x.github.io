@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <style>
+    text { font-family: Arial, sans-serif; font-size: 10px; }
+    .title { font-size: 14px; font-weight: bold; }
+    .step { font-size: 12px; font-weight: bold; }
+  </style>
+  
+  <!-- 标题 -->
+  <text x="200" y="20" text-anchor="middle" class="title">冒泡排序过程图解</text>
+
+  <!-- 初始数组 -->
+  <text x="10" y="40" class="step">初始:</text>
+  <circle cx="60" cy="40" r="15" fill="#FFB3BA" />
+  <circle cx="100" cy="40" r="15" fill="#BAFFC9" />
+  <circle cx="140" cy="40" r="15" fill="#BAE1FF" />
+  <circle cx="180" cy="40" r="15" fill="#FFFFBA" />
+  <circle cx="220" cy="40" r="15" fill="#FFE4E1" />
+  
+  <text x="60" y="44" text-anchor="middle">5</text>
+  <text x="100" y="44" text-anchor="middle">2</text>
+  <text x="140" y="44" text-anchor="middle">8</text>
+  <text x="180" y="44" text-anchor="middle">1</text>
+  <text x="220" y="44" text-anchor="middle">9</text>
+
+  <!-- 第一轮 -->
+  <text x="10" y="80" class="step">第一轮:</text>
+  <circle cx="60" cy="80" r="15" fill="#BAFFC9" />
+  <circle cx="100" cy="80" r="15" fill="#FFB3BA" />
+  <circle cx="140" cy="80" r="15" fill="#BAE1FF" />
+  <circle cx="180" cy="80" r="15" fill="#FFFFBA" />
+  <circle cx="220" cy="80" r="15" fill="#FFE4E1" />
+  
+  <text x="60" y="84" text-anchor="middle">2</text>
+  <text x="100" y="84" text-anchor="middle">5</text>
+  <text x="140" y="84" text-anchor="middle">8</text>
+  <text x="180" y="84" text-anchor="middle">1</text>
+  <text x="220" y="84" text-anchor="middle">9</text>
+
+  <path d="M60,60 Q80,70 100,60" fill="none" stroke="red" stroke-width="1.5"/>
+
+  <!-- 第二轮 -->
+  <text x="10" y="120" class="step">第二轮:</text>
+  <circle cx="60" cy="120" r="15" fill="#BAFFC9" />
+  <circle cx="100" cy="120" r="15" fill="#FFFFBA" />
+  <circle cx="140" cy="120" r="15" fill="#FFB3BA" />
+  <circle cx="180" cy="120" r="15" fill="#BAE1FF" />
+  <circle cx="220" cy="120" r="15" fill="#FFE4E1" />
+  
+  <text x="60" y="124" text-anchor="middle">2</text>
+  <text x="100" y="124" text-anchor="middle">1</text>
+  <text x="140" y="124" text-anchor="middle">5</text>
+  <text x="180" y="124" text-anchor="middle">8</text>
+  <text x="220" y="124" text-anchor="middle">9</text>
+
+  <path d="M100,100 Q120,110 140,100" fill="none" stroke="red" stroke-width="1.5"/>
+  <path d="M140,100 Q160,110 180,100" fill="none" stroke="red" stroke-width="1.5"/>
+
+  <!-- 最终结果 -->
+  <text x="10" y="160" class="step">最终:</text>
+  <circle cx="60" cy="160" r="15" fill="#FFFFBA" />
+  <circle cx="100" cy="160" r="15" fill="#BAFFC9" />
+  <circle cx="140" cy="160" r="15" fill="#FFB3BA" />
+  <circle cx="180" cy="160" r="15" fill="#BAE1FF" />
+  <circle cx="220" cy="160" r="15" fill="#FFE4E1" />
+  
+  <text x="60" y="164" text-anchor="middle">1</text>
+  <text x="100" y="164" text-anchor="middle">2</text>
+  <text x="140" y="164" text-anchor="middle">5</text>
+  <text x="180" y="164" text-anchor="middle">8</text>
+  <text x="220" y="164" text-anchor="middle">9</text>
+
+  <!-- 图例 -->
+  <text x="280" y="40" class="step">图例:</text>
+  <circle cx="290" cy="60" r="8" fill="#FFB3BA" />
+  <text x="305" y="64">初始位置</text>
+  <path d="M280,80 Q290,90 300,80" fill="none" stroke="red" stroke-width="1.5"/>
+  <text x="305" y="84">交换操作</text>
+</svg>
