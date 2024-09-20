@@ -30,8 +30,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/merge_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/insertation_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/bubble_sort.svg">
+<meta property="og:image" content="http://example.com/img/DSA/selection_sort.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-09-19T17:12:22.550Z">
+<meta property="article:modified_time" content="2024-09-20T16:11:03.846Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -233,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.4k 字
         
       </span>
     
@@ -244,7 +245,7 @@
         
         
         
-          19 分钟
+          21 分钟
         
       </span>
     
@@ -354,6 +355,9 @@
 <h3 id="2-2冒泡排序-Bubble-Sort"><a href="#2-2冒泡排序-Bubble-Sort" class="headerlink" title="2.2冒泡排序(Bubble Sort)"></a>2.2冒泡排序(Bubble Sort)</h3><p>冒泡排序是一个直观的算法，通过重复地遍历数组来工作。在每次遍历中，它比较相邻的元素并在需要时交换它们，这样每次迭代都会将当前未排序部分中的最大元素’冒泡’到数组的末尾正确位置。这个过程从左到右重复进行，直到整个数组排序完成。一句话概括就是：不断的进行两两比较。<br><img src="/img/DSA/bubble_sort.svg" srcset="/img/loading.gif" lazyload alt="冒泡排序演示" style="max-width: 100%; height: auto;" /></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; arr)</span> </span>&#123;<br>    <span class="hljs-type">int</span> n = arr.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-comment">// 控制循环的轮数</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-comment">// 内层循环，相邻比较</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - i - <span class="hljs-number">1</span>; j++) &#123;<br>            <span class="hljs-keyword">if</span> (arr[j] &gt; arr[j + <span class="hljs-number">1</span>]) &#123;<br>                <span class="hljs-comment">// 交换元素</span><br>                std::<span class="hljs-built_in">swap</span>(arr[j], arr[j + <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><strong>冒泡排序平均时间复杂度</strong>：$T(n) &#x3D; O(n^2)$</p>
+<h3 id="2-3选择排序-Selection-Sort"><a href="#2-3选择排序-Selection-Sort" class="headerlink" title="2.3选择排序(Selection Sort)"></a>2.3选择排序(Selection Sort)</h3><p>选择排序的基本思想是分阶段地将数组划分为两部分：已排序部分和未排序部分。每一轮从未排序部分中找到最小（或最大）的元素，放到已排序部分的末尾，直到整个数组排序完成。<br><img src="/img/DSA/selection_sort.svg" srcset="/img/loading.gif" lazyload alt="选择排序演示" style="max-width: 100%; height: auto;" /></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">selectionSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; arr)</span> </span>&#123;<br>    <span class="hljs-type">int</span> n = arr.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-comment">// 已排序数组末尾</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-type">int</span> minIdx = i;<br>        <span class="hljs-comment">// 找未排序数组中的最小元素</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt; n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (arr[j] &lt; arr[minIdx]) &#123;<br>                minIdx = j;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (minIdx != i) &#123;<br>            <span class="hljs-built_in">swap</span>(arr[i], arr[minIdx]);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>选择排序时间复杂度：</strong> $T(n) &#x3D; O(n^2)$</p>
 
                 
               </div>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <style>
+    text { font-family: Arial, sans-serif; font-size: 14px; }
+    .title { font-size: 20px; font-weight: bold; }
+    .step { font-size: 16px; font-weight: bold; }
+  </style>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title">选择排序步骤</text>
+  
+  <!-- 初始数组 -->
+  <text x="50" y="70" class="step">步骤 1: 初始数组</text>
+  <rect x="50" y="80" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="100" y="80" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="150" y="80" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="200" y="80" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="250" y="80" width="50" height="50" fill="lightblue" stroke="black" />
+  <text x="75" y="110" text-anchor="middle">5</text>
+  <text x="125" y="110" text-anchor="middle">2</text>
+  <text x="175" y="110" text-anchor="middle">8</text>
+  <text x="225" y="110" text-anchor="middle">1</text>
+  <text x="275" y="110" text-anchor="middle">9</text>
+  
+  <!-- 第一次迭代 -->
+  <text x="50" y="170" class="step">步骤 2: 第一次迭代</text>
+  <rect x="50" y="180" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="100" y="180" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="150" y="180" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="200" y="180" width="50" height="50" fill="pink" stroke="black" />
+  <rect x="250" y="180" width="50" height="50" fill="lightblue" stroke="black" />
+  <text x="75" y="210" text-anchor="middle">1</text>
+  <text x="125" y="210" text-anchor="middle">2</text>
+  <text x="175" y="210" text-anchor="middle">8</text>
+  <text x="225" y="210" text-anchor="middle">5</text>
+  <text x="275" y="210" text-anchor="middle">9</text>
+  
+  <!-- 第二次迭代 -->
+  <text x="50" y="270" class="step">步骤 3: 第二次迭代</text>
+  <rect x="50" y="280" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="100" y="280" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="150" y="280" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="200" y="280" width="50" height="50" fill="lightblue" stroke="black" />
+  <rect x="250" y="280" width="50" height="50" fill="lightblue" stroke="black" />
+  <text x="75" y="310" text-anchor="middle">1</text>
+  <text x="125" y="310" text-anchor="middle">2</text>
+  <text x="175" y="310" text-anchor="middle">8</text>
+  <text x="225" y="310" text-anchor="middle">5</text>
+  <text x="275" y="310" text-anchor="middle">9</text>
+  
+  <!-- 最终结果 -->
+  <text x="50" y="370" class="step">步骤 4: 最终排序结果</text>
+  <rect x="50" y="380" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="100" y="380" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="150" y="380" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="200" y="380" width="50" height="50" fill="lightgreen" stroke="black" />
+  <rect x="250" y="380" width="50" height="50" fill="lightgreen" stroke="black" />
+  <text x="75" y="410" text-anchor="middle">1</text>
+  <text x="125" y="410" text-anchor="middle">2</text>
+  <text x="175" y="410" text-anchor="middle">5</text>
+  <text x="225" y="410" text-anchor="middle">8</text>
+  <text x="275" y="410" text-anchor="middle">9</text>
+  
+  <!-- 图例 -->
+  <rect x="550" y="80" width="20" height="20" fill="lightblue" stroke="black" />
+  <text x="580" y="95">未排序</text>
+  <rect x="550" y="110" width="20" height="20" fill="lightgreen" stroke="black" />
+  <text x="580" y="125">已排序</text>
+  <rect x="550" y="140" width="20" height="20" fill="pink" stroke="black" />
+  <text x="580" y="155">当前交换</text>
+</svg>
