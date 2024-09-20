@@ -1,0 +1,52 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Array elements -->
+  <rect x="50" y="50" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="70" y="85" font-family="Verdana" font-size="20" fill="black">5</text>
+
+  <rect x="100" y="50" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="120" y="85" font-family="Verdana" font-size="20" fill="black">3</text>
+
+  <rect x="150" y="50" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="170" y="85" font-family="Verdana" font-size="20" fill="black">8</text>
+
+  <rect x="200" y="50" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="220" y="85" font-family="Verdana" font-size="20" fill="black">2</text>
+
+  <rect x="250" y="50" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="270" y="85" font-family="Verdana" font-size="20" fill="black">1</text>
+
+  <!-- Sorting steps -->
+  <rect x="50" y="150" width="40" height="40" style="fill:lightcoral;stroke:black;stroke-width:2" />
+  <text x="70" y="185" font-family="Verdana" font-size="20" fill="black">1</text>
+
+  <rect x="100" y="150" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="120" y="185" font-family="Verdana" font-size="20" fill="black">3</text>
+
+  <rect x="150" y="150" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="170" y="185" font-family="Verdana" font-size="20" fill="black">8</text>
+
+  <rect x="200" y="150" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="220" y="185" font-family="Verdana" font-size="20" fill="black">2</text>
+
+  <rect x="250" y="150" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="270" y="185" font-family="Verdana" font-size="20" fill="black">5</text>
+
+  <!-- Sorting steps -->
+  <rect x="50" y="250" width="40" height="40" style="fill:lightcoral;stroke:black;stroke-width:2" />
+  <text x="70" y="285" font-family="Verdana" font-size="20" fill="black">1</text>
+
+  <rect x="100" y="250" width="40" height="40" style="fill:lightcoral;stroke:black;stroke-width:2" />
+  <text x="120" y="285" font-family="Verdana" font-size="20" fill="black">2</text>
+
+  <rect x="150" y="250" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="170" y="285" font-family="Verdana" font-size="20" fill="black">8</text>
+
+  <rect x="200" y="250" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="220" y="285" font-family="Verdana" font-size="20" fill="black">3</text>
+
+  <rect x="250" y="250" width="40" height="40" style="fill:lightblue;stroke:black;stroke-width:2" />
+  <text x="270" y="285" font-family="Verdana" font-size="20" fill="black">5</text>
+
+</svg>
+
