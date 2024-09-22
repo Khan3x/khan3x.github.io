@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .title { font: bold 24px Arial; fill: #333; }
+      .step-title { font: bold 18px Arial; fill: #444; }
+      .array-box { fill: #f0f0f0; stroke: #333; stroke-width: 2; }
+      .array-text { font: 16px Arial; fill: #333; }
+      .pivot { fill: #ff9999; }
+      .sorted { fill: #99ff99; }
+      .arrow { fill: none; stroke: #666; stroke-width: 2; }
+      .description { font: 14px Arial; fill: #555; }
+    </style>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" class="title" text-anchor="middle">快速排序算法图解</text>
+  
+  <!-- 步骤1：选择基准 -->
+  <text x="50" y="70" class="step-title">步骤1: 选择基准元素</text>
+  <rect x="50" y="80" width="300" height="40" class="array-box" />
+  <text x="65" y="105" class="array-text">8</text>
+  <text x="105" y="105" class="array-text">3</text>
+  <text x="145" y="105" class="array-text">2</text>
+  <text x="185" y="105" class="array-text">5</text>
+  <text x="225" y="105" class="array-text">1</text>
+  <text x="265" y="105" class="array-text">7</text>
+  <text x="305" y="105" class="array-text">6</text>
+  <rect x="285" y="80" width="40" height="40" class="pivot" />
+  <text x="50" y="140" class="description">选择最右边的元素(6)作为基准</text>
+  
+  <!-- 步骤2：分区操作 -->
+  <text x="50" y="180" class="step-title">步骤2: 分区操作</text>
+  <rect x="50" y="190" width="300" height="40" class="array-box" />
+  <text x="65" y="215" class="array-text">3</text>
+  <text x="105" y="215" class="array-text">2</text>
+  <text x="145" y="215" class="array-text">5</text>
+  <text x="185" y="215" class="array-text">1</text>
+  <text x="225" y="215" class="array-text">6</text>
+  <text x="265" y="215" class="array-text">7</text>
+  <text x="305" y="215" class="array-text">8</text>
+  <path d="M70 240 L70 260 L220 260 L220 240" class="arrow" marker-end="url(#arrowhead)" />
+  <text x="50" y="280" class="description">将小于基准的元素移到左边，大于基准的元素移到右边</text>
+  
+  <!-- 步骤3：递归排序 -->
+  <text x="50" y="320" class="step-title">步骤3: 递归排序子数组</text>
+  <rect x="50" y="330" width="140" height="40" class="array-box" />
+  <text x="65" y="355" class="array-text">1</text>
+  <text x="105" y="355" class="array-text">2</text>
+  <text x="145" y="355" class="array-text">3</text>
+  <rect x="210" y="330" width="40" height="40" class="pivot sorted" />
+  <text x="225" y="355" class="array-text">6</text>
+  <rect x="270" y="330" width="80" height="40" class="array-box" />
+  <text x="285" y="355" class="array-text">7</text>
+  <text x="325" y="355" class="array-text">8</text>
+  <text x="50" y="390" class="description">递归地对基准元素左右两侧的子数组进行快速排序</text>
+  
+  <!-- 步骤4：最终结果 -->
+  <text x="50" y="430" class="step-title">步骤4: 最终排序结果</text>
+  <rect x="50" y="440" width="300" height="40" class="array-box sorted" />
+  <text x="65" y="465" class="array-text">1</text>
+  <text x="105" y="465" class="array-text">2</text>
+  <text x="145" y="465" class="array-text">3</text>
+  <text x="185" y="465" class="array-text">5</text>
+  <text x="225" y="465" class="array-text">6</text>
+  <text x="265" y="465" class="array-text">7</text>
+  <text x="305" y="465" class="array-text">8</text>
+  <text x="50" y="500" class="description">所有元素都已正确排序</text>
+  
+  <!-- 时间复杂度说明 -->
+  <text x="450" y="70" class="step-title">时间复杂度</text>
+  <text x="450" y="100" class="description">最佳情况: O(n log n)</text>
+  <text x="450" y="125" class="description">平均情况: O(n log n)</text>
+  <text x="450" y="150" class="description">最坏情况: O(n²)</text>
+  
+  <!-- 优缺点 -->
+  <text x="450" y="190" class="step-title">优点</text>
+  <text x="450" y="220" class="description">• 高效的原地排序算法</text>
+  <text x="450" y="245" class="description">• 平均情况下性能优秀</text>
+  <text x="450" y="270" class="description">• 适用于大型数据集</text>
+  
+  <text x="450" y="310" class="step-title">缺点</text>
+  <text x="450" y="340" class="description">• 最坏情况下性能下降</text>
+  <text x="450" y="365" class="description">• 对于小型数组，可能不如插入排序</text>
+  
+  <!-- 应用场景 -->
+  <text x="450" y="405" class="step-title">应用场景</text>
+  <text x="450" y="435" class="description">• 大规模数据排序</text>
+  <text x="450" y="460" class="description">• 需要原地排序的情况</text>
+  <text x="450" y="485" class="description">• 作为其他算法的子例程</text>
+</svg>
