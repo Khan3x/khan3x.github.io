@@ -33,8 +33,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/selection_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/quick_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/heap_sort.svg">
+<meta property="og:image" content="http://example.com/img/DSA/stack_queue.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-09-23T15:44:51.793Z">
+<meta property="article:modified_time" content="2024-09-24T16:02:23.822Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -236,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.2k 字
         
       </span>
     
@@ -247,7 +248,7 @@
         
         
         
-          28 分钟
+          27 分钟
         
       </span>
     
@@ -367,7 +368,9 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 堆化函数，用于维护最大堆性质</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">heapify</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; arr, <span class="hljs-type">int</span> n, <span class="hljs-type">int</span> i)</span> </span>&#123;<br>    <span class="hljs-type">int</span> largest = i;  <span class="hljs-comment">// 初始化最大值为根</span><br>    <span class="hljs-type">int</span> left = <span class="hljs-number">2</span> * i + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 左子节点</span><br>    <span class="hljs-type">int</span> right = <span class="hljs-number">2</span> * i + <span class="hljs-number">2</span>;  <span class="hljs-comment">// 右子节点</span><br><br>    <span class="hljs-comment">// 如果左子节点大于根</span><br>    <span class="hljs-keyword">if</span> (left &lt; n &amp;&amp; arr[left] &gt; arr[largest])<br>        largest = left;<br><br>    <span class="hljs-comment">// 如果右子节点大于当前最大值</span><br>    <span class="hljs-keyword">if</span> (right &lt; n &amp;&amp; arr[right] &gt; arr[largest])<br>        largest = right;<br><br>    <span class="hljs-comment">// 如果最大值不是根</span><br>    <span class="hljs-keyword">if</span> (largest != i) &#123;<br>        <span class="hljs-built_in">swap</span>(arr[i], arr[largest]);<br><br>        <span class="hljs-comment">// 递归地堆化受影响的子树</span><br>        <span class="hljs-built_in">heapify</span>(arr, n, largest);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 堆排序函数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">heapSort</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; arr)</span> </span>&#123;<br>    <span class="hljs-type">int</span> n = arr.<span class="hljs-built_in">size</span>();<br><br>    <span class="hljs-comment">// 构建最大堆（从最后一个非叶子节点开始）</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n / <span class="hljs-number">2</span> - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)<br>        <span class="hljs-built_in">heapify</span>(arr, n, i);<br><br>    <span class="hljs-comment">// 一个个从堆顶取出元素</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i--) &#123;<br>        <span class="hljs-comment">// 将当前根移到末尾</span><br>        <span class="hljs-built_in">swap</span>(arr[<span class="hljs-number">0</span>], arr[i]);<br><br>        <span class="hljs-comment">// 在减小的堆上调用 max heapify</span><br>        <span class="hljs-built_in">heapify</span>(arr, i, <span class="hljs-number">0</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>建堆的时间复杂度为$O(n)$,每个节点的调整最多为$O(\log{n})$次。在排序的过程中需要建堆$O(n)$次，并且每次需要$O(logn)$来维护堆(heapify),因此对排序总的时间复杂度为$O(n\log{n})$</p>
-<h2 id="3-Data-Structure"><a href="#3-Data-Structure" class="headerlink" title="3.Data Structure"></a>3.Data Structure</h2><p>这一章主要讲解常见的数据结构，如栈(stack),队列(queue)，链表(linked list),哈希表(hash map)以及二叉树(Binary Tree)等。字符串类型我想想放在什么部分讲比较好，毕竟考前一定要背一下KMP算法的原理……</p>
+<h2 id="3-Data-Structure"><a href="#3-Data-Structure" class="headerlink" title="3.Data Structure"></a>3.Data Structure</h2><p>这一章主要讲解常见的数据结构，如栈(stack),队列(queue)，链表(linked list),哈希表(hash map)。</p>
+<h3 id="3-1-Stack-Queue"><a href="#3-1-Stack-Queue" class="headerlink" title="3.1 Stack &amp; Queue"></a>3.1 Stack &amp; Queue</h3><p>栈：后进先出(LIFO)</p>
+<p>队列：先进先出(FIFO)<br><img src="/img/DSA/stack_queue.svg" srcset="/img/loading.gif" lazyload alt="栈和队列演示" style="max-width: 100%; height: auto;" /></p>
 
                 
               </div>

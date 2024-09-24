@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+  <!-- 栈 (Stack) -->
+  <text x="250" y="30" font-size="24" text-anchor="middle" font-weight="bold">栈 (Stack)</text>
+  <rect x="200" y="50" width="100" height="200" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- 栈元素 -->
+  <rect x="205" y="195" width="90" height="50" fill="#FFD700"/>
+  <text x="250" y="225" font-size="18" text-anchor="middle">元素 3</text>
+  <rect x="205" y="140" width="90" height="50" fill="#4169E1"/>
+  <text x="250" y="170" font-size="18" text-anchor="middle">元素 2</text>
+  <rect x="205" y="85" width="90" height="50" fill="#32CD32"/>
+  <text x="250" y="115" font-size="18" text-anchor="middle">元素 1</text>
+  
+  <!-- 压入箭头 -->
+  <path d="M150,125 H190" stroke="#FF69B4" stroke-width="2" fill="none"/>
+  <path d="M190,125 L180,120 L180,130 Z" fill="#FF69B4"/>
+  <text x="120" y="130" font-size="16" fill="#FF69B4">压入 (Push)</text>
+  
+  <!-- 弹出箭头 -->
+  <path d="M310,125 H350" stroke="#8A2BE2" stroke-width="2" fill="none"/>
+  <path d="M350,125 L340,120 L340,130 Z" fill="#8A2BE2"/>
+  <text x="380" y="130" font-size="16" fill="#8A2BE2">弹出 (Pop)</text>
+
+  <!-- 队列 (Queue) -->
+  <text x="250" y="290" font-size="24" text-anchor="middle" font-weight="bold">队列 (Queue)</text>
+  <rect x="100" y="310" width="300" height="70" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- 队列元素 -->
+  <rect x="105" y="315" width="90" height="60" fill="#32CD32"/>
+  <text x="150" y="350" font-size="18" text-anchor="middle">元素 1</text>
+  <rect x="205" y="315" width="90" height="60" fill="#4169E1"/>
+  <text x="250" y="350" font-size="18" text-anchor="middle">元素 2</text>
+  <rect x="305" y="315" width="90" height="60" fill="#FFD700"/>
+  <text x="350" y="350" font-size="18" text-anchor="middle">元素 3</text>
+  
+  <!-- 入队箭头 -->
+  <path d="M90,345 H130" stroke="#FF69B4" stroke-width="2" fill="none"/>
+  <path d="M130,345 L120,340 L120,350 Z" fill="#FF69B4"/>
+  <text x="150" y="340" font-size="16" fill="#FF69B4">入队 (Enqueue)</text>
+  
+  <!-- 出队箭头 -->
+  <path d="M370,345 H410" stroke="#8A2BE2" stroke-width="2" fill="none"/>
+  <path d="M410,345 L400,340 L400,350 Z" fill="#8A2BE2"/>
+  <text x="450" y="340" font-size="16" fill="#8A2BE2">出队 (Dequeue)</text>
+</svg>
