@@ -91,4 +91,7 @@
     <tspan x="600" dy="20">• 插入和删除操作较复杂</tspan>
     <tspan x="600" dy="20">• 可以更快地访问前一个元素</tspan>
   </text>
+
+  <!-- 水印 -->
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="60" fill="rgba(150,150,150,0.2)" text-anchor="middle" transform="rotate(-30 400 200)">偷偷星球</text>
 </svg>

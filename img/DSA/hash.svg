@@ -122,4 +122,8 @@
   <text x="440" y="460" class="small-label">• 内存利用更高效</text>
   <text x="440" y="480" class="small-label">• 性能受负载因子影响大</text>
   <text x="440" y="500" class="small-label">• 需要良好的探测策略</text>
+<!-- Updated Watermark -->
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="60" fill="rgba(150,150,150,0.2)" text-anchor="middle" transform="rotate(-30 400 200)">偷偷星球</text>
+
 </svg>
+

@@ -38,7 +38,7 @@
   <text x="225" y="215" class="array-text">6</text>
   <text x="265" y="215" class="array-text">7</text>
   <text x="305" y="215" class="array-text">8</text>
-  <path d="M70 240 L70 260 L220 260 L220 240" class="arrow" marker-end="url(#arrowhead)" />
+  <path d="M70 240 L70 260 L220 260 L220 240" class="arrow" />
   <text x="50" y="280" class="description">将小于基准的元素移到左边，大于基准的元素移到右边</text>
   
   <!-- 步骤3：递归排序 -->
@@ -87,4 +87,7 @@
   <text x="450" y="435" class="description">• 大规模数据排序</text>
   <text x="450" y="460" class="description">• 需要原地排序的情况</text>
   <text x="450" y="485" class="description">• 作为其他算法的子例程</text>
+
+  <!-- 水印 -->
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="120" fill="rgba(150,150,150,0.15)" text-anchor="middle" transform="rotate(-30 400 300)">偷偷星球</text>
 </svg>

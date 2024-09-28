@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f0f0f0"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="24" fill="#333" text-anchor="middle" font-weight="bold">Knuth-Morris-Pratt (KMP) Algorithm</text>
+  
+  <!-- Main text -->
+  <text x="20" y="70" font-family="Arial, sans-serif" font-size="14" fill="#333">Efficient string matching algorithm</text>
+  <text x="20" y="90" font-family="Arial, sans-serif" font-size="14" fill="#333">Avoids unnecessary comparisons by utilizing pattern information</text>
+  
+  <!-- Pattern and Text -->
+  <rect x="50" y="120" width="700" height="40" fill="#e6f3ff" stroke="#333" stroke-width="2"/>
+  <text x="60" y="145" font-family="Courier, monospace" font-size="18" fill="#333">Text:    A B C A B D A B C A B C</text>
+  <rect x="50" y="170" width="700" height="40" fill="#ffe6e6" stroke="#333" stroke-width="2"/>
+  <text x="60" y="195" font-family="Courier, monospace" font-size="18" fill="#333">Pattern: A B C A B C</text>
+  
+  <!-- KMP table -->
+  <rect x="50" y="230" width="300" height="120" fill="#e6ffe6" stroke="#333" stroke-width="2"/>
+  <text x="60" y="250" font-family="Arial, sans-serif" font-size="16" fill="#333" font-weight="bold">KMP Partial Match Table:</text>
+  <text x="60" y="280" font-family="Courier, monospace" font-size="14" fill="#333">Index:  0 1 2 3 4 5</text>
+  <text x="60" y="300" font-family="Courier, monospace" font-size="14" fill="#333">Char:   A B C A B C</text>
+  <text x="60" y="320" font-family="Courier, monospace" font-size="14" fill="#333">Value:  0 0 0 1 2 3</text>
+  
+  <!-- Algorithm steps -->
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="16" fill="#333" font-weight="bold">Algorithm Steps:</text>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="14" fill="#333">1. Preprocess pattern to create partial match table</text>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="14" fill="#333">2. Compare pattern with text</text>
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="14" fill="#333">3. If mismatch, use table to shift pattern efficiently</text>
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="14" fill="#333">4. Repeat until match found or text end reached</text>
+  
+  <!-- Complexity -->
+  <text x="50" y="380" font-family="Arial, sans-serif" font-size="16" fill="#333" font-weight="bold">Time Complexity: O(n + m)</text>
+  <text x="300" y="380" font-family="Arial, sans-serif" font-size="16" fill="#333" font-weight="bold">Space Complexity: O(m)</text>
+  <text x="550" y="380" font-family="Arial, sans-serif" font-size="14" fill="#666">n: text length, m: pattern length</text>
+
+  <!-- Updated Watermark -->
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="60" fill="rgba(150,150,150,0.2)" text-anchor="middle" transform="rotate(-30 400 200)">偷偷星球</text>
+</svg>

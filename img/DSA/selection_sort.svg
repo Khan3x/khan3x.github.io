@@ -67,4 +67,11 @@
   <text x="580" y="125">已排序</text>
   <rect x="550" y="140" width="20" height="20" fill="pink" stroke="black" />
   <text x="580" y="155">当前交换</text>
+   <!-- 水印 -->
+  <text x="750" y="480" font-family="Arial, sans-serif" font-size="16" fill="rgba(150,150,150,0.5)" text-anchor="middle">偷偷星球</text>
+  <!-- 水印 -->
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="100" fill="rgba(150,150,150,0.15)" text-anchor="middle" transform="rotate(-30 200 100)">偷偷世界</text>
+  <!-- 右下角水印 -->
+  <text x="700" y="480" font-family="Arial, sans-serif" font-size="16" fill="#333" text-anchor="end">偷偷星球</text>
 </svg>
+

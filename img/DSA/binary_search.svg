@@ -38,5 +38,8 @@
   </g>
   
   <!-- 说明文字 -->
-  <text x="400" y="380" font-size="16" text-anchor="middle" fill="#333">递归分割数组,直到找到目标元素或确定元素不存在</text>
+ <text x="400" y="380" font-size="16" text-anchor="middle" fill="#333">递归分割数组,直到找到目标元素或确定元素不存在</text>
+<!-- Updated Watermark -->
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="60" fill="rgba(150,150,150,0.2)" text-anchor="middle" transform="rotate(-30 400 200)">偷偷星球</text>
+
 </svg>

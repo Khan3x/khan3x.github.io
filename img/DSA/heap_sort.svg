@@ -149,4 +149,10 @@
       <polygon points="0 0, 10 3.5, 0 7" />
     </marker>
   </defs>
+
+  <!-- 水印 -->
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="200" fill="rgba(150,150,150,0.15)" text-anchor="middle" transform="rotate(-30 400 300)">偷偷星球</text>
 </svg>
+
+
+
