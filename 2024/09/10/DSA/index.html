@@ -33,8 +33,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/selection_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/quick_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/heap_sort.svg">
+<meta property="og:image" content="http://example.com/img/DSA/linkedlist.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-09-28T09:44:00.143Z">
+<meta property="article:modified_time" content="2024-09-28T09:56:51.765Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -236,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          4k 字
         
       </span>
     
@@ -247,7 +248,7 @@
         
         
         
-          32 分钟
+          34 分钟
         
       </span>
     
@@ -290,7 +291,7 @@
               <div class="markdown-body">
                 
                 <h1 id="Data-Structure-Algorithms"><a href="#Data-Structure-Algorithms" class="headerlink" title="Data Structure &amp; Algorithms"></a>Data Structure &amp; Algorithms</h1><p>This is for test takers to quickly review the basics and key points of DSA. Moreover, this is the masterpiece written by toutou(<strong>偷偷</strong>).The main language is in Chinese but you can see some concepts in English &amp; Japanese. And the pseudocode is in the style of <strong>C++</strong>. Let’s quickly review this subject!</p>
-<p>这是偷偷刷了很多修考题之后总结出来的修考秘结，全文都是考点，彻底高能。</p>
+<p>这是偷偷刷了很多修考题之后总结出来的修考秘籍，全文都是考点，彻底高能。</p>
 <h2 id="1-Introduction-to-Algorithms"><a href="#1-Introduction-to-Algorithms" class="headerlink" title="1. Introduction to Algorithms"></a>1. Introduction to Algorithms</h2><p>这一章主要计划复习<strong>时间复杂度(Time Complexity)</strong> 和 <strong>空间复杂度(Space Complexity)</strong> 两个概念，然后再仔细回顾 <strong>分治递归(DIvide &amp; Conquer)</strong> 这一重要的概念。最后再给出解决时间复杂度常用的分析方法和万能的<strong>主定理公式（Master Theorem）</strong></p>
 <h3 id="1-1-时间复杂度与空间复杂度"><a href="#1-1-时间复杂度与空间复杂度" class="headerlink" title="1.1 时间复杂度与空间复杂度"></a>1.1 时间复杂度与空间复杂度</h3><div class="note note-success">
             <p><strong>Space Complexity</strong>: 空间复杂度描述的是算法运行时所需的额外内存空间。通俗解释就是算法在运行的时候需要开辟多少空间的大小。O(1)指一个点集；O(n)就是开辟一个一维空间；O(n^2)开辟二维空间；O(n^3)开辟三维空间。在第二章讲解排序算法的时候，也会用到本章非常多的前置知识。</p>
@@ -382,8 +383,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyStack</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 一个队列负责入栈，一个负责出栈</span><br>    queue&lt;<span class="hljs-type">int</span>&gt; in, out;<br>    <span class="hljs-built_in">MyStack</span>() &#123;&#125;    <br>    <span class="hljs-comment">// 放入元素</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        in.<span class="hljs-built_in">push</span>(x);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">// 把in队列的元素不断出队只剩一个，即时栈顶</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">while</span>(in.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>)&#123;<br>            out.<span class="hljs-built_in">push</span>(in.<span class="hljs-built_in">front</span>());<br>            in.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        <span class="hljs-type">int</span> ans = in.<span class="hljs-built_in">front</span>();<br>        in.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-built_in">swap</span>(in, out); <span class="hljs-comment">// 交换两个队列</span><br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <span class="hljs-comment">// 获取栈顶的元素</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">top</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">pop</span>(); <span class="hljs-comment">// 获取弹出后的值</span><br>        in.<span class="hljs-built_in">push</span>(ans);  <span class="hljs-comment">// 再放入队列</span><br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> in.<span class="hljs-built_in">empty</span>() &amp;&amp; out.<span class="hljs-built_in">empty</span>();<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>优化后的实现：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyStack</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    queue&lt;<span class="hljs-type">int</span>&gt; que;<br>    <span class="hljs-built_in">MyStack</span>() &#123;&#125;<br>    <span class="hljs-comment">// 放入元素</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        que.<span class="hljs-built_in">push</span>(x);<br>    &#125;<br>    <span class="hljs-comment">// 弹出栈顶元素</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>&#123;<br>      <span class="hljs-type">int</span> n = que.<span class="hljs-built_in">size</span>();<br>      n--;  <span class="hljs-comment">// 把对位元素调整到队首</span><br>      <span class="hljs-keyword">while</span>(n--)&#123;<br>        que.<span class="hljs-built_in">push</span>(que.<span class="hljs-built_in">front</span>());<br>        que.<span class="hljs-built_in">pop</span>();<br>      &#125;<br>      <span class="hljs-type">int</span> ans = que.<span class="hljs-built_in">front</span>();<br>      que.<span class="hljs-built_in">pop</span>();<br>      <span class="hljs-keyword">return</span> ans;  <br>    &#125;<br>    <span class="hljs-comment">// 获取栈顶元素  </span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">top</span><span class="hljs-params">()</span> </span>&#123;<br>       <span class="hljs-type">int</span> ans = <span class="hljs-keyword">this</span>-&gt;<span class="hljs-built_in">pop</span>();<br>       que.<span class="hljs-built_in">push</span>(ans);<br>       <span class="hljs-keyword">return</span> ans; <br>    &#125;<br>    <span class="hljs-comment">// 判断队列是否为空</span><br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> que.<span class="hljs-built_in">empty</span>();     <br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-
+<h3 id="3-2-Linked-List"><a href="#3-2-Linked-List" class="headerlink" title="3.2 Linked List"></a>3.2 Linked List</h3><p>常见的链表有单链表和双链表。<em>单链表</em>：每个节点只包含一个指向下一个节点的指针，访问节点时只能从头节点开始向后遍历。<em>双链表</em>：每个节点包含两个指针，一个指向下一个节点，另一个指向前一个节点。这使得可以在链表中向前和向后遍历。<br><img src="/img/DSA/linkedlist.svg" srcset="/img/loading.gif" lazyload alt="链表演示" style="max-width: 100%; height: auto;" /></p>
+<p><strong>链表的优缺点</strong></p>
+<p><em>优点</em>：1)动态大小：链表的大小可以动态调整，不像数组那样需要预先定义大小。2)方便插入和删除：在链表中插入或删除节点的时间复杂度为 O(1)，只需调整指针，而数组则可能需要移动大量元素。</p>
+<p><em>缺点</em>：1)内存占用：每个节点需要额外的存储空间来存储指针，导致比数组更高的内存开销。2)随机访问困难：链表不支持快速随机访问，查找元素的时间复杂度为 O(n)。</p>
 
                 
               </div>

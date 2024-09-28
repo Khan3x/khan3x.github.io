@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-size="24" text-anchor="middle" font-weight="bold">单链表 vs 双链表</text>
+  
+  <!-- 单链表 -->
+  <g transform="translate(50, 100)">
+    <text x="0" y="-20" font-size="18" font-weight="bold">单链表</text>
+    
+    <!-- 节点 -->
+    <rect x="0" y="0" width="100" height="60" fill="#FFB3BA" stroke="#000" stroke-width="2"/>
+    <rect x="150" y="0" width="100" height="60" fill="#FFB3BA" stroke="#000" stroke-width="2"/>
+    <rect x="300" y="0" width="100" height="60" fill="#FFB3BA" stroke="#000" stroke-width="2"/>
+    
+    <!-- 数据 -->
+    <text x="50" y="25" text-anchor="middle">数据</text>
+    <text x="200" y="25" text-anchor="middle">数据</text>
+    <text x="350" y="25" text-anchor="middle">数据</text>
+    
+    <!-- 指针 -->
+    <text x="50" y="50" text-anchor="middle">next</text>
+    <text x="200" y="50" text-anchor="middle">next</text>
+    <text x="350" y="50" text-anchor="middle">next</text>
+    
+    <!-- 箭头 -->
+    <path d="M100,30 L150,30" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M250,30 L300,30" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M400,30 L450,30" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- NULL -->
+    <text x="470" y="35" font-size="14">NULL</text>
+  </g>
+  
+  <!-- 双链表 -->
+  <g transform="translate(50, 250)">
+    <text x="0" y="-20" font-size="18" font-weight="bold">双链表</text>
+    
+    <!-- 节点 -->
+    <rect x="0" y="0" width="100" height="80" fill="#BAFFC9" stroke="#000" stroke-width="2"/>
+    <rect x="150" y="0" width="100" height="80" fill="#BAFFC9" stroke="#000" stroke-width="2"/>
+    <rect x="300" y="0" width="100" height="80" fill="#BAFFC9" stroke="#000" stroke-width="2"/>
+    
+    <!-- 数据 -->
+    <text x="50" y="30" text-anchor="middle">数据</text>
+    <text x="200" y="30" text-anchor="middle">数据</text>
+    <text x="350" y="30" text-anchor="middle">数据</text>
+    
+    <!-- 指针 -->
+    <text x="50" y="55" text-anchor="middle">prev | next</text>
+    <text x="200" y="55" text-anchor="middle">prev | next</text>
+    <text x="350" y="55" text-anchor="middle">prev | next</text>
+    
+    <!-- 前向箭头 -->
+    <path d="M100,30 L150,30" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M250,30 L300,30" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M400,30 L450,30" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- 后向箭头 -->
+    <path d="M150,50 L100,50" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M300,50 L250,50" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M450,50 L400,50" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- NULL -->
+    <text x="-30" y="35" font-size="14">NULL</text>
+    <text x="470" y="35" font-size="14">NULL</text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+    </marker>
+  </defs>
+  
+  <!-- 说明文字 -->
+  <text x="600" y="130" font-size="14">
+    <tspan x="600" dy="0">单链表特点：</tspan>
+    <tspan x="600" dy="20">• 每个节点只有一个指针</tspan>
+    <tspan x="600" dy="20">• 只能向一个方向遍历</tspan>
+    <tspan x="600" dy="20">• 占用内存较少</tspan>
+    <tspan x="600" dy="20">• 插入和删除操作较简单</tspan>
+  </text>
+  
+  <text x="600" y="280" font-size="14">
+    <tspan x="600" dy="0">双链表特点：</tspan>
+    <tspan x="600" dy="20">• 每个节点有两个指针</tspan>
+    <tspan x="600" dy="20">• 可以双向遍历</tspan>
+    <tspan x="600" dy="20">• 占用内存较多</tspan>
+    <tspan x="600" dy="20">• 插入和删除操作较复杂</tspan>
+    <tspan x="600" dy="20">• 可以更快地访问前一个元素</tspan>
+  </text>
+</svg>
