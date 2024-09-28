@@ -34,8 +34,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/quick_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/heap_sort.svg">
 <meta property="og:image" content="http://example.com/img/DSA/linkedlist.svg">
+<meta property="og:image" content="http://example.com/img/DSA/hash.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-09-28T09:56:51.765Z">
+<meta property="article:modified_time" content="2024-09-28T10:20:58.305Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -237,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k 字
+          4.3k 字
         
       </span>
     
@@ -248,7 +249,7 @@
         
         
         
-          34 分钟
+          36 分钟
         
       </span>
     
@@ -387,6 +388,12 @@
 <p><strong>链表的优缺点</strong></p>
 <p><em>优点</em>：1)动态大小：链表的大小可以动态调整，不像数组那样需要预先定义大小。2)方便插入和删除：在链表中插入或删除节点的时间复杂度为 O(1)，只需调整指针，而数组则可能需要移动大量元素。</p>
 <p><em>缺点</em>：1)内存占用：每个节点需要额外的存储空间来存储指针，导致比数组更高的内存开销。2)随机访问困难：链表不支持快速随机访问，查找元素的时间复杂度为 O(n)。</p>
+<h3 id="3-3-Hash-Map"><a href="#3-3-Hash-Map" class="headerlink" title="3.3 Hash Map"></a>3.3 Hash Map</h3><p><strong>哈希映射（Hash Map）</strong> 是一种数据结构，用于以键值对（key-value pairs）形式存储数据。它通过一个哈希函数将键映射到数组中的索引，从而实现快速的数据访问。主要特点有：</p>
+<p>1）快速查找：平均情况下，哈希映射可以在 O(1) 时间内进行查找、插入和删除操作。</p>
+<p>2）键值对存储：每个元素都由一个唯一的键和与之关联的值组成，可以通过键快速访问对应的值。</p>
+<p>3）哈希函数：将键转换为数组索引的函数，好的哈希函数可以减少冲突（不同键映射到相同索引）。</p>
+<p>4）处理冲突：常用的方法包括链式法(chaining)和开放寻址法（open addressing）。<br><img src="/img/DSA/hash.svg" srcset="/img/loading.gif" lazyload alt="哈希表处理冲突演示" style="max-width: 100%; height: auto;" /></p>
+<p>为了减少哈希冲突，哈希映射的函数要尽量将不同的输入键均匀地映射到哈希表的不同索引，以减少冲突（即不同键映射到相同索引的情况）。</p>
 
                 
               </div>
