@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .node { fill: #4CAF50; stroke: #45a049; stroke-width: 2; }
+      .new-node { fill: #FFC107; stroke: #FFA000; stroke-width: 2; }
+      .link { stroke: #333; stroke-width: 2; }
+      .label { font-family: Arial, sans-serif; font-size: 14px; fill: #fff; text-anchor: middle; dominant-baseline: middle; }
+      .step-label { font-family: Arial, sans-serif; font-size: 16px; fill: #333; text-anchor: middle; }
+      .watermark { font-family: 'Arial', sans-serif; font-size: 48px; fill: rgba(0,0,0,0.1); }
+    </style>
+  </defs>
+
+  <!-- Step 1: Initial Tree -->
+  <g transform="translate(0,0)">
+    <circle class="node" cx="100" cy="50" r="20" />
+    <text class="label" x="100" y="50">10</text>
+    <circle class="node" cx="50" cy="100" r="20" />
+    <text class="label" x="50" y="100">5</text>
+    <circle class="node" cx="150" cy="100" r="20" />
+    <text class="label" x="150" y="100">15</text>
+    <line class="link" x1="100" y1="50" x2="50" y2="100" />
+    <line class="link" x1="100" y1="50" x2="150" y2="100" />
+    <text class="step-label" x="100" y="140">1. Initial Tree</text>
+  </g>
+
+  <!-- Step 2: Insert 3 -->
+  <g transform="translate(400,0)">
+    <circle class="node" cx="100" cy="50" r="20" />
+    <text class="label" x="100" y="50">10</text>
+    <circle class="node" cx="50" cy="100" r="20" />
+    <text class="label" x="50" y="100">5</text>
+    <circle class="node" cx="150" cy="100" r="20" />
+    <text class="label" x="150" y="100">15</text>
+    <circle class="new-node" cx="25" cy="150" r="20" />
+    <text class="label" x="25" y="150">3</text>
+    <line class="link" x1="100" y1="50" x2="50" y2="100" />
+    <line class="link" x1="100" y1="50" x2="150" y2="100" />
+    <line class="link" x1="50" y1="100" x2="25" y2="150" />
+    <text class="step-label" x="100" y="190">2. Insert 3 (No rotation needed)</text>
+  </g>
+
+  <!-- Step 3: Insert 4 (Triggering rotation) -->
+  <g transform="translate(0,250)">
+    <circle class="node" cx="100" cy="50" r="20" />
+    <text class="label" x="100" y="50">10</text>
+    <circle class="node" cx="50" cy="100" r="20" />
+    <text class="label" x="50" y="100">5</text>
+    <circle class="node" cx="150" cy="100" r="20" />
+    <text class="label" x="150" y="100">15</text>
+    <circle class="node" cx="25" cy="150" r="20" />
+    <text class="label" x="25" y="150">3</text>
+    <circle class="new-node" cx="75" cy="150" r="20" />
+    <text class="label" x="75" y="150">4</text>
+    <line class="link" x1="100" y1="50" x2="50" y2="100" />
+    <line class="link" x1="100" y1="50" x2="150" y2="100" />
+    <line class="link" x1="50" y1="100" x2="25" y2="150" />
+    <line class="link" x1="50" y1="100" x2="75" y2="150" />
+    <text class="step-label" x="100" y="190">3. Insert 4 (Rotation needed)</text>
+  </g>
+
+  <!-- Step 4: After rotation -->
+  <g transform="translate(400,250)">
+    <circle class="node" cx="100" cy="50" r="20" />
+    <text class="label" x="100" y="50">10</text>
+    <circle class="node" cx="50" cy="100" r="20" />
+    <text class="label" x="50" y="100">4</text>
+    <circle class="node" cx="150" cy="100" r="20" />
+    <text class="label" x="150" y="100">15</text>
+    <circle class="node" cx="25" cy="150" r="20" />
+    <text class="label" x="25" y="150">3</text>
+    <circle class="node" cx="75" cy="150" r="20" />
+    <text class="label" x="75" y="150">5</text>
+    <line class="link" x1="100" y1="50" x2="50" y2="100" />
+    <line class="link" x1="100" y1="50" x2="150" y2="100" />
+    <line class="link" x1="50" y1="100" x2="25" y2="150" />
+    <line class="link" x1="50" y1="100" x2="75" y2="150" />
+    <text class="step-label" x="100" y="190">4. After rotation (Tree is balanced)</text>
+  </g>
+
+  <!-- Watermark -->
+  <text class="watermark" x="400" y="300" text-anchor="middle" dominant-baseline="middle">偷偷星球</text>
+</svg>

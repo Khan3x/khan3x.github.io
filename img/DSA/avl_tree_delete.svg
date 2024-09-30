@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <style>
+      .node { fill: #4CAF50; stroke: #45a049; stroke-width: 2; }
+      .delete-node { fill: #F44336; stroke: #D32F2F; stroke-width: 2; }
+      .link { stroke: #333; stroke-width: 2; }
+      .label { font-family: Arial, sans-serif; font-size: 14px; fill: #fff; text-anchor: middle; dominant-baseline: middle; }
+      .step-label { font-family: Arial, sans-serif; font-size: 16px; fill: #333; text-anchor: middle; }
+      .watermark { font-family: 'Arial', sans-serif; font-size: 48px; fill: rgba(0,0,0,0.1); }
+    </style>
+  </defs>
+
+  <!-- Step 1: Initial Tree -->
+  <g transform="translate(0,0)">
+    <circle class="node" cx="150" cy="50" r="20" />
+    <text class="label" x="150" y="50">10</text>
+    <circle class="node" cx="75" cy="100" r="20" />
+    <text class="label" x="75" y="100">5</text>
+    <circle class="node" cx="225" cy="100" r="20" />
+    <text class="label" x="225" y="100">15</text>
+    <circle class="node" cx="37" cy="150" r="20" />
+    <text class="label" x="37" y="150">3</text>
+    <circle class="node" cx="112" cy="150" r="20" />
+    <text class="label" x="112" y="150">7</text>
+    <line class="link" x1="150" y1="50" x2="75" y2="100" />
+    <line class="link" x1="150" y1="50" x2="225" y2="100" />
+    <line class="link" x1="75" y1="100" x2="37" y2="150" />
+    <line class="link" x1="75" y1="100" x2="112" y2="150" />
+    <text class="step-label" x="150" y="200">1. Initial Tree</text>
+  </g>
+
+  <!-- Step 2: Delete node 5 -->
+  <g transform="translate(400,0)">
+    <circle class="node" cx="150" cy="50" r="20" />
+    <text class="label" x="150" y="50">10</text>
+    <circle class="delete-node" cx="75" cy="100" r="20" />
+    <text class="label" x="75" y="100">5</text>
+    <circle class="node" cx="225" cy="100" r="20" />
+    <text class="label" x="225" y="100">15</text>
+    <circle class="node" cx="37" cy="150" r="20" />
+    <text class="label" x="37" y="150">3</text>
+    <circle class="node" cx="112" cy="150" r="20" />
+    <text class="label" x="112" y="150">7</text>
+    <line class="link" x1="150" y1="50" x2="75" y2="100" />
+    <line class="link" x1="150" y1="50" x2="225" y2="100" />
+    <line class="link" x1="75" y1="100" x2="37" y2="150" />
+    <line class="link" x1="75" y1="100" x2="112" y2="150" />
+    <text class="step-label" x="150" y="200">2. Delete node 5</text>
+  </g>
+
+  <!-- Step 3: Replace with successor -->
+  <g transform="translate(0,300)">
+    <circle class="node" cx="150" cy="50" r="20" />
+    <text class="label" x="150" y="50">10</text>
+    <circle class="node" cx="75" cy="100" r="20" />
+    <text class="label" x="75" y="100">7</text>
+    <circle class="node" cx="225" cy="100" r="20" />
+    <text class="label" x="225" y="100">15</text>
+    <circle class="node" cx="37" cy="150" r="20" />
+    <text class="label" x="37" y="150">3</text>
+    <line class="link" x1="150" y1="50" x2="75" y2="100" />
+    <line class="link" x1="150" y1="50" x2="225" y2="100" />
+    <line class="link" x1="75" y1="100" x2="37" y2="150" />
+    <text class="step-label" x="150" y="200">3. Replace with successor (7)</text>
+  </g>
+
+  <!-- Step 4: After rotation -->
+  <g transform="translate(400,300)">
+    <circle class="node" cx="150" cy="50" r="20" />
+    <text class="label" x="150" y="50">7</text>
+    <circle class="node" cx="75" cy="100" r="20" />
+    <text class="label" x="75" y="100">3</text>
+    <circle class="node" cx="225" cy="100" r="20" />
+    <text class="label" x="225" y="100">10</text>
+    <circle class="node" cx="300" cy="150" r="20" />
+    <text class="label" x="300" y="150">15</text>
+    <line class="link" x1="150" y1="50" x2="75" y2="100" />
+    <line class="link" x1="150" y1="50" x2="225" y2="100" />
+    <line class="link" x1="225" y1="100" x2="300" y2="150" />
+    <text class="step-label" x="150" y="200">4. After rotation (Tree is balanced)</text>
+  </g>
+
+  <!-- Watermark -->
+  <text class="watermark" x="400" y="350" text-anchor="middle" dominant-baseline="middle">偷偷星球</text>
+</svg>

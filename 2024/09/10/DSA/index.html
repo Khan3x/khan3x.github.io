@@ -38,8 +38,11 @@
 <meta property="og:image" content="http://example.com/img/DSA/KMP.svg">
 <meta property="og:image" content="http://example.com/img/DSA/binary_tree.svg">
 <meta property="og:image" content="http://example.com/img/DSA/rpn.svg">
+<meta property="og:image" content="http://example.com/img/DSA/avl_tree_insert.svg">
+<meta property="og:image" content="http://example.com/img/DSA/avl_tree_delete.svg">
+<meta property="og:image" content="http://example.com/img/DSA/avl_tree_rotate.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-09-29T14:56:25.610Z">
+<meta property="article:modified_time" content="2024-09-30T05:47:17.816Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -241,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.6k 字
+          5.8k 字
         
       </span>
     
@@ -252,7 +255,7 @@
         
         
         
-          47 分钟
+          49 分钟
         
       </span>
     
@@ -399,7 +402,7 @@
 <p>为了减少哈希冲突，哈希映射的函数要尽量将不同的输入键均匀地映射到哈希表的不同索引，以减少冲突（即不同键映射到相同索引的情况）。</p>
 <h3 id="3-4-string"><a href="#3-4-string" class="headerlink" title="3.4 string"></a>3.4 string</h3><p>字符串这个数据结构直观易懂，主要涉及到的考点有KMP算法和sequence alignment算法。这里主要回顾一下KMP算法，sequence alignment会在后面动态规划章节中仔细讲解。</p>
 <h4 id="3-4-1-KMP算法"><a href="#3-4-1-KMP算法" class="headerlink" title="3.4.1 KMP算法"></a>3.4.1 KMP算法</h4><p>KMP算法可以说是学一次忘一次……建议考前一定要临时报佛脚记一下。这个算法的美妙之处就是在于优化了暴力匹配，用前缀表来跳过重复的匹配过程。前缀表就是模式串中每个位置的最长相等前缀和后缀的长度。在发生不匹配的情况下，将子串移动前一个字符串的前缀表的具体值。（感觉京大最喜欢考KMP算法了）<br><img src="/img/DSA/KMP.svg" srcset="/img/loading.gif" lazyload alt="KMP算法演示" style="max-width: 100%; height: auto;" /></p>
-<h2 id="4-Binary-Tree"><a href="#4-Binary-Tree" class="headerlink" title="4.Binary Tree"></a>4.Binary Tree</h2><p>关于二叉树的考点有许多，像是考二叉树的遍历，二叉搜索树（Binary Search Tree），最小生成树（MST），以及AVL树。首先需要了解二叉树的一些基本性质，例如每个节点的下标，以及二叉树的多种遍历方式：层序遍历，前中后序遍历，广度优先遍历(BFS)，深度优先遍历(DFS)。</p>
+<h2 id="4-Binary-Tree"><a href="#4-Binary-Tree" class="headerlink" title="4.Binary Tree"></a>4.Binary Tree</h2><p>关于二叉树的考点有许多，像是考二叉树的遍历，二叉搜索树（Binary Search Tree），最小生成树（MST），以及AVL树。首先需要了解二叉树的一些基本性质，例如每个节点的下标，以及二叉树的多种遍历方式。</p>
 <h3 id="4-1-Concepts-of-Binary-Tree"><a href="#4-1-Concepts-of-Binary-Tree" class="headerlink" title="4.1 Concepts of Binary Tree"></a>4.1 Concepts of Binary Tree</h3><img src="/img/DSA/binary_tree.svg" srcset="/img/loading.gif" lazyload alt="常见的二叉树" style="max-width: 100%; height: auto;" />
 
 <p><strong>完全二叉树（complete binary tree）</strong>：是一种二叉树，其中每一层都是满的，除了可能是最后一层，且最后一层的节点从左到右排列。在完全二叉树中，所有的节点都尽可能地靠左排列，这种结构使得它在存储和操作上更为高效。与全二叉树不同，完全二叉树允许最后一层不满，但仍需保持左侧填充。</p>
@@ -415,8 +418,9 @@
 <p>二叉搜索树的搜索迭代实现：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">TreeNode* <span class="hljs-title">searchBST</span><span class="hljs-params">(TreeNode* root, <span class="hljs-type">int</span> val)</span> </span>&#123;<br>        <span class="hljs-keyword">while</span>(root)&#123;<br>            <span class="hljs-keyword">if</span>(val &gt; root-&gt;val) root = root-&gt;right;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(val &lt; root-&gt;val) root = root-&gt;left;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> root;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">nullptr</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-2-Tree-Traversal"><a href="#4-2-Tree-Traversal" class="headerlink" title="4.2 Tree Traversal"></a>4.2 Tree Traversal</h3><p><strong>层序遍历（Level Order Traversal）：</strong> 开一个队列处理一层的节点并放入下一层的节点。</p>
+<h3 id="4-2-Tree-Traversal"><a href="#4-2-Tree-Traversal" class="headerlink" title="4.2 Tree Traversal"></a>4.2 Tree Traversal</h3><p><strong>层序遍历（Level Order Traversal）：</strong> 开一个队列处理一层的节点并放入下一层的节点。这个遍历也属于<strong>广度优先遍历（BFS）</strong>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">levelOrder</span>(TreeNode* root) &#123;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; res;<br>        <span class="hljs-keyword">if</span>(!root) <span class="hljs-keyword">return</span> res;<br>        queue&lt;TreeNode*&gt; que;<br>        que.<span class="hljs-built_in">push</span>(root);<br>        <span class="hljs-keyword">while</span>(!que.<span class="hljs-built_in">empty</span>())&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; nums;<br>            <span class="hljs-type">int</span> n = que.<span class="hljs-built_in">size</span>();<br>            <span class="hljs-keyword">while</span>(n--)&#123;<br>                <span class="hljs-keyword">auto</span> node = que.<span class="hljs-built_in">front</span>();<br>                que.<span class="hljs-built_in">pop</span>();<br>                nums.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>                <span class="hljs-keyword">if</span>(node-&gt;left) que.<span class="hljs-built_in">push</span>(node-&gt;left);<br>                <span class="hljs-keyword">if</span>(node-&gt;right) que.<span class="hljs-built_in">push</span>(node-&gt;right);<br>            &#125;<br>            res.<span class="hljs-built_in">push_back</span>(nums);<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<p>二叉树的<strong>深度优先遍历（DFS）</strong>可以分为三种：前序遍历，中序遍历和后序遍历。</p>
 <p><strong>前序遍历（Preorder Traversal）：</strong>  <em>根-&gt;左-&gt;右</em>，递归实现</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">int</span>&gt; res;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(!root) <span class="hljs-keyword">return</span> res;<br>        res.<span class="hljs-built_in">push_back</span>(root-&gt;val);<br>        <span class="hljs-built_in">preorderTraversal</span>(root-&gt;left);<br>        <span class="hljs-built_in">preorderTraversal</span>(root-&gt;right);<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br></code></pre></td></tr></table></figure>
 <p>当然也可以开一个栈来实现</p>
@@ -430,8 +434,9 @@
 <p>当然也可以开一个栈来实现：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">inorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        stack&lt;TreeNode*&gt; st;<br>        <span class="hljs-keyword">while</span>(root || !st.<span class="hljs-built_in">empty</span>())&#123;<br>            <span class="hljs-keyword">while</span>(root)&#123;<br>                st.<span class="hljs-built_in">push</span>(root);<br>                root = root-&gt;left;<br>            &#125;<br>            root = st.<span class="hljs-built_in">top</span>();<br>            st.<span class="hljs-built_in">pop</span>();<br>            ans.<span class="hljs-built_in">push_back</span>(root-&gt;val);<br>            root = root-&gt; right;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
-<p>二叉树的中序遍历还有一个重要的考点是<em>逆波兰表达式</em>,这个曾经在京大的过去问中出现过。<strong>逆波兰表达式（Reverse Polish Notation, RPN）</strong> 是一种后缀表示法，用于表示算术表达式。在这种表示法中，运算符跟在操作数之后，而不是在它们之间。这种形式的好处是消除了括号的需要，因为操作的顺序总是由操作符的位置决定。具体的实现方法可以开一个栈轻松解决。<br><img src="/img/DSA/rpn.svg" srcset="/img/loading.gif" lazyload alt="逆波兰表达式" style="max-width: 100%; height: auto;" /></p>
-<h3 id="4-3-BFS-DFS"><a href="#4-3-BFS-DFS" class="headerlink" title="4.3 BFS &amp; DFS"></a>4.3 BFS &amp; DFS</h3>
+<p>二叉树的中序遍历还有一个重要的考点是<em>逆波兰表达式</em>,这个曾经在京大的过去问中出现过。<strong>逆波兰表达式（Reverse Polish Notation, RPN）</strong> 是一种后缀表示法，用于表示算术表达式。在这种表示法中，运算符跟在操作数之后，而不是在它们之间。这种形式的好处是消除了括号的需要，因为操作的顺序总是由操作符的位置决定。具体的实现方法可以开一个栈轻松解决。<br><img src="/img/DSA/rpn.svg" srcset="/img/loading.gif" lazyload alt="逆波兰表达式" style="max-width: 70%; height: auto;" /></p>
+<h3 id="4-3-AVL-Tree"><a href="#4-3-AVL-Tree" class="headerlink" title="4.3 AVL Tree"></a>4.3 AVL Tree</h3><p><strong>AVL树</strong>是一种自平衡的二叉搜索树，确保每个节点的左右子树高度差（平衡因子）最多为1。这样可以保证树的高度在 $O(log{n})$ 范围内，确保高效的插入、删除和查找操作。AVL树通过旋转操作来维持平衡，从而优化性能，特别是在频繁修改的场景中。东工有一年考到了这个点，但我认为了解到AVL树的工作原理就ok了,主要聚焦在节点的添加和删除以及树的旋转。<br><img src="/img/DSA/avl_tree_insert.svg" srcset="/img/loading.gif" lazyload alt="AVL树增加节点" style="max-width: 70%; height: auto;" /><br><img src="/img/DSA/avl_tree_delete.svg" srcset="/img/loading.gif" lazyload alt="AVL树删除节点" style="max-width: 70%; height: auto;" /><br><em>了解一下AVL树的左旋和右旋。</em><br><img src="/img/DSA/avl_tree_rotate.svg" srcset="/img/loading.gif" lazyload alt="AVL树左旋和右旋" style="max-width: 70%; height: auto;" /></p>
+<h3 id="4-Graph-Theory"><a href="#4-Graph-Theory" class="headerlink" title="4.Graph Theory"></a>4.Graph Theory</h3>
                 
               </div>
             

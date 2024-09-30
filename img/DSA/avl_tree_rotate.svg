@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <style>
+      .node { fill: #4CAF50; stroke: #45a049; stroke-width: 2; }
+      .pivot-node { fill: #FFC107; stroke: #FFA000; stroke-width: 2; }
+      .link { stroke: #333; stroke-width: 2; }
+      .label { font-family: Arial, sans-serif; font-size: 14px; fill: #fff; text-anchor: middle; dominant-baseline: middle; }
+      .step-label { font-family: Arial, sans-serif; font-size: 16px; fill: #333; text-anchor: middle; }
+      .rotation-label { font-family: Arial, sans-serif; font-size: 20px; fill: #333; text-anchor: middle; font-weight: bold; }
+      .watermark { font-family: 'Arial', sans-serif; font-size: 48px; fill: rgba(0,0,0,0.1); }
+    </style>
+  </defs>
+
+  <!-- Left Rotation -->
+  <text class="rotation-label" x="200" y="30">Left Rotation</text>
+  
+  <!-- Before Left Rotation -->
+  <g transform="translate(0,50)">
+    <circle class="node" cx="100" cy="50" r="20" />
+    <text class="label" x="100" y="50">A</text>
+    <circle class="pivot-node" cx="175" cy="100" r="20" />
+    <text class="label" x="175" y="100">B</text>
+    <circle class="node" cx="250" cy="150" r="20" />
+    <text class="label" x="250" y="150">C</text>
+    <circle class="node" cx="137" cy="150" r="20" />
+    <text class="label" x="137" y="150">T2</text>
+    <circle class="node" cx="62" cy="100" r="20" />
+    <text class="label" x="62" y="100">T1</text>
+    <line class="link" x1="100" y1="50" x2="62" y2="100" />
+    <line class="link" x1="100" y1="50" x2="175" y2="100" />
+    <line class="link" x1="175" y1="100" x2="137" y2="150" />
+    <line class="link" x1="175" y1="100" x2="250" y2="150" />
+    <text class="step-label" x="150" y="200">Before Left Rotation</text>
+  </g>
+
+  <!-- After Left Rotation -->
+  <g transform="translate(400,50)">
+    <circle class="pivot-node" cx="175" cy="50" r="20" />
+    <text class="label" x="175" y="50">B</text>
+    <circle class="node" cx="100" cy="100" r="20" />
+    <text class="label" x="100" y="100">A</text>
+    <circle class="node" cx="250" cy="100" r="20" />
+    <text class="label" x="250" y="100">C</text>
+    <circle class="node" cx="62" cy="150" r="20" />
+    <text class="label" x="62" y="150">T1</text>
+    <circle class="node" cx="137" cy="150" r="20" />
+    <text class="label" x="137" y="150">T2</text>
+    <line class="link" x1="175" y1="50" x2="100" y2="100" />
+    <line class="link" x1="175" y1="50" x2="250" y2="100" />
+    <line class="link" x1="100" y1="100" x2="62" y2="150" />
+    <line class="link" x1="100" y1="100" x2="137" y2="150" />
+    <text class="step-label" x="175" y="200">After Left Rotation</text>
+  </g>
+
+  <!-- Right Rotation -->
+  <text class="rotation-label" x="200" y="350">Right Rotation</text>
+  
+  <!-- Before Right Rotation -->
+  <g transform="translate(0,370)">
+    <circle class="node" cx="250" cy="50" r="20" />
+    <text class="label" x="250" y="50">A</text>
+    <circle class="pivot-node" cx="175" cy="100" r="20" />
+    <text class="label" x="175" y="100">B</text>
+    <circle class="node" cx="100" cy="150" r="20" />
+    <text class="label" x="100" y="150">C</text>
+    <circle class="node" cx="212" cy="150" r="20" />
+    <text class="label" x="212" y="150">T2</text>
+    <circle class="node" cx="287" cy="100" r="20" />
+    <text class="label" x="287" y="100">T1</text>
+    <line class="link" x1="250" y1="50" x2="287" y2="100" />
+    <line class="link" x1="250" y1="50" x2="175" y2="100" />
+    <line class="link" x1="175" y1="100" x2="212" y2="150" />
+    <line class="link" x1="175" y1="100" x2="100" y2="150" />
+    <text class="step-label" x="200" y="200">Before Right Rotation</text>
+  </g>
+
+  <!-- After Right Rotation -->
+  <g transform="translate(400,370)">
+    <circle class="pivot-node" cx="175" cy="50" r="20" />
+    <text class="label" x="175" y="50">B</text>
+    <circle class="node" cx="100" cy="100" r="20" />
+    <text class="label" x="100" y="100">C</text>
+    <circle class="node" cx="250" cy="100" r="20" />
+    <text class="label" x="250" y="100">A</text>
+    <circle class="node" cx="212" cy="150" r="20" />
+    <text class="label" x="212" y="150">T2</text>
+    <circle class="node" cx="287" cy="150" r="20" />
+    <text class="label" x="287" y="150">T1</text>
+    <line class="link" x1="175" y1="50" x2="100" y2="100" />
+    <line class="link" x1="175" y1="50" x2="250" y2="100" />
+    <line class="link" x1="250" y1="100" x2="212" y2="150" />
+    <line class="link" x1="250" y1="100" x2="287" y2="150" />
+    <text class="step-label" x="175" y="200">After Right Rotation</text>
+  </g>
+
+  <!-- Watermark -->
+  <text class="watermark" x="400" y="350" text-anchor="middle" dominant-baseline="middle">偷偷星球</text>
+</svg>
