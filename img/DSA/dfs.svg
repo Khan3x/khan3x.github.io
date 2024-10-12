@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f0f0f0"/>
+  
+  <!-- 图 -->
+  <g transform="translate(50, 50)">
+    <circle cx="100" cy="100" r="30" fill="#4CAF50"/>
+    <circle cx="250" cy="50" r="30" fill="#2196F3"/>
+    <circle cx="400" cy="100" r="30" fill="#FFC107"/>
+    <circle cx="250" cy="200" r="30" fill="#FF5722"/>
+    
+    <line x1="100" y1="100" x2="250" y2="50" stroke="black" stroke-width="2"/>
+    <line x1="100" y1="100" x2="250" y2="200" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="50" x2="400" y2="100" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="200" x2="400" y2="100" stroke="black" stroke-width="2"/>
+    
+    <text x="100" y="105" font-family="Arial" font-size="20" text-anchor="middle" fill="white">0</text>
+    <text x="250" y="55" font-family="Arial" font-size="20" text-anchor="middle" fill="white">1</text>
+    <text x="400" y="105" font-family="Arial" font-size="20" text-anchor="middle" fill="white">2</text>
+    <text x="250" y="205" font-family="Arial" font-size="20" text-anchor="middle" fill="white">3</text>
+    
+    <text x="225" y="20" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">示例图</text>
+  </g>
+
+  <!-- DFS步骤 -->
+  <g transform="translate(50, 300)">
+    <text x="0" y="30" font-family="Arial" font-size="20" font-weight="bold">DFS 步骤:</text>
+    <text x="20" y="60" font-family="Arial" font-size="16">1. 选择起始节点（例如 0）并标记为已访问</text>
+    <text x="20" y="90" font-family="Arial" font-size="16">2. 选择一个未访问的邻接节点并递归执行 DFS</text>
+    <text x="20" y="120" font-family="Arial" font-size="16">3. 如果没有未访问的邻接节点，则回溯</text>
+    <text x="20" y="150" font-family="Arial" font-size="16">4. 重复步骤 2 和 3，直到所有节点都被访问</text>
+  </g>
+
+  <!-- 邻接表 -->
+  <g transform="translate(450, 300)">
+    <text x="0" y="30" font-family="Arial" font-size="20" font-weight="bold">邻接表:</text>
+    <text x="20" y="60" font-family="Arial" font-size="16">0 -> 1 -> 3</text>
+    <text x="20" y="90" font-family="Arial" font-size="16">1 -> 0 -> 2</text>
+    <text x="20" y="120" font-family="Arial" font-size="16">2 -> 1 -> 3</text>
+    <text x="20" y="150" font-family="Arial" font-size="16">3 -> 0 -> 2</text>
+  </g>
+
+  <!-- 遍历顺序 -->
+  <g transform="translate(50, 500)">
+    <text x="0" y="30" font-family="Arial" font-size="20" font-weight="bold">DFS 遍历顺序 (从节点 0 开始):</text>
+    <text x="20" y="60" font-family="Arial" font-size="16">0 -> 1 -> 2 -> 3</text>
+  </g>
+
+  <!-- 水印 -->
+  <text x="400" y="300" font-family="Arial" font-size="48" text-anchor="middle" fill="#888888" opacity="0.2" transform="rotate(-30, 400, 300)">偷偷星球</text>
+</svg>

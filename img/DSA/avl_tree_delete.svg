@@ -12,72 +12,72 @@
 
   <!-- Step 1: Initial Tree -->
   <g transform="translate(0,0)">
-    <circle class="node" cx="150" cy="50" r="20" />
-    <text class="label" x="150" y="50">10</text>
-    <circle class="node" cx="75" cy="100" r="20" />
-    <text class="label" x="75" y="100">5</text>
-    <circle class="node" cx="225" cy="100" r="20" />
-    <text class="label" x="225" y="100">15</text>
-    <circle class="node" cx="37" cy="150" r="20" />
-    <text class="label" x="37" y="150">3</text>
-    <circle class="node" cx="112" cy="150" r="20" />
-    <text class="label" x="112" y="150">7</text>
-    <line class="link" x1="150" y1="50" x2="75" y2="100" />
-    <line class="link" x1="150" y1="50" x2="225" y2="100" />
-    <line class="link" x1="75" y1="100" x2="37" y2="150" />
-    <line class="link" x1="75" y1="100" x2="112" y2="150" />
-    <text class="step-label" x="150" y="200">1. Initial Tree</text>
+    <circle class="node" cx="200" cy="50" r="20" />
+    <text class="label" x="200" y="50">10</text>
+    <circle class="node" cx="125" cy="100" r="20" />
+    <text class="label" x="125" y="100">5</text>
+    <circle class="node" cx="275" cy="100" r="20" />
+    <text class="label" x="275" y="100">15</text>
+    <circle class="node" cx="87" cy="150" r="20" />
+    <text class="label" x="87" y="150">3</text>
+    <circle class="node" cx="162" cy="150" r="20" />
+    <text class="label" x="162" y="150">7</text>
+    <line class="link" x1="200" y1="50" x2="125" y2="100" />
+    <line class="link" x1="200" y1="50" x2="275" y2="100" />
+    <line class="link" x1="125" y1="100" x2="87" y2="150" />
+    <line class="link" x1="125" y1="100" x2="162" y2="150" />
+    <text class="step-label" x="200" y="200">1. Initial Tree</text>
   </g>
 
   <!-- Step 2: Delete node 5 -->
   <g transform="translate(400,0)">
-    <circle class="node" cx="150" cy="50" r="20" />
-    <text class="label" x="150" y="50">10</text>
-    <circle class="delete-node" cx="75" cy="100" r="20" />
-    <text class="label" x="75" y="100">5</text>
-    <circle class="node" cx="225" cy="100" r="20" />
-    <text class="label" x="225" y="100">15</text>
-    <circle class="node" cx="37" cy="150" r="20" />
-    <text class="label" x="37" y="150">3</text>
-    <circle class="node" cx="112" cy="150" r="20" />
-    <text class="label" x="112" y="150">7</text>
-    <line class="link" x1="150" y1="50" x2="75" y2="100" />
-    <line class="link" x1="150" y1="50" x2="225" y2="100" />
-    <line class="link" x1="75" y1="100" x2="37" y2="150" />
-    <line class="link" x1="75" y1="100" x2="112" y2="150" />
-    <text class="step-label" x="150" y="200">2. Delete node 5</text>
+    <circle class="node" cx="200" cy="50" r="20" />
+    <text class="label" x="200" y="50">10</text>
+    <circle class="delete-node" cx="125" cy="100" r="20" />
+    <text class="label" x="125" y="100">5</text>
+    <circle class="node" cx="275" cy="100" r="20" />
+    <text class="label" x="275" y="100">15</text>
+    <circle class="node" cx="87" cy="150" r="20" />
+    <text class="label" x="87" y="150">3</text>
+    <circle class="node" cx="162" cy="150" r="20" />
+    <text class="label" x="162" y="150">7</text>
+    <line class="link" x1="200" y1="50" x2="125" y2="100" />
+    <line class="link" x1="200" y1="50" x2="275" y2="100" />
+    <line class="link" x1="125" y1="100" x2="87" y2="150" />
+    <line class="link" x1="125" y1="100" x2="162" y2="150" />
+    <text class="step-label" x="200" y="200">2. Delete node 5</text>
   </g>
 
   <!-- Step 3: Replace with successor -->
-  <g transform="translate(0,300)">
-    <circle class="node" cx="150" cy="50" r="20" />
-    <text class="label" x="150" y="50">10</text>
-    <circle class="node" cx="75" cy="100" r="20" />
-    <text class="label" x="75" y="100">7</text>
-    <circle class="node" cx="225" cy="100" r="20" />
-    <text class="label" x="225" y="100">15</text>
-    <circle class="node" cx="37" cy="150" r="20" />
-    <text class="label" x="37" y="150">3</text>
-    <line class="link" x1="150" y1="50" x2="75" y2="100" />
-    <line class="link" x1="150" y1="50" x2="225" y2="100" />
-    <line class="link" x1="75" y1="100" x2="37" y2="150" />
-    <text class="step-label" x="150" y="200">3. Replace with successor (7)</text>
+  <g transform="translate(0,350)">
+    <circle class="node" cx="200" cy="50" r="20" />
+    <text class="label" x="200" y="50">10</text>
+    <circle class="node" cx="125" cy="100" r="20" />
+    <text class="label" x="125" y="100">7</text>
+    <circle class="node" cx="275" cy="100" r="20" />
+    <text class="label" x="275" y="100">15</text>
+    <circle class="node" cx="87" cy="150" r="20" />
+    <text class="label" x="87" y="150">3</text>
+    <line class="link" x1="200" y1="50" x2="125" y2="100" />
+    <line class="link" x1="200" y1="50" x2="275" y2="100" />
+    <line class="link" x1="125" y1="100" x2="87" y2="150" />
+    <text class="step-label" x="200" y="200">3. Replace with successor (7)</text>
   </g>
 
   <!-- Step 4: After rotation -->
-  <g transform="translate(400,300)">
-    <circle class="node" cx="150" cy="50" r="20" />
-    <text class="label" x="150" y="50">7</text>
-    <circle class="node" cx="75" cy="100" r="20" />
-    <text class="label" x="75" y="100">3</text>
-    <circle class="node" cx="225" cy="100" r="20" />
-    <text class="label" x="225" y="100">10</text>
-    <circle class="node" cx="300" cy="150" r="20" />
-    <text class="label" x="300" y="150">15</text>
-    <line class="link" x1="150" y1="50" x2="75" y2="100" />
-    <line class="link" x1="150" y1="50" x2="225" y2="100" />
-    <line class="link" x1="225" y1="100" x2="300" y2="150" />
-    <text class="step-label" x="150" y="200">4. After rotation (Tree is balanced)</text>
+  <g transform="translate(400,350)">
+    <circle class="node" cx="200" cy="50" r="20" />
+    <text class="label" x="200" y="50">7</text>
+    <circle class="node" cx="125" cy="100" r="20" />
+    <text class="label" x="125" y="100">3</text>
+    <circle class="node" cx="275" cy="100" r="20" />
+    <text class="label" x="275" y="100">10</text>
+    <circle class="node" cx="350" cy="150" r="20" />
+    <text class="label" x="350" y="150">15</text>
+    <line class="link" x1="200" y1="50" x2="125" y2="100" />
+    <line class="link" x1="200" y1="50" x2="275" y2="100" />
+    <line class="link" x1="275" y1="100" x2="350" y2="150" />
+    <text class="step-label" x="200" y="200">4. After rotation (Tree is balanced)</text>
   </g>
 
   <!-- Watermark -->
