@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-size="24" text-anchor="middle" font-weight="bold">并查集(Union-Find)工作原理</text>
+  
+  <!-- 水印 -->
+  <text x="400" y="300" font-size="40" fill-opacity="0.1" text-anchor="middle" transform="rotate(-45, 400, 300)">偷偷星球</text>
+  
+  <!-- 初始状态 -->
+  <g transform="translate(50, 70)">
+    <text x="0" y="20" font-size="18" font-weight="bold">1. 初始状态</text>
+    <circle cx="30" cy="60" r="20" fill="lightblue" stroke="black"/>
+    <text x="30" y="65" text-anchor="middle">1</text>
+    <circle cx="90" cy="60" r="20" fill="lightgreen" stroke="black"/>
+    <text x="90" y="65" text-anchor="middle">2</text>
+    <circle cx="150" cy="60" r="20" fill="lightyellow" stroke="black"/>
+    <text x="150" y="65" text-anchor="middle">3</text>
+    <circle cx="210" cy="60" r="20" fill="lightpink" stroke="black"/>
+    <text x="210" y="65" text-anchor="middle">4</text>
+  </g>
+  
+  <!-- 合并操作 -->
+  <g transform="translate(50, 180)">
+    <text x="0" y="20" font-size="18" font-weight="bold">2. 合并操作: union(1, 2) 和 union(3, 4)</text>
+    <circle cx="30" cy="60" r="20" fill="lightblue" stroke="black"/>
+    <text x="30" y="65" text-anchor="middle">1</text>
+    <circle cx="30" cy="120" r="20" fill="lightblue" stroke="black"/>
+    <text x="30" y="125" text-anchor="middle">2</text>
+    <line x1="30" y1="80" x2="30" y2="100" stroke="black"/>
+    
+    <circle cx="150" cy="60" r="20" fill="lightyellow" stroke="black"/>
+    <text x="150" y="65" text-anchor="middle">3</text>
+    <circle cx="150" cy="120" r="20" fill="lightyellow" stroke="black"/>
+    <text x="150" y="125" text-anchor="middle">4</text>
+    <line x1="150" y1="80" x2="150" y2="100" stroke="black"/>
+  </g>
+  
+  <!-- 查询操作 -->
+  <g transform="translate(350, 70)">
+    <text x="0" y="20" font-size="18" font-weight="bold">3. 查询操作: find(2) 和 find(4)</text>
+    <circle cx="30" cy="60" r="20" fill="lightblue" stroke="black"/>
+    <text x="30" y="65" text-anchor="middle">1</text>
+    <circle cx="30" cy="120" r="20" fill="lightblue" stroke="black"/>
+    <text x="30" y="125" text-anchor="middle">2</text>
+    <line x1="30" y1="80" x2="30" y2="100" stroke="black"/>
+    <path d="M30,120 Q50,140 30,160" fill="none" stroke="red" stroke-width="2"/>
+    <text x="60" y="150" fill="red">返回1</text>
+    
+    <circle cx="150" cy="60" r="20" fill="lightyellow" stroke="black"/>
+    <text x="150" y="65" text-anchor="middle">3</text>
+    <circle cx="150" cy="120" r="20" fill="lightyellow" stroke="black"/>
+    <text x="150" y="125" text-anchor="middle">4</text>
+    <line x1="150" y1="80" x2="150" y2="100" stroke="black"/>
+    <path d="M150,120 Q170,140 150,160" fill="none" stroke="red" stroke-width="2"/>
+    <text x="180" y="150" fill="red">返回3</text>
+  </g>
+  
+  <!-- 路径压缩 -->
+  <g transform="translate(50, 350)">
+    <text x="0" y="20" font-size="18" font-weight="bold">4. 路径压缩优化</text>
+    <circle cx="100" cy="60" r="20" fill="lightblue" stroke="black"/>
+    <text x="100" y="65" text-anchor="middle">1</text>
+    <circle cx="40" cy="120" r="20" fill="lightblue" stroke="black"/>
+    <text x="40" y="125" text-anchor="middle">2</text>
+    <circle cx="100" cy="120" r="20" fill="lightblue" stroke="black"/>
+    <text x="100" y="125" text-anchor="middle">3</text>
+    <circle cx="160" cy="120" r="20" fill="lightblue" stroke="black"/>
+    <text x="160" y="125" text-anchor="middle">4</text>
+    <line x1="100" y1="80" x2="40" y2="100" stroke="black" stroke-dasharray="5,5"/>
+    <line x1="100" y1="80" x2="100" y2="100" stroke="black" stroke-dasharray="5,5"/>
+    <line x1="100" y1="80" x2="160" y2="100" stroke="black" stroke-dasharray="5,5"/>
+    <text x="40" y="160" fill="green" font-size="14">在查找过程中，将所有节点直接连接到根节点</text>
+  </g>
+  
+  <!-- 按秩合并 -->
+  <g transform="translate(350, 350)">
+    <text x="0" y="20" font-size="18" font-weight="bold">5. 按秩合并优化</text>
+    <circle cx="100" cy="60" r="20" fill="lightgreen" stroke="black"/>
+    <text x="100" y="65" text-anchor="middle">5</text>
+    <circle cx="60" cy="120" r="20" fill="lightgreen" stroke="black"/>
+    <text x="60" y="125" text-anchor="middle">6</text>
+    <circle cx="140" cy="120" r="20" fill="lightgreen" stroke="black"/>
+    <text x="140" y="125" text-anchor="middle">7</text>
+    <line x1="100" y1="80" x2="60" y2="100" stroke="black"/>
+    <line x1="100" y1="80" x2="140" y2="100" stroke="black"/>
+    
+    <circle cx="250" cy="60" r="20" fill="lightpink" stroke="black"/>
+    <text x="250" y="65" text-anchor="middle">8</text>
+    <line x1="100" y1="60" x2="230" y2="60" stroke="black" stroke-width="2"/>
+    <text x="175" y="50" fill="blue" font-size="14">合并</text>
+    <text x="40" y="160" fill="green" font-size="14">合并时，将较小的树（8）连接到较大的树（5, 6, 7）上</text>
+  </g>
+</svg>
