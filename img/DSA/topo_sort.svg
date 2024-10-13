@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  
+  <!-- 节点 -->
+  <circle cx="100" cy="300" r="40" fill="#4CAF50" stroke="#333" stroke-width="2"/>
+  <circle cx="250" cy="150" r="40" fill="#2196F3" stroke="#333" stroke-width="2"/>
+  <circle cx="250" cy="450" r="40" fill="#FFC107" stroke="#333" stroke-width="2"/>
+  <circle cx="400" cy="300" r="40" fill="#9C27B0" stroke="#333" stroke-width="2"/>
+  <circle cx="550" cy="150" r="40" fill="#F44336" stroke="#333" stroke-width="2"/>
+  <circle cx="550" cy="450" r="40" fill="#FF5722" stroke="#333" stroke-width="2"/>
+  <circle cx="700" cy="300" r="40" fill="#795548" stroke="#333" stroke-width="2"/>
+  
+  <!-- 边 -->
+  <line x1="140" y1="300" x2="210" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="140" y1="300" x2="210" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="290" y1="150" x2="360" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="290" y1="450" x2="360" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="440" y1="300" x2="510" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="440" y1="300" x2="510" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="590" y1="150" x2="660" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="590" y1="450" x2="660" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 节点标签 -->
+  <text x="100" y="305" font-family="Arial" font-size="24" fill="white" text-anchor="middle">1</text>
+  <text x="250" y="155" font-family="Arial" font-size="24" fill="white" text-anchor="middle">2</text>
+  <text x="250" y="455" font-family="Arial" font-size="24" fill="white" text-anchor="middle">3</text>
+  <text x="400" y="305" font-family="Arial" font-size="24" fill="white" text-anchor="middle">4</text>
+  <text x="550" y="155" font-family="Arial" font-size="24" fill="white" text-anchor="middle">5</text>
+  <text x="550" y="455" font-family="Arial" font-size="24" fill="white" text-anchor="middle">6</text>
+  <text x="700" y="305" font-family="Arial" font-size="24" fill="white" text-anchor="middle">7</text>
+  
+  <!-- 步骤标签 -->
+  <text x="100" y="370" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 1</text>
+  <text x="250" y="220" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 2</text>
+  <text x="250" y="520" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 3</text>
+  <text x="400" y="370" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 4</text>
+  <text x="550" y="220" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 5</text>
+  <text x="550" y="520" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 6</text>
+  <text x="700" y="370" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">步骤 7</text>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-family="Arial" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">拓扑排序可视化</text>
+  
+  <!-- 水印 -->
+  <text x="400" y="300" font-family="Arial" font-size="48" fill="rgba(0,0,0,0.1)" text-anchor="middle" transform="rotate(-45,400,300)">偷偷星球</text>
+</svg>
