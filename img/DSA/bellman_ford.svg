@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  
+  <!-- 步骤1：初始图 -->
+  <g transform="translate(0, 0) scale(0.8)">
+    <text x="200" y="20" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Step 1: Initial Graph</text>
+    <circle cx="100" cy="100" r="25" fill="#4CAF50" stroke="#333" stroke-width="2"/>
+    <circle cx="300" cy="100" r="25" fill="#2196F3" stroke="#333" stroke-width="2"/>
+    <circle cx="200" cy="250" r="25" fill="#FFC107" stroke="#333" stroke-width="2"/>
+    <line x1="100" y1="100" x2="300" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="100" y1="100" x2="200" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="300" y1="100" x2="200" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="200" y="90" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">4</text>
+    <text x="135" y="190" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">2</text>
+    <text x="265" y="190" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">-1</text>
+    <text x="100" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">A</text>
+    <text x="300" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">B</text>
+    <text x="200" y="255" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">C</text>
+  </g>
+  
+  <!-- 步骤2：初始化 -->
+  <g transform="translate(400, 0) scale(0.8)">
+    <text x="200" y="20" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Step 2: Initialize</text>
+    <circle cx="100" cy="100" r="25" fill="#4CAF50" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="300" cy="100" r="25" fill="#2196F3" stroke="#333" stroke-width="2"/>
+    <circle cx="200" cy="250" r="25" fill="#FFC107" stroke="#333" stroke-width="2"/>
+    <line x1="100" y1="100" x2="300" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="100" y1="100" x2="200" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="300" y1="100" x2="200" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="100" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">A:0</text>
+    <text x="300" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">B:∞</text>
+    <text x="200" y="255" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">C:∞</text>
+  </g>
+  
+  <!-- 步骤3：第一次松弛 -->
+  <g transform="translate(0, 270) scale(0.8)">
+    <text x="200" y="20" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Step 3: First Relaxation</text>
+    <circle cx="100" cy="100" r="25" fill="#4CAF50" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="300" cy="100" r="25" fill="#2196F3" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="200" cy="250" r="25" fill="#FFC107" stroke="#FF5722" stroke-width="4"/>
+    <line x1="100" y1="100" x2="300" y2="100" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <line x1="100" y1="100" x2="200" y2="250" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <line x1="300" y1="100" x2="200" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="100" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">A:0</text>
+    <text x="300" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">B:4</text>
+    <text x="200" y="255" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">C:2</text>
+    <text x="200" y="140" font-family="Arial" font-size="16" fill="#FF5722" font-weight="bold">Relax</text>
+    <text x="150" y="200" font-family="Arial" font-size="16" fill="#FF5722" font-weight="bold">Relax</text>
+  </g>
+  
+  <!-- 步骤4：第二次松弛 -->
+  <g transform="translate(400, 270) scale(0.8)">
+    <text x="200" y="20" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Step 4: Second Relaxation</text>
+    <circle cx="100" cy="100" r="25" fill="#4CAF50" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="300" cy="100" r="25" fill="#2196F3" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="200" cy="250" r="25" fill="#FFC107" stroke="#FF5722" stroke-width="4"/>
+    <line x1="100" y1="100" x2="300" y2="100" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <line x1="100" y1="100" x2="200" y2="250" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <line x1="300" y1="100" x2="200" y2="250" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="100" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">A:0</text>
+    <text x="300" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">B:4</text>
+    <text x="200" y="255" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">C:1</text>
+    <text x="250" y="200" font-family="Arial" font-size="16" fill="#FF5722" font-weight="bold">Relax</text>
+  </g>
+  
+  <!-- 步骤5：最终结果 -->
+  <g transform="translate(200, 540) scale(0.8)">
+    <text x="200" y="20" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Step 5: Final Result</text>
+    <circle cx="100" cy="100" r="25" fill="#4CAF50" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="300" cy="100" r="25" fill="#2196F3" stroke="#FF5722" stroke-width="4"/>
+    <circle cx="200" cy="250" r="25" fill="#FFC107" stroke="#FF5722" stroke-width="4"/>
+    <line x1="100" y1="100" x2="300" y2="100" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <line x1="100" y1="100" x2="200" y2="250" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <line x1="300" y1="100" x2="200" y2="250" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="100" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">A:0</text>
+    <text x="300" y="105" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">B:4</text>
+    <text x="200" y="255" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">C:1</text>
+  </g>
+  
+  <!-- 水印 -->
+  <text x="400" y="400" font-family="Arial" font-size="48" fill="rgba(0,0,0,0.1)" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45,400,400)">Bellman-Ford</text>
+</svg>
