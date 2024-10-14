@@ -85,5 +85,5 @@
   </g>
   
   <!-- 水印 -->
-  <text x="400" y="400" font-family="Arial" font-size="48" fill="rgba(0,0,0,0.1)" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45,400,400)">Bellman-Ford</text>
+  <text x="400" y="400" font-family="Arial" font-size="48" fill="rgba(0,0,0,0.1)" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45,400,400)">偷偷星球</text>
 </svg>
