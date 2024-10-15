@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="24" text-anchor="middle" font-weight="bold">Floyd-Warshall Algorithm Visualization</text>
+  
+  <!-- 初始化步骤 -->
+  <g transform="translate(50, 100)">
+    <rect width="300" height="150" fill="#e6f3ff" stroke="#000" stroke-width="2"/>
+    <text x="150" y="30" font-size="18" text-anchor="middle" font-weight="bold">Step 1: Initialization</text>
+    <text x="10" y="60" font-size="14">dist[i][j] = ∞ (if no direct edge)</text>
+    <text x="10" y="90" font-size="14">dist[i][j] = weight(i,j) (if edge exists)</text>
+    <text x="10" y="120" font-size="14">dist[i][i] = 0 (for all vertices)</text>
+  </g>
+  
+  <!-- 动态规划步骤 -->
+  <g transform="translate(450, 100)">
+    <rect width="300" height="180" fill="#ffe6e6" stroke="#000" stroke-width="2"/>
+    <text x="150" y="30" font-size="18" text-anchor="middle" font-weight="bold">Step 2: Dynamic Programming</text>
+    <text x="10" y="60" font-size="14">for k = 1 to n:</text>
+    <text x="30" y="90" font-size="14">for i = 1 to n:</text>
+    <text x="50" y="120" font-size="14">for j = 1 to n:</text>
+    <text x="70" y="150" font-size="14">dist[i][j] = min(dist[i][j],</text>
+    <text x="90" y="170" font-size="14">dist[i][k] + dist[k][j])</text>
+  </g>
+  
+  <!-- 图示 -->
+  <g transform="translate(300, 350)">
+    <circle cx="0" cy="0" r="30" fill="#a0d8ef"/>
+    <circle cx="200" cy="0" r="30" fill="#a0d8ef"/>
+    <circle cx="100" cy="173" r="30" fill="#a0d8ef"/>
+    
+    <line x1="30" y1="0" x2="170" y2="0" stroke="#000" stroke-width="2"/>
+    <line x1="15" y1="26" x2="85" y2="151" stroke="#000" stroke-width="2"/>
+    <line x1="185" y1="26" x2="115" y2="151" stroke="#000" stroke-width="2"/>
+    
+    <text x="0" y="0" font-size="18" text-anchor="middle" dominant-baseline="central">i</text>
+    <text x="200" y="0" font-size="18" text-anchor="middle" dominant-baseline="central">j</text>
+    <text x="100" y="173" font-size="18" text-anchor="middle" dominant-baseline="central">k</text>
+    
+    <text x="100" y="-20" font-size="14" text-anchor="middle">dist[i][j]</text>
+    <text x="30" y="100" font-size="14" text-anchor="middle" transform="rotate(-60 30 100)">dist[i][k]</text>
+    <text x="170" y="100" font-size="14" text-anchor="middle" transform="rotate(60 170 100)">dist[k][j]</text>
+  </g>
+  
+  <!-- 水印 -->
+  <text x="400" y="300" font-size="48" fill="#00000020" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45 400 300)">偷偷星球</text>
+</svg>

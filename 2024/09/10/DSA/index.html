@@ -50,8 +50,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/prim.svg">
 <meta property="og:image" content="http://example.com/img/DSA/dijkstra.svg">
 <meta property="og:image" content="http://example.com/img/DSA/bellman_ford.svg">
+<meta property="og:image" content="http://example.com/img/DSA/floyd.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-10-14T05:16:53.498Z">
+<meta property="article:modified_time" content="2024-10-15T14:18:50.669Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -253,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.9k 字
+          11k 字
         
       </span>
     
@@ -264,7 +265,7 @@
         
         
         
-          83 分钟
+          88 分钟
         
       </span>
     
@@ -528,7 +529,21 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python">// Bellmanford算法伪代码<br>function BellmanFord(Graph, source):<br>    // Step <span class="hljs-number">1</span>: Initialize distances<br>    <span class="hljs-keyword">for</span> each vertex v <span class="hljs-keyword">in</span> Graph:<br>        dist[v] = ∞  // <span class="hljs-type">Set</span> <span class="hljs-built_in">all</span> distances to infinity<br>        predecessor[v] = null  // No predecessors initially<br>    dist[source] = <span class="hljs-number">0</span>  // The distance <span class="hljs-keyword">from</span> the source to itself <span class="hljs-keyword">is</span> zero<br><br>    // Step <span class="hljs-number">2</span>: Relax <span class="hljs-built_in">all</span> edges n-<span class="hljs-number">1</span> times<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">from</span> <span class="hljs-number">1</span> to |V| - <span class="hljs-number">1</span>:<br>        <span class="hljs-keyword">for</span> each edge (u, v) <span class="hljs-keyword">in</span> Graph:<br>            <span class="hljs-keyword">if</span> dist[u] + weight(u, v) &lt; dist[v]:<br>                dist[v] = dist[u] + weight(u, v)<br>                predecessor[v] = u<br><br>    // Step <span class="hljs-number">3</span>: Check <span class="hljs-keyword">for</span> negative-weight cycles<br>    <span class="hljs-keyword">for</span> each edge (u, v) <span class="hljs-keyword">in</span> Graph:<br>        <span class="hljs-keyword">if</span> dist[u] + weight(u, v) &lt; dist[v]:<br>            error <span class="hljs-string">&quot;Graph contains a negative-weight cycle&quot;</span><br>    <br>    <span class="hljs-keyword">return</span> dist, predecessor<br></code></pre></td></tr></table></figure>
 
-<h3 id="5-4-多源最短路径算法"><a href="#5-4-多源最短路径算法" class="headerlink" title="5.4 多源最短路径算法"></a>5.4 多源最短路径算法</h3><h4 id="5-4-1-Floyd-Wallshall’s-Algorithm"><a href="#5-4-1-Floyd-Wallshall’s-Algorithm" class="headerlink" title="5.4.1 Floyd-Wallshall’s Algorithm"></a>5.4.1 Floyd-Wallshall’s Algorithm</h4><h3 id="5-5-Maximum-FLow-Problem"><a href="#5-5-Maximum-FLow-Problem" class="headerlink" title="5.5 Maximum FLow Problem"></a>5.5 Maximum FLow Problem</h3><h4 id="5-5-1-Ford-Fulkerson-Algorithm"><a href="#5-5-1-Ford-Fulkerson-Algorithm" class="headerlink" title="5.5.1 Ford-Fulkerson Algorithm"></a>5.5.1 Ford-Fulkerson Algorithm</h4><p>最后还有动态，贪心，NP问题。wwwww肝要爆了💥</p>
+<h3 id="5-4-多源最短路径算法"><a href="#5-4-多源最短路径算法" class="headerlink" title="5.4 多源最短路径算法"></a>5.4 多源最短路径算法</h3><h4 id="5-4-1-Floyd-Wallshall’s-Algorithm"><a href="#5-4-1-Floyd-Wallshall’s-Algorithm" class="headerlink" title="5.4.1 Floyd-Wallshall’s Algorithm"></a>5.4.1 Floyd-Wallshall’s Algorithm</h4><p><strong>Floyd-Warshall算法</strong> 是一种经典的动态规划算法，用于解决所有点对最短路径问题。它可以在加权图中找出每一对顶点之间的最短路径，<em>即使图中包含负权重边</em>，只要没有负权重环路（即从某个顶点出发经过一些边又回到该顶点且路径总权重为负）。<u>京大知能</u>的一年过去问就考了这道题的手动迭代推理，在复习这个题的时候建议和京大的过去问配合看。</p>
+<p><strong>算法步骤：</strong></p>
+<ol>
+<li><p>初始化：将距离矩阵$dist[][]$初始化为图的邻接矩阵。如果$i &#x3D;&#x3D; j$，则$dist[i][j] &#x3D; 0$，表示从节点$i$到节点$j$的路径距离为$0$。如果$i ≠ j$且两点之间有边，则$dist[i][j] &#x3D; weight(i, j)$，否则$dist[i][j]设为∞$（表示两点不直接相连）。</p>
+</li>
+<li><p>动态规划：通过三重循环逐步更新每对顶点之间的最短距离。外层循环选取一个中间顶点$k$，中间两层循环更新每一对顶点$i$和$j$之间的最短路径，判断是否通过$k$可以得到更短的路径。如果$dist[i][k] + dist[k][j] &lt; dist[i][j]$，则更新$dist[i][j]$。公式为：</p>
+<div style="text-align: center;">
+$$
+dist[i][j] = \min(dist[i][j], dist[i][k] + dist[k][j])
+$$
+</div></li>
+</ol>
+<p><strong>时间复杂度：</strong><br>Floyd-Warshall算法的时间复杂度为$O(V³)$，其中$V$是图中顶点的数量。三重嵌套循环的每一层都依赖于顶点的数量，因此该算法适合顶点较少的图。对于边多（稠密图）且顶点数量不多的情况，它是一个有效的算法。<br><img src="/img/DSA/floyd.svg" srcset="/img/loading.gif" lazyload alt="Floyd算法演示" style="max-width: 100%; height: auto;" /></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">floydWarshall</span><span class="hljs-params">(<span class="hljs-type">int</span> graph[V][V])</span> </span>&#123;<br>    <span class="hljs-type">int</span> dist[V][V]; <span class="hljs-comment">// 存储最短路径</span><br><br>    <span class="hljs-comment">// 初始化距离矩阵，将其设为输入图的邻接矩阵</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; V; j++) &#123;<br>            dist[i][j] = graph[i][j];<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 三重循环：i是起点，j是终点，k是中间节点</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; V; k++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; V; j++) &#123;<br>                <span class="hljs-comment">// 如果从i通过k到j的路径更短，则更新dist[i][j]</span><br>                <span class="hljs-keyword">if</span> (dist[i][k] != INT_MAX &amp;&amp; dist[k][j] != INT_MAX &amp;&amp; <br>                    dist[i][k] + dist[k][j] &lt; dist[i][j]) &#123;<br>                    dist[i][j] = dist[i][k] + dist[k][j];<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<h3 id="5-5-Maximum-FLow-Problem"><a href="#5-5-Maximum-FLow-Problem" class="headerlink" title="5.5 Maximum FLow Problem"></a>5.5 Maximum FLow Problem</h3><h4 id="5-5-1-Ford-Fulkerson-Algorithm"><a href="#5-5-1-Ford-Fulkerson-Algorithm" class="headerlink" title="5.5.1 Ford-Fulkerson Algorithm"></a>5.5.1 Ford-Fulkerson Algorithm</h4><p>最后还有动态，贪心，NP问题。wwwww肝要爆了💥</p>
 
                 
               </div>
