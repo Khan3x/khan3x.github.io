@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f0f0f0"/>
+  
+  <!-- 节点 -->
+  <circle cx="100" cy="200" r="40" fill="#4CAF50"/>
+  <circle cx="300" cy="100" r="40" fill="#2196F3"/>
+  <circle cx="300" cy="300" r="40" fill="#2196F3"/>
+  <circle cx="500" cy="100" r="40" fill="#2196F3"/>
+  <circle cx="500" cy="300" r="40" fill="#2196F3"/>
+  <circle cx="700" cy="200" r="40" fill="#F44336"/>
+  
+  <!-- 边 -->
+  <line x1="140" y1="200" x2="260" y2="100" stroke="#000" stroke-width="2"/>
+  <line x1="140" y1="200" x2="260" y2="300" stroke="#000" stroke-width="2"/>
+  <line x1="340" y1="100" x2="460" y2="100" stroke="#000" stroke-width="2"/>
+  <line x1="340" y1="300" x2="460" y2="300" stroke="#000" stroke-width="2"/>
+  <line x1="340" y1="100" x2="460" y2="300" stroke="#000" stroke-width="2"/>
+  <line x1="340" y1="300" x2="460" y2="100" stroke="#000" stroke-width="2"/>
+  <line x1="540" y1="100" x2="660" y2="200" stroke="#000" stroke-width="2"/>
+  <line x1="540" y1="300" x2="660" y2="200" stroke="#000" stroke-width="2"/>
+  
+  <!-- 流量/容量标签 -->
+  <text x="200" y="130" font-size="20" text-anchor="middle">0/10</text>
+  <text x="200" y="290" font-size="20" text-anchor="middle">0/8</text>
+  <text x="400" y="80" font-size="20" text-anchor="middle">0/5</text>
+  <text x="400" y="340" font-size="20" text-anchor="middle">0/7</text>
+  <text x="380" y="200" font-size="20" text-anchor="middle">0/3</text>
+  <text x="420" y="200" font-size="20" text-anchor="middle">0/4</text>
+  <text x="600" y="130" font-size="20" text-anchor="middle">0/9</text>
+  <text x="600" y="290" font-size="20" text-anchor="middle">0/6</text>
+  
+  <!-- 节点标签 -->
+  <text x="100" y="205" font-size="20" text-anchor="middle" fill="white">S</text>
+  <text x="300" y="105" font-size="20" text-anchor="middle" fill="white">A</text>
+  <text x="300" y="305" font-size="20" text-anchor="middle" fill="white">B</text>
+  <text x="500" y="105" font-size="20" text-anchor="middle" fill="white">C</text>
+  <text x="500" y="305" font-size="20" text-anchor="middle" fill="white">D</text>
+  <text x="700" y="205" font-size="20" text-anchor="middle" fill="white">T</text>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-size="24" text-anchor="middle" font-weight="bold">Ford-Fulkerson Algorithm Visualization</text>
+  
+  <!-- 水印 -->
+  <text x="400" y="200" font-size="48" text-anchor="middle" fill="rgba(0,0,0,0.1)" font-weight="bold" transform="rotate(-30 400 200)">偷偷星球</text>
+</svg>
