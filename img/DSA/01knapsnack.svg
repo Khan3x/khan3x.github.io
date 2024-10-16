@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-size="24" text-anchor="middle" font-weight="bold">01 Knapsack Problem Visualization</text>
+  
+  <!-- 动态规划表格 -->
+  <text x="400" y="80" font-size="18" font-weight="bold" text-anchor="middle">动态规划表格 (背包容量: 5)</text>
+  
+  <!-- 表格外框 -->
+  <rect x="50" y="100" width="700" height="400" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- 表格列标题 -->
+  <text x="130" y="130" font-size="16" text-anchor="middle">0</text>
+  <text x="230" y="130" font-size="16" text-anchor="middle">1</text>
+  <text x="330" y="130" font-size="16" text-anchor="middle">2</text>
+  <text x="430" y="130" font-size="16" text-anchor="middle">3</text>
+  <text x="530" y="130" font-size="16" text-anchor="middle">4</text>
+  <text x="630" y="130" font-size="16" text-anchor="middle">5</text>
+  
+  <!-- 表格行标题 -->
+  <text x="90" y="180" font-size="16" text-anchor="end">物品0</text>
+  <text x="90" y="260" font-size="16" text-anchor="end">物品1</text>
+  <text x="90" y="340" font-size="16" text-anchor="end">物品2</text>
+  <text x="90" y="420" font-size="16" text-anchor="end">物品3</text>
+  <text x="90" y="500" font-size="16" text-anchor="end">物品4</text>
+  
+  <!-- 表格内容 -->
+  <!-- 第0行 -->
+  <text x="130" y="180" font-size="16" text-anchor="middle">0</text>
+  <text x="230" y="180" font-size="16" text-anchor="middle">0</text>
+  <text x="330" y="180" font-size="16" text-anchor="middle">0</text>
+  <text x="430" y="180" font-size="16" text-anchor="middle">0</text>
+  <text x="530" y="180" font-size="16" text-anchor="middle">0</text>
+  <text x="630" y="180" font-size="16" text-anchor="middle">0</text>
+  
+  <!-- 第1行 -->
+  <text x="130" y="260" font-size="16" text-anchor="middle">0</text>
+  <text x="230" y="260" font-size="16" text-anchor="middle">0</text>
+  <text x="330" y="260" font-size="16" text-anchor="middle">3</text>
+  <text x="430" y="260" font-size="16" text-anchor="middle">3</text>
+  <text x="530" y="260" font-size="16" text-anchor="middle">3</text>
+  <text x="630" y="260" font-size="16" text-anchor="middle">3</text>
+  
+  <!-- 第2行 -->
+  <text x="130" y="340" font-size="16" text-anchor="middle">0</text>
+  <text x="230" y="340" font-size="16" text-anchor="middle">0</text>
+  <text x="330" y="340" font-size="16" text-anchor="middle">3</text>
+  <text x="430" y="340" font-size="16" text-anchor="middle">4</text>
+  <text x="530" y="340" font-size="16" text-anchor="middle">4</text>
+  <text x="630" y="340" font-size="16" text-anchor="middle">7</text>
+  
+  <!-- 第3行 -->
+  <text x="130" y="420" font-size="16" text-anchor="middle">0</text>
+  <text x="230" y="420" font-size="16" text-anchor="middle">0</text>
+  <text x="330" y="420" font-size="16" text-anchor="middle">3</text>
+  <text x="430" y="420" font-size="16" text-anchor="middle">4</text>
+  <text x="530" y="420" font-size="16" text-anchor="middle">5</text>
+  <text x="630" y="420" font-size="16" text-anchor="middle">7</text>
+  
+  <!-- 第4行 -->
+  <text x="130" y="500" font-size="16" text-anchor="middle">0</text>
+  <text x="230" y="500" font-size="16" text-anchor="middle">0</text>
+  <text x="330" y="500" font-size="16" text-anchor="middle">3</text>
+  <text x="430" y="500" font-size="16" text-anchor="middle">4</text>
+  <text x="530" y="500" font-size="16" text-anchor="middle">5</text>
+  <text x="630" y="500" font-size="16" text-anchor="middle">7</text>
+  
+  <!-- 结果说明 -->
+  <text x="400" y="550" font-size="18" text-anchor="middle" font-weight="bold">最大价值：7</text>
+  
+  <!-- 水印 -->
+  <text x="400" y="300" font-size="60" text-anchor="middle" fill="rgba(0,0,0,0.1)" font-weight="bold" transform="rotate(-30 400 300)">偷偷星球</text>
+</svg>

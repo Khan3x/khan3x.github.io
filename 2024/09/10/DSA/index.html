@@ -54,8 +54,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/ford.svg">
 <meta property="og:image" content="http://example.com/img/DSA/kadane.svg">
 <meta property="og:image" content="http://example.com/img/DSA/merge.svg">
+<meta property="og:image" content="http://example.com/img/DSA/01knapsnack.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-10-16T14:56:23.171Z">
+<meta property="article:modified_time" content="2024-10-16T16:12:40.143Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -257,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          13k 字
         
       </span>
     
@@ -268,7 +269,7 @@
         
         
         
-          102 分钟
+          109 分钟
         
       </span>
     
@@ -324,7 +325,7 @@
 <p>一些常见的数据结构的空间复杂度：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&gt; nums <span class="hljs-comment">// 三维数组：O(n^3)</span><br>vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; nums <span class="hljs-comment">// 二维数组：O(n^2)</span><br>stack&lt;<span class="hljs-type">int</span>&gt; st;      <span class="hljs-comment">// 栈：O(n)</span><br>deque&lt;<span class="hljs-type">int</span>&gt; que;    <span class="hljs-comment">// 双端队列：O(n)</span><br>list&lt;<span class="hljs-type">int</span>&gt; linkedList;   <span class="hljs-comment">// 链表：O(n)</span><br></code></pre></td></tr></table></figure>
 <div class="note note-success">
-            <p><strong>Time complexity</strong>: 时间复杂度是衡量算法效率的重要指标之一，它描述了算法执行所需时间随输入规模增长的变化情况。这是修考中必考的一个地方：<br>（1）如分析给出的代码的时间复杂度（Hint：关注for，while循环）（2）根据源代码优化时间复杂度设计新的算法（Hint：空间换时间）</p>
+            <p><strong>Time complexity</strong>: 时间复杂度是衡量算法效率的重要指标之一，它描述了算法执行所需时间随输入规模增长的变化情况。这是修考中必考的一个地方：（1）如分析给出的代码的时间复杂度（Hint：关注for，while循环）（2）根据源代码优化时间复杂度设计新的算法（Hint：空间换时间）</p>
           </div>
 <p>常见的时间复杂度有以下几种：</p>
 <p>O(1): <strong>常数时间复杂度</strong>，算法的执行时间不随输入规模变化。例如，访问数组中的某个元素。</p>
@@ -413,7 +414,7 @@
 <p>3）哈希函数：将键转换为数组索引的函数，好的哈希函数可以减少冲突（不同键映射到相同索引）。</p>
 <p>4）处理冲突：常用的方法包括<strong>链式法(chaining)<strong>和</strong>开放寻址法（open addressing）</strong>。<br><img src="/img/DSA/hash.svg" srcset="/img/loading.gif" lazyload alt="哈希表处理冲突演示" style="max-width: 100%; height: auto;" /></p>
 <p>为了减少哈希冲突，哈希映射的函数要尽量将不同的输入键均匀地映射到哈希表的不同索引，以减少冲突（即不同键映射到相同索引的情况）。</p>
-<h3 id="3-4-string"><a href="#3-4-string" class="headerlink" title="3.4 string"></a>3.4 string</h3><p>字符串这个数据结构直观易懂，主要涉及到的考点有KMP算法和sequence alignment算法。这里主要回顾一下KMP算法，sequence alignment会在后面动态规划章节中仔细讲解。</p>
+<h3 id="3-4-string"><a href="#3-4-string" class="headerlink" title="3.4 string"></a>3.4 string</h3><p>字符串这个数据结构直观易懂，主要涉及到的考点有KMP算法和sequence alignment算法。这里主要回顾一下KMP算法，关于string类型的其他考点：最长子序列问题和序列比对(Sequence Alignment)，会在后面动态规划章节中仔细讲解。</p>
 <h4 id="3-4-1-KMP算法"><a href="#3-4-1-KMP算法" class="headerlink" title="3.4.1 KMP算法"></a>3.4.1 KMP算法</h4><p>KMP算法可以说是学一次忘一次……建议考前一定要临时报佛脚记一下。这个算法的美妙之处就是在于优化了暴力匹配，用前缀表来跳过重复的匹配过程。前缀表就是模式串中每个位置的最长相等前缀和后缀的长度。在发生不匹配的情况下，将子串移动前一个字符串的前缀表的具体值。（感觉京大最喜欢考KMP算法了）<br><img src="/img/DSA/KMP.svg" srcset="/img/loading.gif" lazyload alt="KMP算法演示" style="max-width: 100%; height: auto;" /></p>
 <h2 id="4-Binary-Tree"><a href="#4-Binary-Tree" class="headerlink" title="4.Binary Tree"></a>4.Binary Tree</h2><p>关于二叉树的考点有许多，像是考二叉树的遍历，二叉搜索树（Binary Search Tree），最小生成树（MST），以及AVL树。首先需要了解二叉树的一些基本性质，例如每个节点的下标，以及二叉树的多种遍历方式。</p>
 <h3 id="4-1-Concepts-of-Binary-Tree"><a href="#4-1-Concepts-of-Binary-Tree" class="headerlink" title="4.1 Concepts of Binary Tree"></a>4.1 Concepts of Binary Tree</h3><img src="/img/DSA/binary_tree.svg" srcset="/img/loading.gif" lazyload alt="常见的二叉树" style="max-width: 100%; height: auto;" />
@@ -615,8 +616,41 @@ $$
 <p>Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].</p>
 <p>解决这道题的思路是：先排序让所有相邻的区间尽可能重合在一起(以开端最小优先，其次结尾最小次之)，然后一次遍历贪心地选择局部最优解。<br><img src="/img/DSA/merge.svg" srcset="/img/loading.gif" lazyload alt="合并区间算法演示" style="max-width: 100%; height: auto;" /></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 重载cmp函数，让区间的排列以开端最小优先，其次结尾最小优先</span><br>    <span class="hljs-function"><span class="hljs-type">static</span> <span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; a, vector&lt;<span class="hljs-type">int</span>&gt;&amp; b)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(a[<span class="hljs-number">0</span>] == b[<span class="hljs-number">0</span>]) <span class="hljs-keyword">return</span> a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] &lt; b[<span class="hljs-number">0</span>];<br>    &#125;<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">merge</span>(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; intervals) &#123;<br>        <span class="hljs-built_in">sort</span>(intervals.<span class="hljs-built_in">begin</span>(), intervals.<span class="hljs-built_in">end</span>(), cmp);<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; result;<br>        result.<span class="hljs-built_in">push_back</span>(intervals[<span class="hljs-number">0</span>]);<br>        <span class="hljs-comment">// 贪心地选择是否合并区间</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; intervals.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            <span class="hljs-comment">// 若不重合，则加入结果数组</span><br>            <span class="hljs-keyword">if</span>(intervals[i][<span class="hljs-number">0</span>] &gt; result.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>]) result.<span class="hljs-built_in">push_back</span>(intervals[i]);<br>            <span class="hljs-comment">// 若重合，则合并区间并贪心的选择区间结尾</span><br>            <span class="hljs-keyword">else</span> result.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(result.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>], intervals[i][<span class="hljs-number">1</span>]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h2 id="7-Dynamic-Programming"><a href="#7-Dynamic-Programming" class="headerlink" title="7. Dynamic Programming"></a>7. Dynamic Programming</h2><h2 id="8-P-NP-problem"><a href="#8-P-NP-problem" class="headerlink" title="8. P&#x2F;NP problem"></a>8. P&#x2F;NP problem</h2>
+<h2 id="7-Dynamic-Programming"><a href="#7-Dynamic-Programming" class="headerlink" title="7. Dynamic Programming"></a>7. Dynamic Programming</h2><p><strong>动态规划（Dynamic Programming, DP）</strong> 是一种用于解决最优化问题的算法设计技巧。它通过将问题分解为更小的子问题，并记录其解来<u>避免重复计算</u>，从而提高算法的效率。本章主要讲解5个经典DP问题：<em>斐波那契数列</em>，<em>背包问题</em>，<em>股票问题</em>，<em>最长公共子序列</em>，以及<em>序列比对问题</em>。</p>
+<h3 id="7-1-Fibonacci-Sequence"><a href="#7-1-Fibonacci-Sequence" class="headerlink" title="7.1 Fibonacci Sequence"></a>7.1 Fibonacci Sequence</h3><p>形如：$0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ….$的数列称之为斐波那契数，我们可以很轻易地得到递归式：$dp[n] &#x3D; dp[n-1] + dp[n-2]$,然后我们再对递归式子进行初始化：$dp[0] &#x3D; 1, dp[1] &#x3D; 1$, 我们就可以利用递归式求得所有的斐波那契数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> N)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (N &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> N;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">dp</span><span class="hljs-params">(N + <span class="hljs-number">1</span>)</span></span>;<br>        dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>        dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= N; i++) &#123;<br>            dp[i] = dp[i - <span class="hljs-number">1</span>] + dp[i - <span class="hljs-number">2</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[N];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="7-2-Knapsack-Problem"><a href="#7-2-Knapsack-Problem" class="headerlink" title="7.2 Knapsack Problem"></a>7.2 Knapsack Problem</h3><p>关于背包问题有三种：0-1背包，完全背包，多重背包。应对修考我认为掌握0-1背包问题就足够了。关于0-1背包的问题描述是：</p>
+<ol>
+<li>一组物品，每个物品都有一个重量和一个价值。</li>
+<li>一个背包，具有固定的容量。</li>
+</ol>
+<p>给定$n$个物品，每个物品$i$具有重量$w[i]$和价值$v[i]$，还有一个背包的最大容量$W$。目标是选择物品的组合，使得在不超过背包容量的情况下，背包中的物品总价值最大。</p>
+<p><strong>1.定义状态：</strong> $dp[i][j]$表示在考虑前$i$个物品，且背包容量为$j$时的最大价值。</p>
+<p><strong>2.状态转移方程：</strong> 对于每个物品$i$，有两个选择：</p>
+<ul>
+<li>不放入背包：此时最大价值为$dp[i-1][j]$。</li>
+<li>放入背包：此时最大价值为$dp[i-1][j - w[i]] + v[i]$，前提是当前物品的重量不超过背包容量 $j &gt;&#x3D; w[i]$。</li>
+</ul>
+<p>因此，状态转移方程为：<br>$$<br>dp[i][j] &#x3D; \begin{cases}<br>dp[i-1][j] &amp; \text{if } j &lt; w[i] \\<br>\max(dp[i-1][j], dp[i-1][j - w[i]] + v[i]) &amp; \text{if } j \geq w[i]<br>\end{cases}<br>$$</p>
+<p><strong>3.边界条件：</strong></p>
+<ul>
+<li>当没有物品可选时，最大价值为$0$，即 $(dp[0][j] &#x3D; 0)$。</li>
+<li>当背包容量为$0$时，最大价值也为$0$，即 $(dp[i][0] &#x3D; 0)$。</li>
+</ul>
+<p><strong>4.计算顺序：</strong></p>
+<p>先遍历物品再遍历背包更容易理解，从 $(i &#x3D; 1)$到 $(n)$，对于每个物品，再从 $(j &#x3D; 0)$到$(W)$计算。当然也可以先遍历背包再遍历物品，这里不过多赘述。</p>
+<p><strong>5.返回结果：</strong> 最终的最大价值为 $(dp[n][W])$。</p>
+<p>假设有以下物品和背包容量：</p>
+<ul>
+<li>物品 1：重量 &#x3D; 2，价值 &#x3D; 3</li>
+<li>物品 2：重量 &#x3D; 3，价值 &#x3D; 4</li>
+<li>物品 3：重量 &#x3D; 4，价值 &#x3D; 5</li>
+<li>物品 4：重量 &#x3D; 5，价值 &#x3D; 6</li>
+</ul>
+<p>背包容量为 5。<br><img src="/img/DSA/01knapsnack.svg" srcset="/img/loading.gif" lazyload alt="01背包遍历演示" style="max-width: 100%; height: auto;" /></p>
+<p>遍历的核心代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; w.<span class="hljs-built_in">size</span>(); i++) &#123; <span class="hljs-comment">// 遍历物品</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt;= W; j++) &#123; <span class="hljs-comment">// 遍历背包容量</span><br>            <span class="hljs-keyword">if</span> (j &lt; w[i]) dp[i][j] = dp[i - <span class="hljs-number">1</span>][j]; <span class="hljs-comment">// 装不下的情况</span><br>            <span class="hljs-keyword">else</span> dp[i][j] = <span class="hljs-built_in">max</span>(dp[i - <span class="hljs-number">1</span>][j], dp[i - <span class="hljs-number">1</span>][j - w[i]] + v[i]); <span class="hljs-comment">// 装下的情况</span><br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<h2 id="8-P-NP-problem"><a href="#8-P-NP-problem" class="headerlink" title="8. P&#x2F;NP problem"></a>8. P&#x2F;NP problem</h2>
                 
               </div>
             
