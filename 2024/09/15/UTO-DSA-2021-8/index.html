@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/wall.png">
+  <link rel="icon" href="/img/logo.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -19,12 +19,12 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Author: 偷偷  尊重原创，偷偷wx:LifeGoesOn_Rio               这道题的场景是实现一个排序算法，目的是优化时间复杂度。题目的策略是使用分治递归(Divide &amp; Conquer),在深度理解题目的场景下可以解决这道题目。             Firstly, read the pseudocode. 123456789101112131415161">
+    <meta name="description" content="Author: 偷偷  尊重原创，偷偷wx:LifeGoesOn_Rio               这道题的场景是实现一个排序算法，目的是优化时间复杂度。题目的策略是使用分治递归(Divide &amp; Conquer),在深度理解题目的场景下可以解决这道题目。            Firstly, read the pseudocode. &#x2F;&#x2F; return the least value">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2021年8月东大情理CS算法题解读">
 <meta property="og:url" content="http://toutou.zeabur.app/2024/09/15/UTO-DSA-2021-8/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="Author: 偷偷  尊重原创，偷偷wx:LifeGoesOn_Rio               这道题的场景是实现一个排序算法，目的是优化时间复杂度。题目的策略是使用分治递归(Divide &amp; Conquer),在深度理解题目的场景下可以解决这道题目。             Firstly, read the pseudocode. 123456789101112131415161">
+<meta property="og:description" content="Author: 偷偷  尊重原创，偷偷wx:LifeGoesOn_Rio               这道题的场景是实现一个排序算法，目的是优化时间复杂度。题目的策略是使用分治递归(Divide &amp; Conquer),在深度理解题目的场景下可以解决这道题目。            Firstly, read the pseudocode. &#x2F;&#x2F; return the least value">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DSA/swap_compare.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DSA/swap_compare2.jpg">
@@ -51,6 +51,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
@@ -110,7 +112,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>偷偷星球</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -206,7 +208,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/wall.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -235,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          700 字
+          667 字
         
       </span>
     
@@ -291,38 +293,77 @@
                 <h1 id="Author-偷偷"><a href="#Author-偷偷" class="headerlink" title="Author: 偷偷  "></a><center>Author: 偷偷  </center></h1><h1 id="尊重原创，偷偷wx-LifeGoesOn-Rio"><a href="#尊重原创，偷偷wx-LifeGoesOn-Rio" class="headerlink" title="尊重原创，偷偷wx:LifeGoesOn_Rio  "></a><center>尊重原创，偷偷wx:LifeGoesOn_Rio  </center></h1><div class="note note-success">
             <p>这道题的场景是实现一个排序算法，目的是优化时间复杂度。题目的策略是使用分治递归(Divide &amp; Conquer),在深度理解题目的场景下可以解决这道题目。</p>
           </div>
-
 <p>Firstly, read the pseudocode.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// return the least value that is &gt;= kl/m</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">multfrac</span><span class="hljs-params">(<span class="hljs-type">int</span> k, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> m)</span>&#123;<br>    <span class="hljs-keyword">return</span> (k * l + (m - <span class="hljs-number">1</span>)) / m;<br>&#125;<br><br><span class="hljs-comment">// *q &lt;= *p</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">compare_swap</span><span class="hljs-params">(<span class="hljs-type">int</span> *p, <span class="hljs-type">int</span> *q)</span>&#123;<br>    <span class="hljs-keyword">if</span>(*p &gt; *q)&#123;<br>        <span class="hljs-type">int</span> tmp = *p;<br>        *p = *q;<br>        *q = tmp;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// sort in ascending order</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">mysort</span><span class="hljs-params">(<span class="hljs-type">int</span> a[], <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span>&#123;<br>    <span class="hljs-type">int</span> k = j - i;  <span class="hljs-comment">// number of elements</span><br>    <span class="hljs-keyword">if</span>(k &lt; <span class="hljs-number">4</span>)&#123;<br>        <span class="hljs-comment">/** fill in the  blanks **/</span> <br><br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        mysort(a, i, i + multfrac(k, x, w));<br>        mysort(a, j - multfrac(k, y, w), j);<br>        mysort(a, i, i + multfrac(k, z, w));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// return the least value that is >= kl/m</span>
+<span class="token keyword">int</span> <span class="token function">multfrac</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>k <span class="token operator">*</span> l <span class="token operator">+</span> <span class="token punctuation">(</span>m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-<p>(1) 当k &lt; 4, 即元素个数小于4时做升序排序，分类讨论即可。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(k &lt; <span class="hljs-number">4</span>)&#123;<br>    <span class="hljs-keyword">if</span>(k &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span>;   <span class="hljs-comment">// 元素个数不多于1时，不做任何处理</span><br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(k == <span class="hljs-number">2</span>) <span class="hljs-built_in">compare_swap</span>(a[i], a[i + <span class="hljs-number">1</span>]); <span class="hljs-comment">// 比较交换一次</span><br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(k == <span class="hljs-number">3</span>)&#123;<br>        <span class="hljs-built_in">compare_swap</span>(a[i], a[i + <span class="hljs-number">1</span>]);<br>        <span class="hljs-built_in">compare_swap</span>(a[i + <span class="hljs-number">1</span>], a[i + <span class="hljs-number">2</span>]);<br>        <span class="hljs-built_in">compare_swap</span>(a[i], a[i + <span class="hljs-number">1</span>]);<br>    &#125;  <span class="hljs-comment">// 依次比较三次</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>算法详细过程如下：<br><img src="/img/DSA/swap_compare.jpg" srcset="/img/loading.gif" lazyload alt="交换流程演示" style="max-width: 100%; height: auto;" /></p>
+<span class="token comment">// *q &lt;= *p</span>
+<span class="token keyword">void</span> <span class="token function">compare_swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>q<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">*</span>p <span class="token operator">></span> <span class="token operator">*</span>q<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> tmp <span class="token operator">=</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+        <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">*</span>q<span class="token punctuation">;</span>
+        <span class="token operator">*</span>q <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// sort in ascending order</span>
+<span class="token keyword">void</span> <span class="token function">mysort</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> k <span class="token operator">=</span> j <span class="token operator">-</span> i<span class="token punctuation">;</span>  <span class="token comment">// number of elements</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">/** fill in the  blanks **/</span> 
+
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token function">mysort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token function">multfrac</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> x<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">mysort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token function">multfrac</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">mysort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token function">multfrac</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> z<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>(1) 当k &lt; 4, 即元素个数小于4时做升序排序，分类讨论即可。<br><figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>   <span class="token comment">// 元素个数不多于1时，不做任何处理</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token function">compare_swap</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 比较交换一次</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">compare_swap</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">compare_swap</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">compare_swap</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>  <span class="token comment">// 依次比较三次</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><br>算法详细过程如下：<br><img src="/img/DSA/swap_compare.jpg" srcset="/img/loading.gif" lazyload alt="交换流程演示" style="max-width: 100%; height: auto;" /></p>
 <p>(2) </p>
-<p>$$<br>T(n)&#x3D;<br>\begin{cases}<br>1,\quad n\leq 3 \\<br>n^{\log_{4&#x2F;3}{3}}, \quad n&gt;3<br>\end{cases}<br>$$</p>
-<p>这里也是分类讨论：</p>
-<p>当n &lt;&#x3D; 3时，比较次数不随输入规模变化，因此为1；</p>
+<script type="math/tex; mode=display">
+T(n)=
+\begin{cases}
+1,\quad n\leq 3 \\\\
+n^{\log_{4/3}{3}}, \quad n>3
+\end{cases}</script><p>这里也是分类讨论：</p>
+<p>当n &lt;= 3时，比较次数不随输入规模变化，因此为1；</p>
 <p>当n &gt; 3时，代入分析：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">mysort</span>(a, i, i + <span class="hljs-built_in">multfrac</span>(k, x, w)); <span class="hljs-comment">// sort前3/4规模的数组</span><br><span class="hljs-built_in">mysort</span>(a, j - <span class="hljs-built_in">multfrac</span>(k, y, w), j); <span class="hljs-comment">// sort后3/4规模的数组</span><br><span class="hljs-built_in">mysort</span>(a, i, i + <span class="hljs-built_in">multfrac</span>(k, z, w)); <span class="hljs-comment">// sort前3/4规模的数组</span><br></code></pre></td></tr></table></figure>
-<img src="/img/DSA/swap_compare2.jpg" srcset="/img/loading.gif" lazyload alt="递归树演示" style="max-width: 100%; height: auto;" />
-
-<p>根据递归树可以写出主定理公式(Master theorem):<br>$$T(n) &#x3D; 3T(3n&#x2F;4) + O(n) $$<br>根据套路：这里b &#x3D; 4&#x2F;3, a &#x3D; 3.<br>$$O(n ^{\log_{b}{a}}) &#x3D; O(n^{log_{4&#x2F;3}{3}}) &gt; O(n) $$<br>所以有<br>$$T(n) &#x3D; O(n^{\log_{4&#x2F;3}{3}})$$</p>
-<p>(3) (4, 2, 3, 3), (4, 3, 2, 3), (4, 3, 3, 2) can always work properly. (4, 2, 3, 2) can’t always work properly.</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">mysort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token function">multfrac</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> x<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// sort前3/4规模的数组</span>
+<span class="token function">mysort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token function">multfrac</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> y<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// sort后3/4规模的数组</span>
+<span class="token function">mysort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token function">multfrac</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> z<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// sort前3/4规模的数组</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<p><img src="/img/DSA/swap_compare2.jpg" srcset="/img/loading.gif" lazyload alt="递归树演示" style="max-width: 100%; height: auto;" /></p>
+<p>根据递归树可以写出主定理公式(Master theorem):</p>
+<script type="math/tex; mode=display">T(n) = 3T(3n/4) + O(n)</script><p>根据套路：这里b = 4/3, a = 3.</p>
+<script type="math/tex; mode=display">O(n ^{\log_{b}{a}}) = O(n^{log_{4/3}{3}}) > O(n)</script><p>所以有</p>
+<script type="math/tex; mode=display">T(n) = O(n^{\log_{4/3}{3}})</script><p>(3) (4, 2, 3, 3), (4, 3, 2, 3), (4, 3, 3, 2) can always work properly. (4, 2, 3, 2) can’t always work properly.</p>
 <blockquote>
-<p>可以看下图演示：前两次的sort调用的交集部分是排好数组最大的部分，第三次sort调用要覆盖剩余没有排好的部分；对于(4, 2, 3, 2), 前两次调用排好了数组最大的1&#x2F;4部分，所以第三次调用至少要覆盖数组前3&#x2F;4的大小，而第三次调用只覆盖了前1&#x2F;2，所以这个组合不行。</p>
+<p>可以看下图演示：前两次的sort调用的交集部分是排好数组最大的部分，第三次sort调用要覆盖剩余没有排好的部分；对于(4, 2, 3, 2), 前两次调用排好了数组最大的1/4部分，所以第三次调用至少要覆盖数组前3/4的大小，而第三次调用只覆盖了前1/2，所以这个组合不行。</p>
 </blockquote>
-<img src="/img/DSA/swap_compare3.jpg" srcset="/img/loading.gif" lazyload alt="排序演示" style="max-width: 100%; height: auto;" />
-
-<p>(4)<br>$$<br>\begin{cases}<br>    x + y &gt; w \\<br>    x + y + z &gt;&#x3D; 2w<br>\end{cases}<br>$$</p>
-<blockquote>
+<p><img src="/img/DSA/swap_compare3.jpg" srcset="/img/loading.gif" lazyload alt="排序演示" style="max-width: 100%; height: auto;" /></p>
+<p>(4)</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    x + y > w \\\\
+    x + y + z >= 2w
+\end{cases}</script><blockquote>
 <p>在解决第三题后，第四题就非常容易了。</p>
 </blockquote>
-<img src="/img/DSA/swap_compare4.jpg" srcset="/img/loading.gif" lazyload alt="排序演示" style="max-width: 100%; height: auto;" />
-
-<p>视数组的大小为1，第一次调用排好前x&#x2F;w部分的元素，第二次大小排好后y&#x2F;w部分的元素。所以排序需满足：</p>
+<p><img src="/img/DSA/swap_compare4.jpg" srcset="/img/loading.gif" lazyload alt="排序演示" style="max-width: 100%; height: auto;" /></p>
+<p>视数组的大小为1，第一次调用排好前x/w部分的元素，第二次大小排好后y/w部分的元素。所以排序需满足：</p>
 <ol>
 <li>前两次调用的范围必须要有交集</li>
-<li>第三次调用必须要覆盖完前两次调用的没有排好的部分。因此有：<br>$$ x&#x2F; w + y &#x2F; w &gt; 1$$<br>$$ z &#x2F; w &gt;&#x3D;  1 - (x + y - w) &#x2F; w $$</li>
+<li>第三次调用必须要覆盖完前两次调用的没有排好的部分。因此有：<script type="math/tex; mode=display">x/ w + y / w > 1</script><script type="math/tex; mode=display">z / w >=  1 - (x + y - w) / w</script></li>
 </ol>
 
                 
@@ -413,9 +454,21 @@
             
               
               
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
                   </span>
                 </a>
               
@@ -502,6 +555,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -642,6 +701,8 @@
 </script>
 
 
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
@@ -694,6 +755,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
