@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350">
+  <style>
+    text { font-family: Arial, sans-serif; font-size: 14px; }
+    .small { font-size: 10px; }
+    .watermark { font-size: 24px; fill: rgba(0,0,0,0.1); }
+  </style>
+  
+  <!-- 背景网格 -->
+  <g stroke="#ccc" stroke-width="1">
+    <line x1="50" y1="50" x2="350" y2="50"/>
+    <line x1="50" y1="100" x2="350" y2="100"/>
+    <line x1="50" y1="150" x2="350" y2="150"/>
+    <line x1="50" y1="200" x2="350" y2="200"/>
+    <line x1="50" y1="250" x2="350" y2="250"/>
+    <line x1="50" y1="300" x2="350" y2="300"/>
+    
+    <line x1="50" y1="50" x2="50" y2="300"/>
+    <line x1="100" y1="50" x2="100" y2="300"/>
+    <line x1="150" y1="50" x2="150" y2="300"/>
+    <line x1="200" y1="50" x2="200" y2="300"/>
+    <line x1="250" y1="50" x2="250" y2="300"/>
+    <line x1="300" y1="50" x2="300" y2="300"/>
+    <line x1="350" y1="50" x2="350" y2="300"/>
+  </g>
+  
+  <!-- 序列标签 -->
+  <text x="30" y="65" text-anchor="end">-</text>
+  <text x="30" y="115" text-anchor="end">A</text>
+  <text x="30" y="165" text-anchor="end">C</text>
+  <text x="30" y="215" text-anchor="end">A</text>
+  <text x="30" y="265" text-anchor="end">C</text>
+  <text x="30" y="315" text-anchor="end">A</text>
+  
+  <text x="75" y="30" text-anchor="middle">-</text>
+  <text x="125" y="30" text-anchor="middle">A</text>
+  <text x="175" y="30" text-anchor="middle">G</text>
+  <text x="225" y="30" text-anchor="middle">A</text>
+  <text x="275" y="30" text-anchor="middle">C</text>
+  <text x="325" y="30" text-anchor="middle">A</text>
+  
+  <!-- 得分和箭头 -->
+  <g fill="#000">
+    <text x="60" y="65" class="small">0</text>
+    <text x="110" y="65" class="small">-2</text>
+    <text x="160" y="65" class="small">-4</text>
+    <text x="210" y="65" class="small">-6</text>
+    <text x="260" y="65" class="small">-8</text>
+    <text x="310" y="65" class="small">-10</text>
+    
+    <text x="60" y="115" class="small">-2</text>
+    <text x="110" y="115" class="small">1</text>
+    <text x="160" y="115" class="small">-1</text>
+    <text x="210" y="115" class="small">-3</text>
+    <text x="260" y="115" class="small">-5</text>
+    <text x="310" y="115" class="small">-7</text>
+    
+    <text x="60" y="165" class="small">-4</text>
+    <text x="110" y="165" class="small">-1</text>
+    <text x="160" y="165" class="small">0</text>
+    <text x="210" y="165" class="small">-2</text>
+    <text x="260" y="165" class="small">-4</text>
+    <text x="310" y="165" class="small">-6</text>
+    
+    <text x="60" y="215" class="small">-6</text>
+    <text x="110" y="215" class="small">-3</text>
+    <text x="160" y="215" class="small">-2</text>
+    <text x="210" y="215" class="small">1</text>
+    <text x="260" y="215" class="small">-1</text>
+    <text x="310" y="215" class="small">-3</text>
+    
+    <text x="60" y="265" class="small">-8</text>
+    <text x="110" y="265" class="small">-5</text>
+    <text x="160" y="265" class="small">-4</text>
+    <text x="210" y="265" class="small">-1</text>
+    <text x="260" y="265" class="small">2</text>
+    <text x="310" y="265" class="small">0</text>
+    
+    <text x="60" y="315" class="small">-10</text>
+    <text x="110" y="315" class="small">-7</text>
+    <text x="160" y="315" class="small">-6</text>
+    <text x="210" y="315" class="small">-3</text>
+    <text x="260" y="315" class="small">0</text>
+    <text x="310" y="315" class="small">3</text>
+  </g>
+  
+  <!-- 最优路径 -->
+  <g stroke="red" stroke-width="2" fill="none">
+    <path d="M305,305 L255,255 L205,205 L155,155 L105,105 L55,55"/>
+  </g>
+  
+  <!-- 水印 -->
+  <text x="200" y="175" class="watermark" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45, 200, 175)">偷偷星球</text>
+  
+  <!-- 罚分机制说明 -->
+  <text x="50" y="340" class="small">罚分机制：匹配 +1，不匹配 -1，空位 -2</text>
+  
+  <!-- 图例 -->
+  <text x="50" y="325" class="small">红线：最优比对路径</text>
+</svg>

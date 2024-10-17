@@ -56,8 +56,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/merge.svg">
 <meta property="og:image" content="http://example.com/img/DSA/01knapsnack.svg">
 <meta property="og:image" content="http://example.com/img/DSA/lcs.svg">
+<meta property="og:image" content="http://example.com/img/DSA/needle.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-10-17T05:04:15.558Z">
+<meta property="article:modified_time" content="2024-10-17T10:45:32.596Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -259,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k 字
+          15k 字
         
       </span>
     
@@ -270,7 +271,7 @@
         
         
         
-          116 分钟
+          124 分钟
         
       </span>
     
@@ -435,7 +436,7 @@
 
 <h3 id="4-2-Tree-Traversal"><a href="#4-2-Tree-Traversal" class="headerlink" title="4.2 Tree Traversal"></a>4.2 Tree Traversal</h3><p><strong>层序遍历（Level Order Traversal）：</strong> 开一个队列处理一层的节点并放入下一层的节点。这个遍历也属于<strong>广度优先遍历（BFS）</strong>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">levelOrder</span>(TreeNode* root) &#123;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; res;<br>        <span class="hljs-keyword">if</span>(!root) <span class="hljs-keyword">return</span> res;<br>        queue&lt;TreeNode*&gt; que;<br>        que.<span class="hljs-built_in">push</span>(root);<br>        <span class="hljs-keyword">while</span>(!que.<span class="hljs-built_in">empty</span>())&#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; nums;<br>            <span class="hljs-type">int</span> n = que.<span class="hljs-built_in">size</span>();<br>            <span class="hljs-keyword">while</span>(n--)&#123;<br>                <span class="hljs-keyword">auto</span> node = que.<span class="hljs-built_in">front</span>();<br>                que.<span class="hljs-built_in">pop</span>();<br>                nums.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>                <span class="hljs-keyword">if</span>(node-&gt;left) que.<span class="hljs-built_in">push</span>(node-&gt;left);<br>                <span class="hljs-keyword">if</span>(node-&gt;right) que.<span class="hljs-built_in">push</span>(node-&gt;right);<br>            &#125;<br>            res.<span class="hljs-built_in">push_back</span>(nums);<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br></code></pre></td></tr></table></figure>
-<p>二叉树的<strong>深度优先遍历（DFS）</strong>可以分为三种：前序遍历，中序遍历和后序遍历。</p>
+<p>二叉树的<strong>深度优先遍历（DFS）</strong> 可以分为三种：前序遍历，中序遍历和后序遍历。</p>
 <p><strong>前序遍历（Preorder Traversal）：</strong>  <em>根-&gt;左-&gt;右</em>，递归实现</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">int</span>&gt; res;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(!root) <span class="hljs-keyword">return</span> res;<br>        res.<span class="hljs-built_in">push_back</span>(root-&gt;val);<br>        <span class="hljs-built_in">preorderTraversal</span>(root-&gt;left);<br>        <span class="hljs-built_in">preorderTraversal</span>(root-&gt;right);<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br></code></pre></td></tr></table></figure>
 <p>当然也可以开一个栈来实现</p>
@@ -716,7 +717,35 @@ $$
 <p><strong>返回结果：</strong></p>
 <p>最终结果为 <code>&#39;dp[n][m]&#39;</code>，即考虑所有字符的最长公共子序列的长度。<br><img src="/img/DSA/lcs.svg" srcset="/img/loading.gif" lazyload alt="LCS遍历演示" style="max-width: 100%; height: auto;" /></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">longestCommonSubsequence</span><span class="hljs-params">(string text1, string text2)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = text<span class="hljs-number">1.</span><span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> m = text<span class="hljs-number">2.</span><span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(n + <span class="hljs-number">1</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(m + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>));<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++)&#123;<br>                <span class="hljs-keyword">if</span>(text1[i - <span class="hljs-number">1</span>] == text2[j - <span class="hljs-number">1</span>]) dp[i][j] = dp[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">else</span> dp[i][j] = <span class="hljs-built_in">max</span>(dp[i][j - <span class="hljs-number">1</span>], dp[i - <span class="hljs-number">1</span>][j]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[n][m];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h3 id="7-5-Global-Alignment"><a href="#7-5-Global-Alignment" class="headerlink" title="7.5 Global Alignment"></a>7.5 Global Alignment</h3><p>马不停蹄更新中</p>
+<h3 id="7-5-Sequence-Alignment"><a href="#7-5-Sequence-Alignment" class="headerlink" title="7.5 Sequence Alignment"></a>7.5 Sequence Alignment</h3><p><strong>序列比对（Sequence Alignment）</strong> 是生物信息学中的一个核心问题，用于比较两个或多个生物序列（如DNA、RNA或蛋白质）的相似性。其目的是通过对比序列中的元素（碱基或氨基酸）找出它们之间的最优匹配方式，进而揭示它们的进化关系、功能相似性或结构上的保守性。</p>
+<h4 id="7-5-1-Needleman–Wunsch-algorithm"><a href="#7-5-1-Needleman–Wunsch-algorithm" class="headerlink" title="7.5.1 Needleman–Wunsch algorithm"></a>7.5.1 Needleman–Wunsch algorithm</h4><p>Needleman-Wunsch算法是用于进行全局序列比对的经典算法，特别适用于对比两个生物序列（如DNA、RNA或蛋白质）时，将它们的整个序列进行对齐。它采用动态规划的思想来寻找两个序列的最优对齐方式。<br><img src="/img/DSA/needle.svg" srcset="/img/loading.gif" lazyload alt="序列比对算法演示" style="max-width: 100%; height: auto;" /></p>
+<p><strong>Needleman-Wunsch算法步骤：</strong></p>
+<p><strong>定义状态：</strong></p>
+<p>设有两个序列 <code>A</code> 和 <code>B</code>，长度分别为 <code>n</code> 和 <code>m</code>。<br>创建一个大小为 <code>(n+1) x (m+1)</code> 的二维矩阵 <code>dp</code>，其中 <code>dp[i][j]</code> 表示序列 <code>A</code> 的前 <code>i</code> 个字符与序列 <code>B</code> 的前 <code>j</code> 个字符的最优对齐得分。</p>
+<p><strong>罚分机制：</strong></p>
+<ul>
+<li><strong>匹配</strong>：当 <code>A[i-1] == B[j-1]</code> 时，表示两个字符相同，得分为 <code>match score</code>。</li>
+<li><strong>不匹配</strong>：当 <code>A[i-1] != B[j-1]</code> 时，表示两个字符不同，得分为 <code>mismatch penalty</code>。</li>
+<li><strong>Gap</strong>：当在序列 <code>A</code> 或 <code>B</code> 中插入一个字符时，得分为 <code>gap penalty</code>。</li>
+</ul>
+<p><strong>初始化：</strong></p>
+<ul>
+<li>第一行和第一列表示序列与空序列的比对。比对空序列时，每个字符都需要插入或删除，因此使用缺口罚分（gap penalty）。</li>
+<li>初始化 <code>dp[0][0] = 0</code>，代表两个空序列的得分为 0。</li>
+<li>初始化第一行：<code>dp[0][j] = j * gap penalty</code>，表示序列 <code>B</code> 的前 <code>j</code> 个字符与空序列的比对得分。</li>
+<li>初始化第一列：<code>dp[i][0] = i * gap penalty</code>，表示序列 <code>A</code> 的前 <code>i</code> 个字符与空序列的比对得分。</li>
+</ul>
+<p><strong>状态转移方程：</strong>对于矩阵中的每个 <code>dp[i][j]</code>，有三种可能的情况：</p>
+<ol>
+<li><strong>匹配</strong>：如果 <code>A[i-1] == B[j-1]</code>，即两个字符相同，则可以匹配，得分为 <code>dp[i-1][j-1] + match score</code>。</li>
+<li><strong>不匹配</strong>：如果 <code>A[i-1] != B[j-1]</code>，则可以进行替换，得分为 <code>dp[i-1][j-1] + mismatch penalty</code>。</li>
+<li><strong>插入&#x2F;删除（Gap）</strong>：在序列 <code>A</code> 或 <code>B</code> 中插入一个字符，得分为 <code>dp[i][j-1] + gap penalty</code> 或 <code>dp[i-1][j] + gap penalty</code>。</li>
+</ol>
+<p>取这三种操作中的最大值更新 <code>dp[i][j]</code>，即：</p>
+<p>$$<br>dp[i][j] &#x3D; \max\left(dp[i-1][j-1] + \text{(match&#x2F;mismatch score)}, dp[i-1][j] + \text{gap penalty}, dp[i][j-1] + \text{gap penalty}\right)<br>$$</p>
+<p><strong>回溯：</strong>填完矩阵后，从右下角 <code>dp[n][m]</code> 开始回溯，找出最优路径，从而得到序列 <code>A</code> 和 <code>B</code> 的最优全局对齐方案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> n = A.<span class="hljs-built_in">size</span>();<br><span class="hljs-type">int</span> m = B.<span class="hljs-built_in">size</span>();<br>vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(n + <span class="hljs-number">1</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(m + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>));<br><br><span class="hljs-comment">// 初始化：处理空序列的情况</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) dp[i][<span class="hljs-number">0</span>] = i * gap_penalty;  <span class="hljs-comment">// 第一列，表示A的前i个字符和空序列的比对</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) dp[<span class="hljs-number">0</span>][j] = j * gap_penalty;  <span class="hljs-comment">// 第一行，表示B的前j个字符和空序列的比对</span><br><br><span class="hljs-comment">// 填充 dp 表</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>        <span class="hljs-comment">// 1. 匹配或不匹配的情况</span><br>        <span class="hljs-keyword">if</span>(A[i<span class="hljs-number">-1</span>] == B[j<span class="hljs-number">-1</span>]) &#123;<br>            <span class="hljs-comment">// 如果当前字符相等，则进行匹配，加上 match_score</span><br>            <span class="hljs-type">int</span> match = dp[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + match_score;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// 如果当前字符不相等，则进行替换，加上 mismatch_penalty</span><br>            <span class="hljs-type">int</span> mismatch = dp[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + mismatch_penalty;<br>        &#125;<br>        <br>        <span class="hljs-comment">// 2. 插入的情况</span><br>        <span class="hljs-type">int</span> insert = dp[i][j<span class="hljs-number">-1</span>] + gap_penalty;  <span class="hljs-comment">// 在序列 A 中插入 gap</span><br><br>        <span class="hljs-comment">// 3. 删除的情况</span><br>        <span class="hljs-type">int</span> del = dp[i<span class="hljs-number">-1</span>][j] + gap_penalty;     <span class="hljs-comment">// 在序列 B 中插入 gap</span><br>        <br>        <span class="hljs-comment">// 取三种操作的最大值来更新 dp[i][j]</span><br>        dp[i][j] = <span class="hljs-built_in">max</span>(&#123;dp[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + (A[i<span class="hljs-number">-1</span>] == B[j<span class="hljs-number">-1</span>] ? match_score : mismatch_penalty), insert, del&#125;);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 最终结果是 dp[n][m]，表示A和B的最优全局比对得分</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="8-P-NP-problem"><a href="#8-P-NP-problem" class="headerlink" title="8. P&#x2F;NP problem"></a>8. P&#x2F;NP problem</h2>
                 
               </div>
