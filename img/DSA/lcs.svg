@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <style>
+    .grid { stroke: #ccc; stroke-width: 1; }
+    .text { font-family: Arial, sans-serif; font-size: 14px; }
+    .highlight { fill: #ffff00; }
+    .arrow { fill: none; stroke: #ff0000; stroke-width: 2; }
+    .watermark { font-family: Arial, sans-serif; font-size: 40px; fill: rgba(0,0,0,0.1); }
+  </style>
+
+  <!-- 网格 -->
+  <g>
+    <rect x="50" y="50" width="500" height="300" fill="none" stroke="#000" />
+    <line x1="50" y1="100" x2="550" y2="100" class="grid" />
+    <line x1="50" y1="150" x2="550" y2="150" class="grid" />
+    <line x1="50" y1="200" x2="550" y2="200" class="grid" />
+    <line x1="50" y1="250" x2="550" y2="250" class="grid" />
+    <line x1="50" y1="300" x2="550" y2="300" class="grid" />
+    <line x1="150" y1="50" x2="150" y2="350" class="grid" />
+    <line x1="250" y1="50" x2="250" y2="350" class="grid" />
+    <line x1="350" y1="50" x2="350" y2="350" class="grid" />
+    <line x1="450" y1="50" x2="450" y2="350" class="grid" />
+  </g>
+
+  <!-- 文本1 -->
+  <text x="100" y="40" class="text" text-anchor="middle"></text>
+  <text x="200" y="40" class="text" text-anchor="middle">A</text>
+  <text x="300" y="40" class="text" text-anchor="middle">B</text>
+  <text x="400" y="40" class="text" text-anchor="middle">C</text>
+  <text x="500" y="40" class="text" text-anchor="middle">D</text>
+
+  <!-- 文本2 -->
+  <text x="30" y="75" class="text" text-anchor="middle"></text>
+  <text x="30" y="125" class="text" text-anchor="middle">A</text>
+  <text x="30" y="175" class="text" text-anchor="middle">C</text>
+  <text x="30" y="225" class="text" text-anchor="middle">E</text>
+  <text x="30" y="275" class="text" text-anchor="middle">D</text>
+  <text x="30" y="325" class="text" text-anchor="middle">F</text>
+
+  <!-- DP值 -->
+  <text x="75" y="75" class="text" text-anchor="middle">0</text>
+  <text x="175" y="75" class="text" text-anchor="middle">0</text>
+  <text x="275" y="75" class="text" text-anchor="middle">0</text>
+  <text x="375" y="75" class="text" text-anchor="middle">0</text>
+  <text x="475" y="75" class="text" text-anchor="middle">0</text>
+  <text x="575" y="75" class="text" text-anchor="middle">0</text>
+
+  <text x="75" y="125" class="text" text-anchor="middle">0</text>
+  <text x="175" y="125" class="text" text-anchor="middle">1</text>
+  <text x="275" y="125" class="text" text-anchor="middle">1</text>
+  <text x="375" y="125" class="text" text-anchor="middle">1</text>
+  <text x="475" y="125" class="text" text-anchor="middle">1</text>
+  <text x="575" y="125" class="text" text-anchor="middle">1</text>
+
+  <text x="75" y="175" class="text" text-anchor="middle">0</text>
+  <text x="175" y="175" class="text" text-anchor="middle">1</text>
+  <text x="275" y="175" class="text" text-anchor="middle">1</text>
+  <text x="375" y="175" class="text" text-anchor="middle">2</text>
+  <text x="475" y="175" class="text" text-anchor="middle">2</text>
+  <text x="575" y="175" class="text" text-anchor="middle">2</text>
+
+  <text x="75" y="225" class="text" text-anchor="middle">0</text>
+  <text x="175" y="225" class="text" text-anchor="middle">1</text>
+  <text x="275" y="225" class="text" text-anchor="middle">1</text>
+  <text x="375" y="225" class="text" text-anchor="middle">2</text>
+  <text x="475" y="225" class="text" text-anchor="middle">2</text>
+  <text x="575" y="225" class="text" text-anchor="middle">2</text>
+
+  <text x="75" y="275" class="text" text-anchor="middle">0</text>
+  <text x="175" y="275" class="text" text-anchor="middle">1</text>
+  <text x="275" y="275" class="text" text-anchor="middle">1</text>
+  <text x="375" y="275" class="text" text-anchor="middle">2</text>
+  <text x="475" y="275" class="text" text-anchor="middle">3</text>
+  <text x="575" y="275" class="text" text-anchor="middle">3</text>
+
+  <text x="75" y="325" class="text" text-anchor="middle">0</text>
+  <text x="175" y="325" class="text" text-anchor="middle">1</text>
+  <text x="275" y="325" class="text" text-anchor="middle">1</text>
+  <text x="375" y="325" class="text" text-anchor="middle">2</text>
+  <text x="475" y="325" class="text" text-anchor="middle">3</text>
+  <text x="575" y="325" class="text" text-anchor="middle">3</text>
+
+  <!-- 高亮和箭头 -->
+  <rect x="450" y="250" width="100" height="50" class="highlight" />
+  <path d="M500 275 L450 225 M500 275 L550 275" class="arrow" />
+  <path d="M500 275 L500 225" class="arrow" />
+
+  <!-- 水印 -->
+  <text x="300" y="200" class="watermark" text-anchor="middle" dominant-baseline="middle">偷偷星球</text>
+</svg>

@@ -39,5 +39,5 @@
   <text x="50" y="320" font-size="16" font-weight="bold">合并后的区间：</text>
   
   <!-- 水印 -->
-  <text x="400" y="250" font-size="48" text-anchor="middle" fill="rgba(0,0,0,0.1)" font-weight="bold" transform="rotate(-30 400 250)">偷偷世界</text>
+  <text x="400" y="250" font-size="48" text-anchor="middle" fill="rgba(0,0,0,0.1)" font-weight="bold" transform="rotate(-30 400 250)">偷偷星球</text>
 </svg>

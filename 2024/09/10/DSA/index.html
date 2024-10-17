@@ -55,8 +55,9 @@
 <meta property="og:image" content="http://example.com/img/DSA/kadane.svg">
 <meta property="og:image" content="http://example.com/img/DSA/merge.svg">
 <meta property="og:image" content="http://example.com/img/DSA/01knapsnack.svg">
+<meta property="og:image" content="http://example.com/img/DSA/lcs.svg">
 <meta property="article:published_time" content="2024-09-10T15:51:46.000Z">
-<meta property="article:modified_time" content="2024-10-17T04:39:45.876Z">
+<meta property="article:modified_time" content="2024-10-17T05:04:15.558Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -258,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k 字
+          14k 字
         
       </span>
     
@@ -269,7 +270,7 @@
         
         
         
-          113 分钟
+          116 分钟
         
       </span>
     
@@ -663,7 +664,7 @@ $$
 <ul>
 <li>Input: prices &#x3D; [7,1,5,3,6,4]</li>
 <li>Output: 7</li>
-<li>Explanation: Buy on day 2 (price &#x3D; 1) and sell on day 3 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.<br>Then buy on day 4 (price &#x3D; 3) and sell on day 5 (price &#x3D; 6), profit &#x3D; 6-3 &#x3D; 3.<br>Total profit is 4 + 3 &#x3D; 7.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(n, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">2</span>, <span class="hljs-number">0</span>));<br>        dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = -prices[<span class="hljs-number">0</span>];       <span class="hljs-comment">// have the stock on the day 0;</span><br>        dp[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;               <span class="hljs-comment">// no stock on the day 0;</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; prices.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            dp[i][<span class="hljs-number">0</span>] = <span class="hljs-built_in">max</span>(dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>], dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] - prices[i]);<br>            dp[i][<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>], dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + prices[i]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[n - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]; <span class="hljs-comment">// no the stock on the day n - 1</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+<li>Explanation: Buy on day 2 (price &#x3D; 1) and sell on day 3 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.<br>Then buy on day 4 (price &#x3D; 3) and sell on day 5 (price &#x3D; 6), profit &#x3D; 6-3 &#x3D; 3.<br>Total profit is 4 + 3 &#x3D; 7.<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(n, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">2</span>, <span class="hljs-number">0</span>));<br>        dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = -prices[<span class="hljs-number">0</span>];       <span class="hljs-comment">// have the stock on the day 0;</span><br>        dp[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;               <span class="hljs-comment">// no stock on the day 0;</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; prices.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            dp[i][<span class="hljs-number">0</span>] = <span class="hljs-built_in">max</span>(dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>], dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] - prices[i]);<br>            dp[i][<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>], dp[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + prices[i]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[n - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]; <span class="hljs-comment">// no stock on the day n - 1</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>初始状态：</strong></p>
 <p><code>dp[0][0] = -prices[0]</code>：表示在第$0$天买入股票后的利润，利润为负的股票价格。<br><code>dp[0][1] = 0</code>：表示在第$0$天没有持有股票，利润为$0$。</p>
@@ -685,7 +686,38 @@ $$
 </ul>
 <p>取两者的最大值：<code>dp[i][1] = max(dp[i-1][1], dp[i-1][0] + prices[i])</code>。</p>
 <p><strong>最终结果：</strong> 返回 <code>dp[n-1][1]</code>，表示最后一天不持有股票的最大利润。</p>
-<h3 id="7-4-Longest-common-string"><a href="#7-4-Longest-common-string" class="headerlink" title="7.4 Longest common string"></a>7.4 Longest common string</h3><h2 id="8-P-NP-problem"><a href="#8-P-NP-problem" class="headerlink" title="8. P&#x2F;NP problem"></a>8. P&#x2F;NP problem</h2>
+<h3 id="7-4-Longest-Common-Subsequence"><a href="#7-4-Longest-Common-Subsequence" class="headerlink" title="7.4 Longest Common Subsequence"></a>7.4 Longest Common Subsequence</h3><p><strong>最长公共子序列（LCS）</strong> 也是修考的一个常考点，具体参考：<a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-common-subsequence/description/">Leetcode 1143</a></p>
+<blockquote>
+<p>Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. For example, “ace” is a subsequence of “abcde”. A common subsequence of two strings is a subsequence that is common to both strings.</p>
+</blockquote>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li>Input: text1 &#x3D; “abcde”, text2 &#x3D; “ace” </li>
+<li>Output: 3  </li>
+<li>Explanation: The longest common subsequence is “ace” and its length is 3.</li>
+</ul>
+<p><strong>定义状态：</strong></p>
+<p>$$<br>dp[i][j] \text{ 表示在考虑前 } i \text{ 个字符的 } \text{text1} \text{ 和前 } j \text{ 个字符的 } \text{text2} \text{ 时的最长公共子序列的长度。}<br>$$</p>
+<p><strong>状态转移方程：</strong></p>
+<p>对于每个字符对<code>text1[i-1] </code> 和<code>text2[j-1]</code>，有两种情况：</p>
+<ul>
+<li>如果 <code>&#39;text1[i-1] == text2[j-1]&#39;</code>，说明这两个字符相同，最长公共子序列可以延长 1，此时 <code>&#39;dp[i][j] = dp[i-1][j-1] + 1&#39;</code>。</li>
+<li>如果 <code>&#39;text1[i-1] != text2[j-1]&#39;</code>，则取决于之前的子问题结果，最长公共子序列为：<ul>
+<li>不包括当前字符：<code>&#39;dp[i][j] = max(dp[i][j-1], dp[i-1][j])&#39;</code>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>边界条件：</strong></p>
+<ul>
+<li>当 <code>&#39;i = 0&#39;</code> 或 <code>&#39;j = 0&#39;</code> 时，即有一个字符串为空，最长公共子序列长度为 0，所以初始化时 <code>&#39;dp[0][j] = 0&#39;</code> 和 <code>&#39;dp[i][0] = 0&#39;</code>。</li>
+</ul>
+<p><strong>计算顺序：</strong></p>
+<p>从 <code>&#39;i = 1&#39;</code> 到 <code>&#39;n&#39;</code>，对于每个字符，再从 <code>&#39;j = 1&#39;</code> 到 <code>&#39;m&#39;</code> 计算 <code>&#39;dp[i][j]&#39;</code>，逐步构建整个表。</p>
+<p><strong>返回结果：</strong></p>
+<p>最终结果为 <code>&#39;dp[n][m]&#39;</code>，即考虑所有字符的最长公共子序列的长度。<br><img src="/img/DSA/lcs.svg" srcset="/img/loading.gif" lazyload alt="LCS遍历演示" style="max-width: 100%; height: auto;" /></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">longestCommonSubsequence</span><span class="hljs-params">(string text1, string text2)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = text<span class="hljs-number">1.</span><span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> m = text<span class="hljs-number">2.</span><span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(n + <span class="hljs-number">1</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(m + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>));<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++)&#123;<br>                <span class="hljs-keyword">if</span>(text1[i - <span class="hljs-number">1</span>] == text2[j - <span class="hljs-number">1</span>]) dp[i][j] = dp[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">else</span> dp[i][j] = <span class="hljs-built_in">max</span>(dp[i][j - <span class="hljs-number">1</span>], dp[i - <span class="hljs-number">1</span>][j]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[n][m];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="7-5-Global-Alignment"><a href="#7-5-Global-Alignment" class="headerlink" title="7.5 Global Alignment"></a>7.5 Global Alignment</h3><p>马不停蹄更新中</p>
+<h2 id="8-P-NP-problem"><a href="#8-P-NP-problem" class="headerlink" title="8. P&#x2F;NP problem"></a>8. P&#x2F;NP problem</h2>
                 
               </div>
             
