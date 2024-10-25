@@ -19,15 +19,15 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple – toutou(偷偷🫥).  1. Introduction在第一章中，需要仔细了解计算">
+    <meta name="description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio 1. Introductio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Computer Architecture">
 <meta property="og:url" content="http://toutou.zeabur.app/2024/10/21/Computer-Architecture/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple – toutou(偷偷🫥).  1. Introduction在第一章中，需要仔细了解计算">
+<meta property="og:description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio 1. Introductio">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-10-21T16:11:41.053Z">
+<meta property="article:modified_time" content="2024-10-25T16:04:06.899Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          54 words
+          481 words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          1 mins
+          5 mins
         
       </span>
     
@@ -283,9 +283,38 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple – toutou(偷偷🫥). </p>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>在第一章中，需要仔细了解计算机概要与技术，从设计思想到性能度量，再到一些基础的架构。</p>
-<h3 id="1-1-马不停蹄更新中"><a href="#1-1-马不停蹄更新中" class="headerlink" title="1.1 马不停蹄更新中"></a>1.1 马不停蹄更新中</h3>
+                <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>在本章中，主要讲解一下计算机组成的性能和功耗和性能，包括一些计量单位和公式。</p>
+<h3 id="1-1-常用单位"><a href="#1-1-常用单位" class="headerlink" title="1.1 常用单位"></a>1.1 常用单位</h3><p>容量单位常用<strong>字节(Byte)</strong>，衡量单位是<strong>2进制(Binary)</strong>，容量之间的数量级关系是：$2^{10}$; 常见的有$K$,$M$,$G$,$T$。</p>
+<blockquote>
+<p>例如： $1TB=2^{10} GB= 1024GB$; $1GB=2^{10}MB=1024MB$</p>
+</blockquote>
+<p>衡量传输速度常用<strong>位每秒(bps,bit per secod)</strong>, 衡量单位是<strong>10进制(Decimal)</strong>，传输速度之间的数量级关系是：$10^3$; 常见的有$K$,$M$,$G$,$T$。</p>
+<blockquote>
+<p>例如：$1kbit/s=1000bit/s$, $1mbit/s=1000kbit/s$</p>
+</blockquote>
+<p>另外需要注意的单位换算是：</p>
+<ul>
+<li>$bit/s$记作$bps$</li>
+<li>$1 Byte = 8 bit$</li>
+<li>$1 Bps = 1 Byte/second = 8 bit/second = 8 bps$</li>
+</ul>
+<h3 id="1-2-计算机结构中的8个伟大思想"><a href="#1-2-计算机结构中的8个伟大思想" class="headerlink" title="1.2 计算机结构中的8个伟大思想"></a>1.2 计算机结构中的8个伟大思想</h3><ul>
+<li>Moore’s Law: 芯片上的集成度每18～24个月翻一番</li>
+<li>Abstraction：使用抽象来表示不同设计层次，化繁为简</li>
+<li>Common Case Fast: 加速大概率事件远比优化小概率事件更能提高性能，即抓住主要矛盾</li>
+<li>Parallel Performance: 并行操作来提高性能，说白了就是<del>打工人能做多少做多少</del></li>
+<li>Pipeline: 这是一个并行场景的具体实现，后面章节会详细讲解🔎</li>
+<li>Prediction：通过猜测的方式提前启动某些操作，提高性能，投资人讲究一个增收降本的策略。</li>
+<li>Hierachy of memory: 用存储器层次来解决容量，速度，成本之间的相互矛盾需求。小而精则贵，大而糙则贱</li>
+<li>Dependable：任何一个物理器件都有可能失效，使用冗余部件的方式来提高系统的可靠性，即备胎🛞</li>
+</ul>
+<p>在加速大概率时间中有一个定量分析的<strong>Amdahl定律</strong>：</p>
+<center>$改进后的执行时间 = 改进影响的执行时间 / 加速比 + 改进不影响的执行时间$</center>
+<center>$t_{\text{改进}} = t_{\text{相关}} / S + t_{\text{无关}}$</center>
+
+
+
                 
               </div>
             
