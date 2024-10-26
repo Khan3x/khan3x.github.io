@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f5f5f5"/>
+  
+  <!-- CPU框架 -->
+  <rect x="250" y="100" width="300" height="250" rx="10" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+  <text x="400" y="130" text-anchor="middle" font-size="20" fill="#0288d1">CPU</text>
+  
+  <!-- 控制器 -->
+  <rect x="270" y="150" width="120" height="180" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2"/>
+  <text x="330" y="240" text-anchor="middle" font-size="16" fill="#1976d2">控制器</text>
+  
+  <!-- 运算器 -->
+  <rect x="410" y="150" width="120" height="180" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2"/>
+  <text x="470" y="240" text-anchor="middle" font-size="16" fill="#1976d2">运算器</text>
+  
+  <!-- 存储器 -->
+  <rect x="250" y="380" width="300" height="70" rx="5" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+  <text x="400" y="420" text-anchor="middle" font-size="16" fill="#388e3c">存储器</text>
+  
+  <!-- 输入设备 -->
+  <rect x="50" y="215" width="120" height="70" rx="5" fill="#ffecb3" stroke="#ffa000" stroke-width="2"/>
+  <text x="110" y="255" text-anchor="middle" font-size="16" fill="#ffa000">输入设备</text>
+  
+  <!-- 输出设备 -->
+  <rect x="630" y="215" width="120" height="70" rx="5" fill="#ffecb3" stroke="#ffa000" stroke-width="2"/>
+  <text x="690" y="255" text-anchor="middle" font-size="16" fill="#ffa000">输出设备</text>
+  
+  <!-- 连接线 -->
+  <!-- 输入设备到CPU -->
+  <path d="M170 250 L250 250" stroke="#666" stroke-width="2" fill="none"/>
+  <!-- CPU到输出设备 -->
+  <path d="M550 250 L630 250" stroke="#666" stroke-width="2" fill="none"/>
+  <!-- CPU到存储器 -->
+  <path d="M400 350 L400 380" stroke="#666" stroke-width="2" fill="none"/>
+  
+  <!-- 箭头 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  <!-- 添加箭头到路径 -->
+  <path d="M170 250 L250 250" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M550 250 L630 250" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M400 350 L400 380" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- 水印 (放在右下角) -->
+  <text x="700" y="470" text-anchor="middle" font-size="30" fill="#00000015" 
+        transform="rotate(-30, 700, 470)" 
+        style="font-family: Arial; font-weight: bold;">
+    偷偷星球
+  </text>
+</svg>
