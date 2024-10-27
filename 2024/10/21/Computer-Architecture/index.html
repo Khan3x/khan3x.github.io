@@ -19,16 +19,16 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio 1. Introductio">
+    <meta name="description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. Credit to crdits to 《Computer Organization an">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Computer Architecture">
 <meta property="og:url" content="http://toutou.zeabur.app/2024/10/21/Computer-Architecture/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio 1. Introductio">
+<meta property="og:description" content="Computer ArchitectureThis for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. Credit to crdits to 《Computer Organization an">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/von.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-10-27T13:30:44.863Z">
+<meta property="article:modified_time" content="2024-10-27T14:18:58.744Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k words
+          2.3k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          18 mins
+          19 mins
         
       </span>
     
@@ -285,7 +285,10 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
+                <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. Credit to crdits to 《Computer Organization and Design : The Hardware&#x2F;Software Interface, 5th Editio》</p>
+<blockquote>
+<p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
+</blockquote>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>在本章中，主要引入一下计算机组成的概念然后讲解衡量计算机的性能指标，并着重讲解涉及到的计量单位和公式。</p>
 <h3 id="1-1-常用单位"><a href="#1-1-常用单位" class="headerlink" title="1.1 常用单位"></a>1.1 常用单位</h3><p>容量单位常用<strong>字节(Byte)</strong> ,衡量单位是<em>2进制(Binary)</em> ,容量之间的数量级关系是：$2^{10}$; 常见的有$K$,$M$,$G$,$T$。</p>
 <blockquote>
@@ -375,7 +378,14 @@
 <blockquote>
 <p>注： $P$ 是功耗，$C$ 是负载电容， $U$ 是电压， $f$ 是开关频率</p>
 </blockquote>
-
+<h2 id="2-Instructions-The-Language-of-Computers"><a href="#2-Instructions-The-Language-of-Computers" class="headerlink" title="2. Instructions: The Language of Computers"></a>2. Instructions: The Language of Computers</h2><p>这一章非常重要，因为修考题目中经常出现理解汇编语言的题目。本章主要讲解RISC-V指令集架构还有五种寻址方式🤖</p>
+<h3 id="2-1-Instrcucton"><a href="#2-1-Instrcucton" class="headerlink" title="2.1 Instrcucton"></a>2.1 Instrcucton</h3><p>计算机在底层执行程序时，通过读取由0和1组成的机器指令来执行命令。在RISC-V指令集中，所有的机器指令都是32位长，也就是32位的二进制串。这些32位的机器指令对应的汇编语言指令通常由操作码和两个地址码组成（形式：操作码 + 地址码 + 地址码）。规定：</p>
+<ul>
+<li>程序中的变量存放在保存寄存器（store reg）中：$s0~$s7共8个</li>
+<li>临时变量，中间变量存放在临时寄存器（temp reg）中：$t0~$t7共8个</li>
+<li>零寄存器，永远存放32位的0，记作$zero</li>
+</ul>
+<h3 id="2-2-RISC-V-Instruction-Set"><a href="#2-2-RISC-V-Instruction-Set" class="headerlink" title="2.2 RISC-V Instruction Set"></a>2.2 RISC-V Instruction Set</h3>
                 
               </div>
             
