@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/von.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-10-27T14:18:58.744Z">
+<meta property="article:modified_time" content="2024-10-28T11:58:26.032Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k words
+          3k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          19 mins
+          26 mins
         
       </span>
     
@@ -385,7 +385,66 @@
 <li>临时变量，中间变量存放在临时寄存器（temp reg）中：$t0~$t7共8个</li>
 <li>零寄存器，永远存放32位的0，记作$zero</li>
 </ul>
-<h3 id="2-2-RISC-V-Instruction-Set"><a href="#2-2-RISC-V-Instruction-Set" class="headerlink" title="2.2 RISC-V Instruction Set"></a>2.2 RISC-V Instruction Set</h3>
+<h3 id="2-2-RISC-V-Instruction-Set"><a href="#2-2-RISC-V-Instruction-Set" class="headerlink" title="2.2 RISC-V Instruction Set"></a>2.2 RISC-V Instruction Set</h3><h4 id="2-2-1-基本指令"><a href="#2-2-1-基本指令" class="headerlink" title="2.2.1 基本指令"></a>2.2.1 基本指令</h4><p><strong>加法，减法指令(add, sub):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">&#x2F;&#x2F; c &#x3D; a + b; $s2 &#x3D; c, $s0 &#x3D; a, $s1 &#x3D; b
+add $s2, $s0, $s1  
+&#x2F;&#x2F; c &#x3D; a - b; $s2 &#x3D; c, $s0 &#x3D; a, $s1 &#x3D; b
+sub $s2, $s0, $s1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p><strong>加立即数指令(addi):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">&#x2F;&#x2F; i &#x3D; i + 1, i存放在$s0寄存器中
+addi $s0, $s0, 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<p><strong>逻辑运算指令:</strong> and(与)，or(或)，nor（或非）</p>
+<p><strong>逻辑左移(shift left logic, sll)和右移(shift right logic, srl):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sll $to, $s2, 2 &#x2F;&#x2F; 将$s2寄存器的值左移2位，即变为4倍，存放在$t0中
+srl $to, $s2, 1 &#x2F;&#x2F; 将$s2寄存器的值右移1位，即变为1&#x2F;2倍，存放在$t0中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<p><strong>取字指令(load word, lw)和存字指令(save word, sw):</strong><br>因为寄存器是按字(Word)存储，而内存是按字节(Byte)编址,在RISC-V指令集中，约定：1 Word &#x3D; 32 bit &#x3D; 4 Byte。</p>
+<blockquote>
+<p>举个例子：已知a[0]的地址存放在寄存器s0中，现在需要取a[2]的值存放在寄存器t0中；a[2]和a[0]之间的字节偏移有 2 * 4 &#x3D; 8 Byte。RISC-V指令可写为：</p>
+</blockquote>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lw $t0, 8($s0)  &#x2F;&#x2F; 取出$s0偏移8字节的位置的值，存放在$t0寄存器中<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<blockquote>
+<p>同理，如果我们要把t0寄存器的值存到a[4]中去，可以知道a[4]与a[0]的字节偏移有 4 * 4 &#x3D; 16 Byte。RISC-V指令可写为：</p>
+</blockquote>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sw $t0, 16($s0) &#x2F;&#x2F; 注意操作的方向和lw相反<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<h4 id="2-2-2-装载32位立即数到寄存器"><a href="#2-2-2-装载32位立即数到寄存器" class="headerlink" title="2.2.2 装载32位立即数到寄存器"></a>2.2.2 装载32位立即数到寄存器</h4><p>因为装载的32位立即数不能完全放进32位的机器指令中，因此寄存器可以通过两条指令来完成：LUI (Load Upper Immediate) 和 ORI (OR Immediate)。比如将立即数 0xF7EE57AD 装载到寄存器中这个两个指令需要完成的动作是：</p>
+<blockquote>
+<p>0xF7EE57AD 对应的 32 位二进制数是：1111 0111 1110 1110 0101 0111 1010 1101</p>
+</blockquote>
+<ul>
+<li><p>LUI 指令：取0xF7EE57AD的高16位数（1111 0111 1110 1110) 放入寄存器的高16位</p>
+</li>
+<li><p>ORI 指令：将寄存器和剩下的低16位数做立即与的动作(0101 0111 1010 1101)</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lui $s1, 63470 &#x2F;&#x2F; 1111 0111 1110 1110 对应的十进制数是 63470
+ori $s1, 22957 &#x2F;&#x2F; 0101 0111 1010 1101 对应的十进制数是 22957
+&#x2F;* 整个动作如下：
+step1: 取到高16位数，$s1的值为 1111 0111 1110 1110 0000 0000 0000 0000
+step2: $s1的值与低16位数立即与 0000 0000 0000 0000 0101 0111 1010 1101
+最终$s1d的值为 1111 0111 1110 1110 0101 0111 1010 1101
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>当然还有其他写法：比如lui和addi。例如，要将立即数 0x12345678 装载到寄存器 t0 中</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">lui $t0<span class="token punctuation">,</span> <span class="token number">0x12345</span> <span class="token comment">// 将高20位0x12345装载到t0</span>
+addi $t0<span class="token punctuation">,</span> $t0<span class="token punctuation">,</span> <span class="token number">0x678</span> <span class="token comment">// 将剩余的12位0x678添加到t0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure></li>
+</ul>
+<h4 id="2-2-3-判断和决策指令"><a href="#2-2-3-判断和决策指令" class="headerlink" title="2.2.3 判断和决策指令"></a>2.2.3 判断和决策指令</h4><p><strong>BEQ（Branch if Equal） 指令：</strong></p>
+<ul>
+<li><strong>功能</strong>：比较两个寄存器的值，如果它们相等，则跳转到指定的目标地址。</li>
+<li><strong>格式</strong>：<code>beq rs1, rs2, offset</code><ul>
+<li><code>rs1</code>：第一个源寄存器</li>
+<li><code>rs2</code>：第二个源寄存器</li>
+<li><code>offset</code>：相对跳转的偏移量<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">beq $t0, $t1, label &#x2F;&#x2F; 如果t0和t1相等，则跳转到label<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<strong>BNE（Branch if Not Equal） 指令：</strong></li>
+</ul>
+</li>
+<li><strong>功能</strong>：比较两个寄存器的值，如果它们不相等，则跳转到指定的目标地址。</li>
+<li><strong>格式</strong>：<code>bne rs1, rs2, offset</code><ul>
+<li><code>rs1</code>：第一个源寄存器</li>
+<li><code>rs2</code>：第二个源寄存器</li>
+<li><code>offset</code>：相对跳转的偏移量<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">bne $t0, $t1, label &#x2F;&#x2F; 如果t0和t1不相等，则跳转到label<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure></li>
+</ul>
+</li>
+</ul>
+
                 
               </div>
             
