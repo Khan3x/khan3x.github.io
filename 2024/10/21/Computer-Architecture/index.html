@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/von.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/assembly.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-10-30T17:10:42.912Z">
+<meta property="article:modified_time" content="2024-10-30T17:12:13.618Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -608,7 +608,7 @@ EXIT:
             <p>程序计数器PC在取指令时会自增4（每条指令是4字节），因此，下一条指令的地址是PC + 4。若当前指令需要进行跳转或分支，字地址偏移量则用于计算目标地址。具体来说，如果你有一个偏移量offset，在跳转指令中，你通常会将其左移2位（因为地址是字节为单位的），然后加到PC + 4上来获得目标地址。</p>
           </div>
 
-<h2 id="3-Arithmetic-Operations-in-Computers"><a href="#3-Arithmetic-Operations-in-Computers" class="headerlink" title="3. Arithmetic Operations in Computers"></a>3. Arithmetic Operations in Computers</h2><p>本章主要讲解的知识点有，计算机是如何表示整数和进行整数运算的，以及浮点数的表示规范。本章在修考的考察非常精细，一定要理清每种数的表示。下面的例子都用8bit来表述并且给出对应的表示范围。</p>
+<h2 id="3-Arithmetic-Operations-in-Computers"><a href="#3-Arithmetic-Operations-in-Computers" class="headerlink" title="3. Arithmetic Operations in Computers"></a>3. Arithmetic Operations in Computers</h2><p>本章主要讲解的知识点有，计算机是如何表示整数和进行整数运算的，以及浮点数的表示规范。本章在修考的考察非常精细，一定要理清每种数的表示。下面的例子都用8bit来表示并且给出对应的表示范围。</p>
 <h3 id="3-1-Integer-Representation"><a href="#3-1-Integer-Representation" class="headerlink" title="3.1 Integer Representation"></a>3.1 Integer Representation</h3><p>本小节介绍无符号整数、原码、反码和补码的表示方法。</p>
 <h4 id="3-1-1-无符号整数（Unsigned-Integer）"><a href="#3-1-1-无符号整数（Unsigned-Integer）" class="headerlink" title="3.1.1 无符号整数（Unsigned Integer）"></a>3.1.1 无符号整数（Unsigned Integer）</h4><p><strong>表示方法</strong>：<br>无符号整数只表示<strong>非负数</strong>，使用所有位表示数值，不用负号。8位无符号整数的取值范围是从0到255。</p>
 <p><strong>表示范围</strong>：</p>
