@@ -29,8 +29,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/von.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/assembly.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/endianness.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/CA/float.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-10-31T05:09:12.819Z">
+<meta property="article:modified_time" content="2024-10-31T15:48:54.964Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -234,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.2k words
+          5.9k words
         
       </span>
     
@@ -245,7 +246,7 @@
         
         
         
-          44 mins
+          50 mins
         
       </span>
     
@@ -748,13 +749,56 @@ EXIT:
 </ul>
 <img src="/img/CA/endianness.svg" srcset="/img/loading.gif" lazyload alt="大端和小端序" style="max-width: 100%; height: auto;" />
 
+<h3 id="3-3-Arithmetic-Operations-Logic"><a href="#3-3-Arithmetic-Operations-Logic" class="headerlink" title="3.3 Arithmetic Operations Logic"></a>3.3 Arithmetic Operations Logic</h3><p>参照数字电路笔记（🐎马不停蹄更新中）</p>
+<h3 id="3-4-IEEE754-Float-Point-Number"><a href="#3-4-IEEE754-Float-Point-Number" class="headerlink" title="3.4 IEEE754 Float Point Number"></a>3.4 IEEE754 Float Point Number</h3><p><strong>IEEE 754 单精度浮点数</strong></p>
+<p>IEEE 754 单精度浮点数总共32位：1位符号位（S），8位指数位（E），23位尾数位（F）。</p>
+<ul>
+<li><strong>符号位（S）</strong>：0表示正数，1表示负数。</li>
+<li><strong>指数位（E）</strong>：偏阶值(Bias)为127，即实际的指数值是存储的指数值减去127。<ul>
+<li>例如，如果指数部分存储的是10000001（二进制的129），实际的指数就是129-127&#x3D;2。</li>
+</ul>
+</li>
+<li><strong>尾数位（F）</strong>：23位，表示小数部分。注意尾数部分隐含一个1，所以公式中写作<code>1.F</code>。</li>
+</ul>
+<p><strong>计算公式</strong>：</p>
+<center> $(-1)^S \times 2^{(E - 127)} \times 1.F$ </center>
 
+<p><strong>IEEE 754 双精度浮点数</strong></p>
+<p>IEEE 754 双精度浮点数总共64位：1位符号位（S），11位指数位（E），52位尾数位（F）。</p>
+<ul>
+<li><strong>符号位（S）</strong>：0表示正数，1表示负数。</li>
+<li><strong>指数位（E）</strong>：偏阶值(Bias)为1023，即实际的指数值是存储的指数值减去1023。<ul>
+<li>例如，如果指数部分存储的是10000000010（二进制的1026），实际的指数就是1026-1023&#x3D;3。</li>
+</ul>
+</li>
+<li><strong>尾数位（F）</strong>：52位，表示小数部分。尾数部分隐含一个1，所以公式中写作<code>1.F</code>。</li>
+</ul>
+<p><strong>计算公式</strong>：</p>
+<center> $(-1)^S \times 2^{(E - 1023)} \times 1.F$ </center>
 
+<img src="/img/CA/float.svg" srcset="/img/loading.gif" lazyload alt="浮点数表示格式" style="max-width: 100%; height: auto;" />
 
-
-
-
-
+<blockquote>
+<p>思考？为什么需要偏阶值(Bias)的存在？</p>
+</blockquote>
+<p>偏阶（Bias）的存在主要是为了简化浮点数的比较和计算过程。以下是几个具体原因：</p>
+<ol>
+<li><p><strong>简化比较操作</strong>：<br>通过使用偏阶，所有可能的指数值都被映射到一个非负范围内，使得比较浮点数时可以简单地比较其指数部分的数值。例如，对于单精度浮点数，偏阶127确保了指数范围从 -127 到 128 被映射到 0 到 255。</p>
+</li>
+<li><p><strong>标准化表示</strong>：<br>使用偏阶可以确保指数部分总是一个非负数，从而使浮点数表示更为统一和标准化。这对于硬件电路设计和算法实现有很大的便利性。</p>
+</li>
+<li><p><strong>处理负指数</strong>：<br>偏阶允许使用非负整数来表示负指数，这对表示非常小的浮点数（接近于0）尤其有用。通过偏阶值，可以直接在指数部分进行加法和减法，而不需要额外处理负数。</p>
+</li>
+</ol>
+<p>举个例子，对于单精度浮点数，偏阶是127。这意味着：</p>
+<ul>
+<li>实际指数为0时，存储的指数值是127。</li>
+<li>实际指数为-1时，存储的指数值是126。</li>
+<li>实际指数为+1时，存储的指数值是128。</li>
+</ul>
+<p>这种设计大大简化了计算和比较过程，让浮点运算变得高效和准确。</p>
+<h2 id="4-Processor"><a href="#4-Processor" class="headerlink" title="4. Processor"></a>4. Processor</h2><p>🐎🐎🐎（更新中）</p>
+<h2 id="5-Memory"><a href="#5-Memory" class="headerlink" title="5. Memory"></a>5. Memory</h2>
                 
               </div>
             

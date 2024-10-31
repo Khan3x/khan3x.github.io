@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+    <!-- 背景 -->
+    <rect width="500" height="400" fill="#f8f9fa"/>
+    
+    <!-- 水印 -->
+    <text x="250" y="200" font-size="50" fill="#dddddd" text-anchor="middle" transform="rotate(-45 250 200)">
+        偷偷星球
+    </text>
+    
+    <!-- 单精度浮点数 -->
+    <g transform="translate(50,30)">
+        <text x="200" y="0" font-size="18" font-weight="bold" text-anchor="middle">单精度浮点数 (32位)</text>
+        
+        <!-- 整体矩形框 -->
+        <rect x="0" y="20" width="400" height="50" fill="none" stroke="#333"/>
+        
+        <!-- 分割线 -->
+        <line x1="50" y1="20" x2="50" y2="70" stroke="#333" stroke-dasharray="5,5"/>
+        <line x1="150" y1="20" x2="150" y2="70" stroke="#333" stroke-dasharray="5,5"/>
+        
+        <!-- 各部分标签 -->
+        <text x="25" y="45" text-anchor="middle" font-size="12" fill="#666">符号位</text>
+        <text x="100" y="45" text-anchor="middle" font-size="12" fill="#666">指数位</text>
+        <text x="275" y="45" text-anchor="middle" font-size="12" fill="#666">尾数</text>
+        
+        <!-- 具体位数 -->
+        <text x="25" y="65" text-anchor="middle" font-size="12">1位</text>
+        <text x="100" y="65" text-anchor="middle" font-size="12">8位</text>
+        <text x="275" y="65" text-anchor="middle" font-size="12">23位</text>
+        
+        <!-- 范围和特点 -->
+        <text x="200" y="100" text-anchor="middle" font-size="12">范围：约 −3.4×10³⁸ 到 3.4×10³⁸</text>
+        <text x="200" y="120" text-anchor="middle" font-size="12">适用：节省空间，对精度要求不高的应用</text>
+    </g>
+    
+    <!-- 双精度浮点数 -->
+    <g transform="translate(50,200)">
+        <text x="200" y="0" font-size="18" font-weight="bold" text-anchor="middle">双精度浮点数 (64位)</text>
+        
+        <!-- 整体矩形框 -->
+        <rect x="0" y="20" width="400" height="50" fill="none" stroke="#333"/>
+        
+        <!-- 分割线 -->
+        <line x1="50" y1="20" x2="50" y2="70" stroke="#333" stroke-dasharray="5,5"/>
+        <line x1="150" y1="20" x2="150" y2="70" stroke="#333" stroke-dasharray="5,5"/>
+        
+        <!-- 各部分标签 -->
+        <text x="25" y="45" text-anchor="middle" font-size="12" fill="#666">符号位</text>
+        <text x="100" y="45" text-anchor="middle" font-size="12" fill="#666">指数位</text>
+        <text x="275" y="45" text-anchor="middle" font-size="12" fill="#666">尾数</text>
+        
+        <!-- 具体位数 -->
+        <text x="25" y="65" text-anchor="middle" font-size="12">1位</text>
+        <text x="100" y="65" text-anchor="middle" font-size="12">11位</text>
+        <text x="275" y="65" text-anchor="middle" font-size="12">52位</text>
+        
+        <!-- 范围和特点 -->
+        <text x="200" y="100" text-anchor="middle" font-size="12">范围：约 −1.8×10³⁰⁸ 到 1.8×10³⁰⁸</text>
+        <text x="200" y="120" text-anchor="middle" font-size="12">适用：需要更高精度和更大范围的计算</text>
+    </g>
+</svg>
