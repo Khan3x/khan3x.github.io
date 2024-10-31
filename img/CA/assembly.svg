@@ -1,70 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
     <!-- 背景 -->
-    <rect width="800" height="400" fill="#ffffff"/>
-    <!-- 标题 -->
-    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold">汇编语言指令格式</text>
-    
-    <!-- R型指令 -->
-    <g transform="translate(50,100)">
-        <text x="0" y="-10" font-size="18" font-weight="bold">R型格式</text>
-        <!-- 框和标签 -->
-        <rect x="0" y="0" width="100" height="40" fill="#FFB6C1" stroke="black"/>
-        <rect x="100" y="0" width="100" height="40" fill="#DDA0DD" stroke="black"/>
-        <rect x="200" y="0" width="100" height="40" fill="#98FB98" stroke="black"/>
-        <rect x="300" y="0" width="100" height="40" fill="#87CEEB" stroke="black"/>
-        <rect x="400" y="0" width="100" height="40" fill="#F0E68C" stroke="black"/>
-        <rect x="500" y="0" width="100" height="40" fill="#E6E6FA" stroke="black"/>
-        <!-- 字段名称 -->
-        <text x="50" y="25" text-anchor="middle">opcode</text>
-        <text x="150" y="25" text-anchor="middle">rd</text>
-        <text x="250" y="25" text-anchor="middle">rs1</text>
-        <text x="350" y="25" text-anchor="middle">rs2</text>
-        <text x="450" y="25" text-anchor="middle">funct3</text>
-        <text x="550" y="25" text-anchor="middle">funct7</text>
-    </g>
-    
-    <!-- I型指令 -->
-    <g transform="translate(50,220)">
-        <text x="0" y="-10" font-size="18" font-weight="bold">I型格式</text>
-        <!-- 框和标签 -->
-        <rect x="0" y="0" width="100" height="40" fill="#FFB6C1" stroke="black"/>
-        <rect x="100" y="0" width="100" height="40" fill="#98FB98" stroke="black"/>
-        <rect x="200" y="0" width="100" height="40" fill="#87CEEB" stroke="black"/>
-        <rect x="300" y="0" width="300" height="40" fill="#DDA0DD" stroke="black"/>
-        <!-- 字段名称 -->
-        <text x="50" y="25" text-anchor="middle">opcode</text>
-        <text x="150" y="25" text-anchor="middle">rs1</text>
-        <text x="250" y="25" text-anchor="middle">rd</text>
-        <text x="450" y="25" text-anchor="middle">imm</text>
-        <text x="450" y="40" text-anchor="middle" fill="red">funct3</text>
-        <!-- 红字注释 -->
-        <text x="150" y="55" text-anchor="middle" fill="red">注意rs1和rd的位置!</text>
-    </g>
-    
-    <!-- J型指令 -->
-    <g transform="translate(50,340)">
-        <text x="0" y="-10" font-size="18" font-weight="bold">J型格式</text>
-        <!-- 框和标签 -->
-        <rect x="0" y="0" width="100" height="40" fill="#FFB6C1" stroke="black"/>
-        <rect x="100" y="0" width="500" height="40" fill="#98FB98" stroke="black"/>
-        <!-- 字段名称 -->
-        <text x="50" y="25" text-anchor="middle">opcode</text>
-        <text x="350" y="25" text-anchor="middle">offset</text>
-    </g>
-    
-    <!-- 右侧说明 -->
-    <g transform="translate(670,80)">
-        <text x="0" y="0" font-size="14">说明：</text>
-        <text x="0" y="20" font-size="12">opcode: 操作码</text>
-        <text x="0" y="40" font-size="12">rs1: 第一个源寄存器</text>
-        <text x="0" y="60" font-size="12">rs2: 第二个源寄存器</text>
-        <text x="0" y="80" font-size="12">rd: 目标寄存器</text>
-        <text x="0" y="100" font-size="12">funct3: 附加功能代码</text>
-        <text x="0" y="120" font-size="12">funct7: 附加功能代码</text>
-        <text x="0" y="140" font-size="12">imm: 立即数（常数）</text>
-        <text x="0" y="160" font-size="12">offset: 跳转偏移量</text>
-    </g>
+    <rect width="800" height="600" fill="#f8f9fa"/>
     
     <!-- 水印 -->
-    <text x="400" y="200" text-anchor="middle" font-size="48" fill-opacity="0.2" style="font-family:cursive;user-select:none;">偷偷星球</text>
+    <text x="400" y="300" font-size="50" fill="#dddddd" text-anchor="middle" transform="rotate(-45 400 300)">
+        偷偷星球
+    </text>
+    
+    <!-- 标题 -->
+    <text x="200" y="40" font-size="24" font-weight="bold">大端序(Big-endian)</text>
+    <text x="600" y="40" font-size="24" font-weight="bold">小端序(Little-endian)</text>
+    
+    <!-- 大端序内存布局 -->
+    <g transform="translate(100,80)">
+        <!-- 内存格子 -->
+        <rect x="0" y="0" width="300" height="50" fill="none" stroke="#333"/>
+        <line x1="75" y1="0" x2="75" y2="50" stroke="#333"/>
+        <line x1="150" y1="0" x2="150" y2="50" stroke="#333"/>
+        <line x1="225" y1="0" x2="225" y2="50" stroke="#333"/>
+        
+        <!-- 数据值 -->
+        <text x="37.5" y="30" text-anchor="middle">12</text>
+        <text x="112.5" y="30" text-anchor="middle">34</text>
+        <text x="187.5" y="30" text-anchor="middle">56</text>
+        <text x="262.5" y="30" text-anchor="middle">78</text>
+        
+        <!-- 地址标签 -->
+        <text x="37.5" y="70" text-anchor="middle" font-size="12">0x00</text>
+        <text x="112.5" y="70" text-anchor="middle" font-size="12">0x01</text>
+        <text x="187.5" y="70" text-anchor="middle" font-size="12">0x02</text>
+        <text x="262.5" y="70" text-anchor="middle" font-size="12">0x03</text>
+    </g>
+    
+    <!-- 小端序内存布局 -->
+    <g transform="translate(450,80)">
+        <!-- 内存格子 -->
+        <rect x="0" y="0" width="300" height="50" fill="none" stroke="#333"/>
+        <line x1="75" y1="0" x2="75" y2="50" stroke="#333"/>
+        <line x1="150" y1="0" x2="150" y2="50" stroke="#333"/>
+        <line x1="225" y1="0" x2="225" y2="50" stroke="#333"/>
+        
+        <!-- 数据值 -->
+        <text x="37.5" y="30" text-anchor="middle">78</text>
+        <text x="112.5" y="30" text-anchor="middle">56</text>
+        <text x="187.5" y="30" text-anchor="middle">34</text>
+        <text x="262.5" y="30" text-anchor="middle">12</text>
+        
+        <!-- 地址标签 -->
+        <text x="37.5" y="70" text-anchor="middle" font-size="12">0x00</text>
+        <text x="112.5" y="70" text-anchor="middle" font-size="12">0x01</text>
+        <text x="187.5" y="70" text-anchor="middle" font-size="12">0x02</text>
+        <text x="262.5" y="70" text-anchor="middle" font-size="12">0x03</text>
+    </g>
+    
+    <!-- 说明文本 -->
+    <text x="250" y="180" font-size="16">高位字节在低地址</text>
+    <text x="650" y="180" font-size="16">低位字节在低地址</text>
 </svg>
