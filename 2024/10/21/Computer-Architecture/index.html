@@ -33,8 +33,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/pipeline.png">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/memory.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/cache_map.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_miss.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_strategy.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-11-02T14:43:36.842Z">
+<meta property="article:modified_time" content="2024-11-02T15:50:17.503Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -238,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k words
+          12k words
         
       </span>
     
@@ -249,7 +251,7 @@
         
         
         
-          86 mins
+          97 mins
         
       </span>
     
@@ -927,7 +929,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <h4 id="5-1-4-Secondary-Memory"><a href="#5-1-4-Secondary-Memory" class="headerlink" title="5.1.4 Secondary Memory"></a>5.1.4 Secondary Memory</h4><p><strong>Secondary Memory</strong>（二级存储器）是计算机的外部存储，用于长期存储数据和程序，断电后数据不会丢失。常见的二级存储器包括硬盘驱动器 (HDD)、固态硬盘 (SSD)、光盘、以及 USB 闪存等。</p>
 <p><strong>辅助存储器的特点</strong></p>
 <ul>
-<li>**非易失性(nonvolatile)**：辅助存储器断电后仍能保留数据，适合长期存储文件、程序和系统数据。</li>
+<li><strong>非易失性(nonvolatile)</strong> ：辅助存储器断电后仍能保留数据，适合长期存储文件、程序和系统数据。</li>
 <li><strong>大容量</strong>：相比于主存，辅助存储器容量更大，能够存储大量的数据和文件。</li>
 <li><strong>较慢的访问速度</strong>：辅助存储器的读写速度比内存慢，因此用于存储不需要频繁访问的数据。</li>
 </ul>
@@ -1000,8 +1002,126 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <ul>
 <li><strong>定义</strong>：缓存分成多个组，每个组包含若干个位置。内存块首先映射到某个组，然后可以存储在该组的任意位置。</li>
 <li><strong>优点</strong>：在复杂度和性能之间取得平衡，减少了直接映射中的冲突，同时实现比全关联映射更简单。</li>
-<li><strong>缺点</strong>：组的选择可能会导致一些复杂度，但总的来说，比全关联映射低。<img src="/img/CA/cache_map.svg" srcset="/img/loading.gif" lazyload alt="存储器层次" style="max-width: 100%; height: auto;" /></li>
+<li><strong>缺点</strong>：组的选择可能会导致一些复杂度，但总的来说，比全关联映射低。<img src="/img/CA/cache_map.svg" srcset="/img/loading.gif" lazyload alt="Cache三种映射方式" style="max-width: 100%; height: auto;" /></li>
 </ul>
+<h4 id="5-4-1-直接映射"><a href="#5-4-1-直接映射" class="headerlink" title="5.4.1 直接映射"></a>5.4.1 直接映射</h4><p>映射规则：Cache块号 &#x3D; 内存块号 % Cache块数</p>
+<blockquote>
+<p>比如，Cache共有8块，内存的十号块映射在Cache的块号是：10 % 8 &#x3D; 2</p>
+</blockquote>
+<p>直接映射缓存（Direct Mapped Cache）内存地址通常被分成三个字段：块内字节偏移、索引位和标记位。</p>
+<p><strong>1. 块内字节偏移（Block Offset）</strong></p>
+<ul>
+<li><strong>定义</strong>：块内字节偏移用于定位一个块中的具体字节。</li>
+<li><strong>计算</strong>：偏移位的数量取决于块的大小。例如，如果块大小为4个字节，则需要2位来表示块内字节偏移。<ul>
+<li>例子：对于一个块大小为4个字节的缓存，偏移位可能是<code>00</code>、<code>01</code>、<code>10</code>、<code>11</code>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 索引位（Index Bits）</strong></p>
+<ul>
+<li><strong>定义</strong>：索引位用于定位缓存中的具体行（块）。</li>
+<li><strong>计算</strong>：索引位的数量取决于缓存的行数。例如，如果缓存有8行，需要3位索引位来标识具体的行。<ul>
+<li>例子：对于一个有8行的缓存，索引位可能是<code>000</code>到<code>111</code>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 标记位（Tag Bits）</strong></p>
+<ul>
+<li><strong>定义</strong>：标记位用于区分不同内存块，它们映射到同一个缓存行。</li>
+<li><strong>计算</strong>：标记位的数量 &#x3D; 内存地址总位数 - 索引位数量 - 块内字节偏移位数量。<ul>
+<li>例子：假设内存地址总位数为16位，块大小为4字节（2位块内偏移），缓存有8行（3位索引），那么标记位数量为11（16-3-2&#x3D;11）。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>示例</strong> ：假设有一个16位的内存地址，缓存有8行，每行块大小为4字节。</p>
+</blockquote>
+<p>内存地址：<code>1010110010101110</code></p>
+<ul>
+<li><strong>块内字节偏移</strong>：2位（最右边的2位），<code>10</code> 表示块内的某个字节。</li>
+<li><strong>索引位</strong>：3位（次右边的3位），<code>110</code> 表示缓存的具体行。</li>
+<li><strong>标记位</strong>：11位（剩余左边的位），<code>10101100101</code> 用于区分不同的内存块。</li>
+</ul>
+<p><strong>内存地址分解</strong>：</p>
+<ul>
+<li>标记位（Tag）：<code>10101100101</code></li>
+<li>索引位（Index）：<code>110</code></li>
+<li>块内字节偏移（Block Offset）：<code>10</code></li>
+</ul>
+<center>$Cache容量 = （标记位 + 数据位）\times 行数 $</center>
+补充：如果题目强调了有效位的存在，那么Cache的每一行需要多1bit的有效位，则
+<center>$Cache容量 = （1 + 标记位 + 数据位）\times 行数 $</center>
+
+<p>有效位是缓存系统中的一个重要概念，用于指示缓存块中的数据是否有效。具体来说，有效位帮助确定当前缓存块是否包含可以被处理器使用的有效数据。</p>
+<ol>
+<li><strong>指示数据有效性</strong>：有效位为1表示缓存块中的数据有效且可用；为0表示缓存块中的数据无效，可能未被使用或需要更新。</li>
+<li><strong>管理缓存块</strong>：当一个新的内存块被加载到缓存时，会设置有效位为1。当缓存块的数据被替换或失效时，有效位被设置为0。</li>
+</ol>
+<p><strong>实现原理</strong></p>
+<ul>
+<li><strong>检查有效位</strong>：每次缓存访问时，首先检查有效位。如果有效位为0，即使缓存地址匹配，数据也不被使用，因为它无效。</li>
+<li><strong>缓存替换</strong>：在缓存替换时，新的数据块写入缓存，并将对应的有效位设置为1。被替换的数据块的有效位通常被设置为0，表示数据无效。</li>
+</ul>
+<p><strong>示例</strong><br>假设一个缓存系统有4个块，每个块都有一个有效位：</p>
+<ul>
+<li>块0：有效位&#x3D;1（数据有效）</li>
+<li>块1：有效位&#x3D;0（数据无效）</li>
+<li>块2：有效位&#x3D;1（数据有效）</li>
+<li>块3：有效位&#x3D;0（数据无效）</li>
+</ul>
+<p>当处理器访问一个地址时，它首先检查缓存块的有效位。如果有效位为1，它会进一步检查地址是否匹配；如果有效位为0，则直接从主存获取数据。</p>
+<h4 id="5-2-2-直接映射缺失的3C模型"><a href="#5-2-2-直接映射缺失的3C模型" class="headerlink" title="5.2.2 直接映射缺失的3C模型"></a>5.2.2 直接映射缺失的3C模型</h4><p><strong>1. 冷缺失（Cold Miss）</strong></p>
+<ul>
+<li><strong>定义</strong>：也称为强制缺失或首次缺失。这种情况发生在缓存首次加载数据块时，因为缓存中还没有存储该数据块。</li>
+<li><strong>示例</strong>：程序第一次访问一个数据块时，缓存中还没有该数据块，导致冷缺失。</li>
+</ul>
+<p><strong>2. 容量缺失（Capacity Miss）</strong></p>
+<ul>
+<li><strong>定义</strong>：由于缓存容量有限，即使缓存中所有块都被充分利用，仍然无法容纳所有需要的数据块，从而导致缺失。</li>
+<li><strong>示例</strong>：程序需要访问的数据块数量超过了缓存容量，导致一些较早访问的数据块被驱逐，再次访问时需要重新加载。</li>
+</ul>
+<p><strong>3. 冲突缺失（Conflict Miss）</strong></p>
+<ul>
+<li><strong>定义</strong>：也称为干扰缺失。这种情况发生在直接映射缓存中，不同的数据块映射到同一个缓存块位置，导致频繁替换，即使缓存容量足够也会出现缺失。</li>
+<li><strong>示例</strong>：两个或多个数据块映射到同一个缓存位置，导致数据块被替换，从而产生冲突缺失。</li>
+</ul>
+<img src="/img/CA/map_miss.svg" srcset="/img/loading.gif" lazyload alt="3C模型" style="max-width: 100%; height: auto;" />
+  
+<p>直接映射在应对上面的Cache缺失的时候有三种处理方式：</p>
+<p><strong>1.写直达（Write Through）：</strong></p>
+<ul>
+<li>CPU同时向Cache和主存写入数据</li>
+<li>实现简单，但写入速度慢</li>
+<li>保持了Cache和主存的一致性</li>
+</ul>
+<p><strong>写缓冲（Write Buffer）：</strong></p>
+<ul>
+<li>CPU先写入Cache</li>
+<li>数据暂存在写缓冲区</li>
+<li>后台异步写入主存</li>
+<li>提高了写入效率</li>
+</ul>
+<p><strong>写回（Write Back）：</strong></p>
+<ul>
+<li>CPU只写入Cache</li>
+<li>使用脏位(Dirty Bit)标记修改</li>
+<li>仅在数据被替换时才写回主存</li>
+<li>最高效但实现复杂</li>
+</ul>
+<img src="/img/CA/map_strategy.svg" srcset="/img/loading.gif" lazyload alt="Cache缺失策略" style="max-width: 100%; height: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
               </div>

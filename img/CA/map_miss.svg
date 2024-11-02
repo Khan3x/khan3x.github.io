@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <!-- 背景 -->
+    <rect width="800" height="400" fill="white"/>
+    
+    <!-- 标题 -->
+    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold">Cache缺失类型示意图</text>
+
+    <!-- 冷缺失 -->
+    <g transform="translate(30,70)">
+        <text x="130" y="30" font-size="16" font-weight="bold" text-anchor="middle">冷缺失 (Cold Miss)</text>
+        <!-- 时间轴背景 -->
+        <rect x="30" y="70" width="240" height="160" fill="#f8f8f8" stroke="#ddd"/>
+        <!-- Cache初始状态 -->
+        <g transform="translate(40,90)">
+            <rect width="100" height="40" fill="#E6F3FF" stroke="black"/>
+            <text x="50" y="25" text-anchor="middle">Empty Cache</text>
+        </g>
+        <!-- 箭头和访问 -->
+        <path d="M50,150 L200,150" fill="none" stroke="black" stroke-width="2"/>
+        <circle cx="120" cy="150" r="5" fill="red"/>
+        <text x="120" y="170" text-anchor="middle" fill="red">首次访问</text>
+    </g>
+
+    <!-- 容量缺失 -->
+    <g transform="translate(260,70)">
+        <text x="130" y="30" font-size="16" font-weight="bold" text-anchor="middle">容量缺失 (Capacity Miss)</text>
+        <!-- Cache表示 -->
+        <rect x="30" y="70" width="240" height="160" fill="#E6F3FF" stroke="black"/>
+        <text x="150" y="90" text-anchor="middle" font-size="14">Cache容量</text>
+        
+        <!-- 数据块 -->
+        <g>
+            <rect x="40" y="100" width="220" height="120" fill="#FFE4B5"/>
+            <rect x="40" y="100" width="220" height="30" fill="#FFA07A"/>
+            <text x="150" y="120" text-anchor="middle">已使用空间</text>
+            <path d="M45,150 L255,150" stroke="black" stroke-dasharray="5,5"/>
+        </g>
+    </g>
+
+    <!-- 冲突缺失 -->
+    <g transform="translate(490,70)">
+        <text x="130" y="30" font-size="16" font-weight="bold" text-anchor="middle">冲突缺失 (Conflict Miss)</text>
+        
+        <!-- Cache组示意 -->
+        <g>
+            <rect x="30" y="70" width="240" height="160" fill="#E6F3FF" stroke="black"/>
+            <text x="150" y="90" text-anchor="middle" font-size="14">Cache组</text>
+            
+            <!-- 映射位置冲突示意 -->
+            <rect x="50" y="110" width="200" height="40" fill="#FFE4B5" stroke="black"/>
+            <text x="150" y="135" text-anchor="middle">映射位置A</text>
+            
+            <!-- 冲突的数据块 -->
+            <g transform="translate(50,170)">
+                <rect width="60" height="30" fill="#FFA07A" stroke="black"/>
+                <text x="30" y="20" text-anchor="middle" font-size="12">数据1</text>
+            </g>
+            <g transform="translate(120,170)">
+                <rect width="60" height="30" fill="#FFA07A" stroke="black"/>
+                <text x="30" y="20" text-anchor="middle" font-size="12">数据2</text>
+            </g>
+            <g transform="translate(190,170)">
+                <rect width="60" height="30" fill="#FFA07A" stroke="black"/>
+                <text x="30" y="20" text-anchor="middle" font-size="12">数据3</text>
+            </g>
+            
+            <!-- 冲突箭头 -->
+            <path d="M80,160 L80,170" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+            <path d="M150,160 L150,170" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+            <path d="M220,160 L220,170" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+        </g>
+    </g>
+
+    <!-- 水印 -->
+    <g transform="translate(400,250) rotate(-30)">
+        <text x="0" y="0" 
+              text-anchor="middle" 
+              font-size="48" 
+              fill="rgba(128,128,128,0.2)" 
+              font-weight="bold"
+              font-family="Arial, sans-serif">
+            偷偷星球
+        </text>
+    </g>
+
+    <!-- 箭头定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="red"/>
+        </marker>
+    </defs>
+</svg>
