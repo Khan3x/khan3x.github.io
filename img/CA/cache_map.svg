@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <!-- 标题 -->
+    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold">Cache映射方式示意图</text>
+    
+    <!-- 直接映射 -->
+    <g transform="translate(50,80)">
+        <text x="100" y="30" font-size="18" font-weight="bold">直接映射</text>
+        <!-- 主存块 -->
+        <rect x="0" y="50" width="160" height="200" fill="#f0f0f0" stroke="black"/>
+        <text x="80" y="70" text-anchor="middle" font-size="14">主存块</text>
+        <!-- 主存块编号 -->
+        <rect x="20" y="80" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="100" text-anchor="middle">块0</text>
+        <rect x="20" y="120" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="140" text-anchor="middle">块1</text>
+        <rect x="20" y="160" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="180" text-anchor="middle">块2</text>
+        <!-- Cache行 -->
+        <rect x="200" y="50" width="120" height="200" fill="#e6f3ff" stroke="black"/>
+        <text x="260" y="70" text-anchor="middle" font-size="14">Cache行</text>
+        <rect x="220" y="80" width="80" height="30" fill="white" stroke="black"/>
+        <text x="260" y="100" text-anchor="middle">行0</text>
+        <rect x="220" y="120" width="80" height="30" fill="white" stroke="black"/>
+        <text x="260" y="140" text-anchor="middle">行1</text>
+        <rect x="220" y="160" width="80" height="30" fill="white" stroke="black"/>
+        <text x="260" y="180" text-anchor="middle">行2</text>
+        <!-- 映射箭头 -->
+        <path d="M140,95 L220,95" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M140,135 L220,135" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M140,175 L220,175" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+
+    <!-- 组相联映射 -->
+    <g transform="translate(50,320)">
+        <text x="100" y="30" font-size="18" font-weight="bold">组相联映射</text>
+        <!-- 主存块 -->
+        <rect x="0" y="50" width="160" height="200" fill="#f0f0f0" stroke="black"/>
+        <text x="80" y="70" text-anchor="middle" font-size="14">主存块</text>
+        <rect x="20" y="80" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="100" text-anchor="middle">块0</text>
+        <rect x="20" y="120" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="140" text-anchor="middle">块1</text>
+        <rect x="20" y="160" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="180" text-anchor="middle">块2</text>
+        <!-- Cache组 -->
+        <rect x="200" y="50" width="120" height="200" fill="#e6f3ff" stroke="black"/>
+        <text x="260" y="70" text-anchor="middle" font-size="14">Cache组</text>
+        <rect x="220" y="80" width="80" height="60" fill="white" stroke="black"/>
+        <text x="260" y="110" text-anchor="middle">组0</text>
+        <rect x="220" y="150" width="80" height="60" fill="white" stroke="black"/>
+        <text x="260" y="180" text-anchor="middle">组1</text>
+        <!-- 映射箭头 -->
+        <path d="M140,95 C180,95 180,110 220,110" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M140,135 C180,135 180,110 220,110" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M140,175 C180,175 180,180 220,180" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+
+    <!-- 全相联映射 -->
+    <g transform="translate(400,80)">
+        <text x="100" y="30" font-size="18" font-weight="bold">全相联映射</text>
+        <!-- 主存块 -->
+        <rect x="0" y="50" width="160" height="200" fill="#f0f0f0" stroke="black"/>
+        <text x="80" y="70" text-anchor="middle" font-size="14">主存块</text>
+        <rect x="20" y="80" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="100" text-anchor="middle">块0</text>
+        <rect x="20" y="120" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="140" text-anchor="middle">块1</text>
+        <rect x="20" y="160" width="120" height="30" fill="white" stroke="black"/>
+        <text x="80" y="180" text-anchor="middle">块2</text>
+        <!-- Cache -->
+        <rect x="200" y="50" width="120" height="200" fill="#e6f3ff" stroke="black"/>
+        <text x="260" y="70" text-anchor="middle" font-size="14">Cache</text>
+        <rect x="220" y="80" width="80" height="150" fill="white" stroke="black"/>
+        <text x="260" y="160" text-anchor="middle">任意位置</text>
+        <!-- 映射箭头 -->
+        <path d="M140,95 C180,95 180,155 220,155" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M140,135 C180,135 180,155 220,155" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M140,175 C180,175 180,155 220,155" fill="none" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+
+    <!-- 水印 -->
+    <g transform="translate(400,300) rotate(-30)">
+        <text x="0" y="0" 
+              text-anchor="middle" 
+              font-size="48" 
+              fill="rgba(128,128,128,0.2)" 
+              font-weight="bold"
+              font-family="Arial, sans-serif">
+            偷偷星球
+        </text>
+    </g>
+
+    <!-- 箭头定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="blue"/>
+        </marker>
+    </defs>
+</svg>
