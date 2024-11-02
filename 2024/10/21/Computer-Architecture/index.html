@@ -31,8 +31,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/endianness.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/float.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/pipeline.png">
+<meta property="og:image" content="http://toutou.zeabur.app/img/CA/memory.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-11-01T16:09:43.678Z">
+<meta property="article:modified_time" content="2024-11-02T14:14:33.117Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -236,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.6k words
+          9.3k words
         
       </span>
     
@@ -247,7 +248,7 @@
         
         
         
-          64 mins
+          78 mins
         
       </span>
     
@@ -780,7 +781,7 @@ EXIT:
 <img src="/img/CA/float.svg" srcset="/img/loading.gif" lazyload alt="浮点数表示格式" style="max-width: 100%; height: auto;" />
 
 <blockquote>
-<p>思考？为什么需要偏阶值(Bias)的存在？</p>
+<p>思考：为什么需要偏阶值(Bias)的存在？</p>
 </blockquote>
 <p>偏阶（Bias）的存在主要是为了简化浮点数的比较和计算过程。以下是几个具体原因：</p>
 <ol>
@@ -887,7 +888,64 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
             <p>流水线在修考里面是非常非常重要的存在‼️我更希望后续用经典的例题讲解。等待更新⌛️</p>
           </div>
 
-<h2 id="5-Memory"><a href="#5-Memory" class="headerlink" title="5. Memory"></a>5. Memory</h2><p>🐎🐎<br>最后一章了！正确本周内闭环</p>
+<h2 id="5-Memory"><a href="#5-Memory" class="headerlink" title="5. Memory"></a>5. Memory</h2><p>本章主要讲解存储器的层次和局部性原理。这一章和操作系统的重合度非常高，建议配合操作系统复习。本章的Cache映射和TLB映射在修考题中出现的频率非常高。</p>
+<h3 id="5-1-Memory-Hierachy"><a href="#5-1-Memory-Hierachy" class="headerlink" title="5.1 Memory Hierachy"></a>5.1 Memory Hierachy</h3><p>如标题所见，这是计算机8大设计思想之一，采用层次结构将存储器主要分为4个层次，从顶层到底层依次是：寄存器，高速缓存，主存，外存。<br><img src="/img/CA/memory.svg" srcset="/img/loading.gif" lazyload alt="存储器层次" style="max-width: 100%; height: auto;" /></p>
+<h4 id="5-1-1-Register"><a href="#5-1-1-Register" class="headerlink" title="5.1.1 Register"></a>5.1.1 Register</h4><p>寄存器是 CPU 中的高速存储单元，用于暂时存储指令和数据，帮助 CPU 进行快速计算。它们是 CPU 中访问速度最快的存储器，因为它们直接位于 CPU 内核中，靠近运算单元（如算术逻辑单元，ALU）。</p>
+<p><strong>寄存器的特点</strong></p>
+<ul>
+<li><strong>速度快</strong>：寄存器的访问速度比 Cache 和主存（RAM）都要快，能满足 CPU 的即时需求。</li>
+<li><strong>容量小</strong>：寄存器数量有限，通常每个寄存器只有几个字节或几十个字节的容量。</li>
+<li><strong>功能明确</strong>：寄存器根据用途被分为不同类型，每种寄存器在特定的指令或运算中起特定的作用。</li>
+</ul>
+<p><strong>常见的寄存器类型</strong></p>
+<ol>
+<li><strong>通用寄存器</strong>：用于临时存储数据，支持基本的加、减、乘、除等运算。</li>
+<li><strong>程序计数器 (PC)</strong> ：保存下一条要执行指令的地址，用于控制程序执行的顺序。</li>
+<li><strong>状态寄存器&#x2F;标志寄存器</strong>：存储运算结果的状态信息，如是否为零、是否有溢出等，用于条件判断。</li>
+<li><strong>堆栈指针 (SP)</strong> ：指向栈顶位置，用于函数调用和返回的管理。</li>
+<li><strong>地址寄存器</strong>：存储内存地址，用于快速访问特定的内存位置。</li>
+</ol>
+<p><strong>寄存器的作用</strong><br>寄存器用于 CPU 执行指令时的临时数据存储，避免频繁访问较慢的内存单元。它们直接与 CPU 核心连接，确保计算快速、高效。</p>
+<h4 id="5-1-2-Cache"><a href="#5-1-2-Cache" class="headerlink" title="5.1.2 Cache"></a>5.1.2 Cache</h4><p><strong>Cache</strong>（缓存）是位于 CPU 和主存（RAM）之间的高速存储器，用于缓解 CPU 与主存之间的速度差异。Cache 通过暂时存储常用的数据和指令，减少 CPU 访问主存的次数，从而提高整体运算速度。Cache 通常是由 <strong>SRAM（静态随机存取存储器）</strong> 组成的；SRAM是易失性存储器，尽管 SRAM 的数据不需要周期性刷新，但一旦电源关闭，存储在其中的数据就会丢失。这是因为 SRAM 的存储原理基于晶体管的电状态，当电源断开时，这些状态会消失。<strong>DRAM</strong>则有些许不同，需要定期刷新以维持数据，刷新操作会耗费一定时间和电力，但也是易失性存储器(volatile memory)。</p>
+<p><strong>Cache 的特点</strong></p>
+<ul>
+<li><strong>访问速度快</strong>：Cache 的访问速度比主存快，仅次于寄存器，能快速提供数据。</li>
+<li><strong>层级结构</strong>：Cache 通常分为多级，包括 L1、L2 和 L3 缓存，分别位于不同的 CPU 层次上，L1 速度最快但容量最小，L3 容量最大但速度相对较慢。</li>
+<li><strong>自动管理</strong>：Cache 由硬件自动管理，CPU 根据访问数据的频率和规律自动将数据加载到 Cache 中，无需程序员手动干预。</li>
+</ul>
+<p><strong>Cache 的作用</strong><br>Cache 主要用于存储 CPU 经常访问的数据或指令，以减少访问主存的延迟，提升 CPU 的执行效率。现代处理器通常会采用多级缓存结构，以平衡容量与速度之间的需求。</p>
+<h4 id="5-1-3-Main-Memory"><a href="#5-1-3-Main-Memory" class="headerlink" title="5.1.3 Main Memory"></a>5.1.3 Main Memory</h4><p><strong>内存</strong>（Memory）一般称为主存(Main Memory)，是计算机中用于临时存储数据和程序的部件，CPU 可以快速访问其中的数据。内存的主要作用是为 CPU 提供运行时的工作区，用于存放操作系统、应用程序和当前处理的数据。</p>
+<p><strong>内存的特点</strong></p>
+<ul>
+<li><strong>速度适中</strong>：内存的访问速度介于 Cache 和硬盘之间。尽管比硬盘快很多，但比不上 CPU 内部的寄存器和缓存。</li>
+<li><strong>容量较大</strong>：内存容量一般较大，能够存储多个程序和大量数据，以满足系统的多任务需求。</li>
+<li><strong>易失性</strong>：内存（RAM）通常由 DRAM（动态随机存取存储器）组成。DRAM 由于容量大、成本相对较低，也是一种易失性存储器，断电后数据会丢失。</li>
+</ul>
+<p><strong>内存的作用</strong></p>
+<p>内存用于临时存放正在执行的程序和正在处理的数据，起到了 CPU 与硬盘之间的缓冲作用，使得系统运行更加高效。计算机在开机后，将程序从硬盘加载到内存中，CPU 再从内存中读取指令执行。</p>
+<h4 id="5-1-4-Secondary-Memory"><a href="#5-1-4-Secondary-Memory" class="headerlink" title="5.1.4 Secondary Memory"></a>5.1.4 Secondary Memory</h4><p><strong>Secondary Memory</strong>（二级存储器）是计算机的外部存储，用于长期存储数据和程序，断电后数据不会丢失。常见的二级存储器包括硬盘驱动器 (HDD)、固态硬盘 (SSD)、光盘、以及 USB 闪存等。</p>
+<p><strong>辅助存储器的特点</strong></p>
+<ul>
+<li>**非易失性(nonvolatile)**：辅助存储器断电后仍能保留数据，适合长期存储文件、程序和系统数据。</li>
+<li><strong>大容量</strong>：相比于主存，辅助存储器容量更大，能够存储大量的数据和文件。</li>
+<li><strong>较慢的访问速度</strong>：辅助存储器的读写速度比内存慢，因此用于存储不需要频繁访问的数据。</li>
+</ul>
+<p><strong>辅助存储器的作用</strong></p>
+<p>辅助存储器用于存储计算机的操作系统、应用程序、用户文件和其他数据，提供数据的长期保存。计算机在启动时会将操作系统和相关程序从辅助存储器加载到内存中，以便 CPU 处理。</p>
+<h3 id="5-2-Principle-of-Locality"><a href="#5-2-Principle-of-Locality" class="headerlink" title="5.2 Principle of Locality"></a>5.2 Principle of Locality</h3><p>局部性原理(principle of locality)是计算机组成中的一个关键概念，用来描述程序在执行过程中，访问内存地址或存储单元的一种倾向。局部性原理主要分为以下两类：</p>
+<p><strong>时间局部性（Temporal Locality）</strong></p>
+<ul>
+<li><strong>定义</strong>：如果一个数据被访问过，那么在不久的将来它很可能会再次被访问。</li>
+<li><strong>例子</strong>：在循环中多次访问某个变量。比如循环计数器，每次迭代都会访问该变量。</li>
+</ul>
+<p><strong>空间局部性（Spatial Locality）</strong></p>
+<ul>
+<li><strong>定义</strong>：如果一个数据被访问过，那么它附近的数据也很可能会在不久的将来被访问。</li>
+<li><strong>例子</strong>：遍历数组时，逐个访问数组中的元素。比如访问数组<code>arr[0]</code>后，很可能访问<code>arr[1]</code>。</li>
+</ul>
+<blockquote>
+<p>局部性原理在设计计算机缓存（Cache）时尤为重要。因为缓存利用局部性原理，通过临时存储经常访问的数据或地址来减少访问主内存的次数，提高整体系统性能。</p>
+</blockquote>
 
                 
               </div>
