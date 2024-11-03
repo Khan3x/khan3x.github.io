@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- Background -->
+    <rect width="800" height="500" fill="#f8f9fa"/>
+    
+    <!-- Watermark -->
+    <text x="400" y="250" 
+          fill="#dddddd" 
+          font-size="40" 
+          font-weight="bold" 
+          text-anchor="middle" 
+          transform="rotate(-30 400 250)">
+        偷偷星球
+    </text>
+
+    <!-- Virtual Address Box -->
+    <rect x="50" y="50" width="200" height="60" fill="#a8dadc" stroke="#457b9d" stroke-width="2"/>
+    <text x="100" y="85" text-anchor="middle" font-size="16">虚拟地址</text>
+    <rect x="50" y="50" width="120" height="60" fill="#a8dadc" stroke="#457b9d" stroke-width="2"/>
+    <text x="110" y="85" text-anchor="middle" font-size="14">页号</text>
+    <text x="200" y="85" text-anchor="middle" font-size="14">偏移量</text>
+
+    <!-- TLB -->
+    <rect x="150" y="160" width="120" height="80" fill="#f1faee" stroke="#457b9d" stroke-width="2"/>
+    <text x="210" y="200" text-anchor="middle" font-size="16">TLB</text>
+
+    <!-- Page Table -->
+    <rect x="350" y="160" width="120" height="80" fill="#f1faee" stroke="#457b9d" stroke-width="2"/>
+    <text x="410" y="200" text-anchor="middle" font-size="16">页表</text>
+
+    <!-- Physical Address Box -->
+    <rect x="550" y="350" width="200" height="60" fill="#e63946" stroke="#457b9d" stroke-width="2"/>
+    <text x="650" y="385" text-anchor="middle" fill="white" font-size="16">物理地址</text>
+
+    <!-- Arrows -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#457b9d"/>
+        </marker>
+    </defs>
+    
+    <!-- Flow arrows -->
+    <path d="M150 110 L210 160" 
+          stroke="#457b9d" stroke-width="2" 
+          marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M270 200 L350 200" 
+          stroke="#457b9d" stroke-width="2" 
+          marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M410 240 L650 350" 
+          stroke="#457b9d" stroke-width="2" 
+          marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M210 240 L650 350" 
+          stroke="#457b9d" stroke-width="2" 
+          marker-end="url(#arrowhead)" fill="none"/>
+
+    <!-- Miss/Hit Labels -->
+    <text x="290" y="180" text-anchor="middle" font-size="12">未命中</text>
+    <text x="420" y="300" text-anchor="middle" font-size="12">页框号+偏移量</text>
+</svg>

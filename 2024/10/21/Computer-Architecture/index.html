@@ -35,8 +35,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/cache_map.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_miss.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_strategy.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/CA/address.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-11-03T04:02:27.124Z">
+<meta property="article:modified_time" content="2024-11-03T04:18:23.583Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -251,7 +252,7 @@
         
         
         
-          107 mins
+          111 mins
         
       </span>
     
@@ -1156,16 +1157,58 @@ $\text{CPI}_{\text{avg}} = \text{CPI}_{\text{ideal}} + \text{MR}_{\text{L1}} \ti
 $+ \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{L3}} + \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{memory}}$
 </center>
 
-
-
-
-
 <blockquote>
 <ul>
 <li>每一级缓存的贡献都是基于它前一级缓存的缺失率和自身的缺失代价递归计算的。</li>
 <li>这个公式综合了各级缓存的缺失率和缺失代价，提供了一个较为准确的平均 CPI 估计。</li>
 </ul>
 </blockquote>
+<h3 id="5-5-Virtual-Memory"><a href="#5-5-Virtual-Memory" class="headerlink" title="5.5 Virtual Memory"></a>5.5 Virtual Memory</h3><p>虚拟存储器通过地址映射机制，将操作系统使用的虚拟地址转换为不同的物理地址。这个过程涉及多层缓存和映射关系，例如：</p>
+<ul>
+<li>Cache 将处理器寄存器访问的地址映射到内存中的物理地址，以加速数据读取。</li>
+<li>主存（内存）充当磁盘的缓存，从磁盘读取数据时，常用的数据会保存在内存中以加快访问速度。</li>
+<li>TLB（快表）是页表的缓存，用于快速查找虚拟地址到物理地址的映射，减少页表查找的开销。</li>
+</ul>
+<p>将虚拟地址转换为物理地址的过程通常涉及几个关键步骤：</p>
+<ol>
+<li><p>地址生成：当程序访问某个内存位置时，它会生成一个虚拟地址。</p>
+</li>
+<li><p>页号和偏移量：虚拟地址被分为两个部分：页号和偏移量。页号用于识别该地址所属的页，而偏移量则指定了在该页内的具体位置。</p>
+</li>
+<li><p>快速表 (Translation Lookaside Buffer, TLB)：在检查页表之前，系统首先检查快速表 (TLB)，这是一个小而快速的缓存，存储最近的虚拟到物理地址的转换。如果在 TLB 中找到转换（TLB 命中），则可以快速检索物理地址。</p>
+</li>
+<li><p>页表查找：如果在 TLB 中未找到转换（TLB 未命中），系统将访问页表。页表包含条目，将每个虚拟页号映射到内存中相应的物理页框号。</p>
+</li>
+<li><p>物理地址形成：一旦访问了页表，就可以获得物理页框号。然后，物理地址通过将该页框号与原虚拟地址中的偏移量结合来形成。</p>
+</li>
+<li><p>访问内存：系统现在使用物理地址访问 RAM 中的数据。</p>
+</li>
+<li><p>页面缺失处理：如果所需的页面不在内存中（页面缺失），操作系统将从磁盘存储中检索该页面，并相应地更新页表。</p>
+</li>
+</ol>
+<img src="/img/CA/address.svg" srcset="/img/loading.gif" lazyload alt="Address Translation" style="max-width: 100%; height: auto;" />
+
+<p>关于虚拟地址和物理地址还有更多的考点内容，比如各种替换策略和写策略，这里的内容我更愿意放到操作系统的对应章节来讲解😈</p>
+<div class="note note-primary">
+            <p>完结撒花🎉<br>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
               </div>
