@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_miss.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_strategy.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-11-02T15:50:17.503Z">
+<meta property="article:modified_time" content="2024-11-03T04:02:27.124Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -240,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k words
+          13k words
         
       </span>
     
@@ -251,7 +251,7 @@
         
         
         
-          97 mins
+          107 mins
         
       </span>
     
@@ -1070,7 +1070,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <li>块3：有效位&#x3D;0（数据无效）</li>
 </ul>
 <p>当处理器访问一个地址时，它首先检查缓存块的有效位。如果有效位为1，它会进一步检查地址是否匹配；如果有效位为0，则直接从主存获取数据。</p>
-<h4 id="5-2-2-直接映射缺失的3C模型"><a href="#5-2-2-直接映射缺失的3C模型" class="headerlink" title="5.2.2 直接映射缺失的3C模型"></a>5.2.2 直接映射缺失的3C模型</h4><p><strong>1. 冷缺失（Cold Miss）</strong></p>
+<h4 id="5-4-2-直接映射缺失的3C模型"><a href="#5-4-2-直接映射缺失的3C模型" class="headerlink" title="5.4.2 直接映射缺失的3C模型"></a>5.4.2 直接映射缺失的3C模型</h4><p><strong>1. 冷缺失（Cold Miss）</strong></p>
 <ul>
 <li><strong>定义</strong>：也称为强制缺失或首次缺失。这种情况发生在缓存首次加载数据块时，因为缓存中还没有存储该数据块。</li>
 <li><strong>示例</strong>：程序第一次访问一个数据块时，缓存中还没有该数据块，导致冷缺失。</li>
@@ -1110,18 +1110,62 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 </ul>
 <img src="/img/CA/map_strategy.svg" srcset="/img/loading.gif" lazyload alt="Cache缺失策略" style="max-width: 100%; height: auto;" />
 
+<h4 id="5-4-3-多级缓存机制"><a href="#5-4-3-多级缓存机制" class="headerlink" title="5.4.3 多级缓存机制"></a>5.4.3 多级缓存机制</h4><p>多级缓存（Multilevel Cache）是一种在计算机系统中提高处理器访问数据速度的技术，通常将缓存分为多个层次，如 L1、L2 和 L3 缓存。这些缓存层次的设置能够平衡存取速度、容量和成本，确保 CPU 能更快地获取需要的数据。</p>
+<p><strong>多级缓存的主要特点</strong></p>
+<ol>
+<li><p><strong>L1缓存</strong>（一级缓存）：通常集成在 CPU 内核中，速度最快，容量较小（一般为几十KB）。L1缓存分为指令缓存（I-Cache）和数据缓存（D-Cache），分别用于存储指令和数据，帮助 CPU 快速访问常用数据。</p>
+</li>
+<li><p><strong>L2缓存</strong>（二级缓存）：相比 L1 缓存稍慢，但容量更大（几百KB到几MB），通常也集成在处理器中。L2 缓存为 L1 提供数据支援，命中率高，进一步减少了 CPU 对主存（RAM）的访问需求。</p>
+</li>
+<li><p><strong>L3缓存</strong>（三级缓存）：用于共享多个 CPU 内核的数据，容量较大（几MB到几十MB），但访问速度比 L2 缓慢。L3缓存作为所有内核的公共缓存，提升了多核处理器的并行性能。</p>
+</li>
+<li><p><strong>工作原理</strong>：CPU 会首先查找 L1 缓存，如果未命中则依次查找 L2 和 L3 缓存，直到最后访问主存。这样的分级缓存结构可以减少主存访问次数，从而提高系统性能。</p>
+</li>
+<li><p><strong>优点</strong>：多级缓存结构能显著降低数据访问延迟，提高处理器的执行效率；而且它能有效利用缓存的层级特性，合理分配存取速度和容量。</p>
+</li>
+</ol>
+<p><strong>多级缓存背景下的平均 CPI 计算</strong></p>
+<p>在多级缓存系统中，平均每条指令的周期数（CPI，Cycles Per Instruction）可以通过考虑每一级缓存的缺失率和缺失代价来计算。这里的缺失率指的是每一级缓存未命中（缺失）的概率，缺失代价则是缓存未命中时所需要的额外处理周期数。平均 CPI 的计算可以按以下步骤进行。</p>
+<p>假设：</p>
+<ul>
+<li>$\text{CPI}_{\text{ideal}}$ 是理想情况下（没有缓存缺失）的 CPI，即不考虑缓存缺失时每条指令的周期数。</li>
+<li>L1、L2、L3 分别是一级、二级和三级缓存。</li>
+<li>$\text{MR}_n$ 表示第 $n$ 级缓存的缺失率（Miss Rate）。</li>
+<li>$\text{MC}_n$ 表示第 $n$ 级缓存的缺失代价（Miss Penalty），即在第 $n$ 级缓存缺失时需要的额外周期数。</li>
+</ul>
+<p>平均 CPI 的计算可以分为以下步骤：</p>
+<ol>
+<li><p><strong>L1 缓存的贡献</strong>：L1 缓存缺失的情况下，需要访问 L2 缓存，因此 L1 缓存的平均贡献为：</p>
+<center> $\text{CPI}_{\text{L1}} = \text{MR}_{\text{L1}} \times \text{MC}_{\text{L1}}$ </center>
+</li>
+<li><p><strong>L2 缓存的贡献</strong>：L1 缓存缺失时会访问 L2 缓存，如果 L2 缓存也缺失，则需要访问 L3 缓存。L2 缓存的平均贡献为：</p>
+<center> $\text{CPI}_{\text{L2}} = \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MC}_{\text{L2}}$ </center>
+</li>
+<li><p><strong>L3 缓存的贡献</strong>：当 L1 和 L2 都缺失时，才会访问 L3 缓存。如果 L3 缓存也缺失，就会访问主存，因此 L3 缓存的平均贡献为：</p>
+<center> $\text{CPI}_{\text{L3}} = \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{L3}}$ </center>
+</li>
+<li><p><strong>主存的贡献</strong>：当 L1、L2 和 L3 缓存都缺失时，才会访问主存。因此主存的平均贡献为：</p>
+<center> $\text{CPI}_{\text{memory}} = \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{memory}}$ </center></li>
+</ol>
+<p>把各级缓存和主存的贡献相加，再加上理想情况下的 CPI，得到总的平均 CPI：</p>
+<center> $\text{CPI}_{\text{avg}} = \text{CPI}_{\text{ideal}} + \text{CPI}_{\text{L1}} + \text{CPI}_{\text{L2}} + \text{CPI}_{\text{L3}} + \text{CPI}_{\text{memory}}$ </center>
+
+<p>展开后，即：</p>
+<center> 
+$\text{CPI}_{\text{avg}} = \text{CPI}_{\text{ideal}} + \text{MR}_{\text{L1}} \times \text{MC}_{\text{L1}} + \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MC}_{\text{L2}}$
+$+ \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{L3}} + \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{memory}}$
+</center>
 
 
 
 
 
-
-
-
-
-
-
-
+<blockquote>
+<ul>
+<li>每一级缓存的贡献都是基于它前一级缓存的缺失率和自身的缺失代价递归计算的。</li>
+<li>这个公式综合了各级缓存的缺失率和缺失代价，提供了一个较为准确的平均 CPI 估计。</li>
+</ul>
+</blockquote>
 
                 
               </div>
