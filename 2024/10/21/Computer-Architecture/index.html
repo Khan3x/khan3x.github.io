@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/map_strategy.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/CA/address.svg">
 <meta property="article:published_time" content="2024-10-21T15:50:31.000Z">
-<meta property="article:modified_time" content="2024-11-03T04:21:14.600Z">
+<meta property="article:modified_time" content="2024-11-07T14:03:25.653Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -296,8 +296,11 @@
                 <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contains 5 parts and I try to make it clear and simple. Credit to《Computer Organization and Design : The Hardware/Software Interface, 5th Edition》</p>
 <blockquote>
 <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
+</blockquote>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>在本章中，主要引入一下计算机组成的概念然后讲解衡量计算机的性能指标，并着重讲解涉及到的计量单位和公式。</p>
-<h3 id="1-1-常用单位"><a href="#1-1-常用单位" class="headerlink" title="1.1 常用单位"></a>1.1 常用单位</h3><p>容量单位常用<strong>字节(Byte)</strong> ,衡量单位是<em>2进制(Binary)</em> ,容量之间的数量级关系是：$2^{10}$; 常见的有$K$,$M$,$G$,$T$。<br>例如： $1TB=2^{10} GB= 1024GB$; $1GB=2^{10}MB=1024MB$</p>
+<h3 id="1-1-常用单位"><a href="#1-1-常用单位" class="headerlink" title="1.1 常用单位"></a>1.1 常用单位</h3><p>容量单位常用<strong>字节(Byte)</strong> ,衡量单位是<em>2进制(Binary)</em> ,容量之间的数量级关系是：$2^{10}$; 常见的有$K$,$M$,$G$,$T$。</p>
+<blockquote>
+<p>例如： $1TB=2^{10} GB= 1024GB$; $1GB=2^{10}MB=1024MB$</p>
 </blockquote>
 <p>衡量传输速度常用<strong>位每秒(bps,bit per secod)</strong> ,衡量单位是<em>10进制(Decimal)</em> ,传输速度之间的数量级关系是：$10^3$; 常见的有$K$,$M$,$G$,$T$。</p>
 <blockquote>
@@ -396,8 +399,13 @@ addi $s0, $s0, 1<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p><strong>逻辑左移(shift left logic, sll)和右移(shift right logic, srl):</strong><br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sll $to, $s2, 2 &#x2F;&#x2F; 将$s2寄存器的值左移2位，即变为4倍，存放在$t0中
 srl $to, $s2, 1 &#x2F;&#x2F; 将$s2寄存器的值右移1位，即变为1&#x2F;2倍，存放在$t0中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure><br><strong>取字指令(load word, lw)和存字指令(save word, sw):</strong><br>因为寄存器是按字(Word)存储，而内存是按字节(Byte)编址,在RISC-V指令集中，约定：1 Word = 32 bit = 4 Byte。</p>
 <blockquote>
-<p>举个例子：已知a[0]的地址存放在寄存器s0中，现在需要取a[2]的值存放在寄存器t0中；a[2]和a[0]之间的字节偏移有 2 <em> 4 = 8 Byte。RISC-V指令可写为：<br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lw $t0, 8($s0)  &#x2F;&#x2F; 取出$s0偏移8字节的位置的值，存放在$t0寄存器中<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><br>同理，如果我们要把t0寄存器的值存到a[4]中去，可以知道a[4]与a[0]的字节偏移有 4 </em> 4 = 16 Byte。RISC-V指令可写为：<br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sw $t0, 16($s0) &#x2F;&#x2F; 注意操作的方向和lw相反<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure></p>
+<p>举个例子：已知a[0]的地址存放在寄存器s0中，现在需要取a[2]的值存放在寄存器t0中；a[2]和a[0]之间的字节偏移有 2 * 4 = 8 Byte。RISC-V指令可写为：</p>
 </blockquote>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lw $t0, 8($s0)  &#x2F;&#x2F; 取出$s0偏移8字节的位置的值，存放在$t0寄存器中<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<blockquote>
+<p>同理，如果我们要把t0寄存器的值存到a[4]中去，可以知道a[4]与a[0]的字节偏移有 4 * 4 = 16 Byte。RISC-V指令可写为：</p>
+</blockquote>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sw $t0, 16($s0) &#x2F;&#x2F; 注意操作的方向和lw相反<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <h4 id="2-2-2-装载32位立即数到寄存器"><a href="#2-2-2-装载32位立即数到寄存器" class="headerlink" title="2.2.2 装载32位立即数到寄存器"></a>2.2.2 装载32位立即数到寄存器</h4><p>因为装载的32位立即数不能完全放进32位的机器指令中，因此寄存器可以通过两条指令来完成：LUI (Load Upper Immediate) 和 ORI (OR Immediate)。比如将立即数 0xF7EE57AD 装载到寄存器中这个两个指令需要完成的动作是：</p>
 <blockquote>
 <p>0xF7EE57AD 对应的 32 位二进制数是：1111 0111 1110 1110 0101 0111 1010 1101</p>
@@ -1129,12 +1137,15 @@ $+ \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3
 <blockquote>
 <ul>
 <li>每一级缓存的贡献都是基于它前一级缓存的缺失率和自身的缺失代价递归计算的。</li>
-<li>这个公式综合了各级缓存的缺失率和缺失代价，提供了一个较为准确的平均 CPI 估计。<h3 id="5-5-Virtual-Memory"><a href="#5-5-Virtual-Memory" class="headerlink" title="5.5 Virtual Memory"></a>5.5 Virtual Memory</h3>虚拟存储器通过地址映射机制，将操作系统使用的虚拟地址转换为不同的物理地址。这个过程涉及多层缓存和映射关系，例如：</li>
+<li>这个公式综合了各级缓存的缺失率和缺失代价，提供了一个较为准确的平均 CPI 估计。</li>
+</ul>
+</blockquote>
+<h3 id="5-5-Virtual-Memory"><a href="#5-5-Virtual-Memory" class="headerlink" title="5.5 Virtual Memory"></a>5.5 Virtual Memory</h3><p>虚拟存储器通过地址映射机制，将操作系统使用的虚拟地址转换为不同的物理地址。这个过程涉及多层缓存和映射关系，例如：</p>
+<ul>
 <li>Cache 将处理器寄存器访问的地址映射到内存中的物理地址，以加速数据读取。</li>
 <li>主存（内存）充当磁盘的缓存，从磁盘读取数据时，常用的数据会保存在内存中以加快访问速度。</li>
 <li>TLB（快表）是页表的缓存，用于快速查找虚拟地址到物理地址的映射，减少页表查找的开销。</li>
 </ul>
-</blockquote>
 <p>将虚拟地址转换为物理地址的过程通常涉及几个关键步骤：</p>
 <ol>
 <li><p>地址生成：当程序访问某个内存位置时，它会生成一个虚拟地址。</p>
