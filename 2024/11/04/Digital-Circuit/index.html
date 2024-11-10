@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/nand.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/buffer.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-10T04:21:53.524Z">
+<meta property="article:modified_time" content="2024-11-10T04:22:33.089Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -292,28 +292,30 @@
 <p> 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
 </blockquote>
 <h2 id="1-Logic-Gates"><a href="#1-Logic-Gates" class="headerlink" title="1. Logic Gates"></a>1. Logic Gates</h2><p>第一章主要认识最基础的逻辑门元件，然后熟悉其对应的真值表(Truth Table),主要是为第二章的组合电路(combinational circuit)做铺垫。</p>
-<p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y = \neg A$</p>
-<p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y = A$</p>
-<p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y = A \cap B$</p>
-<p><strong>OR 门（或门）:</strong> 任意输入为1时，输出为1。$Y = A \cup B$</p>
-<p><img src="/img/DC/add.svg" srcset="/img/loading.gif" lazyload alt="逻辑门1" style="max-width: 100%; height: auto;" /></p>
-<p><strong>NAND 门（与非门）:</strong> 与门输出取反。 $ Y = \neg (A \cap B) $</p>
-<p><strong>NOR 门（或非门）:</strong> 或门输出取反。 $ Y = \neg (A \cup B) $</p>
-<p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y = A \oplus B $</p>
-<p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y = \neg (A \oplus B) $</p>
-<p><img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" /></p>
+<p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y &#x3D; \neg A$</p>
+<p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y &#x3D; A$</p>
+<p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y &#x3D; A \cap B$</p>
+<p><strong>OR 门（或门）:</strong> 任意输入为1时，输出为1。$Y &#x3D; A \cup B$</p>
+<img src="/img/DC/add.svg" srcset="/img/loading.gif" lazyload alt="逻辑门1" style="max-width: 100%; height: auto;" />
+
+<p><strong>NAND 门（与非门）:</strong> 与门输出取反。 $ Y &#x3D; \neg (A \cap B) $</p>
+<p><strong>NOR 门（或非门）:</strong> 或门输出取反。 $ Y &#x3D; \neg (A \cup B) $</p>
+<p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y &#x3D; A \oplus B $</p>
+<p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y &#x3D; \neg (A \oplus B) $</p>
+<img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" />
+
 <p>三态缓冲器（tristate buffer）是一种数字电路元件，其输出可以处于三种状态之一：高电平（1）、低电平（0）或高阻态（Z）。高阻态表示输出像断开一样，不驱动任何电流，可以用于总线控制等应用。</p>
 <p><strong>高水平有效（Active High）</strong></p>
 <p>在高水平有效的三态缓冲器中，当控制信号为高电平（1）时，缓冲器输出有效，即输出输入信号的值。当控制信号为低电平（0）时，缓冲器输出高阻态（Z）。</p>
 <ul>
-<li>控制信号 = 1：输出 = 输入信号</li>
-<li>控制信号 = 0：输出 = 高阻态（Z）</li>
+<li>控制信号 &#x3D; 1：输出 &#x3D; 输入信号</li>
+<li>控制信号 &#x3D; 0：输出 &#x3D; 高阻态（Z）</li>
 </ul>
 <p><strong>低水平有效（Active Low）</strong></p>
 <p>在低水平有效的三态缓冲器中，当控制信号为低电平（0）时，缓冲器输出有效，即输出输入信号的值。当控制信号为高电平（1）时，缓冲器输出高阻态（Z）。</p>
 <ul>
-<li>控制信号 = 0：输出 = 输入信号</li>
-<li>控制信号 = 1：输出 = 高阻态（Z）</li>
+<li>控制信号 &#x3D; 0：输出 &#x3D; 输入信号</li>
+<li>控制信号 &#x3D; 1：输出 &#x3D; 高阻态（Z）</li>
 </ul>
 <p align="center">
   <img src="/img/DC/buffer.svg" srcset="/img/loading.gif" lazyload alt="逻辑门3" style="max-width: 110%; height: auto;" />
@@ -340,16 +342,40 @@
 <p><strong>最小项 (Minterms)</strong> 是布尔函数的标准形式之一，其中每个最小项对应一个输出为1的输入组合。最小项由所有变量的与运算构成，每个变量可能是原变量或其补变量。</p>
 <p>示例：考虑一个布尔函数 ( F(A, B, C) )：</p>
 <ul>
-<li>当 ( A = 1 ), ( B = 0 ), ( C = 1 ) 时，最小项为 $ ( A \cdot \overline{B} \cdot C )$ </li>
-<li>当 ( A = 0 ), ( B = 1 ), ( C = 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$ </li>
+<li>当 ( A &#x3D; 1 ), ( B &#x3D; 0 ), ( C &#x3D; 1 ) 时，最小项为 $ ( A \cdot \overline{B} \cdot C )$ </li>
+<li>当 ( A &#x3D; 0 ), ( B &#x3D; 1 ), ( C &#x3D; 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$</li>
 </ul>
 <p>假设布尔函数在以下输入组合下输出为1：</p>
 <center>
-| A | B | C | F |
-|---|---|---|---|
-| 0 | 0 | 1 | 1 |
-| 0 | 1 | 0 | 1 |
-| 1 | 0 | 1 | 1 |
+
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
 </center>
 
 <p>相应的最小项表示为：</p>
@@ -358,15 +384,34 @@
 <p><strong>最大项 (Maxterms)</strong> 是布尔函数的另一种标准形式，其中每个最大项对应一个输出为0的输入组合。最大项由所有变量的或运算构成，每个变量可能是原变量或其补变量。</p>
 <p>示例：同样考虑布尔函数 ( F(A, B, C) )：</p>
 <ul>
-<li>当 ( A = 1 ), ( B = 1 ), ( C = 0 ) 时，最大项为 $ ( A + B + \overline{C} )$ </li>
-<li>当 ( A = 0 ), ( B = 0 ), ( C = 1 ) 时，最大项为 $ ( \overline{A} + \overline{B} + C )$ </li>
+<li>当 ( A &#x3D; 1 ), ( B &#x3D; 1 ), ( C &#x3D; 0 ) 时，最大项为 $ ( A + B + \overline{C} )$ </li>
+<li>当 ( A &#x3D; 0 ), ( B &#x3D; 0 ), ( C &#x3D; 1 ) 时，最大项为 $ ( \overline{A} + \overline{B} + C )$</li>
 </ul>
 <p>假设布尔函数在以下输入组合下输出为0：</p>
 <center>
-| A | B | C | F |
-|---|---|---|---|
-| 0 | 0 | 0 | 0 |
-| 1 | 1 | 0 | 0 |
+
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
 </center>
 相应的最大项表示为：
 <center>$ F(A, B, C) = (A + B + C) \cdot (A + \overline{B} + C) \cdot (\overline{A} + B + \overline{C}) $</center>
