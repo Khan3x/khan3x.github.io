@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/nand.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/buffer.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-10T04:52:23.976Z">
+<meta property="article:modified_time" content="2024-11-10T15:04:02.980Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          2k words
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          11 mins
+          17 mins
         
       </span>
     
@@ -304,7 +304,7 @@
 <p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y &#x3D; \neg (A \oplus B) $</p>
 <img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" />
 
-<p>三态缓冲器（tristate buffer）是一种数字电路元件，其输出可以处于三种状态之一：高电平（1）、低电平（0）或高阻态（Z）。高阻态表示输出像断开一样，不驱动任何电流，可以用于总线控制等应用。</p>
+<p><strong>三态缓冲器（tristate buffer）</strong> 是一种数字电路元件，其输出可以处于三种状态之一：高电平（1）、低电平（0）或高阻态（Z）。高阻态表示输出像断开一样，不驱动任何电流，可以用于总线控制等应用。</p>
 <p><strong>高水平有效（Active High）</strong></p>
 <p>在高水平有效的三态缓冲器中，当控制信号为高电平（1）时，缓冲器输出有效，即输出输入信号的值。当控制信号为低电平（0）时，缓冲器输出高阻态（Z）。</p>
 <ul>
@@ -432,6 +432,76 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <blockquote>
 <p>这些概念在布尔代数和数字电路设计中非常有用，也是这门课的高频考点</p>
 </blockquote>
+<h3 id="2-2-Boolean-Operation-Rules"><a href="#2-2-Boolean-Operation-Rules" class="headerlink" title="2.2 Boolean Operation Rules"></a>2.2 Boolean Operation Rules</h3><p>布尔运算的基本定律，理解了之后可以接触到卡诺图的化简。</p>
+<h4 id="2-2-1-交换律（Commutative-Law）"><a href="#2-2-1-交换律（Commutative-Law）" class="headerlink" title="2.2.1 交换律（Commutative Law）"></a>2.2.1 交换律（Commutative Law）</h4><p>交换律表示在布尔运算中，操作数的位置可以互换。</p>
+<ul>
+<li><strong>与运算</strong>：$ A \cdot B &#x3D; B \cdot A $</li>
+<li><strong>或运算</strong>：$ A + B &#x3D; B + A $</li>
+</ul>
+<h4 id="2-2-2-结合律（Associative-Law）"><a href="#2-2-2-结合律（Associative-Law）" class="headerlink" title="2.2.2 结合律（Associative Law）"></a>2.2.2 结合律（Associative Law）</h4><p>结合律表示在布尔运算中，操作数的组合方式不影响运算结果。</p>
+<ul>
+<li><strong>与运算</strong>：$ (A \cdot B) \cdot C &#x3D; A \cdot (B \cdot C) $</li>
+<li><strong>或运算</strong>：$ (A + B) + C &#x3D; A + (B + C) $</li>
+</ul>
+<h4 id="2-2-3-分配律（Distributive-Law）"><a href="#2-2-3-分配律（Distributive-Law）" class="headerlink" title="2.2.3 分配律（Distributive Law）"></a>2.2.3 分配律（Distributive Law）</h4><p>分配律表示一种运算可以分配到另一种运算上。</p>
+<ul>
+<li><strong>与对或</strong>：$ A \cdot (B + C) &#x3D; (A \cdot B) + (A \cdot C) $</li>
+<li><strong>或对与</strong>：$ A + (B \cdot C) &#x3D; (A + B) \cdot (A + C) $</li>
+</ul>
+<h4 id="2-2-4-吸收律（Absorption-Law）"><a href="#2-2-4-吸收律（Absorption-Law）" class="headerlink" title="2.2.4 吸收律（Absorption Law）"></a>2.2.4 吸收律（Absorption Law）</h4><p>吸收律表示通过某些布尔运算可以简化表达式。</p>
+<ul>
+<li>$ A + (A \cdot B) &#x3D; A $</li>
+<li>$ A \cdot (A + B) &#x3D; A $</li>
+</ul>
+<h4 id="2-2-5-合并律（Combining-Law）"><a href="#2-2-5-合并律（Combining-Law）" class="headerlink" title="2.2.5 合并律（Combining Law）"></a>2.2.5 合并律（Combining Law）</h4><p>合并律表示布尔变量和其补变量的某些组合具有特定的结果。</p>
+<ul>
+<li>$ A + \overline{A} &#x3D; 1 $</li>
+<li>$ A \cdot \overline{A} &#x3D; 0 $</li>
+</ul>
+<h4 id="2-2-6-一致律（Identity-Law）"><a href="#2-2-6-一致律（Identity-Law）" class="headerlink" title="2.2.6 一致律（Identity Law）"></a>2.2.6 一致律（Identity Law）</h4><p>一致律表示布尔变量与1和0的运算结果。</p>
+<ul>
+<li><strong>与1</strong>：$ A \cdot 1 &#x3D; A $</li>
+<li><strong>与0</strong>：$ A \cdot 0 &#x3D; 0 $</li>
+<li><strong>或1</strong>：$ A + 1 &#x3D; 1 $</li>
+<li><strong>或0</strong>：$ A + 0 &#x3D; A $</li>
+</ul>
+<h4 id="2-2-7-德摩根律（De-Morgan’s-Laws）"><a href="#2-2-7-德摩根律（De-Morgan’s-Laws）" class="headerlink" title="2.2.7 德摩根律（De Morgan’s Laws）"></a>2.2.7 德摩根律（De Morgan’s Laws）</h4><p>德摩根律表示对布尔表达式取反的规则。</p>
+<ul>
+<li>$ \overline{A \cdot B} &#x3D; \overline{A} + \overline{B} $</li>
+<li>$ \overline{A + B} &#x3D; \overline{A} \cdot \overline{B} $</li>
+</ul>
+<h4 id="2-2-8-部分二级公式推导"><a href="#2-2-8-部分二级公式推导" class="headerlink" title="2.2.8 部分二级公式推导"></a>2.2.8 部分二级公式推导</h4><ul>
+<li>$ A + \overline{A}B &#x3D; A + B$</li>
+</ul>
+<p>证明: $A(1 + B) + {A}B &#x3D; A + AB + \overline{A}B &#x3D; A + B $ </p>
+<ul>
+<li>$ (A + B) \cdot (A + C) &#x3D; A + (B \cdot C) $</li>
+</ul>
+<p>证明: $ AA + AC + AB + BC &#x3D; A + AB + AC + BC &#x3D; A(1 + B + C) + BC &#x3D; A + BC $</p>
+<ul>
+<li>$A \cdot (A + B) &#x3D; A$</li>
+</ul>
+<p>证明: $AA + AB &#x3D; A + AB &#x3D; A(1 + B) &#x3D; A$</p>
+<ul>
+<li>$BC + B\overline{C} &#x3D; B$</li>
+</ul>
+<p>证明: $B \cdot (C + \overline{C}) &#x3D; B \cdot 1 &#x3D; B$</p>
+<ul>
+<li>$(A + B) \cdot (A + \overline{B}) &#x3D; A$</li>
+</ul>
+<p>证明: $AA + A\overline{B} + AB + B\overline{B} &#x3D; A + A(B + \overline{B}) &#x3D; A + A &#x3D; A$</p>
+<ul>
+<li>$AB + \overline{A}C + BC &#x3D; AB + \overline{A}C$</li>
+</ul>
+<p>证明关键：使用吸收律 $A + AB &#x3D; A$, 推广为$AB + ABC &#x3D; AB$</p>
+<p>$$<br>\begin{aligned}<br>&amp;AB + \overline{A}C + BC \\<br>&amp;&#x3D; AB + \overline{A}C + (A + \overline{A})BC \\<br>&amp;&#x3D; AB + \overline{A}C + ABC + \overline{A}CB \\<br>&amp;&#x3D; AB + ABC + \overline{A}C + \overline{A}CB \text{(使用推广公式)} \\<br>&amp;&#x3D; AB + \overline{A}C<br>\end{aligned}<br>$$</p>
+<p>根据吸收律可继续推广下去：<br>$$AB + \overline{A}C + BC\cdot(\text{其他任何项}) &#x3D; AB + \overline{A}C  $$ </p>
+<p>在表达式中，无论包含 $B$ 和 $C$ 的项如何复杂（例如 $BCDEFGH$），它都不会改变整个表达式的最终结果。</p>
+<div class="note note-primary">
+            <p>渲染上述公式太折磨了！修考一般不考如此复杂的化简，一般掌握K-Map化简足够应付</p>
+          </div>
+
+<p>🐎🐎<br>马不停蹄更新中</p>
 
                 
               </div>
