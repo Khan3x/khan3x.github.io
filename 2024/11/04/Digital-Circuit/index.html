@@ -28,8 +28,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/add.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/nand.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/buffer.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-09T14:32:06.850Z">
+<meta property="article:modified_time" content="2024-11-10T03:58:11.889Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -233,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          211 words
+          663 words
         
       </span>
     
@@ -244,7 +245,7 @@
         
         
         
-          2 mins
+          6 mins
         
       </span>
     
@@ -290,7 +291,7 @@
 <blockquote>
 <p> 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
 </blockquote>
-<h2 id="1-Logic-Gates"><a href="#1-Logic-Gates" class="headerlink" title="1. Logic Gates"></a>1. Logic Gates</h2><p>第一章主要认识最基础的逻辑门元件，然后熟悉其对应的真值表(Truth Table),主要是为第二章的组合逻辑电路(Combinational logic)做铺垫。</p>
+<h2 id="1-Logic-Gates"><a href="#1-Logic-Gates" class="headerlink" title="1. Logic Gates"></a>1. Logic Gates</h2><p>第一章主要认识最基础的逻辑门元件，然后熟悉其对应的真值表(Truth Table),主要是为第二章的组合电路(combinational circuit)做铺垫。</p>
 <p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y &#x3D; \neg A$</p>
 <p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y &#x3D; A$</p>
 <p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y &#x3D; A \cap B$</p>
@@ -302,6 +303,36 @@
 <p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y &#x3D; A \oplus B $</p>
 <p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y &#x3D; \neg (A \oplus B) $</p>
 <img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" />
+
+<p>三态缓冲器（tristate buffer）是一种数字电路元件，其输出可以处于三种状态之一：高电平（1）、低电平（0）或高阻态（Z）。高阻态表示输出像断开一样，不驱动任何电流，可以用于总线控制等应用。</p>
+<p><strong>高水平有效（Active High）</strong></p>
+<p>在高水平有效的三态缓冲器中，当控制信号为高电平（1）时，缓冲器输出有效，即输出输入信号的值。当控制信号为低电平（0）时，缓冲器输出高阻态（Z）。</p>
+<ul>
+<li>控制信号 &#x3D; 1：输出 &#x3D; 输入信号</li>
+<li>控制信号 &#x3D; 0：输出 &#x3D; 高阻态（Z）</li>
+</ul>
+<p><strong>低水平有效（Active Low）</strong></p>
+<p>在低水平有效的三态缓冲器中，当控制信号为低电平（0）时，缓冲器输出有效，即输出输入信号的值。当控制信号为高电平（1）时，缓冲器输出高阻态（Z）。</p>
+<ul>
+<li>控制信号 &#x3D; 0：输出 &#x3D; 输入信号</li>
+<li>控制信号 &#x3D; 1：输出 &#x3D; 高阻态（Z）</li>
+</ul>
+<p align="center">
+  <img src="/img/DC/buffer.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 110%; height: auto;" />
+</p>
+
+
+<h2 id="2-Combinational-Circuit"><a href="#2-Combinational-Circuit" class="headerlink" title="2. Combinational Circuit"></a>2. Combinational Circuit</h2><p>组合电路（Combinational Circuit）是一种数字电路，其中输出仅依赖于当前输入，而不依赖于之前的输入状态。这意味着组合电路没有存储元件，因此它没有记忆功能。其主要特性包括：</p>
+<ul>
+<li><p>无记忆功能：输出仅由当前输入决定，与之前的输入无关。</p>
+</li>
+<li><p>固定的逻辑功能：根据输入信号的组合，输出信号以确定的方式变化。</p>
+</li>
+<li><p>构建简单：组合电路通常由基本逻辑门（如AND、OR、NOT、NAND、NOR、XOR、XNOR）构建，可以用来实现任意逻辑功能。</p>
+</li>
+</ul>
+<p>在有逻辑门的基础知识下，还需要有布尔表达式以及卡诺图的基础下才能完成组合电路的设计。</p>
+<h3 id="2-1-Boolean-Equation"><a href="#2-1-Boolean-Equation" class="headerlink" title="2.1 Boolean Equation"></a>2.1 Boolean Equation</h3>
                 
               </div>
             
