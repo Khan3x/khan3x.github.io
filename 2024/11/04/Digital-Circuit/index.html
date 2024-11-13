@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/nand.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/buffer.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-12T17:04:53.603Z">
+<meta property="article:modified_time" content="2024-11-13T14:23:25.932Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -245,7 +245,7 @@
         
         
         
-          24 mins
+          23 mins
         
       </span>
     
@@ -292,30 +292,28 @@
 <p> 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
 </blockquote>
 <h2 id="1-Logic-Gates"><a href="#1-Logic-Gates" class="headerlink" title="1. Logic Gates"></a>1. Logic Gates</h2><p>第一章主要认识最基础的逻辑门元件，然后熟悉其对应的真值表(Truth Table),主要是为第二章的组合电路(combinational circuit)做铺垫。</p>
-<p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y &#x3D; \neg A$</p>
-<p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y &#x3D; A$</p>
-<p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y &#x3D; A \cap B$</p>
-<p><strong>OR 门（或门）:</strong> 任意输入为1时，输出为1。$Y &#x3D; A \cup B$</p>
-<img src="/img/DC/add.svg" srcset="/img/loading.gif" lazyload alt="逻辑门1" style="max-width: 100%; height: auto;" />
-
-<p><strong>NAND 门（与非门）:</strong> 与门输出取反。 $ Y &#x3D; \neg (A \cap B) $</p>
-<p><strong>NOR 门（或非门）:</strong> 或门输出取反。 $ Y &#x3D; \neg (A \cup B) $</p>
-<p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y &#x3D; A \oplus B $</p>
-<p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y &#x3D; \neg (A \oplus B) $</p>
-<img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" />
-
+<p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y = \neg A$</p>
+<p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y = A$</p>
+<p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y = A \cap B$</p>
+<p><strong>OR 门（或门）:</strong> 任意输入为1时，输出为1。$Y = A \cup B$</p>
+<p><img src="/img/DC/add.svg" srcset="/img/loading.gif" lazyload alt="逻辑门1" style="max-width: 100%; height: auto;" /></p>
+<p><strong>NAND 门（与非门）:</strong> 与门输出取反。 $ Y = \neg (A \cap B) $</p>
+<p><strong>NOR 门（或非门）:</strong> 或门输出取反。 $ Y = \neg (A \cup B) $</p>
+<p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y = A \oplus B $</p>
+<p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y = \neg (A \oplus B) $</p>
+<p><img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" /></p>
 <p><strong>三态缓冲器（tristate buffer）</strong> 是一种数字电路元件，其输出可以处于三种状态之一：高电平（1）、低电平（0）或高阻态（Z）。高阻态表示输出像断开一样，不驱动任何电流，可以用于总线控制等应用。</p>
 <p><strong>高水平有效（Active High）</strong></p>
 <p>在高水平有效的三态缓冲器中，当控制信号为高电平（1）时，缓冲器输出有效，即输出输入信号的值。当控制信号为低电平（0）时，缓冲器输出高阻态（Z）。</p>
 <ul>
-<li>控制信号 &#x3D; 1：输出 &#x3D; 输入信号</li>
-<li>控制信号 &#x3D; 0：输出 &#x3D; 高阻态（Z）</li>
+<li>控制信号 = 1：输出 = 输入信号</li>
+<li>控制信号 = 0：输出 = 高阻态（Z）</li>
 </ul>
 <p><strong>低水平有效（Active Low）</strong></p>
 <p>在低水平有效的三态缓冲器中，当控制信号为低电平（0）时，缓冲器输出有效，即输出输入信号的值。当控制信号为高电平（1）时，缓冲器输出高阻态（Z）。</p>
 <ul>
-<li>控制信号 &#x3D; 0：输出 &#x3D; 输入信号</li>
-<li>控制信号 &#x3D; 1：输出 &#x3D; 高阻态（Z）</li>
+<li>控制信号 = 0：输出 = 输入信号</li>
+<li>控制信号 = 1：输出 = 高阻态（Z）</li>
 </ul>
 <p align="center">
   <img src="/img/DC/buffer.svg" srcset="/img/loading.gif" lazyload alt="逻辑门3" style="max-width: 110%; height: auto;" />
@@ -342,40 +340,18 @@
 <p><strong>最小项 (Minterms)</strong> 是布尔函数的标准形式之一，其中每个最小项对应一个输出为1的输入组合。最小项由所有变量的与运算构成，每个变量可能是原变量或其补变量。通俗解释就是输出为1对应积项为1的累加。</p>
 <p>示例：考虑一个布尔函数 ( F(A, B, C) )：</p>
 <ul>
-<li>当 ( A &#x3D; 1 ), ( B &#x3D; 0 ), ( C &#x3D; 1 ) 时，最小项为 $ ( A \cdot \overline{B} \cdot C )$ </li>
-<li>当 ( A &#x3D; 0 ), ( B &#x3D; 1 ), ( C &#x3D; 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$</li>
+<li>当 ( A = 1 ), ( B = 0 ), ( C = 1 ) 时，最小项为 $ ( A \cdot \overline{B} \cdot C )$ </li>
+<li>当 ( A = 0 ), ( B = 1 ), ( C = 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$ </li>
 </ul>
 <p>假设布尔函数在以下输入组合下输出为1：</p>
 <center>
 
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody></table>
+| A | B | C | F |
+|---|---|---|---|
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 |
+| 1 | 0 | 1 | 1 |
+
 </center>
 
 
@@ -386,34 +362,17 @@
 <p>示例：同样考虑布尔函数 ( F(A, B, C) )：</p>
 <p>这两个组合对应的最大项为：</p>
 <ul>
-<li>当 ( A &#x3D; 0 ), ( B &#x3D; 0 ), ( C &#x3D; 0 ) 时，最大项为$ (A + B + C) $</li>
-<li>当 ( A &#x3D; 1 ), ( B &#x3D; 0 ), ( C &#x3D; 1 ) 时，最大项为$ (\overline{A} + B + \overline{C} ) $</li>
+<li>当 ( A = 0 ), ( B = 0 ), ( C = 0 ) 时，最大项为$ (A + B + C) $</li>
+<li>当 ( A = 1 ), ( B = 0 ), ( C = 1 ) 时，最大项为$ (\overline{A} + B + \overline{C} ) $</li>
 </ul>
 <p>假设布尔函数 ( F(A, B, C) ) 在以下输入组合下输出为0：</p>
 <div class="center-table">
 
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody></table>
+| A | B | C | F |
+|---|---|---|---|
+| 0 | 0 | 0 | 0 |
+| 1 | 1 | 0 | 0 |
+
 </div>
 
 <p>因此，相应的最大项表达式为：</p>
@@ -435,72 +394,77 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <h3 id="2-2-Boolean-Operation-Rules"><a href="#2-2-Boolean-Operation-Rules" class="headerlink" title="2.2 Boolean Operation Rules"></a>2.2 Boolean Operation Rules</h3><p>布尔运算的基本定律，和卡诺图一样，是逻辑电路化简的主要手段</p>
 <h4 id="2-2-1-交换律（Commutative-Law）"><a href="#2-2-1-交换律（Commutative-Law）" class="headerlink" title="2.2.1 交换律（Commutative Law）"></a>2.2.1 交换律（Commutative Law）</h4><p>交换律表示在布尔运算中，操作数的位置可以互换。</p>
 <ul>
-<li><strong>与运算</strong>：$ A \cdot B &#x3D; B \cdot A $</li>
-<li><strong>或运算</strong>：$ A + B &#x3D; B + A $</li>
+<li><strong>与运算</strong>：$ A \cdot B = B \cdot A $</li>
+<li><strong>或运算</strong>：$ A + B = B + A $</li>
 </ul>
 <h4 id="2-2-2-结合律（Associative-Law）"><a href="#2-2-2-结合律（Associative-Law）" class="headerlink" title="2.2.2 结合律（Associative Law）"></a>2.2.2 结合律（Associative Law）</h4><p>结合律表示在布尔运算中，操作数的组合方式不影响运算结果。</p>
 <ul>
-<li><strong>与运算</strong>：$ (A \cdot B) \cdot C &#x3D; A \cdot (B \cdot C) $</li>
-<li><strong>或运算</strong>：$ (A + B) + C &#x3D; A + (B + C) $</li>
+<li><strong>与运算</strong>：$ (A \cdot B) \cdot C = A \cdot (B \cdot C) $</li>
+<li><strong>或运算</strong>：$ (A + B) + C = A + (B + C) $</li>
 </ul>
 <h4 id="2-2-3-分配律（Distributive-Law）"><a href="#2-2-3-分配律（Distributive-Law）" class="headerlink" title="2.2.3 分配律（Distributive Law）"></a>2.2.3 分配律（Distributive Law）</h4><p>分配律表示一种运算可以分配到另一种运算上。</p>
 <ul>
-<li><strong>与对或</strong>：$ A \cdot (B + C) &#x3D; (A \cdot B) + (A \cdot C) $</li>
-<li><strong>或对与</strong>：$ A + (B \cdot C) &#x3D; (A + B) \cdot (A + C) $</li>
+<li><strong>与对或</strong>：$ A \cdot (B + C) = (A \cdot B) + (A \cdot C) $</li>
+<li><strong>或对与</strong>：$ A + (B \cdot C) = (A + B) \cdot (A + C) $</li>
 </ul>
 <h4 id="2-2-4-吸收律（Absorption-Law）"><a href="#2-2-4-吸收律（Absorption-Law）" class="headerlink" title="2.2.4 吸收律（Absorption Law）"></a>2.2.4 吸收律（Absorption Law）</h4><p>吸收律表示通过某些布尔运算可以简化表达式。</p>
 <ul>
-<li>$ A + (A \cdot B) &#x3D; A $</li>
-<li>$ A \cdot (A + B) &#x3D; A $</li>
+<li>$ A + (A \cdot B) = A $</li>
+<li>$ A \cdot (A + B) = A $</li>
 </ul>
 <h4 id="2-2-5-合并律（Combining-Law）"><a href="#2-2-5-合并律（Combining-Law）" class="headerlink" title="2.2.5 合并律（Combining Law）"></a>2.2.5 合并律（Combining Law）</h4><p>合并律表示布尔变量和其补变量的某些组合具有特定的结果。</p>
 <ul>
-<li>$ A + \overline{A} &#x3D; 1 $</li>
-<li>$ A \cdot \overline{A} &#x3D; 0 $</li>
+<li>$ A + \overline{A} = 1 $</li>
+<li>$ A \cdot \overline{A} = 0 $</li>
 </ul>
 <h4 id="2-2-6-一致律（Identity-Law）"><a href="#2-2-6-一致律（Identity-Law）" class="headerlink" title="2.2.6 一致律（Identity Law）"></a>2.2.6 一致律（Identity Law）</h4><p>一致律表示布尔变量与1和0的运算结果。</p>
 <ul>
-<li><strong>与1</strong>：$ A \cdot 1 &#x3D; A $</li>
-<li><strong>与0</strong>：$ A \cdot 0 &#x3D; 0 $</li>
-<li><strong>或1</strong>：$ A + 1 &#x3D; 1 $</li>
-<li><strong>或0</strong>：$ A + 0 &#x3D; A $</li>
+<li><strong>与1</strong>：$ A \cdot 1 = A $</li>
+<li><strong>与0</strong>：$ A \cdot 0 = 0 $</li>
+<li><strong>或1</strong>：$ A + 1 = 1 $</li>
+<li><strong>或0</strong>：$ A + 0 = A $</li>
 </ul>
 <h4 id="2-2-7-德摩根律（De-Morgan’s-Laws）"><a href="#2-2-7-德摩根律（De-Morgan’s-Laws）" class="headerlink" title="2.2.7 德摩根律（De Morgan’s Laws）"></a>2.2.7 德摩根律（De Morgan’s Laws）</h4><p>德摩根律表示对布尔表达式取反的规则。</p>
 <ul>
-<li>$ \overline{A \cdot B} &#x3D; \overline{A} + \overline{B} $</li>
-<li>$ \overline{A + B} &#x3D; \overline{A} \cdot \overline{B} $</li>
+<li>$ \overline{A \cdot B} = \overline{A} + \overline{B} $</li>
+<li>$ \overline{A + B} = \overline{A} \cdot \overline{B} $</li>
 </ul>
 <h4 id="2-2-8-部分二级公式推导"><a href="#2-2-8-部分二级公式推导" class="headerlink" title="2.2.8 部分二级公式推导"></a>2.2.8 部分二级公式推导</h4><ul>
-<li>$ A + \overline{A}B &#x3D; A + B$</li>
+<li>$ A + \overline{A}B = A + B$</li>
 </ul>
-<p>证明: $A(1 + B) + {A}B &#x3D; A + AB + \overline{A}B &#x3D; A + B $ </p>
+<p>证明: $A(1 + B) + {A}B = A + AB + \overline{A}B = A + B $ </p>
 <ul>
-<li>$ (A + B) \cdot (A + C) &#x3D; A + (B \cdot C) $</li>
+<li>$ (A + B) \cdot (A + C) = A + (B \cdot C) $</li>
 </ul>
-<p>证明: $ AA + AC + AB + BC &#x3D; A + AB + AC + BC &#x3D; A(1 + B + C) + BC &#x3D; A + BC $</p>
+<p>证明: $ AA + AC + AB + BC = A + AB + AC + BC = A(1 + B + C) + BC = A + BC $</p>
 <ul>
-<li>$A \cdot (A + B) &#x3D; A$</li>
+<li>$A \cdot (A + B) = A$</li>
 </ul>
-<p>证明: $AA + AB &#x3D; A + AB &#x3D; A(1 + B) &#x3D; A$</p>
+<p>证明: $AA + AB = A + AB = A(1 + B) = A$</p>
 <ul>
-<li>$BC + B\overline{C} &#x3D; B$</li>
+<li>$BC + B\overline{C} = B$</li>
 </ul>
-<p>证明: $B \cdot (C + \overline{C}) &#x3D; B \cdot 1 &#x3D; B$</p>
+<p>证明: $B \cdot (C + \overline{C}) = B \cdot 1 = B$</p>
 <ul>
-<li>$(A + B) \cdot (A + \overline{B}) &#x3D; A$</li>
+<li>$(A + B) \cdot (A + \overline{B}) = A$</li>
 </ul>
-<p>证明: $AA + A\overline{B} + AB + B\overline{B} &#x3D; A + A(B + \overline{B}) &#x3D; A + A &#x3D; A$</p>
+<p>证明: $AA + A\overline{B} + AB + B\overline{B} = A + A(B + \overline{B}) = A + A = A$</p>
 <ul>
-<li>$AB + \overline{A}C + BC &#x3D; AB + \overline{A}C$</li>
+<li>$AB + \overline{A}C + BC = AB + \overline{A}C$</li>
 </ul>
-<p>证明关键：使用吸收律 $A + AB &#x3D; A$, 推广为$AB + ABC &#x3D; AB$</p>
-<p>$$<br>\begin{aligned}<br>&amp;AB + \overline{A}C + BC \\<br>&amp;&#x3D; AB + \overline{A}C + (A + \overline{A})BC \\<br>&amp;&#x3D; AB + \overline{A}C + ABC + \overline{A}CB \\<br>&amp;&#x3D; AB + ABC + \overline{A}C + \overline{A}CB \text{(使用推广公式)} \\<br>&amp;&#x3D; AB + \overline{A}C<br>\end{aligned}<br>$$</p>
-<p>根据吸收律可继续推广下去：<br>$$AB + \overline{A}C + BC\cdot(\text{其他任何项}) &#x3D; AB + \overline{A}C  $$ </p>
-<p>在表达式中，无论包含 $B$ 和 $C$ 的项如何复杂（例如 $BCDEFGH$），它都不会改变整个表达式的最终结果。</p>
+<p>证明关键：使用吸收律 $A + AB = A$, 推广为$AB + ABC = AB$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&AB + \overline{A}C + BC \\\\
+&= AB + \overline{A}C + (A + \overline{A})BC \\\\
+&= AB + \overline{A}C + ABC + \overline{A}CB \\\\
+&= AB + ABC + \overline{A}C + \overline{A}CB \text{(使用推广公式)} \\\\
+&= AB + \overline{A}C
+\end{aligned}</script><p>根据吸收律可继续推广下去：</p>
+<script type="math/tex; mode=display">AB + \overline{A}C + BC\cdot(\text{其他任何项}) = AB + \overline{A}C</script><p>在表达式中，无论包含 $B$ 和 $C$ 的项如何复杂（例如 $BCDEFGH$），它都不会改变整个表达式的最终结果。</p>
 <div class="note note-primary">
             <p>渲染上述公式太折磨了！修考一般不考如此复杂的化简，一般掌握K-Map化简足够应付</p>
           </div>
-
 <h3 id="2-3-K-Map"><a href="#2-3-K-Map" class="headerlink" title="2.3 K-Map"></a>2.3 K-Map</h3><p>在绘制卡诺图的时候需要用到格雷码的表格。首先引入一个格雷码的概念。</p>
 <h4 id="2-3-1-Gray-Code"><a href="#2-3-1-Gray-Code" class="headerlink" title="2.3.1 Gray Code"></a>2.3.1 Gray Code</h4><p>格雷码（Gray Code）是一种<strong>特殊的二进制编码方式</strong>，其特点是<strong>相邻的两个数码之间仅有一位二进制数不同</strong>。格雷码的发明即是用来将误差之可能性缩减至最小，编码的方式定义为每个邻近数字都只相差一个位元，因此也称为最小差异码，可以使装置做数字步进时只更动最少的位元数以提高稳定性。</p>
 <p><strong>格雷码的特性</strong></p>
@@ -509,6 +473,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><strong>非权重编码</strong>：格雷码不按照传统二进制编码的权值（如 $1, 2, 4, 8, \dots$）累加。</li>
 </ul>
 <p><strong>2 位格雷码卡诺图</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -517,7 +482,8 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <th>1</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>0</td>
 <td>00</td>
 <td>01</td>
@@ -527,8 +493,11 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <td>11</td>
 <td>10</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>3 位格雷码卡诺图</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -539,7 +508,8 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <th>10</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>0</td>
 <td>000</td>
 <td>001</td>
@@ -553,8 +523,11 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <td>101</td>
 <td>100</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>4 位格雷码卡诺图</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -565,7 +538,8 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <th>10</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>00</td>
 <td>0000</td>
 <td>0001</td>
@@ -593,7 +567,9 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <td>1001</td>
 <td>1000</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <blockquote>
 <p>上述表格，无论是以x轴对称，或者y轴对称，或者中心对称，均只有1位的差异</p>
 </blockquote>
@@ -607,7 +583,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 </li>
 </ol>
 <p>横轴和纵轴的变量顺序需按照<strong>格雷码</strong>排列，以确保相邻格子之间只有一个变量不同。</p>
-<ol start="2">
+<ol>
 <li><p>填写真值表和无关项：</p>
 <ul>
 <li>根据逻辑函数或真值表，在 K 图中标记输出为 1 的位置。</li>
@@ -642,6 +618,9 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 </ul>
 </li>
 </ol>
+<blockquote>
+<p>多练多化简就行了，没什么难度</p>
+</blockquote>
 <h3 id="2-4-常见数字模块"><a href="#2-4-常见数字模块" class="headerlink" title="2.4 常见数字模块"></a>2.4 常见数字模块</h3><p>这一小节跟计算机组成中的算术运算关联度很高，数字电路就是来讲解计算机所呈现出来的算术运算在底层是如何用逻辑元器件实现的。</p>
 <h4 id="2-4-1-Half-Adder"><a href="#2-4-1-Half-Adder" class="headerlink" title="2.4.1 Half Adder"></a>2.4.1 Half Adder</h4><p>🐎</p>
 
