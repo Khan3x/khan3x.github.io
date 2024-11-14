@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/fa2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/fa3.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-14T17:48:13.994Z">
+<meta property="article:modified_time" content="2024-11-14T18:04:03.831Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -349,17 +349,38 @@
 <li>当 ( A = 0 ), ( B = 1 ), ( C = 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$ </li>
 </ul>
 <p>假设布尔函数在以下输入组合下输出为1：</p>
-<center>
-
-| A | B | C | F |
-|---|---|---|---|
-| 0 | 0 | 1 | 1 |
-| 0 | 1 | 0 | 1 |
-| 1 | 0 | 1 | 1 |
-
-</center>
-
-
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>相应的最小项表示为：</p>
 <center>$ F(A, B, C) = \overline{A} \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot \overline{C} + A \cdot \overline{B} \cdot C $</center>
 
@@ -371,15 +392,32 @@
 <li>当 ( A = 1 ), ( B = 0 ), ( C = 1 ) 时，最大项为$ (\overline{A} + B + \overline{C} ) $</li>
 </ul>
 <p>假设布尔函数 ( F(A, B, C) ) 在以下输入组合下输出为0：</p>
-<div class="center-table">
-
-| A | B | C | F |
-|---|---|---|---|
-| 0 | 0 | 0 | 0 |
-| 1 | 1 | 0 | 0 |
-
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 </div>
-
 <p>因此，相应的最大项表达式为：</p>
 <center> 
 \[
@@ -651,7 +689,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 </li>
 </ul>
 <p><img src="/img/DC/full_adder.svg" srcset="/img/loading.gif" lazyload alt="全加器" style="max-width: 100%; height: auto;" />  </p>
-<p>首先分析K-Map，对于$S$有：</p>
+<p>首先分析真值表写出最小项表达式，对于$S$有：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 S &= \overline{A} \cdot B \cdot \overline{C_{in}} + A \cdot\overline{B} \cdot \overline{C_{in}} + \overline{A} \cdot \overline{B} \cdot C_{in} + A \cdot B \cdot C_{in} \\\\
@@ -662,7 +700,7 @@ S &= \overline{A} \cdot B \cdot \overline{C_{in}} + A \cdot\overline{B} \cdot \o
 \begin{aligned}
 C_{out} &= AB \overline{C_{in}} + \overline{A}BC_{in} + A \overline{B}C_{in} + ABC_{in} \\\\
 &= AB + C_{in}(A \oplus B)
-\end{aligned}</script><p><strong>思考🤔</strong> ：为什么黑书给的是 $C<em>{out} = AB + AC</em>{in} + BC_{in}$ ? 这时候可以借助K-Map化简：如下图所示<br><img src="/img/DC/fa1.svg" srcset="/img/loading.gif" lazyload alt="k-map" style="max-width: 100%; height: auto;" /><br>根据K-Map化简，我们的全加器的画法会得出上图的电路，而如果根据真值表进行表达式化简，我们会得到下图的全加器。<br><img src="/img/DC/fa2.svg" srcset="/img/loading.gif" lazyload alt="Full Adder" style="max-width: 100%; height: auto;" /><br>我们可以用2个半加器和一个或门封装成一个全加器,具体的计算过程就不赘述了，这是修考重点！<br><img src="/img/DC/fa3.svg" srcset="/img/loading.gif" lazyload alt="全加器封装" style="max-width: 100%; height: auto;" />  </p>
+\end{aligned}</script><p><strong>思考🤔</strong> ：为什么黑书给的是 $C<em>{out} = AB + AC</em>{in} + BC_{in}$ , 这时候可以借助K-Map化简：如下图所示<br><img src="/img/DC/fa1.svg" srcset="/img/loading.gif" lazyload alt="k-map" style="max-width: 100%; height: auto;" /><br>根据K-Map化简，我们的全加器的画法会得出上图的电路，而如果根据真值表进行表达式化简，我们会得到下图的全加器。<br><img src="/img/DC/fa2.svg" srcset="/img/loading.gif" lazyload alt="Full Adder" style="max-width: 100%; height: auto;" /><br>我们可以用2个半加器和一个或门封装成一个全加器,具体的计算过程就不赘述了，这是修考重点！<br><img src="/img/DC/fa3.svg" srcset="/img/loading.gif" lazyload alt="全加器封装" style="max-width: 100%; height: auto;" />  </p>
 <h4 id="2-4-3-Ripple-Carry-Adder"><a href="#2-4-3-Ripple-Carry-Adder" class="headerlink" title="2.4.3 Ripple-Carry Adder"></a>2.4.3 Ripple-Carry Adder</h4><p>🐎🐎🐎</p>
 
                 
