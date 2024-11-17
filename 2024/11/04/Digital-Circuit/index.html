@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/ripple.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/lookahead.jpeg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-17T12:58:05.572Z">
+<meta property="article:modified_time" content="2024-11-17T13:01:54.495Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -738,8 +738,8 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><p><strong>公式代换</strong><br>$$C_{i + 1} &#x3D; G_{i} + P_{i} \cdot C_{i} \quad \text{(用 $P_{i}$ 代换 $(A_{i} + B_{i})$)}$$</p>
 </li>
 </ol>
-<p>那么我就可以用已知的输入$A_{0}$ ~ $A_{n-1}$和$B_{0}$ ~ $B_{n-1}$以及$C_{0}$来确定进位是什么了。比如：<br>$$C_{1} &#x3D; G_{0} + P_{0} \cdot C_{0}$$<br>$$C_{2} &#x3D; G_{1} + P_{1} \cdot C_{1} &#x3D; G_{1} + P_{1} G_{0} + P_{1}P_{0}C_{0}$$<br>不断迭代我们可以得出$C_{3}$ 和$C_{4}$</p>
-<p>考虑到电路的复杂程度和电路成本的情况下，我们可以采用分块的策略，比如实现一个32bit的加法器，我们可以将四个全加器分成一个块，可以迅速确定当前块的进位，然后减少等待进位的时间。<em>在不考虑其他门延迟的情况下</em></p>
+<p>那么我就可以用已知的输入$A_{0}$ ~ $A_{n-1}$和$B_{0}$ ~ $B_{n-1}$以及$C_{0}$来确定进位是什么了。比如：<br>$$C_{1} &#x3D; G_{0} + P_{0} \cdot C_{0}$$<br>$$C_{2} &#x3D; G_{1} + P_{1} \cdot C_{1} &#x3D; G_{1} + P_{1} G_{0} + P_{1}P_{0}C_{0}$$<br>不断迭代我们可以得出$C_{3}$ 和$C_{4}$，甚至到$C_{n-1}$，但是！</p>
+<p>考虑到电路的复杂程度和电路成本的情况下，我们可以稍微妥协一下，采用分块的策略，比如实现一个32bit的加法器，我们可以将四个全加器分成一个块使用上面推导出来的门电路封装成一个块打包好。然后我们就可以迅速确定当前块的进位，减少等待进位的时间。<em>在不考虑其他门延迟的情况下</em></p>
 <ul>
 <li>不分块的情况下：需要等32次进位的传递</li>
 <li>4个为一块的情况下：只需要等$32&#x2F;4 &#x3D; 8$次进位传递</li>
