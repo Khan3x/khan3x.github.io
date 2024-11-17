@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/fa2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/fa3.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-16T04:59:09.412Z">
+<meta property="article:modified_time" content="2024-11-17T03:12:40.265Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -700,7 +700,12 @@ S &= \overline{A} \cdot B \cdot \overline{C_{in}} + A \cdot\overline{B} \cdot \o
 \begin{aligned}
 C_{out} &= AB \overline{C_{in}} + \overline{A}BC_{in} + A \overline{B}C_{in} + ABC_{in} \\\\
 &= AB + C_{in}(A \oplus B)
-\end{aligned}</script><p><strong>思考🤔</strong> ：为什么黑书给的是 $C<em>{out} = AB + AC</em>{in} + BC_{in}$ , 这时候可以借助K-Map化简：如下图所示<br><img src="/img/DC/fa1.svg" srcset="/img/loading.gif" lazyload alt="k-map" style="max-width: 100%; height: auto;" /><br>根据K-Map化简，我们的全加器的画法会得出上图的电路，而如果根据真值表进行表达式化简，我们会得到下图的全加器。<br><img src="/img/DC/fa2.svg" srcset="/img/loading.gif" lazyload alt="Full Adder" style="max-width: 100%; height: auto;" /><br>我们可以用2个半加器和一个或门封装成一个全加器,具体的计算过程就不赘述了，这是修考重点！<br><img src="/img/DC/fa3.svg" srcset="/img/loading.gif" lazyload alt="全加器封装" style="max-width: 100%; height: auto;" />  </p>
+\end{aligned}</script><p><strong>思考🤔</strong> ：为什么黑书给的是$C<em>{out} = AB + AC</em>{in} + BC_{in}$, 这时候可以借助K-Map化简：如下图所示</p>
+<p><img src="/img/DC/fa1.svg" srcset="/img/loading.gif" lazyload alt="k-map" style="max-width: 100%; height: auto;" />  </p>
+<p>根据K-Map化简，我们的全加器的画法会得出上图的电路，而如果根据真值表进行表达式化简，我们会得到下图的全加器。</p>
+<p><img src="/img/DC/fa2.svg" srcset="/img/loading.gif" lazyload alt="Full Adder" style="max-width: 100%; height: auto;" />  </p>
+<p>我们可以用2个半加器和一个或门封装成一个全加器,具体的计算过程就不赘述了，这是修考重点！</p>
+<p><img src="/img/DC/fa3.svg" srcset="/img/loading.gif" lazyload alt="全加器封装" style="max-width: 100%; height: auto;" />  </p>
 <h4 id="2-4-3-Ripple-Carry-Adder"><a href="#2-4-3-Ripple-Carry-Adder" class="headerlink" title="2.4.3 Ripple-Carry Adder"></a>2.4.3 Ripple-Carry Adder</h4><p>🐎🐎🐎</p>
 
                 
