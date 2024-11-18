@@ -36,8 +36,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/fa3.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/ripple.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/lookahead.jpeg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-17T13:01:54.495Z">
+<meta property="article:modified_time" content="2024-11-18T12:02:43.420Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -241,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k words
+          4.6k words
         
       </span>
     
@@ -252,7 +253,7 @@
         
         
         
-          36 mins
+          39 mins
         
       </span>
     
@@ -299,28 +300,30 @@
 <p> 催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
 </blockquote>
 <h2 id="1-Logic-Gates"><a href="#1-Logic-Gates" class="headerlink" title="1. Logic Gates"></a>1. Logic Gates</h2><p>第一章主要认识最基础的逻辑门元件，然后熟悉其对应的真值表(Truth Table),主要是为第二章的组合电路(combinational circuit)做铺垫。</p>
-<p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y = \neg A$</p>
-<p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y = A$</p>
-<p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y = A \cap B$</p>
-<p><strong>OR 门（或门）:</strong> 任意输入为1时，输出为1。$Y = A \cup B$</p>
-<p><img src="/img/DC/add.svg" srcset="/img/loading.gif" lazyload alt="逻辑门1" style="max-width: 100%; height: auto;" /></p>
-<p><strong>NAND 门（与非门）:</strong> 与门输出取反。 $ Y = \neg (A \cap B) $</p>
-<p><strong>NOR 门（或非门）:</strong> 或门输出取反。 $ Y = \neg (A \cup B) $</p>
-<p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y = A \oplus B $</p>
-<p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y = \neg (A \oplus B) $</p>
-<p><img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" /></p>
+<p><strong>NOT 门（非门）:</strong> 输出是输入的逻辑反， $Y &#x3D; \neg A$</p>
+<p><strong>BUF 门（缓冲器）:</strong> 输出与输入相同，用于信号强化。$Y &#x3D; A$</p>
+<p><strong>AND 门（与门）:</strong> 所有输入均为1时，输出才为1。$Y &#x3D; A \cap B$</p>
+<p><strong>OR 门（或门）:</strong> 任意输入为1时，输出为1。$Y &#x3D; A \cup B$</p>
+<img src="/img/DC/add.svg" srcset="/img/loading.gif" lazyload alt="逻辑门1" style="max-width: 100%; height: auto;" />
+
+<p><strong>NAND 门（与非门）:</strong> 与门输出取反。 $ Y &#x3D; \neg (A \cap B) $</p>
+<p><strong>NOR 门（或非门）:</strong> 或门输出取反。 $ Y &#x3D; \neg (A \cup B) $</p>
+<p><strong>XOR 门（异或门）:</strong> 相异为1，相同为0。 $ Y &#x3D; A \oplus B $</p>
+<p><strong>XNOR 门（同或门）:</strong> 相同为0，相异为1。 $ Y &#x3D; \neg (A \oplus B) $</p>
+<img src="/img/DC/nand.svg" srcset="/img/loading.gif" lazyload alt="逻辑门2" style="max-width: 100%; height: auto;" />
+
 <p><strong>三态缓冲器（tristate buffer）</strong> 是一种数字电路元件，其输出可以处于三种状态之一：高电平（1）、低电平（0）或高阻态（Z）。高阻态表示输出像断开一样，不驱动任何电流，可以用于总线控制等应用。</p>
 <p><strong>高水平有效（Active High）</strong></p>
 <p>在高水平有效的三态缓冲器中，当控制信号为高电平（1）时，缓冲器输出有效，即输出输入信号的值。当控制信号为低电平（0）时，缓冲器输出高阻态（Z）。</p>
 <ul>
-<li>控制信号 = 1：输出 = 输入信号</li>
-<li>控制信号 = 0：输出 = 高阻态（Z）</li>
+<li>控制信号 &#x3D; 1：输出 &#x3D; 输入信号</li>
+<li>控制信号 &#x3D; 0：输出 &#x3D; 高阻态（Z）</li>
 </ul>
 <p><strong>低水平有效（Active Low）</strong></p>
 <p>在低水平有效的三态缓冲器中，当控制信号为低电平（0）时，缓冲器输出有效，即输出输入信号的值。当控制信号为高电平（1）时，缓冲器输出高阻态（Z）。</p>
 <ul>
-<li>控制信号 = 0：输出 = 输入信号</li>
-<li>控制信号 = 1：输出 = 高阻态（Z）</li>
+<li>控制信号 &#x3D; 0：输出 &#x3D; 输入信号</li>
+<li>控制信号 &#x3D; 1：输出 &#x3D; 高阻态（Z）</li>
 </ul>
 <p align="center">
   <img src="/img/DC/buffer.svg" srcset="/img/loading.gif" lazyload alt="逻辑门3" style="max-width: 110%; height: auto;" />
@@ -347,11 +350,10 @@
 <p><strong>最小项 (Minterms)</strong> 是布尔函数的标准形式之一，其中每个最小项对应一个输出为1的输入组合。最小项由所有变量的与运算构成，每个变量可能是原变量或其补变量。通俗解释就是输出为1对应积项为1的累加。</p>
 <p>示例：考虑一个布尔函数 ( F(A, B, C) )：</p>
 <ul>
-<li>当 ( A = 1 ), ( B = 0 ), ( C = 1 ) 时，最小项为 $ ( A \cdot \overline{B} \cdot C )$ </li>
-<li>当 ( A = 0 ), ( B = 1 ), ( C = 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$ </li>
+<li>当 ( A &#x3D; 1 ), ( B &#x3D; 0 ), ( C &#x3D; 1 ) 时，最小项为 $ ( A \cdot \overline{B} \cdot C )$ </li>
+<li>当 ( A &#x3D; 0 ), ( B &#x3D; 1 ), ( C &#x3D; 0 ) 时，最小项为 $ ( \overline{A} \cdot B \cdot \overline{C} )$</li>
 </ul>
 <p>假设布尔函数在以下输入组合下输出为1：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -361,8 +363,7 @@
 <th>F</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>1</td>
@@ -380,9 +381,7 @@
 <td>1</td>
 <td>1</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>相应的最小项表示为：</p>
 <center>$ F(A, B, C) = \overline{A} \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot \overline{C} + A \cdot \overline{B} \cdot C $</center>
 
@@ -390,11 +389,10 @@
 <p>示例：同样考虑布尔函数 ( F(A, B, C) )：</p>
 <p>这两个组合对应的最大项为：</p>
 <ul>
-<li>当 ( A = 0 ), ( B = 0 ), ( C = 0 ) 时，最大项为$ (A + B + C) $</li>
-<li>当 ( A = 1 ), ( B = 0 ), ( C = 1 ) 时，最大项为$ (\overline{A} + B + \overline{C} ) $</li>
+<li>当 ( A &#x3D; 0 ), ( B &#x3D; 0 ), ( C &#x3D; 0 ) 时，最大项为$ (A + B + C) $</li>
+<li>当 ( A &#x3D; 1 ), ( B &#x3D; 0 ), ( C &#x3D; 1 ) 时，最大项为$ (\overline{A} + B + \overline{C} ) $</li>
 </ul>
 <p>假设布尔函数 ( F(A, B, C) ) 在以下输入组合下输出为0：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -404,8 +402,7 @@
 <th>F</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -417,9 +414,7 @@
 <td>0</td>
 <td>0</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>因此，相应的最大项表达式为：</p>
 <center> 
 \[
@@ -439,77 +434,72 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <h3 id="2-2-Boolean-Operation-Rules"><a href="#2-2-Boolean-Operation-Rules" class="headerlink" title="2.2 Boolean Operation Rules"></a>2.2 Boolean Operation Rules</h3><p>布尔运算的基本定律，和卡诺图一样，是逻辑电路化简的主要手段</p>
 <h4 id="2-2-1-交换律（Commutative-Law）"><a href="#2-2-1-交换律（Commutative-Law）" class="headerlink" title="2.2.1 交换律（Commutative Law）"></a>2.2.1 交换律（Commutative Law）</h4><p>交换律表示在布尔运算中，操作数的位置可以互换。</p>
 <ul>
-<li><strong>与运算</strong>：$ A \cdot B = B \cdot A $</li>
-<li><strong>或运算</strong>：$ A + B = B + A $</li>
+<li><strong>与运算</strong>：$ A \cdot B &#x3D; B \cdot A $</li>
+<li><strong>或运算</strong>：$ A + B &#x3D; B + A $</li>
 </ul>
 <h4 id="2-2-2-结合律（Associative-Law）"><a href="#2-2-2-结合律（Associative-Law）" class="headerlink" title="2.2.2 结合律（Associative Law）"></a>2.2.2 结合律（Associative Law）</h4><p>结合律表示在布尔运算中，操作数的组合方式不影响运算结果。</p>
 <ul>
-<li><strong>与运算</strong>：$ (A \cdot B) \cdot C = A \cdot (B \cdot C) $</li>
-<li><strong>或运算</strong>：$ (A + B) + C = A + (B + C) $</li>
+<li><strong>与运算</strong>：$ (A \cdot B) \cdot C &#x3D; A \cdot (B \cdot C) $</li>
+<li><strong>或运算</strong>：$ (A + B) + C &#x3D; A + (B + C) $</li>
 </ul>
 <h4 id="2-2-3-分配律（Distributive-Law）"><a href="#2-2-3-分配律（Distributive-Law）" class="headerlink" title="2.2.3 分配律（Distributive Law）"></a>2.2.3 分配律（Distributive Law）</h4><p>分配律表示一种运算可以分配到另一种运算上。</p>
 <ul>
-<li><strong>与对或</strong>：$ A \cdot (B + C) = (A \cdot B) + (A \cdot C) $</li>
-<li><strong>或对与</strong>：$ A + (B \cdot C) = (A + B) \cdot (A + C) $</li>
+<li><strong>与对或</strong>：$ A \cdot (B + C) &#x3D; (A \cdot B) + (A \cdot C) $</li>
+<li><strong>或对与</strong>：$ A + (B \cdot C) &#x3D; (A + B) \cdot (A + C) $</li>
 </ul>
 <h4 id="2-2-4-吸收律（Absorption-Law）"><a href="#2-2-4-吸收律（Absorption-Law）" class="headerlink" title="2.2.4 吸收律（Absorption Law）"></a>2.2.4 吸收律（Absorption Law）</h4><p>吸收律表示通过某些布尔运算可以简化表达式。</p>
 <ul>
-<li>$ A + (A \cdot B) = A $</li>
-<li>$ A \cdot (A + B) = A $</li>
+<li>$ A + (A \cdot B) &#x3D; A $</li>
+<li>$ A \cdot (A + B) &#x3D; A $</li>
 </ul>
 <h4 id="2-2-5-合并律（Combining-Law）"><a href="#2-2-5-合并律（Combining-Law）" class="headerlink" title="2.2.5 合并律（Combining Law）"></a>2.2.5 合并律（Combining Law）</h4><p>合并律表示布尔变量和其补变量的某些组合具有特定的结果。</p>
 <ul>
-<li>$ A + \overline{A} = 1 $</li>
-<li>$ A \cdot \overline{A} = 0 $</li>
+<li>$ A + \overline{A} &#x3D; 1 $</li>
+<li>$ A \cdot \overline{A} &#x3D; 0 $</li>
 </ul>
 <h4 id="2-2-6-一致律（Identity-Law）"><a href="#2-2-6-一致律（Identity-Law）" class="headerlink" title="2.2.6 一致律（Identity Law）"></a>2.2.6 一致律（Identity Law）</h4><p>一致律表示布尔变量与1和0的运算结果。</p>
 <ul>
-<li><strong>与1</strong>：$ A \cdot 1 = A $</li>
-<li><strong>与0</strong>：$ A \cdot 0 = 0 $</li>
-<li><strong>或1</strong>：$ A + 1 = 1 $</li>
-<li><strong>或0</strong>：$ A + 0 = A $</li>
+<li><strong>与1</strong>：$ A \cdot 1 &#x3D; A $</li>
+<li><strong>与0</strong>：$ A \cdot 0 &#x3D; 0 $</li>
+<li><strong>或1</strong>：$ A + 1 &#x3D; 1 $</li>
+<li><strong>或0</strong>：$ A + 0 &#x3D; A $</li>
 </ul>
 <h4 id="2-2-7-德摩根律（De-Morgan’s-Laws）"><a href="#2-2-7-德摩根律（De-Morgan’s-Laws）" class="headerlink" title="2.2.7 德摩根律（De Morgan’s Laws）"></a>2.2.7 德摩根律（De Morgan’s Laws）</h4><p>德摩根律表示对布尔表达式取反的规则。</p>
 <ul>
-<li>$ \overline{A \cdot B} = \overline{A} + \overline{B} $</li>
-<li>$ \overline{A + B} = \overline{A} \cdot \overline{B} $</li>
+<li>$ \overline{A \cdot B} &#x3D; \overline{A} + \overline{B} $</li>
+<li>$ \overline{A + B} &#x3D; \overline{A} \cdot \overline{B} $</li>
 </ul>
 <h4 id="2-2-8-部分二级公式推导"><a href="#2-2-8-部分二级公式推导" class="headerlink" title="2.2.8 部分二级公式推导"></a>2.2.8 部分二级公式推导</h4><ul>
-<li>$ A + \overline{A}B = A + B$</li>
+<li>$ A + \overline{A}B &#x3D; A + B$</li>
 </ul>
-<p>证明: $A(1 + B) + {A}B = A + AB + \overline{A}B = A + B $ </p>
+<p>证明: $A(1 + B) + {A}B &#x3D; A + AB + \overline{A}B &#x3D; A + B $ </p>
 <ul>
-<li>$ (A + B) \cdot (A + C) = A + (B \cdot C) $</li>
+<li>$ (A + B) \cdot (A + C) &#x3D; A + (B \cdot C) $</li>
 </ul>
-<p>证明: $ AA + AC + AB + BC = A + AB + AC + BC = A(1 + B + C) + BC = A + BC $</p>
+<p>证明: $ AA + AC + AB + BC &#x3D; A + AB + AC + BC &#x3D; A(1 + B + C) + BC &#x3D; A + BC $</p>
 <ul>
-<li>$A \cdot (A + B) = A$</li>
+<li>$A \cdot (A + B) &#x3D; A$</li>
 </ul>
-<p>证明: $AA + AB = A + AB = A(1 + B) = A$</p>
+<p>证明: $AA + AB &#x3D; A + AB &#x3D; A(1 + B) &#x3D; A$</p>
 <ul>
-<li>$BC + B\overline{C} = B$</li>
+<li>$BC + B\overline{C} &#x3D; B$</li>
 </ul>
-<p>证明: $B \cdot (C + \overline{C}) = B \cdot 1 = B$</p>
+<p>证明: $B \cdot (C + \overline{C}) &#x3D; B \cdot 1 &#x3D; B$</p>
 <ul>
-<li>$(A + B) \cdot (A + \overline{B}) = A$</li>
+<li>$(A + B) \cdot (A + \overline{B}) &#x3D; A$</li>
 </ul>
-<p>证明: $AA + A\overline{B} + AB + B\overline{B} = A + A(B + \overline{B}) = A + A = A$</p>
+<p>证明: $AA + A\overline{B} + AB + B\overline{B} &#x3D; A + A(B + \overline{B}) &#x3D; A + A &#x3D; A$</p>
 <ul>
-<li>$AB + \overline{A}C + BC = AB + \overline{A}C$</li>
+<li>$AB + \overline{A}C + BC &#x3D; AB + \overline{A}C$</li>
 </ul>
-<p>证明关键：使用吸收律 $A + AB = A$, 推广为$AB + ABC = AB$</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-&AB + \overline{A}C + BC \\\\
-&= AB + \overline{A}C + (A + \overline{A})BC \\\\
-&= AB + \overline{A}C + ABC + \overline{A}CB \\\\
-&= AB + ABC + \overline{A}C + \overline{A}CB \text{(使用推广公式)} \\\\
-&= AB + \overline{A}C
-\end{aligned}</script><p>根据吸收律可继续推广下去：</p>
-<script type="math/tex; mode=display">AB + \overline{A}C + BC\cdot(\text{其他任何项}) = AB + \overline{A}C</script><p>在表达式中，无论包含 $B$ 和 $C$ 的项如何复杂（例如 $BCDEFGH$），它都不会改变整个表达式的最终结果。</p>
+<p>证明关键：使用吸收律 $A + AB &#x3D; A$, 推广为$AB + ABC &#x3D; AB$</p>
+<p>$$<br>\begin{aligned}<br>&amp;AB + \overline{A}C + BC \\<br>&amp;&#x3D; AB + \overline{A}C + (A + \overline{A})BC \\<br>&amp;&#x3D; AB + \overline{A}C + ABC + \overline{A}CB \\<br>&amp;&#x3D; AB + ABC + \overline{A}C + \overline{A}CB \text{(使用推广公式)} \\<br>&amp;&#x3D; AB + \overline{A}C<br>\end{aligned}<br>$$</p>
+<p>根据吸收律可继续推广下去：<br>$$AB + \overline{A}C + BC\cdot(\text{其他任何项}) &#x3D; AB + \overline{A}C  $$ </p>
+<p>在表达式中，无论包含 $B$ 和 $C$ 的项如何复杂（例如 $BCDEFGH$），它都不会改变整个表达式的最终结果。</p>
 <div class="note note-primary">
             <p>渲染上述公式太折磨了！修考一般不考如此复杂的化简，一般掌握K-Map化简足够应付</p>
           </div>
+
 <h3 id="2-3-K-Map"><a href="#2-3-K-Map" class="headerlink" title="2.3 K-Map"></a>2.3 K-Map</h3><p>在绘制卡诺图的时候需要用到格雷码的表格。首先引入一个格雷码的概念。</p>
 <h4 id="2-3-1-Gray-Code"><a href="#2-3-1-Gray-Code" class="headerlink" title="2.3.1 Gray Code"></a>2.3.1 Gray Code</h4><p>格雷码（Gray Code）是一种<strong>特殊的二进制编码方式</strong>，其特点是<strong>相邻的两个数码之间仅有一位二进制数不同</strong>。格雷码的发明即是用来将误差之可能性缩减至最小，编码的方式定义为每个邻近数字都只相差一个位元，因此也称为最小差异码，可以使装置做数字步进时只更动最少的位元数以提高稳定性。</p>
 <p><strong>格雷码的特性</strong></p>
@@ -518,7 +508,6 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><strong>非权重编码</strong>：格雷码不按照传统二进制编码的权值（如 $1, 2, 4, 8, \dots$）累加。</li>
 </ul>
 <p><strong>2 位格雷码卡诺图</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -527,8 +516,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <th>1</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>00</td>
 <td>01</td>
@@ -538,11 +526,8 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <td>11</td>
 <td>10</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>3 位格雷码卡诺图</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -553,8 +538,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <th>10</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>000</td>
 <td>001</td>
@@ -568,11 +552,8 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <td>101</td>
 <td>100</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>4 位格雷码卡诺图</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -583,8 +564,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <th>10</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>00</td>
 <td>0000</td>
 <td>0001</td>
@@ -612,9 +592,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <td>1001</td>
 <td>1000</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <blockquote>
 <p>上述表格，无论是以x轴对称，或者y轴对称，或者中心对称，均只有1位的差异</p>
 </blockquote>
@@ -628,7 +606,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 </li>
 </ol>
 <p>横轴和纵轴的变量顺序需按照<strong>格雷码</strong>排列，以确保相邻格子之间只有一个变量不同。</p>
-<ol>
+<ol start="2">
 <li><p>填写真值表和无关项：</p>
 <ul>
 <li>根据逻辑函数或真值表，在 K 图中标记输出为 1 的位置。</li>
@@ -672,7 +650,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li>Sum：表示两个输入二进制数加法的结果（不考虑进位）。这里用$S$来表示和。</li>
 <li>Carry：表示加法结果中<strong>产生的进位</strong>。这里用$Cout$来表示产生的进位了。</li>
 </ul>
-<p>根据如下K-Map我们可以得出和与进位的表达式，分别为：$S = A \oplus B$ , $Cout = A\cdot B$，再把组合电路进行封装📦(encapsulation)可以得到半加器这个电路元件<br><img src="/img/DC/half_adder.svg" srcset="/img/loading.gif" lazyload alt="半加器" style="max-width: 100%; height: auto;" />  </p>
+<p>根据如下K-Map我们可以得出和与进位的表达式，分别为：$S &#x3D; A \oplus B$ , $Cout &#x3D; A\cdot B$，再把组合电路进行封装📦(encapsulation)可以得到半加器这个电路元件<br><img src="/img/DC/half_adder.svg" srcset="/img/loading.gif" lazyload alt="半加器" style="max-width: 100%; height: auto;" />  </p>
 <h4 id="2-4-2-Full-Adder"><a href="#2-4-2-Full-Adder" class="headerlink" title="2.4.2 Full Adder"></a>2.4.2 Full Adder</h4><p><strong>全加器 (Full Adder)</strong> 是数字电路中的一种基本元件，用于对二进制数进行加法运算。与半加器（Half Adder）相比，全加器可以对两个二进制数和一个进位位进行加法运算，并输出结果和新的进位位。</p>
 <p>全加器的输入包括三个位：</p>
 <ul>
@@ -690,28 +668,24 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><p>Cout（输出进位位）：表示加法结果的进位位。</p>
 </li>
 </ul>
-<p><img src="/img/DC/full_adder.svg" srcset="/img/loading.gif" lazyload alt="全加器" style="max-width: 100%; height: auto;" />  </p>
+<img src="/img/DC/full_adder.svg" srcset="/img/loading.gif" lazyload alt="全加器" style="max-width: 100%; height: auto;" />  
+
 <p>首先分析真值表写出最小项表达式，对于$S$有：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-S &= \overline{A} \cdot B \cdot \overline{C_{in}} + A \cdot\overline{B} \cdot \overline{C_{in}} + \overline{A} \cdot \overline{B} \cdot C_{in} + A \cdot B \cdot C_{in} \\\\
-&= \overline{C_{in}}(A \oplus B) + C_{in} \overline{(A \oplus B)} \\\\
-&= A \oplus B \oplus C_{in}
-\end{aligned}</script><p>对于$C_{out}$有：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-C_{out} &= AB \overline{C_{in}} + \overline{A}BC_{in} + A \overline{B}C_{in} + ABC_{in} \\\\
-&= AB + C_{in}(A \oplus B)
-\end{aligned}</script><p><strong>思考🤔</strong> ：为什么黑书给的是 $C<em>{out} = AB + AC</em>{in} + BC_{in}$ ，这时候可以借助K-Map化简：如下图所示</p>
+<p>$$<br>\begin{aligned}<br>S &amp;&#x3D; \overline{A} \cdot B \cdot \overline{C_{in}} + A \cdot\overline{B} \cdot \overline{C_{in}} + \overline{A} \cdot \overline{B} \cdot C_{in} + A \cdot B \cdot C_{in} \\<br>&amp;&#x3D; \overline{C_{in}}(A \oplus B) + C_{in} \overline{(A \oplus B)} \\<br>&amp;&#x3D; A \oplus B \oplus C_{in}<br>\end{aligned}<br>$$</p>
+<p>对于$C_{out}$有：</p>
+<p>$$<br>\begin{aligned}<br>C_{out} &amp;&#x3D; AB \overline{C_{in}} + \overline{A}BC_{in} + A \overline{B}C_{in} + ABC_{in} \\<br>&amp;&#x3D; AB + C_{in}(A \oplus B)<br>\end{aligned}<br>$$</p>
+<p><strong>思考🤔</strong> ：为什么黑书给的是 $C_{out} &#x3D; AB + AC_{in} + BC_{in}$ ，这时候可以借助K-Map化简：如下图所示</p>
 <div style="text-align: center;">
   <img src="/img/DC/fa1.svg" srcset="/img/loading.gif" lazyload alt="k-map" style="max-width: 100%; height: auto;" />
 </div>
 
 
 <p>根据K-Map化简，我们的全加器的画法会得出上图的电路，而如果根据真值表进行表达式化简，我们会得到下图的全加器。</p>
-<p><img src="/img/DC/fa2.svg" srcset="/img/loading.gif" lazyload alt="Full Adder" style="max-width: 100%; height: auto;" />  </p>
+<img src="/img/DC/fa2.svg" srcset="/img/loading.gif" lazyload alt="Full Adder" style="max-width: 100%; height: auto;" />  
+
 <p>我们可以用2个半加器和一个或门封装成一个全加器,具体的计算过程就不赘述了，这是修考重点！</p>
-<p><img src="/img/DC/fa3.svg" srcset="/img/loading.gif" lazyload alt="全加器封装" style="max-width: 100%; height: auto;" />  </p>
+<img src="/img/DC/fa3.svg" srcset="/img/loading.gif" lazyload alt="全加器封装" style="max-width: 100%; height: auto;" />  
+
 <h4 id="2-4-3-Ripple-Carry-Adder"><a href="#2-4-3-Ripple-Carry-Adder" class="headerlink" title="2.4.3 Ripple-Carry Adder"></a>2.4.3 Ripple-Carry Adder</h4><p><strong>Ripple-Carry Adder</strong> （行波进位加法器）是一种用于二进制数加法的简单组合逻辑电路，由多个一位全加器（Full Adder）级联而成，每个全加器负责处理输入位和进位。</p>
 <ol>
 <li><p><strong>组成结构</strong>  </p>
@@ -743,34 +717,36 @@ C_{out} &= AB \overline{C_{in}} + \overline{A}BC_{in} + A \overline{B}C_{in} + A
 <p>Ripple-Carry Adder 适用于简单、低速应用；但无法满足更高速的加法需求。</p>
 </li>
 </ol>
-<p><img src="/img/DC/ripple.svg" srcset="/img/loading.gif" lazyload alt="4bit行波进位加法器" style="max-width: 100%; height: auto;" />  </p>
+<img src="/img/DC/ripple.svg" srcset="/img/loading.gif" lazyload alt="4bit行波进位加法器" style="max-width: 100%; height: auto;" />  
+
+
 <h4 id="2-4-3-Carry-Lookahead-Adder-CLA"><a href="#2-4-3-Carry-Lookahead-Adder-CLA" class="headerlink" title="2.4.3 Carry-Lookahead Adder (CLA)"></a>2.4.3 Carry-Lookahead Adder (CLA)</h4><p><strong>Carry-Lookahead Adder (CLA)</strong> ，即先行进位加法器，是一种改进的加法器*，用于快速执行二进制加法，解决 Ripple-Carry Adder 中进位传播延迟的问题。</p>
 <p>Carry-Lookahead Adder 通过并行计算进位信号，而不依赖逐级传播，从而显著提高速度。其核心思想是利用生成信号和传播信号：</p>
 <ol>
-<li><p><strong>生成信号 (Generate)</strong>  ：表示某一位的加法会直接产生一个进位：<br>$G_i = A_i \cdot B_i$</p>
+<li><p><strong>生成信号 (Generate)</strong>  ：表示某一位的加法会直接产生一个进位：<br>$G_i &#x3D; A_i \cdot B_i$</p>
 </li>
-<li><p><strong>传播信号 (Propagate)</strong>  ：表示某一位的加法会将来自上一位的进位传递下去：<br>$P_i = A_i + B_i$</p>
+<li><p><strong>传播信号 (Propagate)</strong>  ：表示某一位的加法会将来自上一位的进位传递下去：<br>$P_i &#x3D; A_i + B_i$</p>
 </li>
-<li><p><strong>进位计算公式</strong>  ：根据生成和传播信号，计算每一位的进位：<br>$C_{i+1} = G_i + P_i \cdot C_i$   其中，$C_0$ 是初始进位。</p>
+<li><p><strong>进位计算公式</strong>  ：根据生成和传播信号，计算每一位的进位：<br>$C_{i+1} &#x3D; G_i + P_i \cdot C_i$   其中，$C_0$ 是初始进位。</p>
 </li>
 </ol>
 <p><strong>推导证明：</strong><br>根据前面全加器的结论，我们有：</p>
 <ol>
-<li><p><strong>初始公式</strong>  </p>
-<script type="math/tex; mode=display">C_{i + 1} = A_{i} \cdot B_{i} + (A_{i} + B_{i}) \cdot C_{i}</script></li>
-<li><p><strong>引入生成信号和传播信号</strong>(都是已知信号)  </p>
-<script type="math/tex; mode=display">G_{i} = A_{i} \cdot B_{i}</script><script type="math/tex; mode=display">P_{i} = A_{i} + B_{i}</script></li>
-<li><p><strong>公式代换</strong>  </p>
-<script type="math/tex; mode=display">C_{i + 1} = G_{i} + P_{i} \cdot C_{i} \quad \text{(用 $P_{i}$ 代换 $(A_{i} + B_{i})$)}</script></li>
+<li><p><strong>初始公式</strong><br>$$C_{i + 1} &#x3D; A_{i} \cdot B_{i} + (A_{i} + B_{i}) \cdot C_{i}$$</p>
+</li>
+<li><p><strong>引入生成信号和传播信号</strong>(都是已知信号)<br>$$G_{i} &#x3D; A_{i} \cdot B_{i}$$<br>$$P_{i} &#x3D; A_{i} + B_{i}$$</p>
+</li>
+<li><p><strong>公式代换</strong><br>$$C_{i + 1} &#x3D; G_{i} + P_{i} \cdot C_{i} \quad \text{(用 $P_{i}$ 代换 $(A_{i} + B_{i})$)}$$</p>
+</li>
 </ol>
-<p>那么我就可以用已知的输入$A<em>{0}$ ~ $A</em>{n-1}$和$B<em>{0}$ ~ $B</em>{n-1}$以及$C_{0}$来确定进位是什么了。比如：</p>
-<script type="math/tex; mode=display">C_{1} = G_{0} + P_{0} \cdot C_{0}</script><script type="math/tex; mode=display">C_{2} = G_{1} + P_{1} \cdot C_{1} = G_{1} + P_{1} G_{0} + P_{1}P_{0}C_{0}</script><p>不断迭代我们可以得出$C<em>{3}$ 和$C</em>{4}$，甚至到$C_{n-1}$，但是！</p>
+<p>那么我就可以用已知的输入$A_{0}$ ~ $A_{n-1}$和$B_{0}$ ~ $B_{n-1}$以及$C_{0}$来确定进位是什么了。比如：<br>$$C_{1} &#x3D; G_{0} + P_{0} \cdot C_{0}$$<br>$$C_{2} &#x3D; G_{1} + P_{1} \cdot C_{1} &#x3D; G_{1} + P_{1} G_{0} + P_{1}P_{0}C_{0}$$<br>不断迭代我们可以得出$C_{3}$ 和$C_{4}$，甚至到$C_{n-1}$，但是！</p>
 <p>考虑到电路的复杂程度和电路成本的情况下，我们可以稍微妥协一下，采用分块的策略，比如实现一个32bit的加法器，我们可以将四个全加器分成一个块使用上面推导出来的门电路封装成一个块打包好。然后我们就可以迅速确定当前块的进位，减少等待进位的时间。<em>在不考虑其他门延迟的情况下</em></p>
 <ul>
 <li>不分块的情况下：需要等32次进位的传递</li>
-<li>4个为一块的情况下：只需要等$32/4 = 8$次进位传递</li>
+<li>4个为一块的情况下：只需要等$32&#x2F;4 &#x3D; 8$次进位传递</li>
 </ul>
-<p><img src="/img/DC/lookahead.jpeg" srcset="/img/loading.gif" lazyload alt="黑书: 32bit超前进位加法器" style="max-width: 100%; height: auto;" />  </p>
+<img src="/img/DC/lookahead.jpeg" srcset="/img/loading.gif" lazyload alt="黑书: 32bit超前进位加法器" style="max-width: 100%; height: auto;" />  
+
 <p><strong>优点</strong></p>
 <ul>
 <li><strong>减少延迟</strong>：进位计算是并行完成的，速度显著快于 Ripple-Carry Adder。</li>
@@ -782,6 +758,30 @@ C_{out} &= AB \overline{C_{in}} + \overline{A}BC_{in} + A \overline{B}C_{in} + A
 <li><strong>功耗较高</strong>：更多逻辑门导致功耗增加。</li>
 </ul>
 <p>Carry-Lookahead Adder 是一种高效的加法器设计，常用于高速处理器中。相比 Ripple-Carry Adder，它通过并行化进位计算显著提高了运算速度，但也牺牲了一定的硬件简单性。</p>
+<h4 id="2-4-1-Multiplexer"><a href="#2-4-1-Multiplexer" class="headerlink" title="2.4.1 Multiplexer"></a>2.4.1 Multiplexer</h4><p>复用器(Multiplexer)是一种数字电路元件，它的主要功能是将多个输入信号中的一个传递到输出端。复用器可以被视为一个多路选择开关，通过控制选择信号选择特定的输入线路。</p>
+<p><strong>工作原理：</strong></p>
+<ul>
+<li><strong>输入信号</strong>：有 $2^n$ 个输入信号线，每条线路可传递一个信号。</li>
+<li><strong>选择信号</strong>：通过 $n$ 条选择线决定选取哪一个输入信号。</li>
+<li><strong>输出信号</strong>：仅有一个输出，输出选定的输入信号。</li>
+</ul>
+<p>复用器的输出可表示为：<br>$$<br>Y &#x3D; I_i \quad (i \text{由选择信号确定})<br>$$<br>其中 $I_i$ 是第 $i$ 个输入。</p>
+<img src="/img/DC/mux.svg" srcset="/img/loading.gif" lazyload alt="2:1 MUX" style="max-width: 100%; height: auto;" />  
+
+<p><strong>基本结构：</strong></p>
+<ul>
+<li><strong>数据输入端（Data Inputs）</strong>：多路信号的输入端口。</li>
+<li><strong>选择端（Select Lines）</strong>：控制信号，决定选用哪个输入。</li>
+<li><strong>输出端（Output Line）</strong>：传递选定信号的端口。</li>
+</ul>
+<p>例如：<br>对于一个 <strong>4路复用器（4-to-1 MUX）</strong>：</p>
+<ul>
+<li>有 4 个输入线：$I_0, I_1, I_2, I_3$。</li>
+<li>有 2 个选择线：$S_1, S_0$。</li>
+<li>有 1 个输出线：$Y$。</li>
+</ul>
+<p>输出由选择信号 $S_1$ 和 $S_0$ 确定：<br>$$<br>Y &#x3D;<br>\begin{cases}<br>I_0, &amp; \text{if } S_1S_0 &#x3D; 00 \<br>I_1, &amp; \text{if } S_1S_0 &#x3D; 01 \<br>I_2, &amp; \text{if } S_1S_0 &#x3D; 10 \<br>I_3, &amp; \text{if } S_1S_0 &#x3D; 11<br>\end{cases}<br>$$</p>
+<p>通过增加选择信号线数，复用器可以扩展为更大的多路选择器（如 8-to-1、16-to-1）。</p>
 
                 
               </div>
