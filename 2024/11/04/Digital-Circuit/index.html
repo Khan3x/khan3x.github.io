@@ -38,8 +38,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/lookahead.jpeg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux2.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/decoder.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-18T14:30:29.987Z">
+<meta property="article:modified_time" content="2024-11-18T15:10:07.741Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -243,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k words
+          5.1k words
         
       </span>
     
@@ -254,7 +255,7 @@
         
         
         
-          39 mins
+          43 mins
         
       </span>
     
@@ -759,7 +760,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><strong>功耗较高</strong>：更多逻辑门导致功耗增加。</li>
 </ul>
 <p>Carry-Lookahead Adder 是一种高效的加法器设计，常用于高速处理器中。相比 Ripple-Carry Adder，它通过并行化进位计算显著提高了运算速度，但也牺牲了一定的硬件简单性。</p>
-<h4 id="2-4-1-Multiplexer"><a href="#2-4-1-Multiplexer" class="headerlink" title="2.4.1 Multiplexer"></a>2.4.1 Multiplexer</h4><p>复用器(Multiplexer)是一种数字电路元件，它的主要功能是将多个输入信号中的一个传递到输出端。复用器可以被视为一个多路选择开关，通过控制选择信号选择特定的输入线路。</p>
+<h4 id="2-4-4-Subtractor"><a href="#2-4-4-Subtractor" class="headerlink" title="2.4.4 Subtractor"></a>2.4.4 Subtractor</h4><h4 id="2-4-5-Multiplexer"><a href="#2-4-5-Multiplexer" class="headerlink" title="2.4.5 Multiplexer"></a>2.4.5 Multiplexer</h4><p>复用器(Multiplexer)是一种数字电路元件，它的主要功能是将多个输入信号中的一个传递到输出端。复用器可以被视为一个多路选择开关，通过控制选择信号选择特定的输入线路。</p>
 <p><strong>工作原理：</strong></p>
 <ul>
 <li><strong>输入信号</strong>：有 $2^n$ 个输入信号线，每条线路可传递一个信号。</li>
@@ -786,7 +787,36 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <p>通过增加选择信号线数，复用器可以扩展为更大的多路选择器（如 8-to-1、16-to-1）。</p>
 <img src="/img/DC/mux2.svg" srcset="/img/loading.gif" lazyload alt="MUX" style="max-width: 100%; height: auto;" />  
 
+<h4 id="2-4-6-Decoder"><a href="#2-4-6-Decoder" class="headerlink" title="2.4.6 Decoder"></a>2.4.6 Decoder</h4><p>译码器是一种<strong>组合逻辑电路</strong>，其主要功能是将输入的<strong>二进制代码</strong>转换为<strong>独热码（one-hot code）</strong>，即在输出中只有一条线路为高电平，其余为低电平。</p>
+<div class="note note-success">
+            <p>独热码工作原理:如果有 $n$ 个类别，则需要一个长度为 $n$ 的二进制向量。对应某个类别的位置为1，其余位置为0。例如，对于3个类别：A, B, C：</p><ul><li>类别 A 编码为：$[1, 0, 0]$</li><li>类别 B 编码为：$[0, 1, 0]$</li><li>类别 C 编码为：$[0, 0, 1]$</li></ul>
+          </div>
 
+<p><strong>译码器工作原理</strong></p>
+<ul>
+<li><strong>输入信号</strong>：有 $n$ 条输入信号线，用于表示二进制编码。</li>
+<li><strong>输出信号</strong>：有 $2^n$ 条输出信号线，每个输出对应一种输入组合。</li>
+<li><strong>控制信号（可选）</strong>：部分译码器可能需要使能信号（Enable），用于控制译码器的工作状态。</li>
+</ul>
+<p>译码器根据输入信号的值，激活唯一对应的输出线。例如：</p>
+<ul>
+<li>输入：$00, 01, 10, 11$</li>
+<li>输出：$Y_0, Y_1, Y_2, Y_3$ 依次被激活。</li>
+</ul>
+<p><strong>译码器基本结构</strong></p>
+<p>对于一个 $n$ 位输入的译码器：</p>
+<ul>
+<li>有 $2^n$ 个输出信号线。</li>
+<li>每个输出信号线对应一个输入组合。</li>
+</ul>
+<p>例如，一个 <strong>2-to-4 译码器</strong>（2位输入，4个输出）：</p>
+<ul>
+<li>输入：$A_1, A_0$。</li>
+<li>输出：$Y_0, Y_1, Y_2, Y_3$。</li>
+<li>输出逻辑：<br>$$<br>Y_0 &#x3D; \overline{A_1} \cdot \overline{A_0}, \quad<br>Y_1 &#x3D; \overline{A_1} \cdot A_0, \quad<br>Y_2 &#x3D; A_1 \cdot \overline{A_0}, \quad<br>Y_3 &#x3D; A_1 \cdot A_0<br>$$</li>
+</ul>
+<p>译码器是数字电路中重要的基础模块，用于信号的<strong>解码与路由</strong>。</p>
+<img src="/img/DC/decoder.svg" srcset="/img/loading.gif" lazyload alt="译码器" style="max-width: 100%; height: auto;" />  
 
 
                 
