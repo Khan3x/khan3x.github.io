@@ -36,11 +36,12 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/fa3.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/ripple.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/lookahead.jpeg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/half.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/decoder.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-18T15:13:33.939Z">
+<meta property="article:modified_time" content="2024-11-19T17:06:51.516Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -244,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k words
+          5.2k words
         
       </span>
     
@@ -255,7 +256,7 @@
         
         
         
-          43 mins
+          44 mins
         
       </span>
     
@@ -760,7 +761,22 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><strong>功耗较高</strong>：更多逻辑门导致功耗增加。</li>
 </ul>
 <p>Carry-Lookahead Adder 是一种高效的加法器设计，常用于高速处理器中。相比 Ripple-Carry Adder，它通过并行化进位计算显著提高了运算速度，但也牺牲了一定的硬件简单性。</p>
-<h4 id="2-4-4-Subtractor"><a href="#2-4-4-Subtractor" class="headerlink" title="2.4.4 Subtractor"></a>2.4.4 Subtractor</h4><p>🐎马不停蹄</p>
+<h4 id="2-4-4-Half-Subtractor"><a href="#2-4-4-Half-Subtractor" class="headerlink" title="2.4.4 Half Subtractor"></a>2.4.4 Half Subtractor</h4><p>半减法器（Half Subtractor）可以对两个单个位的二进制数进行减法运算。它有两个输入：被减数$A$和减数$B$，输出包括差值（Difference, $D$）和借位（Borrow, $B_{0}$）。</p>
+<ul>
+<li><p>差值 $D &#x3D; A \oplus B$</p>
+</li>
+<li><p>借位$B_{0} &#x3D; \overline{A}B$</p>
+</li>
+</ul>
+<div style="text-align: center;">
+<img src="/img/DC/half.svg" srcset="/img/loading.gif" lazyload alt="半减法器" style="max-width: 100%; height: auto;" />  
+</div>
+
+
+<h4 id="2-4-5-Full-Subtractor"><a href="#2-4-5-Full-Subtractor" class="headerlink" title="2.4.5 Full Subtractor"></a>2.4.5 Full Subtractor</h4><p>全减法器（Full Subtractor）可以对两个单个位的二进制数以及一个借位输入进行减法运算。它有三个输入：被减数$A$，减数$B$，借位输入（Borrow, $B_{0}$），输出包括差值（Difference, $D$）和借位输出（Borrow_out）。</p>
+<p>差值（D）&#x3D; A ⊕ B ⊕ Borrow_in</p>
+<p>借位输出（Borrow_out）&#x3D; (\overline{A} ∧ B) ∨ (\overline{(A ⊕ B)} ∧ Borrow_in)</p>
+<p>全减法器可以通过将多个全减法器级联，处理多位二进制数的减法运算。</p>
 <h4 id="2-4-5-Multiplexer"><a href="#2-4-5-Multiplexer" class="headerlink" title="2.4.5 Multiplexer"></a>2.4.5 Multiplexer</h4><p>复用器(Multiplexer)是一种数字电路元件，它的主要功能是将多个输入信号中的一个传递到输出端。复用器可以被视为一个多路选择开关，通过控制选择信号选择特定的输入线路。</p>
 <p><strong>工作原理：</strong></p>
 <ul>
