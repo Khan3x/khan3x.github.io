@@ -45,8 +45,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/pd.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/glitch.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/glitch2.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/sr.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/sr2.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-24T16:36:31.069Z">
+<meta property="article:modified_time" content="2024-11-24T17:42:48.649Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -250,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.1k words
+          7.2k words
         
       </span>
     
@@ -261,7 +263,7 @@
         
         
         
-          60 mins
+          61 mins
         
       </span>
     
@@ -1031,7 +1033,49 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li><strong>锁存电路</strong>：  用作更复杂存储元件（如触发器）的基础单元。</li>
 </ul>
 <p>SR锁存器是最基本的锁存器，通过置位和复位信号控制输出状态，但需要避免无效状态。它在简单存储和状态保持电路中有广泛应用。</p>
+<img src="/img/DC/sr.svg" srcset="/img/loading.gif" lazyload alt="NOR门SR锁存器" style="max-width: 100%; height: auto;" />  
 
+<p>还有一种是由NAND门构成的SR锁存器，注意真值表和由NOR门构成的SR锁存器的区别</p>
+<table>
+<thead>
+<tr>
+<th>$S$</th>
+<th>$R$</th>
+<th>$Q_{next}$</th>
+<th>$\overline{Q}_{next}$</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td><strong>无效状态</strong>（禁止）</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>复位（Reset）</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>置位（Set）</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>保持</td>
+<td>保持</td>
+<td>保持当前状态</td>
+</tr>
+</tbody></table>
+<img src="/img/DC/sr2.svg" srcset="/img/loading.gif" lazyload alt="NAND门SR锁存器" style="max-width: 100%; height: auto;" />  
                 
               </div>
             
