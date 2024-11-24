@@ -42,8 +42,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/mux2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/decoder.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/pd.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-20T16:19:53.908Z">
+<meta property="article:modified_time" content="2024-11-24T10:21:33.271Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -247,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k words
+          5.6k words
         
       </span>
     
@@ -258,7 +259,7 @@
         
         
         
-          45 mins
+          47 mins
         
       </span>
     
@@ -849,7 +850,31 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <p>译码器是数字电路中重要的基础模块，用于信号的<strong>解码与路由</strong>。</p>
 <img src="/img/DC/decoder.svg" srcset="/img/loading.gif" lazyload alt="译码器" style="max-width: 100%; height: auto;" />  
 
-
+<h3 id="2-5-传播延迟和最小延迟"><a href="#2-5-传播延迟和最小延迟" class="headerlink" title="2.5 传播延迟和最小延迟"></a>2.5 传播延迟和最小延迟</h3><p><strong>传播延迟（Propagation Delay, $t_{pd}$）</strong></p>
+<ul>
+<li><p>定义：信号从输入端变化到输出端<strong>完全稳定</strong>所需的时间。对于组合电路来说就是关键路径上面每一个元件的传播延迟之和</p>
+</li>
+<li><p>影响因素：</p>
+<ul>
+<li>器件特性：如晶体管的开关速度、驱动能力。</li>
+<li>负载电容：较大的负载电容会增加传播延迟。</li>
+<li>电路拓扑：更复杂的路径结构会增加延迟。</li>
+</ul>
+</li>
+<li><p>意义：传播延迟决定了电路的速度性能，即最大运行频率。</p>
+</li>
+</ul>
+<p><strong>最小延迟（Contamination Delay, $t_{cd}$）</strong></p>
+<ul>
+<li>定义：信号在电路中传输所需的<strong>最短时间</strong>，反映信号可能在某些路径上过快到达输出端的时间。对于组合电路来说是最短路径上面每个元件的最小延迟之和。</li>
+<li>影响因素：<ul>
+<li>布线长度和材料特性。</li>
+<li>逻辑门数量与优化设计。</li>
+</ul>
+</li>
+<li>意义：保持时间（Hold Time）违规：最小延迟可能导致竞争冒险或保持时间问题。<br>必须确保最小延迟不会破坏电路的时序完整性。</li>
+</ul>
+<img src="/img/DC/pd.svg" srcset="/img/loading.gif" lazyload alt="传播延迟和最小延迟" style="max-width: 100%; height: auto;" />  
                 
               </div>
             
