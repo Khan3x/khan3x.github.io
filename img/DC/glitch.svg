@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <!-- 背景 -->
+    <rect width="800" height="400" fill="#ffffff"/>
+    
+    <!-- 水印 -->
+    <text x="400" y="200" font-size="80" fill="#f0f0f0" text-anchor="middle" transform="rotate(-30, 400, 200)">偷偷星球</text>
+    
+    <!-- 标题 -->
+    <text x="20" y="30" font-size="20" font-weight="bold">数字电路毛刺形成时序分析</text>
+    
+    <!-- 时序图组 -->
+    <g transform="translate(50,60)">
+        <!-- 输入信号A -->
+        <text x="10" y="40" font-size="14">A</text>
+        <path d="M50 40 H150 V20 H300" fill="none" stroke="#2196F3" stroke-width="2"/>
+        
+        <!-- 输入信号B -->
+        <text x="10" y="100" font-size="14">B</text>
+        <path d="M50 100 H200 V80 H300" fill="none" stroke="#2196F3" stroke-width="2"/>
+        
+        <!-- 理论输出Y -->
+        <text x="10" y="160" font-size="14">Y理论</text>
+        <path d="M50 160 H175 V140 H300" fill="none" stroke="#4CAF50" stroke-width="2" stroke-dasharray="4"/>
+        
+        <!-- 实际输出（带毛刺） -->
+        <text x="10" y="220" font-size="14">Y实际</text>
+        <path d="M50 220 H170 V200 H175 V220 H180 V200 H300" fill="none" stroke="#FF5722" stroke-width="2"/>
+        
+        <!-- 时间刻度 -->
+        <line x1="50" y1="250" x2="300" y2="250" stroke="black"/>
+        <line x1="50" y1="245" x2="50" y2="255" stroke="black"/>
+        <text x="45" y="270" font-size="12">0</text>
+        <line x1="175" y1="245" x2="175" y2="255" stroke="black"/>
+        <text x="170" y="270" font-size="12">t1</text>
+        <line x1="300" y1="245" x2="300" y2="255" stroke="black"/>
+        <text x="295" y="270" font-size="12">t2</text>
+        
+        <!-- 毛刺标注 -->
+        <path d="M175 190 L180 200 L185 190" fill="none" stroke="#FF5722" stroke-width="2"/>
+        <text x="160" y="185" font-size="12" fill="#FF5722">毛刺</text>
+    </g>
+    
+    <!-- 说明文字 -->
+    <g transform="translate(400,60)">
+        <text x="0" y="20" font-size="14" fill="#333">毛刺产生原因说明：</text>
+        <text x="0" y="50" font-size="14" fill="#333">1. 输入信号A和B在不同时刻发生变化</text>
+        <text x="0" y="80" font-size="14" fill="#333">2. 由于门电路传输延迟：</text>
+        <text x="20" y="105" font-size="14" fill="#333">- 路径1延迟：△t1</text>
+        <text x="20" y="130" font-size="14" fill="#333">- 路径2延迟：△t2</text>
+        <text x="0" y="160" font-size="14" fill="#333">3. △t1 ≠ △t2 导致瞬态毛刺产生</text>
+    </g>
+    
+    <!-- 时间轴箭头 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+        </marker>
+    </defs>
+    <line x1="50" y1="310" x2="350" y2="310" stroke="black" 
+          stroke-width="1" marker-end="url(#arrowhead)"/>
+    <text x="360" y="315" font-size="14">时间</text>
+</svg>
