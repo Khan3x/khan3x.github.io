@@ -50,7 +50,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/dlatch.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/jklatch.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-25T17:27:06.875Z">
+<meta property="article:modified_time" content="2024-11-27T15:27:19.222Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -254,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.8k words
+          8.3k words
         
       </span>
     
@@ -265,7 +265,7 @@
         
         
         
-          66 mins
+          70 mins
         
       </span>
     
@@ -1209,7 +1209,79 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 </ul>
 <img src="/img/DC/jklatch.svg" srcset="/img/loading.gif" lazyload alt="JK锁存器" style="max-width: 100%; height: auto;" />  
 
-<h3 id="3-2-Flip-FLop"><a href="#3-2-Flip-FLop" class="headerlink" title="3.2 Flip FLop"></a>3.2 Flip FLop</h3><p>🐎不停🦶</p>
+<h3 id="3-2-Flip-FLop"><a href="#3-2-Flip-FLop" class="headerlink" title="3.2 Flip FLop"></a>3.2 Flip FLop</h3><p>触发器是数字电路中的一种基本<strong>时序逻辑电路</strong>，用于存储一个二进制位的信息。它具有<strong>存储能力</strong>和<strong>同步性</strong>，是寄存器、计数器等时序电路的基础组件。</p>
+<p> <strong>触发器的特点：</strong></p>
+<ol>
+<li><strong>存储能力</strong>：可以存储1位二进制数据（0或1）。</li>
+<li><strong>同步性</strong>：大多数触发器通过时钟信号（Clock）控制状态的改变。</li>
+<li><strong>状态保持</strong>：在没有输入信号变化时，触发器会保持当前状态。</li>
+</ol>
+<p> <strong>常见触发器类型：</strong></p>
+<ol>
+<li><strong>SR触发器</strong></li>
+</ol>
+<ul>
+<li>基本类型，具有两个输入：<strong>Set（置1）</strong> 和 <strong>Reset（清0）</strong>。</li>
+<li>特点：<ul>
+<li>S&#x3D;1, R&#x3D;0：输出为1。</li>
+<li>S&#x3D;0, R&#x3D;1：输出为0。</li>
+<li>S&#x3D;0, R&#x3D;0：保持状态。</li>
+<li><strong>S&#x3D;1, R&#x3D;1</strong>：不稳定状态（无效）。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>D触发器（数据触发器）</strong></li>
+</ol>
+<ul>
+<li>具有一个数据输入端（D）和一个时钟输入端（CLK）。</li>
+<li>特点：<ul>
+<li>在时钟信号的有效边沿（上升沿或下降沿）到来时，将输入D的值传递到输出Q。</li>
+</ul>
+</li>
+<li>应用：<ul>
+<li>常用于数据同步和寄存器设计。</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>JK触发器</strong></li>
+</ol>
+<ul>
+<li>是RS触发器的改进型，消除了<strong>S&#x3D;1, R&#x3D;1</strong>的无效状态。</li>
+<li>输入为J和K：<ul>
+<li>J&#x3D;1, K&#x3D;0：置1。</li>
+<li>J&#x3D;0, K&#x3D;1：清0。</li>
+<li>J&#x3D;K&#x3D;1：状态翻转。</li>
+</ul>
+</li>
+<li>应用：<ul>
+<li>广泛用于计数器和状态机设计。</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><strong>T触发器（触发翻转器）</strong></li>
+</ol>
+<ul>
+<li>只有一个输入（T）。</li>
+<li>特点：<ul>
+<li>T&#x3D;1：状态翻转。</li>
+<li>T&#x3D;0：状态保持。</li>
+</ul>
+</li>
+<li>应用：<ul>
+<li>常用于计数器电路。</li>
+</ul>
+</li>
+</ul>
+<p>触发器是数字电路中<strong>存储单元的核心</strong>，用来实现数据存储和同步控制。不同类型的触发器适用于不同的功能需求：</p>
+<ul>
+<li>SR触发器用于简单存储；</li>
+<li>D触发器用于数据锁存；</li>
+<li>JK触发器适合复杂逻辑控制；</li>
+<li>T触发器常用于计数和分频。</li>
+</ul>
 
                 
               </div>
