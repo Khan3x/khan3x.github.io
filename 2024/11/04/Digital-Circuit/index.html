@@ -49,8 +49,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/sr2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/dlatch.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DC/jklatch.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/DC/srff.svg">
 <meta property="article:published_time" content="2024-11-04T15:56:01.000Z">
-<meta property="article:modified_time" content="2024-11-27T15:27:19.222Z">
+<meta property="article:modified_time" content="2024-11-27T15:52:41.694Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Digital Circuit">
@@ -254,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.3k words
+          8.7k words
         
       </span>
     
@@ -265,7 +266,7 @@
         
         
         
-          70 mins
+          73 mins
         
       </span>
     
@@ -1213,7 +1214,7 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <p> <strong>触发器的特点：</strong></p>
 <ol>
 <li><strong>存储能力</strong>：可以存储1位二进制数据（0或1）。</li>
-<li><strong>同步性</strong>：大多数触发器通过时钟信号（Clock）控制状态的改变。</li>
+<li><strong>同步性</strong>：大多数触发器通过<strong>时钟信号（Clock）</strong>控制状态的改变。</li>
 <li><strong>状态保持</strong>：在没有输入信号变化时，触发器会保持当前状态。</li>
 </ol>
 <p> <strong>常见触发器类型：</strong></p>
@@ -1282,6 +1283,67 @@ F(A, B, C) = (A + B + C) \cdot (\overline{A} + \overline{B} + C)
 <li>JK触发器适合复杂逻辑控制；</li>
 <li>T触发器常用于计数和分频。</li>
 </ul>
+<h4 id="3-2-1-SR-Flip-Flop"><a href="#3-2-1-SR-Flip-Flop" class="headerlink" title="3.2.1 SR Flip Flop"></a>3.2.1 SR Flip Flop</h4><p><strong>SR触发器</strong>是一种基本的双稳态存储单元，用于存储1位二进制信息。SR触发器由 <strong>Set（S）</strong> 和 <strong>Reset（R）</strong> 两个输入控制输出状态，常用于简单的存储和逻辑控制。</p>
+<p> <strong>工作原理</strong></p>
+<ul>
+<li><strong>S（Set）</strong>：设置触发器的输出为1（Q&#x3D;1）。</li>
+<li><strong>R（Reset）</strong>：重置触发器的输出为0（Q&#x3D;0）。</li>
+<li><strong>Q</strong> 和 **Q’**（Q取反）：为触发器的输出和其反向输出。</li>
+</ul>
+<p> <strong>逻辑功能表</strong></p>
+<table>
+<thead>
+<tr>
+<th>S</th>
+<th>R</th>
+<th>Q（输出）</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>保持</td>
+<td>保持上次状态</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>清零</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>置1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>无效</td>
+<td>不允许状态</td>
+</tr>
+</tbody></table>
+<p> <strong>状态说明</strong></p>
+<ol>
+<li><strong>S&#x3D;0, R&#x3D;0</strong>：触发器保持当前状态，不发生变化。</li>
+<li><strong>S&#x3D;1, R&#x3D;0</strong>：输出Q被置为1（Set）。</li>
+<li><strong>S&#x3D;0, R&#x3D;1</strong>：输出Q被重置为0（Reset）。</li>
+<li><strong>S&#x3D;1, R&#x3D;1</strong>：为无效状态，因Q和Q’会同时为1，违背Q和Q’互补的逻辑。</li>
+</ol>
+<p> <strong>实现方式</strong><br>SR触发器通常由两个<strong>NOR门</strong>或两个<strong>NAND门</strong>交叉反馈组成：</p>
+<ol>
+<li><strong>NOR门实现</strong>：逻辑为“高电平有效”，常见于基础应用。</li>
+<li><strong>NAND门实现</strong>：逻辑为“低电平有效”，更常见于实际设计中。</li>
+</ol>
+<p> <strong>应用场景</strong></p>
+<ul>
+<li><strong>存储单元</strong>：用于存储1位数据。</li>
+<li><strong>逻辑控制</strong>：作为简单的状态保持和切换电路。</li>
+<li><strong>锁存器</strong>：用于构成其他类型的触发器（如D触发器和JK触发器）。</li>
+</ul>
+<p>SR触发器是最基本的触发器类型，但存在<strong>S&#x3D;1, R&#x3D;1</strong>的不允许状态，限制了它在复杂电路中的使用。改进型触发器（如JK触发器）解决了这一问题。<br><img src="/img/DC/srff.svg" srcset="/img/loading.gif" lazyload alt="SR触发器" style="max-width: 100%; height: auto;" />  </p>
 
                 
               </div>
