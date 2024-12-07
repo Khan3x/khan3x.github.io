@@ -4,6 +4,41 @@
   
   
   <entry>
+    <title>九州大学2022年夏计算机组成</title>
+    <link href="/2024/12/07/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A62022%E5%B9%B4%E5%A4%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/"/>
+    <url>/2024/12/07/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A62022%E5%B9%B4%E5%A4%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/</url>
+    
+    <content type="html"><![CDATA[<h1 id="九州大学2021年计算机组成答案-by-偷偷"><a href="#九州大学2021年计算机组成答案-by-偷偷" class="headerlink" title="九州大学2021年计算机组成答案 by 偷偷"></a>九州大学2021年计算机组成答案 by 偷偷</h1><div class="note note-success">            <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>          </div><p><strong>[Q2]</strong> Let us consider an in-order microprocessor that has 5-stage pipelined datapath. The implemented pipeline stage are IF, ID, EX, MEM, and WB. The operations in each stage for the “add” are defined in the following table. Assume that the operations in each pipeline stage can be completed in one clock cycle. The written data in the WB stage of an instruction can be read in the ID stage of a subsequent instruction in the same clock cycle. All RAW(Read-After-Write) hazards are resolved by applying a pipeline stall mechanism. Answer the following questions.</p><center><img src="/img/exam/kyusyu22.jpg" alt="Operations of the pipelined datapath" style="max-width: 100%; height: auto;" /></center><hr><p><strong>(1)</strong> Consider the following assembly program. The words on the right of the ‘#’ symbol in each line are comments. Identify all flow dependencies by describing which instruction depends on which instructions through which register.</p><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">add $1, $3, $5 # &lt;1&gt;add $9, $2, $3 # &lt;2&gt;add $6, $3, $3 # &lt;3&gt;add $3, $4, $3 # &lt;4&gt;add $4, $7, $1 # &lt;5&gt;add $5, $7, $4 # &lt;6&gt;add $9, $3, $6 # &lt;7&gt;add $2, $7, $6 # &lt;8&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><blockquote><p><strong>Hint:</strong> 流依赖（Flow Dependency），也称为Read-After-Write (RAW) 依赖，是指一条指令需要读取一个由前一条指令写入的寄存器值。</p></blockquote><p>从上到下依次分析写入的寄存器，可以得到存在的Flow Dependencies 有：</p><ul><li>&lt;5&gt; depends on &lt;1&gt; through $1</li><li>&lt;7&gt; depends on &lt;3&gt; through $6</li><li>&lt;8&gt; depends on &lt;3&gt; through $6</li><li>&lt;7&gt; depends on &lt;4&gt; through $3</li><li>&lt;6&gt; depends on &lt;5&gt; through $4</li></ul><hr><p><strong>(2)</strong> Assume the instruction issue width is one. Answer the number of clock cycles required for the execution of the assembly program.</p><blockquote><p><strong>Hint:</strong> 一条指令在写回（WB）阶段写入的数据，可以在同一个时钟周期内被随后的指令在指令解码（ID）阶段读取。</p></blockquote><p>We can draw the pipeline stages below.</p><img src="/img/exam/kyusyu22.svg" alt="pipeline" style="max-width: 100%; height: auto;" /><p>According to the pipeline stages, it requires <strong>14</strong> clock cycles for the execution of the assembly program.</p><hr><p><strong>(3)</strong> We extend the datapath by increasing the instruction issue width from one to two that forms an in-order superscalar microprocessor, i.e., at most, two independent instructions can be executed in parallel. Answer the number of clock cycles required for the execution of the assembly program on the extended datapath.</p><p>We can draw the pipeline stages below.</p><img src="/img/exam/kyusyu22-2.svg" alt="pipeline" style="max-width: 100%; height: auto;" /><p>According to the pipeline stages, it requires <strong>11</strong> clock cycles for the execution of the assembly program.</p><hr><p><strong>(4)</strong> The data path extension presented in (3) causes a 5% decrease in its clock frequency. Answer the performance improvement rate achieved by implementing the extension.</p><p>We know that,</p><p>$$\text{CPU Time} &#x3D; IC \times CPI \times \frac{1}{f}$$</p><p>When extending the datapath, IC reimains the same, CPI improves $\frac{14}{11}$ and the frequency decreases 5%. The improvement $K$ is:<br>$$ K &#x3D; \frac{\text{CPU Time}}{\text{CPU Time’}}&#x3D; \frac{14 \times 0.95}{11} \approx \text{121%} $$</p><hr><p><strong>[Q3]</strong> Explain what “compulsory misses”, “conflict misses”, and what “capacity misses” are in cache memory systems, respectively.</p><blockquote><p><strong>Hint:</strong> 直接映射缺失的3C模型</p></blockquote><ul><li><p><strong>Compulsory Misses:</strong> Misses that occur when data is accessed for the first time.</p></li><li><p><strong>Conflict Misses:</strong> Misses that occur  when different data blocks are mapped to the same cache line position causing frequent replacements, resulting in misses even if the cache capacity is sufficient.</p></li><li><p><strong>Capacity Misses:</strong> Due to limited cache capacityeven if all blocks in the cache are fully utilized, it still cannot accommodate all the needed data blocks, resulting in misses.</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>日本修考答案</category>
+      
+      <category>计算机组成</category>
+      
+      <category>九州大学情报理工</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>修考</tag>
+      
+      <tag>修考答案</tag>
+      
+      <tag>CA</tag>
+      
+      <tag>九州大学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>九州大学2021年夏计算机组成</title>
     <link href="/2024/12/06/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A62021%E5%B9%B4%E5%A4%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/"/>
     <url>/2024/12/06/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A62021%E5%B9%B4%E5%A4%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/</url>
@@ -26,11 +61,11 @@
       
       <tag>修考</tag>
       
+      <tag>修考答案</tag>
+      
       <tag>CA</tag>
       
       <tag>九州大学</tag>
-      
-      <tag>修考答案</tag>
       
     </tags>
     
@@ -140,11 +175,11 @@
       
       <tag>修考</tag>
       
-      <tag>修考答案</tag>
-      
       <tag>DSA</tag>
       
       <tag>东京大学</tag>
+      
+      <tag>修考答案</tag>
       
     </tags>
     
