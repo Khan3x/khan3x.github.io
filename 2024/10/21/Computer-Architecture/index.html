@@ -251,7 +251,7 @@
         
         
         
-          111 mins
+          112 mins
         
       </span>
     
@@ -293,24 +293,24 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contain 5 parts and I try to make it clear and simple. Credit to《Computer Organization and Design : The Hardware/Software Interface, 5th Edition》目前我也在<a target="_blank" rel="noopener" href="https://www.xly-edu.com/">@新领域理工塾</a>，讲授这门课😇</p>
+                <h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p>This for test takers to quickly review Computer Architecture. The whole notes contain 5 parts and I try to make it clear and simple. Credit to《Computer Organization and Design : The Hardware&#x2F;Software Interface, 5th Edition》目前我也在<a target="_blank" rel="noopener" href="https://www.xly-edu.com/">@新领域理工塾</a>，讲授这门课😇</p>
 <blockquote>
 <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
 </blockquote>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>在本章中，主要引入一下计算机组成的概念然后讲解衡量计算机的性能指标，并着重讲解涉及到的计量单位和公式。</p>
 <h3 id="1-1-常用单位"><a href="#1-1-常用单位" class="headerlink" title="1.1 常用单位"></a>1.1 常用单位</h3><p>容量单位常用<strong>字节(Byte)</strong> ,衡量单位是<em>2进制(Binary)</em> ,容量之间的数量级关系是：$2^{10}$; 常见的有$K$,$M$,$G$,$T$。</p>
 <blockquote>
-<p>例如： $1TB=2^{10} GB= 1024GB$; $1GB=2^{10}MB=1024MB$</p>
+<p>例如： $1TB&#x3D;2^{10} GB&#x3D; 1024GB$; $1GB&#x3D;2^{10}MB&#x3D;1024MB$</p>
 </blockquote>
 <p>衡量传输速度常用<strong>位每秒(bps,bit per secod)</strong> ,衡量单位是<em>10进制(Decimal)</em> ,传输速度之间的数量级关系是：$10^3$; 常见的有$K$,$M$,$G$,$T$。</p>
 <blockquote>
-<p>例如：$1kbit/s=1000bit/s$, $1mbit/s=1000kbit/s$</p>
+<p>例如：$1kbit&#x2F;s&#x3D;1000bit&#x2F;s$, $1mbit&#x2F;s&#x3D;1000kbit&#x2F;s$</p>
 </blockquote>
 <p>另外需要注意的单位换算是：</p>
 <ul>
-<li>$bit/s$记作$bps$</li>
-<li>$1 Byte = 8 bit$</li>
-<li>$1 Bps = 1 Byte/second = 8 bit/second = 8 bps$</li>
+<li>$bit&#x2F;s$记作$bps$</li>
+<li>$1 Byte &#x3D; 8 bit$</li>
+<li>$1 Bps &#x3D; 1 Byte&#x2F;second &#x3D; 8 bit&#x2F;second &#x3D; 8 bps$</li>
 </ul>
 <h3 id="1-2-计算机结构中的8个伟大思想"><a href="#1-2-计算机结构中的8个伟大思想" class="headerlink" title="1.2 计算机结构中的8个伟大思想"></a>1.2 计算机结构中的8个伟大思想</h3><ul>
 <li>Moore’s Law: 芯片上的集成度每18～24个月翻一番</li>
@@ -336,11 +336,13 @@
 <div class="note note-success">
             <p>在修考中，出现的汇编语言是RISC指令集，因此在后序章节只讲解RISC指令</p>
           </div>
+
 <h4 id="1-3-3-机器语言-Machine-language"><a href="#1-3-3-机器语言-Machine-language" class="headerlink" title="1.3.3 机器语言(Machine language)"></a>1.3.3 机器语言(Machine language)</h4><p>机器语言是计算机能够直接执行的最底层编程语言。它由二进制代码组成，每条指令由一串0和1表示（eg. 00000111111010001），直接控制计算机的硬件操作。由于其复杂性和难以阅读，人类很少直接编写机器语言程序。</p>
 <blockquote>
 <p>总结：高级语言编译为汇编语言，然后汇编语言通过汇编转化为由01串组成的机器语言</p>
 </blockquote>
-<h3 id="1-4-冯·诺伊曼结构-Von-Neumann-architecture"><a href="#1-4-冯·诺伊曼结构-Von-Neumann-architecture" class="headerlink" title="1.4 冯·诺伊曼结构(Von Neumann architecture)"></a>1.4 冯·诺伊曼结构(Von Neumann architecture)</h3><p><img src="/img/CA/von.svg" srcset="/img/loading.gif" lazyload alt="冯诺伊曼结构" style="max-width: 100%; height: auto;" /></p>
+<h3 id="1-4-冯·诺伊曼结构-Von-Neumann-architecture"><a href="#1-4-冯·诺伊曼结构-Von-Neumann-architecture" class="headerlink" title="1.4 冯·诺伊曼结构(Von Neumann architecture)"></a>1.4 冯·诺伊曼结构(Von Neumann architecture)</h3><img src="/img/CA/von.svg" srcset="/img/loading.gif" lazyload alt="冯诺伊曼结构" style="max-width: 100%; height: auto;" />
+
 <p><strong>输入设备(Input Devices)</strong> 是用于向计算机输入数据和指令的硬件。例如，键盘（Keyboard）、鼠标（Mouse）、扫描仪（Scanner）、话筒（Microphone）等。它们将用户的操作转化为计算机能够理解的信号。</p>
 <p><strong>输出设备(Output Devices)</strong> 是用于从计算机输出数据和结果的硬件。例如，显示器（Monitor）、打印机（Printer）、扬声器（Speakers）等。它们将计算机处理后的数据转化为用户可以理解的信息。</p>
 <p><strong>控制器(Control Unit, CU)</strong> 是负责从存储器读取指令，并解释和执行指令的计算机部件。它管理和协调计算机的各个部分，以确保指令被按顺序执行。</p>
@@ -352,14 +354,14 @@
 <p><strong>CPU性能公式(Performance)：</strong></p>
 <center>$CPU性能 = 1 / 执行时间$</center>
 
-<p>A的性能比B的性能高$X$倍计算：  $X=t<em>{B执行时间}/t</em>{A执行时间}$</p>
+<p>A的性能比B的性能高$X$倍计算：  $X&#x3D;t_{B执行时间}&#x2F;t_{A执行时间}$</p>
 <p><strong>时钟周期长度(Clock Cycle Length):</strong><br>是指计算机时钟信号中相邻两个相同状态（如两个上升沿）之间的时间间隔。CPU做的任何动作所消耗的时间都是一个时钟周期的整数倍。通常以纳秒（ns）为单位,记作 $T$</p>
 <p><strong>时钟周期频率(Clock Cycle Frequency):</strong><br>则是时钟信号每秒钟振荡的次数，通常以赫兹（Hz）为单位。它是时钟周期长度的倒数。例如，如果时钟周期长度是2纳秒，那么时钟频率就是0.5 GHz,记作 $f$</p>
 <p>两者之间的关系是：</p>
 <ul>
-<li><p>时钟周期长度 = 1 / 时钟周期频率, 即 $T = 1 / f$</p>
+<li><p>时钟周期长度 &#x3D; 1 &#x2F; 时钟周期频率, 即 $T &#x3D; 1 &#x2F; f$</p>
 </li>
-<li><p>时钟周期频率 = 1 / 时钟周期长度, 即 $f = 1 / T$</p>
+<li><p>时钟周期频率 &#x3D; 1 &#x2F; 时钟周期长度, 即 $f &#x3D; 1 &#x2F; T$</p>
 </li>
 </ul>
 <p><strong>CPI(Cycles Per Instruction):</strong><br>是计算机性能指标，用于衡量每条指令所需的平均时钟周期数。它反映了CPU执行指令的效率。CPI的计算公式是：</p>
@@ -391,39 +393,49 @@
 <li>临时变量，中间变量存放在临时寄存器（temp reg）中：$t0~$t7共8个</li>
 <li>零寄存器，永远存放32位的0，记作$zero</li>
 </ul>
-<h3 id="2-2-RISC-V-Instruction-Set"><a href="#2-2-RISC-V-Instruction-Set" class="headerlink" title="2.2 RISC-V Instruction Set"></a>2.2 RISC-V Instruction Set</h3><h4 id="2-2-1-基本指令"><a href="#2-2-1-基本指令" class="headerlink" title="2.2.1 基本指令"></a>2.2.1 基本指令</h4><p><strong>加法，减法指令(add, sub):</strong><br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">&#x2F;&#x2F; c &#x3D; a + b; $s2 &#x3D; c, $s0 &#x3D; a, $s1 &#x3D; b
+<h3 id="2-2-RISC-V-Instruction-Set"><a href="#2-2-RISC-V-Instruction-Set" class="headerlink" title="2.2 RISC-V Instruction Set"></a>2.2 RISC-V Instruction Set</h3><h4 id="2-2-1-基本指令"><a href="#2-2-1-基本指令" class="headerlink" title="2.2.1 基本指令"></a>2.2.1 基本指令</h4><p><strong>加法，减法指令(add, sub):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">&#x2F;&#x2F; c &#x3D; a + b; $s2 &#x3D; c, $s0 &#x3D; a, $s1 &#x3D; b
 add $s2, $s0, $s1  
 &#x2F;&#x2F; c &#x3D; a - b; $s2 &#x3D; c, $s0 &#x3D; a, $s1 &#x3D; b
-sub $s2, $s0, $s1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure><br><strong>加立即数指令(addi):</strong><br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">&#x2F;&#x2F; i &#x3D; i + 1, i存放在$s0寄存器中
-addi $s0, $s0, 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure><br><strong>逻辑运算指令:</strong> and(与)，or(或)，nor（或非）</p>
-<p><strong>逻辑左移(shift left logic, sll)和右移(shift right logic, srl):</strong><br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sll $to, $s2, 2 &#x2F;&#x2F; 将$s2寄存器的值左移2位，即变为4倍，存放在$t0中
-srl $to, $s2, 1 &#x2F;&#x2F; 将$s2寄存器的值右移1位，即变为1&#x2F;2倍，存放在$t0中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure><br><strong>取字指令(load word, lw)和存字指令(save word, sw):</strong><br>因为寄存器是按字(Word)存储，而内存是按字节(Byte)编址,在RISC-V指令集中，约定：1 Word = 32 bit = 4 Byte。</p>
+sub $s2, $s0, $s1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p><strong>加立即数指令(addi):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">&#x2F;&#x2F; i &#x3D; i + 1, i存放在$s0寄存器中
+addi $s0, $s0, 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<p><strong>逻辑运算指令:</strong> and(与)，or(或)，nor（或非）</p>
+<p><strong>逻辑左移(shift left logic, sll)和右移(shift right logic, srl):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sll $to, $s2, 2 &#x2F;&#x2F; 将$s2寄存器的值左移2位，即变为4倍，存放在$t0中
+srl $to, $s2, 1 &#x2F;&#x2F; 将$s2寄存器的值右移1位，即变为1&#x2F;2倍，存放在$t0中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<p><strong>取字指令(load word, lw)和存字指令(save word, sw):</strong><br>因为寄存器是按字(Word)存储，而内存是按字节(Byte)编址,在RISC-V指令集中，约定：1 Word &#x3D; 32 bit &#x3D; 4 Byte。</p>
 <blockquote>
-<p>举个例子：已知a[0]的地址存放在寄存器s0中，现在需要取a[2]的值存放在寄存器t0中；a[2]和a[0]之间的字节偏移有 2 * 4 = 8 Byte。RISC-V指令可写为：</p>
+<p>举个例子：已知a[0]的地址存放在寄存器s0中，现在需要取a[2]的值存放在寄存器t0中；a[2]和a[0]之间的字节偏移有 2 * 4 &#x3D; 8 Byte。RISC-V指令可写为：</p>
 </blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lw $t0, 8($s0)  &#x2F;&#x2F; 取出$s0偏移8字节的位置的值，存放在$t0寄存器中<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <blockquote>
-<p>同理，如果我们要把t0寄存器的值存到a[4]中去，可以知道a[4]与a[0]的字节偏移有 4 * 4 = 16 Byte。RISC-V指令可写为：</p>
+<p>同理，如果我们要把t0寄存器的值存到a[4]中去，可以知道a[4]与a[0]的字节偏移有 4 * 4 &#x3D; 16 Byte。RISC-V指令可写为：</p>
 </blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sw $t0, 16($s0) &#x2F;&#x2F; 注意操作的方向和lw相反<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <h4 id="2-2-2-装载32位立即数到寄存器"><a href="#2-2-2-装载32位立即数到寄存器" class="headerlink" title="2.2.2 装载32位立即数到寄存器"></a>2.2.2 装载32位立即数到寄存器</h4><p>因为装载的32位立即数不能完全放进32位的机器指令中，因此寄存器可以通过两条指令来完成：LUI (Load Upper Immediate) 和 ORI (OR Immediate)。比如将立即数 0xF7EE57AD 装载到寄存器中这个两个指令需要完成的动作是：</p>
 <blockquote>
 <p>0xF7EE57AD 对应的 32 位二进制数是：1111 0111 1110 1110 0101 0111 1010 1101</p>
-<ul>
-<li>LUI 指令：取0xF7EE57AD的高16位数（1111 0111 1110 1110) 放入寄存器的高16位</li>
-</ul>
 </blockquote>
 <ul>
-<li>ORI 指令：将寄存器和剩下的低16位数做立即与的动作(0101 0111 1010 1101)<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lui $s1, 63470 &#x2F;&#x2F; 1111 0111 1110 1110 对应的十进制数是 63470
+<li><p>LUI 指令：取0xF7EE57AD的高16位数（1111 0111 1110 1110) 放入寄存器的高16位</p>
+</li>
+<li><p>ORI 指令：将寄存器和剩下的低16位数做立即与的动作(0101 0111 1010 1101)</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lui $s1, 63470 &#x2F;&#x2F; 1111 0111 1110 1110 对应的十进制数是 63470
 ori $s1, 22957 &#x2F;&#x2F; 0101 0111 1010 1101 对应的十进制数是 22957
 &#x2F;* 整个动作如下：
 step1: 取到高16位数，$s1的值为 1111 0111 1110 1110 0000 0000 0000 0000
 step2: $s1的值与低16位数立即与 0000 0000 0000 0000 0101 0111 1010 1101
 最终$s1的值为 1111 0111 1110 1110 0101 0111 1010 1101
 *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-当然还有其他写法：比如lui和addi。例如，要将立即数 0x12345678 装载到寄存器 t0 中<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lui $t0, 0x12345 &#x2F;&#x2F; 将高20位0x12345装载到t0
-addi $t0, $t0, 0x678 &#x2F;&#x2F; 将剩余的12位0x678添加到t0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<h4 id="2-2-3-判断和决策指令"><a href="#2-2-3-判断和决策指令" class="headerlink" title="2.2.3 判断和决策指令"></a>2.2.3 判断和决策指令</h4><strong>BEQ（Branch if Equal） 指令：</strong></li>
+<p>当然还有其他写法：比如lui和addi。例如，要将立即数 0x12345678 装载到寄存器 t0 中</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">lui $t0, 0x12345 &#x2F;&#x2F; 将高20位0x12345装载到t0
+addi $t0, $t0, 0x678 &#x2F;&#x2F; 将剩余的12位0x678添加到t0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure></li>
+</ul>
+<h4 id="2-2-3-判断和决策指令"><a href="#2-2-3-判断和决策指令" class="headerlink" title="2.2.3 判断和决策指令"></a>2.2.3 判断和决策指令</h4><p><strong>BEQ（Branch if Equal） 指令：</strong></p>
+<ul>
 <li><strong>功能</strong>：比较两个寄存器的值，如果它们相等，则跳转到指定的目标地址。</li>
 <li><strong>格式</strong>：<code>beq rs1, rs2, offset</code><ul>
 <li><code>rs1</code>：第一个源寄存器</li>
@@ -460,7 +472,8 @@ addi $t0, $t0, 0x678 &#x2F;&#x2F; 将剩余的12位0x678添加到t0<span aria-hi
 </li>
 </ul>
 <figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">j label &#x2F;&#x2F; 无条件跳转到label标记的位置<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<h3 id="2-3-Assembly-language-and-High-level-programming-language"><a href="#2-3-Assembly-language-and-High-level-programming-language" class="headerlink" title="2.3 Assembly language and High-level programming language"></a>2.3 Assembly language and High-level programming language</h3><p>举个例子，有C++代码<br><figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="2-3-Assembly-language-and-High-level-programming-language"><a href="#2-3-Assembly-language-and-High-level-programming-language" class="headerlink" title="2.3 Assembly language and High-level programming language"></a>2.3 Assembly language and High-level programming language</h3><p>举个例子，有C++代码</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> value1 <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> value2 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> value3 <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
@@ -491,7 +504,9 @@ main<span class="token operator">:</span>
 EXIT<span class="token operator">:</span>
     <span class="token comment">// Do nothing (类似于结束)</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><br>其对应的汇编语言是<br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">.data
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>其对应的汇编语言是</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">.data
 value1: .word 5
 value2: .word 10
 value3: .word 15
@@ -515,7 +530,7 @@ ELSE:
     j EXIT             # 无条件跳转到EXIT
 
 EXIT:
-    nop                # 无操作（用于占位）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure></p>
+    nop                # 无操作（用于占位）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h3 id="2-4-Three-Instruction-Formats"><a href="#2-4-Three-Instruction-Formats" class="headerlink" title="2.4 Three Instruction Formats"></a>2.4 Three Instruction Formats</h3><p>在汇编语言中，主要有三种指令格式：R型指令、I型指令和J型指令。每种格式有特定的结构，用于不同类型的操作。</p>
 <h4 id="2-4-1-R-type-Register-Instructions"><a href="#2-4-1-R-type-Register-Instructions" class="headerlink" title="2.4.1 R-type (Register) Instructions"></a>2.4.1 R-type (Register) Instructions</h4><ul>
 <li><strong>目的</strong>：用于需要三个寄存器的算术和逻辑操作。</li>
@@ -590,20 +605,21 @@ EXIT:
 <h4 id="2-5-5-寄存器寻址（Register-Addressing）"><a href="#2-5-5-寄存器寻址（Register-Addressing）" class="headerlink" title="2.5.5 寄存器寻址（Register Addressing）"></a>2.5.5 寄存器寻址（Register Addressing）</h4><ul>
 <li><strong>定义</strong>：操作数位于寄存器中，寄存器在指令中直接指定。</li>
 <li><strong>例子</strong>：<code>MOV AX, BX</code><ul>
-<li><code>BX</code> 中的值被移动到 <code>AX</code> </li>
+<li><code>BX</code> 中的值被移动到 <code>AX</code></li>
 </ul>
 </li>
 </ul>
 <div class="note note-primary">
             <p>程序计数器PC在取指令时会自增4（每条指令是4字节），因此，下一条指令的地址是PC + 4。若当前指令需要进行跳转或分支，字地址偏移量则用于计算目标地址。具体来说，如果你有一个偏移量offset，在跳转指令中，你通常会将其左移2位（因为地址是字节为单位的），然后加到PC + 4上来获得目标地址。</p>
           </div>
+
 <h2 id="3-Arithmetic-Operations-in-Computers"><a href="#3-Arithmetic-Operations-in-Computers" class="headerlink" title="3. Arithmetic Operations in Computers"></a>3. Arithmetic Operations in Computers</h2><p>本章主要讲解的知识点有，计算机是如何表示整数和进行整数运算的，以及浮点数的表示规范。本章在修考的考察非常精细，一定要理清每种数的表示。下面的例子都用8bit来表示并且给出对应的表示范围。</p>
 <h3 id="3-1-Integer-Representation"><a href="#3-1-Integer-Representation" class="headerlink" title="3.1 Integer Representation"></a>3.1 Integer Representation</h3><p>本小节介绍无符号整数、原码、反码和补码的表示方法。</p>
 <h4 id="3-1-1-无符号整数（Unsigned-Integer）"><a href="#3-1-1-无符号整数（Unsigned-Integer）" class="headerlink" title="3.1.1 无符号整数（Unsigned Integer）"></a>3.1.1 无符号整数（Unsigned Integer）</h4><p><strong>表示方法</strong>：<br>无符号整数只表示<strong>非负数</strong>，使用所有位表示数值，不用负号。8位无符号整数的取值范围是从0到255。</p>
 <p><strong>表示范围</strong>：</p>
 <ul>
 <li>最小值：$0$</li>
-<li>最大值：$2^8 - 1 = 255$</li>
+<li>最大值：$2^8 - 1 &#x3D; 255$</li>
 </ul>
 <p><strong>例子</strong>：</p>
 <ul>
@@ -646,8 +662,7 @@ EXIT:
 <li>十进制数5的补码表示：<code>00000101</code></li>
 <li>十进制数-5的补码表示：<code>11111011</code>（原码<code>00000101</code>取反后加1）</li>
 </ul>
-<h4 id="3-1-5-表示方法总结"><a href="#3-1-5-表示方法总结" class="headerlink" title="3.1.5 表示方法总结"></a>3.1.5 表示方法总结</h4><div class="table-container">
-<table>
+<h4 id="3-1-5-表示方法总结"><a href="#3-1-5-表示方法总结" class="headerlink" title="3.1.5 表示方法总结"></a>3.1.5 表示方法总结</h4><table>
 <thead>
 <tr>
 <th>表示法</th>
@@ -658,13 +673,12 @@ EXIT:
 <th>0的表示个数</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>无符号整数</td>
 <td>0</td>
 <td>255</td>
 <td><code>00000101</code> (5)</td>
-<td>N/A</td>
+<td>N&#x2F;A</td>
 <td>1</td>
 </tr>
 <tr>
@@ -691,9 +705,7 @@ EXIT:
 <td><code>11111011</code> (-5)</td>
 <td>1</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="3-2-符号位扩展与大小端编址"><a href="#3-2-符号位扩展与大小端编址" class="headerlink" title="3.2 符号位扩展与大小端编址"></a>3.2 符号位扩展与大小端编址</h3><p>这几个考点经常出现在题目的开胃前菜，是很容易忽略的一个考点，切记切记。</p>
 <h4 id="3-2-1-符号位扩展（sign-extension）"><a href="#3-2-1-符号位扩展（sign-extension）" class="headerlink" title="3.2.1 符号位扩展（sign extension）"></a>3.2.1 符号位扩展（sign extension）</h4><p><strong>符号位扩展（sign extension）</strong> 是指在将带符号的数从较小的位数扩展到较大位数时，保持其数值的正负性。这个过程通常在处理数值的运算或数据类型转换时使用。<br>填充高位：</p>
 <ul>
@@ -735,17 +747,18 @@ EXIT:
 </ul>
 <p><strong>应用</strong></p>
 <ul>
-<li><strong>大端</strong>：常用于网络协议（如TCP/IP），因为网络字节顺序采用大端。</li>
+<li><strong>大端</strong>：常用于网络协议（如TCP&#x2F;IP），因为网络字节顺序采用大端。</li>
 <li><strong>小端</strong>：通常用于个人电脑（如x86架构的处理器）。</li>
 </ul>
-<p><img src="/img/CA/endianness.svg" srcset="/img/loading.gif" lazyload alt="大端和小端序" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/CA/endianness.svg" srcset="/img/loading.gif" lazyload alt="大端和小端序" style="max-width: 100%; height: auto;" />
+
 <h3 id="3-3-Arithmetic-Operations-Logic"><a href="#3-3-Arithmetic-Operations-Logic" class="headerlink" title="3.3 Arithmetic Operations Logic"></a>3.3 Arithmetic Operations Logic</h3><p>参照<a href="https://toutou.zeabur.app/2024/11/04/Digital-Circuit/">数字电路笔记</a>第二章的算术运算实现</p>
 <h3 id="3-4-IEEE754-Float-Point-Number"><a href="#3-4-IEEE754-Float-Point-Number" class="headerlink" title="3.4 IEEE754 Float Point Number"></a>3.4 IEEE754 Float Point Number</h3><p><strong>IEEE 754 单精度浮点数</strong></p>
 <p>IEEE 754 单精度浮点数总共32位：1位符号位（S），8位指数位（E），23位尾数位（F）。</p>
 <ul>
 <li><strong>符号位（S）</strong>：0表示正数，1表示负数。</li>
 <li><strong>指数位（E）</strong>：偏阶值(Bias)为127，即实际的指数值是存储的指数值减去127。<ul>
-<li>例如，如果指数部分存储的是10000001（二进制的129），实际的指数就是129-127=2。</li>
+<li>例如，如果指数部分存储的是10000001（二进制的129），实际的指数就是129-127&#x3D;2。</li>
 </ul>
 </li>
 <li><strong>尾数位（F）</strong>：23位，表示小数部分。注意尾数部分隐含一个1，所以公式中写作<code>1.F</code>。</li>
@@ -758,7 +771,7 @@ EXIT:
 <ul>
 <li><strong>符号位（S）</strong>：0表示正数，1表示负数。</li>
 <li><strong>指数位（E）</strong>：偏阶值(Bias)为1023，即实际的指数值是存储的指数值减去1023。<ul>
-<li>例如，如果指数部分存储的是10000000010（二进制的1026），实际的指数就是1026-1023=3。</li>
+<li>例如，如果指数部分存储的是10000000010（二进制的1026），实际的指数就是1026-1023&#x3D;3。</li>
 </ul>
 </li>
 <li><strong>尾数位（F）</strong>：52位，表示小数部分。尾数部分隐含一个1，所以公式中写作<code>1.F</code>。</li>
@@ -766,7 +779,8 @@ EXIT:
 <p><strong>计算公式</strong>：</p>
 <center> $(-1)^S \times 2^{(E - 1023)} \times 1.F$ </center>
 
-<p><img src="/img/CA/float.svg" srcset="/img/loading.gif" lazyload alt="浮点数表示格式" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/CA/float.svg" srcset="/img/loading.gif" lazyload alt="浮点数表示格式" style="max-width: 100%; height: auto;" />
+
 <blockquote>
 <p>思考：为什么需要偏阶值(Bias)的存在？</p>
 </blockquote>
@@ -843,23 +857,28 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 </li>
 <li><p><strong>WAR（Write After Read，写后读）</strong>：较少见，发生在指令先读取了寄存器的值，而后续指令修改了该寄存器的值。这种冒险通常在特定的流水线架构中才会发生。</p>
 </li>
-<li><strong>WAW（Write After Write，写后写）</strong>：如果流水线支持多发射或指令乱序执行，就可能发生这种冒险。即先有一条指令写一个寄存器，后续指令也写相同寄存器，但乱序执行导致后面的指令先写完。</li>
+<li><p><strong>WAW（Write After Write，写后写）</strong>：如果流水线支持多发射或指令乱序执行，就可能发生这种冒险。即先有一条指令写一个寄存器，后续指令也写相同寄存器，但乱序执行导致后面的指令先写完。</p>
+</li>
 </ul>
 <p>解决方法：</p>
 <ul>
 <li>数据转发 (Data Forwarding)或旁路（bypass）：将未写回寄存器的数据直接转发给下一条指令的执行单元，从而避免等待写回寄存器的过程。</li>
-<li>插入气泡 (Bubble)：让流水线停顿一个或多个周期，直到所需数据准备就绪。<h4 id="4-3-2-控制冒险-Control-Hazard"><a href="#4-3-2-控制冒险-Control-Hazard" class="headerlink" title="4.3.2 控制冒险 (Control Hazard)"></a>4.3.2 控制冒险 (Control Hazard)</h4>控制冒险是因为分支指令或跳转指令的出现，使得流水线不能确定下一条要执行的指令，从而导致流水线停顿。分支指令可能改变程序执行的路径，而在确定跳转目标前，流水线并不知道应该继续取哪条指令。</li>
+<li>插入气泡 (Bubble)：让流水线停顿一个或多个周期，直到所需数据准备就绪。</li>
 </ul>
-<p>例如，以下代码段中，当执行<code>if</code>判断时，可能会发生控制冒险：<br><figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span>
+<h4 id="4-3-2-控制冒险-Control-Hazard"><a href="#4-3-2-控制冒险-Control-Hazard" class="headerlink" title="4.3.2 控制冒险 (Control Hazard)"></a>4.3.2 控制冒险 (Control Hazard)</h4><p>控制冒险是因为分支指令或跳转指令的出现，使得流水线不能确定下一条要执行的指令，从而导致流水线停顿。分支指令可能改变程序执行的路径，而在确定跳转目标前，流水线并不知道应该继续取哪条指令。</p>
+<p>例如，以下代码段中，当执行<code>if</code>判断时，可能会发生控制冒险：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span>
     <span class="token function">do_something</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">else</span>
-    <span class="token function">do_something_else</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure><br>在判断 <code>a &gt; b</code> 之前，流水线不知道下一步应该执行 <code>do_something</code> 还是 <code>do_something_else</code>。</p>
+    <span class="token function">do_something_else</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>在判断 <code>a &gt; b</code> 之前，流水线不知道下一步应该执行 <code>do_something</code> 还是 <code>do_something_else</code>。</p>
 <p>解决方法：</p>
 <ul>
 <li>分支预测 (Branch Prediction)：利用硬件预测分支指令的执行路径。现代处理器使用动态分支预测，根据历史执行情况预测下一步操作。</li>
 <li>延迟槽 (Delay Slot)：将分支指令后的指令提前执行，即使分支结果不确定也先执行下一条指令，从而减少停顿，但这种方法需要编译器支持。</li>
-<li>分支目标缓冲区 (Branch Target Buffer, BTB)：缓存分支指令的目标地址，减少分支跳转的停顿时间。<h4 id="4-3-3-结构冒险-Structural-Hazard"><a href="#4-3-3-结构冒险-Structural-Hazard" class="headerlink" title="4.3.3 结构冒险 (Structural Hazard)"></a>4.3.3 结构冒险 (Structural Hazard)</h4>结构冒险是由于硬件资源的竞争导致的。在指令执行过程中，如果两个或多个指令同时需要访问同一硬件资源（例如，内存、寄存器或 ALU 单元），但硬件资源不能同时支持多个访问请求，则会产生结构冒险。</li>
+<li>分支目标缓冲区 (Branch Target Buffer, BTB)：缓存分支指令的目标地址，减少分支跳转的停顿时间。</li>
 </ul>
+<h4 id="4-3-3-结构冒险-Structural-Hazard"><a href="#4-3-3-结构冒险-Structural-Hazard" class="headerlink" title="4.3.3 结构冒险 (Structural Hazard)"></a>4.3.3 结构冒险 (Structural Hazard)</h4><p>结构冒险是由于硬件资源的竞争导致的。在指令执行过程中，如果两个或多个指令同时需要访问同一硬件资源（例如，内存、寄存器或 ALU 单元），但硬件资源不能同时支持多个访问请求，则会产生结构冒险。</p>
 <p>例如，如果处理器的内存访问和取指令共享相同的内存端口，且一个指令在内存中读取数据的同时，另一个指令需要从内存中取指令，就会产生结构冒险。</p>
 <p>解决方法：</p>
 <ul>
@@ -883,7 +902,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <ol>
 <li><strong>通用寄存器</strong>：用于临时存储数据，支持基本的加、减、乘、除等运算。</li>
 <li><strong>程序计数器 (PC)</strong> ：保存下一条要执行指令的地址，用于控制程序执行的顺序。</li>
-<li><strong>状态寄存器/标志寄存器</strong>：存储运算结果的状态信息，如是否为零、是否有溢出等，用于条件判断。</li>
+<li><strong>状态寄存器&#x2F;标志寄存器</strong>：存储运算结果的状态信息，如是否为零、是否有溢出等，用于条件判断。</li>
 <li><strong>堆栈指针 (SP)</strong> ：指向栈顶位置，用于函数调用和返回的管理。</li>
 <li><strong>地址寄存器</strong>：存储内存地址，用于快速访问特定的内存位置。</li>
 </ol>
@@ -929,7 +948,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <p>局部性原理在设计计算机缓存（Cache）时尤为重要。因为缓存利用局部性原理，通过临时存储经常访问的数据或地址来减少访问主内存的次数，提高整体系统性能。</p>
 </blockquote>
 <h3 id="5-3-Cache’s-Performance"><a href="#5-3-Cache’s-Performance" class="headerlink" title="5.3 Cache’s Performance"></a>5.3 Cache’s Performance</h3><p>Cache的主要考点围绕在命中率和缺失率的计算；在Cache映射中也有非常多的改进策略。</p>
-<h4 id="5-3-1-Cache-Hit-amp-Miss"><a href="#5-3-1-Cache-Hit-amp-Miss" class="headerlink" title="5.3.1 Cache Hit &amp; Miss"></a>5.3.1 Cache Hit &amp; Miss</h4><p><strong>Cache命中（Cache Hit）</strong></p>
+<h4 id="5-3-1-Cache-Hit-Miss"><a href="#5-3-1-Cache-Hit-Miss" class="headerlink" title="5.3.1 Cache Hit &amp; Miss"></a>5.3.1 Cache Hit &amp; Miss</h4><p><strong>Cache命中（Cache Hit）</strong></p>
 <ul>
 <li><strong>定义</strong>：当处理器需要的数据在缓存中找到时，就称为Cache命中。命中率（Hit Rate）是命中次数占总访问次数的百分比。</li>
 <li><strong>示例</strong>：处理器需要读取一个数据块，如果它已经在缓存中，直接读取数据，避免了访问慢速的主内存，从而提高了整体性能。</li>
@@ -939,7 +958,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <li><strong>定义</strong>：当处理器需要的数据不在缓存中，必须从主内存中读取时，就称为Cache缺失。缺失率（Miss Rate）是缺失次数占总访问次数的百分比。</li>
 <li><strong>示例</strong>：处理器需要读取一个数据块，如果它不在缓存中，处理器需要从主内存中读取该数据块，并将其放入缓存中。这个过程比直接从缓存读取要慢得多。</li>
 </ul>
-<p>命中率(Hit Rate)和缺失率(Miss Rate)的计算方法非常直观，分别是命中/缺失的次数占访存次数的比例。</p>
+<p>命中率(Hit Rate)和缺失率(Miss Rate)的计算方法非常直观，分别是命中&#x2F;缺失的次数占访存次数的比例。</p>
 <h4 id="5-3-2-命中时间、缺失代价和访存阻塞周期"><a href="#5-3-2-命中时间、缺失代价和访存阻塞周期" class="headerlink" title="5.3.2 命中时间、缺失代价和访存阻塞周期"></a>5.3.2 命中时间、缺失代价和访存阻塞周期</h4><p><strong>命中时间（Hit Time）</strong></p>
 <ul>
 <li><strong>定义</strong>：命中时间是指CPU在缓存中找到数据所需的时间，包括地址翻译、缓存访问和数据返回给处理器的时间。通常只有1个时钟周期长度。</li>
@@ -948,12 +967,12 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <p><strong>缺失代价（Miss Penalty）</strong></p>
 <ul>
 <li><strong>定义</strong>：缺失代价是指当数据不在缓存中，需要从较低层级的缓存或主存中加载数据所需的时间。</li>
-<li><strong>计算</strong>：缺失代价 = 低层级缓存或主存的访问时间 + 将数据传送到缓存中的时间。</li>
+<li><strong>计算</strong>：缺失代价 &#x3D; 低层级缓存或主存的访问时间 + 将数据传送到缓存中的时间。</li>
 </ul>
 <p><strong>访存阻塞周期（Memory Stall Cycles）</strong></p>
 <ul>
 <li><strong>定义</strong>：访存阻塞周期是指由于缓存缺失导致处理器需要等待数据加载而停顿的周期数。</li>
-<li><strong>计算</strong>：访存阻塞周期 = 缺失率 × 缺失代价</li>
+<li><strong>计算</strong>：访存阻塞周期 &#x3D; 缺失率 × 缺失代价</li>
 </ul>
 <p>假设：</p>
 <ul>
@@ -961,7 +980,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <li>缺失代价为50个周期。</li>
 <li>缺失率为5%。</li>
 </ul>
-<p>那么：访存阻塞周期 = 5% × 50个周期 = 2.5个周期。</p>
+<p>那么：访存阻塞周期 &#x3D; 5% × 50个周期 &#x3D; 2.5个周期。</p>
 <p>普适性的衡量会给上一个缺失率(Miss Rate), 那么</p>
 <center>$访存阻塞周期 = 访存次数 \times 缺失率 \times 缺失代价$</center>
 
@@ -981,11 +1000,11 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <ul>
 <li><strong>定义</strong>：缓存分成多个组，每个组包含若干个位置。内存块首先映射到某个组，然后可以存储在该组的任意位置。</li>
 <li><strong>优点</strong>：在复杂度和性能之间取得平衡，减少了直接映射中的冲突，同时实现比全关联映射更简单。</li>
-<li><strong>缺点</strong>：组的选择可能会导致一些复杂度，但总的来说，比全关联映射低。<br><img src="/img/CA/cache_map.svg" srcset="/img/loading.gif" lazyload alt="Cache三种映射方式" style="max-width: 100%; height: auto;" /></li>
+<li><strong>缺点</strong>：组的选择可能会导致一些复杂度，但总的来说，比全关联映射低。<img src="/img/CA/cache_map.svg" srcset="/img/loading.gif" lazyload alt="Cache三种映射方式" style="max-width: 100%; height: auto;" /></li>
 </ul>
-<h4 id="5-4-1-直接映射"><a href="#5-4-1-直接映射" class="headerlink" title="5.4.1 直接映射"></a>5.4.1 直接映射</h4><p>映射规则：Cache块号 = 内存块号 % Cache块数</p>
+<h4 id="5-4-1-直接映射"><a href="#5-4-1-直接映射" class="headerlink" title="5.4.1 直接映射"></a>5.4.1 直接映射</h4><p>映射规则：Cache块号 &#x3D; 内存块号 % Cache块数</p>
 <blockquote>
-<p>比如，Cache共有8块，内存的十号块映射在Cache的块号是：10 % 8 = 2</p>
+<p>比如，Cache共有8块，内存的十号块映射在Cache的块号是：10 % 8 &#x3D; 2</p>
 </blockquote>
 <p>直接映射缓存（Direct Mapped Cache）内存地址通常被分成三个字段：块内字节偏移、索引位和标记位。</p>
 <p><strong>1. 块内字节偏移（Block Offset）</strong></p>
@@ -1007,8 +1026,8 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <p><strong>3. 标记位（Tag Bits）</strong></p>
 <ul>
 <li><strong>定义</strong>：标记位用于区分不同内存块，它们映射到同一个缓存行。</li>
-<li><strong>计算</strong>：标记位的数量 = 内存地址总位数 - 索引位数量 - 块内字节偏移位数量。<ul>
-<li>例子：假设内存地址总位数为16位，块大小为4字节（2位块内偏移），缓存有8行（3位索引），那么标记位数量为11（16-3-2=11）。</li>
+<li><strong>计算</strong>：标记位的数量 &#x3D; 内存地址总位数 - 索引位数量 - 块内字节偏移位数量。<ul>
+<li>例子：假设内存地址总位数为16位，块大小为4字节（2位块内偏移），缓存有8行（3位索引），那么标记位数量为11（16-3-2&#x3D;11）。</li>
 </ul>
 </li>
 </ul>
@@ -1043,10 +1062,10 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 </ul>
 <p><strong>示例</strong><br>假设一个缓存系统有4个块，每个块都有一个有效位：</p>
 <ul>
-<li>块0：有效位=1（数据有效）</li>
-<li>块1：有效位=0（数据无效）</li>
-<li>块2：有效位=1（数据有效）</li>
-<li>块3：有效位=0（数据无效）</li>
+<li>块0：有效位&#x3D;1（数据有效）</li>
+<li>块1：有效位&#x3D;0（数据无效）</li>
+<li>块2：有效位&#x3D;1（数据有效）</li>
+<li>块3：有效位&#x3D;0（数据无效）</li>
 </ul>
 <p>当处理器访问一个地址时，它首先检查缓存块的有效位。如果有效位为1，它会进一步检查地址是否匹配；如果有效位为0，则直接从主存获取数据。</p>
 <h4 id="5-4-2-直接映射缺失的3C模型"><a href="#5-4-2-直接映射缺失的3C模型" class="headerlink" title="5.4.2 直接映射缺失的3C模型"></a>5.4.2 直接映射缺失的3C模型</h4><p><strong>1. 冷缺失（Cold Miss）</strong></p>
@@ -1064,7 +1083,8 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <li><strong>定义</strong>：也称为干扰缺失。这种情况发生在直接映射缓存中，不同的数据块映射到同一个缓存块位置，导致频繁替换，即使缓存容量足够也会出现缺失。</li>
 <li><strong>示例</strong>：两个或多个数据块映射到同一个缓存位置，导致数据块被替换，从而产生冲突缺失。</li>
 </ul>
-<p><img src="/img/CA/map_miss.svg" srcset="/img/loading.gif" lazyload alt="3C模型" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/CA/map_miss.svg" srcset="/img/loading.gif" lazyload alt="3C模型" style="max-width: 100%; height: auto;" />
+  
 <p>直接映射在应对上面的Cache缺失的时候有三种处理方式：</p>
 <p><strong>1.写直达（Write Through）：</strong></p>
 <ul>
@@ -1086,7 +1106,8 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <li>仅在数据被替换时才写回主存</li>
 <li>最高效但实现复杂</li>
 </ul>
-<p><img src="/img/CA/map_strategy.svg" srcset="/img/loading.gif" lazyload alt="Cache缺失策略" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/CA/map_strategy.svg" srcset="/img/loading.gif" lazyload alt="Cache缺失策略" style="max-width: 100%; height: auto;" />
+
 <h4 id="5-4-3-多级缓存机制"><a href="#5-4-3-多级缓存机制" class="headerlink" title="5.4.3 多级缓存机制"></a>5.4.3 多级缓存机制</h4><p>多级缓存（Multilevel Cache）是一种在计算机系统中提高处理器访问数据速度的技术，通常将缓存分为多个层次，如 L1、L2 和 L3 缓存。这些缓存层次的设置能够平衡存取速度、容量和成本，确保 CPU 能更快地获取需要的数据。</p>
 <p><strong>多级缓存的主要特点</strong></p>
 <ol>
@@ -1122,9 +1143,7 @@ B: R4 &#x3D; R1 + R5<span aria-hidden="true" class="line-numbers-rows"><span></s
 <center> $\text{CPI}_{\text{L3}} = \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{L3}}$ </center>
 </li>
 <li><p><strong>主存的贡献</strong>：当 L1、L2 和 L3 缓存都缺失时，才会访问主存。因此主存的平均贡献为：</p>
-<center> $\text{CPI}_{\text{memory}} = \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{memory}}$ </center>
-
-</li>
+<center> $\text{CPI}_{\text{memory}} = \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3}} \times \text{MC}_{\text{memory}}$ </center></li>
 </ol>
 <p>把各级缓存和主存的贡献相加，再加上理想情况下的 CPI，得到总的平均 CPI：</p>
 <center> $\text{CPI}_{\text{avg}} = \text{CPI}_{\text{ideal}} + \text{CPI}_{\text{L1}} + \text{CPI}_{\text{L2}} + \text{CPI}_{\text{L3}} + \text{CPI}_{\text{memory}}$ </center>
@@ -1164,11 +1183,29 @@ $+ \text{MR}_{\text{L1}} \times \text{MR}_{\text{L2}} \times \text{MR}_{\text{L3
 <li><p>页面缺失处理：如果所需的页面不在内存中（页面缺失），操作系统将从磁盘存储中检索该页面，并相应地更新页表。</p>
 </li>
 </ol>
-<p><img src="/img/CA/address.svg" srcset="/img/loading.gif" lazyload alt="Address Translation" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/CA/address.svg" srcset="/img/loading.gif" lazyload alt="Address Translation" style="max-width: 100%; height: auto;" />
+
 <p>关于虚拟地址和物理地址还有更多的考点内容，比如各种替换策略和写策略，这里的内容我更愿意放到操作系统的对应章节来讲解😈马不停蹄更新中🐎</p>
 <div class="note note-primary">
             <p>完结撒花🎉<br>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
               </div>
