@@ -27,7 +27,7 @@
 <meta property="og:description" content="Operating SystemThis is for test takers to quickly review Operation System. Credit to 《Operating System, 9th Edition》。操作系统的知识看起来非常得杂乱无章，需要重点关注任务调度算法，内存管理分配算法，以及地址变换机制。              催更｜辅导｜私塾兼职｜联系偷偷：Lif">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-12T05:02:37.580Z">
+<meta property="article:modified_time" content="2024-12-12T15:04:38.627Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.9k words
+          7.4k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          58 mins
+          62 mins
         
       </span>
     
@@ -648,7 +648,54 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
             <p>以上就是操作系统主要关注的内容，后续章节就是扩展讲解上述内容中重要的技术细节和实现思想</p>
           </div>
 
-<h2 id="2-Process-Management"><a href="#2-Process-Management" class="headerlink" title="2. Process Management"></a>2. Process Management</h2><p>马不停蹄🐎🐎</p>
+<h2 id="2-Process-Management"><a href="#2-Process-Management" class="headerlink" title="2. Process Management"></a>2. Process Management</h2><p>本章主要讲解操作系统里面的进程管理部分。理解进程和线程，掌握进程调度相关的各种策略算法，并且熟悉信号量的互斥机制是非常重要的。</p>
+<h3 id="2-1-操作系统的用户交互"><a href="#2-1-操作系统的用户交互" class="headerlink" title="2.1 操作系统的用户交互"></a>2.1 操作系统的用户交互</h3><p>操作系统的用户交互主要分为两种类型：</p>
+<h4 id="2-1-命令解释程序（Command-Interpreter）"><a href="#2-1-命令解释程序（Command-Interpreter）" class="headerlink" title="2.1. 命令解释程序（Command Interpreter）"></a>2.1. 命令解释程序（Command Interpreter）</h4><ul>
+<li>又称为 <strong>命令行界面（CLI，Command Line Interface）</strong>。</li>
+<li>用户通过输入文本命令与操作系统进行交互。</li>
+<li>常见的命令解释程序包括 Unix&#x2F;Linux 系统的 Bash、Windows 的 CMD 和 PowerShell。</li>
+<li><strong>优点</strong>：灵活性高，适合自动化脚本和高级用户。</li>
+<li><strong>缺点</strong>：需要记住大量命令和语法，不直观。</li>
+</ul>
+<p>以下是一个简单的 shell 指令示例：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-Bash" data-language="Bash"><code class="language-Bash"># 创建一个新的目录
+mkdir my_new_directory
+
+# 进入新创建的目录
+cd my_new_directory
+
+# 创建一个新的空文件
+touch new_file.txt
+
+# 将一段文本写入文件中
+echo &quot;Hello, World!&quot; &gt; new_file.txt
+
+# 显示文件内容
+cat new_file.txt
+
+# 复制文件并重命名
+cp new_file.txt copy_of_new_file.txt
+
+# 显示当前目录中的文件和子目录列表
+ls -l
+
+# 删除复制的文件
+rm copy_of_new_file.txt
+
+# 返回上一级目录
+cd ..
+
+# 删除新创建的目录及其内容
+rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h4 id="2-2-图形用户界面（GUI，Graphical-User-Interface）"><a href="#2-2-图形用户界面（GUI，Graphical-User-Interface）" class="headerlink" title="2.2 图形用户界面（GUI，Graphical User Interface）"></a>2.2 图形用户界面（GUI，Graphical User Interface）</h4><ul>
+<li>用户通过图形化元素（如窗口、图标、按钮）与操作系统进行交互。</li>
+<li>常见的图形用户界面包括 Windows 的资源管理器（Windows Explorer）、macOS 的 Finder 以及 GNOME 和 KDE 等 Linux 桌面环境。</li>
+<li><strong>优点</strong>：直观易用，适合初学者和普通用户。</li>
+<li><strong>缺点</strong>：灵活性相对较低，复杂操作可能效率不高。</li>
+</ul>
+<p>这两种交互方式各有优缺点，通常操作系统会同时提供这两种方式，以满足不同用户的需求和使用场景。通过结合命令行界面和图形用户界面，用户可以在不同情况下选择最合适的交互方式，提高工作效率和使用体验。</p>
+<hr>
 
                 
               </div>
