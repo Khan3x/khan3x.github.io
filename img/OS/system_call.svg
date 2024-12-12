@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- 背景 -->
+  <rect width="600" height="400" fill="#f0f0f0"/>
+  
+  <!-- 水印 -->
+  <text x="300" y="200" text-anchor="middle" font-size="30" fill="#E0E0E0" opacity="0.3" font-weight="bold" transform="rotate(-45 300,200)">
+    偷偷星球
+  </text>
+  
+  <!-- 用户空间 -->
+  <rect x="50" y="50" width="500" height="100" fill="#E6F2FF" stroke="#4A90E2" stroke-width="2"/>
+  <text x="300" y="30" text-anchor="middle" font-weight="bold">用户空间 (User Space)</text>
+  
+  <!-- 内核空间 -->
+  <rect x="50" y="250" width="500" height="100" fill="#FFE6E6" stroke="#E74C3C" stroke-width="2"/>
+  <text x="300" y="240" text-anchor="middle" font-weight="bold">内核空间 (Kernel Space)</text>
+  
+  <!-- 应用程序 -->
+  <rect x="100" y="80" width="120" height="40" fill="#4A90E2" rx="5"/>
+  <text x="160" y="105" text-anchor="middle" fill="white">应用程序</text>
+  
+  <!-- 系统调用 -->
+  <path d="M160 120 L160 230" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="160,230 155,220 165,220" fill="#000" stroke="#000"/>
+  <text x="165" y="190" transform="rotate(-90 170,180)" text-anchor="middle">系统调用</text>
+  
+  <!-- 操作系统内核 -->
+  <rect x="250" y="280" width="100" height="40" fill="#E74C3C" rx="5"/>
+  <text x="300" y="305" text-anchor="middle" fill="white">操作系统内核</text>
+  
+  <!-- 硬件资源 -->
+  <rect x="400" y="280" width="120" height="40" fill="#34495E" rx="5"/>
+  <text x="460" y="305" text-anchor="middle" fill="white">硬件资源</text>
+  
+  <!-- 箭头连接内核和硬件 -->
+  <path d="M350 300 L400 300" fill="none" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+    refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+    </marker>
+  </defs>
+  
+  <!-- 说明文字 -->
+  <text x="300" y="380" text-anchor="middle" font-size="12">
+    系统调用：应用程序请求操作系统内核提供服务的机制
+  </text>
+</svg>

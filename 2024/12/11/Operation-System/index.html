@@ -26,12 +26,14 @@
 <meta property="og:site_name" content="偷偷星球">
 <meta property="og:description" content="Operating SystemThis is for test takers to quickly review Operation System. Credit to 《Operating System, 9th Edition》。操作系统的知识看起来非常得杂乱无章，需要重点关注任务调度算法，内存管理分配算法，以及地址变换机制。              催更｜辅导｜私塾兼职｜联系偷偷：Lif">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/system_call.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-12T15:04:38.627Z">
+<meta property="article:modified_time" content="2024-12-12T16:12:24.709Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://toutou.zeabur.app/img/OS/system_call.svg">
   
   
   
@@ -230,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.4k words
+          8.1k words
         
       </span>
     
@@ -241,7 +243,7 @@
         
         
         
-          62 mins
+          68 mins
         
       </span>
     
@@ -696,6 +698,43 @@ rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span><
 </ul>
 <p>这两种交互方式各有优缺点，通常操作系统会同时提供这两种方式，以满足不同用户的需求和使用场景。通过结合命令行界面和图形用户界面，用户可以在不同情况下选择最合适的交互方式，提高工作效率和使用体验。</p>
 <hr>
+<h3 id="2-2-操作系统中的系统调用"><a href="#2-2-操作系统中的系统调用" class="headerlink" title="2.2 操作系统中的系统调用"></a>2.2 操作系统中的系统调用</h3><p><strong>系统调用（System Call）</strong> 是操作系统提供的一组接口，允许应用程序与操作系统内核交互，以请求内核执行特权操作。系统调用是程序与操作系统之间的桥梁，使应用程序可以执行低级别的系统功能，如文件操作、进程管理和网络通信等。</p>
+<p><strong>系统调用主要功能:</strong></p>
+<ul>
+<li><strong>文件操作</strong>：创建、打开、读取、写入和关闭文件。</li>
+<li><strong>进程管理</strong>：创建、终止进程，分配资源，进程间通信等。</li>
+<li><strong>内存管理</strong>：分配和释放内存，内存映射等。</li>
+<li><strong>设备管理</strong>：访问和控制硬件设备，如磁盘、网络接口等。</li>
+<li><strong>网络通信</strong>：发送和接收网络数据，设置网络连接等。</li>
+</ul>
+<p><strong>工作原理</strong></p>
+<ol>
+<li><strong>用户模式到内核模式切换</strong>：当应用程序发出系统调用时，CPU将从用户模式切换到内核模式。</li>
+<li><strong>内核执行请求</strong>：操作系统内核接收系统调用请求，并执行相应的特权操作。</li>
+<li><strong>返回结果</strong>：操作系统内核完成操作后，将结果返回给应用程序，并切换回用户模式。</li>
+</ol>
+<p><strong>系统调用示例:</strong></p>
+<ul>
+<li><code>open</code>：打开文件的系统调用。</li>
+<li><code>read</code>：读取文件内容的系统调用。</li>
+<li><code>write</code>：写入文件内容的系统调用。</li>
+<li><code>fork</code>：创建新进程的系统调用。</li>
+<li><code>exec</code>：执行新程序的系统调用。</li>
+</ul>
+<p>通过系统调用，应用程序可以安全、高效地访问操作系统提供的底层资源和服务，实现丰富的功能。</p>
+<img src="/img/OS/system_call.svg" srcset="/img/loading.gif" lazyload alt="系统调用" style="max-width: 100%; height: auto;" />
+
+<p>在后台，<strong>API 函数(Application Programming Interface, API<br>)</strong> 通常为应用程序开发人员提供了调用实际系统调用的函数。API 函数为开发人员提供了一个更高层次的抽象，使他们能够以更简单和统一的方式访问底层操作系统的功能，而不需要了解系统调用的具体实现细节。</p>
+<p>通过调用 API 函数，开发人员可以间接地进行文件操作、进程管理、内存管理、设备控制等操作，这些 API 函数在后台会触发相应的系统调用来完成实际的操作。例如：</p>
+<ul>
+<li><strong>文件操作</strong>：<code>fopen</code> API 函数会调用 <code>open</code> 系统调用。</li>
+<li><strong>进程管理</strong>：<code>fork</code> API 函数直接对应 <code>fork</code> 系统调用。</li>
+<li><strong>内存管理</strong>：<code>malloc</code> API 函数可能会调用 <code>brk</code> 或 <code>mmap</code> 系统调用。</li>
+</ul>
+<p>总之，API 提供了一种方便的方式，使开发人员能够利用操作系统的功能，而不必处理系统调用的复杂性和底层细节。</p>
+<blockquote>
+<p>在后台，API函数通常为应用程序员调用实际的系统调用</p>
+</blockquote>
 
                 
               </div>
