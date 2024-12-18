@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/process_diagram.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/threading_models.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-18T16:13:04.021Z">
+<meta property="article:modified_time" content="2024-12-18T16:27:04.002Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k words
+          11k words
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          84 mins
+          91 mins
         
       </span>
     
@@ -856,7 +856,38 @@ rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span><
 </ul>
 <img src="/img/OS/threading_models.svg" srcset="/img/loading.gif" lazyload alt="多线程模型" style="max-width: 100%; height: auto;" />
 
-
+<h3 id="2-4-进程控制"><a href="#2-4-进程控制" class="headerlink" title="2.4 进程控制"></a>2.4 进程控制</h3><p>进程控制是操作系统管理和调度进程的关键任务。它包括创建、调度、终止进程等操作，以确保系统中的进程能高效、按需执行。</p>
+<p><strong>1. 进程的创建</strong></p>
+<ul>
+<li><strong>创建新进程</strong>：操作系统通过系统调用（如 <code>fork</code> 在 Unix 系统中）创建一个新进程。新进程通常是当前进程的副本，称为子进程。</li>
+<li><strong>资源分配</strong>：当创建新进程时，操作系统为其分配必要的资源（如内存、文件句柄等），并初始化进程控制块（PCB）以存储进程信息。</li>
+</ul>
+<p><strong>2. 进程调度</strong></p>
+<ul>
+<li><strong>进程状态</strong>：进程在执行过程中会经历不同的状态（如就绪、运行、阻塞等）。操作系统调度器负责决定进程在何时进入哪种状态。</li>
+<li><strong>调度算法</strong>：操作系统使用各种调度算法（如先来先服务 FCFS、时间片轮转 RR、最短作业优先 SJF 等）来决定哪个进程应该获得 CPU 时间。</li>
+<li><strong>多任务处理</strong>：操作系统允许多个进程并发运行，通过上下文切换在多个进程间分配 CPU 时间。</li>
+</ul>
+<p><strong>3. 进程同步与通信</strong></p>
+<ul>
+<li><strong>进程同步</strong>：在并发执行的多个进程间，操作系统提供同步机制（如信号量、互斥锁、条件变量等）以确保共享资源的正确使用，避免数据竞争和死锁。</li>
+<li><strong>进程通信</strong>：进程之间可以通过多种方式进行通信，如管道、消息队列、共享内存等。操作系统提供通信机制以允许进程间交换数据。</li>
+</ul>
+<p><strong>4. 进程终止</strong></p>
+<ul>
+<li><strong>进程终止</strong>：进程执行完毕或由于错误发生时，会通过系统调用（如 <code>exit</code>）终止。操作系统会回收进程所占用的资源，关闭文件、释放内存等。</li>
+<li><strong>父子进程的终止</strong>：当子进程终止时，操作系统会向父进程发送信号（如 Unix 系统中的 <code>SIGCHLD</code>），父进程可选择等待子进程的终止并回收子进程资源。</li>
+</ul>
+<p><strong>5. 进程控制块（PCB）</strong></p>
+<ul>
+<li><strong>PCB（Process Control Block）</strong>：每个进程在操作系统中都有一个对应的 PCB，用于存储进程的状态、程序计数器、CPU 寄存器、内存信息等。</li>
+<li><strong>进程调度</strong>：PCB 是进程调度和管理的核心数据结构，操作系统通过它来实现上下文切换和进程状态的转换。</li>
+</ul>
+<p>进程控制是操作系统的重要功能，涉及进程的创建、调度、同步、通信以及终止等方面。通过有效的进程控制，操作系统能够确保多任务环境下的进程按预期运行，资源得到合理分配。</p>
+<h3 id="2-5-进程间调度"><a href="#2-5-进程间调度" class="headerlink" title="2.5 进程间调度"></a>2.5 进程间调度</h3><p>概念，调度算法，</p>
+<h3 id="2-6-进程间通信"><a href="#2-6-进程间通信" class="headerlink" title="2.6 进程间通信"></a>2.6 进程间通信</h3><p>3种通信方式</p>
+<h3 id="2-7-进程间同步互斥"><a href="#2-7-进程间同步互斥" class="headerlink" title="2.7 进程间同步互斥"></a>2.7 进程间同步互斥</h3><p>标志检查算法，信号量机制，经典互斥问题。</p>
+<h3 id="2-8-死锁"><a href="#2-8-死锁" class="headerlink" title="2.8 死锁"></a>2.8 死锁</h3><p>概念，银行家算法…</p>
 
                 
               </div>
