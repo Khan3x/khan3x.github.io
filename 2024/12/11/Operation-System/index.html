@@ -28,8 +28,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/system_call.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/process_diagram.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/threading_models.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-13T05:04:54.984Z">
+<meta property="article:modified_time" content="2024-12-18T16:13:04.021Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -233,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9k words
+          10k words
         
       </span>
     
@@ -244,7 +245,7 @@
         
         
         
-          76 mins
+          84 mins
         
       </span>
     
@@ -290,9 +291,10 @@
 <div class="note note-success">
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
+
 <h2 id="1-Introduction-to-Operating-System"><a href="#1-Introduction-to-Operating-System" class="headerlink" title="1. Introduction to Operating System"></a>1. Introduction to Operating System</h2><p>计算机系统可以划分为<strong>4个</strong>主要组件：</p>
 <ol>
-<li><p>硬件(hardware)：指的是物理设备，包括计算机的处理器、内存、硬盘、输入输出设备等。硬件如中央处理单元(CPU)、内存(memory)、输入输出设备(I/O device)为系统提供基本的计算资源。</p>
+<li><p>硬件(hardware)：指的是物理设备，包括计算机的处理器、内存、硬盘、输入输出设备等。硬件如中央处理单元(CPU)、内存(memory)、输入输出设备(I&#x2F;O device)为系统提供基本的计算资源。</p>
 </li>
 <li><p>操作系统(Operating System)：软件层次上管理硬件资源并提供基本服务的平台，例如 Windows、Linux 等。</p>
 </li>
@@ -308,7 +310,7 @@
 <li><strong>任务调度</strong>：通过时间分片等方法实现多任务操作，但实际上每个时刻只能执行一个任务。  </li>
 <li><strong>适用场景</strong>：适合资源需求较低的应用场景，如传统的个人计算机和嵌入式系统。  </li>
 <li><strong>优点</strong>：结构简单，成本较低，软件开发难度小。  </li>
-<li><strong>缺点</strong>：处理能力有限，无法充分利用多核架构的优势。  </li>
+<li><strong>缺点</strong>：处理能力有限，无法充分利用多核架构的优势。</li>
 </ol>
 <p><strong>多处理系统（multiprocessing system）(也称为并行系统（parallel system）)</strong> 是指拥有多个处理器（或多个核心）的计算机系统，允许多个任务同时运行。其特点如下：  </p>
 <ol>
@@ -316,10 +318,10 @@
 <li><strong>任务并行</strong>：支持真正的并行计算，显著提高计算速度和效率。  </li>
 <li><strong>架构类型</strong>：分为<strong>对称多处理（Symmetric MultiProcessing, SMP）</strong>和<strong>非对称多处理（Asymmetric MultiProcessing, AMP）</strong>：  <ul>
 <li>SMP：所有处理器平等共享内存和任务。  </li>
-<li>AMP：不同处理器有专门的任务分工。  </li>
+<li>AMP：不同处理器有专门的任务分工。</li>
 </ul>
 </li>
-<li><strong>适用场景</strong>：高性能计算、服务器、多任务处理（如图像处理、机器学习等）。  </li>
+<li><strong>适用场景</strong>：高性能计算、服务器、多任务处理（如图像处理、机器学习等）。</li>
 </ol>
 <p><strong>多处理器系统的主要优点有：</strong></p>
 <ol>
@@ -333,7 +335,7 @@
 </li>
 <li><p><strong>规模经济</strong>  </p>
 <ul>
-<li>多处理器系统通过共享内存、I/O设备等资源，降低了每个处理器独立配备资源的成本。  </li>
+<li>多处理器系统通过共享内存、I&#x2F;O设备等资源，降低了每个处理器独立配备资源的成本。  </li>
 <li>随着处理器数量增加，系统性能可以线性甚至超线性提升，使整体成本效益更高。  </li>
 <li>常见于需要扩展性强的大型系统，如云计算和服务器集群。</li>
 </ul>
@@ -390,7 +392,8 @@
 <li><strong>复杂性增加</strong>：中断机制需要维护中断向量表和中断控制器，增加了系统的复杂性。</li>
 <li><strong>上下文切换开销</strong>：每次中断处理都涉及上下文切换，带来一定的性能开销。</li>
 </ol>
-<p>以下是一个简单的中断处理流程示例：假设这是一个简单的汇编代码，演示中断处理<br><figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">ORG 100H
+<p>以下是一个简单的中断处理流程示例：假设这是一个简单的汇编代码，演示中断处理</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">ORG 100H
 MOV AX, 0          ; 初始化AX寄存器
 
 INTERRUPT_HANDLER:
@@ -403,7 +406,8 @@ MAIN:
 MOV AX, 1
 INT 0              ; 触发中断
 MOV AX, 2
-HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><br>在这个示例中，当执行到 INT 0 指令时，会触发中断并调用 INTERRUPT_HANDLER 来处理中断。在中断处理程序中，保存了AX寄存器的值，并进行了简单的处理后恢复AX寄存器，然后返回到中断前的程序继续执行。通过中断机制，计算机系统可以高效处理各种异步事件，保证系统的稳定性和响应性。</p>
+HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>在这个示例中，当执行到 INT 0 指令时，会触发中断并调用 INTERRUPT_HANDLER 来处理中断。在中断处理程序中，保存了AX寄存器的值，并进行了简单的处理后恢复AX寄存器，然后返回到中断前的程序继续执行。通过中断机制，计算机系统可以高效处理各种异步事件，保证系统的稳定性和响应性。</p>
 <hr>
 <p><strong>轮询（Polling）</strong> 是一种通过主动检查设备或资源状态来判断是否需要处理某个事件的机制。操作系统或程序会周期性地访问设备或资源，以确定是否需要执行相关操作。</p>
 <p><strong>轮询的特点：</strong></p>
@@ -418,8 +422,8 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <p><strong>轮询的工作流程：</strong></p>
 <ol>
 <li>系统通过读取设备状态寄存器获取设备当前状态。  </li>
-<li>如果发现设备准备好（例如I/O操作完成），则进行相应的处理。  </li>
-<li>如果设备未准备好，则继续轮询，直到设备状态发生变化。  </li>
+<li>如果发现设备准备好（例如I&#x2F;O操作完成），则进行相应的处理。  </li>
+<li>如果设备未准备好，则继续轮询，直到设备状态发生变化。</li>
 </ol>
 <p><strong>轮询的缺点：</strong></p>
 <ul>
@@ -433,7 +437,6 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <li><strong>适用性</strong>：适合事件发生频率较低或硬件复杂度较低的场景。</li>
 </ul>
 <p><strong>轮询对比中断机制：</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -442,8 +445,7 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <th><strong>中断</strong></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>响应方式</td>
 <td>主动查询设备状态</td>
 <td>被动响应设备的中断信号</td>
@@ -463,9 +465,7 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <td>较差</td>
 <td>较强</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>轮询虽然简单，但在现代操作系统中已逐渐被更高效的<strong>中断机制</strong>取代。</p>
 <hr>
 <p>在操作系统中，<strong>“异常(exception)”</strong> 指的是一种特殊的事件或情况，它们会导致当前正在执行的程序或系统行为发生中断。这些异常可能来自于硬件或软件，通常需要操作系统进行处理，以确保系统的稳定性和安全性。</p>
@@ -552,7 +552,7 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <li>先来先服务（FCFS）  </li>
 <li>最短作业优先（SJF）  </li>
 <li>时间片轮转（RR）  </li>
-<li>多级队列调度等。  </li>
+<li>多级队列调度等。</li>
 </ul>
 </li>
 </ul>
@@ -576,7 +576,7 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <li>就绪（Ready）  </li>
 <li>运行（Running）  </li>
 <li>阻塞（Blocked）  </li>
-<li>终止（Terminated）  </li>
+<li>终止（Terminated）</li>
 </ul>
 </li>
 <li>根据状态变化完成任务切换。</li>
@@ -591,7 +591,7 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 <p><strong>进程与线程的区别</strong></p>
 <ul>
 <li><strong>进程(Process)</strong> 是资源分配的最小单位，每个进程有独立的地址空间。进程的实质是程序在多道程序系统中的一次执行过程，进程是动态产生，动态消亡的。  </li>
-<li><strong>线程(Thread)</strong> 是CPU调度的最小单位，线程共享进程的地址空间。线程是进程中的一条执行路径，是进程的一个实体，可作为系统独立调度和分派的基本单位。 </li>
+<li><strong>线程(Thread)</strong> 是CPU调度的最小单位，线程共享进程的地址空间。线程是进程中的一条执行路径，是进程的一个实体，可作为系统独立调度和分派的基本单位。</li>
 </ul>
 <p>进程：就像一家物业管理公司，它独立运营，有自己的一套管理系统（相当于进程的独立地址空间）。这个公司可以接多个任务，但所有任务最终都需要公司的资源来完成。</p>
 <p>单线程：假设你是这家公司的唯一员工。初期，业务量很小，每个任务都需要你亲自去完成。比如，给老张家修完暖气管道，然后再去老李家换电灯泡。这个过程类似于单线程执行——每次只能处理一个任务，必须按顺序进行。</p>
@@ -645,22 +645,24 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 </ul>
 <p><strong>4.异步性（Asynchronism）</strong> 异步性是指由于进程间的并发性，使得进程交替执行，进程的执行不是一贯的，也不是在固定的时间间隔内发生。这意味着进程可能走走停停，取决于系统资源的可用性和调度策略。</p>
 <ul>
-<li><strong>示例</strong>：异步I/O操作，操作系统在等待I/O操作完成时可以执行其他任务。</li>
+<li><strong>示例</strong>：异步I&#x2F;O操作，操作系统在等待I&#x2F;O操作完成时可以执行其他任务。</li>
 </ul>
 <p>这些特征共同作用，使操作系统能够有效地管理计算机资源，提供稳定和高效的运行环境。</p>
 <div class="note note-success">
             <p>以上就是操作系统主要关注的内容，后续章节就是扩展讲解上述内容中重要的技术细节和实现思想</p>
           </div>
+
 <h2 id="2-Process-Management"><a href="#2-Process-Management" class="headerlink" title="2. Process Management"></a>2. Process Management</h2><p>本章主要讲解操作系统里面的进程管理部分。理解进程和线程，掌握进程调度相关的各种策略算法，并且熟悉信号量的互斥机制是非常重要的。</p>
 <h3 id="2-1-操作系统的用户交互"><a href="#2-1-操作系统的用户交互" class="headerlink" title="2.1 操作系统的用户交互"></a>2.1 操作系统的用户交互</h3><p>操作系统的用户交互主要分为两种类型：</p>
 <h4 id="2-1-命令解释程序（Command-Interpreter）"><a href="#2-1-命令解释程序（Command-Interpreter）" class="headerlink" title="2.1. 命令解释程序（Command Interpreter）"></a>2.1. 命令解释程序（Command Interpreter）</h4><ul>
 <li>又称为 <strong>命令行界面（CLI，Command Line Interface）</strong>。</li>
 <li>用户通过输入文本命令与操作系统进行交互。</li>
-<li>常见的命令解释程序包括 Unix/Linux 系统的 Bash、Windows 的 CMD 和 PowerShell。</li>
+<li>常见的命令解释程序包括 Unix&#x2F;Linux 系统的 Bash、Windows 的 CMD 和 PowerShell。</li>
 <li><strong>优点</strong>：灵活性高，适合自动化脚本和高级用户。</li>
 <li><strong>缺点</strong>：需要记住大量命令和语法，不直观。</li>
 </ul>
-<p>以下是一个简单的 shell 指令示例：<br><figure><div class="code-wrapper"><pre class="line-numbers language-Bash" data-language="Bash"><code class="language-Bash"># 创建一个新的目录
+<p>以下是一个简单的 shell 指令示例：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-Bash" data-language="Bash"><code class="language-Bash"># 创建一个新的目录
 mkdir my_new_directory
 
 # 进入新创建的目录
@@ -688,7 +690,8 @@ rm copy_of_new_file.txt
 cd ..
 
 # 删除新创建的目录及其内容
-rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure></p>
+rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <h4 id="2-2-图形用户界面（GUI，Graphical-User-Interface）"><a href="#2-2-图形用户界面（GUI，Graphical-User-Interface）" class="headerlink" title="2.2 图形用户界面（GUI，Graphical User Interface）"></a>2.2 图形用户界面（GUI，Graphical User Interface）</h4><ul>
 <li>用户通过图形化元素（如窗口、图标、按钮）与操作系统进行交互。</li>
 <li>常见的图形用户界面包括 Windows 的资源管理器（Windows Explorer）、macOS 的 Finder 以及 GNOME 和 KDE 等 Linux 桌面环境。</li>
@@ -721,7 +724,8 @@ rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span><
 <li><code>exec</code>：执行新程序的系统调用。</li>
 </ul>
 <p>通过系统调用，应用程序可以安全、高效地访问操作系统提供的底层资源和服务，实现丰富的功能。</p>
-<p><img src="/img/OS/system_call.svg" srcset="/img/loading.gif" lazyload alt="系统调用" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/OS/system_call.svg" srcset="/img/loading.gif" lazyload alt="系统调用" style="max-width: 100%; height: auto;" />
+
 <p>在后台，<strong>API 函数(Application Programming Interface, API<br>)</strong> 通常为应用程序开发人员提供了调用实际系统调用的函数。API 函数为开发人员提供了一个更高层次的抽象，使他们能够以更简单和统一的方式访问底层操作系统的功能，而不需要了解系统调用的具体实现细节。</p>
 <p>通过调用 API 函数，开发人员可以间接地进行文件操作、进程管理、内存管理、设备控制等操作，这些 API 函数在后台会触发相应的系统调用来完成实际的操作。例如：</p>
 <ul>
@@ -772,15 +776,14 @@ rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span><
 </li>
 </ul>
 </li>
-<li><p><strong>等待（Waiting）</strong>：进程在等待某些事件（如I/O操作）完成。</p>
+<li><p><strong>等待（Waiting）</strong>：进程在等待某些事件（如I&#x2F;O操作）完成。</p>
 <ul>
-<li>如果进程在执行过程中需要等待某些事件（如 I/O 操作、资源可用等），它会进入等待状态。</li>
-<li><strong>切换方式</strong>：从运行状态切换到等待状态（当进程请求的 I/O 操作开始执行时）。</li>
+<li>如果进程在执行过程中需要等待某些事件（如 I&#x2F;O 操作、资源可用等），它会进入等待状态。</li>
+<li><strong>切换方式</strong>：从运行状态切换到等待状态（当进程请求的 I&#x2F;O 操作开始执行时）。</li>
 </ul>
 </li>
-</ol>
-<ol>
-<li><strong>终止（Terminated）</strong>：进程已经完成执行或被强制终止。<ul>
+<li><p><strong>终止（Terminated）</strong>：进程已经完成执行或被强制终止。</p>
+<ul>
 <li>当进程完成其全部工作或被强制终止时，进入终止状态，等待操作系统回收资源。</li>
 <li><strong>切换方式</strong>：从运行状态切换到终止状态（当进程正常完成或遇到无法恢复的错误时）。</li>
 </ul>
@@ -790,15 +793,70 @@ rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span><
 <ol>
 <li><strong>创建一个新进程</strong>：新进程从新建状态切换到就绪状态。</li>
 <li><strong>调度器选择进程</strong>：调度器将一个就绪进程分配给 CPU，进程从就绪状态切换到运行状态。</li>
-<li><strong>进程请求 I/O 操作</strong>：进程在运行过程中请求 I/O 操作，切换到等待状态。</li>
-<li><strong>I/O 操作完成</strong>：I/O 操作完成，进程从等待状态返回就绪状态。</li>
+<li><strong>进程请求 I&#x2F;O 操作</strong>：进程在运行过程中请求 I&#x2F;O 操作，切换到等待状态。</li>
+<li><strong>I&#x2F;O 操作完成</strong>：I&#x2F;O 操作完成，进程从等待状态返回就绪状态。</li>
 <li><strong>进程重新获得 CPU</strong>：调度器再次选择该进程，进程切换到运行状态。</li>
 <li><strong>进程完成执行</strong>：进程完成所有任务或被强制终止，进入终止状态。</li>
 </ol>
 <p>这种状态切换机制是多任务操作系统有效管理和调度进程的重要方式，确保系统资源的合理分配和使用。</p>
-<p><img src="/img/OS/process_diagram.svg" srcset="/img/loading.gif" lazyload alt="进程状态图" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/OS/process_diagram.svg" srcset="/img/loading.gif" lazyload alt="进程状态图" style="max-width: 100%; height: auto;" />
+
+
 <p>当一个程序被加载到内存并开始执行时，操作系统为其创建一个进程，并分配所需的系统资源。操作系统通过进程调度程序管理和调度进程的执行，确保每个进程可以合理地使用 CPU 时间和其他资源。</p>
 <p>进程是多任务操作系统的基础，允许多个程序同时运行，提高系统的效率和资源利用率。</p>
+<hr>
+<p>PCB（<strong>Process Control Block</strong>）是操作系统中用于管理进程的一个数据结构。每个正在运行的进程都有一个对应的 PCB，用于存储进程的各种信息。<u>PCB是进程存在的唯一标志。</u>常见的 PCB 内容包括：</p>
+<ol>
+<li><strong>进程状态</strong>：记录进程当前的状态（如运行、就绪、阻塞等）。</li>
+<li><strong>程序计数器</strong>：指向下一条将执行的指令地址。</li>
+<li><strong>CPU寄存器</strong>：保存进程执行时的 CPU 寄存器内容，包括通用寄存器、程序计数器等。</li>
+<li><strong>内存管理信息</strong>：如进程的内存分配、页表等。</li>
+<li><strong>进程标识符</strong>：进程的唯一标识（PID）。</li>
+<li><strong>调度信息</strong>：包括优先级、调度队列指针等。</li>
+<li><strong>I&#x2F;O信息</strong>：包括进程使用的输入输出设备信息和相关状态。</li>
+</ol>
+<p>PCB 是操作系统调度和管理进程的重要工具，确保操作系统能够有效地保存和恢复进程的状态。</p>
+<h4 id="2-3-1-线程的概念"><a href="#2-3-1-线程的概念" class="headerlink" title="2.3.1 线程的概念"></a>2.3.1 线程的概念</h4><p>线程(Thread) 是操作系统中的基本调度单位，是进程中的一个执行单元。一个进程可以包含多个线程，多个线程共享进程的资源（如内存空间、文件描述符等），但每个线程都有自己的程序计数器、寄存器和堆栈。线程被用来执行并发任务。</p>
+<p><strong>线程的特点：</strong></p>
+<ol>
+<li><strong>轻量级</strong>：相比进程，线程的创建和销毁成本较低，切换速度较快。</li>
+<li><strong>共享资源</strong>：同一进程内的多个线程共享进程的地址空间、全局变量等资源。</li>
+<li><strong>独立执行</strong>：每个线程有自己的程序计数器、栈和局部变量，可以独立执行任务。</li>
+<li><strong>并发执行</strong>：多个线程可以并发或并行地执行，适用于多核处理器和多任务环境。</li>
+</ol>
+<p><strong>线程与进程的区别：</strong></p>
+<ul>
+<li><strong>进程</strong>是资源分配的基本单位，每个进程都有独立的内存空间。</li>
+<li><strong>线程</strong>是 CPU 调度的基本单位，同一进程内的多个线程共享内存资源，但有独立的执行路径。</li>
+</ul>
+<h4 id="2-3-2-操作系统中的多线程模型（Multithreading-Models）"><a href="#2-3-2-操作系统中的多线程模型（Multithreading-Models）" class="headerlink" title="2.3.2 操作系统中的多线程模型（Multithreading Models）"></a>2.3.2 操作系统中的多线程模型（Multithreading Models）</h4><p>操作系统中的多线程模型决定了用户线程与内核线程之间的映射关系。主要有以下几种模型：</p>
+<p><strong>1. 一对一模型（One-to-One Model）</strong></p>
+<ul>
+<li>每个用户线程映射到一个内核线程。</li>
+<li><strong>优点</strong>：可以充分利用多处理器的并行性，因为每个线程可以在不同的处理器上独立运行。</li>
+<li><strong>缺点</strong>：每个线程需要一个内核线程，导致线程的创建和管理开销较大，可能影响性能。</li>
+</ul>
+<p><strong>2. 多对一模型（Many-to-One Model）</strong></p>
+<ul>
+<li>多个用户线程映射到一个内核线程。</li>
+<li><strong>优点</strong>：线程的创建和管理开销较小，因为内核只需要管理一个内核线程。</li>
+<li><strong>缺点</strong>：由于所有用户线程都在同一个内核线程上运行，无法利用多处理器的并行性。如果一个线程阻塞，整个进程都会被阻塞。</li>
+</ul>
+<p><strong>3. 多对多模型（Many-to-Many Model）</strong></p>
+<ul>
+<li>多个用户线程映射到多个内核线程。</li>
+<li><strong>优点</strong>：结合了前两种模型的优点，既可以利用多处理器的并行性，又能控制线程的创建和管理开销。</li>
+<li><strong>缺点</strong>：需要复杂的调度和管理机制来平衡用户线程与内核线程之间的映射关系。</li>
+</ul>
+<p><strong>4. 二级模型（Two-Level Model）</strong></p>
+<ul>
+<li>是多对多模型的变体，允许多个用户线程映射到同一个内核线程，也允许一个用户线程映射到多个内核线程。</li>
+<li><strong>优点</strong>：允许更灵活的线程管理，结合了多对多模型和一对一模型的优点。</li>
+<li><strong>缺点</strong>：需要更复杂的调度机制，增加了系统的实现复杂性。</li>
+</ul>
+<img src="/img/OS/threading_models.svg" srcset="/img/loading.gif" lazyload alt="多线程模型" style="max-width: 100%; height: auto;" />
+
+
 
                 
               </div>
