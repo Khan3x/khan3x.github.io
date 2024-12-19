@@ -29,8 +29,13 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/system_call.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/process_diagram.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/threading_models.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/fcfs.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/sjf.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/priority.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/rr.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/multive_queue.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-18T16:27:04.002Z">
+<meta property="article:modified_time" content="2024-12-19T16:33:50.104Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -234,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k words
+          14k words
         
       </span>
     
@@ -245,7 +250,7 @@
         
         
         
-          91 mins
+          114 mins
         
       </span>
     
@@ -654,7 +659,7 @@ HLT                ; 停止程序<span aria-hidden="true" class="line-numbers-ro
 
 <h2 id="2-Process-Management"><a href="#2-Process-Management" class="headerlink" title="2. Process Management"></a>2. Process Management</h2><p>本章主要讲解操作系统里面的进程管理部分。理解进程和线程，掌握进程调度相关的各种策略算法，并且熟悉信号量的互斥机制是非常重要的。</p>
 <h3 id="2-1-操作系统的用户交互"><a href="#2-1-操作系统的用户交互" class="headerlink" title="2.1 操作系统的用户交互"></a>2.1 操作系统的用户交互</h3><p>操作系统的用户交互主要分为两种类型：</p>
-<h4 id="2-1-命令解释程序（Command-Interpreter）"><a href="#2-1-命令解释程序（Command-Interpreter）" class="headerlink" title="2.1. 命令解释程序（Command Interpreter）"></a>2.1. 命令解释程序（Command Interpreter）</h4><ul>
+<h4 id="2-1-1-命令解释程序（Command-Interpreter）"><a href="#2-1-1-命令解释程序（Command-Interpreter）" class="headerlink" title="2.1.1 命令解释程序（Command Interpreter）"></a>2.1.1 命令解释程序（Command Interpreter）</h4><ul>
 <li>又称为 <strong>命令行界面（CLI，Command Line Interface）</strong>。</li>
 <li>用户通过输入文本命令与操作系统进行交互。</li>
 <li>常见的命令解释程序包括 Unix&#x2F;Linux 系统的 Bash、Windows 的 CMD 和 PowerShell。</li>
@@ -692,7 +697,7 @@ cd ..
 # 删除新创建的目录及其内容
 rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
-<h4 id="2-2-图形用户界面（GUI，Graphical-User-Interface）"><a href="#2-2-图形用户界面（GUI，Graphical-User-Interface）" class="headerlink" title="2.2 图形用户界面（GUI，Graphical User Interface）"></a>2.2 图形用户界面（GUI，Graphical User Interface）</h4><ul>
+<h4 id="2-1-2-图形用户界面（GUI，Graphical-User-Interface）"><a href="#2-1-2-图形用户界面（GUI，Graphical-User-Interface）" class="headerlink" title="2.1.2 图形用户界面（GUI，Graphical User Interface）"></a>2.1.2 图形用户界面（GUI，Graphical User Interface）</h4><ul>
 <li>用户通过图形化元素（如窗口、图标、按钮）与操作系统进行交互。</li>
 <li>常见的图形用户界面包括 Windows 的资源管理器（Windows Explorer）、macOS 的 Finder 以及 GNOME 和 KDE 等 Linux 桌面环境。</li>
 <li><strong>优点</strong>：直观易用，适合初学者和普通用户。</li>
@@ -884,7 +889,110 @@ rm -r my_new_directory<span aria-hidden="true" class="line-numbers-rows"><span><
 <li><strong>进程调度</strong>：PCB 是进程调度和管理的核心数据结构，操作系统通过它来实现上下文切换和进程状态的转换。</li>
 </ul>
 <p>进程控制是操作系统的重要功能，涉及进程的创建、调度、同步、通信以及终止等方面。通过有效的进程控制，操作系统能够确保多任务环境下的进程按预期运行，资源得到合理分配。</p>
-<h3 id="2-5-进程间调度"><a href="#2-5-进程间调度" class="headerlink" title="2.5 进程间调度"></a>2.5 进程间调度</h3><p>概念，调度算法，</p>
+<h3 id="2-5-进程间调度"><a href="#2-5-进程间调度" class="headerlink" title="2.5 进程间调度"></a>2.5 进程间调度</h3><p>操作系统中的进程调度是管理CPU资源分配的一项重要功能。它决定了哪些进程何时运行，以及如何在多个进程间切换，以实现系统资源的高效利用和响应。</p>
+<p><strong>常见的调度算法主要有：</strong></p>
+<p><strong>1. 先到先服务（First-Come First-Served, FCFS）</strong></p>
+<ul>
+<li>简单且直观，进程按照到达顺序执行。</li>
+<li><strong>优点</strong>：实现简单。</li>
+<li><strong>缺点</strong>：容易导致长进程阻塞短进程（队头阻塞），可能增加平均等待时间。</li>
+</ul>
+<p><strong>2. 短作业优先（Shortest-Job-First, SJF）</strong></p>
+<ul>
+<li>优先执行预计运行时间最短的进程。</li>
+<li><strong>优点</strong>：减少平均等待时间。</li>
+<li><strong>缺点</strong>：需要准确预测进程运行时间，长作业可能会长期得不到调度（饥饿现象）。</li>
+</ul>
+<p><strong>3. 优先级调度算法（Priority Scheduling）</strong></p>
+<ul>
+<li>根据进程的优先级调度，优先级高的进程先执行。</li>
+<li><strong>优点</strong>：灵活性高，可以根据需求调整优先级。</li>
+<li><strong>缺点</strong>：低优先级进程可能会长期得不到调度（饥饿现象）。</li>
+</ul>
+<p><strong>4. 轮转调度（Round-Robin，RR）算法</strong></p>
+<ul>
+<li>每个进程分配一个固定的时间片，时间片到后切换到下一个进程。</li>
+<li><strong>优点</strong>：公平，适用于时间共享系统。</li>
+<li><strong>缺点</strong>：时间片过大或过小会影响系统性能。</li>
+</ul>
+<p><strong>5. 多级反馈队列调度算法（Multilevel Feedback Queue）</strong></p>
+<ul>
+<li>结合多个优先级队列和时间片调度。</li>
+<li>进程根据其行为动态调整优先级和队列位置。</li>
+<li><strong>优点</strong>：灵活性高，能够较好地平衡响应时间和系统吞吐量。</li>
+</ul>
+<p>通过这些调度算法，操作系统能够高效管理和分配CPU资源，保证系统的稳定性和用户体验。下面分别分析上述调度算法.</p>
+<hr>
+<h4 id="2-5-1-先到先服务（First-Come-First-Served-FCFS）"><a href="#2-5-1-先到先服务（First-Come-First-Served-FCFS）" class="headerlink" title="2.5.1 先到先服务（First-Come First-Served, FCFS）"></a>2.5.1 先到先服务（First-Come First-Served, FCFS）</h4><p><strong>先到先服务（First-Come, First-Served，FCFS）</strong> 是一种简单的进程调度算法，它的工作原理是：当进程到达系统时，它们被放入就绪队列。调度器选择队列中的第一个进程进行执行，直到该进程完成或发生阻塞事件，然后调度器选择下一个进程。</p>
+<ul>
+<li>优点：<ul>
+<li>公平性（Fairness）：FCFS算法对所有进程都是公平的，因为它按照进程到达的顺序进行调度。</li>
+<li>简单性（Simplicity）：FCFS算法非常简单和易于实现。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>无法充分利用CPU（Poor CPU Utilization）：如果当前正在运行的进程需要大量的I&#x2F;O操作，那么CPU可能会在等待I&#x2F;O操作完成时处于空闲状态。</li>
+<li>平均等待时间可能较长（Long Average Waiting Time）：在FCFS算法中，短的进程可能会被长的进程阻塞，这种现象被称为“饥饿”（Starvation）或“拖尾效应”（Convoy Effect）。</li>
+<li>无法支持优先级（Lack of Priority Support）：FCFS算法不支持优先级，因此无法保证重要的进程能够优先执行。</li>
+</ul>
+</li>
+</ul>
+<p>总的来说，虽然FCFS算法简单且公平，但由于其无法有效地利用CPU和支持优先级，所以在需要高效率或优先级调度的系统中，通常不会使用FCFS算法。</p>
+<img src="/img/OS/fcfs.svg" srcset="/img/loading.gif" lazyload alt="先到先服务调度算法" style="max-width: 100%; height: auto;" />
+
+
+<hr>
+<p>在操作系统中，<strong>饥饿（Starvation）</strong> 是指某些进程长时间得不到所需资源，从而无法执行的情况。这通常发生在资源分配机制不公平或不完善的情况下。饥饿现象主要出现在以下几种情况下：</p>
+<ul>
+<li>优先级调度：在优先级调度算法中，如果某些低优先级的进程始终被高优先级进程抢占，低优先级进程可能会一直得不到执行机会，从而陷入饥饿状态。</li>
+<li>资源竞争：当多个进程竞争有限的资源时，某些进程可能持续无法获得资源，导致无法继续执行。</li>
+<li>长作业排队：在先到先服务（FCFS）或短作业优先（SJF）等调度算法中，长时间运行的进程可能会因其他短作业的持续到达而长期得不到调度。</li>
+</ul>
+<p>解决饥饿问题的一种常见方法是<strong>老化机制（Aging）</strong>，即逐渐提高长期未被调度进程的优先级，使其最终能够获得资源并执行。</p>
+<hr>
+<h4 id="2-5-2-短作业优先（Shortest-Job-First-SJF）"><a href="#2-5-2-短作业优先（Shortest-Job-First-SJF）" class="headerlink" title="2.5.2 短作业优先（Shortest-Job-First, SJF）"></a>2.5.2 短作业优先（Shortest-Job-First, SJF）</h4><p>在这种算法中，调度器选择就绪队列中预计运行时间最短的进程进行执行。预计运行时间可以是进程的CPU突发时间（CPU burst time）或者是进程的剩余执行时间。（这里就要看是非抢占式的还是抢占式的了，可以直观理解）</p>
+<p>短作业优先调度算法的主要优点是它最小化了平均等待时间。因为短的进程总是优先于长的进程，所以它们的等待时间会更短，从而使得平均等待时间最小。</p>
+<p>然而，这种算法也有一些缺点。首先，它需要知道进程的预计运行时间，但在实际的系统中，这通常是无法预知的。其次，这种算法可能会导致 <strong>“饥饿”（Starvation）</strong> 现象，即长的进程可能会被无限期地推迟，因为总是有短的进程到来。<br>总的来说，短作业优先调度算法在理论上是非常有效的，但在实际的系统中，由于需要预知进程的运行时间以及可能导致的饥饿问题，它的应用受到了一些限制。</p>
+<img src="/img/OS/sjf.svg" srcset="/img/loading.gif" lazyload alt="短作业优先调度算法" style="max-width: 100%; height: auto;" />
+
+<hr>
+<h4 id="2-5-3-优先级调度算法（Priority-Scheduling）"><a href="#2-5-3-优先级调度算法（Priority-Scheduling）" class="headerlink" title="2.5.3 优先级调度算法（Priority-Scheduling）"></a>2.5.3 优先级调度算法（Priority-Scheduling）</h4><p>优先级调度算法是一种操作系统中的进程调度算法。在这种算法中，每个进程都有一个优先级，操作系统总是选择优先级最高的进程来运行。这种算法的主要特点如下：</p>
+<ul>
+<li>优先级：每个进程都有一个优先级，优先级高的进程优先执行。（抢占式，preemptive）</li>
+<li>动态调整：系统可以根据需要动态调整进程的优先级。例如，为了防止低优先级的进程永远得不到执行，系统可能会随着时间的推移提高等待进程的优先级。</li>
+<li>饿死问题：如果总是有新的高优先级进程出现，那么低优先级的进程可能永远得不到执行，这就是所谓的饿死问题。为了解决这个问题，系统可能会采取一些策略，比如老化（随着时间的推移提高等待进程的优先级）。</li>
+</ul>
+<p>这种算法在实时系统中特别有用，因为在这些系统中，有些任务（比如控制飞机的自动驾驶仪）比其他任务更重要，因此需要优先执行。但是，这种算法也有一些缺点，比如可能会导致低优先级的进程饿死。因此，设计一个好的优先级调度算法需要权衡各种因素。</p>
+<img src="/img/OS/priority.svg" srcset="/img/loading.gif" lazyload alt="优先级调度算法" style="max-width: 100%; height: auto;" />
+
+<hr>
+<h4 id="2-5-4-轮转调度（Round-Robin，RR）算法"><a href="#2-5-4-轮转调度（Round-Robin，RR）算法" class="headerlink" title="2.5.4 轮转调度（Round-Robin，RR）算法"></a>2.5.4 轮转调度（Round-Robin，RR）算法</h4><p>轮转调度（Round-Robin，RR）算法是一种非常常见的操作系统进程调度算法。以下是对其的简要解释：</p>
+<ul>
+<li>时间片（Time Quantum）：在轮转调度算法中，每个进程被分配一个固定长度的时间片来执行。当一个进程的时间片用完时，它将被移出CPU，下一个进程将开始执行。</li>
+<li>公平性（Fairness）：由于每个进程都有相同长度的时间片来执行，因此这种算法被认为是公平的。没有进程会因为优先级低而被饿死。<br>上下文切换（Context Switch）：当一个进程的时间片用完，操作系统需要进行上下文切换，将CPU从当前进程切换到下一个进程。这会产生一定的开销。</li>
+<li>响应时间（Response Time）：轮转调度算法通常能提供良好的响应时间，因为每个进程都会定期得到CPU时间。</li>
+</ul>
+<p>这种算法适用于时间共享系统，但如果时间片设置得不合适，可能会导致过多的上下文切换，从而降低系统性能。因此，选择合适的时间片长度是实现轮转调度算法的关键。如果时间片过长，那么系统的响应时间可能会变差；如果时间片过短，那么上下文切换的开销可能会变大。</p>
+<p>同一时刻两个进程 A 和 B, A 刚下处理机, B 刚进入队列, 默认 B 先轮转时间片。</p>
+<ul>
+<li>如果时间片太大, 退化为FCFS, 会增大进程响应时间</li>
+<li>如果时间片太小, 进程切换频繁, 切换进程会花费大量时间</li>
+</ul>
+<p>一般来说, 设计时间片要让切换进程的开销占比不超过 1%</p>
+<img src="/img/OS/rr.svg" srcset="/img/loading.gif" lazyload alt="轮转调度算法" style="max-width: 100%; height: auto;" />
+
+<hr>
+<h4 id="2-5-5-多级反馈队列调度算法（Multilevel-Feedback-Queue）"><a href="#2-5-5-多级反馈队列调度算法（Multilevel-Feedback-Queue）" class="headerlink" title="2.5.5 多级反馈队列调度算法（Multilevel Feedback Queue）"></a>2.5.5 多级反馈队列调度算法（Multilevel Feedback Queue）</h4><p>多级反馈队列调度算法（Multilevel Feedback Queue Scheduling）是一种操作系统中的进程调度算法。以下是对其的简要解释：</p>
+<ul>
+<li>多级队列（Multilevel Queues）：在这种算法中，存在多个队列，每个队列都有自己的优先级。优先级最高的队列中的进程首先得到执行。（也就是前一队列为空的时候，才能执行当前队列！！）</li>
+<li>反馈（Feedback）：如果一个进程在其分配的时间片内没有完成，那么它将被移动到优先级较低的队列。这就是所谓的“反馈”机制。</li>
+<li>公平性和灵活性（Fairness and Flexibility）：这种算法旨在结合优先级调度和轮转调度的优点，以实现公平性和灵活性。它可以确保高优先级的进程快速执行，同时也不会饿死低优先级的进程。</li>
+<li>动态优先级（Dynamic Priorities）：进程的优先级不是固定的，而是可以根据其行为动态改变。例如，如果一个进程经常阻塞等待I&#x2F;O操作，那么它的优先级可能会提高，以便在I&#x2F;O操作完成后能够快速得到执行。</li>
+</ul>
+<p>这种算法在许多操作系统中都得到了应用，因为它既可以处理交互式进程（这些进程需要快速响应），也可以处理批处理进程（这些进程需要长时间运行）。然而，它的实现相对复杂，需要维护多个队列，并动态调整进程的优先级。此外，选择合适的队列数量和时间片长度也是一个挑战。如果设置不当，可能会导致某些进程得不到公平的CPU时间，或者系统的上下文切换开销过大。因此，实现这种算法需要权衡各种因素。</p>
+<p>这个算法无明显缺点，但是会导致饥饿！考虑一种情况：长时间运行的进程一直被降级到低优先级队列，而新到达的高优先级进程源源不断地占用CPU资源，那么低优先级的进程可能会长期得不到调度，导致饥饿。</p>
+<img src="/img/OS/multive_queue.svg" srcset="/img/loading.gif" lazyload alt="多级反馈队列调度算法" style="max-width: 100%; height: auto;" />
+
 <h3 id="2-6-进程间通信"><a href="#2-6-进程间通信" class="headerlink" title="2.6 进程间通信"></a>2.6 进程间通信</h3><p>3种通信方式</p>
 <h3 id="2-7-进程间同步互斥"><a href="#2-7-进程间同步互斥" class="headerlink" title="2.7 进程间同步互斥"></a>2.7 进程间同步互斥</h3><p>标志检查算法，信号量机制，经典互斥问题。</p>
 <h3 id="2-8-死锁"><a href="#2-8-死锁" class="headerlink" title="2.8 死锁"></a>2.8 死锁</h3><p>概念，银行家算法…</p>

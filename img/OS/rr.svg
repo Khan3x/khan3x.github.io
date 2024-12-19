@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- 背景 -->
+    <rect width="800" height="500" fill="#f8f9fa"/>
+    
+    <!-- 水印 -->
+    <text x="400" y="250" text-anchor="middle" font-size="72" fill="#33333322" transform="rotate(-30 400 250)" font-weight="bold">
+        偷偷星球
+    </text>
+
+    <!-- 标题 -->
+    <text x="400" y="50" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">
+        轮转调度算法 (Round Robin)
+    </text>
+
+    <!-- CPU 图示 -->
+    <rect x="350" y="200" width="100" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="3"/>
+    <text x="400" y="255" text-anchor="middle" font-size="20" fill="#1976d2" font-weight="bold">CPU</text>
+
+    <!-- 进程队列圆环 -->
+    <circle cx="400" cy="250" r="150" fill="none" stroke="#ddd" stroke-width="40" stroke-dasharray="5,3"/>
+    
+    <!-- 进程示例 -->
+    <g transform="rotate(0 400 250)">
+        <circle cx="400" cy="100" r="30" fill="#4CAF50"/>
+        <text x="400" y="108" text-anchor="middle" fill="white" font-weight="bold">P1</text>
+    </g>
+    
+    <g transform="rotate(72 400 250)">
+        <circle cx="400" cy="100" r="30" fill="#2196F3"/>
+        <text x="400" y="108" text-anchor="middle" fill="white" font-weight="bold">P2</text>
+    </g>
+    
+    <g transform="rotate(144 400 250)">
+        <circle cx="400" cy="100" r="30" fill="#FFC107"/>
+        <text x="400" y="108" text-anchor="middle" fill="white" font-weight="bold">P3</text>
+    </g>
+    
+    <g transform="rotate(216 400 250)">
+        <circle cx="400" cy="100" r="30" fill="#9C27B0"/>
+        <text x="400" y="108" text-anchor="middle" fill="white" font-weight="bold">P4</text>
+    </g>
+    
+    <g transform="rotate(288 400 250)">
+        <circle cx="400" cy="100" r="30" fill="#FF5722"/>
+        <text x="400" y="108" text-anchor="middle" fill="white" font-weight="bold">P5</text>
+    </g>
+
+    <!-- 旋转箭头 -->
+    <path d="M 520 180 A 150 150 0 0 1 520 320" 
+          fill="none" stroke="#666" stroke-width="3"
+          marker-end="url(#arrowhead)"/>
+
+    <!-- 箭头标记定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+        </marker>
+    </defs>
+
+    <!-- 说明文字 -->
+    <text x="400" y="400" text-anchor="middle" font-size="16" fill="#333">时间片 = Q</text>
+    <text x="400" y="430" text-anchor="middle" font-size="14" fill="#666">
+        每个进程执行固定时间片后进行轮转
+    </text>
+    <text x="400" y="450" text-anchor="middle" font-size="14" fill="#666">
+        确保公平性，避免进程饿死
+    </text>
+
+    <!-- 时间片说明 -->
+    <rect x="50" y="380" width="120" height="80" fill="#f5f5f5" stroke="#ddd"/>
+    <text x="110" y="400" text-anchor="middle" font-size="14">时间片过短:</text>
+    <text x="110" y="420" text-anchor="middle" font-size="12" fill="#666">频繁上下文切换</text>
+    <text x="110" y="440" text-anchor="middle" font-size="12" fill="#666">系统开销大</text>
+
+    <rect x="630" y="380" width="120" height="80" fill="#f5f5f5" stroke="#ddd"/>
+    <text x="690" y="400" text-anchor="middle" font-size="14">时间片过长:</text>
+    <text x="690" y="420" text-anchor="middle" font-size="12" fill="#666">响应时间变差</text>
+    <text x="690" y="440" text-anchor="middle" font-size="12" fill="#666">实时性降低</text>
+</svg>

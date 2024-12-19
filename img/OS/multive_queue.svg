@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- 背景 -->
+    <rect width="800" height="500" fill="#f8f9fa"/>
+    
+    <!-- 水印 -->
+    <text x="400" y="250" text-anchor="middle" font-size="48" fill="#33333322" transform="rotate(-30 400 250)">
+        偷偷星球
+    </text>
+
+    <!-- 标题 -->
+    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">
+        多级反馈队列调度算法
+    </text>
+
+    <!-- 三个优先级队列 -->
+    <!-- 队列1（最高优先级） -->
+    <rect x="150" y="80" width="400" height="60" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="100" y="115" text-anchor="end" fill="#1976d2" font-weight="bold">
+        高优先级队列
+    </text>
+    <text x="300" y="70" fill="#666">(时间片=4ms)</text>
+    
+    <!-- 队列2（中等优先级） -->
+    <rect x="150" y="180" width="400" height="60" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="100" y="215" text-anchor="end" fill="#388e3c" font-weight="bold">
+        中优先级队列
+    </text>
+    <text x="300" y="170" fill="#666">(时间片=8ms)</text>
+    
+    <!-- 队列3（最低优先级） -->
+    <rect x="150" y="280" width="400" height="60" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="100" y="315" text-anchor="end" fill="#f57c00" font-weight="bold">
+        低优先级队列
+    </text>
+    <text x="300" y="270" fill="#666">(时间片=16ms)</text>
+
+    <!-- 进程示例 -->
+    <rect x="200" y="90" width="40" height="40" fill="#1976d2" rx="5"/>
+    <rect x="250" y="90" width="40" height="40" fill="#1976d2" rx="5" opacity="0.8"/>
+    
+    <rect x="200" y="190" width="40" height="40" fill="#388e3c" rx="5"/>
+    <rect x="250" y="190" width="40" height="40" fill="#388e3c" rx="5" opacity="0.8"/>
+    
+    <rect x="200" y="290" width="40" height="40" fill="#f57c00" rx="5"/>
+
+    <!-- 降级箭头 -->
+    <path d="M 580 110 L 630 110 L 630 210 L 580 210" 
+          fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 580 210 L 630 210 L 630 310 L 580 310" 
+          fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- 箭头标记定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+        </marker>
+    </defs>
+
+    <!-- 说明文字 -->
+    <text x="400" y="400" text-anchor="middle" font-size="14">
+        进程未完成时降级到下一级队列
+    </text>
+    <text x="400" y="430" text-anchor="middle" font-size="14">
+        每个队列的时间片逐级增加
+    </text>
+    
+    <!-- 新进程箭头 -->
+    <path d="M 50 110 L 140 110" 
+          fill="none" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="95" y="100" text-anchor="middle" fill="#1976d2" font-size="12">
+        新进程
+    </text>
+</svg>
