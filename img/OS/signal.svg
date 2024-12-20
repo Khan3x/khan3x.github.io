@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="800" height="450" fill="#f8f9fa"/>
+    
+    <!-- 水印 -->
+    <!-- 中间大水印 -->
+    <text x="400" y="200" text-anchor="middle" font-size="100" fill="#33333322" font-weight="bold" transform="rotate(-30, 400, 200)">偷偷星球</text>
+    <!-- 左上角水印 -->
+    <text x="120" y="80" text-anchor="middle" font-size="40" fill="#33333322" font-weight="bold" transform="rotate(-30, 120, 80)">偷偷星球</text>
+    <!-- 右下角水印 -->
+    <text x="680" y="380" text-anchor="middle" font-size="40" fill="#33333322" font-weight="bold" transform="rotate(-30, 680, 380)">偷偷星球</text>
+    
+    <!-- 标题 -->
+    <text x="400" y="40" text-anchor="middle" font-size="24" fill="#333">进程信号通信机制</text>
+    
+    <!-- 操作系统 -->
+    <rect x="300" y="80" width="200" height="80" rx="10" fill="#4a90e2"/>
+    <text x="400" y="125" text-anchor="middle" font-size="20" fill="white">操作系统</text>
+    
+    <!-- 进程1 -->
+    <rect x="100" y="200" width="140" height="120" rx="10" fill="#FF6B6B"/>
+    <text x="170" y="230" text-anchor="middle" font-size="18" fill="white">进程 1</text>
+    <text x="170" y="255" text-anchor="middle" font-size="14" fill="white">信号处理程序</text>
+    <text x="170" y="275" text-anchor="middle" font-size="12" fill="white">SIGINT 处理</text>
+    <text x="170" y="295" text-anchor="middle" font-size="12" fill="white">SIGTERM 处理</text>
+    
+    <!-- 进程2 -->
+    <rect x="560" y="200" width="140" height="120" rx="10" fill="#FF6B6B"/>
+    <text x="630" y="230" text-anchor="middle" font-size="18" fill="white">进程 2</text>
+    <text x="630" y="255" text-anchor="middle" font-size="14" fill="white">信号处理程序</text>
+    <text x="630" y="275" text-anchor="middle" font-size="12" fill="white">SIGKILL 处理</text>
+    <text x="630" y="295" text-anchor="middle" font-size="12" fill="white">SIGUSR1 处理</text>
+    
+    <!-- 信号箭头 -->
+    <!-- OS到进程1的信号 -->
+    <path d="M320 160 L200 200" stroke="#50C878" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="230" y="170" text-anchor="middle" font-size="14" fill="#50C878">SIGINT</text>
+    
+    <!-- OS到进程2的信号 -->
+    <path d="M480 160 L600 200" stroke="#50C878" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="570" y="170" text-anchor="middle" font-size="14" fill="#50C878">SIGKILL</text>
+    
+    <!-- 进程间信号 -->
+    <path d="M240 260 L560 260" stroke="#50C878" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+    <text x="400" y="250" text-anchor="middle" font-size="14" fill="#50C878">进程间信号</text>
+    
+    <!-- 箭头定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#50C878"/>
+        </marker>
+    </defs>
+    
+    <!-- 底部说明文字 -->
+    <text x="400" y="390" text-anchor="middle" font-size="14" fill="#333">• 信号是一种轻量级的进程间通信方式</text>
+    <text x="400" y="410" text-anchor="middle" font-size="14" fill="#333">• 主要用于进程间的控制和通知</text>
+    <text x="400" y="430" text-anchor="middle" font-size="14" fill="#333">• 操作系统可以向进程发送各种类型的信号</text>
+</svg>
