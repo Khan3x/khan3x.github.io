@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- 背景 -->
+    <rect width="800" height="500" fill="#f0f4f8"/>
+    
+    <!-- 水印 -->
+    <text x="400" y="250" text-anchor="middle" font-size="60" fill="#33333322" 
+          transform="rotate(-30, 400, 250)" 
+          style="font-weight: bold;">偷偷星球</text>
+    
+    <!-- 标题 -->
+    <text x="400" y="40" text-anchor="middle" font-size="28" fill="#1a365d" font-weight="bold">进程间通信：管道详解</text>
+    
+    <!-- 匿名管道部分 -->
+    <g transform="translate(20,60)">
+        <!-- 子标题 -->
+        <rect x="40" y="20" width="320" height="40" rx="5" fill="#2c5282"/>
+        <text x="200" y="47" text-anchor="middle" font-size="20" fill="white">匿名管道 (Anonymous Pipe)</text>
+        
+        <!-- 主要图示 -->
+        <g transform="translate(0,70)">
+            <!-- 父进程 -->
+            <rect x="60" y="20" width="100" height="100" rx="10" fill="#3498db"/>
+            <text x="110" y="65" text-anchor="middle" fill="white" font-weight="bold">父进程</text>
+            <text x="110" y="85" text-anchor="middle" fill="white" font-size="12">Parent Process</text>
+            
+            <!-- 管道 -->
+            <path d="M160 70 L240 70" stroke="#e74c3c" stroke-width="15" fill="none"/>
+            <path d="M160 70 L240 70" stroke="#ffffff" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+            
+            <!-- 子进程 -->
+            <rect x="240" y="20" width="100" height="100" rx="10" fill="#2ecc71"/>
+            <text x="290" y="65" text-anchor="middle" fill="white" font-weight="bold">子进程</text>
+            <text x="290" y="85" text-anchor="middle" fill="white" font-size="12">Child Process</text>
+            
+            <!-- 数据流动指示 - 黑色箭头 -->
+            <path d="M180 60 L220 60" stroke="#000000" stroke-width="4" marker-end="url(#arrowhead-black)"/>
+            
+            <!-- 特性说明 -->
+            <g transform="translate(40,140)">
+                <rect x="0" y="0" width="320" height="160" rx="5" fill="white" stroke="#3498db"/>
+                <text x="10" y="25" font-size="16" fill="#2c5282">特性说明：</text>
+                <text x="20" y="50" font-size="14" fill="#444">• 单向通信：数据只能从父进程流向子进程</text>
+                <text x="20" y="75" font-size="14" fill="#444">• 无名字标识：不能在文件系统中查看</text>
+                <text x="20" y="100" font-size="14" fill="#444">• 生命周期：随进程创建而建立，进程结束而消失</text>
+                <text x="20" y="125" font-size="14" fill="#444">• 使用场景：shell管道命令，如 ls | grep</text>
+                <text x="20" y="150" font-size="14" fill="#444">• 操作系统支持：所有UNIX/Linux系统</text>
+            </g>
+        </g>
+    </g>
+    
+    <!-- 命名管道部分 -->
+    <g transform="translate(420,60)">
+        <!-- 子标题 -->
+        <rect x="40" y="20" width="320" height="40" rx="5" fill="#2c5282"/>
+        <text x="200" y="47" text-anchor="middle" font-size="20" fill="white">命名管道 (Named Pipe)</text>
+        
+        <!-- 主要图示 -->
+        <g transform="translate(0,70)">
+            <!-- 进程A -->
+            <rect x="60" y="20" width="100" height="100" rx="10" fill="#9b59b6"/>
+            <text x="110" y="65" text-anchor="middle" fill="white" font-weight="bold">进程A</text>
+            <text x="110" y="85" text-anchor="middle" fill="white" font-size="12">Process A</text>
+            
+            <!-- 管道 -->
+            <path d="M160 70 L240 70" stroke="#e74c3c" stroke-width="15" fill="none"/>
+            <rect x="180" y="50" width="40" height="20" fill="#34495e"/>
+            <text x="200" y="100" text-anchor="middle" font-size="12" fill="white">/pipe1</text>
+            
+            <!-- 进程B -->
+            <rect x="240" y="20" width="100" height="100" rx="10" fill="#f1c40f"/>
+            <text x="290" y="65" text-anchor="middle" fill="white" font-weight="bold">进程B</text>
+            <text x="290" y="85" text-anchor="middle" fill="white" font-size="12">Process B</text>
+            
+            <!-- 数据流动指示 - 黑色双向箭头 -->
+            <path d="M180 60 L220 60" stroke="#000000" stroke-width="4" marker-end="url(#arrowhead-black)"/>
+            <path d="M220 80 L180 80" stroke="#000000" stroke-width="4" marker-end="url(#arrowhead-black)"/>
+            
+            <!-- 特性说明 -->
+            <g transform="translate(40,140)">
+                <rect x="0" y="0" width="320" height="160" rx="5" fill="white" stroke="#9b59b6"/>
+                <text x="10" y="25" font-size="16" fill="#2c5282">特性说明：</text>
+                <text x="20" y="50" font-size="14" fill="#444">• 双向通信：支持全双工数据传输</text>
+                <text x="20" y="75" font-size="14" fill="#444">• 有名字标识：在文件系统中可见(mkfifo创建)</text>
+                <text x="20" y="100" font-size="14" fill="#444">• 持久性：可以长期存在于文件系统中</text>
+                <text x="20" y="125" font-size="14" fill="#444">• 使用场景：客户端服务器通信，进程间消息传递</text>
+                <text x="20" y="150" font-size="14" fill="#444">• 权限控制：支持文件系统权限管理</text>
+            </g>
+        </g>
+    </g>
+    
+    <!-- 底部说明 -->
+    <text x="400" y="480" text-anchor="middle" font-size="14" fill="#666">
+        注：管道是最基本的IPC(进程间通信)机制之一，广泛应用于UNIX/Linux系统
+    </text>
+    
+    <!-- 箭头定义 - 改为黑色箭头 -->
+    <defs>
+        <marker id="arrowhead-black" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#000000"/>
+        </marker>
+    </defs>
+</svg>
