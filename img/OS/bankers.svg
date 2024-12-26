@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <!-- 背景 -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- 标题 -->
+    <text x="400" y="40" text-anchor="middle" font-size="24" fill="#333">银行家算法资源分配流程</text>
+    
+    <!-- 系统资源池 -->
+    <g transform="translate(50,80)">
+        <rect width="180" height="100" rx="10" fill="#4d94ff"/>
+        <text x="90" y="35" text-anchor="middle" fill="white" font-size="16">系统资源池</text>
+        <text x="90" y="65" text-anchor="middle" fill="white" font-size="14">总资源: [10,5,7]</text>
+        <text x="90" y="85" text-anchor="middle" fill="white" font-size="14">可用: [3,3,2]</text>
+    </g>
+
+    <!-- 矩阵区域 -->
+    <g transform="translate(300,80)">
+        <!-- 最大需求矩阵 -->
+        <rect width="150" height="150" fill="#ff9966"/>
+        <text x="75" y="30" text-anchor="middle" fill="white" font-size="14">最大需求矩阵</text>
+        <text x="75" y="50" text-anchor="middle" fill="white" font-size="12">[7,5,3]</text>
+        <text x="75" y="70" text-anchor="middle" fill="white" font-size="12">[3,2,2]</text>
+        <text x="75" y="90" text-anchor="middle" fill="white" font-size="12">[9,0,2]</text>
+        <text x="75" y="110" text-anchor="middle" fill="white" font-size="12">[2,2,2]</text>
+        <text x="75" y="130" text-anchor="middle" fill="white" font-size="12">[4,3,3]</text>
+
+        <!-- 分配矩阵 -->
+        <rect x="170" width="150" height="150" fill="#66cc66"/>
+        <text x="245" y="30" text-anchor="middle" fill="white" font-size="14">分配矩阵</text>
+        <text x="245" y="50" text-anchor="middle" fill="white" font-size="12">[0,1,0]</text>
+        <text x="245" y="70" text-anchor="middle" fill="white" font-size="12">[2,0,0]</text>
+        <text x="245" y="90" text-anchor="middle" fill="white" font-size="12">[3,0,2]</text>
+        <text x="245" y="110" text-anchor="middle" fill="white" font-size="12">[2,1,1]</text>
+        <text x="245" y="130" text-anchor="middle" fill="white" font-size="12">[0,0,2]</text>
+    </g>
+
+    <!-- 流程图 -->
+    <g transform="translate(50,300)">
+        <!-- 开始节点 -->
+        <circle cx="50" cy="50" r="25" fill="#4d94ff"/>
+        <text x="50" y="55" text-anchor="middle" fill="white">开始</text>
+
+        <!-- 检查请求 -->
+        <rect x="150" y="25" width="120" height="50" rx="5" fill="#ff9966"/>
+        <text x="210" y="55" text-anchor="middle" fill="white" font-size="14">检查资源请求</text>
+
+        <!-- 安全性检查 -->
+        <rect x="350" y="25" width="120" height="50" rx="5" fill="#66cc66"/>
+        <text x="410" y="55" text-anchor="middle" fill="white" font-size="14">安全性检查</text>
+
+        <!-- 分配资源 -->
+        <rect x="550" y="25" width="120" height="50" rx="5" fill="#4d94ff"/>
+        <text x="610" y="55" text-anchor="middle" fill="white" font-size="14">分配资源</text>
+
+        <!-- 连接箭头 -->
+        <path d="M75,50 H150" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M270,50 H350" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <path d="M470,50 H550" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+
+    <!-- 安全序列检查示意 -->
+    <g transform="translate(100,400)">
+        <rect width="600" height="80" rx="10" fill="#f0f0f0" stroke="#666"/>
+        <text x="300" y="35" text-anchor="middle" fill="#333" font-size="16">安全序列检查</text>
+        <text x="300" y="60" text-anchor="middle" fill="#666" font-size="14">寻找可完成的进程序列，确保系统安全状态</text>
+    </g>
+
+    <!-- 箭头定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+        </marker>
+    </defs>
+
+    <!-- 水印 -->
+    <text x="400" y="580" text-anchor="middle" fill="#666" font-size="16" opacity="0.5">偷偷星球</text>
+</svg>

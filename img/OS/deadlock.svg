@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+    <!-- 背景 -->
+    <rect width="600" height="400" fill="#f8f9fa"/>
+    
+    <!-- 死锁环路标注 -->
+    <path d="M150,300 Q300,300 450,300 Q450,200 300,200 Q150,200 150,300" 
+          fill="#FFD70066" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="300" y="270" text-anchor="middle" fill="#B8860B" font-size="14">死锁环路</text>
+    
+    <!-- 进程节点 -->
+    <circle cx="150" cy="100" r="30" fill="#4d94ff"/>
+    <text x="150" y="105" text-anchor="middle" fill="white" font-size="16">P1</text>
+    
+    <circle cx="450" cy="100" r="30" fill="#4d94ff"/>
+    <text x="450" y="105" text-anchor="middle" fill="white" font-size="16">P2</text>
+    
+    <circle cx="150" cy="300" r="30" fill="#4d94ff"/>
+    <text x="150" y="305" text-anchor="middle" fill="white" font-size="16">P3</text>
+    
+    <circle cx="450" cy="300" r="30" fill="#4d94ff"/>
+    <text x="450" y="305" text-anchor="middle" fill="white" font-size="16">P4</text>
+    
+    <!-- 资源节点 -->
+    <rect x="275" y="50" width="50" height="50" fill="#ff9966"/>
+    <text x="300" y="80" text-anchor="middle" fill="white" font-size="16">R1</text>
+    
+    <rect x="275" y="175" width="50" height="50" fill="#ff9966"/>
+    <text x="300" y="205" text-anchor="middle" fill="white" font-size="16">R2</text>
+    
+    <rect x="275" y="300" width="50" height="50" fill="#ff9966"/>
+    <text x="300" y="330" text-anchor="middle" fill="white" font-size="16">R3</text>
+    
+    <!-- 资源分配箭头（实线）-->
+    <path d="M325,75 L420,100" stroke="#66cc66" stroke-width="2" marker-end="url(#allocation)"/>
+    <path d="M325,325 L420,300" stroke="#66cc66" stroke-width="2" marker-end="url(#allocation)"/> <!-- R3分配给P4 -->
+    <path d="M275,200 L180,300" stroke="#66cc66" stroke-width="2" marker-end="url(#allocation)"/>
+    
+    <!-- 资源请求箭头（虚线）-->
+    <path d="M180,100 L275,75" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#request)"/>
+    <path d="M180,300 L275,325" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#request)"/>
+    <path d="M420,100 L275,325" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#request)"/>
+    <path d="M420,300 L275,200" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#request)"/>
+    
+    <!-- 箭头标记定义 -->
+    <defs>
+        <marker id="allocation" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#66cc66"/>
+        </marker>
+        <marker id="request" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ff4444"/>
+        </marker>
+    </defs>
+    
+    <!-- 图例 -->
+    <g transform="translate(20,20)">
+        <line x1="0" y1="0" x2="30" y2="0" stroke="#66cc66" stroke-width="2"/>
+        <text x="40" y="5" fill="#333" font-size="12">已分配</text>
+        
+        <line x1="0" y1="20" x2="30" y2="20" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,5"/>
+        <text x="40" y="25" fill="#333" font-size="12">请求</text>
+    </g>
+    
+    <!-- 水印 -->
+    <text x="300" y="30" text-anchor="middle" fill="#666" font-size="16" opacity="0.5">偷偷星球</text>
+    <text x="300" y="380" text-anchor="middle" fill="#666" font-size="16" opacity="0.5">偷偷星球</text>
+</svg>

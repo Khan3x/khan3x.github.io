@@ -41,8 +41,11 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/signal.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/socket.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/critical_section.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/spooling.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/bankers.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/deadlock.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-25T16:10:00.639Z">
+<meta property="article:modified_time" content="2024-12-26T16:18:13.376Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -246,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23k words
+          25k words
         
       </span>
     
@@ -257,7 +260,7 @@
         
         
         
-          195 mins
+          205 mins
         
       </span>
     
@@ -1184,7 +1187,7 @@ fifo_path <span class="token operator">=</span> <span class="token string">"/tmp
 <li>哲学家进餐问题（Dining Philosophers Problem）</li>
 </ul>
 <hr>
-<h3 id="2-7-进程互斥（概念，银行家算法…标志检查法，信号量机制，经典互斥问题。）"><a href="#2-7-进程互斥（概念，银行家算法…标志检查法，信号量机制，经典互斥问题。）" class="headerlink" title="2.7 进程互斥（概念，银行家算法…标志检查法，信号量机制，经典互斥问题。）"></a>2.7 进程互斥（概念，银行家算法…标志检查法，信号量机制，经典互斥问题。）</h3><p>在操作系统中，<strong>进程互斥（Mutual Exclusion）</strong> 是确保多个进程在访问共享资源时不发生冲突的关键概念。互斥的目的是防止并发进程同时进入临界区（Critical Section），以避免数据不一致和其他错误。</p>
+<h3 id="2-7-进程互斥"><a href="#2-7-进程互斥" class="headerlink" title="2.7 进程互斥"></a>2.7 进程互斥</h3><p>在操作系统中，<strong>进程互斥（Mutual Exclusion）</strong> 是确保多个进程在访问共享资源时不发生冲突的关键概念。互斥的目的是防止并发进程同时进入临界区（Critical Section），以避免数据不一致和其他错误。</p>
 <h4 id="2-7-1-进程互斥的软件实现方法"><a href="#2-7-1-进程互斥的软件实现方法" class="headerlink" title="2.7.1 进程互斥的软件实现方法"></a>2.7.1 进程互斥的软件实现方法</h4><p>在操作系统中，为了解决多个进程共享资源时的互斥问题，可以通过<strong>标志检查算法</strong>实现互斥控制。以下是几种经典的软件实现方法：</p>
 <hr>
 <p><strong>1️⃣ 单标志法（Single Flag Method）</strong></p>
@@ -1867,6 +1870,8 @@ mutex chopsticks<span class="token punctuation">[</span><span class="token numbe
 <blockquote>
 <p>SPOOLing技术：把独占设备在逻辑上改造成共享设备, 将输出传输到输出进程， 进程端视作完成了输出（打印机）</p>
 </blockquote>
+<img src="/img/OS/spooling.svg" srcset="/img/loading.gif" lazyload alt="Spooling技术" style="max-width: 100%; height: auto;" />
+
 <ol start="2">
 <li><strong>破坏保持并等待条件（Hold and Wait）：</strong></li>
 </ol>
@@ -1899,7 +1904,89 @@ mutex chopsticks<span class="token punctuation">[</span><span class="token numbe
 <li>必须按规定次序申请资源，用户编程麻烦。</li>
 </ul>
 <hr>
+<p>现在讲解一下处理死锁的第二种策略，也就是<strong>避免死锁</strong>。我们引入一个银行家算法的策略。</p>
+<p><strong>银行家算法（Banker’s Algorithm）</strong> 是由艾兹赫尔·戴克斯特拉（Edsger W. Dijkstra）提出的一种避免死锁的算法，主要用于资源分配系统。它通过模拟银行家为客户分配贷款的过程，判断系统是否会进入不安全状态，从而避免死锁的发生。</p>
+<p>以下是银行家算法的基本原理和步骤：</p>
+<ol>
+<li><p>基本原理：银行家算法假设系统中的每个进程都会声明最大资源需求，并且在实际运行过程中不会超过这个声明。系统在每次资源分配时，都会检查分配后的状态是否安全。如果发现资源分配会导致系统进入不安全状态（即可能发生死锁），则拒绝分配请求。</p>
+</li>
+<li><p>关键概念：</p>
+<ul>
+<li><p>最大需求矩阵（Maximum Need Matrix）：表示每个进程可能需要的最大资源数量。</p>
+</li>
+<li><p>分配矩阵（Allocation Matrix）：表示当前已经分配给每个进程的资源数量。</p>
+</li>
+<li><p>需求矩阵（Need Matrix）：表示每个进程还需要的资源数量，计算公式为：Need &#x3D; Maximum - Allocation。</p>
+</li>
+<li><p>可用资源向量（Available Vector）：表示系统当前可用的资源数量。</p>
+</li>
+</ul>
+</li>
+<li><p>算法步骤：</p>
+<ul>
+<li><p>初始化：根据系统状态，初始化最大需求矩阵、分配矩阵、需求矩阵和可用资源向量。</p>
+</li>
+<li><p>资源请求：当进程请求资源时，系统会执行以下步骤：</p>
+<ul>
+<li><p>检查请求是否小于等于进程的最大需求（Request ≤ Need）。</p>
+</li>
+<li><p>检查请求是否小于等于系统的可用资源（Request ≤ Available）。</p>
+</li>
+</ul>
+</li>
+<li><p>模拟分配：系统假设满足进程的请求，并更新相应的矩阵和向量：</p>
+<ul>
+<li><p>Available &#x3D; Available - Request</p>
+</li>
+<li><p>Allocation &#x3D; Allocation + Request</p>
+</li>
+<li><p>Need &#x3D; Need - Request</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>安全性检查：使用安全性算法（Safety Algorithm）检查系统是否处于安全状态。如果系统仍然处于安全状态，则分配请求得到满足；否则，撤销模拟分配，拒绝请求。</p>
+</li>
+</ol>
+<p><strong>示例</strong> ：假设系统有如下资源：</p>
+<ul>
+<li><p>总资源：$[10, 5, 7]$</p>
+</li>
+<li><p>可用资源：$[3, 3, 2]$</p>
+</li>
+</ul>
+<p>最大需求矩阵：</p>
+<p>$$\left[<br>\begin{matrix}<br>7 &amp; 5 &amp; 3\\<br>3 &amp; 2 &amp; 2 \\<br>9 &amp; 0 &amp; 2 \\<br>2 &amp; 2 &amp; 2 \\<br>4 &amp; 3 &amp; 3<br>\end{matrix}<br>\right]<br>$$</p>
+<p>分配矩阵：</p>
+<p>$$\left[<br>\begin{matrix}<br>0 &amp; 1 &amp; 0\\<br>2 &amp; 0 &amp; 0 \\<br>3 &amp; 0 &amp; 2 \\<br>2 &amp; 1 &amp; 1 \\<br>0 &amp; 0 &amp; 2<br>\end{matrix}<br>\right]<br>$$</p>
+<p>需求矩阵（通过最大需求矩阵和分配矩阵计算得到）：</p>
+<p>$$\left[<br>\begin{matrix}<br>7 &amp; 4 &amp; 3\\<br>1 &amp; 2 &amp; 2 \\<br>6 &amp; 0 &amp; 0 \\<br>0 &amp; 1 &amp; 1 \\<br>4 &amp; 3 &amp; 1<br>\end{matrix}<br>\right]<br>$$</p>
+<p>当一个进程请求资源时，银行家算法会检查系统是否能够在分配资源后保持安全状态，以避免死锁。我们就手动模拟给进程分配资源，然后进程结束收回资源，找到这样一个安全的进程序列的话，那么死锁就可以避免。</p>
+<img src="/img/OS/bankers.svg" srcset="/img/loading.gif" lazyload alt="银行家算法" style="max-width: 100%; height: auto;" />
 
+<hr>
+<p>现在我们分析处理死锁的第三种策略：<strong>死锁的检测和解除</strong></p>
+<img src="/img/OS/deadlock.svg" srcset="/img/loading.gif" lazyload alt="死锁检测" style="max-width: 100%; height: auto;" />
+
+<p>在这个图中的死锁环路形成过程如下：</p>
+<ol>
+<li>P3已获得R2资源（绿色实线），同时请求R3资源（红色虚线）</li>
+<li>R3已被分配给P4（绿色实线）</li>
+<li>P4已获得R3，同时请求R2资源（红色虚线）</li>
+<li>R2已被分配给P3（回到第1步）</li>
+</ol>
+<p>这形成了一个循环等待：P3等待P4释放R3，而P4等待P3释放R2。由于每个进程都在等待其他进程释放资源，且都不会主动释放自己持有的资源，因此形成了死锁。检测到这种循环等待关系，就意味着检测到了死锁的存在。</p>
+<p>我们有如下的死锁的解决办法：</p>
+<ol>
+<li><p><strong>资源剥夺（Resource Preemption）：</strong> 通过强制性剥夺资源，可以打破循环等待链。例如，在图中的死锁情况下，可以选择剥夺 P3 持有的 R2 或剥夺 P4 持有的 R3，然后重新分配这些资源，从而打破死锁。</p>
+</li>
+<li><p><strong>终止进程（Process Termination）：</strong> 逐一终止进程是比较直接的方法。例如，首先终止 P3，使得 R2 被释放出来，然后 P4 就可以获得 R2，从而打破死锁链。</p>
+</li>
+<li><p><strong>资源回收（Resource Reclamation）：</strong> 强制进程在某个时间点释放资源（例如通过定时器），可以暂时打破资源占用状态，使得其他进程有机会获得资源。例如，要求 P3 或 P4 在一定时间段内释放资源，从而避免长时间的死锁状态。</p>
+</li>
+</ol>
+<h2 id="3-Memory-Management"><a href="#3-Memory-Management" class="headerlink" title="3. Memory Management"></a>3. Memory Management</h2>
                 
               </div>
             
