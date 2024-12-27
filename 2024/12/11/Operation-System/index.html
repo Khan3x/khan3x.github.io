@@ -45,7 +45,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/bankers.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/deadlock.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-26T16:18:13.376Z">
+<meta property="article:modified_time" content="2024-12-27T16:02:32.104Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          25k words
+          27k words
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          205 mins
+          223 mins
         
       </span>
     
@@ -1986,7 +1986,182 @@ mutex chopsticks<span class="token punctuation">[</span><span class="token numbe
 <li><p><strong>资源回收（Resource Reclamation）：</strong> 强制进程在某个时间点释放资源（例如通过定时器），可以暂时打破资源占用状态，使得其他进程有机会获得资源。例如，要求 P3 或 P4 在一定时间段内释放资源，从而避免长时间的死锁状态。</p>
 </li>
 </ol>
-<h2 id="3-Memory-Management"><a href="#3-Memory-Management" class="headerlink" title="3. Memory Management"></a>3. Memory Management</h2>
+<h2 id="3-Memory-Management"><a href="#3-Memory-Management" class="headerlink" title="3. Memory Management"></a>3. Memory Management</h2><p>本章讲解操作系统中的内存管理，主要的重点在虚实地址转换，段页式管理方式，以及页面置换算法。在了解虚实地址转换之前，首先要辨别虚拟地址和物理地址的概念。</p>
+<h3 id="3-1-虚拟地址与物理地址"><a href="#3-1-虚拟地址与物理地址" class="headerlink" title="3.1 虚拟地址与物理地址"></a>3.1 虚拟地址与物理地址</h3><p>在操作系统中，虚拟地址（<strong>Virtual Address</strong>）和物理地址（<strong>Physical Address</strong>）是两种不同层级的地址，它们涉及到内存管理的不同方面。理解这两个概念非常重要，因为它们与内存的访问、分配以及操作系统如何管理硬件资源密切相关。</p>
+<h4 id="3-1-虚拟地址（Virtual-Address）"><a href="#3-1-虚拟地址（Virtual-Address）" class="headerlink" title="3.1 虚拟地址（Virtual Address）"></a>3.1 虚拟地址（Virtual Address）</h4><p>虚拟地址是由程序（或进程）在运行时所使用的地址。在现代操作系统中，每个进程都认为它有一整块连续的内存空间，这就是所谓的<strong>虚拟地址空间</strong>（<strong>Virtual Address Space</strong>）。操作系统通过虚拟内存管理（<strong>Virtual Memory Management</strong>）来提供这种抽象，使得程序不需要直接操作物理内存地址。</p>
+<p><strong>虚拟地址的特点：</strong></p>
+<ul>
+<li><strong>独立性（Independence）</strong>：每个进程都有独立的虚拟地址空间，彼此之间互不干扰。</li>
+<li><strong>抽象性（Abstraction）</strong>：程序只能看到虚拟地址，操作系统负责将这些虚拟地址映射到实际的物理内存地址。</li>
+<li><strong>安全性（Security）</strong>：虚拟地址空间的使用减少了不同进程之间的干扰，增加了系统的安全性。例如，进程无法直接访问其他进程的内存，避免了内存泄漏或数据窃取。</li>
+</ul>
+<h4 id="3-2-物理地址（Physical-Address）"><a href="#3-2-物理地址（Physical-Address）" class="headerlink" title="3.2 物理地址（Physical Address）"></a>3.2 物理地址（Physical Address）</h4><p>物理地址是计算机硬件（如内存控制器、RAM）直接使用的内存地址，它表示了内存芯片中实际的位置。操作系统将虚拟地址通过一种称为<strong>地址映射</strong>（<strong>Address Mapping</strong>）的机制转换为物理地址，从而让 CPU 可以实际访问内存。</p>
+<p><strong>物理地址的特点：</strong></p>
+<ul>
+<li><strong>实际存在（Real Existence）</strong>：物理地址代表的是计算机中的实际内存单元（如 RAM）。</li>
+<li><strong>固定性（Fixed Nature）</strong>：物理地址通常与硬件布局相关，无法随操作系统的调度变化而变化。</li>
+</ul>
+<h4 id="3-3-虚拟地址与物理地址的关系：地址映射（Address-Mapping）"><a href="#3-3-虚拟地址与物理地址的关系：地址映射（Address-Mapping）" class="headerlink" title="3.3 虚拟地址与物理地址的关系：地址映射（Address Mapping）"></a>3.3 虚拟地址与物理地址的关系：地址映射（Address Mapping）</h4><p>操作系统通过硬件（通常是内存管理单元，<strong>MMU</strong>，<strong>Memory Management Unit</strong>）来实现虚拟地址和物理地址之间的映射。虚拟地址通过<strong>页表</strong>（<strong>Page Table</strong>）映射到物理地址。这一过程称为<strong>地址转换</strong>（<strong>Address Translation</strong>），它是现代操作系统内存管理的核心。</p>
+<p><strong>地址转换的过程：</strong></p>
+<ol>
+<li><p><strong>分段与分页（Segmentation and Paging）</strong>：</p>
+<ul>
+<li><strong>分页（Paging）</strong>：操作系统将虚拟地址空间分为固定大小的页（Page），每一页会映射到物理内存中的一块区域。页的大小通常为 4 KB、8 KB 或更大。</li>
+<li><strong>分段（Segmentation）</strong>：虚拟地址空间不仅可以通过分页来管理，还可以通过分段将地址空间分为不同的段（如代码段、数据段、堆栈段等）。</li>
+</ul>
+</li>
+<li><p><strong>页表（Page Table）</strong>：操作系统通过维护页表来实现虚拟页到物理页的映射。页表记录了虚拟页和物理页之间的对应关系。MMU 会根据虚拟地址中的页号查找页表，从而获取对应的物理页号，完成虚拟地址到物理地址的转换。</p>
+</li>
+<li><p><strong>TLB（Translation Lookaside Buffer）</strong>：为了提高地址转换的效率，操作系统会使用一个硬件缓存（TLB）来存储最近使用的虚拟地址到物理地址的映射。</p>
+</li>
+</ol>
+<p><strong>举个例子：</strong> 假设虚拟地址为 <code>0x7fffffff</code>，操作系统通过页表将其映射到物理地址 <code>0x1001ffff</code>，通过这种方式，程序就可以通过虚拟地址访问到实际的内存。</p>
+<h4 id="3-4-虚拟地址与物理地址的优点："><a href="#3-4-虚拟地址与物理地址的优点：" class="headerlink" title="3.4 虚拟地址与物理地址的优点："></a>3.4 虚拟地址与物理地址的优点：</h4><ul>
+<li><strong>内存保护（Memory Protection）</strong>：虚拟内存使得每个进程只能访问它自己被分配的内存空间，避免了进程间的内存干扰。</li>
+<li><strong>进程隔离（Process Isolation）</strong>：操作系统能够通过虚拟内存为每个进程提供独立的内存地址空间，防止进程直接访问或修改其他进程的数据。</li>
+<li><strong>内存共享（Memory Sharing）</strong>：操作系统可以通过映射不同进程的虚拟地址到相同的物理地址，实现进程间共享内存。</li>
+</ul>
+<p>最后简单总结一下：</p>
+<ul>
+<li><strong>虚拟地址（Virtual Address）</strong> 是程序用来访问内存的地址，操作系统通过虚拟内存技术提供给每个进程一个独立的虚拟地址空间。</li>
+<li><strong>物理地址（Physical Address）</strong> 是实际的内存地址，由硬件使用。</li>
+<li>操作系统通过内存管理单元（<strong>MMU</strong>）和页表（<strong>Page Table</strong>）将虚拟地址映射到物理地址，从而实现虚拟内存和物理内存之间的映射。</li>
+</ul>
+<p>虚拟地址和物理地址的映射机制使得操作系统能够高效、安全地管理内存资源，提供了内存保护、进程隔离以及高效的内存共享等优点。</p>
+<p>本章接下来的内容就是深入底层探讨上面的涉及到的内容。</p>
+<hr>
+<h3 id="3-2-内存的概念"><a href="#3-2-内存的概念" class="headerlink" title="3.2 内存的概念"></a>3.2 内存的概念</h3><p>内存（Memory）是计算机中的一种硬件资源，主要用于存储和快速访问程序和数据。它是计算机系统中非常重要的一部分，负责存放正在运行的程序指令、数据以及操作系统的相关信息。内存主要有两种类型：</p>
+<ul>
+<li>RAM（随机存取存储器）：用于存储正在运行的程序和数据，是一种易失性存储器，断电后数据会丢失。</li>
+<li>ROM（只读存储器）：存储系统启动时需要的固件或引导程序，通常是非易失性的。</li>
+</ul>
+<p>内存的编址方式有两种主要方式：<strong>按字节编址</strong>和<strong>按字编址</strong>。这两种方式的主要区别在于每个地址对应的数据单位的大小不同。</p>
+<h4 id="3-2-1-按字节编址（Byte-Addressing）"><a href="#3-2-1-按字节编址（Byte-Addressing）" class="headerlink" title="3.2.1 按字节编址（Byte Addressing）"></a>3.2.1 按字节编址（Byte Addressing）</h4><ul>
+<li><strong>内存地址从 00 开始，每个地址对应一个存储单元</strong>：每个内存地址指向 1 字节（8 bit）的数据。</li>
+<li><strong>每个存储单元大小为 1 字节</strong>：即每个存储单元占用 1 字节（8 bit），1 字节 &#x3D; 8 bit。</li>
+<li><strong>按字节编址</strong>：每个地址指向 1 字节。</li>
+</ul>
+<p>假设内存的内容如下，每个位置对应一个字节的数据：</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00</td>
+<td>0x1A</td>
+</tr>
+<tr>
+<td>01</td>
+<td>0x2B</td>
+</tr>
+<tr>
+<td>02</td>
+<td>0x3C</td>
+</tr>
+<tr>
+<td>03</td>
+<td>0x4D</td>
+</tr>
+<tr>
+<td>04</td>
+<td>0x5E</td>
+</tr>
+</tbody></table>
+<p>在这种情况下，每个内存地址对应一个字节（8 bit）的数据。例如：</p>
+<ul>
+<li>地址 00 存储的数据为 0x1A</li>
+<li>地址 01 存储的数据为 0x2B</li>
+<li>地址 02 存储的数据为 0x3C</li>
+</ul>
+<p>如果某程序需要访问地址 02 的数据，它将直接访问 0x3C。</p>
+<hr>
+<h4 id="3-2-2-按字编址（Word-Addressing）"><a href="#3-2-2-按字编址（Word-Addressing）" class="headerlink" title="3.2.2 按字编址（Word Addressing）"></a>3.2.2 <strong>按字编址（Word Addressing）</strong></h4><ul>
+<li><strong>内存地址从 00 开始，每个地址对应一个存储单元</strong>：每个内存地址指向 1 个字（通常是 16 位或 2 字节）。</li>
+<li><strong>每个存储单元大小为 1 个字</strong>：即每个存储单元占用 16 位（2 字节），1 字 &#x3D; 16 bit。</li>
+<li><strong>按字编址</strong>：每个地址指向 1 个字。</li>
+</ul>
+<p>假设内存的内容如下，每个位置对应一个字（通常是 16 位或 2 字节）的数据：</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00</td>
+<td>0x1A2B</td>
+</tr>
+<tr>
+<td>01</td>
+<td>0x3C4D</td>
+</tr>
+<tr>
+<td>02</td>
+<td>0x5E6F</td>
+</tr>
+<tr>
+<td>03</td>
+<td>0x7081</td>
+</tr>
+<tr>
+<td>04</td>
+<td>0x9ABC</td>
+</tr>
+</tbody></table>
+<p>在这种情况下，每个内存地址对应一个字（16 bit 或 2 字节）的数据。例如：</p>
+<ul>
+<li>地址 00 存储的数据为 0x1A2B</li>
+<li>地址 01 存储的数据为 0x3C4D</li>
+<li>地址 02 存储的数据为 0x5E6F</li>
+</ul>
+<p>如果某程序需要访问地址 01 的数据，它将直接访问 0x3C4D。</p>
+<hr>
+<h4 id="3-2-3-按字节编址与按字编址的区别"><a href="#3-2-3-按字节编址与按字编址的区别" class="headerlink" title="3.2.3. 按字节编址与按字编址的区别"></a>3.2.3. <strong>按字节编址与按字编址的区别</strong></h4><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>按字节编址（Byte Addressing）</th>
+<th>按字编址（Word Addressing）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>存储单元大小</strong></td>
+<td>每个存储单元为 1 字节（8 bit）</td>
+<td>每个存储单元为 1 个字（16 bit 或 2 字节）</td>
+</tr>
+<tr>
+<td><strong>地址步进</strong></td>
+<td>每个内存地址指向 1 字节</td>
+<td>每个内存地址指向 1 个字</td>
+</tr>
+<tr>
+<td><strong>内存访问单位</strong></td>
+<td>字节（Byte）</td>
+<td>字（Word）</td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td>地址 <code>00</code> 存储 1 字节，地址 <code>01</code> 存储 1 字节</td>
+<td>地址 <code>00</code> 存储 1 个字（16 bit），地址 <code>01</code> 存储下一个字（16 bit）</td>
+</tr>
+<tr>
+<td><strong>常见应用</strong></td>
+<td>现代计算机普遍采用（如 32 位系统、64 位系统）</td>
+<td>较早或特定的计算机系统（如 16 位字长的机器）</td>
+</tr>
+</tbody></table>
+<p><strong>总结：</strong></p>
+<ul>
+<li><strong>按字节编址（Byte Addressing）</strong>：每个内存地址对应 1 字节（8 bit），常用于现代计算机系统。</li>
+<li><strong>按字编址（Word Addressing）</strong>：每个内存地址对应 1 个字（16 bit 或 2 字节），通常出现在字长为 16 位的计算机系统中。</li>
+</ul>
+<p>这些编址方式对计算机的内存管理和程序的内存访问模式有重要影响。在字节编址中，内存的访问单位较小，适合处理各种小规模的数据。而在字编址中，内存访问通常更高效，特别是在处理需要 16 位宽度的数据时。</p>
+<hr>
+
                 
               </div>
             
