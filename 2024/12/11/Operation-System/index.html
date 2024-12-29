@@ -44,8 +44,14 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/spooling.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/bankers.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/deadlock.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/memory_allocation.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/fragmentation.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/first_fit.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/best_fit.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/worst_fit.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/next_fit.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2024-12-27T16:02:32.104Z">
+<meta property="article:modified_time" content="2024-12-29T04:56:42.877Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -249,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          27k words
+          28k words
         
       </span>
     
@@ -260,7 +266,7 @@
         
         
         
-          223 mins
+          236 mins
         
       </span>
     
@@ -2160,6 +2166,148 @@ mutex chopsticks<span class="token punctuation">[</span><span class="token numbe
 <li><strong>按字编址（Word Addressing）</strong>：每个内存地址对应 1 个字（16 bit 或 2 字节），通常出现在字长为 16 位的计算机系统中。</li>
 </ul>
 <p>这些编址方式对计算机的内存管理和程序的内存访问模式有重要影响。在字节编址中，内存的访问单位较小，适合处理各种小规模的数据。而在字编址中，内存访问通常更高效，特别是在处理需要 16 位宽度的数据时。</p>
+<hr>
+<h3 id="3-3-连续内存分配"><a href="#3-3-连续内存分配" class="headerlink" title="3.3 连续内存分配"></a>3.3 连续内存分配</h3><p>“连续内存分配”（Contiguous Memory Allocation）是操作系统中一种内存管理方式，它要求程序在执行时必须占用一块连续的内存空间。这种方式通常用于简化内存管理，并提高内存访问的效率。它可以通过将程序所需的内存块按顺序分配，避免了碎片化问题，但也带来了一些局限性。</p>
+<p>连续内存分配的<strong>主要特点</strong>：</p>
+<ol>
+<li><strong>连续性</strong>：每个进程或程序在内存中的存储空间是连续的，没有分散的碎片。</li>
+<li><strong>简单性</strong>：实现比较简单，管理方便。</li>
+<li><strong>内存浪费</strong>：由于要求分配的内存是连续的，容易造成内存碎片，从而导致内存利用率降低。</li>
+</ol>
+<p>分配方式：</p>
+<ol>
+<li><strong>固定分区分配</strong>：<ul>
+<li>内存被划分为若干个固定大小的分区。</li>
+<li>每个分区只能分配给一个进程。</li>
+<li>当进程大小小于分区大小时，剩余的内存将被浪费。</li>
+</ul>
+</li>
+<li><strong>动态分区分配</strong>：<ul>
+<li>内存不预先划分为固定大小的分区，而是根据进程的需求动态分配。</li>
+<li>通过“首次适应算法”、“最佳适应算法”、“最差适应算法”等来寻找合适的内存块。</li>
+<li>容易产生内存碎片问题。</li>
+</ul>
+</li>
+</ol>
+<img src="/img/OS/memory_allocation.svg" srcset="/img/loading.gif" lazyload alt="内存分配" style="max-width: 100%; height: auto;" />
+
+<p>连续内存分配产生的<strong>内存碎片</strong>：</p>
+<ol>
+<li><strong>外部碎片(External Fragmentation):</strong> 内存中的小块空闲空间，由于这些空间不连续，无法分配给新进程。</li>
+<li><strong>内部碎片(Internal Fragmentation):</strong> 分配的内存块比进程实际需要的内存大，导致分配的内存块内部存在未使用的空间。</li>
+</ol>
+<p>连续内存分配的<strong>优缺点</strong>：</p>
+<ul>
+<li><strong>优点</strong>：简单易实现，适用于内存需求较小、较少变化的系统。</li>
+<li><strong>缺点</strong>：内存利用率较低，容易产生内存碎片，难以适应现代操作系统的需求。</li>
+</ul>
+<img src="/img/OS/fragmentation.svg" srcset="/img/loading.gif" lazyload alt="内存碎片" style="max-width: 100%; height: auto;" />
+
+<p><strong>紧凑（Compaction）：</strong> 紧凑是一种用于解决外部碎片问题的技术。它的基本思想是将内存中的所有进程移动到内存的一端，使得所有的空闲分区都集中在内存的另一端，从而形成一个大的、连续的空闲分区。这样，就可以满足大的内存请求，从而解决外部碎片问题。然而，紧凑需要移动进程，因此会产生一定的开销。</p>
+<h4 id="3-3-1-动态分区分配算法"><a href="#3-3-1-动态分区分配算法" class="headerlink" title="3.3.1 动态分区分配算法"></a>3.3.1 动态分区分配算法</h4><p>动态分区分配算法用于在内存中动态分配空闲区域，特别是在程序执行过程中。与静态分配不同，动态分区分配是根据程序的实际需求（如内存大小）动态调整内存的分配。主要的动态分区分配算法包括 <strong>首次适应（First-fit）</strong>、<strong>最优适应（Best-fit）</strong>、<strong>最坏适应（Worst-fit）</strong> 和 <strong>临近适应（Next-fit）</strong> 等。</p>
+<hr>
+<p><strong>1.首次适应（First-fit）</strong></p>
+<p><strong>首次适应</strong>算法从内存的开始位置开始查找，寻找第一个足够大的空闲内存块来满足请求。当找到一个合适的空闲块后，立即分配内存。</p>
+<p><strong>过程：</strong></p>
+<ol>
+<li>从内存中的第一个空闲块开始查找。</li>
+<li>遍历空闲块，找到第一个可以满足请求的块。</li>
+<li>如果找到合适的空闲块（Free block），则分配内存。</li>
+</ol>
+<p><strong>优缺点：</strong></p>
+<ul>
+<li><strong>优点</strong>：实现简单，查找速度较快。</li>
+<li><strong>缺点</strong>：可能导致内存碎片（Memory Fragmentation），因为分配的是第一个找到的块，后续的空闲块可能很小。</li>
+</ul>
+<img src="/img/OS/first_fit.svg" srcset="/img/loading.gif" lazyload alt="首次适应算法" style="max-width: 100%; height: auto;" />
+
+<hr>
+<p><strong>2.最优适应（Best-fit）</strong></p>
+<p><strong>最优适应</strong>算法遍历整个内存，寻找所有能满足请求的空闲块，并选择<strong>最小的</strong>空闲块进行分配，即选择一个最接近请求大小的块。</p>
+<p><strong>过程：</strong></p>
+<ol>
+<li>遍历所有空闲内存块。</li>
+<li>选择一个大小最合适（最小且足够大）的空闲块。</li>
+<li>分配内存。</li>
+</ol>
+<p><strong>优缺点：</strong></p>
+<ul>
+<li><strong>优点</strong>：可以减少剩余空闲内存块的大小，从而减少碎片。</li>
+<li><strong>缺点</strong>：查找过程较慢，因为需要遍历所有空闲块，效率较低。</li>
+</ul>
+<img src="/img/OS/best_fit.svg" srcset="/img/loading.gif" lazyload alt="最优适应算法" style="max-width: 100%; height: auto;" />
+
+
+
+<hr>
+<p><strong>3.最坏适应（Worst-fit）</strong></p>
+<p><strong>最坏适应</strong>算法选择一个最大的空闲内存块来进行分配。这种方法的假设是，通过选择最大空闲块，可以避免创建过多的小碎片。</p>
+<p><strong>过程：</strong></p>
+<ol>
+<li>遍历所有空闲内存块。</li>
+<li>选择最大的空闲块。</li>
+<li>将内存分配给进程。</li>
+</ol>
+<p><strong>优缺点：</strong></p>
+<ul>
+<li><strong>优点</strong>：通过选择最大的空闲块，减少了碎片化的风险。</li>
+<li><strong>缺点</strong>：可能会导致较大的空闲块被拆分成小块，减少了可用的空间。</li>
+</ul>
+<img src="/img/OS/worst_fit.svg" srcset="/img/loading.gif" lazyload alt="最坏适应算法" style="max-width: 100%; height: auto;" />
+
+<hr>
+<p><strong>4.临近适应（Next-fit）</strong></p>
+<p><strong>临近适应</strong>算法与<strong>首次适应</strong>算法类似，不同之处在于，<strong>临近适应</strong>算法在上次分配的位置继续查找空闲块，而不是从内存的开头重新开始查找。</p>
+<p><strong>过程：</strong></p>
+<ol>
+<li>从上次分配位置开始查找。</li>
+<li>遍历空闲块，找到第一个足够大的空闲块。</li>
+<li>分配内存。</li>
+</ol>
+<p><strong>优缺点：</strong></p>
+<ul>
+<li><strong>优点</strong>：避免了每次从内存的开头开始查找，查找过程较快。</li>
+<li><strong>缺点</strong>：仍然可能会出现碎片化，尤其是在内存末尾。</li>
+</ul>
+<img src="/img/OS/next_fit.svg" srcset="/img/loading.gif" lazyload alt="临近适应算法" style="max-width: 100%; height: auto;" />
+
+<hr>
+<p><strong>动态分区分配算法总结</strong></p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>查找空闲块的顺序</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>首次适应</strong></td>
+<td>从头开始查找</td>
+<td>实现简单，查找速度较快</td>
+<td>可能产生较多的碎片</td>
+</tr>
+<tr>
+<td><strong>最优适应</strong></td>
+<td>遍历所有空闲块</td>
+<td>减少剩余碎片，内存利用较好</td>
+<td>查找速度较慢，可能产生小碎片</td>
+</tr>
+<tr>
+<td><strong>最坏适应</strong></td>
+<td>遍历所有空闲块</td>
+<td>减少小碎片产生，较为稳定</td>
+<td>可能浪费大量内存，产生较大碎片</td>
+</tr>
+<tr>
+<td><strong>临近适应</strong></td>
+<td>从上次分配位置开始查找</td>
+<td>查找速度较快，避免从头开始查找</td>
+<td>可能导致末尾碎片或不均匀的碎片分布</td>
+</tr>
+</tbody></table>
+<p>这些算法都有各自的应用场景和适用范围，在实际系统中，操作系统可能会根据不同的内存需求，选择合适的分配算法，或采用多种算法的组合来平衡内存的分配效率和碎片化问题。</p>
 <hr>
 
                 

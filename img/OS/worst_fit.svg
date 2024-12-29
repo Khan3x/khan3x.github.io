@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <!-- 背景 -->
+    <rect width="400" height="400" fill="#f0f0f0"/>
+    
+    <!-- 标题 -->
+    <text x="200" y="30" text-anchor="middle" font-size="16" font-weight="bold">最坏适应算法（Worst-fit）</text>
+    
+    <!-- 分配前的状态 -->
+    <text x="200" y="60" text-anchor="middle" font-size="14">分配前</text>
+    <rect x="50" y="70" width="300" height="120" fill="#e0e0e0" stroke="#666"/>
+    
+    <!-- 分配前的内存块 -->
+    <rect x="60" y="80" width="40" height="100" fill="#ff9999" stroke="#666"/>
+    <text x="80" y="130" text-anchor="middle" font-size="12">已分配</text>
+    <text x="80" y="145" text-anchor="middle" font-size="10">40KB</text>
+    
+    <rect x="110" y="80" width="30" height="100" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="125" y="130" text-anchor="middle" font-size="12">空闲</text>
+    <text x="125" y="145" text-anchor="middle" font-size="10">30KB</text>
+    
+    <rect x="150" y="80" width="80" height="100" fill="white" stroke="#666" stroke-dasharray="2" stroke-width="2"/>
+    <text x="190" y="130" text-anchor="middle" font-size="12">空闲</text>
+    <text x="190" y="145" text-anchor="middle" font-size="10">80KB</text>
+    
+    <rect x="240" y="80" width="40" height="100" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="260" y="130" text-anchor="middle" font-size="12">空闲</text>
+    <text x="260" y="145" text-anchor="middle" font-size="10">40KB</text>
+    
+    <rect x="290" y="80" width="50" height="100" fill="#99ff99" stroke="#666"/>
+    <text x="315" y="130" text-anchor="middle" font-size="12">已分配</text>
+    <text x="315" y="145" text-anchor="middle" font-size="10">50KB</text>
+
+    <!-- 箭头和选择指示 -->
+    <path d="M 190,190 L 190,230" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 分配后的状态 -->
+    <text x="200" y="250" text-anchor="middle" font-size="14">分配后 (请求35KB)</text>
+    <rect x="50" y="260" width="300" height="120" fill="#e0e0e0" stroke="#666"/>
+    
+    <!-- 分配后的内存块 -->
+    <rect x="60" y="270" width="40" height="100" fill="#ff9999" stroke="#666"/>
+    <text x="80" y="320" text-anchor="middle" font-size="12">已分配</text>
+    <text x="80" y="335" text-anchor="middle" font-size="10">40KB</text>
+    
+    <rect x="110" y="270" width="30" height="100" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="125" y="320" text-anchor="middle" font-size="12">空闲</text>
+    <text x="125" y="335" text-anchor="middle" font-size="10">30KB</text>
+    
+    <rect x="150" y="270" width="35" height="100" fill="#ffaa44" stroke="#666"/>
+    <text x="167" y="320" text-anchor="middle" font-size="12">新分配</text>
+    <text x="167" y="335" text-anchor="middle" font-size="10">35KB</text>
+    
+    <rect x="195" y="270" width="35" height="100" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="212" y="320" text-anchor="middle" font-size="12">空闲</text>
+    <text x="212" y="335" text-anchor="middle" font-size="10">45KB</text>
+    
+    <rect x="240" y="270" width="40" height="100" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="260" y="320" text-anchor="middle" font-size="12">空闲</text>
+    <text x="260" y="335" text-anchor="middle" font-size="10">40KB</text>
+    
+    <rect x="290" y="270" width="50" height="100" fill="#99ff99" stroke="#666"/>
+    <text x="315" y="320" text-anchor="middle" font-size="12">已分配</text>
+    <text x="315" y="335" text-anchor="middle" font-size="10">50KB</text>
+
+    <!-- 箭头标记定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+        </marker>
+    </defs>
+
+    <!-- 添加水印 -->
+    <!-- 左上角水印 -->
+    <text x="70" y="100" font-size="12" fill="#666" opacity="0.3" transform="rotate(-45, 70, 100)">偷偷星球</text>
+    
+    <!-- 中间水印 -->
+    <text x="200" y="200" font-size="16" fill="#666" opacity="0.3" text-anchor="middle" transform="rotate(-45, 200, 200)">偷偷星球</text>
+    
+    <!-- 右下角水印 -->
+    <text x="330" y="350" font-size="12" fill="#666" opacity="0.3" transform="rotate(-45, 330, 350)">偷偷星球</text>
+
+    <!-- 图例 -->
+    <rect x="50" y="390" width="10" height="10" fill="#ff9999"/>
+    <text x="65" y="398" font-size="10">已分配空间</text>
+    
+    <rect x="150" y="390" width="10" height="10" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="165" y="398" font-size="10">空闲空间</text>
+    
+    <rect x="250" y="390" width="10" height="10" fill="#ffaa44"/>
+    <text x="265" y="398" font-size="10">新分配空间</text>
+</svg>

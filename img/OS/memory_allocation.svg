@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+    <!-- 背景 -->
+    <rect width="400" height="300" fill="#f0f0f0"/>
+    
+    <!-- 左侧：固定分区 -->
+    <rect x="20" y="20" width="160" height="260" fill="#e0e0e0" stroke="#666"/>
+    <text x="100" y="15" text-anchor="middle" font-size="14">固定分区分配</text>
+    
+    <!-- 固定分区示例 -->
+    <rect x="30" y="30" width="140" height="50" fill="#ff9999" stroke="#666"/>
+    <text x="100" y="60" text-anchor="middle" font-size="12">分区1 (50KB)</text>
+    
+    <rect x="30" y="90" width="140" height="50" fill="#99ff99" stroke="#666"/>
+    <text x="100" y="120" text-anchor="middle" font-size="12">分区2 (50KB)</text>
+    
+    <rect x="30" y="150" width="140" height="50" fill="#9999ff" stroke="#666"/>
+    <text x="100" y="180" text-anchor="middle" font-size="12">分区3 (50KB)</text>
+    
+    <rect x="30" y="210" width="140" height="50" fill="#ffff99" stroke="#666"/>
+    <text x="100" y="240" text-anchor="middle" font-size="12">分区4 (50KB)</text>
+    
+    <!-- 右侧：动态分区 -->
+    <rect x="220" y="20" width="160" height="260" fill="#e0e0e0" stroke="#666"/>
+    <text x="300" y="15" text-anchor="middle" font-size="14">动态分区分配</text>
+    
+    <!-- 动态分区示例 -->
+    <rect x="230" y="30" width="140" height="30" fill="#ff9999" stroke="#666"/>
+    <text x="300" y="50" text-anchor="middle" font-size="12">进程A (30KB)</text>
+    
+    <rect x="230" y="70" width="140" height="80" fill="#99ff99" stroke="#666"/>
+    <text x="300" y="110" text-anchor="middle" font-size="12">进程B (80KB)</text>
+    
+    <rect x="230" y="160" width="140" height="20" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="300" y="174" text-anchor="middle" font-size="10">空闲 (20KB)</text>
+    
+    <rect x="230" y="190" width="140" height="40" fill="#9999ff" stroke="#666"/>
+    <text x="300" y="215" text-anchor="middle" font-size="12">进程C (40KB)</text>
+    
+    <rect x="230" y="240" width="140" height="30" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="300" y="260" text-anchor="middle" font-size="10">空闲 (30KB)</text>
+
+    <!-- 添加水印 -->
+    <!-- 左上角水印 -->
+    <text x="40" y="40" font-size="12" fill="#666" opacity="0.3" transform="rotate(-45, 40, 40)">偷偷星球</text>
+    
+    <!-- 中间水印 -->
+    <text x="200" y="150" font-size="16" fill="#666" opacity="0.3" text-anchor="middle" transform="rotate(-45, 200, 150)">偷偷星球</text>
+    
+    <!-- 右下角水印 -->
+    <text x="360" y="260" font-size="12" fill="#666" opacity="0.3" transform="rotate(-45, 360, 260)">偷偷星球</text>
+
+    <!-- 图例 -->
+    <rect x="20" y="285" width="10" height="10" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="35" y="293" font-size="10">空闲空间</text>
+    
+    <rect x="100" y="285" width="10" height="10" fill="#ff9999"/>
+    <text x="115" y="293" font-size="10">已分配空间</text>
+</svg>

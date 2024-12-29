@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+    <!-- 背景 -->
+    <rect width="400" height="200" fill="#f0f0f0"/>
+    
+    <!-- 左侧：外部碎片 -->
+    <rect x="20" y="20" width="160" height="160" fill="#e0e0e0" stroke="#666"/>
+    <text x="100" y="15" text-anchor="middle" font-size="14">外部碎片</text>
+    
+    <!-- 外部碎片示例 -->
+    <rect x="30" y="30" width="40" height="40" fill="#ff9999"/>
+    <rect x="80" y="30" width="90" height="40" fill="#99ff99"/>
+    <rect x="30" y="80" width="90" height="40" fill="#9999ff"/>
+    <rect x="130" y="80" width="40" height="40" fill="#ffff99"/>
+    <rect x="30" y="130" width="140" height="40" fill="#ff99ff"/>
+    
+    <!-- 空闲区域标记 -->
+    <rect x="130" y="30" width="20" height="40" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <rect x="30" y="80" width="40" height="40" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <rect x="80" y="130" width="30" height="40" fill="white" stroke="#666" stroke-dasharray="2"/>
+    
+    <!-- 右侧：内部碎片 -->
+    <rect x="220" y="20" width="160" height="160" fill="#e0e0e0" stroke="#666"/>
+    <text x="300" y="15" text-anchor="middle" font-size="14">内部碎片</text>
+    
+    <!-- 内部碎片示例 -->
+    <rect x="230" y="30" width="140" height="60" fill="#99ff99"/>
+    <rect x="240" y="40" width="100" height="40" fill="#666" opacity="0.2"/>
+    
+    <rect x="230" y="100" width="140" height="60" fill="#9999ff"/>
+    <rect x="240" y="110" width="120" height="40" fill="#666" opacity="0.2"/>
+    
+    <!-- 图例 -->
+    <rect x="20" y="185" width="10" height="10" fill="white" stroke="#666" stroke-dasharray="2"/>
+    <text x="35" y="193" font-size="10">空闲空间</text>
+    
+    <rect x="100" y="185" width="10" height="10" fill="#666" opacity="0.2"/>
+    <text x="115" y="193" font-size="10">未使用空间</text>
+    
+    <rect x="180" y="185" width="10" height="10" fill="#99ff99"/>
+    <text x="195" y="193" font-size="10">已分配空间</text>
+
+    <!-- 添加水印 -->
+    <!-- 左上角水印 -->
+    <text x="40" y="40" font-size="12" fill="#666" opacity="0.3" transform="rotate(-45, 40, 40)">偷偷星球</text>
+    
+    <!-- 中间水印 -->
+    <text x="200" y="100" font-size="16" fill="#666" opacity="0.3" text-anchor="middle" transform="rotate(-45, 200, 100)">偷偷星球</text>
+    
+    <!-- 右下角水印 -->
+    <text x="360" y="160" font-size="12" fill="#666" opacity="0.3" transform="rotate(-45, 360, 160)">偷偷星球</text>
+</svg>
