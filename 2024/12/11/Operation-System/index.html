@@ -52,8 +52,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/next_fit.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/segmentation_addressing.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/OS/segmentation_paging.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/OS/tlb.svg">
 <meta property="article:published_time" content="2024-12-11T04:18:51.000Z">
-<meta property="article:modified_time" content="2025-01-01T15:45:52.621Z">
+<meta property="article:modified_time" content="2025-01-02T15:46:45.129Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Computer Architecture">
@@ -257,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          31k words
+          32k words
         
       </span>
     
@@ -268,7 +269,7 @@
         
         
         
-          255 mins
+          270 mins
         
       </span>
     
@@ -2390,7 +2391,32 @@ mutex chopsticks<span class="token punctuation">[</span><span class="token numbe
 <figure><div class="code-wrapper"><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">0010 0000 0101 1101    // 对应0x205D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
 
-
+<h4 id="3-5-3-分页机制中的有效位"><a href="#3-5-3-分页机制中的有效位" class="headerlink" title="3.5.3 分页机制中的有效位"></a>3.5.3 分页机制中的有效位</h4><p>在分页机制中，操作系统使用页表（page table）来存储虚拟页和物理页框之间的映射关系。每个页表条目（PTE，Page Table Entry）通常包含以下信息：</p>
+<ol>
+<li><strong>物理页框地址</strong>：对应虚拟页映射到的物理页框地址。</li>
+<li><strong>有效位（Valid Bit）</strong>：指示当前页是否有效，即该虚拟页是否已经映射到物理内存。</li>
+<li><strong>其他控制位</strong>：如访问权限位、修改位（dirty bit）、引用位等。</li>
+</ol>
+<p>有效位的作用可以通过以下几种情况来解释：</p>
+<p><strong>1. 有效位 &#x3D; 1</strong></p>
+<ul>
+<li>表示该页已经映射到物理内存，即虚拟页存在于物理页框中。操作系统可以直接访问该虚拟页对应的物理内存。</li>
+<li>如果 CPU 要访问该虚拟页，硬件就会通过页表查找该页对应的物理页框地址，从而实现地址转换。</li>
+</ul>
+<p><strong>2. 有效位 &#x3D; 0</strong></p>
+<ul>
+<li>表示该虚拟页尚未映射到物理内存，或者该页映射不合法（例如，页未加载、该页不在物理内存中，或该页是无效的）。如果 CPU 尝试访问该虚拟页，会触发一个页错误（page fault）。</li>
+<li>页错误通常会引发操作系统的处理机制（比如页面置换），它可能会从磁盘（例如交换空间或文件系统）加载该页到物理内存中，或者进行其他处理。</li>
+</ul>
+<p><strong>分页机制中的其他相关位：</strong></p>
+<ol>
+<li><p><strong>修改位（脏位，Dirty Bit）</strong>：表示该页自从加载到内存后是否被修改过。如果该页被修改过，操作系统可能会在需要将其写回磁盘时进行相应处理。</p>
+</li>
+<li><p><strong>访问位（Access Bit）</strong>：用于记录页是否被访问过，这对于实现页面置换算法（如最近最少使用算法，LRU）非常重要。</p>
+</li>
+<li><p><strong>保护位（Protection Bit）</strong>：用于控制该页的访问权限（如只读、可写、可执行等）。</p>
+</li>
+</ol>
 <h3 id="3-6-段页式管理方式（Segmentation-with-Paging）"><a href="#3-6-段页式管理方式（Segmentation-with-Paging）" class="headerlink" title="3.6 段页式管理方式（Segmentation with Paging）"></a>3.6 段页式管理方式（Segmentation with Paging）</h3><p><strong>段页式管理（Segmentation with Paging）</strong> 结合了上述两种方式的优点。具体来说，段页式管理将进程的地址空间首先分为若干段，每个段再进一步划分为若干页。段页式管理的内存地址由两个部分组成：</p>
 <ul>
 <li><strong>段号（Segment Number）</strong>：指示访问的是哪个段。</li>
@@ -2481,7 +2507,120 @@ mutex chopsticks<span class="token punctuation">[</span><span class="token numbe
 <li>计算物理地址：25 * 1024 + 256 &#x3D; 25856</li>
 </ul>
 <p>因此逻辑地址<code>2,1,256</code>转换为物理地址25856。</p>
-<h3 id="3-7-内存管理的硬件支持"><a href="#3-7-内存管理的硬件支持" class="headerlink" title="3.7 内存管理的硬件支持"></a>3.7 内存管理的硬件支持</h3>
+<h3 id="3-7-TLB机制"><a href="#3-7-TLB机制" class="headerlink" title="3.7 TLB机制"></a>3.7 TLB机制</h3><p><strong>TLB（Translation Lookaside Buffer）</strong> 是一种高速缓存，用于加速虚拟地址到物理地址的转换过程。在现代操作系统中，虚拟内存技术使得程序运行时使用的是虚拟地址，而物理内存使用的是物理地址。每当程序访问内存时，硬件需要将虚拟地址转换为物理地址，这一过程通常由 <strong>内存管理单元（MMU）</strong> 完成。</p>
+<p><strong>TLB机制的作用：</strong> 由于地址转换的过程可能涉及多次查找页表，而页表可能非常大，查找过程会比较慢。因此，TLB机制通过缓存最近使用的虚拟地址到物理地址的映射关系，来显著提高地址转换的速度。</p>
+<h4 id="3-7-1-TLB的工作原理"><a href="#3-7-1-TLB的工作原理" class="headerlink" title="3.7.1 TLB的工作原理"></a>3.7.1 TLB的工作原理</h4><ol>
+<li><p><strong>TLB命中（Hit）</strong>：</p>
+<ul>
+<li>当CPU生成一个虚拟地址时，MMU会首先检查TLB是否已经缓存了该虚拟地址到物理地址的映射。如果找到映射（称为“TLB命中”），MMU直接返回物理地址，访问内存。</li>
+</ul>
+</li>
+<li><p><strong>TLB未命中（Miss）</strong>：</p>
+<ul>
+<li>如果TLB中没有找到相应的映射（称为“TLB未命中”），MMU会访问页表，查找虚拟地址对应的物理地址，并将该映射加载到TLB中，以便下次访问时加速转换过程。</li>
+</ul>
+</li>
+<li><p><strong>替换策略</strong>：</p>
+<ul>
+<li>当TLB已满且需要缓存新的映射时，硬件会采用一定的替换策略（如<strong>LRU</strong>，最近最少使用）来选择一个旧的映射项进行替换。</li>
+</ul>
+</li>
+</ol>
+<img src="/img/OS/tlb.svg" srcset="/img/loading.gif" lazyload alt="TLB机制" style="max-width: 100%; height: auto;" />
+
+<p>举个例子来加深理解引入TLB之后的地址转换过程</p>
+<p>当CPU需要访问内存时，会生成一个逻辑地址（虚拟地址）。MMU（内存管理单元）需要将该虚拟地址转换为物理地址。转换过程的第一步是检查TLB。</p>
+<p>TLB是一个小型的、高速缓存，用于存储最近访问的虚拟地址到物理地址的映射。<br>当虚拟地址生成后，MMU首先使用虚拟页号查找TLB。</p>
+<p>如果TLB中存储了虚拟页号对应的物理页框号（即映射），称为TLB命中。<br>如果命中，TLB直接返回物理页框号，然后将虚拟地址中的页内偏移与该物理页框号结合，形成完整的物理地址。</p>
+<p><strong>物理地址 &#x3D; 物理页框号 + 页内偏移</strong></p>
+<p><strong>示例：</strong></p>
+<p>假设：</p>
+<ul>
+<li>虚拟地址：<code>0x1234 5678</code><ul>
+<li>页号（20位）：<code>0x12345</code></li>
+<li>页内偏移（12位）：<code>0x678</code></li>
+</ul>
+</li>
+<li>TLB命中：虚拟页号 <code>0x12345</code> 映射到物理页框 <code>0x78901</code></li>
+</ul>
+<p>则物理地址：</p>
+<ul>
+<li><strong>物理地址 &#x3D; 0x78901 + 0x678</strong></li>
+<li><strong>物理地址 &#x3D; 0x789679</strong></li>
+</ul>
+<p>如果在TLB中没有找到对应的映射（即TLB未命中），MMU会执行以下步骤：</p>
+<ol>
+<li><p><strong>访问页表</strong>：MMU会通过访问操作系统维护的页表来查找虚拟页号到物理页框号的映射。页表是一个数据结构，存储虚拟页号与物理页框号之间的关系。</p>
+<p>页表的查找可能会采用多级页表（例如两级、三四级页表），每级页表根据虚拟地址的高位逐级查找。</p>
+</li>
+<li><p><strong>更新TLB</strong>：一旦页表返回物理页框号，MMU将这个映射加载到TLB中，以便下次访问时可以加速查找。</p>
+</li>
+<li><p><strong>生成物理地址</strong>：将页表中获取到的物理页框号与虚拟地址中的页内偏移结合，形成最终的物理地址。</p>
+</li>
+</ol>
+<p><strong>物理地址 &#x3D; 物理页框号 + 页内偏移</strong></p>
+<p><strong>示例：</strong></p>
+<p>假设：</p>
+<ul>
+<li>虚拟地址：<code>0x1234 5678</code><ul>
+<li>页号（20位）：<code>0x12345</code></li>
+<li>页内偏移（12位）：<code>0x678</code></li>
+</ul>
+</li>
+<li>TLB未命中：虚拟页号 <code>0x12345</code> 没有映射，需访问页表。</li>
+<li>页表查询返回：物理页框号 <code>0x78901</code></li>
+</ul>
+<p>则物理地址：</p>
+<ul>
+<li><strong>物理地址 &#x3D; 0x78901 + 0x678</strong></li>
+<li><strong>物理地址 &#x3D; 0x789679</strong></li>
+</ul>
+<p>如果TLB已满，需要替换其中的一个条目。常见的替换策略有：</p>
+<ul>
+<li>最佳页面置换算法（Optimal Page Replacement Algorithm）</li>
+<li>最近最少使用页面置换算法（Least Recently Used, LRU）</li>
+<li>先进先出页面置换算法（First-In-First-Out, FIFO）</li>
+<li>时钟页面置换算法（Clock Page Replacement Algorithm）</li>
+<li>最不常用页面置换算法（Least Frequently Used, LFU）</li>
+</ul>
+<hr>
+<p>最后再简单做一个TLB的总结</p>
+<table>
+<thead>
+<tr>
+<th><strong>TLB的优点</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>提高性能</strong></td>
+<td>由于TLB缓存了常用的虚拟地址到物理地址的映射，能够减少访问页表的次数，从而提高内存访问的速度。</td>
+</tr>
+<tr>
+<td><strong>减少延迟</strong></td>
+<td>通过快速查找TLB，减少了虚拟地址到物理地址转换的时间，减少了内存访问延迟。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>TLB的局限性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>缓存命中率受限</strong></td>
+<td>TLB的容量通常很小，仅能缓存最近访问的少量地址映射，因此，TLB的命中率可能受到限制。</td>
+</tr>
+<tr>
+<td><strong>TLB Miss Penalty</strong></td>
+<td>当发生TLB未命中时，访问页表会导致较大的延迟，因此TLB的命中率直接影响系统的性能。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>TLB相关的有效内存访问时间计算，就根据概率来进行加权，可以直观理解</p>
+</blockquote>
+<h3 id="3-8-页面置换算法"><a href="#3-8-页面置换算法" class="headerlink" title="3.8 页面置换算法"></a>3.8 页面置换算法</h3><h3 id="3-9-缺页中断机制"><a href="#3-9-缺页中断机制" class="headerlink" title="3.9 缺页中断机制"></a>3.9 缺页中断机制</h3>
                 
               </div>
             
