@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <!-- 背景 -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- 水印（左上角） -->
+    <text x="20" y="30" fill="#dddddd" font-size="24" font-weight="bold" opacity="0.3">
+        偷偷星球
+    </text>
+    
+    <!-- 水印（右下角） -->
+    <text x="680" y="580" fill="#dddddd" font-size="24" font-weight="bold" opacity="0.3">
+        偷偷星球
+    </text>
+
+    <!-- 标题 -->
+    <text x="400" y="50" text-anchor="middle" font-size="24" font-weight="bold">内存抖动现象</text>
+
+    <!-- 内存区域 -->
+    <rect x="50" y="100" width="300" height="300" fill="white" stroke="#333" stroke-width="2"/>
+    <text x="170" y="130" font-size="18" font-weight="bold">物理内存</text>
+    
+    <!-- 磁盘区域 -->
+    <rect x="450" y="100" width="300" height="300" fill="white" stroke="#333" stroke-width="2"/>
+    <text x="570" y="130" font-size="18" font-weight="bold">磁盘交换区</text>
+    
+    <!-- 进程们争夺内存的表示 -->
+    <rect x="60" y="150" width="80" height="40" fill="#ff9999" stroke="#333">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="160" y="150" width="80" height="40" fill="#99ff99" stroke="#333">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="260" y="150" width="80" height="40" fill="#9999ff" stroke="#333">
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- 频繁的页面置换箭头 -->
+    <path d="M 350 200 L 450 200" stroke="#f44336" stroke-width="3">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 450 250 L 350 250" stroke="#4caf50" stroke-width="3">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- 性能指标区域 -->
+    <rect x="50" y="450" width="700" height="100" fill="white" stroke="#333" stroke-width="2"/>
+    
+    <!-- CPU利用率图表 -->
+    <path d="M 60 520 L 360 520" stroke="#ddd" stroke-width="1"/>
+    <path d="M 60 480 C 160 510, 260 490, 360 530" stroke="#ff6b6b" stroke-width="2" fill="none"/>
+    <text x="180" y="470" font-size="14">CPU利用率低</text>
+
+    <!-- 磁盘I/O图表 -->
+    <path d="M 390 520 L 690 520" stroke="#ddd" stroke-width="1"/>
+    <path d="M 390 520 C 490 470, 590 570, 690 480" stroke="#4ecdc4" stroke-width="2" fill="none"/>
+    <text x="510" y="470" font-size="14">磁盘I/O高</text>
+
+    <!-- 箭头标记定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+        </marker>
+    </defs>
+
+    <!-- 说明文字 -->
+    <text x="400" y="300" text-anchor="middle" font-size="16" fill="#f44336">频繁的页面置换</text>
+    <text x="170" y="350" font-size="14">内存不足</text>
+    <text x="570" y="350" font-size="14">交换区频繁访问</text>
+</svg>
