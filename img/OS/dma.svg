@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="800" height="600" fill="#f5f5f5"/>
+    
+    <!-- 水印 -->
+    <text x="400" y="300" font-size="60" fill="#cccccc" opacity="0.2" text-anchor="middle" transform="rotate(-45, 400, 300)">偷偷星球</text>
+    
+    <!-- CPU -->
+    <rect x="100" y="100" width="120" height="80" rx="10" fill="#ff9999"/>
+    <text x="160" y="150" text-anchor="middle" fill="white" font-weight="bold">CPU</text>
+    
+    <!-- 内存 -->
+    <rect x="500" y="100" width="120" height="200" rx="10" fill="#99ff99"/>
+    <text x="560" y="200" text-anchor="middle" fill="white" font-weight="bold">内存</text>
+    
+    <!-- DMA控制器 -->
+    <rect x="300" y="250" width="140" height="80" rx="10" fill="#9999ff"/>
+    <text x="370" y="290" text-anchor="middle" fill="white" font-weight="bold">DMA控制器</text>
+    
+    <!-- 外设 -->
+    <rect x="100" y="400" width="120" height="80" rx="10" fill="#ffcc99"/>
+    <text x="160" y="450" text-anchor="middle" fill="white" font-weight="bold">外设</text>
+    
+    <!-- 连接线和箭头 -->
+    <!-- CPU到DMA控制器 -->
+    <path d="M 160,180 L 160,290 L 300,290" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="200" y="250" fill="#666">1. 初始化</text>
+    
+    <!-- DMA控制器到内存 -->
+    <path d="M 440,290 L 560,290" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="500" y="270" fill="#666">2. 数据传输</text>
+    
+    <!-- 外设到DMA控制器 -->
+    <path d="M 220,440 L 370,330" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    
+    <!-- DMA控制器到CPU（中断） -->
+    <path d="M 370,250 L 370,140 L 220,140" fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="280" y="120" fill="#666">3. 完成中断</text>
+    
+    <!-- 箭头标记定义 -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+        </marker>
+    </defs>
+    
+    <!-- 图例 -->
+    <rect x="600" y="400" width="150" height="120" fill="white" stroke="#ccc"/>
+    <text x="610" y="420" font-size="14" fill="#666">图例：</text>
+    <line x1="610" y1="440" x2="650" y2="440" stroke="#666" stroke-width="2"/>
+    <text x="660" y="445" font-size="12" fill="#666">控制流</text>
+    <line x1="610" y1="460" x2="650" y2="460" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="660" y="465" font-size="12" fill="#666">数据流</text>
+</svg>
