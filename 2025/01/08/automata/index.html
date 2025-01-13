@@ -27,7 +27,7 @@
 <meta property="og:description" content="Formal Language and Automata关于形式语言与自动机技术这门课我认为内容非常的少，考生只需要掌握正则语言，上下文无关语言以及其对应的自动机模型就可以了。自动机里面的状态转移图和数字电路中的时序电路设计有异曲同工之妙。我觉得这门课是一门很需要脑筋急转弯的课程…To learn this course, you have to preview Data Structure &amp;a">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-13T15:47:43.152Z">
+<meta property="article:modified_time" content="2025-01-13T16:51:06.691Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k words
+          3.4k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          24 mins
+          29 mins
         
       </span>
     
@@ -499,6 +499,48 @@
 </li>
 </ol>
 <p>$$<br>w&#x3D;<br>\begin{cases}<br>\epsilon,\quad n &#x3D; 0 \\<br>w \cdot w^{n-1}, \quad x&gt;0<br>\end{cases}<br>$$</p>
+<hr>
+<h4 id="1-2-4-字符串集合的定义"><a href="#1-2-4-字符串集合的定义" class="headerlink" title="1.2.4 字符串集合的定义"></a>1.2.4 字符串集合的定义</h4><p> 一个字符串是字母表中字符的有限序列，字符串的集合是字母表中所有可能字符串的集合。例如，字母表 $\Sigma &#x3D; \{a, b\}$ 中的所有可能的长度为 2 的字符串集合是：</p>
+<p>$$<br>\{aa, ab, ba, bb\}<br>$$</p>
+<p>在形式语言中，我们可以对字符串集合执行运算，常见的操作包括：</p>
+<ol>
+<li><p><strong>串联（Concatenation）</strong>：给定两个语言 $L_1$ 和 $L_2$，它们的串联 $L_1 \cdot L_2$ 是所有可能的通过将 $L_1$ 中的元素与 $L_2$ 中的元素连接而成的字符串集合。例如：</p>
+<ul>
+<li>若 $L_1 &#x3D; \{a, b\}$ 和 $L_2 &#x3D; \{c, d\}$，则：<br>$$<br>L_1 \cdot L_2 &#x3D; \{ac, ad, bc, bd\}<br>$$</li>
+</ul>
+</li>
+<li><p><strong>闭包（Kleene Star）</strong>：给定一个语言 $L$，它的 <strong>Kleene 闭包</strong> $L^*$ 是所有 $L$ 中零个或多个字符串的串联集合，即：<br>$$<br>L^* &#x3D; \{\varepsilon\} \cup L \cup L^2 \cup L^3 \cup \dots<br>$$<br>其中，$\varepsilon$ 表示空字符串，$L^n$ 表示所有长度为 $n$ 的字符串的集合，$n \geq 0$。  </p>
+<p>例如，假设 $L &#x3D; \{a, b\}$，则：<br>$$<br>L^* &#x3D; \{\varepsilon, a, b, aa, ab, ba, bb, aaa, aab, \dots \}<br>$$</p>
+<ul>
+<li><strong>正闭包（Positive Closure）</strong>：正闭包 $L^+$ 是由 $L$ 中一个或多个字符串的串联组成的集合。即：<br>$$<br>L^+ &#x3D; L \cup L^2 \cup L^3 \cup \dots<br>$$<br>正闭包可以看作是 Kleene 闭包去除空字符串部分。例如，如果 $L &#x3D; {a, b}$，则：<br>$$<br>L^+ &#x3D; \{a, b, aa, ab, ba, bb, aaa, aab, \dots\}<br>$$</li>
+</ul>
+</li>
+<li><p><strong>并集（Union）</strong>：给定两个语言 $L_1$ 和 $L_2$，它们的并集 $L_1 \cup L_2$ 是包含 $L_1$ 和 $L_2$ 中所有字符串的语言集合。例如：</p>
+<ul>
+<li>若 $L_1 &#x3D; \{a, b\}$ 和 $L_2 &#x3D; \{c, d\}$，则：<br>$$<br>L_1 \cup L_2 &#x3D; \{a, b, c, d\}<br>$$</li>
+</ul>
+</li>
+<li><p><strong>差集（Difference）</strong>：给定两个语言 $L_1$ 和 $L_2$，它们的差集 $L_1 \setminus L_2$ 是包含所有属于 $L_1$ 但不属于 $L_2$ 的字符串的语言集合。例如：</p>
+<ul>
+<li>若 $L_1 &#x3D; \{a, b, c\}$ 和 $L_2 &#x3D; \{b, c, d\}$，则：<br>$$<br>L_1 \setminus L_2 &#x3D; \{a\}<br>$$</li>
+</ul>
+</li>
+<li><p><strong>集合的 n 次幂运算（n-th Power of a Set）</strong>：给定一个语言 $L$ 和一个非负整数 $n$，语言 $L$ 的 <strong>n 次幂</strong> $L^n$ 是由 $L$ 中所有长度为 $n$ 的字符串组成的集合。具体定义如下：</p>
+<ul>
+<li>当 $n &#x3D; 0$ 时，$L^0 &#x3D; \{\varepsilon\}$，即仅包含空字符串。</li>
+<li>当 $n &gt; 0$ 时，$L^n$ 包含所有由 $L$ 中的字符串串联组成的长度为 $n$ 的字符串。例如：<ul>
+<li>若 $L &#x3D; \{a, b\}$，则：<ul>
+<li>$L^1 &#x3D; \{a, b\}$</li>
+<li>$L^2 &#x3D; \{aa, ab, ba, bb\}$</li>
+<li>$L^3 &#x3D; \{aaa, aab, aba, abb, baa, bab, bba, bbb\}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>通过定义 $L^n$，我们可以理解语言中不同长度的字符串是如何通过多个字符串的串联来生成的。</p>
+</li>
+</ol>
 
                 
               </div>
