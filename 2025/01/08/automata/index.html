@@ -27,7 +27,7 @@
 <meta property="og:description" content="Formal Language and Automata关于形式语言与自动机技术这门课我认为内容非常的少，考生只需要掌握正则语言，上下文无关语言以及其对应的自动机模型就可以了。自动机里面的状态转移图和数字电路中的时序电路设计有异曲同工之妙。我觉得这门课是一门很需要脑筋急转弯的课程…To learn this course, you have to preview Data Structure &amp;a">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-13T15:10:19.772Z">
+<meta property="article:modified_time" content="2025-01-13T15:47:43.152Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k words
+          2.8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          12 mins
+          24 mins
         
       </span>
     
@@ -379,6 +379,7 @@
 <li>若 $\Sigma &#x3D; {0, 1}$，可能的字符串包括：$0$, $1$, $01$, $10$, $001$, 等。</li>
 <li>空字符串 $\epsilon$ 始终是 $\Sigma^*$ 的成员（$\Sigma^*$ 是所有字符串的集合）。</li>
 </ul>
+<hr>
 <h4 id="1-2-1-字符串长度的定义"><a href="#1-2-1-字符串长度的定义" class="headerlink" title="1.2.1 字符串长度的定义"></a>1.2.1 字符串长度的定义</h4><p>在形式语言与自动机理论中，字符串长度是指字符串中所包含的字符个数。设 $\Sigma$ 是一个字母表（字符的有限集合），一个字符串 $w$ 是由字母表中字符的有限序列。字符串的长度用 $|w|$ 表示，其含义是 $w$ 中字符的个数：</p>
 <ul>
 <li><strong>空字符串</strong> $\varepsilon$：长度为 $0$，即 $|\varepsilon| &#x3D; 0$。</li>
@@ -410,6 +411,94 @@
 </ol>
 <p>字符串长度的递归定义可以表示为：</p>
 <p>$$<br>|w| &#x3D;<br>\begin{cases}<br>0 &amp; \text{if } w &#x3D; \varepsilon \\<br>|x| + 1 &amp; \text{if } w &#x3D; xa, x \in \Sigma^*,  a \in \Sigma<br>\end{cases}<br>$$</p>
+<hr>
+<h4 id="1-2-2-字符串连接的定义"><a href="#1-2-2-字符串连接的定义" class="headerlink" title="1.2.2 字符串连接的定义"></a>1.2.2 字符串连接的定义</h4><p>在形式语言与自动机理论中，<strong>字符串连接</strong>（String Concatenation）是指将两个字符串按顺序组合在一起，形成一个新的字符串。连接操作是形式语言中一个非常重要的基本操作，通常用符号 “$\cdot$” 或直接用空格来表示。</p>
+<p>给定两个字符串 $w_1$ 和 $w_2$，它们分别属于字母表 $\Sigma$ 上的语言 $\Sigma^*$，则它们的连接 $w_1 \cdot w_2$（或写作 $w_1 w_2$）是一个新的字符串，表示将 $w_1$ 和 $w_2$ 顺序连接在一起，形成一个新字符串。</p>
+<p>形式上，假设：</p>
+<ul>
+<li>$w_1 &#x3D; x_1 x_2 \dots x_m$，其中 $x_1, x_2, \dots, x_m \in \Sigma$，是一个长度为 $m$ 的字符串；</li>
+<li>$w_2 &#x3D; y_1 y_2 \dots y_n$，其中 $y_1, y_2, \dots, y_n \in \Sigma$，是一个长度为 $n$ 的字符串。</li>
+</ul>
+<p>那么，$w_1 \cdot w_2 &#x3D; x_1 x_2 \dots x_m y_1 y_2 \dots y_n$，是一个长度为 $m+n$ 的新字符串。</p>
+<p><strong>字符串连接操作的基本性质：</strong></p>
+<ol>
+<li><p><strong>结合律</strong>（Associativity）：  字符串连接满足结合律，即对于任意三个字符串 $w_1, w_2, w_3 \in \Sigma^*$，都有：<br>$$<br>(w_1 \cdot w_2) \cdot w_3 &#x3D; w_1 \cdot (w_2 \cdot w_3)<br>$$</p>
+</li>
+<li><p><strong>单位元</strong>（Identity element）：  空字符串 $\varepsilon$ 是连接操作的单位元，即对于任何字符串 $w \in \Sigma^*$，都有：<br>$$<br>w \cdot \varepsilon &#x3D; \varepsilon \cdot w &#x3D; w<br>$$</p>
+</li>
+</ol>
+<p>字符串连接示例：假设字母表 $\Sigma &#x3D; {a, b}$，考虑以下字符串：</p>
+<ul>
+<li>$w_1 &#x3D; \text{ab}$，</li>
+<li>$w_2 &#x3D; \text{ba}$。</li>
+</ul>
+<p>它们的连接 $w_1 \cdot w_2$ 为：<br>$$<br>w_1 \cdot w_2 &#x3D; \text{ab} \cdot \text{ba} &#x3D; \text{abba}<br>$$</p>
+<hr>
+<p>字符串连接的递归表达式可以通过分段函数的方式来定义。假设 $w_1$ 和 $w_2$ 是两个字符串，递归地定义它们的连接操作 $w_1 \cdot w_2$ 如下：</p>
+<p>$$<br>w_1 \cdot w_2 &#x3D;<br>\begin{cases}<br>w_2, &amp; \text{if } w_1 &#x3D; \varepsilon \\<br>x_1 \cdot (x_2 \cdot \dots \cdot (x_m \cdot w_2)), &amp; \text{if } w_1 &#x3D; x_1 x_2 \dots x_m \text{ and } m &gt; 0<br>\end{cases}<br>$$</p>
+<ol>
+<li><p><strong>基例</strong>（Base case）：  如果 $w_1 &#x3D; \varepsilon$（空字符串），则有：<br>$$<br>\varepsilon \cdot w_2 &#x3D; w_2<br>$$</p>
+</li>
+<li><p><strong>递归关系</strong>（Recursive case）：  如果 $w_1 &#x3D; x_1 x_2 \dots x_m$，其中 $x_1, x_2, \dots, x_m \in \Sigma$，则递归地将 $w_1$ 分解成 $x_1$ 和剩下的部分 $x_2 \dots x_m$，然后将 $x_1$ 与递归结果 $x_2 \dots x_m \cdot w_2$ 连接：<br>$$<br>w_1 \cdot w_2 &#x3D; x_1 \cdot (x_2 \cdot \dots \cdot (x_m \cdot w_2))<br>$$</p>
+</li>
+</ol>
+<p>假设我们有两个字符串 $w_1 &#x3D; \text{abc}$ 和 $w_2 &#x3D; \text{def}$，我们来逐步推导它们的连接过程。</p>
+<ol>
+<li><p>首先，$w_1 &#x3D; \text{abc}$，将其分解为 $w_1 &#x3D; x_1 x_2 x_3$，其中 $x_1 &#x3D; \text{a}$，$x_2 &#x3D; \text{b}$，$x_3 &#x3D; \text{c}$。</p>
+</li>
+<li><p>根据递归关系：<br>$$<br>w_1 \cdot w_2 &#x3D; \text{a} \cdot (\text{b} \cdot (\text{c} \cdot \text{def}))<br>$$</p>
+<p>继续递归下去：<br>$$<br>\text{b} \cdot (\text{c} \cdot \text{def}) &#x3D; \text{b} \cdot \text{cdef}<br>$$</p>
+<p>最终得到：<br>$$<br>\text{a} \cdot (\text{b} \cdot (\text{c} \cdot \text{def})) &#x3D; \text{abcdef}<br>$$</p>
+<p>  因此，$w_1 \cdot w_2 &#x3D; \text{abcdef}$。</p>
+</li>
+</ol>
+<hr>
+<h4 id="1-2-3-字符串幂运算的定义"><a href="#1-2-3-字符串幂运算的定义" class="headerlink" title="1.2.3 字符串幂运算的定义"></a>1.2.3 字符串幂运算的定义</h4><p>在形式语言与自动机理论中，<strong>字符串的幂运算</strong>（String Power）是指将一个字符串自我连接若干次的操作。具体地，对于一个字符串 $w$ 和一个非负整数 $n$，$w^n$ 表示将字符串 $w$ 自我连接 $n$ 次。</p>
+<p><strong>定义：</strong> 设 $w$ 是一个字符串，$n$ 是一个非负整数。字符串 $w$ 的幂 $w^n$ 的定义如下：</p>
+<ul>
+<li><p><strong>基例</strong>：当 $n &#x3D; 0$ 时，$w^0$ 被定义为空字符串 $\varepsilon$：<br>$$<br>w^0 &#x3D; \varepsilon<br>$$</p>
+</li>
+<li><p><strong>递归关系</strong>：当 $n &gt; 0$ 时，$w^n$ 被定义为将字符串 $w$ 连接 $n$ 次，即：<br>$$<br>w^n &#x3D; w \cdot w^{n-1} \quad \text{for } n &gt; 0<br>$$</p>
+<p>这里，$\cdot$ 表示字符串连接操作。</p>
+</li>
+</ul>
+<p><strong>字符串幂运算的性质：</strong></p>
+<ol>
+<li><p><strong>空字符串的幂</strong>：对于任意字符串 $w$，空字符串 $\varepsilon$ 的幂总是为空字符串：<br>$$<br>\varepsilon^n &#x3D;<br>\begin{cases}<br>\varepsilon, &amp; \text{if } n &#x3D; 0 \\<br>\text{undefined}, &amp; \text{if } n &gt; 0<br>\end{cases}<br>$$</p>
+</li>
+<li><p><strong>单位元素</strong>：对于任意字符串 $w$，有：<br>$$<br>w^0 &#x3D; \varepsilon \quad \text{(空字符串)}<br>$$<br>且对于任意正整数 $n$：<br>$$<br>w^1 &#x3D; w<br>$$</p>
+</li>
+<li><p><strong>结合律</strong>：字符串幂运算具有结合律。例如，对于任意字符串 $w$ 和非负整数 $n$、$m$，有：<br>$$<br>w^{n+m} &#x3D; w^n \cdot w^m<br>$$</p>
+</li>
+<li><p><strong>易错点辨析</strong>：对于任意字符串 $w_1$ 和 $w_2$，以及非负整数 $n$，字符串连接的幂运算并不满足分配律。具体地，<strong>字符串连接的幂</strong>遵循以下规律：<br>$$<br>(w_1 \cdot w_2)^n &#x3D; (w_1 w_2) \cdot (w_1 w_2) \cdot \dots \cdot (w_1 w_2) \quad \text{(总共 $n$ 次连接)}<br>$$</p>
+<p>而不是将幂分配到每个字符串上：<br>$$<br>(w_1 \cdot w_2)^n \neq w_1^n \cdot w_2^n<br>$$</p>
+<p><em>这是一个常见的误解。字符串连接的幂是按整体连接的，而不是按每个字符串的幂分别计算。</em></p>
+</li>
+</ol>
+<hr>
+<p><strong>示例：</strong> 假设字母表 $\Sigma &#x3D; {a, b}$，并且考虑字符串 $w &#x3D; \text{ab}$。</p>
+<ol>
+<li><p><strong>当 $n &#x3D; 0$</strong> 时：<br>$$<br>w^0 &#x3D; \varepsilon<br>$$</p>
+</li>
+<li><p><strong>当 $n &#x3D; 1$</strong> 时：<br>$$<br>w^1 &#x3D; \text{ab}<br>$$</p>
+</li>
+<li><p><strong>当 $n &#x3D; 2$</strong> 时：<br>$$<br>w^2 &#x3D; \text{ab} \cdot \text{ab} &#x3D; \text{abab}<br>$$</p>
+</li>
+<li><p><strong>当 $n &#x3D; 3$</strong> 时：<br>$$<br>w^3 &#x3D; \text{ab} \cdot \text{abab} &#x3D; \text{ababab}<br>$$</p>
+</li>
+</ol>
+<p>通过这些示例，可以看出字符串的幂运算是将字符串 $w$ 自我连接多次，产生新的更长的字符串。</p>
+<hr>
+<p><strong>递推关系推导</strong>：假设字符串 $w &#x3D; x_1 x_2 \dots x_m$，其中 $x_1, x_2, \dots, x_m$ 是 $w$ 的各个字符。若 $w^n$ 表示字符串 $w$ 自我连接 $n$ 次，则递归定义如下：</p>
+<ol>
+<li><p><strong>基例</strong>：  当 $n &#x3D; 0$ 时，$w^0 &#x3D; \varepsilon$。</p>
+</li>
+<li><p><strong>递归关系</strong>：  当 $n &gt; 0$ 时：<br>$$<br>w^n &#x3D; w \cdot w^{n-1}<br>$$</p>
+</li>
+<li><p>因此我们可以写出递推表达式：</p>
+</li>
+</ol>
+<p>$$<br>w&#x3D;<br>\begin{cases}<br>\epsilon,\quad n &#x3D; 0 \\<br>w \cdot w^{n-1}, \quad x&gt;0<br>\end{cases}<br>$$</p>
 
                 
               </div>
