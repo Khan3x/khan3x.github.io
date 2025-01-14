@@ -27,7 +27,7 @@
 <meta property="og:description" content="Formal Language and Automata关于形式语言与自动机技术这门课我认为内容非常的少，考生只需要掌握正则语言，上下文无关语言以及其对应的自动机模型就可以了。自动机里面的状态转移图和数字电路中的时序电路设计有异曲同工之妙。我觉得这门课是一门很需要脑筋急转弯的课程…To learn this course, you have to preview Data Structure &amp;a">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-13T16:51:06.691Z">
+<meta property="article:modified_time" content="2025-01-14T05:21:05.925Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k words
+          4.6k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          29 mins
+          39 mins
         
       </span>
     
@@ -541,7 +541,66 @@
 <p>通过定义 $L^n$，我们可以理解语言中不同长度的字符串是如何通过多个字符串的串联来生成的。</p>
 </li>
 </ol>
-
+<h3 id="1-3-语言（Language）"><a href="#1-3-语言（Language）" class="headerlink" title="1.3 语言（Language）"></a>1.3 语言（Language）</h3><p>语言（Language）是一个由字母表上的字符串组成的集合，字符串是字母表上符号的有限序列。形式语言通常是根据某种特定的规则或语法定义的字符串集合。形式语言广泛应用于计算机科学中的编程语言设计、编译原理、人工智能、自然语言处理等领域。</p>
+<p>给定一个字母表 $\Sigma$，语言 $L$ 是 $\Sigma$ 上所有合法字符串的集合。我们可以使用集合表示语言，记作：<br>$$<br>L \subseteq \Sigma^*<br>$$<br>其中，$\Sigma^*$ 是字母表 $\Sigma$ 上所有可能的字符串的集合，包括空字符串 $\varepsilon$。</p>
+<p><strong>字母表（Alphabet）</strong> 是构成语言中所有字符串的基本单位，是一个有限的符号集合，通常用 $\Sigma$ 表示。字母表的元素可以是任何字符、符号或数字。例如：</p>
+<ul>
+<li>二进制字母表：$\Sigma &#x3D; \{0, 1\}$</li>
+<li>字母表：$\Sigma &#x3D; \{a, b, c, \dots\}$</li>
+<li>十进制字母表：$\Sigma &#x3D; \{0, 1, 2, \dots, 9\}$</li>
+</ul>
+<p><strong>字符串</strong>是由字母表 $\Sigma$ 中的符号按照一定顺序排列组成的有限序列。字符串的长度是有限的，通常用 $w$ 表示一个字符串。常见的符号包括：</p>
+<ul>
+<li>空字符串 $\varepsilon$，表示一个不含任何符号的字符串。</li>
+<li>字符串 $w$ 是字母表 $\Sigma$ 中的符号按顺序排列形成的一个有序序列。例如：<ul>
+<li>如果 $\Sigma &#x3D; \{a, b\}$，则字符串 $w &#x3D; \text{ab}$ 是字母表 $\Sigma$ 中字符的一个序列。</li>
+</ul>
+</li>
+</ul>
+<p>字符串的长度是字符串中符号的数量，记作 $|w|$。例如：</p>
+<ul>
+<li>$|\varepsilon| &#x3D; 0$（空字符串的长度为零）</li>
+<li>$|w| &#x3D; 3$，如果 $w &#x3D; \text{abc}$</li>
+</ul>
+<p>根据其生成规则或接受条件，语言可以分为以下几类：</p>
+<ol>
+<li><p><strong>正规语言（Regular Language）</strong>：正规语言是最简单的一类语言，可以由有限自动机（DFA&#x2F;NFA）接受或通过正规表达式表示。正规语言可以通过正规文法生成，并且有许多应用，如文本搜索、词法分析等。</p>
+</li>
+<li><p><strong>上下文无关语言（Context-Free Language）</strong>：上下文无关语言是由上下文无关文法（CFG）生成的语言。它们通常可以由推理自动机（如下推自动机）接受，广泛用于编程语言的语法分析。</p>
+</li>
+<li><p><strong>上下文相关语言（Context-Sensitive Language）</strong>：上下文相关语言是由上下文相关文法（CSG）生成的语言，通常由线性有界自动机接受。它们比上下文无关语言更强，但也更复杂。</p>
+</li>
+<li><p><strong>递归可枚举语言（Recursively Enumerable Language）</strong>：递归可枚举语言是可以通过图灵机接受的语言。它们可以包含一些不能有效计算的语言，是计算理论中的最广泛类。</p>
+</li>
+</ol>
+<p><strong>特殊语言类型：</strong></p>
+<ol>
+<li><p><strong>空语言（Empty Language）</strong>：空语言是一个不包含任何字符串的集合，记作 $\emptyset$。例如，对于字母表 $\Sigma &#x3D; \{a, b\}$，如果定义的规则不允许任何字符串出现，那么该语言就是空语言：</p>
+<p>$$<br>L &#x3D; \emptyset<br>$$</p>
+<p>这里需要辨析下面的一个结论： $\emptyset$ 不包含任何元素，即：$|\emptyset| &#x3D; 0$（集合的大小为 0），而 $\{\varepsilon\}$ 包含一个具体的元素（空字符串）。</p>
+<p>$$<br>\emptyset \neq \{\varepsilon\}<br>$$</p>
+</li>
+<li><p><strong>全集语言（Universal Language）</strong>：全集语言是包含字母表 $\Sigma$ 上所有可能字符串的语言，通常记作 $\Sigma^*$。它包含所有长度为任意数目的字符串，包括空字符串。例如：<br>$$<br>L &#x3D; \Sigma^* &#x3D; \{\varepsilon, a, b, ab, aa, ba, \dots \}<br>$$</p>
+</li>
+<li><p><strong>单一元素语言（Singleton Language）</strong>：单一元素语言是只包含一个字符串的语言。例如，若字母表为 $\Sigma &#x3D; \{a, b\}$，语言 $L &#x3D; \{ab\}$ 只有一个字符串元素：<br>$$<br>L &#x3D; \{ab\}<br>$$</p>
+</li>
+</ol>
+<p><strong>语言的运算包括：</strong></p>
+<ol>
+<li><p><strong>串联（Concatenation）</strong>：给定两个语言 $L_1$ 和 $L_2$，它们的串联 $L_1 \cdot L_2$ 是所有可能通过将 $L_1$ 中的字符串与 $L_2$ 中的字符串连接起来得到的字符串的集合。</p>
+</li>
+<li><p><strong>并集（Union）</strong>：给定两个语言 $L_1$ 和 $L_2$，它们的并集 $L_1 \cup L_2$ 是包含所有属于 $L_1$ 或 $L_2$ 的字符串的集合。</p>
+</li>
+<li><p><strong>差集（Difference）</strong>：给定两个语言 $L_1$ 和 $L_2$，它们的差集 $L_1 \setminus L_2$ 是包含所有属于 $L_1$ 但不属于 $L_2$ 的字符串的集合。</p>
+</li>
+<li><p><strong>闭包（Closure）</strong>：</p>
+<ul>
+<li><strong>Kleene 闭包（Kleene Star）</strong>：语言 $L$ 的 Kleene 闭包 $L^*$ 是包含所有 $L$ 中零个或多个字符串串联的语言。</li>
+<li><strong>正闭包（Positive Closure）</strong>：语言 $L$ 的正闭包 $L^+$ 是包含所有 $L$ 中一个或多个字符串串联的语言。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-Finite-Automata"><a href="#2-Finite-Automata" class="headerlink" title="2. Finite Automata"></a>2. Finite Automata</h2>
                 
               </div>
             
