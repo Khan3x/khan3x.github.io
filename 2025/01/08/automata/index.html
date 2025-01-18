@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/nfa2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/nfa3.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-18T04:15:12.441Z">
+<meta property="article:modified_time" content="2025-01-18T05:18:46.045Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k words
+          13k words
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          91 mins
+          107 mins
         
       </span>
     
@@ -1056,7 +1056,51 @@
 <p>因此，字符串 “a” 被该 $\epsilon$-NFA 接受。</p>
 <p>上面的$\epsilon$-NFA接受的语言是以一个或多个 ‘a’ 结束，并且可以在后面跟上零个或多个 ‘b’。即正则表达式为 $a^+ b^*$。</p>
 <hr>
-<h4 id="2-2-3-epsilon-NFA与NFA等价性证明"><a href="#2-2-3-epsilon-NFA与NFA等价性证明" class="headerlink" title="2.2.3 $\epsilon$-NFA与NFA等价性证明"></a>2.2.3 $\epsilon$-NFA与NFA等价性证明</h4><p>为了证明 <strong>$\epsilon$-NFA</strong> 和 <strong>NFA</strong> 之间的等价性，即任何一个 <strong>$\epsilon$-NFA</strong> 都可以转换为一个等价的 <strong>NFA</strong>，我们将使用数学归纳法来推导和证明。</p>
+<h4 id="2-2-3-epsilon-NFA的扩展转移函数"><a href="#2-2-3-epsilon-NFA的扩展转移函数" class="headerlink" title="2.2.3 $\epsilon$-NFA的扩展转移函数"></a>2.2.3 $\epsilon$-NFA的扩展转移函数</h4><p>一个非确定性有限自动机（NFA）由五元组 $(Q, \Sigma, \delta, q_0, F)$ 组成，其中：</p>
+<ul>
+<li>$Q$ 是状态集，</li>
+<li>$\Sigma$ 是输入字母表，</li>
+<li>$\delta: Q \times \Sigma \to \mathcal{P}(Q)$ 是转移函数（映射一个状态和输入符号到可能的状态集合），</li>
+<li>$q_0 \in Q$ 是初始状态，</li>
+<li>$F \subseteq Q$ 是接受状态集。</li>
+</ul>
+<p>在 $\epsilon$-NFA 中，除了常规的转移外，还允许存在 $\epsilon$（空字符串）转移，意味着自动机可以在没有任何输入的情况下从一个状态转移到另一个状态。</p>
+<p>$\epsilon$-NFA的扩展转移函数 $\delta^*(q, w)$ 用于计算从状态 $q$ 开始，处理输入字符串 $w$ 后可能到达的所有状态。这个函数需要分别考虑两种情况：当输入字符串为空（$w &#x3D; \epsilon$）时，以及输入字符串非空（$w \neq \epsilon$）时。可以定义为如下的分段函数：</p>
+<p>$$<br>\delta^*(q, w) &#x3D;<br>\begin{cases}<br>E\text{-closure}(q), &amp; \text{if } w &#x3D; \epsilon \\<br>\bigcup_{q’ \in \delta(q, a)} \delta^*(q’, w’), &amp; \text{if } w &#x3D; a w’ \text{ and } a \in \Sigma<br>\end{cases}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>如果 $w &#x3D; \epsilon$，表示输入字符串为空，那么扩展转移函数的值是从状态 $q$ 开始，所有通过 $\epsilon$ 转移能够到达的状态集合，即 $E$-closure($q$)。</li>
+<li>如果 $w &#x3D; a w’$，表示输入字符串非空，且可以分解为第一个符号 $a$ 和剩余部分 $w’$，那么扩展转移函数的值是所有从状态 $q$ 通过符号 $a$ 转移后，再继续处理 $w’$ 后可能到达的状态的集合。这些状态是通过递归计算 $\delta^*(q’, w’)$ 来得到的，其中 $q’$ 是状态 $q$ 经过符号 $a$ 转移后到达的状态。</li>
+</ul>
+<p>假设有一个简单的 $\epsilon$-NFA，其状态集为 $Q &#x3D; \{q_0, q_1, q_2\}$，字母表为 $\Sigma &#x3D; \{a, b\}$，初始状态为 $q_0$，接受状态为 $F &#x3D; \{q_1\}$，且转移函数如下：</p>
+<ul>
+<li>$\delta(q_0, a) &#x3D; \{q_1\}$</li>
+<li>$\delta(q_1, b) &#x3D; \{q_2\}$</li>
+<li>$\delta(q_0, \epsilon) &#x3D; \{q_2\}$</li>
+</ul>
+<p>则其空转移闭包为：</p>
+<p>$$<br>E\text{-closure}(q_0) &#x3D; \{q_0, q_2\}<br>$$</p>
+<p>扩展转移函数计算为：</p>
+<ul>
+<li>对于输入字符串 $a$，从状态 $q_0$ 开始，$E$-closure 包含 $q_0$ 和 $q_2$，因此扩展转移将考虑状态 $q_0$ 和 $q_2$ 的转移。<ul>
+<li>从 $q_0$，转移到 $q_1$。</li>
+<li>从 $q_2$，没有输入符号 $a$ 的转移。</li>
+</ul>
+</li>
+</ul>
+<p>所以，扩展转移函数为：</p>
+<p>$$<br>\delta^*(q_0, a) &#x3D; \{q_1, q_2\}<br>$$</p>
+<ul>
+<li>对于输入字符串 $ab$，我们首先从状态 $q_0$ 处理 $a$，然后再从 $q_1$ 处理 $b$。<ul>
+<li>从 $q_0$ 处理 $a$ 后，到达状态 $q_1$。</li>
+<li>从 $q_1$ 处理 $b$ 后，到达状态 $q_2$。</li>
+</ul>
+</li>
+</ul>
+<p>所以，扩展转移函数为：</p>
+<p>$$<br>\delta^*(q_0, ab) &#x3D; \{q_2\}<br>$$</p>
+<hr>
+<h4 id="2-2-4-epsilon-NFA与NFA等价性证明"><a href="#2-2-4-epsilon-NFA与NFA等价性证明" class="headerlink" title="2.2.4 $\epsilon$-NFA与NFA等价性证明"></a>2.2.4 $\epsilon$-NFA与NFA等价性证明</h4><p>为了证明 <strong>$\epsilon$-NFA</strong> 和 <strong>NFA</strong> 之间的等价性，即任何一个 <strong>$\epsilon$-NFA</strong> 都可以转换为一个等价的 <strong>NFA</strong>，我们将使用数学归纳法来推导和证明。</p>
 <p><strong>定义：</strong></p>
 <ul>
 <li><strong>$\epsilon$-NFA</strong>（Epsilon-Non-deterministic Finite Automaton）：与普通的 NFA 不同，$\epsilon$-NFA 允许在没有消耗任何输入字符的情况下，通过 $\epsilon$ 转移从一个状态跳转到另一个状态。</li>
@@ -1128,6 +1172,78 @@
 </li>
 </ol>
 <p>通过以上构造和证明，我们可以得出结论：<strong>任何一个 $\epsilon$-NFA 都可以转换为一个等价的 NFA</strong>，即 $\epsilon$-NFA$ \equiv$ NFA。</p>
+<div class="note note-success">
+            <p>此后不再明确区分$\epsilon$-NFA和NFA，因为它们都是NFA</p>
+          </div>
+
+<hr>
+<h3 id="2-3-DFA和NFA等价性证明"><a href="#2-3-DFA和NFA等价性证明" class="headerlink" title="2.3 DFA和NFA等价性证明"></a>2.3 DFA和NFA等价性证明</h3><p>在形式语言与自动机理论中，<strong>确定性有限自动机</strong>（DFA）和<strong>非确定性有限自动机</strong>（NFA）是两种常见的自动机模型。它们用于识别正则语言，并且<strong>DFA</strong> 和 <strong>NFA</strong> 是<strong>等价的</strong>，即它们识别的语言是完全一样的。具体来说，任何一个 NFA 都可以转换成一个等价的 DFA，反之亦然。以下是 DFA 和 NFA 等价性的证明过程。</p>
+<p>DFA 是一个五元组 $(Q, \Sigma, \delta, q_0, F)$，其中：</p>
+<ul>
+<li>$Q$ 是有限状态集。</li>
+<li>$\Sigma$ 是输入字母表。</li>
+<li>$\delta: Q \times \Sigma \to Q$ 是状态转移函数，给定当前状态和输入符号，确定唯一的下一个状态。</li>
+<li>$q_0 \in Q$ 是初始状态。</li>
+<li>$F \subseteq Q$ 是接受状态集。</li>
+</ul>
+<p>NFA 是一个五元组 $(Q, \Sigma, \delta, q_0, F)$，其中：</p>
+<ul>
+<li>$Q$ 是有限状态集。</li>
+<li>$\Sigma$ 是输入字母表。</li>
+<li>$\delta: Q \times \Sigma \to \mathcal{P}(Q)$ 是状态转移函数，给定当前状态和输入符号，可以转移到多个状态（即可以是空的或多个状态的集合）。</li>
+<li>$q_0 \in Q$ 是初始状态。</li>
+<li>$F \subseteq Q$ 是接受状态集。</li>
+</ul>
+<p>我们要证明的是，<strong>每个 NFA 都可以转化为一个等价的 DFA</strong>。为此，我们将通过构造来展示如何从 NFA 构造 DFA，使得它们识别的语言是一样的。</p>
+<p>分析：从 NFA 转换到 DFA</p>
+<p>假设有一个 NFA $N &#x3D; (Q, \Sigma, \delta, q_0, F)$，我们想构造一个等价的 DFA $D &#x3D; (Q’, \Sigma, \delta’, q_0’, F’)$。</p>
+<ol>
+<li><p><strong>状态集</strong>：DFA 的状态集 $Q’$ 由 NFA 的状态集的子集组成。更具体地，DFA 的状态对应于 NFA 的状态集合的一个子集。即 $Q’ \subseteq 2^Q$（所有 NFA 状态的集合的幂集）。</p>
+</li>
+<li><p><strong>初始状态</strong>：DFA 的初始状态 $q_0’$ 是 NFA 初始状态的 $\epsilon$-闭包。记 $E\text{-closure}(q_0)$ 为 NFA 状态 $q_0$ 的空转移闭包。于是，DFA 的初始状态是 $q_0’ &#x3D; E\text{-closure}(q_0)$。</p>
+</li>
+<li><p><strong>转移函数</strong>：对于 DFA 中的每个状态（它是 NFA 状态的一个子集），DFA 的转移函数 $\delta’(S, a)$ 被定义为所有 NFA 状态在读取符号 $a$ 后所能到达的状态的 $\epsilon$-闭包：</p>
+<p>$$ \delta’(S, a) &#x3D; E\text{-closure} \left( \bigcup_{q \in S} \delta(q, a) \right) $$</p>
+<p>也就是说，DFA 的转移函数是 NFA 中所有可能的状态集合的组合。</p>
+</li>
+<li><p><strong>接受状态集</strong>：DFA 的接受状态集 $F’$ 由 NFA 中的所有包含接受状态的状态集合组成。即：</p>
+<p>$$ F’ &#x3D; \{ S \subseteq Q \mid S \cap F \neq \emptyset \} $$</p>
+<p>也就是说，DFA 中只要某个状态子集包含 NFA 的某个接受状态，它就被认为是接受状态。</p>
+</li>
+</ol>
+<p><strong>证明：</strong></p>
+<p>为了证明从 NFA 到 DFA 的转换是有效的，即两者识别的语言是一样的，我们可以分为以下几步：</p>
+<ol>
+<li><p><strong>从 NFA 接受的语言到 DFA</strong>：</p>
+<ul>
+<li>NFA 对输入字符串 $w$ 执行多个路径，并在路径中存在至少一条接受状态时就接受字符串。</li>
+<li>对于 DFA，它基于一个状态子集来模拟所有这些路径。由于每个状态子集都包括了 NFA 的多个状态，DFA 必定能够找到 NFA 中的一个路径来接受字符串。</li>
+</ul>
+<p>因此，如果一个字符串被 NFA 接受，它也会被通过构造的 DFA 接受。</p>
+</li>
+<li><p><strong>从 DFA 接受的语言到 NFA</strong>：</p>
+<ul>
+<li>DFA 在每一步都有唯一的转移，因此它只能遵循一个路径。这个路径可以直接对应于 NFA 的多个可能路径。</li>
+<li>因此，如果 DFA 接受一个字符串，那么这个字符串也会被 NFA 接受（尽管 NFA 可能有多个路径，但至少有一条与 DFA 的唯一路径相同）。</li>
+</ul>
+</li>
+</ol>
+<p>由于这两个方向的转换都成立，因此 <strong>DFA 和 NFA 是等价的</strong>。</p>
+<p>假设我们有一个简单的 NFA，其状态集为 $Q &#x3D; \{q_0, q_1\}$，字母表为 $\Sigma &#x3D; \{a, b\}$，初始状态为 $q_0$，接受状态为 $F &#x3D; \{q_1\}$，转移函数如下：</p>
+<ul>
+<li>$\delta(q_0, a) &#x3D; \{q_0, q_1\}$</li>
+<li>$\delta(q_0, b) &#x3D; \{q_0\}$</li>
+<li>$\delta(q_1, a) &#x3D; \{q_1\}$</li>
+<li>$\delta(q_1, b) &#x3D; \{q_1\}$</li>
+</ul>
+<p>可以看到，NFA 在状态 $q_0$ 时，对于输入 $a$ 可以转移到 $q_0$ 或 $q_1$。我们可以按照上述方法将此 NFA 转换为一个等价的 DFA。</p>
+<p>这里我们简单总结一下：</p>
+<ul>
+<li><strong>DFA 和 NFA 是等价的</strong>，它们可以识别相同的正则语言。</li>
+<li><strong>NFA 到 DFA 的转换</strong>是通过将 NFA 状态的所有子集映射到 DFA 状态的过程来实现的。</li>
+<li><strong>从 NFA 到 DFA 的转换</strong>能够保留语言不变，并且可以通过递归地计算状态的 $\epsilon$-闭包和转移来实现。</li>
+</ul>
+<p>这个等价性证明展示了尽管 DFA 和 NFA 在结构上有所不同，但它们的能力是等同的，都能够识别正则语言(Regular Language)。</p>
 
                 
               </div>
