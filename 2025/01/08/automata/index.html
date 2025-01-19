@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/nfa2.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/nfa3.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-18T05:18:46.045Z">
+<meta property="article:modified_time" content="2025-01-19T08:42:38.854Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k words
+          14k words
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          107 mins
+          115 mins
         
       </span>
     
@@ -1244,7 +1244,71 @@
 <li><strong>从 NFA 到 DFA 的转换</strong>能够保留语言不变，并且可以通过递归地计算状态的 $\epsilon$-闭包和转移来实现。</li>
 </ul>
 <p>这个等价性证明展示了尽管 DFA 和 NFA 在结构上有所不同，但它们的能力是等同的，都能够识别正则语言(Regular Language)。</p>
+<hr>
+<h3 id="3-Regular-Langauge"><a href="#3-Regular-Langauge" class="headerlink" title="3. Regular Langauge"></a>3. Regular Langauge</h3><p><strong>正则语言 (Regular Language)</strong> 是形式语言理论中的一个重要概念，通常与有限自动机（Finite Automata, FA）和正则表达式（Regular Expressions, RE）相关联。正则语言是可以被有限自动机识别或由正则表达式描述的语言。它们的特点是相对简单，能够用有限的计算资源进行识别或生成。</p>
+<p>形式化地，正则语言是一个语言集合，满足以下条件之一：</p>
+<ul>
+<li>它可以被一个<strong>有限自动机</strong>识别。</li>
+<li>它可以通过<strong>正则表达式</strong>来描述。</li>
+<li>它可以通过正则文法生成。</li>
+</ul>
+<p>这些语言可以被归类为<strong>正规语言</strong>，它们的生成和识别过程是有限的，不需要无限的计算资源。</p>
+<p>正则语言可以通过 DFA 或 NFA 来识别。尽管 DFA 和 NFA 之间在形式上有所不同，实际上它们是等价的，因为每一个 NFA 都可以被转换成一个等效的 DFA。</p>
+<blockquote>
+<p>这里的正确性证明我们留到后面</p>
+</blockquote>
+<div class="note note-primary">
+            <p><strong>有限自动机 (Finite Automaton)</strong> 是一种计算模型，它由一组状态、一个输入字母表、一个转换函数、一个初始状态和一些接受状态组成。有限自动机有两种类型：</p><ul><li><strong>确定性有限自动机 (DFA)</strong> ：对于每个状态和输入符号，都有唯一的转移。</li><li><strong>非确定性有限自动机 (NFA)</strong> ：对于某些状态和输入符号，可能有多个转移或者没有转移。</li></ul>
+          </div>
 
+
+<p>正则语言具有一些有用的性质，包括：</p>
+<ul>
+<li><p><strong>闭包性质</strong>：正则语言在以下操作下保持闭合，即操作结果仍然是正则语言。</p>
+<ul>
+<li><strong>并运算</strong>：如果 $L_1$ 和 $L_2$ 是正则语言，则 $L_1 \cup L_2$ 也是正则语言。</li>
+<li><strong>连接运算</strong>：如果 $L_1$ 和 $L_2$ 是正则语言，则 $L_1 \cdot L_2$ 也是正则语言。</li>
+<li><strong>星号闭包（Kleene闭包）</strong>：如果 $L$ 是正则语言，则 $L^*$ 也是正则语言。</li>
+<li><strong>补运算</strong>：正则语言对于补集操作是封闭的，假设 $L$ 是正则语言，则 $\overline{L}$ 也是正则语言。</li>
+</ul>
+</li>
+<li><p><strong>可表示性</strong>：正则语言可以用正则表达式来描述。每个正则表达式都定义了一个正则语言。</p>
+</li>
+</ul>
+<blockquote>
+<p>后面内容对这里的正确性进行证明</p>
+</blockquote>
+<p>尽管正则语言非常有用，它们也有一些限制：</p>
+<ul>
+<li>正则语言无法描述<strong>上下文相关语言</strong>或<strong>上下文无关语言</strong>中一些更复杂的结构。例如，正则语言不能识别平衡的括号或相互嵌套的结构。</li>
+<li>正则语言只能识别相对简单的模式（如重复模式、选择模式），对于更复杂的结构，它们的<strong>表达能力有限。</strong></li>
+</ul>
+<p>正则语言和正则表达式在计算机科学中有广泛应用，尤其是在文本处理领域，如：</p>
+<ul>
+<li><strong>文本搜索</strong>：正则表达式广泛用于字符串匹配和文本搜索。</li>
+<li><strong>编译器设计</strong>：在编译器中，正则语言用于词法分析阶段，识别输入的词法单位（如关键字、标识符、操作符等）。</li>
+<li><strong>数据验证</strong>：在输入数据验证中，正则表达式被用于检查输入是否符合特定模式（如电子邮件地址、电话号码等）。</li>
+</ul>
+<hr>
+<ol>
+<li><p><strong>正则语言的简单示例</strong>：</p>
+<ul>
+<li>语言 $L &#x3D; {a, b}$，即由字符 ‘a’ 或 ‘b’ 组成的语言，可以由正则表达式 $a|b$ 来表示。</li>
+</ul>
+</li>
+<li><p><strong>使用 Kleene 星号操作</strong>：</p>
+<ul>
+<li>语言 $L &#x3D; {a^n \mid n \geq 0}$，即包含任意数量的字符 ‘a’ 的语言，可以用正则表达式 $a^*$ 来表示。</li>
+</ul>
+</li>
+<li><p><strong>连接操作</strong>：</p>
+<ul>
+<li>语言 $L &#x3D; {ab, abc}$，即包含字符串 ‘ab’ 和 ‘abc’ 的语言，可以通过正则表达式 $ab|abc$ 来表示。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="3-1-Regular-Expression"><a href="#3-1-Regular-Expression" class="headerlink" title="3.1 Regular Expression"></a>3.1 Regular Expression</h4>
                 
               </div>
             
