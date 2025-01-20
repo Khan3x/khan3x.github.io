@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#ffffff"/>
+  
+  <!-- Watermark -->
+  <text x="400" y="200" font-family="Arial" font-size="80" fill="#f0f0f0" text-anchor="middle" transform="rotate(-30 400 200)">偷偷星球</text>
+  
+  <!-- DFA States -->
+  <circle cx="100" cy="200" r="30" fill="#e6f3ff" stroke="#2196f3" stroke-width="2"/>
+  <circle cx="250" cy="200" r="30" fill="#e6f3ff" stroke="#2196f3" stroke-width="2"/>
+  <circle cx="400" cy="200" r="30" fill="#fff3e6" stroke="#ff9800" stroke-width="3"/>
+  <circle cx="550" cy="200" r="30" fill="#e6f3ff" stroke="#2196f3" stroke-width="2"/>
+  <circle cx="700" cy="200" r="30" fill="#e6ffe6" stroke="#4caf50" stroke-width="2"/>
+  
+  <!-- State Labels -->
+  <text x="100" y="205" text-anchor="middle" font-family="Arial" font-size="16">q₀</text>
+  <text x="250" y="205" text-anchor="middle" font-family="Arial" font-size="16">qᵢ₋₁</text>
+  <text x="400" y="205" text-anchor="middle" font-family="Arial" font-size="16">qᵢ</text>
+  <text x="550" y="205" text-anchor="middle" font-family="Arial" font-size="16">qⱼ</text>
+  <text x="700" y="205" text-anchor="middle" font-family="Arial" font-size="16">qₙ</text>
+  
+  <!-- Transitions -->
+  <path d="M130 200 L220 200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M280 200 L370 200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M430 200 L520 200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M580 200 L670 200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Loop for y -->
+  <path d="M400 170 C400 120 550 120 550 170" fill="none" stroke="#ff9800" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- String parts labels -->
+  <text x="175" y="180" font-family="Arial" font-size="20" fill="#2196f3">x</text>
+  <text x="475" y="125" font-family="Arial" font-size="20" fill="#ff9800">y</text>
+  <text x="625" y="180" font-family="Arial" font-size="20" fill="#4caf50">z</text>
+  
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="50" y="300" width="700" height="80" fill="#f8f9fa" stroke="#ddd"/>
+  <text x="70" y="325" font-family="Arial" font-size="14">• x: 初始序列 (蓝色)</text>
+  <text x="70" y="350" font-family="Arial" font-size="14">• y: 可泵序列，在状态 qᵢ 和 qⱼ 之间循环 (橙色)</text>
+  <text x="70" y="375" font-family="Arial" font-size="14">• z: 结束序列 (绿色)</text>
+</svg>
