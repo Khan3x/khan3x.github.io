@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-22T05:05:27.076Z">
+<meta property="article:modified_time" content="2025-01-22T15:22:45.667Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          31k words
+          32k words
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          262 mins
+          268 mins
         
       </span>
     
@@ -2363,9 +2363,12 @@
 <p>上下文无关文法的关键在于其产生式规则的结构：每个产生式的左边是一个单一的非终结符（例如 $A$），右边是一个由终结符和非终结符组成的字符串（例如 $\alpha$）。这一点与<strong>上下文相关文法</strong>不同，后者的产生式规则的左边可以是多个符号的组合（非终结符或终结符）。</p>
 <hr>
 <h3 id="4-1-上下文无关语言的定义"><a href="#4-1-上下文无关语言的定义" class="headerlink" title="4.1 上下文无关语言的定义"></a>4.1 上下文无关语言的定义</h3><p>上下文无关语言（CFL）是由上下文无关文法（CFG）生成的语言。换句话说，如果一个语言可以通过某个上下文无关文法的规则从开始符号 $S$ 推导出一个字符串，那么这个字符串就属于上下文无关语言。</p>
-<p>例如，考虑以下文法：</p>
-<p>$$<br>S \rightarrow aSb \mid \epsilon<br>$$</p>
-<p>这个文法生成的语言是所有形式为 $a^n b^n$（即由 $n$ 个 $a$ 后跟 $n$ 个 $b$）的字符串，这个语言是上下文无关的。</p>
+<div class="note note-primary">
+            <p>上下文无关语言是一种形式语言，其生成规则由上下文无关文法（CFG）定义，不依赖于符号周围的上下文。</p>
+          </div>
+
+<p>例如，考虑如下文法：$aSb \rightarrow aYb \mid \epsilon$</p>
+<p>这个文法的符号串<code>Y</code>是根据<code>S</code>的派生式产生的，不依赖<code>S</code>的上下文<code>a</code>和<code>b</code>。</p>
 <p><strong>上下文无关语言有如下特性：</strong></p>
 <ul>
 <li><strong>递归结构</strong>：上下文无关语言能够表示递归结构。它能够处理很多具有递归特征的语言，例如编程语言中的嵌套结构（如括号匹配、表达式求值等）。</li>
@@ -2382,7 +2385,7 @@
 <li>编程语言中的语法，如 C 语言中的函数定义、条件表达式等。</li>
 </ul>
 <p>尽管上下文无关语言在很多实际应用中都非常重要，但它们并不是万能的。上下文无关语言不能处理所有类型的语言，例如，语言</p>
-<p>$$<br>{ a^n b^n c^n \mid n \geq 0 }<br>$$</p>
+<p>$$<br>\{ a^n b^n c^n \mid n \geq 0 \}<br>$$</p>
 <p>就不是上下文无关的，因为它需要同时确保 $a$、$b$、$c$ 的数量相等，这超出了上下文无关文法的能力。</p>
 <p>上下文无关语言（CFL）是一类可以由上下文无关文法生成的语言，具有非常广泛的应用，尤其在编程语言的语法分析中。它们能够表示许多递归结构，但并不具备表达所有形式语言的能力。上下文无关语言可以通过下推自动机进行识别，其计算能力介于有限自动机和图灵机之间。</p>
 <p>接下来的内容我们就仔细探讨上下文无关语言的特点和识别它的PDA的特点</p>
@@ -2455,7 +2458,32 @@
 <li><p>最后一步规约：应用规则 $E \rightarrow E + T$，将 $F + T$ 规约为 $E$<br>$$F + T \Rightarrow E$$</p>
 </li>
 </ul>
-<h3 id="4-3-马不停蹄中"><a href="#4-3-马不停蹄中" class="headerlink" title="4.3 马不停蹄中"></a>4.3 马不停蹄中</h3>
+<hr>
+<h3 id="4-3-文法等价性"><a href="#4-3-文法等价性" class="headerlink" title="4.3 文法等价性"></a>4.3 文法等价性</h3><p>在上下文无关文法（Context-Free Grammar, CFG）中，<strong>文法等价性</strong>指的是两个文法生成相同语言，即它们能够产生相同的所有字符串。换句话说，若两个文法 $G_1$ 和 $G_2$ 对于任意输入串 $w$ 都能通过各自的推导产生这个字符串 $w$，则我们称这两个文法是等价的。</p>
+<p><strong>文法等价性的常见方式：</strong></p>
+<ol>
+<li><p><strong>语言等价</strong>：<br>如果两个文法生成相同的语言，即它们能够生成相同的所有字符串，那么我们说这两个文法是<strong>语言等价</strong>的。</p>
+<p>对于文法 $G_1$ 和 $G_2$，如果 $\mathcal{L}(G_1) &#x3D; \mathcal{L}(G_2)$（其中 $\mathcal{L}(G)$ 表示文法 $G$ 生成的语言），那么它们是语言等价的。</p>
+</li>
+<li><p><strong>推导等价</strong>：<br>两个文法可能有不同的推导方式，但如果它们生成相同的语言，且能够通过等价的推导步骤将一个文法的推导转换为另一个文法的推导，我们也可以认为这两个文法在某种程度上是等价的。通常来说，如果文法 $G_1$ 和 $G_2$ 通过推导能够互相转换，它们也可以被视为等价的。</p>
+</li>
+</ol>
+<p><strong>判断文法是否等价：</strong></p>
+<ul>
+<li><strong>直接比较语言</strong>：通过生成的语言是否相同来判断两个文法是否等价。</li>
+<li><strong>转换法</strong>：通过将一个文法转换为另一个文法的等价形式（例如，转换为简化文法、正规文法等）来判断它们是否等价。</li>
+</ul>
+<p>让我举一个正确的语言等价的文法例子:</p>
+<p>$G_1$:</p>
+<p>$$<br>S \rightarrow aA<br>$$</p>
+<p>$$<br>A \rightarrow aA \mid b<br>$$</p>
+<p>$G_2$:</p>
+<p>$$<br>S \rightarrow a a^* b<br>$$</p>
+<p>这两个文法都生成语言 $L &#x3D; \{a^nb | n \geq 1\}$,即至少包含一个 $a$ 后面跟着一个 $b$ 的所有字符串。<br>我们可以验证:</p>
+<p>$G_1$ 中,第一步必须生成一个 $a$,然后 $A$ 可以生成任意多个 $a$ 最后生成一个 $b$<br>$G_2$ 直接表达了这个语言的形式:一个 $a$ 后面跟着任意多个 $a$ (包括零个),最后是一个 $b$</p>
+<p>这两个文法虽然写法不同,但生成的语言完全相同,所以它们是语言等价的。</p>
+<p>文法等价性通常是通过比较两个文法生成的语言是否相同来判断的。如果两个文法生成的语言相同，则我们认为它们是等价的。</p>
+
                 
               </div>
             
