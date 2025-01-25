@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-24T05:18:15.381Z">
+<meta property="article:modified_time" content="2025-01-25T16:33:05.175Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          34k words
+          37k words
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          287 mins
+          308 mins
         
       </span>
     
@@ -2659,7 +2659,248 @@ a    F
 <p>$$<br>A \to a<br>$$</p>
 <p>下面我们先了解一下文法化简的规范形式。</p>
 <hr>
-<h4 id="4-5-1-Chomsky-Normal-Form"><a href="#4-5-1-Chomsky-Normal-Form" class="headerlink" title="4.5.1 Chomsky Normal Form"></a>4.5.1 Chomsky Normal Form</h4><h4 id="4-5-2-Greibach-Normal-Form"><a href="#4-5-2-Greibach-Normal-Form" class="headerlink" title="4.5.2 Greibach Normal Form"></a>4.5.2 Greibach Normal Form</h4>
+<h4 id="4-5-1-Chomsky-Normal-Form-CNF"><a href="#4-5-1-Chomsky-Normal-Form-CNF" class="headerlink" title="4.5.1 Chomsky Normal Form (CNF)"></a>4.5.1 Chomsky Normal Form (CNF)</h4><p>在形式语言与自动机理论中，<strong>Chomsky Normal Form（CNF）</strong> 是一种用于上下文无关文法（Context-Free Grammar，CFG）标准化的形式。通过将文法转换为 Chomsky 正常形式，很多算法（如 CYK 算法）可以变得更加高效。</p>
+<p><strong>Chomsky Normal Form 的定义:</strong></p>
+<p>一个上下文无关文法 $G &#x3D; (V, \Sigma, R, S)$，其中 $V$ 是非终结符的集合，$\Sigma$ 是终结符的集合，$R$ 是产生式规则的集合，$S$ 是起始符号。若该文法满足以下条件，则称其为 Chomsky Normal Form：</p>
+<ol>
+<li><p>每个产生式 $A \rightarrow \alpha$ 满足以下之一：</p>
+<ul>
+<li>$\alpha$ 是一个终结符，形式为 $A \rightarrow a$，其中 $a \in \Sigma$。</li>
+<li>$\alpha$ 是两个非终结符的串，形式为 $A \rightarrow BC$，其中 $B, C \in V$，并且 $B$ 和 $C$ 不能是起始符号 $S$。</li>
+</ul>
+</li>
+<li><p>如果文法包含空产生式（即 $S \rightarrow \epsilon$），则 $S$ 必须是唯一的起始符号，并且不能出现在右侧的产生式中。</p>
+</li>
+<li><p>如果文法包含单位产生式（即 $A \rightarrow B$），则可以用合适的规则进行替换，消除单位产生式。</p>
+</li>
+</ol>
+<p>假设我们有一个上下文无关文法 $G$，想要将其转换为 Chomsky Normal Form，通常的步骤如下：</p>
+<p><strong>Step 1:</strong> 移除空产生式<br>首先，移除所有的空产生式（即产生式 $A \rightarrow \epsilon$）。如果文法包含这样的产生式，需要适当调整其他产生式，将空产生式的影响消除。</p>
+<p><strong>Step 2:</strong> 移除单位产生式<br>移除所有的单位产生式（即 $A \rightarrow B$ 形式的产生式）。这一步需要通过替换和合并产生式来完成。</p>
+<p><strong>Step 3:</strong> 替换长右边的产生式<br>将所有右边有两个以上符号的产生式替换为符合 CNF 的形式。如果存在一个产生式 $A \rightarrow X_1 X_2 \dots X_n$，其中 $n &gt; 2$，则通过引入新的非终结符逐步将其拆分成二元产生式。</p>
+<p><strong>Step 4:</strong> 替换终结符的混合产生式<br>如果在某个产生式中，右边含有终结符和非终结符混合的情况（例如 $A \rightarrow aB$，其中 $a \in \Sigma$ 且 $B \in V$），则通过引入新的非终结符来替换终结符。</p>
+<p>假设我们有以下文法：</p>
+<ul>
+<li>$S \rightarrow AB \mid a$</li>
+<li>$A \rightarrow SA \mid \epsilon$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+<p>我们将其转换为 Chomsky Normal Form：</p>
+<ol>
+<li><p><strong>移除空产生式</strong>：由于 $A \rightarrow \epsilon$，我们需要将文法中可能依赖 $A$ 的规则调整为不包含 $A$ 的形式。</p>
+<ul>
+<li>$S \rightarrow AB \mid a$ -&gt; $S \rightarrow AB \mid a \mid B$</li>
+<li>$A \rightarrow SA$ -&gt; $A \rightarrow SA \mid S$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+</li>
+<li><p><strong>移除单位产生式</strong>：从 $A \rightarrow S$ 和 $S \rightarrow B$ 可以看出我们有单位产生式。我们将 $A \rightarrow S$ 和 $S \rightarrow B$ 替换成等效的产生式。</p>
+<ul>
+<li>$S \rightarrow AB \mid a \mid b$</li>
+<li>$A \rightarrow AB \mid a$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+</li>
+<li><p><strong>替换长右边的产生式</strong>：没有长右边的产生式，所有产生式都已经是符合 CNF 的。</p>
+</li>
+</ol>
+<p>最终结果可能会是：</p>
+<ul>
+<li>$S \rightarrow AB \mid a \mid b$</li>
+<li>$A \rightarrow AB \mid a$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+<hr>
+<h4 id="4-5-2-Greibach-Normal-Form-GNF"><a href="#4-5-2-Greibach-Normal-Form-GNF" class="headerlink" title="4.5.2 Greibach Normal Form (GNF)"></a>4.5.2 Greibach Normal Form (GNF)</h4><p><strong>Greibach Normal Form（GNF）</strong> 是另一种上下文无关文法（Context-Free Grammar，CFG）的标准形式。与 Chomsky Normal Form 不同，GNF 强调了产生式的结构形式。特别是，每个产生式的右侧必须以一个终结符开始，其后跟随零个或多个非终结符。</p>
+<p><strong>Greibach Normal Form 的定义:</strong></p>
+<p>一个上下文无关文法 $G &#x3D; (V, \Sigma, R, S)$，其中 $V$ 是非终结符的集合，$\Sigma$ 是终结符的集合，$R$ 是产生式规则的集合，$S$ 是起始符号。若该文法满足以下条件，则称其为 Greibach Normal Form：</p>
+<ol>
+<li><p>每个产生式 $A \rightarrow \alpha$ 都是以下形式之一：</p>
+<ul>
+<li>$\alpha$ 以一个终结符开始，形式为 $A \rightarrow a \gamma$，其中 $a \in \Sigma$，且 $\gamma$ 是非终结符的串（包括空串）。</li>
+</ul>
+</li>
+<li><p>文法中的每个产生式右边必须以一个终结符开头，后面可以跟任意数量的非终结符。</p>
+</li>
+</ol>
+<p>与 Chomsky Normal Form 不同，GNF 不要求右边的产生式是二元的，而是要求右边的第一个符号是终结符。</p>
+<p>假设我们有一个上下文无关文法 $G$，想要将其转换为 Greibach Normal Form，通常的步骤如下：</p>
+<p><strong>Step 1:</strong> 移除空产生式<br>首先，移除所有的空产生式（即产生式 $A \rightarrow \epsilon$）。如果文法包含这样的产生式，需要调整文法中的其他产生式，以消除空产生式的影响。</p>
+<p><strong>Step 2:</strong> 移除单位产生式<br>移除所有的单位产生式（即 $A \rightarrow B$ 形式的产生式）。这一步需要通过替换单位产生式来完成。</p>
+<p><strong>Step 3:</strong> 替换长右边的产生式<br>如果产生式的右边有多个符号，则需要通过引入新的非终结符逐步将其转换为以终结符开始的形式。</p>
+<ul>
+<li>例如，如果你有一个产生式 $A \rightarrow X_1 X_2 \dots X_n$，其中 $n &gt; 1$，你需要分解该产生式，使其右边以终结符开始，并且后面跟着非终结符。</li>
+</ul>
+<p><strong>Step 4:</strong> 替换终结符的混合产生式<br>如果产生式的右边包含终结符与非终结符的混合（例如 $A \rightarrow aB$），则需要将终结符与非终结符分离，确保右边的产生式以终结符开头，后面跟随零个或多个非终结符。</p>
+<p>假设我们有以下文法：</p>
+<ul>
+<li>$S \rightarrow AB \mid a$</li>
+<li>$A \rightarrow SA \mid \epsilon$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+<p>我们将其转换为 Greibach Normal Form：</p>
+<ol>
+<li><p><strong>移除空产生式</strong>：首先，移除空产生式 $A \rightarrow \epsilon$，并调整其他规则。</p>
+<ul>
+<li>$S \rightarrow AB \mid a \mid b$</li>
+<li>$A \rightarrow SA \mid S$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+</li>
+<li><p><strong>移除单位产生式</strong>：从 $A \rightarrow S$ 和 $S \rightarrow B$ 可以看出我们有单位产生式。我们将其替换成等效的产生式。</p>
+<ul>
+<li>$S \rightarrow AB \mid a \mid b$</li>
+<li>$A \rightarrow AB \mid a$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+</li>
+<li><p><strong>替换长右边的产生式</strong>：没有长右边的产生式，所有产生式的右边已经以终结符开头。</p>
+</li>
+</ol>
+<p>最终文法可能是：</p>
+<ul>
+<li>$S \rightarrow a \mid b$</li>
+<li>$A \rightarrow aB \mid b$</li>
+<li>$B \rightarrow b$</li>
+</ul>
+<hr>
+<h4 id="4-5-3-CYK算法（Cocke-Younger-Kasami-Algorithm）"><a href="#4-5-3-CYK算法（Cocke-Younger-Kasami-Algorithm）" class="headerlink" title="4.5.3 CYK算法（Cocke-Younger-Kasami Algorithm）"></a>4.5.3 CYK算法（Cocke-Younger-Kasami Algorithm）</h4><p>CYK算法是一种用于上下文无关文法（CFG，Context-Free Grammar）分析的算法，主要用于确定一个给定的字符串是否能被某个上下文无关文法生成。CYK算法基于动态规划思想，通过构造一个三维表格来高效地判断一个字符串是否属于某个上下文无关文法所生成的语言。</p>
+<p>假设我们有一个上下文无关文法 $G &#x3D; (N, \Sigma, P, S)$，其中：</p>
+<ul>
+<li>$N$ 是非终结符的集合，</li>
+<li>$\Sigma$ 是终结符的集合，</li>
+<li>$P$ 是文法规则的集合，</li>
+<li>$S$ 是起始符号。</li>
+</ul>
+<p>给定一个字符串 $w &#x3D; w_1 w_2 \dots w_n$（长度为 $n$），我们通过 CYK 算法来判断 $w$ 是否能通过文法 $G$ 生成。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li><p><strong>构造三维表格：</strong>  创建一个三维表格 $T$，其中 $T[i,j]$ 表示字符串 $w_i, w_{i+1}, \dots, w_j$（从第 $i$ 个字符到第 $j$ 个字符）是否可以由某个非终结符生成。表格的大小为 $n \times n$，其中 $n$ 是输入字符串的长度。每个表格项 $T[i,j]$ 都会包含一些非终结符，表示该子字符串可以由哪些非终结符生成。</p>
+</li>
+<li><p><strong>初始化：</strong>  对于长度为 1 的子串（即单个字符），检查该字符是否是文法中的终结符。如果是，填充对应的非终结符。</p>
+</li>
+</ol>
+<ul>
+<li>比如，对于每个 $w_i \in \Sigma$，我们查找规则 $A \to w_i$，如果存在，将 $A$ 加入到 $T[i,i]$ 中。</li>
+</ul>
+<ol start="3">
+<li><p><strong>填充表格：</strong>  对于长度大于 1 的子串，遍历所有可能的分割点 $k$（从 1 到 $n-1$），并检查是否可以通过文法规则将其分割为两个子串。对于每一对非终结符 $A \to BC$，如果 $B$ 能生成左边的子串（即 $T[i,k]$），$C$ 能生成右边的子串（即 $T[k+1,j]$），则将 $A$ 加入 $T[i,j]$。</p>
+</li>
+<li><p><strong>终止条件：</strong>  最终，检查起始符号 $S$ 是否在 $T[1,n]$ 中。如果是，说明字符串 $w$ 可以由文法 $G$ 生成；否则不能。</p>
+</li>
+</ol>
+<p>CYK算法的时间复杂度为 $O(n^3 \cdot |G|)$，其中：</p>
+<ul>
+<li>$n$ 是输入字符串的长度，</li>
+<li>$|G|$ 是文法规则的数量。</li>
+</ul>
+<hr>
+<p>举个例子，给定一个乔姆斯基范式的上下文无关文法：</p>
+<p>$$G &#x3D; ({S, A, B, C}, {a, b}, S, P)$$</p>
+<p>其中规则 $P$ 如下：</p>
+<p>$S \to AB \mid BC$</p>
+<p>$A \to BA \mid a$</p>
+<p>$B \to CC \mid b$</p>
+<p>$C \to AB \mid a$</p>
+<p>问题：字符串 <code>bbabaa</code> 能不能通过该文法产生？</p>
+<p>我们使用 CYK 算法来解决这个问题，CYK 算法通过构建一个表格来判断每个子串能由哪些非终结符生成。表格的第 $i$ 列和第 $j$ 行表示由哪些非终结符可以生成字字符串 $\sigma_i \dots \sigma_j$。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>i</strong></td>
+<td>a</td>
+<td>b</td>
+<td>b</td>
+<td>a</td>
+<td>b</td>
+<td>a</td>
+</tr>
+<tr>
+<td><strong>j&#x3D;1</strong></td>
+<td>{$B$}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>j&#x3D;2</strong></td>
+<td></td>
+<td>{$B$}</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>j&#x3D;3</strong></td>
+<td>{$A$}</td>
+<td>{$S, A$}</td>
+<td>{$A, C$}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>j&#x3D;4</strong></td>
+<td>{$S, C$}</td>
+<td>{$S, C$}</td>
+<td>{$S, C$}</td>
+<td>{$B$}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>j&#x3D;5</strong></td>
+<td>{$B$}</td>
+<td>{$B$}</td>
+<td>{$B$}</td>
+<td>{$A, S$}</td>
+<td>{$A, C$}</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>j&#x3D;6</strong></td>
+<td>{$A, S$}</td>
+<td>{$A, S$}</td>
+<td>{$A, S$}</td>
+<td></td>
+<td>{$B$}</td>
+<td>{$A, C$}</td>
+</tr>
+</tbody></table>
+<p><strong>判断过程如下：</strong></p>
+<ul>
+<li><p><strong>初始化</strong>：对于每个字符 $w_i$（即 $a$, $b$ 等），填充对应的非终结符。</p>
+<ul>
+<li>对于 $w_1 &#x3D; b$，由规则 $B \to b$，填充 $T[1, 1] &#x3D; {B}$。</li>
+<li>对于 $w_2 &#x3D; b$，同理填充 $T[2, 2] &#x3D; {B}$。</li>
+<li>以此类推，对于其他字符填充。</li>
+</ul>
+</li>
+<li><p><strong>递推填充</strong>：根据文法规则检查可能的组合，填充表格中的其他位置。例如：</p>
+<ul>
+<li>$T[3, 3]$ 可以通过 $A \to a$ 填充为 ${A}$。</li>
+<li>$T[2, 3]$ 可以通过 $S \to AB$ 或 $A \to BA$ 填充为 ${S, A}$ 和 ${A, C}$。</li>
+<li>如此继续填充整个表格。</li>
+</ul>
+</li>
+<li><p><strong>终止条件</strong>：最终检查 $T[1, 6]$ 是否包含文法的起始符号 $S$。如果包含，则说明该字符串可以由该文法生成。</p>
+</li>
+</ul>
+<p>由于 $T[1, 6]$ 中包含了文法的起始符号 $S$，我们可以得出结论：<strong>字符串 <code>bbabaa</code> 能由文法 $G$ 生成</strong>。</p>
+
                 
               </div>
             
