@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-25T16:47:27.485Z">
+<meta property="article:modified_time" content="2025-01-25T16:53:05.290Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -2884,15 +2884,15 @@ a    F
 <ul>
 <li><p><strong>初始化</strong>：对于每个字符 $w_i$（即 $a$, $b$ 等），填充对应的非终结符。</p>
 <ul>
-<li>对于 $w_1 &#x3D; b$，由规则 $B \to b$，填充 $T[1, 1] &#x3D; {B}$。</li>
-<li>对于 $w_2 &#x3D; b$，同理填充 $T[2, 2] &#x3D; {B}$。</li>
+<li>对于 $w_1 &#x3D; b$，由规则 $B \to b$，填充 $T[1, 1] &#x3D; \{B\}$。</li>
+<li>对于 $w_2 &#x3D; b$，同理填充 $T[2, 2] &#x3D; \{B\}$。</li>
 <li>以此类推，对于其他字符填充。</li>
 </ul>
 </li>
 <li><p><strong>递推填充</strong>：根据文法规则检查可能的组合，填充表格中的其他位置。例如：</p>
 <ul>
-<li>$T[3, 3]$ 可以通过 $A \to a$ 填充为 ${A}$。</li>
-<li>$T[2, 3]$ 可以通过 $S \to AB$ 或 $A \to BA$ 填充为 ${S, A}$ 和 ${A, C}$。</li>
+<li>$T[3, 3]$ 可以通过 $A \to a$ 填充为 $\{A\}$。</li>
+<li>$T[2, 3]$ 可以通过 $S \to AB$ 或 $A \to BA$ 填充为 $\{S, A\}$ 和 $\{A, C\}$。</li>
 <li>如此继续填充整个表格。</li>
 </ul>
 </li>
