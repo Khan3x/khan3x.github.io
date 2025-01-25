@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-25T16:33:05.175Z">
+<meta property="article:modified_time" content="2025-01-25T16:47:27.485Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37k words
+          38k words
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          308 mins
+          316 mins
         
       </span>
     
@@ -2900,6 +2900,74 @@ a    F
 </li>
 </ul>
 <p>由于 $T[1, 6]$ 中包含了文法的起始符号 $S$，我们可以得出结论：<strong>字符串 <code>bbabaa</code> 能由文法 $G$ 生成</strong>。</p>
+<h2 id="5-Pushdown-Automata"><a href="#5-Pushdown-Automata" class="headerlink" title="5. Pushdown Automata"></a>5. Pushdown Automata</h2><p>Pushdown Automata（PDA）是自动机的一种，它扩展了有限自动机（Finite Automaton, FA）的能力，引入了一个堆栈（Stack）作为额外的存储结构。PDA 特别适用于处理上下文无关语言（Context-Free Languages, CFLs），因为它能够在解析过程中记住之前的状态。</p>
+<p>一个 Pushdown Automaton 可以通过五元组来表示：</p>
+<p>$$PDA &#x3D; (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$$</p>
+<p>其中：</p>
+<ul>
+<li>$Q$：状态集合，表示 PDA 的所有可能状态。</li>
+<li>$\Sigma$：输入字母表（也叫终结符）。</li>
+<li>$\Gamma$：堆栈字母表，表示堆栈中可能的符号。</li>
+<li>$\delta$：转移函数，定义了 PDA 在特定状态下如何根据输入符号和堆栈顶部符号转移到新的状态，以及如何改变堆栈的内容。</li>
+<li>$q_0$：初始状态，表示 PDA 开始的状态。</li>
+<li>$Z_0$：堆栈初始符号，通常是一个特殊的符号，用于标记堆栈的底部。</li>
+<li>$F$：接受状态的集合，PDA 只有进入一个接受状态时，才表示输入字符串被接受。</li>
+</ul>
+<p>PDA 的工作过程可以简单描述为以下步骤：</p>
+<ol>
+<li><p><strong>状态转移</strong>：PDA 根据当前状态、读取到的输入符号和堆栈顶部的符号来决定下一步的动作。PDA 的转移函数 $\delta$ 通常具有三个参数：</p>
+<ul>
+<li>当前状态 $q$。</li>
+<li>当前输入符号 $a$，如果当前没有输入符号可读取，则为空（即 $\epsilon$）。</li>
+<li>堆栈顶部符号 $X$，也可以是空的（即 $\epsilon$）。</li>
+</ul>
+<p>然后，PDA 会根据转移函数 $\delta$ 定义的规则来决定：</p>
+<ul>
+<li>转移到一个新状态。</li>
+<li>改变堆栈的内容（压入或弹出符号）。</li>
+</ul>
+</li>
+<li><p><strong>堆栈操作</strong>：堆栈是 PDA 的一个关键特性。它允许自动机记住状态信息，处理递归或嵌套结构（如括号匹配、算数表达式的解析等）。堆栈的操作包括：</p>
+<ul>
+<li><strong>Push</strong>：将一个符号压入堆栈。</li>
+<li><strong>Pop</strong>：将堆栈顶部的符号弹出。</li>
+<li><strong>No operation (NOP)</strong> ：不对堆栈进行任何操作。</li>
+</ul>
+</li>
+<li><p><strong>接受条件</strong>：PDA 的接受有两种方式：</p>
+<ul>
+<li><strong>接受状态</strong>：当 PDA 进入一个接受状态 $q_f \in F$ 并且输入已经完全读取时，表示接受输入字符串。</li>
+<li><strong>空堆栈</strong>：当 PDA 的堆栈为空且已经完全读取输入时，也可以接受输入字符串。</li>
+</ul>
+</li>
+</ol>
+<p>PDA 的重要特性是能够接受上下文无关语言。上下文无关语言（CFL）是指可以通过上下文无关文法（CFG）生成的语言。而 PDA 可以通过其堆栈的机制来模拟 CFG 生成语言的过程。</p>
+<p>举一个简单的例子，考虑一个上下文无关文法生成的语言：</p>
+<p>$$L &#x3D; \{ a^n b^n \mid n \geq 0 \}$$</p>
+<p>这个语言由所有长度相等的由 $a$ 和 $b$ 组成的字符串组成。PDA 可以通过以下方式接受该语言：</p>
+<ul>
+<li>初始时，PDA 的堆栈为空。</li>
+<li>每读取一个 $a$，PDA 就将一个符号（例如 $A$）压入堆栈。</li>
+<li>每读取一个 $b$，PDA 就从堆栈中弹出一个符号。</li>
+<li>如果堆栈最终为空，并且没有更多输入字符，则接受输入。</li>
+</ul>
+<p>考虑一个简单的 NPDA 来接受语言 $L &#x3D; \{a^n b^n \mid n \geq 0 \}$：</p>
+<ul>
+<li>状态集合 $Q &#x3D; \{q_0, q_1, q_f\}$</li>
+<li>输入字母表 $\Sigma &#x3D; \{a, b\}$</li>
+<li>堆栈字母表 $\Gamma &#x3D; \{A, Z_0\}$（$Z_0$ 为堆栈底部符号）</li>
+<li>初始状态 $q_0$</li>
+<li>初始堆栈符号 $Z_0$</li>
+<li>接受状态 $F &#x3D; \{q_f\}$</li>
+<li>转移函数：<ul>
+<li>$\delta(q_0, a, Z_0) &#x3D; (q_0, A Z_0)$（读取 $a$ 时，将 $A$ 压入堆栈）</li>
+<li>$\delta(q_0, a, A) &#x3D; (q_0, AA)$（读取 $a$ 时，将 $A$ 压入堆栈）</li>
+<li>$\delta(q_0, b, A) &#x3D; (q_0, \epsilon)$（读取 $b$ 时，从堆栈弹出 $A$）</li>
+<li>$\delta(q_0, \epsilon, Z_0) &#x3D; (q_f, Z_0)$（当堆栈为空时，进入接受状态）</li>
+</ul>
+</li>
+</ul>
+<p>Pushdown Automaton（PDA）是一种能够处理上下文无关语言的计算模型，它通过引入堆栈这一额外存储结构来增强有限自动机的能力。PDA 的应用广泛，包括编译器中的语法分析、程序解析以及一些递归语言的处理。它可以分为确定性 PDA（DPDA）和非确定性 PDA（NPDA），其中非确定性 PDA 是最强大的，能够处理所有的上下文无关语言。</p>
 
                 
               </div>
