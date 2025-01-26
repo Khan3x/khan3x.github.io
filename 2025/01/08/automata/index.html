@@ -33,8 +33,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pda.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/FL/relation.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-26T11:59:10.787Z">
+<meta property="article:modified_time" content="2025-01-26T15:40:22.312Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -238,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          42k words
+          44k words
         
       </span>
     
@@ -249,7 +250,7 @@
         
         
         
-          353 mins
+          367 mins
         
       </span>
     
@@ -3215,6 +3216,85 @@ a    F
 <td>终态接受、空栈接受</td>
 </tr>
 </tbody></table>
+<hr>
+<h3 id="5-5-正则语言与DPDA"><a href="#5-5-正则语言与DPDA" class="headerlink" title="5.5 正则语言与DPDA"></a>5.5 正则语言与DPDA</h3><ul>
+<li><p><strong>正则语言</strong>（Regular Languages）是最简单的语言类别，可以通过有限自动机（DFA 或 NFA）来接受，也可以通过正则表达式来描述。正则语言的特点是它们的结构非常简单，不需要栈来存储额外的信息，自动机可以在处理时通过状态转移来完成任务。</p>
+</li>
+<li><p><strong>上下文无关语言</strong>（Context-Free Languages，简称 CFLs）是比正则语言更复杂的语言类别。它们可以通过上下文无关文法（CFG）来定义，并且通常需要栈来存储和操作语法信息。上下文无关语言的典型代表就是编程语言中的语法结构，如表达式解析、函数调用等。</p>
+</li>
+<li><p><strong>DPDA</strong>（Deterministic Pushdown Automaton，确定性下推自动机）是一种具有栈的自动机，用于接受上下文无关语言。DPDA 是 PDA（下推自动机）的一种特殊形式，区别在于 DPDA 的转移是<strong>确定性的</strong>，即在每一个状态和栈顶符号以及输入符号的组合下，DPDA 的行为是唯一的。</p>
+</li>
+</ul>
+<p>正则语言比上下文无关语言简单，通常不需要栈来处理。例如，正则语言可以通过 DFA 或 NFA 来接受，利用有限的状态和简单的转移规则即可完成。</p>
+<ul>
+<li><strong>正则语言</strong> 是上下文无关语言的子集，这意味着每个正则语言都可以是上下文无关的。</li>
+<li>因为 <strong>DPDA</strong> 用来接受上下文无关语言，所以它能够接受所有的正则语言。实际上，正则语言的结构不需要栈，因此我们可以认为 <strong>DPDA</strong> 接受正则语言时，栈是“过度”的，它实际上不需要使用栈来完成这个任务。</li>
+</ul>
+<p><strong>为什么 DPDA 可以接受正则语言？</strong></p>
+<ul>
+<li><strong>有限自动机</strong>（DFA 和 NFA）是最简单的自动机，它们仅使用状态来处理输入，而不需要栈。这些自动机能够接受正则语言。</li>
+<li><strong>DPDA</strong> 比 DFA 更强大，因为它有栈可以使用。然而，对于正则语言来说，栈并没有实际的用途。DPDA 在接受正则语言时，仅仅依赖状态转移，而栈并没有被利用。因此，虽然正则语言可以被 DFA 接受，DPDA 也能接受它们，但 <strong>DPDA 是过度使用栈的</strong>，因为它实际上不需要栈的帮助。</li>
+</ul>
+<p>总结：所有的 <strong>正则语言</strong> 都可以通过 <strong>DPDA</strong> 接受。对于正则语言来说，DPDA 不必使用栈，DPDA 是一种比 DFA 更强的模型，但它的栈功能在正则语言中是多余的。</p>
+<p><strong>DPDA 的限制</strong></p>
+<p>虽然 DPDA 可以接受 <strong>确定性上下文无关语言</strong>，但它的能力比一般的 PDA 强度要小。一个普通的 PDA 可以接受 <strong>所有的上下文无关语言</strong>（CFLs），而 DPDA 只能接受其中的一部分，通常是那些 <strong>结构较为简单且具有确定性的</strong> 上下文无关语言。某些上下文无关语言，由于它们的结构过于复杂，DPDA 无法接受。</p>
+<ul>
+<li><strong>正则语言</strong> 是 <strong>最简单</strong> 的语言，可以通过 <strong>有限自动机（DFA）</strong> 来接受。由于正则语言的简单性，<strong>DPDA</strong> 可以接受这些语言，但它的栈功能并没有被实际利用。</li>
+<li><strong>DPDA</strong> 能接受 <strong>所有正则语言</strong>，但它的能力不仅仅局限于此，DPDA 可以接受一些更复杂的语言——<strong>确定性上下文无关语言</strong>（D-CFLs）。</li>
+<li><strong>DPDA</strong> 不能接受 <strong>所有的上下文无关语言</strong>，它只能接受 <strong>确定性上下文无关语言</strong>。对于那些复杂的上下文无关语言，特别是需要非确定性栈操作的语言，DPDA 无法接受。</li>
+</ul>
+<p><strong>总结</strong>：正则语言可以被 <strong>DPDA</strong> 接受，因为正则语言的结构不需要栈，DPDA 的能力足以接受正则语言。然而，DPDA 并不只接受正则语言，它也可以接受一些更复杂的语言，但它的能力是有局限的，不能接受所有的上下文无关语言。</p>
+<hr>
+<h3 id="5-6-语言类的关系"><a href="#5-6-语言类的关系" class="headerlink" title="5.6 语言类的关系"></a>5.6 语言类的关系</h3><p><strong>全语言（Recursively Enumerable Languages，RE）</strong>，也叫做 <strong>递归可枚举语言（RE）</strong>，是形式语言理论中的一个非常宽泛的类别，几乎包含了所有可以被某种计算模型识别的语言。它是语言类中最广泛的一类。全语言包含了所有可以被 <strong>图灵机</strong> 识别的语言。（后面章节讲解）</p>
+<p>在形式语言的分类中，语言类之间的关系可以通过包含关系来描述。具体来说：</p>
+<ul>
+<li><strong>正则语言（Regular Languages）</strong> 是最简单的语言类，所有正则语言都是上下文无关语言（CFL）的子集。正则语言不能表示复杂的嵌套结构。</li>
+<li><strong>上下文无关语言（CFL）</strong> 比正则语言更复杂，可以表示更多的语言结构。</li>
+<li><strong>确定性上下文无关语言（DCFL）</strong> 是上下文无关语言的一个子集。并非所有上下文无关语言都是确定性上下文无关语言。</li>
+<li><strong>全语言（RE）</strong> 是最广泛的语言类，包含了所有可以由图灵机识别的语言。它包含了上下文无关语言、正则语言等，但并不要求这些语言能够被判定。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>语言类别</th>
+<th>特征</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>全语言（RE）</strong></td>
+<td>包含所有递归可枚举语言，可以被图灵机识别，但不一定是可判定的。</td>
+<td>所有能够通过图灵机识别的语言。</td>
+</tr>
+<tr>
+<td><strong>上下文无关语言（CFL）</strong></td>
+<td>可以由上下文无关文法（CFG）生成，可以通过 PDA 识别。</td>
+<td>括号匹配，$a^n b^n$， $S \to aSb | \varepsilon$</td>
+</tr>
+<tr>
+<td><strong>确定性上下文无关语言（DCFL）</strong></td>
+<td>可以由确定性下推自动机（DPDA）识别，是 CFL 的子集。</td>
+<td>$a^n b^n$，$a^n b^n c^n$（非确定性上下文无关语言）</td>
+</tr>
+<tr>
+<td><strong>正则语言（Regular Languages）</strong></td>
+<td>可以由有限自动机（DFA 或 NFA）识别，最简单的语言。</td>
+<td>$a^n b^n$，正则表达式 $a^* b^*$</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>正则语言</strong> 是 <strong>最简单</strong> 的语言，可以通过 <strong>有限自动机（DFA）</strong> 来接受。由于正则语言的简单性，<strong>DPDA</strong> 可以接受这些语言，但它的栈功能并没有被实际利用。</li>
+<li><strong>上下文无关语言</strong> 比正则语言更复杂，可以表示更多的语言结构。</li>
+<li><strong>确定性上下文无关语言</strong> 是上下文无关语言的一部分，它们比一般的上下文无关语言更容易处理。</li>
+<li><strong>全语言</strong> 是最广泛的语言类，包含了所有可以由图灵机识别的语言。</li>
+</ul>
+<center>
+<img src="/img/FL/relation.svg" srcset="/img/loading.gif" lazyload alt="语言类之间的关系" style="max-width: 100%; height: auto;" />
+</center>
+
+
+
+
 
                 
               </div>
