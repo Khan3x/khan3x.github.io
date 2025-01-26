@@ -32,8 +32,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/nfa3.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/FL/pda.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-26T05:15:53.279Z">
+<meta property="article:modified_time" content="2025-01-26T11:20:39.817Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -1279,7 +1280,7 @@
 
 
 
-<h2 id="3-Regular-Langauge"><a href="#3-Regular-Langauge" class="headerlink" title="3. Regular Langauge"></a>3. Regular Langauge</h2><p><strong>正则语言 (Regular Language)</strong> 是形式语言理论中的一个重要概念，通常与有限自动机（Finite Automata, FA）和正则表达式（Regular Expressions, RE）相关联。正则语言是可以被有限自动机识别或由正则表达式描述的语言。它们的特点是相对简单，能够用有限的计算资源进行识别或生成。</p>
+<h2 id="3-Regular-Language"><a href="#3-Regular-Language" class="headerlink" title="3. Regular Language"></a>3. Regular Language</h2><p><strong>正则语言 (Regular Language)</strong> 是形式语言理论中的一个重要概念，通常与有限自动机（Finite Automata, FA）和正则表达式（Regular Expressions, RE）相关联。正则语言是可以被有限自动机识别或由正则表达式描述的语言。它们的特点是相对简单，能够用有限的计算资源进行识别或生成。</p>
 <p>形式化地，正则语言是一个语言集合，满足以下条件之一：</p>
 <ul>
 <li>它可以被一个<strong>有限自动机</strong>识别。</li>
@@ -2967,6 +2968,10 @@ a    F
 </ul>
 </li>
 </ul>
+<center>
+<img src="/img/FL/pda.svg" srcset="/img/loading.gif" lazyload alt="PDA状态转移" style="max-width: 100%; height: auto;" />
+</center>
+
 <p>Pushdown Automaton（PDA）是一种能够处理上下文无关语言的计算模型，它通过引入堆栈这一额外存储结构来增强有限自动机的能力。PDA 的应用广泛，包括编译器中的语法分析、程序解析以及一些递归语言的处理。它可以分为确定性 PDA（DPDA）和非确定性 PDA（NPDA），其中非确定性 PDA 是最强大的，能够处理所有的上下文无关语言。</p>
 <h3 id="5-1-PDA的状态转移"><a href="#5-1-PDA的状态转移" class="headerlink" title="5.1 PDA的状态转移"></a>5.1 PDA的状态转移</h3><p>PDA 的状态转移函数 <strong>δ</strong> 描述了在特定的输入符号和栈顶符号下，PDA 会如何进行状态转移，以及是否需要对栈进行操作。它可以表示为：<br>$$<br>\delta(q, a, X) &#x3D; \{(p, \gamma)\}<br>$$<br>其中：</p>
 <ul>
