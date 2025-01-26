@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/state_elimation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-25T16:53:05.290Z">
+<meta property="article:modified_time" content="2025-01-26T05:15:53.279Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          38k words
+          39k words
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          316 mins
+          322 mins
         
       </span>
     
@@ -2892,7 +2892,7 @@ a    F
 <li><p><strong>递推填充</strong>：根据文法规则检查可能的组合，填充表格中的其他位置。例如：</p>
 <ul>
 <li>$T[3, 3]$ 可以通过 $A \to a$ 填充为 $\{A\}$。</li>
-<li>$T[2, 3]$ 可以通过 $S \to AB$ 或 $A \to BA$ 填充为 $\{S, A\}$ 和 $\{A, C\}$。</li>
+<li>$T[2, 3]$ 可以通过 $S \to BC$ 或 $A \to BA$ 填充为 $\{S, A\}$ </li>
 <li>如此继续填充整个表格。</li>
 </ul>
 </li>
@@ -2968,6 +2968,39 @@ a    F
 </li>
 </ul>
 <p>Pushdown Automaton（PDA）是一种能够处理上下文无关语言的计算模型，它通过引入堆栈这一额外存储结构来增强有限自动机的能力。PDA 的应用广泛，包括编译器中的语法分析、程序解析以及一些递归语言的处理。它可以分为确定性 PDA（DPDA）和非确定性 PDA（NPDA），其中非确定性 PDA 是最强大的，能够处理所有的上下文无关语言。</p>
+<h3 id="5-1-PDA的状态转移"><a href="#5-1-PDA的状态转移" class="headerlink" title="5.1 PDA的状态转移"></a>5.1 PDA的状态转移</h3><p>PDA 的状态转移函数 <strong>δ</strong> 描述了在特定的输入符号和栈顶符号下，PDA 会如何进行状态转移，以及是否需要对栈进行操作。它可以表示为：<br>$$<br>\delta(q, a, X) &#x3D; \{(p, \gamma)\}<br>$$<br>其中：</p>
+<ul>
+<li>$q$ 是当前状态。</li>
+<li>$a$ 是当前的输入符号（如果为空，则是ε，表示没有输入）。</li>
+<li>$X$ 是栈顶符号。</li>
+<li>$p$ 是转移后的状态。</li>
+<li>$\gamma$是栈操作，表示栈顶符号 <strong>X</strong> 被替换为字符串 $\gamma$（也可以是空字符串，表示栈顶符号被弹出）。</li>
+</ul>
+<p>PDA 的状态转移不仅可以改变自动机的状态，还可以对栈进行操作。栈操作有以下几种形式：</p>
+<ul>
+<li><strong>推入（Push）</strong>：将一个符号压入栈中。</li>
+<li><strong>弹出（Pop）</strong>：从栈顶移除一个符号。</li>
+<li><strong>保持不变</strong>：栈顶符号不发生变化。</li>
+</ul>
+<p>例如，假设当前的状态为 <strong>q₀</strong>，栈顶符号为 <strong>X</strong>，输入符号为 <strong>a</strong>，PDA 的状态转移规则可能是：</p>
+<ul>
+<li>$\delta(q₀, a, X) &#x3D; \{(q₁, YX)\}$，表示如果处于状态 <strong>q₀</strong>，读入符号 <strong>a</strong>，栈顶为 <strong>X</strong>，那么自动机转移到状态 <strong>q₁</strong>，并将 <strong>Y</strong> 压入栈顶，原有的 <strong>X</strong> 保留在栈中。</li>
+<li>$\delta(q₀, \epsilon, X) &#x3D; \{(q₁, \epsilon)\}$，表示如果当前没有输入符号（<strong>ε</strong>），且栈顶是 <strong>X</strong>，自动机转移到状态 <strong>q₁</strong>，并弹出栈顶的符号 <strong>X</strong>。</li>
+</ul>
+<p>假设我们有一个 PDA，它的任务是接受语言 $L &#x3D; \{a^n b^n | n \geq 0\}$（即由相同数量的 <strong>a</strong> 和 <strong>b</strong> 组成的字符串）。该 PDA 可以通过以下状态转移来工作：</p>
+<ol>
+<li>初始状态 <strong>q₀</strong>，栈为空，读取到 <strong>a</strong> 时，PDA 将 <strong>a</strong> 推入栈中。</li>
+<li>当 PDA 读取到 <strong>b</strong> 时，它会与栈顶的 <strong>a</strong> 配对，弹出一个 <strong>a</strong>。</li>
+<li>如果字符串中的 <strong>a</strong> 和 <strong>b</strong> 数量相等，栈会空，自动机转到接受状态 <strong>q₁</strong>。</li>
+</ol>
+<p>具体的转移规则可能是：</p>
+<ul>
+<li>$\delta(q₀, a, \epsilon) &#x3D; \{(q₀, a)\}$，即在状态 <strong>q₀</strong>，读取 <strong>a</strong>，将 <strong>a</strong> 压入栈中。</li>
+<li>$\delta(q₀, b, a) &#x3D; \{(q₀, \epsilon)\}$，即在状态 <strong>q₀</strong>，读取 <strong>b</strong>，弹出栈顶的 <strong>a</strong>。</li>
+<li>$\delta(q₀, \epsilon, \epsilon) &#x3D; \{(q₁, \epsilon)\}$，当输入读完且栈为空时，转移到接受状态 <strong>q₁</strong>。</li>
+</ul>
+<p>通过这种方式，PDA 使用栈来“记住”输入中的 <strong>a</strong>，并在读取到 <strong>b</strong> 时进行配对，从而确保 <strong>a</strong> 和 <strong>b</strong> 的数量相等。</p>
+<p>PDA 的状态转移是由当前状态、输入符号和栈顶符号决定的，它允许自动机在每个转移步骤中操作栈，进而能够处理更复杂的语言，如上下文无关语言。通过推入和弹出栈顶符号，PDA 可以模拟许多计算过程，例如平衡括号或匹配括号对等任务。</p>
 
                 
               </div>
