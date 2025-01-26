@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pda.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/relation.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-26T15:40:22.312Z">
+<meta property="article:modified_time" content="2025-01-26T17:09:50.954Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44k words
+          50k words
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          367 mins
+          419 mins
         
       </span>
     
@@ -2895,13 +2895,376 @@ a    F
 <ul>
 <li>$T[3, 3]$ 可以通过 $A \to a$ 填充为 $\{A\}$。</li>
 <li>$T[2, 3]$ 可以通过 $S \to BC$ 或 $A \to BA$ 填充为 $\{S, A\}$ </li>
-<li>如此继续填充整个表格。</li>
+<li>如此继续填充整个表格。(比如生成<code>bba</code>这样的子串，那么就要考虑<code>b + ba</code> 或者<code>bb+a</code>这样的派生)</li>
 </ul>
 </li>
 <li><p><strong>终止条件</strong>：最终检查 $T[1, 6]$ 是否包含文法的起始符号 $S$。如果包含，则说明该字符串可以由该文法生成。</p>
 </li>
 </ul>
 <p>由于 $T[1, 6]$ 中包含了文法的起始符号 $S$，我们可以得出结论：<strong>字符串 <code>bbabaa</code> 能由文法 $G$ 生成</strong>。</p>
+<hr>
+<h3 id="4-6-Pumping-Lemma-for-CFLs"><a href="#4-6-Pumping-Lemma-for-CFLs" class="headerlink" title="4.6 Pumping Lemma for CFLs"></a>4.6 Pumping Lemma for CFLs</h3><p>上下文无关语言（CFL）的泵引理指出，对于任何上下文无关语言 $L$，如果 $L$ 是无限的，那么存在一个常数 $p$（泵长），使得对于所有长度大于等于 $p$ 的字符串 $s \in L$，$s$ 可以分解为五个部分 $s &#x3D; uvwxy$，满足以下条件：</p>
+<ol>
+<li>对于所有 $i \geq 0$，$uv^i w x^i y \in L$。</li>
+<li>$|v| + |x| &gt; 0$ （也就是说，$v$ 和 $x$ 不全为空）。</li>
+<li>$|vwx| \leq p$ （即 $v$ 和 $x$ 的长度加起来不能超过泵长 $p$）。</li>
+</ol>
+<p>我们假设 $L$ 是一个无限的上下文无关语言。由于 $L$ 是上下文无关语言，根据上下文无关文法的结构特性，它对应着一个下推自动机（PDA）。这个 PDA 需要满足一个条件：它可以“泵”字符串，即通过重复某些部分的字符串仍然保持在语言 $L$ 中。</p>
+<p>根据泵引理的假设，存在一个泵长 $p$，使得对于所有长度大于等于 $p$ 的字符串 $s \in L$，该字符串 $s$ 可以分解为 $s &#x3D; uvwxy$，且满足以下条件：</p>
+<ul>
+<li>$|vwx| \leq p$。</li>
+<li>$|v| + |x| &gt; 0$。</li>
+</ul>
+<p>上下文无关语言可以通过上下文无关文法（CFG）生成，也可以通过下推自动机（PDA）来接受。我们利用这些结构来展示泵引理。</p>
+<ul>
+<li>对于一个长度大于等于 $p$ 的字符串 $s \in L$，它一定可以通过上下文无关文法的推导生成。</li>
+<li>由于 $L$ 是无限的，存在某些部分的推导树，可以分解成五个部分 $uvwxy$，其中：<ul>
+<li>$v$ 和 $x$ 是可以被“泵”重复的部分。</li>
+<li>$v$ 和 $x$ 的长度总和不超过 $p$。</li>
+<li>这意味着，对于某些合适的 $i$，$v$ 和 $x$ 可以重复而不破坏语言的结构。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这里的证明也会用到Pigeonhole Principal，就不细讲了</p>
+</blockquote>
+<p>根据上下文无关语言的结构，字符串 $s$ 可以分解为 $s &#x3D; uvwxy$，且满足以下条件：</p>
+<ul>
+<li>$|vwx| \leq p$，这意味着 $v$ 和 $x$ 的总长度不会超过泵长 $p$，它们的长度是有限的。</li>
+<li>$|v| + |x| &gt; 0$，这表示 $v$ 和 $x$ 不能同时为空。</li>
+</ul>
+<p>通过泵引理，我们知道，如果我们“泵”字符串 $s$ 中的部分 $v$ 和 $x$，即重复它们的次数，则得到的新字符串 $uv^i w x^i y$ 仍然属于语言 $L$，对于所有 $i \geq 0$。</p>
+<p>根据泵引理的假设，对于所有 $i \geq 0$，$uv^i w x^i y \in L$。这意味着，通过增加 $v$ 和 $x$ 部分的数量，字符串依然保持在语言 $L$ 中。</p>
+<p>该过程的关键在于，通过适当的分解和“泵”操作，语言的结构保持不变，因此可以通过上下文无关文法或下推自动机接受。</p>
+<p>通过泵引理，我们可以证明某些语言不是上下文无关语言。例如，反证法通常用于证明一个语言不符合上下文无关语言的要求。通过选择一个合适的字符串，并假设它满足泵引理的条件，我们可以展示某些操作导致字符串不再属于该语言，从而得出该语言不是上下文无关语言的结论。</p>
+<hr>
+<p>通过泵引理，我们可以用反证法证明某些语言不是上下文无关语言。假设我们要证明某个语言 $L$ 不是上下文无关语言，通常通过以下步骤：</p>
+<ol>
+<li>假设 $L$ 是上下文无关语言，并假设它满足泵引理。</li>
+<li>选择一个字符串 $s \in L$，其长度大于等于泵长 $p$，然后将其分解为 $s &#x3D; uvwxy$，并使用泵引理。</li>
+<li>展开 $uv^i w x^i y$ 并证明对于某些值的 $i$，$uv^i w x^i y$ 不属于 $L$，从而得出矛盾。</li>
+<li>由此得出结论，$L$ 不是上下文无关语言。</li>
+</ol>
+<p>例子：证明 $L &#x3D; \{ a^n b^n c^n \mid n \geq 0 \}$ 不是上下文无关语言</p>
+<p>我们使用上下文无关语言的泵引理来证明 $L &#x3D; \{ a^n b^n c^n \mid n \geq 0 \}$ 不是上下文无关语言。</p>
+<ol>
+<li><p><strong>假设 $L$ 是上下文无关语言：</strong><br>假设 $L$ 是上下文无关语言，且存在泵长 $p$。根据泵引理，任何长度大于或等于 $p$ 的字符串 $s$ 都可以分解为 $s &#x3D; uvwxy$，其中 $|vwx| \leq p$ 且 $|v| + |x| &gt; 0$。</p>
+</li>
+<li><p><strong>选择字符串 $s &#x3D; a^p b^p c^p$：</strong><br>选择字符串 $s &#x3D; a^p b^p c^p$，它显然属于语言 $L$，并且 $|s| &#x3D; 3p \geq p$。</p>
+</li>
+<li><p><strong>分解字符串 $s$：</strong><br>根据泵引理，$s &#x3D; uvwxy$，其中 $|vwx| \leq p$，并且 $|v| + |x| &gt; 0$。由于 $|vwx| \leq p$，它只能覆盖字符串中的某一部分（即 $a^n$、$b^n$ 或 $c^n$）。而且，由于 $|v| + |x| &gt; 0$，$v$ 和 $x$ 必定包含某些重复的字符。</p>
+</li>
+<li><p><strong>泵引理的应用：</strong><br>根据泵引理，对于所有的 $i \geq 0$，$uv^i w x^i y$ 应该仍然属于 $L$。但是，如果我们选择 $i &gt; 1$，则会得到不匹配的字符串，如 $uv^2 w x^2 y$，这个字符串在 $a^n b^n c^n$ 结构中就无法保持相同数量的 <code>a</code>、<code>b</code> 和 <code>c</code>，从而不再属于 $L$。</p>
+</li>
+<li><p><strong>得出矛盾：</strong><br>因此，我们得出结论，$L$ 不可能是上下文无关语言，因为泵引理得出的结论与 $L$ 的定义矛盾。</p>
+</li>
+</ol>
+<p>上下文无关语言的泵引理是通过对语言字符串的分解和重复来证明语言的一些特性。它为我们提供了一个方法，可以通过反证法证明某些语言不是上下文无关语言。</p>
+<hr>
+<h3 id="4-7-上下文无关语言的封闭性"><a href="#4-7-上下文无关语言的封闭性" class="headerlink" title="4.7 上下文无关语言的封闭性"></a>4.7 上下文无关语言的封闭性</h3><p>CFL（上下文无关语言，Context-Free Languages）的运算封闭性是指当对CFL进行一些特定的语言运算时，运算结果是否仍然是CFL。这里先给出结论：</p>
+<ul>
+<li><strong>封闭性</strong>的运算有：<ul>
+<li>代换（Substitution）</li>
+<li>并（Union）</li>
+<li>连接（Concatenation）</li>
+<li>闭包（Kleene Star</li>
+<li>同态（Homomorphism）</li>
+<li>逆同态（Inverse Homomorphism）</li>
+<li>反转（Reversal）</li>
+</ul>
+</li>
+<li><strong>不封闭</strong>的运算有：<ul>
+<li>交（Intersection）</li>
+<li>补（Complement）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这里的证明也是修考的常考点，必须掌握得滚瓜烂熟</p>
+</blockquote>
+<hr>
+<h4 id="4-7-1-代换（Substitution）封闭"><a href="#4-7-1-代换（Substitution）封闭" class="headerlink" title="4.7.1 代换（Substitution）封闭"></a>4.7.1 代换（Substitution）封闭</h4><p>我们需要证明：如果$L$是一个上下文无关语言（CFL），并且每个符号$x$在$L$中都被替换成一个CFL语言$A_x$，那么代换后的语言也是CFL。</p>
+<p>证明过程如下：</p>
+<ol>
+<li><p><strong>定义代换运算</strong>：<br>假设$L$是一个上下文无关语言，并且对于$L$中的每个符号$x$，我们定义一个CFL语言$A_x$。代换运算的结果$L’$是通过将$L$中的每个符号$x$替换为相应的语言$A_x$得到的，即<br>$$ L’ &#x3D; \{ w_1w_2 \cdots w_n \mid w_i \in A_{x_i} \text{，且} x_1x_2 \cdots x_n \in L \} $$<br>其中$w_i$是符号$x_i$在语言$A_{x_i}$中的一个字符串。</p>
+</li>
+<li><p><strong>构造文法</strong>：<br>由于$L$是一个CFL，假设$L$的文法是$G &#x3D; (V, \Sigma, R, S)$，其中$V$是非终结符集，$\Sigma$是终结符集，$R$是产生式规则，$S$是开始符号。</p>
+<p>对于每个符号$x$，我们有一个CFL语言$A_x$，假设$A_x$的文法是$G_x &#x3D; (V_x, \Sigma_x, R_x, S_x)$。</p>
+</li>
+<li><p><strong>构造代换后的文法</strong>：<br>我们可以构造一个新文法$G’$来生成$L’$。文法$G’$的非终结符集合包括所有$G$中的非终结符以及所有$A_x$的非终结符。文法规则由以下部分构成：</p>
+<ul>
+<li><p>对于$G$中的每个产生式$A \to \alpha$，我们将其替换为：<br>$$ A \to \alpha’ $$<br>其中$\alpha’$是通过将$\alpha$中的每个符号$x_i$替换为$A_{x_i}$的开始符号$S_{x_i}$得到的。</p>
+</li>
+<li><p>对于每个$A_x$中的产生式$S_x \to w$，我们加入产生式$S_x \to w$到$G’$中。</p>
+</li>
+</ul>
+<p>通过这些规则，$G’$可以生成代换后的语言$L’$。</p>
+</li>
+<li><p><strong>结论</strong>：<br>我们通过构造一个新的文法$G’$，使得$G’$生成代换后的语言$L’$。由于文法$G’$是上下文无关的（它是由上下文无关文法$G$和$A_x$的文法组合而成的），因此$L’$也是一个上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于代换运算是封闭的。</p>
+<hr>
+<h4 id="4-7-2-并（Union）封闭"><a href="#4-7-2-并（Union）封闭" class="headerlink" title="4.7.2 并（Union）封闭"></a>4.7.2 并（Union）封闭</h4><p>我们需要证明：如果$L_1$和$L_2$都是上下文无关语言（CFL），那么$L_1 \cup L_2$也是上下文无关语言。</p>
+<p>证明过程如下：</p>
+<ol>
+<li><p><strong>假设</strong>：<br>假设$L_1$和$L_2$都是上下文无关语言。根据定义，$L_1$和$L_2$分别可以由上下文无关文法$G_1 &#x3D; (V_1, \Sigma, R_1, S_1)$和$G_2 &#x3D; (V_2, \Sigma, R_2, S_2)$生成，其中$V_1$和$V_2$是非终结符集，$\Sigma$是终结符集，$R_1$和$R_2$是产生式规则，$S_1$和$S_2$是开始符号。</p>
+</li>
+<li><p><strong>构造新的文法</strong>：<br>我们现在构造一个新的文法$G &#x3D; (V, \Sigma, R, S)$，用来生成$L_1 \cup L_2$。新的文法$G$的组成如下：</p>
+<ul>
+<li><p><strong>非终结符集</strong>：$V &#x3D; V_1 \cup V_2 \cup \{S\}$，其中$S$是$L_1 \cup L_2$的开始符号。</p>
+</li>
+<li><p><strong>终结符集</strong>：$\Sigma$与$L_1$和$L_2$的终结符集相同，都是$\Sigma$。</p>
+</li>
+<li><p><strong>产生式规则集</strong>：$R$包括以下规则：</p>
+<ol>
+<li>$S \to S_1 \mid S_2$，其中$S_1$是$L_1$的开始符号，$S_2$是$L_2$的开始符号。</li>
+<li>对于$G_1$中的每个产生式$A \to \alpha$，将其直接加入$R$。</li>
+<li>对于$G_2$中的每个产生式$B \to \beta$，将其直接加入$R$。</li>
+</ol>
+</li>
+<li><p><strong>开始符号</strong>：$S$是新的开始符号。</p>
+</li>
+</ul>
+</li>
+<li><p>证明新文法生成的语言是$L_1 \cup L_2$：<br>通过新的文法$G$，我们可以生成任意一个$L_1$中的字符串或$L_2$中的字符串。具体来说：</p>
+<ul>
+<li>如果$w \in L_1$，则$w$可以通过$S \to S_1$产生，然后根据$G_1$中的产生式生成$w$。</li>
+<li>如果$w \in L_2$，则$w$可以通过$S \to S_2$产生，然后根据$G_2$中的产生式生成$w$。</li>
+</ul>
+<p>因此，$L_1 \cup L_2$中的任意字符串都可以通过文法$G$生成。</p>
+</li>
+<li><p><strong>结论</strong>：<br>由于我们通过构造一个上下文无关文法$G$来生成$L_1 \cup L_2$，并且文法$G$是上下文无关的（由$G_1$和$G_2$组合而成），因此$L_1 \cup L_2$也是上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于并运算是封闭的。</p>
+<hr>
+<h4 id="4-7-3-连接（Concatenation）封闭"><a href="#4-7-3-连接（Concatenation）封闭" class="headerlink" title="4.7.3 连接（Concatenation）封闭"></a>4.7.3 连接（Concatenation）封闭</h4><p>我们需要证明：如果$L_1$和$L_2$都是上下文无关语言（CFL），那么$L_1 \cdot L_2$（即$L_1$和$L_2$的连接）也是上下文无关语言。</p>
+<p>证明过程如下：</p>
+<ol>
+<li><p><strong>假设</strong>：<br>假设$L_1$和$L_2$都是上下文无关语言。根据定义，$L_1$和$L_2$分别可以由上下文无关文法$G_1 &#x3D; (V_1, \Sigma, R_1, S_1)$和$G_2 &#x3D; (V_2, \Sigma, R_2, S_2)$生成，其中$V_1$和$V_2$是非终结符集，$\Sigma$是终结符集，$R_1$和$R_2$是产生式规则，$S_1$和$S_2$是开始符号。</p>
+</li>
+<li><p><strong>构造新的文法</strong>：<br>我们现在构造一个新的文法$G &#x3D; (V, \Sigma, R, S)$，用来生成$L_1 \cdot L_2$。新的文法$G$的组成如下：</p>
+<ul>
+<li><p><strong>非终结符集</strong>：$V &#x3D; V_1 \cup V_2 \cup {S}$，其中$S$是$L_1 \cdot L_2$的开始符号。</p>
+</li>
+<li><p><strong>终结符集</strong>：$\Sigma$，与$L_1$和$L_2$的终结符集相同。</p>
+</li>
+<li><p><strong>产生式规则集</strong>：$R$包括以下规则：</p>
+<ol>
+<li>$S \to S_1 S_2$，其中$S_1$是$L_1$的开始符号，$S_2$是$L_2$的开始符号。</li>
+<li>对于$G_1$中的每个产生式$A \to \alpha$，将其直接加入$R$。</li>
+<li>对于$G_2$中的每个产生式$B \to \beta$，将其直接加入$R$。</li>
+</ol>
+</li>
+<li><p><strong>开始符号</strong>：$S$是新的开始符号。</p>
+</li>
+</ul>
+</li>
+<li><p>证明新文法生成的语言是$L_1 \cdot L_2$：<br>通过新的文法$G$，我们可以生成$L_1 \cdot L_2$中的任意字符串。具体来说：</p>
+<ul>
+<li>如果$w &#x3D; w_1w_2$，其中$w_1 \in L_1$且$w_2 \in L_2$，那么：<ul>
+<li>首先通过$S \to S_1 S_2$产生$w_1w_2$。</li>
+<li>然后，$w_1$可以通过$S_1$的产生式根据$G_1$中的规则生成，$w_2$可以通过$S_2$的产生式根据$G_2$中的规则生成。</li>
+</ul>
+</li>
+</ul>
+<p>因此，$L_1 \cdot L_2$中的每个字符串都可以通过文法$G$生成。</p>
+</li>
+<li><p><strong>结论</strong>：<br>由于我们通过构造一个上下文无关文法$G$来生成$L_1 \cdot L_2$，并且文法$G$是上下文无关的（由$G_1$和$G_2$组合而成），因此$L_1 \cdot L_2$也是上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于连接运算是封闭的。</p>
+<hr>
+<h4 id="4-7-4-闭包（Kleene-Star）封闭"><a href="#4-7-4-闭包（Kleene-Star）封闭" class="headerlink" title="4.7.4 闭包（Kleene Star）封闭"></a>4.7.4 闭包（Kleene Star）封闭</h4><p>我们需要证明：如果$L$是一个上下文无关语言（CFL），那么$L^*$（即$L$的闭包）也是上下文无关语言。</p>
+<p>证明：</p>
+<ol>
+<li><p><strong>假设</strong>：<br>假设$L$是一个上下文无关语言。根据定义，$L$可以由一个上下文无关文法$G &#x3D; (V, \Sigma, R, S)$生成，其中$V$是非终结符集，$\Sigma$是终结符集，$R$是产生式规则，$S$是开始符号。</p>
+</li>
+<li><p><strong>构造新的文法</strong>：<br>我们现在构造一个新的文法$G^* &#x3D; (V^*, \Sigma, R^*, S^*)$，用来生成$L^*$。新的文法$G^*$的组成如下：</p>
+<ul>
+<li><p><strong>非终结符集</strong>：$V^* &#x3D; V \cup \{S^* \}$，其中$S^*$是新的开始符号。</p>
+</li>
+<li><p><strong>终结符集</strong>：$\Sigma$，与$L$的终结符集相同。</p>
+</li>
+<li><p><strong>产生式规则集</strong>：$R^*$包括以下规则：</p>
+<ol>
+<li>$S^* \to \epsilon \mid S S^*$，这里$\epsilon$表示空串，$S$是$L$的开始符号。</li>
+<li>对于$G$中的每个产生式$A \to \alpha$，将其直接加入$R^*$。</li>
+</ol>
+</li>
+<li><p><strong>开始符号</strong>：$S^*$是新的开始符号。</p>
+</li>
+</ul>
+</li>
+<li><p>证明新文法生成的语言是$L^*$：<br>通过新的文法$G^*$，我们可以生成$L^*$中的任意字符串。具体来说：</p>
+<ul>
+<li>如果$w \in L^*$，那么$w$可以分解为若干个$L$中字符串的串联，假设$w &#x3D; w_1w_2\cdots w_n$，其中每个$w_i \in L$。</li>
+<li>首先通过$S^* \to S S^*$规则生成前缀$w_1w_2 \cdots w_{n-1}$。</li>
+<li>然后通过$S^* \to \epsilon$规则生成空串，结束生成过程。</li>
+<li>对于每个$w_i \in L$，根据$G$中的产生式生成$w_i$。</li>
+</ul>
+<p>因此，$L^*$中的每个字符串都可以通过文法$G^*$生成。</p>
+</li>
+<li><p><strong>结论</strong>：<br>由于我们通过构造一个上下文无关文法$G^*$来生成$L^*$，并且文法$G^*$是上下文无关的（由$G$和$S^*$的规则组合而成），因此$L^*$也是上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于Kleene闭包运算是封闭的。</p>
+<hr>
+<h4 id="4-7-5-同态（Homomorphism）封闭"><a href="#4-7-5-同态（Homomorphism）封闭" class="headerlink" title="4.7.5 同态（Homomorphism）封闭"></a>4.7.5 同态（Homomorphism）封闭</h4><p>我们需要证明：如果$L$是一个上下文无关语言（CFL），并且$h$是一个同态映射，那么$h(L)$也是上下文无关语言。</p>
+<p>证明过程如下：</p>
+<ol>
+<li><p><strong>假设</strong>：<br>假设$L$是一个上下文无关语言，且$L$由文法$G &#x3D; (V, \Sigma, R, S)$生成，其中$V$是非终结符集，$\Sigma$是终结符集，$R$是产生式规则，$S$是开始符号。$h$是一个同态映射，它将语言$\Sigma$中的每个符号映射到语言$\Sigma’$中的某个字符串。</p>
+</li>
+<li><p><strong>定义同态映射</strong>：<br>同态映射$h$是一个函数，它将$\Sigma$中的每个符号映射为一个字符串，即对于每个符号$a \in \Sigma$，$h(a)$是一个字符串。为了简便起见，我们假设$h$将$\Sigma$中的每个符号映射为$\Sigma’$中的一个子串。</p>
+</li>
+<li><p><strong>构造新的文法</strong>：<br>我们将构造一个新的文法$G_h &#x3D; (V, \Sigma’, R_h, S_h)$来生成$h(L)$。新的文法$G_h$的组成如下：</p>
+<ul>
+<li><p><strong>非终结符集</strong>：$V$，即与$L$相同的非终结符集。</p>
+</li>
+<li><p><strong>终结符集</strong>：$\Sigma’$，这是映射$h$后得到的新的终结符集。</p>
+</li>
+<li><p><strong>产生式规则集</strong>：$R_h$包括以下规则：</p>
+<ol>
+<li>对于$G$中的每个产生式$A \to \alpha$，我们将其替换为$A \to h(\alpha)$，其中$h(\alpha)$表示将$\alpha$中的每个符号通过$h$映射到新的符号串上。</li>
+<li>如果$A \to a_1 a_2 \cdots a_n$是$G$中的某个产生式，则$A \to h(a_1) h(a_2) \cdots h(a_n)$是$G_h$中的相应产生式。</li>
+</ol>
+</li>
+<li><p><strong>开始符号</strong>：$S_h &#x3D; S$，即$L$的开始符号。</p>
+</li>
+</ul>
+</li>
+<li><p>证明新文法生成的语言是$h(L)$：<br>通过新的文法$G_h$，我们可以生成$h(L)$中的每个字符串。具体来说：</p>
+<ul>
+<li>假设$w &#x3D; w_1 w_2 \cdots w_n \in L$，其中每个$w_i \in \Sigma$。</li>
+<li>通过$G$中的产生式规则，我们可以生成$w$。</li>
+<li>在$G_h$中，$w$会被映射为$h(w_1) h(w_2) \cdots h(w_n)$，这正是$h(L)$中的一个字符串。</li>
+</ul>
+<p>因此，$h(L)$中的每个字符串都可以通过文法$G_h$生成。</p>
+</li>
+<li><p><strong>结论</strong>：<br>由于我们通过构造一个上下文无关文法$G_h$来生成$h(L)$，并且文法$G_h$是上下文无关的（它仅仅是对$G$进行符号替换），因此$h(L)$也是上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于同态运算是封闭的。</p>
+<hr>
+<h4 id="4-7-6-逆同态（Inverse-Homomorphism）封闭"><a href="#4-7-6-逆同态（Inverse-Homomorphism）封闭" class="headerlink" title="4.7.6 逆同态（Inverse Homomorphism）封闭"></a>4.7.6 逆同态（Inverse Homomorphism）封闭</h4><p>我们需要证明：如果$L$是一个上下文无关语言（CFL），并且$h$是一个同态映射，那么$h^{-1}(L)$（即$L$的逆同态映射）也是上下文无关语言。</p>
+<p>证明过程如下：</p>
+<ol>
+<li><p><strong>假设</strong>：<br>假设$L$是一个上下文无关语言，且$L$由文法$G &#x3D; (V, \Sigma, R, S)$生成，其中$V$是非终结符集，$\Sigma$是终结符集，$R$是产生式规则，$S$是开始符号。$h$是一个同态映射，它将语言$\Sigma$中的每个符号映射到语言$\Sigma’$中的某个字符串。</p>
+</li>
+<li><p><strong>定义逆同态映射</strong>：<br>同态映射$h$将$\Sigma$中的每个符号映射为一个字符串，而逆同态映射$h^{-1}$将$\Sigma’$中的每个字符串反向映射到$\Sigma$中的符号集合。对于每个符号$a \in \Sigma$，$h(a)$是一个字符串，那么$h^{-1}(w)$将字符串$w$映射回其对应的符号集合。例如，如果$h(a) &#x3D; w$，那么$h^{-1}(w) &#x3D; a$。</p>
+</li>
+<li><p><strong>构造新的文法</strong>：<br>我们现在构造一个新的文法$G_{h^{-1}} &#x3D; (V, \Sigma, R_{h^{-1}}, S_{h^{-1}})$，用来生成$h^{-1}(L)$。新的文法$G_{h^{-1}}$的组成如下：</p>
+<ul>
+<li><p><strong>非终结符集</strong>：$V$，即与$L$相同的非终结符集。</p>
+</li>
+<li><p><strong>终结符集</strong>：$\Sigma$，与原语言$L$的终结符集相同。</p>
+</li>
+<li><p><strong>产生式规则集</strong>：$R_{h^{-1}}$包括以下规则：</p>
+<ol>
+<li>对于$G$中的每个产生式$A \to \alpha$，我们将其替换为$A \to h^{-1}(\alpha)$，其中$h^{-1}(\alpha)$表示将$\alpha$中的每个符号通过$h^{-1}$映射回符号集上的串。</li>
+<li>对于$G$中的每个产生式$A \to a_1 a_2 \cdots a_n$，我们加入产生式$A \to h^{-1}(a_1) h^{-1}(a_2) \cdots h^{-1}(a_n)$。</li>
+</ol>
+</li>
+<li><p><strong>开始符号</strong>：$S_{h^{-1}} &#x3D; S$，即$L$的开始符号。</p>
+</li>
+</ul>
+</li>
+<li><p>证明新文法生成的语言是$h^{-1}(L)$：<br>通过新的文法$G_{h^{-1}}$，我们可以生成$h^{-1}(L)$中的每个字符串。具体来说：</p>
+<ul>
+<li>假设$w &#x3D; w_1 w_2 \cdots w_n \in L$，其中每个$w_i \in \Sigma$。</li>
+<li>在$G$中，$w$可以通过产生式规则生成。</li>
+<li>在$G_{h^{-1}}$中，通过将$w$中的每个符号$w_i$映射回原始符号，我们可以生成对应的字符串$h^{-1}(w_1) h^{-1}(w_2) \cdots h^{-1}(w_n)$。</li>
+</ul>
+<p>因此，$h^{-1}(L)$中的每个字符串都可以通过文法$G_{h^{-1}}$生成。</p>
+</li>
+<li><p><strong>结论</strong>：<br>由于我们通过构造一个上下文无关文法$G_{h^{-1}}$来生成$h^{-1}(L)$，并且文法$G_{h^{-1}}$是上下文无关的（它仅仅是对$G$进行符号替换），因此$h^{-1}(L)$也是上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于逆同态运算是封闭的。</p>
+<hr>
+<h4 id="4-7-7-反转（Reversal）封闭"><a href="#4-7-7-反转（Reversal）封闭" class="headerlink" title="4.7.7 反转（Reversal）封闭"></a>4.7.7 反转（Reversal）封闭</h4><p>我们需要证明：如果$L$是一个上下文无关语言（CFL），那么$L^R$（即$L$的反转）也是上下文无关语言。</p>
+<p>证明：</p>
+<ol>
+<li><p><strong>假设</strong>：<br>假设$L$是一个上下文无关语言，且$L$由文法$G &#x3D; (V, \Sigma, R, S)$生成，其中$V$是非终结符集，$\Sigma$是终结符集，$R$是产生式规则，$S$是开始符号。我们需要证明$L^R$（即$L$中所有字符串的反转）也是上下文无关语言。</p>
+</li>
+<li><p><strong>构造新的文法</strong>：<br>我们现在构造一个新的文法$G^R &#x3D; (V, \Sigma, R^R, S^R)$，用来生成$L^R$。新的文法$G^R$的组成如下：</p>
+<ul>
+<li><p><strong>非终结符集</strong>：$V$，即与$L$相同的非终结符集。</p>
+</li>
+<li><p><strong>终结符集</strong>：$\Sigma$，与$L$的终结符集相同。</p>
+</li>
+<li><p><strong>产生式规则集</strong>：$R^R$包括以下规则：</p>
+<ol>
+<li>对于$G$中的每个产生式$A \to \alpha$，将其替换为$A \to \alpha^R$，其中$\alpha^R$表示字符串$\alpha$的反转。</li>
+<li>例如，如果$A \to a_1 a_2 \cdots a_n$是$G$中的产生式，那么$A \to a_n a_{n-1} \cdots a_1$是$G^R$中的对应产生式。</li>
+</ol>
+</li>
+<li><p><strong>开始符号</strong>：$S^R &#x3D; S$，即$L$的开始符号。</p>
+</li>
+</ul>
+</li>
+<li><p>证明新文法生成的语言是$L^R$：<br>通过新的文法$G^R$，我们可以生成$L^R$中的每个字符串。具体来说：</p>
+<ul>
+<li>假设$w &#x3D; w_1 w_2 \cdots w_n \in L$，其中每个$w_i \in \Sigma$。</li>
+<li>在$G$中，$w$可以通过产生式规则生成。</li>
+<li>在$G^R$中，$w$将被反转为$w_n w_{n-1} \cdots w_1$，即$w$中的每个符号都会在生成过程中被反转。</li>
+</ul>
+<p>因此，$L^R$中的每个字符串都可以通过文法$G^R$生成。</p>
+</li>
+<li><p><strong>结论</strong>：<br>由于我们通过构造一个上下文无关文法$G^R$来生成$L^R$，并且文法$G^R$是上下文无关的（它仅仅是对$G$中的产生式规则进行了反转），因此$L^R$也是上下文无关语言。</p>
+</li>
+</ol>
+<p>因此，CFL对于反转运算是封闭的。</p>
+<h4 id="4-7-8-交（Intersection）不封闭"><a href="#4-7-8-交（Intersection）不封闭" class="headerlink" title="4.7.8 交（Intersection）不封闭"></a>4.7.8 交（Intersection）不封闭</h4><p>我们需要证明：上下文无关语言（CFL）对于交运算<strong>不封闭</strong>，即存在两个上下文无关语言$L_1$和$L_2$，使得它们的交集$L_1 \cap L_2$不是上下文无关语言。</p>
+<p>证明：</p>
+<ol>
+<li><p>构造两个上下文无关语言$L_1$和$L_2$：<br>我们选择以下两个上下文无关语言：</p>
+<ul>
+<li>$L_1 &#x3D; \{a^n b^n c^n \mid n \geq 0\}$，这是一个标准的上下文无关语言，它表示由$a$、$b$、$c$组成的字符串，其中每种字符的数量相同。</li>
+<li>$L_2 &#x3D; \{a^n b^m c^m \mid n \geq 0, m \geq 0\}$，这个语言包含任意数量的$a$，后面跟着相同数量的$b$，再后面跟着相同数量的$c$。</li>
+</ul>
+</li>
+<li><p>求交集$L_1 \cap L_2$：<br>现在，我们来求$L_1$和$L_2$的交集：</p>
+<ul>
+<li>$L_1 \cap L_2 &#x3D; \{a^n b^n c^n \mid n \geq 0\} \cap \{a^n b^m c^m \mid n \geq 0, m \geq 0\}$。</li>
+<li>交集的结果是$L_1 \cap L_2 &#x3D; \{a^n b^n c^n \mid n \geq 0\}$，即所有$ a $、$ b $和$ c $的数量都相同的字符串。</li>
+</ul>
+<p>这个语言$L_1 \cap L_2$其实就是$L_1$，即$\{a^n b^n c^n \mid n \geq 0\}$。</p>
+</li>
+<li><p><strong>$L_1 \cap L_2$是否是上下文无关语言</strong>：<br>我们知道，语言$L_1 &#x3D; {a^n b^n c^n \mid n \geq 0}$是<strong>非上下文无关</strong>的。原因是存在一个推理，可以证明使用上下文无关文法无法生成此语言：此问题可以通过泵引理等方法证明。</p>
+<p>因此，$L_1 \cap L_2$并不是上下文无关语言。</p>
+</li>
+<li><p><strong>结论</strong>：<br>虽然$L_1$和$L_2$都是上下文无关语言，但它们的交集$L_1 \cap L_2 &#x3D; \{a^n b^n c^n \mid n \geq 0\}$不是上下文无关语言。因此，CFL对于交运算是不封闭的。</p>
+</li>
+</ol>
+<h4 id="4-7-9-补（Complement）不封闭"><a href="#4-7-9-补（Complement）不封闭" class="headerlink" title="4.7.9 补（Complement）不封闭"></a>4.7.9 补（Complement）不封闭</h4><p>我们需要证明：上下文无关语言（CFL）对于补运算<strong>不封闭</strong>，即存在一个上下文无关语言$L$，使得$L$的补集$\overline{L}$不是上下文无关语言。</p>
+<p>证明：</p>
+<ol>
+<li><p>构造上下文无关语言$L$：<br>我们选择一个已知的上下文无关语言$L$：</p>
+<ul>
+<li>$L &#x3D; \{a^n b^n c^n \mid n \geq 0\}$，这是一个标准的上下文无关语言，它表示由$a$、$b$、$c$组成的字符串，其中每种字符的数量相同。</li>
+</ul>
+</li>
+<li><p>构造$L$的补集$\overline{L}$：<br>我们来求$L$的补集$\overline{L}$，即所有不属于$L$的字符串集合：</p>
+<ul>
+<li>$L &#x3D; \{a^n b^n c^n \mid n \geq 0\}$。</li>
+<li>$\overline{L}$包含所有不是形如$a^n b^n c^n$的字符串。这意味着$\overline{L}$包含所有字符数量不相等或字符顺序不符合$a^n b^n c^n$模式的字符串。</li>
+</ul>
+</li>
+<li><p><strong>证明$\overline{L}$不是上下文无关语言</strong>：<br>我们要证明$\overline{L}$不是上下文无关语言。考虑语言$L$中的字符串形态，它要求字符的数量严格匹配：$a$的数量、$b$的数量、$c$的数量相同。</p>
+<ul>
+<li><p>由于上下文无关文法无法在具有多个计数条件的语言中做出有效的限制（即无法处理像$a^n b^n c^n$这样的结构），$L$本身并不具备简单的反转特性。</p>
+</li>
+<li><p>如果我们通过推理$L$的补集，会发现它的复杂度远远超过了上下文无关文法能够处理的范围。换句话说，$\overline{L}$包含了非常多的字符串，其中一些字符串无法用上下文无关文法来生成。例如，如果字符数量不匹配或顺序不符合，文法的设计会变得非常复杂且不可处理。</p>
+</li>
+<li><p>我们这里可以用一个取巧的证明办法，根据德摩根律：$L_1 \cap L_2 &#x3D; \overline{\overline{L_1} \cup \overline{L_2}}$, 因为交运算不封闭，并运算封闭，那么我们可以推出补运算是不封闭的</p>
+</li>
+</ul>
+</li>
+<li><p><strong>结论</strong>：<br>虽然$L$是一个上下文无关语言，但它的补集$\overline{L}$不是上下文无关语言。因此，CFL对于补运算是不封闭的。</p>
+</li>
+</ol>
 <h2 id="5-Pushdown-Automata"><a href="#5-Pushdown-Automata" class="headerlink" title="5. Pushdown Automata"></a>5. Pushdown Automata</h2><p>Pushdown Automata（PDA）是自动机的一种，它扩展了有限自动机（Finite Automaton, FA）的能力，引入了一个堆栈（Stack）作为额外的存储结构。PDA 特别适用于处理上下文无关语言（Context-Free Languages, CFLs），因为它能够在解析过程中记住之前的状态。</p>
 <p>一个 Pushdown Automaton 可以通过五元组来表示：</p>
 <p>$$PDA &#x3D; (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$$</p>
