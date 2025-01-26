@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pumping_lemma.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/FL/pda.svg">
 <meta property="article:published_time" content="2025-01-08T15:47:26.000Z">
-<meta property="article:modified_time" content="2025-01-26T11:20:39.817Z">
+<meta property="article:modified_time" content="2025-01-26T11:59:10.787Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Formal Language and Automata">
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          39k words
+          42k words
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          322 mins
+          353 mins
         
       </span>
     
@@ -2952,7 +2952,7 @@ a    F
 <li>每读取一个 $b$，PDA 就从堆栈中弹出一个符号。</li>
 <li>如果堆栈最终为空，并且没有更多输入字符，则接受输入。</li>
 </ul>
-<p>考虑一个简单的 NPDA 来接受语言 $L &#x3D; \{a^n b^n \mid n \geq 0 \}$：</p>
+<p>考虑一个简单的 PDA 来接受语言 $L &#x3D; \{a^n b^n \mid n \geq 0 \}$：</p>
 <ul>
 <li>状态集合 $Q &#x3D; \{q_0, q_1, q_f\}$</li>
 <li>输入字母表 $\Sigma &#x3D; \{a, b\}$</li>
@@ -2961,10 +2961,11 @@ a    F
 <li>初始堆栈符号 $Z_0$</li>
 <li>接受状态 $F &#x3D; \{q_f\}$</li>
 <li>转移函数：<ul>
-<li>$\delta(q_0, a, Z_0) &#x3D; (q_0, A Z_0)$（读取 $a$ 时，将 $A$ 压入堆栈）</li>
-<li>$\delta(q_0, a, A) &#x3D; (q_0, AA)$（读取 $a$ 时，将 $A$ 压入堆栈）</li>
-<li>$\delta(q_0, b, A) &#x3D; (q_0, \epsilon)$（读取 $b$ 时，从堆栈弹出 $A$）</li>
-<li>$\delta(q_0, \epsilon, Z_0) &#x3D; (q_f, Z_0)$（当堆栈为空时，进入接受状态）</li>
+<li>$\delta(q_0, a, Z_0) &#x3D; (q_0, a Z_0)$（读取 $a$ 时，将 $a$ 压入堆栈）</li>
+<li>$\delta(q_0, a, a) &#x3D; (q_0, aa)$（读取 $a$ 时，将 $a$ 压入堆栈）</li>
+<li>$\delta(q_0, b, a) &#x3D; (q_1, \epsilon)$（读取 $b$ 时，从堆栈弹出 $a$）</li>
+<li>$\delta(q_1, b, a) &#x3D; (q_1, \epsilon)$（读取 $b$ 时，从堆栈弹出 $a$）</li>
+<li>$\delta(q_1, \epsilon, Z_0) &#x3D; (q_f, Z_0)$（当堆栈为空时，进入接受状态）</li>
 </ul>
 </li>
 </ul>
@@ -2973,6 +2974,7 @@ a    F
 </center>
 
 <p>Pushdown Automaton（PDA）是一种能够处理上下文无关语言的计算模型，它通过引入堆栈这一额外存储结构来增强有限自动机的能力。PDA 的应用广泛，包括编译器中的语法分析、程序解析以及一些递归语言的处理。它可以分为确定性 PDA（DPDA）和非确定性 PDA（NPDA），其中非确定性 PDA 是最强大的，能够处理所有的上下文无关语言。</p>
+<hr>
 <h3 id="5-1-PDA的状态转移"><a href="#5-1-PDA的状态转移" class="headerlink" title="5.1 PDA的状态转移"></a>5.1 PDA的状态转移</h3><p>PDA 的状态转移函数 <strong>δ</strong> 描述了在特定的输入符号和栈顶符号下，PDA 会如何进行状态转移，以及是否需要对栈进行操作。它可以表示为：<br>$$<br>\delta(q, a, X) &#x3D; \{(p, \gamma)\}<br>$$<br>其中：</p>
 <ul>
 <li>$q$ 是当前状态。</li>
@@ -3006,6 +3008,213 @@ a    F
 </ul>
 <p>通过这种方式，PDA 使用栈来“记住”输入中的 <strong>a</strong>，并在读取到 <strong>b</strong> 时进行配对，从而确保 <strong>a</strong> 和 <strong>b</strong> 的数量相等。</p>
 <p>PDA 的状态转移是由当前状态、输入符号和栈顶符号决定的，它允许自动机在每个转移步骤中操作栈，进而能够处理更复杂的语言，如上下文无关语言。通过推入和弹出栈顶符号，PDA 可以模拟许多计算过程，例如平衡括号或匹配括号对等任务。</p>
+<hr>
+<h3 id="5-2-下推自动机接受的语言"><a href="#5-2-下推自动机接受的语言" class="headerlink" title="5.2 下推自动机接受的语言"></a>5.2 下推自动机接受的语言</h3><p><strong>下推自动机</strong>（PDA, Pushdown Automaton）可以通过两种方式来接受语言：<strong>以终态</strong>（final state）接受和<strong>以空栈</strong>（empty stack）接受。</p>
+<p><strong>以终态方式接受的语言</strong></p>
+<p>当 PDA 使用<strong>终态</strong>接受语言时，它通过进入某个特定的终态来判断输入是否被接受。具体来说，如果 PDA 在输入字符串完全读取完毕后，进入了某个 <strong>接受状态</strong>（或终态），那么这个字符串就被认为是被 PDA 接受的。</p>
+<ul>
+<li>输入字符串通过 PDA 的状态转移函数进行处理。</li>
+<li>当输入字符串的所有符号都被读取完毕，PDA 必须进入某个 <strong>接受状态</strong>（或终态）。如果 PDA 达到了这个接受状态，并且已经没有更多的输入符号，那么该字符串就被认为是被接受的。</li>
+</ul>
+<p>这种接受方式类似于有限自动机（DFA 或 NFA），唯一的不同之处在于 PDA 在计算过程中使用了栈来存储中间信息，而不仅仅依赖状态来进行转移。</p>
+<p>假设我们有一个 PDA，任务是接受语言 $L &#x3D; \{ a^n b^n | n \geq 0 \}$。该 PDA 的工作方式可能是：</p>
+<ol>
+<li>在状态 $q_0$，当读取到 $a$ 时，将 $a$ 压入栈。</li>
+<li>当读取到 $b$ 时，弹出一个 $a$。</li>
+<li>输入完全读完，并且 PDA 进入了终态 $q_1$，如果栈为空（所有 $a$ 都已经被匹配），则接受这个字符串。</li>
+</ol>
+<p><strong>以空栈方式接受的语言</strong></p>
+<p>当 PDA 使用<strong>空栈</strong>方式来接受语言时，它并不依赖于终态的存在，而是依赖于栈的状态来判断输入是否被接受。具体来说，输入字符串被接受的条件是，当输入字符串完全读取完毕时，PDA 的栈必须为空。</p>
+<ul>
+<li>在读取输入字符串的过程中，PDA 根据当前输入符号和栈顶符号来进行状态转移。</li>
+<li>当输入字符串完全读取完毕后，PDA 不要求进入特定的接受状态，而是检查栈是否为空。如果栈为空，则认为该字符串被接受。</li>
+</ul>
+<p>使用空栈方式的优点在于它能够仅依赖栈的内容来判断语言是否符合某种规则，而不必考虑终态的存在。</p>
+<p>假设我们有一个 PDA，任务是接受语言 $L &#x3D; \{ a^n b^n | n \geq 0 \}$，此时 PDA 以空栈方式接受。可能的状态转移如下：</p>
+<ol>
+<li>在状态 $q_0$，当读取到 $a$ 时，将 $a$ 压入栈。</li>
+<li>当读取到 $b$ 时，弹出栈顶的 $a$。</li>
+<li>输入字符串读完后，栈应该为空。如果栈为空，则接受该字符串。</li>
+</ol>
+<p>这种方法没有要求 PDA 进入一个特定的接受状态，而仅仅依赖栈的状态来判断输入是否被接受。</p>
+<p><strong>以终态方式接受 vs. 以空栈方式接受</strong></p>
+<ul>
+<li><strong>接受条件</strong>：以终态方式接受时，PDA 需要进入某个特定的接受状态；而以空栈方式接受时，PDA 需要栈为空。</li>
+<li><strong>栈的作用</strong>：无论是终态方式还是空栈方式，栈都用来存储中间信息，以便处理更复杂的语言。不同的是，终态方式可能在栈中保留数据，而空栈方式则强调栈最终必须为空。</li>
+</ul>
+<p><strong>两种接受方式的差异：</strong></p>
+<ul>
+<li><strong>终态接受的语言</strong>：通常来说，终态接受的语言可以通过转换成一个<strong>有穷状态机</strong>（比如 NFA 或 DFA）来描述，尽管下推自动机在转换过程中使用了栈。</li>
+<li><strong>空栈接受的语言</strong>：如果一个语言可以由一个 PDA 使用空栈方式接受，那么这个语言是<strong>上下文无关语言</strong>（CFL, Context-Free Language）。上下文无关语言在形式语言与自动机理论中是 PDA 的经典应用之一。</li>
+</ul>
+<p>实际上，这两种接受方式并不等价：</p>
+<ul>
+<li><strong>空栈接受的语言</strong>：比终态接受的语言的表达能力更强，因为空栈接受的 PDA 可以模拟上下文无关文法（CFG）来生成语言。</li>
+<li><strong>终态接受的语言</strong>：虽然也可以描述某些上下文无关语言，但它通常只能描述一些较为简单的上下文无关语言，或者是某些有限的模式。</li>
+</ul>
+<p>通常，空栈接受方式更为常见和强大，因为它能直接描述<strong>上下文无关语言</strong>，而终态接受方式则较为有限。</p>
+<div class="note note-success">
+            <p>结论：如果PDA $P_N$以空栈方式接受语言$L$，那么一定存在PDA $P_F$以终态方式接受$L$</p>
+          </div>
+
+<hr>
+<h3 id="5-3-PDA与CFG的等价性证明"><a href="#5-3-PDA与CFG的等价性证明" class="headerlink" title="5.3 PDA与CFG的等价性证明"></a>5.3 PDA与CFG的等价性证明</h3><p>在形式语言与自动机理论中，<strong>PDA</strong>（下推自动机，Pushdown Automaton）和 <strong>CFG</strong>（上下文无关文法，Context-Free Grammar）是紧密相关的，事实上，它们是等价的。也就是说，<strong>对于每一个上下文无关语言，都可以存在一个 PDA 来接受它，同时对于每一个 PDA 接受的语言，都可以构造出一个上下文无关文法</strong>。</p>
+<p>这意味着，我们可以通过下推自动机和上下文无关文法之间的转换来证明它们的等价性。下面我将详细讲解 PDA 和 CFG 的等价性证明，主要分为两个部分：</p>
+<ol>
+<li><strong>PDA 和 CFG 等价性证明：从 PDA 到 CFG 的构造</strong></li>
+<li><strong>PDA 和 CFG 等价性证明：从 CFG 到 PDA 的构造</strong></li>
+</ol>
+<hr>
+<p><strong>从 PDA 到 CFG 的构造</strong></p>
+<p>假设我们有一个 PDA，它接受某个上下文无关语言 $L$。我们需要构造一个上下文无关文法 $G$，使得 $G$ 生成的语言就是 $L$。下面是构造的基本思路。</p>
+<ol>
+<li><p><strong>构建一个文法的非终结符</strong>：文法的非终结符是由 PDA 的状态和栈符号构成的。具体来说，文法中的每个非终结符都表示 PDA 在某一状态下，通过一系列的栈操作可以推导出某种字符串。</p>
+<p>假设 PDA 的状态集合为 $Q$，栈字母表为 $\Gamma$，则文法中的非终结符通常是形式为 $[q, X]$ 的符号，其中：</p>
+<ul>
+<li>$q \in Q$，表示 PDA 的一个状态。</li>
+<li>$X \in \Gamma$，表示栈上的一个符号。</li>
+</ul>
+</li>
+<li><p><strong>文法的产生式</strong>：文法的产生式是根据 PDA 的转移函数来构造的。PDA 的转移函数通常表示为 $\delta(q, a, X) &#x3D; { (p, \gamma) }$，其中：</p>
+<ul>
+<li>$q$ 和 $p$ 是 PDA 的状态。</li>
+<li>$a$ 是输入符号。</li>
+<li>$X$ 是栈顶符号。</li>
+<li>$\gamma$ 是栈操作，可以是栈符号的一个串，表示将栈顶的 $X$ 替换为字符串 $\gamma$。</li>
+</ul>
+<p>对应的文法产生式有两种类型：</p>
+<ol>
+<li><p><strong>通过栈操作推出字符串</strong>：</p>
+<ul>
+<li>如果 $\delta(q, a, X) &#x3D; \{ (p, \gamma) \}$，则可以有一个产生式：<br>$$ [q, X] \rightarrow a[p, \gamma] $$<br>这表示在状态 $q$，读取符号 $a$，栈顶是符号 $X$ 时，可以推导出字符串 $a$，然后转移到状态 $p$，栈操作替换成 $\gamma$</li>
+</ul>
+</li>
+<li><p><strong>通过状态转移推导空符号</strong>：</p>
+<ul>
+<li>如果有一个 $\delta(q, \epsilon, X) &#x3D; \{(p, \epsilon)\}$，表示没有输入符号并且弹出栈顶符号 $X$，则产生式为：<br>$$ [q, X] \rightarrow [p, \epsilon] $$<br>这表示在状态 $q$ 时，栈顶符号为 $X$，并且没有读取任何输入符号，可以通过弹出栈顶符号，转移到状态 $p$。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>文法的开始符号</strong>：文法的开始符号通常由 PDA 的初始状态和栈初始符号组成。例如，如果 PDA 的初始状态是 $q_0$，栈的初始符号是 $Z_0$，则文法的开始符号为 $[q_0, Z_0]$。</p>
+</li>
+</ol>
+<p>通过上述步骤，我们可以为每个 PDA 构造出一个等价的上下文无关文法 $G$，使得 $L(G)$ 等于 PDA 所接受的语言 $L(PDA)$。</p>
+<hr>
+<p><strong>从 CFG 到 PDA 的构造</strong></p>
+<p>接下来，我们要证明对于每一个上下文无关文法 $G$，都可以构造出一个等价的 PDA 来接受由该文法生成的语言。构造过程的基本思路是模拟文法的推导过程。</p>
+<p><strong>构造 PDA 的基本思路：</strong></p>
+<ol>
+<li><p><strong>PDA 的状态集合</strong>：PDA 的状态集合包含两个状态：一个是初始状态 $q_0$，另一个是接受状态 $q_1$。</p>
+</li>
+<li><p><strong>栈操作的设计</strong>：栈用于模拟文法的推导过程。在文法中，每个非终结符都有一个产生式，而在 PDA 中，栈顶符号将被替换成对应的右侧部分。具体来说，当 PDA 读取输入符号时，它会根据当前栈顶符号（非终结符或终结符）和当前输入符号执行相应的栈操作。</p>
+<ul>
+<li><strong>对于终结符</strong>：当 PDA 遇到一个终结符（比如文法的终结符 $a$）时，它会检查栈顶是否是该终结符。如果是，则弹出该符号并读取下一个输入符号。</li>
+<li><strong>对于非终结符</strong>：当 PDA 遇到一个非终结符（比如文法的非终结符 $A$），它会将栈顶的 $A$ 替换为该非终结符的右侧产生式。</li>
+</ul>
+</li>
+<li><p><strong>PDA 的状态转移</strong>：</p>
+<ul>
+<li><strong>读取终结符</strong>：当 PDA 遇到输入符号 $a$，栈顶为 $a$ 时，执行操作：弹出 $a$，读取下一个输入符号。</li>
+<li><strong>应用产生式</strong>：当 PDA 遇到栈顶是非终结符 $A$ 时，选择文法中的某个产生式 $A \rightarrow \alpha$，并将 $\alpha$ 推入栈中。</li>
+</ul>
+</li>
+<li><p><strong>PDA 的接受条件</strong>：PDA 在输入字符串被完全读取完毕后，如果栈为空，则接受该字符串。</p>
+</li>
+</ol>
+<p>根据上述过程，我们可以为每个上下文无关文法 $G$ 构造一个等价的 PDA，使得 PDA 接受的语言恰好是 $L(G)$，即文法 $G$ 生成的语言。</p>
+<p>通过从 PDA 到 CFG 的构造，我们可以证明每个 PDA 接受的语言是上下文无关语言。而通过从 CFG 到 PDA 的构造，我们可以证明每个上下文无关语言都可以被某个 PDA 接受。这样，我们就证明了 PDA 和 CFG 在语言的接受能力上是等价的。换句话说，它们都可以接受<strong>所有的上下文无关语言</strong>。</p>
+<hr>
+<h3 id="5-4-DPDA"><a href="#5-4-DPDA" class="headerlink" title="5.4 DPDA"></a>5.4 DPDA</h3><p><strong>DPDA</strong>（Deterministic Pushdown Automaton，确定性下推自动机）是下推自动机（PDA）的一种特殊类型。与普通的 PDA 不同，DPDA 的转移是<strong>确定性的</strong>，即在任何给定的时刻，状态和栈顶符号以及当前输入符号的组合只能导致一个确定的转移。这个特性使得 DPDA 相较于一般的 PDA 更加有限，并且在一些语言的接受能力上有所限制。</p>
+<p><strong>DPDA 与 PDA 的区别：</strong></p>
+<p>普通的 PDA 在处理状态转移时，可能存在多个可行的转移路径，这通常是因为在同一状态下、相同输入符号和栈顶符号的条件下，PDA 可以选择不同的栈操作（推入不同的栈符号或弹出栈符号）。这使得 PDA 是<strong>非确定性的</strong>。</p>
+<p>而在 <strong>DPDA</strong> 中，给定一个输入符号、当前状态和栈顶符号的组合时，转移是唯一的，只有一种可能的状态和栈变换。这种确定性意味着在任何时刻，DPDA 都只能做出一个明确的选择，因此称为<strong>确定性下推自动机</strong>。</p>
+<p>DPDA 是 PDA 的一种特殊类型，其定义如下：</p>
+<ul>
+<li><p><strong>状态集合</strong> $Q$：有限的状态集合。</p>
+</li>
+<li><p><strong>输入字母表</strong> $\Sigma$：有限的输入符号集。</p>
+</li>
+<li><p><strong>栈字母表</strong> $\Gamma$：有限的栈符号集。</p>
+</li>
+<li><p><strong>转移函数</strong> $\delta$：转移函数 $\delta(q, a, X)$，其中 $q$ 是当前状态，$a$ 是当前输入符号（可以是空符号 $\epsilon$），$X$ 是栈顶符号。与普通 PDA 不同，<strong>对于每对 ($q, a, X$)，$\delta$ 中最多只有一个转移</strong>，这使得它是确定性的。</p>
+<p>$\delta: Q \times (\Sigma \cup {\epsilon}) \times \Gamma \rightarrow Q \times \Gamma^*$，意味着从某个状态 $q$，读取输入符号 $a$ 和栈顶符号 $X$，转移到新的状态并且修改栈的内容。</p>
+</li>
+<li><p><strong>初始状态</strong> $q_0$：自动机的起始状态。</p>
+</li>
+<li><p><strong>初始栈符号</strong> $Z_0$：栈的初始符号。</p>
+</li>
+<li><p><strong>接受状态</strong> $F$：一个接受状态的集合，可以是空集（即仅以栈为空来接受）。</p>
+</li>
+</ul>
+<p>DPDA 在读取输入符号的过程中，遵循以下步骤：</p>
+<ol>
+<li><p><strong>读取输入</strong>：从输入字符串中逐个读取字符。</p>
+</li>
+<li><p><strong>栈操作</strong>：</p>
+<ul>
+<li><strong>推入栈</strong>：在某些转移中，DPDA 会将符号压入栈。</li>
+<li><strong>弹出栈</strong>：在其他转移中，DPDA 会从栈顶弹出符号。</li>
+<li><strong>不操作</strong>：在某些情况下，DPDA 会保持栈不变。</li>
+</ul>
+<p>DPDA 的关键特点是，在每次状态转移时，必须有一个唯一的选择，不允许有多个转移选项。</p>
+</li>
+<li><p><strong>接受条件</strong>：</p>
+<ul>
+<li><strong>终止状态</strong>：如果 DPDA 在读取完所有输入符号后进入某个接受状态（$q \in F$），那么该字符串被接受。</li>
+<li><strong>空栈接受</strong>：如果 DPDA 在读取完所有输入符号后栈为空（即栈没有任何符号），则该字符串也被接受。</li>
+</ul>
+</li>
+</ol>
+<p>DPDA 能够接受的语言是<strong>确定性上下文无关语言</strong>（D-CFLs）。这些语言是上下文无关语言的一个子集，限制了语言的结构，使得它们可以被确定性下推自动机处理。虽然 PDA 可以接受所有上下文无关语言（CFLs），但 DPDA 只能接受其中的一部分。</p>
+<p><strong>确定性上下文无关语言</strong>相比一般的上下文无关语言有更严格的结构要求。例如，DPDA 无法处理某些语言，这些语言是上下文无关的，但由于其结构复杂（例如，需要“回溯”或存在“多重选择”），无法通过确定性方式来接受。</p>
+<hr>
+<p>举个例子：</p>
+<ul>
+<li><p>语言 $L &#x3D; \{ a^n b^n | n \geq 0 \}$ 是一个典型的上下文无关语言，它可以被 DPDA 接受。DPDA 可以通过以下方式处理：</p>
+<ol>
+<li>在栈中推入 $a$。</li>
+<li>遇到 $b$ 时弹出栈中的 $a$，并继续。</li>
+<li>输入完全结束时，如果栈为空，则接受该字符串。</li>
+</ol>
+</li>
+<li><p>语言 $L &#x3D; \{ a^n b^n c^n | n \geq 0 \}$ 是一个上下文无关语言，但它不能被任何 DPDA 接受，因为它需要同时处理 $a$、$b$ 和 $c$ 的数量，这要求下推自动机能够在不同的符号之间进行回溯选择，而 DPDA 无法做到这一点。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>PDA（下推自动机）</th>
+<th>DPDA（确定性下推自动机）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>确定性</strong></td>
+<td>非确定性</td>
+<td>确定性</td>
+</tr>
+<tr>
+<td><strong>语言类型</strong></td>
+<td>上下文无关语言（CFL）</td>
+<td>确定性上下文无关语言（D-CFL）</td>
+</tr>
+<tr>
+<td><strong>转移函数</strong></td>
+<td>可能有多个转移</td>
+<td>对每一组合，最多只有一个转移</td>
+</tr>
+<tr>
+<td><strong>栈操作</strong></td>
+<td>可以有多个栈操作</td>
+<td>对每一输入符号和栈顶符号，栈操作唯一</td>
+</tr>
+<tr>
+<td><strong>接受条件</strong></td>
+<td>终态接受、空栈接受</td>
+<td>终态接受、空栈接受</td>
+</tr>
+</tbody></table>
 
                 
               </div>
