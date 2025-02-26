@@ -8,7 +8,7 @@
     <link href="/2025/02/21/Calculus/"/>
     <url>/2025/02/21/Calculus/</url>
     
-    <content type="html"><![CDATA[<h1 id="Calculus"><a href="#Calculus" class="headerlink" title="Calculus"></a>Calculus</h1><p>留个坑</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Calculus"><a href="#Calculus" class="headerlink" title="Calculus"></a>Calculus</h1><p>本篇微积分内容主要回顾一些重要结论的推导证明，全文没有严格上下文关系</p><div class="note note-success">            <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>          </div><h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><p>三角函数涉及到三角换元，反函数图像，积化和差公式等等..</p><h3 id="三角换元"><a href="#三角换元" class="headerlink" title="三角换元"></a>三角换元</h3><ul><li>正割：<script type="math/tex; mode=display">\sec x = \frac{1}{\cos x}</script></li><li>余割：</li></ul><script type="math/tex; mode=display">\csc x = \frac{1}{\sin x}</script><ul><li>常见换元：<script type="math/tex; mode=display">\begin{cases}\sin^2 x + \cos^2 x = 1 \\\\1 + \tan^2 x = \sec^2 = \frac{1}{\cos^2}\end{cases}</script></li></ul><h3 id="反三角函数"><a href="#反三角函数" class="headerlink" title="反三角函数"></a>反三角函数</h3><h4 id="反正弦函数（arcsin-x-）"><a href="#反正弦函数（arcsin-x-）" class="headerlink" title="反正弦函数（arcsin(x)）"></a>反正弦函数（arcsin(x)）</h4><p>反正弦函数，记作 $\arcsin(x)$，是正弦函数的反函数。它的定义域为 $[-1, 1]$，值域为 $[-\frac{\pi}{2}, \frac{\pi}{2}]$。即对于任意 $y = \arcsin(x)$，有：</p><script type="math/tex; mode=display">\sin(y) = x, \quad y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]</script><h4 id="反余弦函数（arccos-x-）"><a href="#反余弦函数（arccos-x-）" class="headerlink" title="反余弦函数（arccos(x)）"></a>反余弦函数（arccos(x)）</h4><p>反余弦函数，记作 $\arccos(x)$，是余弦函数的反函数。它的定义域为 $[-1, 1]$，值域为 $[0, \pi]$。即对于任意 $y = \arccos(x)$，有：</p><script type="math/tex; mode=display">\cos(y) = x, \quad y \in [0, \pi]</script><h4 id="反正切函数（arctan-x-）"><a href="#反正切函数（arctan-x-）" class="headerlink" title="反正切函数（arctan(x)）"></a>反正切函数（arctan(x)）</h4><p>反正切函数，记作 $\arctan(x)$，是正切函数的反函数。它的定义域为 $(-\infty, +\infty)$，值域为 $(-\frac{\pi}{2}, \frac{\pi}{2})$。即对于任意 $y = \arctan(x)$，有：</p><script type="math/tex; mode=display">\tan(y) = x, \quad y \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)</script><p><img src="/img/Calculus/arcsin.jpg" alt="反三角函数(来源：新东方)" style="max-width: 100%; height: auto;" /></p><h4 id="积化和差公式"><a href="#积化和差公式" class="headerlink" title="积化和差公式"></a>积化和差公式</h4><h4 id="倍角-半角公式"><a href="#倍角-半角公式" class="headerlink" title="倍角/半角公式"></a>倍角/半角公式</h4><h4 id="万能公式"><a href="#万能公式" class="headerlink" title="万能公式"></a>万能公式</h4>]]></content>
     
     
     <categories>
@@ -213,11 +213,11 @@
       
       <tag>修考</tag>
       
+      <tag>修考答案</tag>
+      
       <tag>CA</tag>
       
       <tag>东北大学</tag>
-      
-      <tag>修考答案</tag>
       
     </tags>
     
@@ -248,9 +248,9 @@
       
       <tag>修考</tag>
       
-      <tag>CA</tag>
-      
       <tag>修考答案</tag>
+      
+      <tag>CA</tag>
       
       <tag>九州大学</tag>
       
@@ -283,9 +283,9 @@
       
       <tag>修考</tag>
       
-      <tag>CA</tag>
-      
       <tag>修考答案</tag>
+      
+      <tag>CA</tag>
       
       <tag>九州大学</tag>
       
@@ -318,9 +318,9 @@
       
       <tag>修考</tag>
       
-      <tag>CA</tag>
-      
       <tag>修考答案</tag>
+      
+      <tag>CA</tag>
       
       <tag>九州大学</tag>
       
@@ -434,9 +434,9 @@
       
       <tag>DSA</tag>
       
-      <tag>修考答案</tag>
-      
       <tag>东京大学</tag>
+      
+      <tag>修考答案</tag>
       
     </tags>
     
