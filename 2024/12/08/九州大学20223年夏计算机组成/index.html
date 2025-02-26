@@ -19,20 +19,20 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="九州大学2023年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             [Q2] Let us consider a microprocessor having a pipelined datapath. Program execution time ET can be represented by using t">
+    <meta name="description" content="九州大学2023年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            [Q2] Let us consider a microprocessor having a pipelined datapath. Program execution time ET can be represented by using th">
 <meta property="og:type" content="article">
 <meta property="og:title" content="九州大学2023年夏计算机组成">
 <meta property="og:url" content="http://toutou.zeabur.app/2024/12/08/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A620223%E5%B9%B4%E5%A4%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="九州大学2023年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             [Q2] Let us consider a microprocessor having a pipelined datapath. Program execution time ET can be represented by using t">
+<meta property="og:description" content="九州大学2023年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            [Q2] Let us consider a microprocessor having a pipelined datapath. Program execution time ET can be represented by using th">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/exam/kyusyu23.jpeg">
 <meta property="article:published_time" content="2024-12-08T01:34:52.000Z">
 <meta property="article:modified_time" content="2024-12-08T06:43:27.621Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
-<meta property="article:tag" content="修考答案">
 <meta property="article:tag" content="CA">
+<meta property="article:tag" content="修考答案">
 <meta property="article:tag" content="九州大学">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://toutou.zeabur.app/img/exam/kyusyu23.jpeg">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          182 words
+          178 words
         
       </span>
     
@@ -290,9 +290,8 @@
                 <h1 id="九州大学2023年计算机组成答案-by-偷偷"><a href="#九州大学2023年计算机组成答案-by-偷偷" class="headerlink" title="九州大学2023年计算机组成答案 by 偷偷"></a>九州大学2023年计算机组成答案 by 偷偷</h1><div class="note note-success">
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
-
-<p><strong>[Q2]</strong> Let us consider a microprocessor having a pipelined datapath. Program execution time ET can be represented by using the three parameters, instruction count required to complete the whole program execution IC, the number of executed instructions per clock cycle IPC, and clock frequency F, as shown in the following equation.<br>$$ET &#x3D; \frac{IC}{IPC \times F}$$</p>
-<p>Answer the following questions.</p>
+<p><strong>[Q2]</strong> Let us consider a microprocessor having a pipelined datapath. Program execution time ET can be represented by using the three parameters, instruction count required to complete the whole program execution IC, the number of executed instructions per clock cycle IPC, and clock frequency F, as shown in the following equation.</p>
+<script type="math/tex; mode=display">ET = \frac{IC}{IPC \times F}</script><p>Answer the following questions.</p>
 <hr>
 <p><strong>(1)</strong> Consider an in-order microprocessor whose instruction issue width is one. Explain the effects of pipelined datapath implementation on IC, IPC, and F, compared to a single-cycle datapath implementation where each instruction is executed in a single clock cycle, respectively. If there are no effects on each parameter, answer “no effects.”</p>
 <ul>
@@ -331,10 +330,11 @@
 </blockquote>
 <ul>
 <li>Block offset：block size is <strong>4 bytes(1 word)</strong> and it requires 1 bit.</li>
-<li>Index bit: the number of cache blocks is $\frac{16bytes}{4bytes} &#x3D; 4 &#x3D; 2^2$,the index bit requires 2 bits.</li>
-<li>Tag bits: it requires 4 - 2 - 1 &#x3D; 1 bits</li>
+<li>Index bit: the number of cache blocks is $\frac{16bytes}{4bytes} = 4 = 2^2$,the index bit requires 2 bits.</li>
+<li>Tag bits: it requires 4 - 2 - 1 = 1 bits</li>
 </ul>
 <p>Before：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -342,7 +342,8 @@
 <th>Accessing Order</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>00</td>
 <td></td>
 </tr>
@@ -358,7 +359,9 @@
 <td>11</td>
 <td>1111</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>After：</p>
 <ul>
 <li>1010: hit</li>
@@ -422,9 +425,9 @@
       
         <a href="/tags/%E4%BF%AE%E8%80%83/" class="print-no-link">#修考</a>
       
-        <a href="/tags/%E4%BF%AE%E8%80%83%E7%AD%94%E6%A1%88/" class="print-no-link">#修考答案</a>
-      
         <a href="/tags/CA/" class="print-no-link">#CA</a>
+      
+        <a href="/tags/%E4%BF%AE%E8%80%83%E7%AD%94%E6%A1%88/" class="print-no-link">#修考答案</a>
       
         <a href="/tags/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6/" class="print-no-link">#九州大学</a>
       
