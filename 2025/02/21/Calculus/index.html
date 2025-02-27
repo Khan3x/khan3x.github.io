@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/Calculus/arcsin.jpg">
 <meta property="article:published_time" content="2025-02-20T16:55:33.000Z">
-<meta property="article:modified_time" content="2025-02-26T16:55:15.361Z">
+<meta property="article:modified_time" content="2025-02-27T16:39:46.548Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Calculus">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          402 words
+          1.3k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          4 mins
+          11 mins
         
       </span>
     
@@ -312,7 +312,74 @@
 <img src="/img/Calculus/arcsin.jpg" srcset="/img/loading.gif" lazyload alt="反三角函数" style="max-width: 100%; height: auto;" />
 
 
-<h3 id="1-3-积化和差公式"><a href="#1-3-积化和差公式" class="headerlink" title="1.3 积化和差公式"></a>1.3 积化和差公式</h3><h3 id="1-4-倍角-半角公式"><a href="#1-4-倍角-半角公式" class="headerlink" title="1.4 倍角&#x2F;半角公式"></a>1.4 倍角&#x2F;半角公式</h3><h3 id="1-5-万能公式"><a href="#1-5-万能公式" class="headerlink" title="1.5 万能公式"></a>1.5 万能公式</h3>
+<h3 id="1-3-积化和差公式"><a href="#1-3-积化和差公式" class="headerlink" title="1.3 积化和差公式"></a>1.3 积化和差公式</h3><p>$$<br>\sin(x \pm y) &#x3D; \sin(x)\cos(y) \pm \cos(x)\sin(y)<br>$$</p>
+<p>$$<br>\cos(x \pm y) &#x3D; \cos(x)\cos(y) \mp \sin(x)\sin(y)<br>$$</p>
+<p>$$<br>\tan(x \pm y) &#x3D; \frac{\tan(x) \pm \tan(y)}{1 \mp \tan(x)\tan(y)}<br>$$</p>
+<p>$$<br>\sin(x) \cos(y) &#x3D; \frac{1}{2} \left[ \sin(x + y) + \sin(x - y) \right]<br>$$</p>
+<p>$$<br>\cos(x) \sin(y) &#x3D; \frac{1}{2} \left[ \sin(x + y) - \sin(x - y) \right]<br>$$</p>
+<p>$$<br>\cos(x) \cos(y) &#x3D; \frac{1}{2} \left[ \cos(x + y) + \cos(x - y) \right]<br>$$</p>
+<p>$$<br>\sin(x) \sin(y) &#x3D; \frac{1}{2} \left[ \cos(x - y) - \cos(x + y) \right]<br>$$</p>
+<h3 id="1-4-倍角-半角公式"><a href="#1-4-倍角-半角公式" class="headerlink" title="1.4 倍角&#x2F;半角公式"></a>1.4 倍角&#x2F;半角公式</h3><p>$$<br>\sin(2x) &#x3D; 2 \sin(x) \cos(x)<br>$$</p>
+<p>$$<br>\cos(2x) &#x3D; \cos^2(x) - \sin^2(x) &#x3D; 2\cos^2(x) - 1 &#x3D; 1 - 2\sin^2(x)<br>$$</p>
+<p>$$<br>\tan(2x) &#x3D; \frac{2\tan(x)}{1 - \tan^2(x)}<br>$$</p>
+<p>$$<br>\sin\left(\frac{x}{2}\right) &#x3D; \pm \sqrt{\frac{1 - \cos(x)}{2}}<br>$$</p>
+<p>$$<br>\cos\left(\frac{x}{2}\right) &#x3D; \pm \sqrt{\frac{1 + \cos(x)}{2}}<br>$$</p>
+<p>$$<br>\tan\left(\frac{x}{2}\right) &#x3D; \pm \sqrt{\frac{1 - \cos(x)}{1 + \cos(x)}} &#x3D; \frac{\sin(x)}{1 + \cos(x)} &#x3D; \frac{1 - \cos(x)}{\sin(x)}<br>$$</p>
+<h3 id="1-5-万能公式"><a href="#1-5-万能公式" class="headerlink" title="1.5 万能公式"></a>1.5 万能公式</h3><p>设 $u &#x3D; \tan\left(\frac{x}{2}\right)$，则有：<br>$$<br>\sin x &#x3D; \frac{2u}{1 + u^2}, \quad x \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)<br>$$</p>
+<p>$$<br>\cos x &#x3D; \frac{1 - u^2}{1 + u^2}, \quad x \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)<br>$$</p>
+<p>$$<br>\tan x &#x3D; \frac{2u}{1 - u^2}, \quad x \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)<br>$$</p>
+<h2 id="2-一元二次方程"><a href="#2-一元二次方程" class="headerlink" title="2. 一元二次方程"></a>2. 一元二次方程</h2><p>一元二次方程的标准形式是：</p>
+<p>$$<br>ax^2 + bx + c &#x3D; 0<br>$$</p>
+<p>其中，$a$、$b$ 和 $c$ 是常数，且 $a \neq 0$。</p>
+<p>一元二次方程的解的存在与否可以通过判别式 $\Delta$ 来判断，判别式的表达式是：</p>
+<p>$$<br>\Delta &#x3D; b^2 - 4ac<br>$$</p>
+<p>根据 $\Delta$ 的值，可以判断方程的解的情况：</p>
+<ul>
+<li>如果 $\Delta &gt; 0$，方程有 <strong>两个不相等的实数解</strong>。</li>
+<li>如果 $\Delta &#x3D; 0$，方程有 <strong>一个实数解</strong>，也叫做 <strong>重根</strong>。</li>
+<li>如果 $\Delta &lt; 0$，方程没有实数解，只有 <strong>两个共轭复数解</strong>。</li>
+</ul>
+<p>根据判别式 $\Delta$，方程的解可以通过求根公式来表示：</p>
+<p>$$<br>x &#x3D; \frac{-b \pm \sqrt{\Delta}}{2a}<br>$$</p>
+<p>其中，“$\pm$”表示可以有两个解，分别是：</p>
+<p>$$<br>x_1 &#x3D; \frac{-b + \sqrt{\Delta}}{2a}, \quad x_2 &#x3D; \frac{-b - \sqrt{\Delta}}{2a}<br>$$</p>
+<ol>
+<li>$\Delta &#x3D; b^2 - 4ac$ 是判别式，它决定了方程解的个数和类型。</li>
+<li>根据 $\Delta$ 的值，分别有不同的解的情况。</li>
+</ol>
+<h2 id="3-等差-等比数列"><a href="#3-等差-等比数列" class="headerlink" title="3. 等差&#x2F;等比数列"></a>3. 等差&#x2F;等比数列</h2><h3 id="3-1-等差数列的相关公式"><a href="#3-1-等差数列的相关公式" class="headerlink" title="3.1 等差数列的相关公式"></a>3.1 等差数列的相关公式</h3><p>等差数列是指每一项与前一项的差都相等的数列，常常用符号 $a_n$ 表示。</p>
+<p>假设等差数列的首项为 $a_1$，公差为 $d$，则该数列的第 $n$ 项可以表示为：</p>
+<p>$$<br>a_n &#x3D; a_1 + (n - 1) d<br>$$</p>
+<p><strong>求和公式：</strong> 等差数列前 $n$ 项的和可以通过以下公式计算：</p>
+<p>$$<br>S_n &#x3D; \frac{n}{2} \left(2a_1 + (n - 1) d \right)<br>$$</p>
+<p>或者</p>
+<p>$$<br>S_n &#x3D; \frac{n}{2} \left(a_1 + a_n \right)<br>$$</p>
+<p>其中，$a_n$ 是数列的第 $n$ 项。</p>
+<p><strong>总结：</strong></p>
+<ol>
+<li>等差数列的第 $n$ 项公式：$a_n &#x3D; a_1 + (n - 1)d$</li>
+<li>等差数列前 $n$ 项的和公式：$S_n &#x3D; \frac{n}{2} \left(2a_1 + (n - 1) d \right)$ 或者 $S_n &#x3D; \frac{n}{2} \left(a_1 + a_n \right)$</li>
+</ol>
+<hr>
+<h3 id="3-2-等比数列的相关公式"><a href="#3-2-等比数列的相关公式" class="headerlink" title="3.2 等比数列的相关公式"></a>3.2 等比数列的相关公式</h3><p>等比数列是指每一项与前一项的比都相等的数列，常常用符号 $b_n$ 表示。</p>
+<p>假设等比数列的首项为 $b_1$，公比为 $r$，则该数列的第 $n$ 项可以表示为：</p>
+<p>$$<br>b_n &#x3D; b_1 r^{n-1}<br>$$</p>
+<p><strong>求和公式：</strong> 等比数列前 $n$ 项的和可以通过以下公式计算：</p>
+<ul>
+<li>当 $r \neq 1$ 时，前 $n$ 项的和为：</li>
+</ul>
+<p>$$<br>S_n &#x3D; \frac{b_1 (1 - r^n)}{1 - r}<br>$$</p>
+<ul>
+<li>当 $r &#x3D; 1$ 时，前 $n$ 项的和为：</li>
+</ul>
+<p>$$<br>S_n &#x3D; n \cdot b_1<br>$$</p>
+<p><strong>总结：</strong></p>
+<ol>
+<li>等比数列的第 $n$ 项公式：$b_n &#x3D; b_1 r^{n-1}$</li>
+<li>等比数列前 $n$ 项的和公式（当 $r \neq 1$）：$S_n &#x3D; \frac{b_1 (1 - r^n)}{1 - r}$</li>
+<li>等比数列前 $n$ 项的和公式（当 $r &#x3D; 1$）：$S_n &#x3D; n \cdot b_1$</li>
+</ol>
+
                 
               </div>
             
