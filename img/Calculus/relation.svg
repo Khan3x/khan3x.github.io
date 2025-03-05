@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- 背景 -->
+  <rect width="600" height="400" fill="#f0f0f0"/>
+  
+  <!-- 标题 -->
+  <text x="300" y="40" text-anchor="middle" font-size="20" font-weight="bold">数学分析概念关系图</text>
+  
+  <!-- 概念框 -->
+  <g>
+    <!-- 极限 -->
+    <rect x="250" y="80" width="100" height="40" fill="#FFB3BA" stroke="#000" rx="10"/>
+    <text x="300" y="105" text-anchor="middle" font-size="14">极限存在</text>
+    
+    <!-- 连续 -->
+    <rect x="100" y="180" width="100" height="40" fill="#BAFFC9" stroke="#000" rx="10"/>
+    <text x="150" y="205" text-anchor="middle" font-size="14">连续</text>
+    
+    <!-- 可导 -->
+    <rect x="250" y="180" width="100" height="40" fill="#BAE1FF" stroke="#000" rx="10"/>
+    <text x="300" y="205" text-anchor="middle" font-size="14">可导</text>
+    
+    <!-- 可微 -->
+    <rect x="400" y="180" width="100" height="40" fill="#FFE9BA" stroke="#000" rx="10"/>
+    <text x="450" y="205" text-anchor="middle" font-size="14">可微</text>
+    
+    <!-- 可偏导 -->
+    <rect x="250" y="280" width="100" height="40" fill="#E1BAFF" stroke="#000" rx="10"/>
+    <text x="300" y="305" text-anchor="middle" font-size="14">可偏导</text>
+  </g>
+  
+  <!-- 箭头和关系线 -->
+  <g stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+    <!-- 极限 -> 连续 -->
+    <path d="M250 120 Q150 150 125 180"/>
+    
+    <!-- 极限 -> 可导 -->
+    <line x1="300" y1="120" x2="300" y2="180"/>
+    
+    <!-- 极限 -> 可微 -->
+    <path d="M250 120 Q350 150 425 180"/>
+    
+    <!-- 可导 -> 连续 -->
+    <line x1="250" y1="200" x2="200" y2="200"/>
+    
+    <!-- 可导 -> 可微 -->
+    <line x1="350" y1="200" x2="400" y2="200"/>
+    
+    <!-- 可导 -> 可偏导 -->
+    <line x1="300" y1="220" x2="300" y2="280"/>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+    </marker>
+  </defs>
+  
+  <!-- 说明文字 -->
+  <text x="300" y="380" text-anchor="middle" font-size="12" fill="#666">
+    箭头表示：若左边的性质成立，则右边的性质也成立
+  </text>
+  
+  <!-- 水印 -->
+  <text 
+    x="300" 
+    y="200" 
+    text-anchor="middle" 
+    font-size="60" 
+    fill="rgba(200,200,200,0.3)" 
+    transform="rotate(-45, 300, 200)"
+    font-weight="bold">
+    偷偷星球
+  </text>
+</svg>
