@@ -27,7 +27,7 @@
 <meta property="og:description" content="Source: Top Interview 150 88. Merge Sorted Array画蛇添足的做法： class Solution &#123; public:     void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123;         priority_queue&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-06T14:50:02.000Z">
-<meta property="article:modified_time" content="2025-03-05T16:26:05.938Z">
+<meta property="article:modified_time" content="2025-03-06T05:17:56.670Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary_large_image">
@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.7k words
+          7.8k words
         
       </span>
     
@@ -1909,6 +1909,24 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
+<h2 id="383-Ransom-Note"><a href="#383-Ransom-Note" class="headerlink" title="383. Ransom Note"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/ransom-note/description/?envType=study-plan-v2&envId=top-interview-150">383. Ransom Note</a></h2><p>Solution: #Hash Table</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">bool</span> <span class="token function">canConstruct</span><span class="token punctuation">(</span>string ransomNote<span class="token punctuation">,</span> string magazine<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        unordered_map<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> mp<span class="token punctuation">;</span>  <span class="token comment">// 统计magazine中字符出现次数</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> magazine<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            mp<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> ransomNote<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>mp<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">==</span> mp<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 字符不存在</span>
+            <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">--</span>mp<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">// 字符不够用</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<h2 id="205-Isomorphic-Strings"><a href="#205-Isomorphic-Strings" class="headerlink" title="205. Isomorphic Strings"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/isomorphic-strings/description/?envType=study-plan-v2&envId=top-interview-150">205. Isomorphic Strings</a></h2>
                 
               </div>
             
