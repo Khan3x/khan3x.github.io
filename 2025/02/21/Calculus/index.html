@@ -29,8 +29,9 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/Calculus/arcsin.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/Calculus/relation.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/Calculus/convex.jpg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/Calculus/pds.jpg">
 <meta property="article:published_time" content="2025-02-20T16:55:33.000Z">
-<meta property="article:modified_time" content="2025-03-27T16:39:33.308Z">
+<meta property="article:modified_time" content="2025-03-27T16:48:30.031Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Calculus">
@@ -1194,7 +1195,7 @@
 <p>设直线方向向量为 $\mathbf{d} &#x3D; (l, m, n)$，平面法向量为 $\mathbf{n} &#x3D; (A, B, C)$，夹角 $\theta$ 满足：  </p>
 <p>$$<br>\sin\theta &#x3D; \frac{|\mathbf{d} \cdot \mathbf{n}|}{|\mathbf{d}| |\mathbf{n}|}<br>$$  </p>
 <p>其中 $\theta$ 为直线与平面的夹角（取锐角）。  </p>
-<h2 id="21-偏导数"><a href="#21-偏导数" class="headerlink" title="21. 偏导数"></a><strong>21. 偏导数</strong></h2><p>偏导数是多元函数在某一方向上的变化率，描述了函数对某个特定变量的变化率，而其他变量保持不变。  </p>
+<h2 id="21-偏导数（partial-derivative）"><a href="#21-偏导数（partial-derivative）" class="headerlink" title="21. 偏导数（partial derivative）"></a><strong>21. 偏导数（partial derivative）</strong></h2><p>偏导数是多元函数在某一方向上的变化率，描述了函数对某个特定变量的变化率，而其他变量保持不变。  </p>
 <hr>
 <h3 id="21-1-偏导数的几何意义"><a href="#21-1-偏导数的几何意义" class="headerlink" title="21.1. 偏导数的几何意义"></a><strong>21.1. 偏导数的几何意义</strong></h3><p>在单变量微积分中，导数表示曲线在某点的切线斜率，而在多元函数中，偏导数描述函数在某个方向上的变化率。  </p>
 <p>设 $z &#x3D; f(x, y)$ 是一个二元函数，其偏导数的几何意义为：</p>
@@ -1228,6 +1229,8 @@
 <p><strong>(2) 多参数情况</strong><br>若 $z &#x3D; f(x, y)$，其中 $x &#x3D; x(u, v)$，$y &#x3D; y(u, v)$，则：</p>
 <p>$$<br>\frac{\partial z}{\partial u} &#x3D; \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u}<br>$$  </p>
 <p>$$<br>\frac{\partial z}{\partial v} &#x3D; \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}<br>$$  </p>
+<img src="/img/Calculus/pds.jpg" srcset="/img/loading.gif" lazyload alt="偏导数" style="max-width: 100%; height: auto;" />
+
 <p><strong>示例</strong><br>设 $z &#x3D; x^2 + xy$，其中 $x &#x3D; t^2, y &#x3D; e^t$，则：</p>
 <p>$$<br>\frac{\partial f}{\partial x} &#x3D; 2x + y, \quad \frac{\partial f}{\partial y} &#x3D; x<br>$$  </p>
 <p>$$<br>\frac{dx}{dt} &#x3D; 2t, \quad \frac{dy}{dt} &#x3D; e^t<br>$$  </p>
