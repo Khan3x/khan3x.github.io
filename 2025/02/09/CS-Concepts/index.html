@@ -28,8 +28,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/hash.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/hash2.jpg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/pnp.jpg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-03-31T17:23:25.337Z">
+<meta property="article:modified_time" content="2025-05-12T15:03:13.774Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -233,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          170 words
+          226 words
         
       </span>
     
@@ -293,7 +294,23 @@
 <h3 id="Seperate-Chaining"><a href="#Seperate-Chaining" class="headerlink" title="Seperate Chaining"></a>Seperate Chaining</h3><p><strong>Separate chaining</strong> is a collision resolution technique in hash tables where each bucket stores multiple values using a linked list (or another data structure like a BST). When a collision occurs, the new element is simply added to the linked list at that index. This method allows the table to handle an unlimited number of collisions but increases memory usage. Performance depends on the length of the chains; with a well-distributed hash function, the average lookup time remains <strong>O(1) in best case</strong> and <strong>O(n) in worst case</strong>. <strong>Rehashing</strong> or using a larger table can help maintain efficiency.</p>
 <img src="/img/concepts/hash2.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
 
+<h3 id="P-≠-NP"><a href="#P-≠-NP" class="headerlink" title="P ≠ NP"></a>P ≠ NP</h3><p><strong>P ≠ NP</strong> means that not all problems whose solutions can be <em>verified quickly</em> (in polynomial time) can also be <em>solved quickly</em>.<br><strong>P</strong> is the class of problems that can be <strong>solved</strong> in polynomial time.<br><strong>NP</strong> is the class of problems whose solutions can be <strong>verified</strong> in polynomial time.<br>The question is: if a problem’s solution can be verified quickly, can it also be found quickly?<br>Most experts believe <strong>P ≠ NP</strong>, but it has not been proven yet.</p>
+<img src="/img/concepts/pnp.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
 
+<h3 id="NP-Hard-Problems"><a href="#NP-Hard-Problems" class="headerlink" title="NP Hard Problems"></a>NP Hard Problems</h3><p>NP-Hard problems are computational problems that are at least as difficult as the hardest problems in NP (nondeterministic polynomial time). Solving an NP-Hard problem quickly would mean we could solve every NP problem quickly too, but no such efficient solution is known. These problems may not even have verifiable solutions in polynomial time. They often involve optimization or decision-making with many possibilities, like scheduling, routing, or packing.Examples include the Traveling Salesman Problem and Knapsack Problem.</p>
+<h3 id="NP-Complete-Problems"><a href="#NP-Complete-Problems" class="headerlink" title="NP-Complete Problems"></a>NP-Complete Problems</h3><p><strong>NP-Complete problems</strong> are a special class of problems that are both:</p>
+<ol>
+<li><strong>In NP</strong> – their solutions can be verified in polynomial time, and</li>
+<li><strong>NP-Hard</strong> – as hard as the hardest problems in NP.</li>
+</ol>
+<p>If you can solve any NP-Complete problem quickly (in polynomial time), you can solve <em>all</em> NP problems quickly. Famous examples include the <strong>Boolean Satisfiability Problem (SAT)</strong> and <strong>Traveling Salesman Problem (decision version)</strong>.</p>
+<h3 id="Divide-Conquer"><a href="#Divide-Conquer" class="headerlink" title="Divide &amp; Conquer"></a>Divide &amp; Conquer</h3><p><strong>Divide and Conquer</strong> is a problem-solving strategy that works in three main steps:</p>
+<ol>
+<li><strong>Divide</strong> the problem into smaller sub-problems of the same type.</li>
+<li><strong>Conquer</strong> each sub-problem by solving them recursively.</li>
+<li><strong>Combine</strong> the solutions of sub-problems to get the final result.</li>
+</ol>
+<p>Classic examples include <strong>Merge Sort</strong>, <strong>Quick Sort</strong>, and <strong>Binary Search</strong>.</p>
 <h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h2 id="3-Computer-Architecture"><a href="#3-Computer-Architecture" class="headerlink" title="3. Computer Architecture"></a>3. Computer Architecture</h2><h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h2 id="9-Cryptography"><a href="#9-Cryptography" class="headerlink" title="9. Cryptography"></a>9. Cryptography</h2><h2 id="10-Digital-Signal-Processing"><a href="#10-Digital-Signal-Processing" class="headerlink" title="10. Digital Signal Processing"></a>10. Digital Signal Processing</h2><h2 id="11-Control-Engineering"><a href="#11-Control-Engineering" class="headerlink" title="11. Control Engineering"></a>11. Control Engineering</h2><h2 id="12-Software-Development"><a href="#12-Software-Development" class="headerlink" title="12. Software Development"></a>12. Software Development</h2><h2 id="13-Robotics"><a href="#13-Robotics" class="headerlink" title="13. Robotics"></a>13. Robotics</h2>
                 
               </div>
