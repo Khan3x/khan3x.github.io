@@ -27,7 +27,7 @@
 <meta property="og:description" content="Source: Top Interview 150 88. Merge Sorted Array画蛇添足的做法： class Solution &#123; public:     void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123;         priority_queue&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-06T14:50:02.000Z">
-<meta property="article:modified_time" content="2025-05-16T16:46:24.186Z">
+<meta property="article:modified_time" content="2025-05-17T15:50:37.004Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary_large_image">
@@ -6674,6 +6674,20 @@ public:
             twos <span class="token operator">=</span> <span class="token punctuation">(</span>twos <span class="token operator">^</span> num<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token operator">~</span>ones<span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> ones<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h2 id="201-Bitwise-AND-of-Numbers-Range"><a href="#201-Bitwise-AND-of-Numbers-Range" class="headerlink" title="201. Bitwise AND of Numbers Range"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/bitwise-and-of-numbers-range/description/?envType=study-plan-v2&envId=top-interview-150">201. Bitwise AND of Numbers Range</a></h2><p>Solution: #Bit Manipulation</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">rangeBitwiseAnd</span><span class="token punctuation">(</span><span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> shift <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            left <span class="token operator">>>=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            right <span class="token operator">>>=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            shift<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> left <span class="token operator">&lt;&lt;</span> shift<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
                 
