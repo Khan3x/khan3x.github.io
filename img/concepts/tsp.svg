@@ -1,0 +1,203 @@
+<svg viewBox="0 0 1000 750" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">旅行商问题 (TSP) 可视化讲解</text>
+  
+  <!-- Problem illustration - Left side -->
+  <text x="150" y="70" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#1976D2">问题示例：访问所有城市并返回起点</text>
+  
+  <!-- Cities -->
+  <circle cx="80" cy="120" r="12" fill="#F44336" stroke="#C62828" stroke-width="2"/>
+  <text x="80" y="126" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">A</text>
+  <text x="80" y="145" text-anchor="middle" font-family="Arial" font-size="9" fill="#C62828">起点</text>
+  
+  <circle cx="220" cy="100" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="220" y="106" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">B</text>
+  
+  <circle cx="200" cy="180" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="200" y="186" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">C</text>
+  
+  <circle cx="120" cy="200" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="120" y="206" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">D</text>
+  
+  <circle cx="160" cy="140" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="160" y="146" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">E</text>
+  
+  <!-- All possible connections (light gray) -->
+  <line x1="80" y1="120" x2="220" y2="100" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="80" y1="120" x2="200" y2="180" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="80" y1="120" x2="120" y2="200" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="80" y1="120" x2="160" y2="140" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="220" y1="100" x2="200" y2="180" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="220" y1="100" x2="120" y2="200" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="220" y1="100" x2="160" y2="140" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="200" y1="180" x2="120" y2="200" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="200" y1="180" x2="160" y2="140" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="120" y1="200" x2="160" y2="140" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="2,2"/>
+  
+  <!-- Distance labels -->
+  <text x="150" y="105" font-family="Arial" font-size="8" fill="#666">142</text>
+  <text x="140" y="155" font-family="Arial" font-size="8" fill="#666">89</text>
+  <text x="95" y="165" font-family="Arial" font-size="8" fill="#666">89</text>
+  <text x="120" y="125" font-family="Arial" font-size="8" fill="#666">89</text>
+  <text x="210" y="145" font-family="Arial" font-size="8" fill="#666">89</text>
+  <text x="175" y="85" font-family="Arial" font-size="8" fill="#666">125</text>
+  <text x="190" y="155" font-family="Arial" font-size="8" fill="#666">45</text>
+  <text x="160" y="195" font-family="Arial" font-size="8" fill="#666">89</text>
+  <text x="180" y="165" font-family="Arial" font-size="8" fill="#666">56</text>
+  <text x="140" y="175" font-family="Arial" font-size="8" fill="#666">45</text>
+  
+  <!-- Optimal path -->
+  <polyline points="80,120 160,140 220,100 200,180 120,200 80,120" 
+            fill="none" stroke="#4CAF50" stroke-width="4" opacity="0.8"/>
+  
+  <!-- Path arrows -->
+  <defs>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4CAF50"/>
+    </marker>
+  </defs>
+  
+  <line x1="80" y1="120" x2="150" y2="135" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowgreen)"/>
+  <line x1="160" y1="140" x2="210" y2="105" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowgreen)"/>
+  <line x1="220" y1="100" x2="205" y2="175" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowgreen)"/>
+  <line x1="200" y1="180" x2="125" y2="195" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowgreen)"/>
+  <line x1="120" y1="200" x2="85" y2="125" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowgreen)"/>
+  
+  <text x="150" y="235" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#4CAF50">最优路径：A→E→B→C→D→A</text>
+  <text x="150" y="250" text-anchor="middle" font-family="Arial" font-size="11" fill="#4CAF50">总距离：358</text>
+  
+  <!-- Comparison - Right side -->
+  <text x="650" y="70" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#D32F2F">非最优路径示例</text>
+  
+  <!-- Second set of cities -->
+  <circle cx="580" cy="120" r="12" fill="#F44336" stroke="#C62828" stroke-width="2"/>
+  <text x="580" y="126" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">A</text>
+  
+  <circle cx="720" cy="100" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="720" y="106" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">B</text>
+  
+  <circle cx="700" cy="180" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="700" y="186" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">C</text>
+  
+  <circle cx="620" cy="200" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="620" y="206" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">D</text>
+  
+  <circle cx="660" cy="140" r="12" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+  <text x="660" y="146" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">E</text>
+  
+  <!-- Sub-optimal path -->
+  <polyline points="580,120 720,100 660,140 700,180 620,200 580,120" 
+            fill="none" stroke="#FF5722" stroke-width="4" opacity="0.8"/>
+  
+  <defs>
+    <marker id="arroworange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF5722"/>
+    </marker>
+  </defs>
+  
+  <line x1="580" y1="120" x2="710" y2="105" stroke="#FF5722" stroke-width="4" marker-end="url(#arroworange)"/>
+  <line x1="720" y1="100" x2="665" y2="135" stroke="#FF5722" stroke-width="4" marker-end="url(#arroworange)"/>
+  <line x1="660" y1="140" x2="695" y2="175" stroke="#FF5722" stroke-width="4" marker-end="url(#arroworange)"/>
+  <line x1="700" y1="180" x2="625" y2="195" stroke="#FF5722" stroke-width="4" marker-end="url(#arroworange)"/>
+  <line x1="620" y1="200" x2="585" y2="125" stroke="#FF5722" stroke-width="4" marker-end="url(#arroworange)"/>
+  
+  <text x="650" y="235" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#FF5722">非最优路径：A→B→E→C→D→A</text>
+  <text x="650" y="250" text-anchor="middle" font-family="Arial" font-size="11" fill="#FF5722">总距离：456</text>
+  
+  <!-- Algorithm complexity -->
+  <rect x="350" y="80" width="300" height="180" fill="#E8F5E8" stroke="#4CAF50" stroke-width="2" rx="5"/>
+  <text x="500" y="105" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2E7D32">算法复杂度分析</text>
+  
+  <text x="360" y="125" font-family="Arial" font-size="12" fill="#333">• 问题规模：n个城市</text>
+  <text x="360" y="140" font-family="Arial" font-size="12" fill="#333">• 可能的路径数：(n-1)!/2</text>
+  <text x="360" y="155" font-family="Arial" font-size="12" fill="#333">• 5个城市：12种路径</text>
+  <text x="360" y="170" font-family="Arial" font-size="12" fill="#333">• 10个城市：181,440种路径</text>
+  <text x="360" y="185" font-family="Arial" font-size="12" fill="#333">• 20个城市：6×10¹⁶种路径</text>
+  <text x="360" y="200" font-family="Arial" font-size="12" fill="#333">• 时间复杂度：O(n!)</text>
+  <text x="360" y="215" font-family="Arial" font-size="12" font-weight="bold" fill="#D32F2F">→ NP-困难问题</text>
+  <text x="360" y="235" font-family="Arial" font-size="11" fill="#666">大规模问题需要近似算法</text>
+  
+  <!-- Solution methods -->
+  <rect x="50" y="280" width="900" height="180" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="5"/>
+  <text x="500" y="305" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#1976D2">TSP 求解方法</text>
+  
+  <!-- Exact methods -->
+  <rect x="70" y="320" width="280" height="120" fill="#fff" stroke="#2196F3" stroke-width="1" rx="3"/>
+  <text x="210" y="340" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#1976D2">精确算法</text>
+  <text x="80" y="360" font-family="Arial" font-size="11" fill="#333">1. 暴力搜索 (Brute Force)</text>
+  <text x="90" y="375" font-family="Arial" font-size="10" fill="#666">   枚举所有可能路径</text>
+  <text x="80" y="390" font-family="Arial" font-size="11" fill="#333">2. 动态规划 (Dynamic Programming)</text>
+  <text x="90" y="405" font-family="Arial" font-size="10" fill="#666">   Held-Karp算法，O(n²2ⁿ)</text>
+  <text x="80" y="420" font-family="Arial" font-size="11" fill="#333">3. 分支限界 (Branch and Bound)</text>
+  <text x="90" y="435" font-family="Arial" font-size="10" fill="#666">   剪枝搜索空间</text>
+  
+  <!-- Heuristic methods -->
+  <rect x="370" y="320" width="280" height="120" fill="#fff" stroke="#FF9800" stroke-width="1" rx="3"/>
+  <text x="510" y="340" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#F57C00">启发式算法</text>
+  <text x="380" y="360" font-family="Arial" font-size="11" fill="#333">1. 最近邻算法 (Nearest Neighbor)</text>
+  <text x="390" y="375" font-family="Arial" font-size="10" fill="#666">   贪心策略，快速但不最优</text>
+  <text x="380" y="390" font-family="Arial" font-size="11" fill="#333">2. 遗传算法 (Genetic Algorithm)</text>
+  <text x="390" y="405" font-family="Arial" font-size="10" fill="#666">   进化计算方法</text>
+  <text x="380" y="420" font-family="Arial" font-size="11" fill="#333">3. 模拟退火 (Simulated Annealing)</text>
+  <text x="390" y="435" font-family="Arial" font-size="10" fill="#666">   概率性优化算法</text>
+  
+  <!-- Approximation methods -->
+  <rect x="670" y="320" width="280" height="120" fill="#fff" stroke="#4CAF50" stroke-width="1" rx="3"/>
+  <text x="810" y="340" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2E7D32">近似算法</text>
+  <text x="680" y="360" font-family="Arial" font-size="11" fill="#333">1. Christofides算法</text>
+  <text x="690" y="375" font-family="Arial" font-size="10" fill="#666">   1.5倍近似比</text>
+  <text x="680" y="390" font-family="Arial" font-size="11" fill="#333">2. 最小生成树方法</text>
+  <text x="690" y="405" font-family="Arial" font-size="10" fill="#666">   基于MST的近似</text>
+  <text x="680" y="420" font-family="Arial" font-size="11" fill="#333">3. Lin-Kernighan启发式</text>
+  <text x="690" y="435" font-family="Arial" font-size="10" fill="#666">   局部搜索优化</text>
+  
+  <!-- Applications -->
+  <rect x="50" y="480" width="900" height="100" fill="#FFF3E0" stroke="#FF9800" stroke-width="2" rx="5"/>
+  <text x="500" y="505" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#F57C00">实际应用领域</text>
+  
+  <text x="70" y="530" font-family="Arial" font-size="12" fill="#333">• 物流配送：快递、货运路线优化</text>
+  <text x="70" y="545" font-family="Arial" font-size="12" fill="#333">• 制造业：钻孔、焊接路径规划</text>
+  <text x="70" y="560" font-family="Arial" font-size="12" fill="#333">• 基因测序：DNA片段排序</text>
+  
+  <text x="350" y="530" font-family="Arial" font-size="12" fill="#333">• 集成电路：布线优化</text>
+  <text x="350" y="545" font-family="Arial" font-size="12" fill="#333">• 天文学：望远镜观测调度</text>
+  <text x="350" y="560" font-family="Arial" font-size="12" fill="#333">• 旅游规划：景点游览路线</text>
+  
+  <text x="630" y="530" font-family="Arial" font-size="12" fill="#333">• 机器人路径规划</text>
+  <text x="630" y="545" font-family="Arial" font-size="12" fill="#333">• 网络路由优化</text>
+  <text x="630" y="560" font-family="Arial" font-size="12" fill="#333">• 资源调度问题</text>
+  
+  <!-- Key insights -->
+  <rect x="50" y="600" width="900" height="80" fill="#FFEBEE" stroke="#F44336" stroke-width="2" rx="5"/>
+  <text x="500" y="625" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#C62828">关键洞察</text>
+  
+  <text x="70" y="645" font-family="Arial" font-size="12" fill="#333">• TSP是组合优化的经典问题，属于NP-困难类别</text>
+  <text x="70" y="660" font-family="Arial" font-size="12" fill="#333">• 小规模问题可用精确算法，大规模问题需要启发式或近似算法</text>
+  <text x="70" y="675" font-family="Arial" font-size="12" fill="#333">• 实际应用中通常采用混合策略：精确算法+局部优化</text>
+  
+  <!-- Legend -->
+  <rect x="780" y="80" width="200" height="100" fill="#fff" stroke="#ddd" stroke-width="1" rx="3"/>
+  <text x="880" y="100" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#333">图例</text>
+  
+  <circle cx="800" cy="115" r="8" fill="#F44336"/>
+  <text x="815" y="120" font-family="Arial" font-size="10" fill="#333">起点城市</text>
+  
+  <circle cx="800" cy="135" r="8" fill="#2196F3"/>
+  <text x="815" y="140" font-family="Arial" font-size="10" fill="#333">其他城市</text>
+  
+  <line x1="800" y1="150" x2="820" y2="150" stroke="#4CAF50" stroke-width="3"/>
+  <text x="825" y="155" font-family="Arial" font-size="10" fill="#333">最优路径</text>
+  
+  <line x1="800" y1="165" x2="820" y2="165" stroke="#FF5722" stroke-width="3"/>
+  <text x="825" y="170" font-family="Arial" font-size="10" fill="#333">非最优路径</text>
+  
+  <!-- Watermark -->
+  <text x="500" y="380" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#E0E0E0" opacity="0.3">偷偷星球</text>
+  
+  <!-- TSP formula -->
+  <text x="500" y="720" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#666">目标：min Σ d(c_i, c_{i+1}) + d(c_n, c_1)</text>
+  <text x="500" y="735" text-anchor="middle" font-family="Arial" font-size="11" fill="#999">其中 d(i,j) 为城市i到城市j的距离</text>
+</svg>
