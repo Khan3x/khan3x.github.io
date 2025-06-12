@@ -34,9 +34,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/btree.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/astar.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/minimax.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/process.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-05-29T17:26:14.751Z">
+<meta property="article:modified_time" content="2025-06-12T19:35:22.350Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -240,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          423 words
+          437 words
         
       </span>
     
@@ -399,7 +400,10 @@
 <img src="/img/concepts/minimax.svg" srcset="/img/loading.gif" lazyload alt="Minimax Algorithm" style="max-width: 100%; height: auto;" />
 
 <hr>
-<h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h2 id="3-Computer-Architecture"><a href="#3-Computer-Architecture" class="headerlink" title="3. Computer Architecture"></a>3. Computer Architecture</h2><h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
+<h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h3 id="Procss-Thread"><a href="#Procss-Thread" class="headerlink" title="Procss &amp; Thread"></a>Procss &amp; Thread</h3><p>A process is the basic unit of resource allocation and scheduling in an operating system, with its own independent address space and resources. A thread is the basic unit of CPU scheduling, and a process can contain multiple threads that share the process’s memory and resources. Threads switch faster and have lower overhead, making them suitable for concurrent execution. In contrast, processes are independent of each other, with higher switching overhead but greater stability. While multithreading improves execution efficiency, it also introduces challenges such as synchronization and mutual exclusion.</p>
+<img src="/img/concepts/process.svg" srcset="/img/loading.gif" lazyload alt="Process & Thread" style="max-width: 100%; height: auto;" />
+
+<h2 id="3-Computer-Architecture"><a href="#3-Computer-Architecture" class="headerlink" title="3. Computer Architecture"></a>3. Computer Architecture</h2><h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
 <li><strong>Scalable</strong>: Works well even with thousands of nodes.</li>

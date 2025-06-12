@@ -1,0 +1,126 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">Process vs Thread Architecture</text>
+  
+  <!-- Process 1 -->
+  <g>
+    <!-- Process container -->
+    <rect x="50" y="80" width="300" height="200" fill="#e3f2fd" stroke="#2196f3" stroke-width="3" rx="10"/>
+    <text x="200" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1976d2">Process 1</text>
+    
+    <!-- Address Space -->
+    <rect x="70" y="120" width="260" height="40" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="200" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#0d47a1">Independent Address Space</text>
+    <text x="200" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#0d47a1">Memory, Files, I/O</text>
+    
+    <!-- Threads in Process 1 -->
+    <rect x="80" y="180" width="70" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="115" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f57c00">Thread 1</text>
+    <text x="115" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Stack</text>
+    <text x="115" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Registers</text>
+    <text x="115" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">PC</text>
+    
+    <rect x="170" y="180" width="70" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="205" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f57c00">Thread 2</text>
+    <text x="205" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Stack</text>
+    <text x="205" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Registers</text>
+    <text x="205" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">PC</text>
+    
+    <rect x="260" y="180" width="70" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="295" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f57c00">Thread 3</text>
+    <text x="295" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Stack</text>
+    <text x="295" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Registers</text>
+    <text x="295" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">PC</text>
+  </g>
+  
+  <!-- Process 2 -->
+  <g>
+    <!-- Process container -->
+    <rect x="450" y="80" width="300" height="200" fill="#e8f5e8" stroke="#4caf50" stroke-width="3" rx="10"/>
+    <text x="600" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32">Process 2</text>
+    
+    <!-- Address Space -->
+    <rect x="470" y="120" width="260" height="40" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1" rx="5"/>
+    <text x="600" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1b5e20">Independent Address Space</text>
+    <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1b5e20">Memory, Files, I/O</text>
+    
+    <!-- Threads in Process 2 -->
+    <rect x="480" y="180" width="70" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="515" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f57c00">Thread 1</text>
+    <text x="515" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Stack</text>
+    <text x="515" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Registers</text>
+    <text x="515" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">PC</text>
+    
+    <rect x="570" y="180" width="70" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="605" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f57c00">Thread 2</text>
+    <text x="605" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Stack</text>
+    <text x="605" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Registers</text>
+    <text x="605" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">PC</text>
+    
+    <rect x="660" y="180" width="70" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+    <text x="695" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f57c00">Thread 3</text>
+    <text x="695" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Stack</text>
+    <text x="695" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">Registers</text>
+    <text x="695" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e65100">PC</text>
+  </g>
+  
+  <!-- Inter-process communication arrow -->
+  <g>
+    <path d="M 350 180 Q 400 150 450 180" fill="none" stroke="#e91e63" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="400" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#c2185b">IPC</text>
+    <text x="400" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#c2185b">(High Overhead)</text>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e91e63"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <g>
+    <rect x="50" y="320" width="700" height="180" fill="#ffffff" stroke="#bdbdbd" stroke-width="1" rx="10"/>
+    <text x="400" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#424242">Key Differences</text>
+    
+    <!-- Process characteristics -->
+    <rect x="70" y="360" width="20" height="15" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+    <text x="100" y="372" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1976d2">Process:</text>
+    <text x="70" y="390" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Basic unit of resource allocation</text>
+    <text x="70" y="405" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Independent address space</text>
+    <text x="70" y="420" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Higher switching overhead</text>
+    <text x="70" y="435" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Greater stability (isolated)</text>
+    <text x="70" y="450" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Inter-process communication needed</text>
+    
+    <!-- Thread characteristics -->
+    <rect x="420" y="360" width="20" height="15" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+    <text x="450" y="372" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f57c00">Thread:</text>
+    <text x="420" y="390" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Basic unit of CPU scheduling</text>
+    <text x="420" y="405" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Share process memory and resources</text>
+    <text x="420" y="420" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Lower switching overhead</text>
+    <text x="420" y="435" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Faster context switching</text>
+    <text x="420" y="450" font-family="Arial, sans-serif" font-size="10" fill="#424242">• Synchronization challenges</text>
+  </g>
+  
+  <!-- Shared resources indication -->
+  <g>
+    <text x="200" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9c27b0">Threads within same process</text>
+    <text x="200" y="488" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9c27b0">share memory and resources</text>
+    
+    <!-- Curved arrows showing shared resources -->
+    <path d="M 115 180 Q 200 170 285 180" fill="none" stroke="#9c27b0" stroke-width="1" stroke-dasharray="3,3"/>
+    <path d="M 515 180 Q 600 170 685 180" fill="none" stroke="#9c27b0" stroke-width="1" stroke-dasharray="3,3"/>
+  </g>
+  
+  <!-- Watermark -->
+  <text x="400" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#e0e0e0" opacity="0.6">偷偷星球</text>
+  
+  <!-- CPU Scheduling indication -->
+  <rect x="300" y="520" width="200" height="60" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="10"/>
+  <text x="400" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">CPU Scheduler</text>
+  <text x="400" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a148c">Schedules threads for execution</text>
+  <text x="400" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#4a148c">Thread = Basic scheduling unit</text>
+</svg>
