@@ -19,12 +19,12 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys to va">
+    <meta name="description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS Concepts">
 <meta property="og:url" content="http://toutou.zeabur.app/2025/02/09/CS-Concepts/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys to va">
+<meta property="og:description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/hash.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/hash2.jpg">
@@ -35,9 +35,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/astar.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/minimax.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/process.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dynamic_branch.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-06-14T05:00:29.351Z">
+<meta property="article:modified_time" content="2025-06-14T12:00:04.196Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -241,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          487 words
+          634 words
         
       </span>
     
@@ -252,7 +253,7 @@
         
         
         
-          5 mins
+          6 mins
         
       </span>
     
@@ -294,18 +295,20 @@
             
               <div class="markdown-body">
                 
-                <h1 id="CS-Concepts"><a href="#CS-Concepts" class="headerlink" title="CS Concepts"></a>CS Concepts</h1><p>本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中/英）。</p>
-<h2 id="1-Data-Stucture-amp-Algorithms"><a href="#1-Data-Stucture-amp-Algorithms" class="headerlink" title="1. Data Stucture &amp; Algorithms"></a>1. Data Stucture &amp; Algorithms</h2><h3 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h3><p>A Hash Table is a data structure that maps keys to values using a hash function. It stores data in an array-like structure, where each key is hashed to an index. Collisions (when different keys map to the same index) are handled using techniques like chaining or open addressing. Hash tables provide average O(1) time complexity for insertion, deletion, and lookup. They are widely used in databases, caching, and symbol tables.<br><img src="/img/concepts/hash.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 70%; height: auto;" /></p>
+                <h1 id="CS-Concepts"><a href="#CS-Concepts" class="headerlink" title="CS Concepts"></a>CS Concepts</h1><p>本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。</p>
+<h2 id="1-Data-Stucture-Algorithms"><a href="#1-Data-Stucture-Algorithms" class="headerlink" title="1. Data Stucture &amp; Algorithms"></a>1. Data Stucture &amp; Algorithms</h2><h3 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h3><p>A Hash Table is a data structure that maps keys to values using a hash function. It stores data in an array-like structure, where each key is hashed to an index. Collisions (when different keys map to the same index) are handled using techniques like chaining or open addressing. Hash tables provide average O(1) time complexity for insertion, deletion, and lookup. They are widely used in databases, caching, and symbol tables.<br><img src="/img/concepts/hash.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 70%; height: auto;" /></p>
 <hr>
-<h3 id="Hash-Collision-Hash-Clash"><a href="#Hash-Collision-Hash-Clash" class="headerlink" title="Hash Collision / Hash Clash"></a>Hash Collision / Hash Clash</h3><p>A <strong>hash collision (hash clash)</strong> occurs when two different inputs produce the same hash value in a hash function. Since hash functions map a large input space to a smaller output space, collisions are inevitable due to the <strong>pigeonhole principle</strong>. Collisions can weaken security in cryptographic hashes (e.g., MD5, SHA-1) and reduce efficiency in hash tables. Techniques like <strong>chaining, open addressing, and better hash functions</strong> help mitigate collisions. Stronger cryptographic hashes (e.g., SHA-256) minimize the risk of intentional hash clashes (collision attacks).</p>
+<h3 id="Hash-Collision-Hash-Clash"><a href="#Hash-Collision-Hash-Clash" class="headerlink" title="Hash Collision &#x2F; Hash Clash"></a>Hash Collision &#x2F; Hash Clash</h3><p>A <strong>hash collision (hash clash)</strong> occurs when two different inputs produce the same hash value in a hash function. Since hash functions map a large input space to a smaller output space, collisions are inevitable due to the <strong>pigeonhole principle</strong>. Collisions can weaken security in cryptographic hashes (e.g., MD5, SHA-1) and reduce efficiency in hash tables. Techniques like <strong>chaining, open addressing, and better hash functions</strong> help mitigate collisions. Stronger cryptographic hashes (e.g., SHA-256) minimize the risk of intentional hash clashes (collision attacks).</p>
 <hr>
-<h3 id="Open-Addressing-Closed-Hashing"><a href="#Open-Addressing-Closed-Hashing" class="headerlink" title="Open Addressing / Closed Hashing"></a>Open Addressing / Closed Hashing</h3><p><strong>Open addressing</strong> is a collision resolution technique in hash tables where all elements are stored directly in the table without external chaining. When a collision occurs, the algorithm searches for the next available slot using a probing sequence (e.g., <strong>linear probing, quadratic probing, or double hashing</strong>). <strong>Linear probing</strong> checks the next slot sequentially, <strong>quadratic probing</strong> uses a quadratic function to find slots, and <strong>double hashing</strong> applies a second hash function for probing. Open addressing avoids linked lists, reducing memory overhead but may suffer from clustering. It works best when the load factor is kept low to maintain efficient lookups.</p>
+<h3 id="Open-Addressing-Closed-Hashing"><a href="#Open-Addressing-Closed-Hashing" class="headerlink" title="Open Addressing &#x2F; Closed Hashing"></a>Open Addressing &#x2F; Closed Hashing</h3><p><strong>Open addressing</strong> is a collision resolution technique in hash tables where all elements are stored directly in the table without external chaining. When a collision occurs, the algorithm searches for the next available slot using a probing sequence (e.g., <strong>linear probing, quadratic probing, or double hashing</strong>). <strong>Linear probing</strong> checks the next slot sequentially, <strong>quadratic probing</strong> uses a quadratic function to find slots, and <strong>double hashing</strong> applies a second hash function for probing. Open addressing avoids linked lists, reducing memory overhead but may suffer from clustering. It works best when the load factor is kept low to maintain efficient lookups.</p>
 <hr>
 <h3 id="Seperate-Chaining"><a href="#Seperate-Chaining" class="headerlink" title="Seperate Chaining"></a>Seperate Chaining</h3><p><strong>Separate chaining</strong> is a collision resolution technique in hash tables where each bucket stores multiple values using a linked list (or another data structure like a BST). When a collision occurs, the new element is simply added to the linked list at that index. This method allows the table to handle an unlimited number of collisions but increases memory usage. Performance depends on the length of the chains; with a well-distributed hash function, the average lookup time remains <strong>O(1) in best case</strong> and <strong>O(n) in worst case</strong>. <strong>Rehashing</strong> or using a larger table can help maintain efficiency.</p>
-<p><img src="/img/concepts/hash2.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/hash2.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="P-≠-NP"><a href="#P-≠-NP" class="headerlink" title="P ≠ NP"></a>P ≠ NP</h3><p><strong>P ≠ NP</strong> means that not all problems whose solutions can be <em>verified quickly</em> (in polynomial time) can also be <em>solved quickly</em>.<br><strong>P</strong> is the class of problems that can be <strong>solved</strong> in polynomial time.<br><strong>NP</strong> is the class of problems whose solutions can be <strong>verified</strong> in polynomial time.<br>The question is: if a problem’s solution can be verified quickly, can it also be found quickly?<br>Most experts believe <strong>P ≠ NP</strong>, but it has not been proven yet.</p>
-<p><img src="/img/concepts/pnp.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/pnp.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="NP-Hard-Problems"><a href="#NP-Hard-Problems" class="headerlink" title="NP Hard Problems"></a>NP Hard Problems</h3><p>NP-Hard problems are computational problems that are at least as difficult as the hardest problems in NP (nondeterministic polynomial time). Solving an NP-Hard problem quickly would mean we could solve every NP problem quickly too, but no such efficient solution is known. These problems may not even have verifiable solutions in polynomial time. They often involve optimization or decision-making with many possibilities, like scheduling, routing, or packing.Examples include the Traveling Salesman Problem and Knapsack Problem.</p>
 <hr>
@@ -317,11 +320,12 @@
 <p>If you can solve any NP-Complete problem quickly (in polynomial time), you can solve <em>all</em> NP problems quickly. Famous examples include the <strong>Boolean Satisfiability Problem (SAT)</strong> and <strong>Traveling Salesman Problem (decision version)</strong>.</p>
 <hr>
 <h3 id="The-Travelling-Salesman-Problem"><a href="#The-Travelling-Salesman-Problem" class="headerlink" title="The Travelling Salesman Problem"></a>The Travelling Salesman Problem</h3><p>The <strong>Travelling Salesman Problem (TSP)</strong> asks for the shortest possible route that visits each city once and returns to the starting city.<br>It is a classic <strong>combinatorial optimization</strong> problem in computer science and operations research.<br>TSP is <strong>NP-hard</strong>, meaning there’s no known efficient algorithm to solve all cases quickly.<br>Exact solutions use methods like <strong>brute force</strong>, <strong>dynamic programming</strong>, or <strong>branch and bound</strong>.<br>Approximation and heuristic algorithms (e.g. genetic algorithms, simulated annealing) are used for large instances.</p>
-<p><img src="/img/concepts/tsp.svg" srcset="/img/loading.gif" lazyload alt="TSP" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/tsp.svg" srcset="/img/loading.gif" lazyload alt="TSP" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="The-Knapsack-Problem"><a href="#The-Knapsack-Problem" class="headerlink" title="The Knapsack Problem"></a>The Knapsack Problem</h3><p>The <strong>Knapsack Problem</strong> asks how to choose items with given weights and values to maximize total value without exceeding a weight limit.<br>Each item can be either included or excluded (0-1 Knapsack).<br>It’s a classic <strong>NP-hard</strong> optimization problem.<br>Dynamic programming is commonly used for exact solutions.<br>Greedy or approximation methods are used for large instances.</p>
 <hr>
-<h3 id="The-SAT-Boolean-Satisfiability-problem"><a href="#The-SAT-Boolean-Satisfiability-problem" class="headerlink" title="The SAT (Boolean Satisfiability) problem"></a>The SAT (Boolean Satisfiability) problem</h3><p>The <strong>SAT (Boolean Satisfiability)</strong> problem asks whether there exists an assignment of true/false values to variables that makes a Boolean formula true.<br>It’s the <strong>first problem proven to be NP-complete</strong>.<br>The formula is usually given in <strong>CNF (Conjunctive Normal Form)</strong>.<br>SAT solvers use techniques like backtracking and clause learning.<br>Many real-world problems (e.g. planning, verification) can be reduced to SAT.</p>
+<h3 id="The-SAT-Boolean-Satisfiability-problem"><a href="#The-SAT-Boolean-Satisfiability-problem" class="headerlink" title="The SAT (Boolean Satisfiability) problem"></a>The SAT (Boolean Satisfiability) problem</h3><p>The <strong>SAT (Boolean Satisfiability)</strong> problem asks whether there exists an assignment of true&#x2F;false values to variables that makes a Boolean formula true.<br>It’s the <strong>first problem proven to be NP-complete</strong>.<br>The formula is usually given in <strong>CNF (Conjunctive Normal Form)</strong>.<br>SAT solvers use techniques like backtracking and clause learning.<br>Many real-world problems (e.g. planning, verification) can be reduced to SAT.</p>
 <hr>
 <h3 id="Divide-and-Conquer"><a href="#Divide-and-Conquer" class="headerlink" title="Divide and Conquer"></a>Divide and Conquer</h3><p><strong>Divide and Conquer</strong> is a problem-solving strategy that works in three main steps:</p>
 <ol>
@@ -332,10 +336,12 @@
 <p>Classic examples include <strong>Merge Sort</strong>, <strong>Quick Sort</strong>, and <strong>Binary Search</strong>.</p>
 <hr>
 <h3 id="Branch-and-Bound"><a href="#Branch-and-Bound" class="headerlink" title="Branch and Bound"></a>Branch and Bound</h3><p>Branch and Bound is an algorithmic paradigm for solving combinatorial optimization problems efficiently. It systematically divides the solution space into smaller subproblems (branching) and computes bounds to eliminate unpromising branches early (pruning). The method maintains an upper bound from feasible solutions and a lower bound from relaxed problems, allowing it to discard branches that cannot contain the optimal solution. This approach significantly reduces the search space compared to exhaustive enumeration, making it effective for problems like integer programming, traveling salesman, and knapsack problems.</p>
-<p><img src="/img/concepts/bnb.svg" srcset="/img/loading.gif" lazyload alt="Branch and Bound" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/bnb.svg" srcset="/img/loading.gif" lazyload alt="Branch and Bound" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="B-tree"><a href="#B-tree" class="headerlink" title="B-tree"></a>B-tree</h3><p>A <strong>B-tree</strong> is a self-balancing search tree that maintains sorted data for efficient insertion, deletion, and search in <strong>O(log n)</strong> time.<br>It allows each node to have <strong>multiple keys and children</strong>, making it wider and shallower than binary trees.<br>All leaf nodes are at the same level, ensuring the tree stays balanced.<br>It’s widely used in <strong>databases and file systems</strong> for fast disk-based access.</p>
-<p><img src="/img/concepts/btree.svg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/btree.svg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h3><p><strong>Heap Sort</strong> is a comparison-based sorting algorithm that uses a <strong>binary heap</strong> data structure. It works in two main steps:</p>
 <ol>
@@ -388,18 +394,22 @@
 </ul>
 <hr>
 <h3 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A* Algorithm"></a>A* Algorithm</h3><p>The A* algorithm finds the shortest path by combining actual cost from the start (g) and estimated cost to the goal (h).<br>It selects nodes with the lowest total cost <code>f(n) = g(n) + h(n)</code>.<br>It uses a priority queue to explore the most promising paths first.<br>The heuristic <code>h(n)</code> must not overestimate to ensure optimality.<br>It’s widely used in games, maps, and AI for efficient pathfinding.</p>
-<p><img src="/img/concepts/astar.svg" srcset="/img/loading.gif" lazyload alt="A* Algorithm" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/astar.svg" srcset="/img/loading.gif" lazyload alt="A* Algorithm" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Minimax-Algorithm"><a href="#Minimax-Algorithm" class="headerlink" title="Minimax Algorithm"></a>Minimax Algorithm</h3><p>The <strong>Minimax algorithm</strong> is used in two-player games to find the optimal move by assuming both players play optimally.<br>It recursively explores all possible moves, maximizing the player’s score and minimizing the opponent’s.<br>“Max” tries to get the highest score; “Min” tries to get the lowest.<br>The game tree is evaluated using a scoring function at terminal states.<br>It’s often optimized with <strong>alpha-beta pruning</strong> to skip unnecessary branches.</p>
-<p><img src="/img/concepts/minimax.svg" srcset="/img/loading.gif" lazyload alt="Minimax Algorithm" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/minimax.svg" srcset="/img/loading.gif" lazyload alt="Minimax Algorithm" style="max-width: 100%; height: auto;" />
+
 <hr>
-<h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h3 id="Procss-amp-Thread"><a href="#Procss-amp-Thread" class="headerlink" title="Procss &amp; Thread"></a>Procss &amp; Thread</h3><p>A process is the basic unit of resource allocation and scheduling in an operating system, with its own independent address space and resources. A thread is the basic unit of CPU scheduling, and a process can contain multiple threads that share the process’s memory and resources. Threads switch faster and have lower overhead, making them suitable for concurrent execution. In contrast, processes are independent of each other, with higher switching overhead but greater stability. While multithreading improves execution efficiency, it also introduces challenges such as synchronization and mutual exclusion.</p>
-<p><img src="/img/concepts/process.svg" srcset="/img/loading.gif" lazyload alt="Process & Thread" style="max-width: 100%; height: auto;" /></p>
+<h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h3 id="Procss-Thread"><a href="#Procss-Thread" class="headerlink" title="Procss &amp; Thread"></a>Procss &amp; Thread</h3><p>A process is the basic unit of resource allocation and scheduling in an operating system, with its own independent address space and resources. A thread is the basic unit of CPU scheduling, and a process can contain multiple threads that share the process’s memory and resources. Threads switch faster and have lower overhead, making them suitable for concurrent execution. In contrast, processes are independent of each other, with higher switching overhead but greater stability. While multithreading improves execution efficiency, it also introduces challenges such as synchronization and mutual exclusion.</p>
+<img src="/img/concepts/process.svg" srcset="/img/loading.gif" lazyload alt="Process & Thread" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h3><p>A <strong>semaphore</strong> in an operating system is a synchronization tool used to manage <strong>concurrent access to shared resources</strong> by multiple processes or threads.</p>
 <p><strong>Key Points:</strong></p>
 <ul>
-<li>It is an <strong>integer variable</strong> that controls access based on its value.</li>
+<li><p>It is an <strong>integer variable</strong> that controls access based on its value.</p>
+</li>
 <li><p>There are two main operations:</p>
 <ul>
 <li><strong>wait (P)</strong>: Decreases the semaphore value. If the result is negative, the process is blocked.</li>
@@ -441,7 +451,102 @@
 </ul>
 <p>These tools help implement and manage access to critical sections safely.</p>
 <hr>
-<h2 id="3-Computer-Architecture"><a href="#3-Computer-Architecture" class="headerlink" title="3. Computer Architecture"></a>3. Computer Architecture</h2><h2 id="4-Formal-Language-amp-Automata"><a href="#4-Formal-Language-amp-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
+<h2 id="3-Computer-Architecture"><a href="#3-Computer-Architecture" class="headerlink" title="3. Computer Architecture"></a>3. Computer Architecture</h2><h3 id="Pipeline-hazard"><a href="#Pipeline-hazard" class="headerlink" title="Pipeline hazard"></a>Pipeline hazard</h3><p>A <strong>pipeline hazard</strong> in computer architecture refers to a situation that <strong>prevents the next instruction in the pipeline from executing at its expected time</strong>, causing delays.</p>
+<p><strong>Types of Pipeline Hazards:</strong></p>
+<ol>
+<li><p><strong>Data Hazard</strong>:<br>Occurs when instructions <strong>depend on the result of a previous instruction</strong> that hasn’t completed yet.<br>Example:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-pgsql" data-language="pgsql"><code class="language-pgsql">ADD R1, R2, R3  
+SUB R4, R1, R5  ← depends on R1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+</li>
+<li><p><strong>Control Hazard</strong> (Branch Hazard):<br>Happens when the pipeline makes <strong>wrong predictions about instruction flow</strong>, such as branches or jumps.</p>
+</li>
+<li><p><strong>Structural Hazard</strong>:<br>Arises when <strong>hardware resources are insufficient</strong> to support all instructions in parallel (e.g., one memory unit shared by two stages).</p>
+</li>
+</ol>
+<p><strong>Solution Techniques:</strong></p>
+<ul>
+<li><strong>Forwarding (data hazard)</strong></li>
+<li><strong>Stalling (inserting bubbles)</strong></li>
+<li><strong>Branch prediction (control hazard)</strong></li>
+<li><strong>Adding hardware units (structural hazard)</strong></li>
+</ul>
+<p>Pipeline hazards reduce performance and must be carefully handled in modern CPUs.</p>
+<hr>
+<h3 id="Data-hazard"><a href="#Data-hazard" class="headerlink" title="Data hazard"></a>Data hazard</h3><p>A <strong>data hazard</strong> occurs in a pipelined processor when an instruction depends on the <strong>result of a previous instruction</strong> that has not yet completed, causing a conflict in data access.</p>
+<p><strong>Types of Data Hazards:</strong></p>
+<ol>
+<li><p><strong>RAW (Read After Write)</strong> – Most common<br>An instruction needs to <strong>read</strong> a register that a previous instruction will <strong>write</strong>, but the write hasn’t happened yet.<br>Example:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-pgsql" data-language="pgsql"><code class="language-pgsql">ADD R1, R2, R3  
+SUB R4, R1, R5  ← needs R1 before it&#39;s written<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+</li>
+<li><p><strong>WAR (Write After Read)</strong> – Rare in simple pipelines<br>A later instruction writes to a register <strong>before</strong> an earlier instruction reads it.</p>
+</li>
+<li><p><strong>WAW (Write After Write)</strong> – Happens in out-of-order execution<br>Two instructions write to the same register in the wrong order.</p>
+</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li><strong>Forwarding (bypassing)</strong> – Pass result directly to the next instruction.</li>
+<li><strong>Stalling</strong> – Delay the dependent instruction until data is ready.</li>
+</ul>
+<p>Data hazards can slow down pipeline performance if not properly managed.</p>
+<hr>
+<h3 id="Control-hazard"><a href="#Control-hazard" class="headerlink" title="Control hazard"></a>Control hazard</h3><p>A <strong>control hazard</strong> (also called a <strong>branch hazard</strong>) occurs in pipelined processors when the <strong>flow of instruction execution changes</strong>, typically due to <strong>branch or jump instructions</strong>.</p>
+<p><strong>Cause:</strong></p>
+<p>The processor <strong>doesn’t know early enough</strong> whether a branch will be taken, so it may <strong>fetch the wrong instructions</strong>.</p>
+<p><strong>Example:</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">BEQ R1, R2, LABEL   ; Branch if R1 &#x3D;&#x3D; R2
+ADD R3, R4, R5      ; May be wrongly fetched if branch is taken<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<p><strong>Solutions:</strong></p>
+<ul>
+<li><strong>Branch Prediction</strong> – Guess whether the branch will be taken.</li>
+<li><strong>Branch Delay Slot</strong> – Always execute the instruction after the branch.</li>
+<li><strong>Pipeline Flushing</strong> – Discard wrongly fetched instructions.</li>
+<li><strong>Early Branch Resolution</strong> – Move branch decision to earlier pipeline stage.</li>
+</ul>
+<p>Control hazards can reduce pipeline efficiency by introducing <strong>stalls or flushes</strong>.</p>
+<hr>
+<h3 id="Structural-hazard"><a href="#Structural-hazard" class="headerlink" title="Structural hazard"></a>Structural hazard</h3><p>A <strong>structural hazard</strong> occurs in a pipelined processor when <strong>two or more instructions compete for the same hardware resource</strong> at the same time, and the hardware <strong>cannot handle all of them simultaneously</strong>.</p>
+<p><strong>Example:</strong></p>
+<p>If the CPU has <strong>one memory unit</strong> shared for both <strong>instruction fetch</strong> and <strong>data access</strong>, a conflict arises when:</p>
+<ul>
+<li>One instruction is being <strong>fetched</strong>, and</li>
+<li>Another instruction needs to <strong>read&#x2F;write data</strong> from memory at the same time.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><strong>Add more hardware resources</strong> (e.g. separate instruction and data memory – like in Harvard architecture)</li>
+<li><strong>Stall one of the instructions</strong> to resolve the conflict</li>
+</ul>
+<p>Structural hazards are <strong>less common</strong> in modern CPUs due to better hardware design but can still occur in resource-limited systems.</p>
+<hr>
+<h3 id="Dynamic-Branch-Prediction"><a href="#Dynamic-Branch-Prediction" class="headerlink" title="Dynamic Branch Prediction"></a>Dynamic Branch Prediction</h3><p><strong>Dynamic Branch Prediction</strong> is a technique used in modern CPUs to <strong>predict the outcome of branch instructions (e.g., if-else, loops) at runtime</strong>, based on the <strong>history of previous executions</strong>.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Learns from past behavior</strong> of branches.</li>
+<li><strong>Updates prediction</strong> as the program runs.</li>
+<li>More accurate than static prediction (which always predicts taken&#x2F;not taken).</li>
+</ul>
+<p><strong>Common Methods:</strong></p>
+<ol>
+<li><p><strong>1-bit predictor</strong>:<br>Remembers the last outcome (taken or not taken).</p>
+</li>
+<li><p><strong>2-bit predictor</strong>:<br>More stable; uses a state machine to change prediction only after two mispredictions.</p>
+</li>
+<li><p><strong>Branch History Table (BHT)</strong>:<br>Stores past branch outcomes and uses them for prediction.</p>
+</li>
+<li><p><strong>Global History &amp; Pattern History Table (PHT)</strong>:<br>Tracks patterns of multiple branches for more accuracy (used in <strong>two-level predictors</strong>).</p>
+</li>
+</ol>
+<p><strong>Benefit:</strong></p>
+<p>Improves <strong>pipeline efficiency</strong> by reducing <strong>control hazards</strong> and minimizing <strong>stall cycles</strong> caused by branch mispredictions.</p>
+<img src="/img/concepts/dynamic_branch.svg" srcset="/img/loading.gif" lazyload alt="Process & Thread" style="max-width: 100%; height: auto;" />
+
+
+
+
+<h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
 <li><strong>Scalable</strong>: Works well even with thousands of nodes.</li>
@@ -449,7 +554,9 @@
 <li><strong>Efficient</strong>: Most DHTs (like Chord or Kademlia) can find data in <strong>O(log n)</strong> time.</li>
 </ul>
 <p>DHTs are often used in applications like <strong>BitTorrent</strong> and <strong>distributed file systems</strong>, and are relevant in wireless and digital communication contexts, which aligns well with your research interests in IoT.</p>
-<p><img src="/img/concepts/dht.svg" srcset="/img/loading.gif" lazyload alt="DHT" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/dht.svg" srcset="/img/loading.gif" lazyload alt="DHT" style="max-width: 100%; height: auto;" />
+
+
 <h2 id="9-Cryptography"><a href="#9-Cryptography" class="headerlink" title="9. Cryptography"></a>9. Cryptography</h2><h2 id="10-Digital-Signal-Processing"><a href="#10-Digital-Signal-Processing" class="headerlink" title="10. Digital Signal Processing"></a>10. Digital Signal Processing</h2><h2 id="11-Control-Engineering"><a href="#11-Control-Engineering" class="headerlink" title="11. Control Engineering"></a>11. Control Engineering</h2><h2 id="12-Software-Development"><a href="#12-Software-Development" class="headerlink" title="12. Software Development"></a>12. Software Development</h2><h2 id="13-Robotics"><a href="#13-Robotics" class="headerlink" title="13. Robotics"></a>13. Robotics</h2>
                 
               </div>

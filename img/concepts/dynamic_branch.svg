@@ -1,0 +1,136 @@
+<svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="800" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e293b">Dynamic Branch Prediction</text>
+  
+  <!-- CPU Pipeline -->
+  <rect x="50" y="80" width="900" height="60" fill="#3b82f6" rx="10"/>
+  <text x="500" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">CPU Pipeline</text>
+  
+  <!-- Branch Instruction -->
+  <rect x="100" y="180" width="150" height="50" fill="#ef4444" rx="5"/>
+  <text x="175" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Branch Instruction</text>
+  <text x="175" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">(if-else, loops)</text>
+  
+  <!-- Arrow from Branch to Predictor -->
+  <path d="M 250 205 L 340 205" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Branch Predictor -->
+  <rect x="350" y="160" width="200" height="90" fill="#10b981" rx="8"/>
+  <text x="450" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Dynamic Branch</text>
+  <text x="450" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Predictor</text>
+  <text x="450" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecfccb">Predicts: Taken/Not Taken</text>
+  <text x="450" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecfccb">Based on History</text>
+  
+  <!-- Arrow from Predictor to Pipeline -->
+  <path d="M 450 160 L 450 140" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Prediction Types -->
+  <g transform="translate(650, 160)">
+    <rect width="280" height="120" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" rx="5"/>
+    <text x="140" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Prediction Methods</text>
+    
+    <text x="10" y="40" font-family="Arial, sans-serif" font-size="12" fill="#475569">• 1-bit: Last outcome</text>
+    <text x="10" y="55" font-family="Arial, sans-serif" font-size="12" fill="#475569">• 2-bit: State machine (more stable)</text>
+    <text x="10" y="70" font-family="Arial, sans-serif" font-size="12" fill="#475569">• BHT: Branch History Table</text>
+    <text x="10" y="85" font-family="Arial, sans-serif" font-size="12" fill="#475569">• Global History + PHT</text>
+    <text x="10" y="100" font-family="Arial, sans-serif" font-size="12" fill="#475569">• Two-level predictors</text>
+  </g>
+  
+  <!-- Branch History Table -->
+  <rect x="100" y="320" width="200" height="120" fill="#8b5cf6" rx="8"/>
+  <text x="200" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Branch History</text>
+  <text x="200" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Table (BHT)</text>
+  
+  <!-- History entries -->
+  <rect x="120" y="380" width="160" height="15" fill="#c4b5fd"/>
+  <text x="130" y="392" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Branch 1: T → T → N → T</text>
+  <rect x="120" y="400" width="160" height="15" fill="#c4b5fd"/>
+  <text x="130" y="412" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Branch 2: N → N → T → N</text>
+  <rect x="120" y="420" width="160" height="15" fill="#c4b5fd"/>
+  <text x="130" y="432" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Branch 3: T → T → T → T</text>
+  
+  <!-- 2-bit Predictor State Machine -->
+  <g transform="translate(400, 320)">
+    <text x="100" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">2-bit Predictor States</text>
+    
+    <!-- States -->
+    <circle cx="50" cy="50" r="25" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <text x="50" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#dc2626">Strong</text>
+    <text x="50" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#dc2626">Not Taken</text>
+    
+    <circle cx="150" cy="50" r="25" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="150" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f59e0b">Weak</text>
+    <text x="150" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f59e0b">Not Taken</text>
+    
+    <circle cx="50" cy="120" r="25" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="50" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#16a34a">Weak</text>
+    <text x="50" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#16a34a">Taken</text>
+    
+    <circle cx="150" cy="120" r="25" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#16a34a">Strong</text>
+    <text x="150" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#16a34a">Taken</text>
+    
+    <!-- Transitions -->
+    <path d="M 75 50 L 125 50" stroke="#64748b" stroke-width="1.5" marker-end="url(#smallarrow)"/>
+    <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">T</text>
+    
+    <path d="M 125 120 L 75 120" stroke="#64748b" stroke-width="1.5" marker-end="url(#smallarrow)"/>
+    <text x="100" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">N</text>
+    
+    <path d="M 150 75 L 150 95" stroke="#64748b" stroke-width="1.5" marker-end="url(#smallarrow)"/>
+    <text x="165" y="87" font-family="Arial, sans-serif" font-size="8" fill="#64748b">T</text>
+    
+    <path d="M 50 95 L 50 75" stroke="#64748b" stroke-width="1.5" marker-end="url(#smallarrow)"/>
+    <text x="35" y="87" font-family="Arial, sans-serif" font-size="8" fill="#64748b">N</text>
+  </g>
+  
+  <!-- Global History Pattern -->
+  <rect x="700" y="320" width="250" height="120" fill="#f97316" rx="8"/>
+  <text x="825" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Global History Pattern</text>
+  
+  <!-- Pattern examples -->
+  <rect x="720" y="360" width="210" height="15" fill="#fed7aa"/>
+  <text x="730" y="372" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Pattern: 1011 → Predict: Taken</text>
+  <rect x="720" y="380" width="210" height="15" fill="#fed7aa"/>
+  <text x="730" y="392" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Pattern: 0010 → Predict: Not Taken</text>
+  <rect x="720" y="400" width="210" height="15" fill="#fed7aa"/>
+  <text x="730" y="412" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Pattern: 1111 → Predict: Taken</text>
+  <rect x="720" y="420" width="210" height="15" fill="#fed7aa"/>
+  <text x="730" y="432" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Updates based on actual outcome</text>
+  
+  <!-- Connections -->
+  <path d="M 200 320 L 450 250" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  <path d="M 500 320 L 450 250" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  <path d="M 825 320 L 450 250" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  
+  <!-- Benefits Box -->
+  <rect x="200" y="500" width="600" height="120" fill="#0ea5e9" rx="10"/>
+  <text x="500" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">Benefits of Dynamic Branch Prediction</text>
+  
+  <text x="220" y="555" font-family="Arial, sans-serif" font-size="14" fill="#e0f2fe">✓ Improves pipeline efficiency by reducing control hazards</text>
+  <text x="220" y="575" font-family="Arial, sans-serif" font-size="14" fill="#e0f2fe">✓ Minimizes stall cycles caused by branch mispredictions</text>
+  <text x="220" y="595" font-family="Arial, sans-serif" font-size="14" fill="#e0f2fe">✓ Learns and adapts to program behavior at runtime</text>
+  
+  <!-- Feedback Loop -->
+  <rect x="350" y="680" width="300" height="40" fill="#64748b" rx="20"/>
+  <text x="500" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Actual Branch Outcome → Update Prediction</text>
+  
+  <!-- Feedback arrow -->
+  <path d="M 500 680 Q 300 650 200 400" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" fill="none" stroke-dasharray="3,3"/>
+  
+  <!-- Watermark -->
+  <text x="850" y="780" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" opacity="0.7">偷偷星球</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="smallarrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
