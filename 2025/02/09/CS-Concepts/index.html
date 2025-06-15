@@ -36,10 +36,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/minimax.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/process.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dynamic_branch.svg">
-<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/%20parallelism.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/parallelism.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-06-14T12:11:02.415Z">
+<meta property="article:modified_time" content="2025-06-15T03:00:45.575Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          672 words
+          757 words
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          6 mins
+          7 mins
         
       </span>
     
@@ -576,10 +576,57 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li><strong>Dependence between instructions</strong> reduces parallelism</li>
 </ul>
 <p>Modern processors heavily rely on ILP for high-speed performance.</p>
-<img src="/img/concepts/ parallelism.svg" srcset="/img/loading.gif" lazyload alt="Instruction-level Parallelsim" style="max-width: 100%; height: auto;" />
+<img src="/img/concepts/parallelism.svg" srcset="/img/loading.gif" lazyload alt="Instruction-level Parallelsim" style="max-width: 100%; height: auto;" />
 
+<hr>
+<h3 id="Clock-frequency"><a href="#Clock-frequency" class="headerlink" title="Clock frequency"></a>Clock frequency</h3><p><strong>Clock frequency</strong> (also called <strong>clock speed</strong>) is the rate at which a processor executes instructions, measured in <strong>Hertz (Hz)</strong> — typically in <strong>gigahertz (GHz)</strong> for modern CPUs.</p>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>1 GHz &#x3D; 1 billion cycles per second</strong></li>
+<li>Each <strong>clock cycle</strong> is a tick of the CPU’s internal clock, during which it can perform basic operations (like fetch, decode, execute).</li>
+<li>A <strong>higher clock frequency</strong> generally means the CPU can <strong>perform more operations per second</strong>.</li>
+</ul>
+<blockquote>
+<p>Example: A CPU with <strong>3.0 GHz</strong> can perform <strong>3 billion clock cycles per second</strong>.</p>
+</blockquote>
+<p>Higher clock speed <strong>doesn’t always mean better performance</strong>, because:</p>
+<ul>
+<li>Other factors like <strong>Instruction-Level Parallelism (ILP)</strong>, <strong>number of cores</strong>, <strong>cache</strong>, and <strong>architecture efficiency</strong> also matter.</li>
+<li>Very high clock speeds can cause <strong>more heat and power consumption</strong>.</li>
+</ul>
+<p><strong>Clock frequency &#x3D; speed of instruction processing</strong>, but <strong>not the only factor</strong> in CPU performance.</p>
+<hr>
+<h3 id="Register-renaming"><a href="#Register-renaming" class="headerlink" title="Register renaming"></a>Register renaming</h3><p><strong>Register renaming</strong> is a technique used in modern CPUs to <strong>eliminate false data dependencies</strong> (also called <em>name dependencies</em>) between instructions, allowing for more <strong>instruction-level parallelism (ILP)</strong> and better performance.</p>
+<blockquote>
+<p>Why It’s Needed?</p>
+</blockquote>
+<p>In pipelined or out-of-order execution, instructions may appear dependent due to <strong>using the same register name</strong>, even when there’s <strong>no real data dependency</strong>.</p>
+<p>There are two main false dependencies:</p>
+<ol>
+<li><strong>Write After Write (WAW)</strong></li>
+<li><strong>Write After Read (WAR)</strong></li>
+</ol>
+<p><strong>Example (with false dependency):</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">1. ADD R1, R2, R3  
+2. SUB R1, R4, R5  ← falsely depends on instruction 1 (WAW)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
-
+<p>Both write to <code>R1</code>, but they’re unrelated operations. Register renaming removes this conflict.</p>
+<blockquote>
+<p>How It Works:</p>
+</blockquote>
+<ul>
+<li>The CPU maintains a <strong>larger set of physical registers</strong> than the number of logical (visible) registers.</li>
+<li>It dynamically assigns <strong>different physical registers</strong> to each instruction, even if they use the same logical name.</li>
+<li>This avoids name-based conflicts, enabling <strong>out-of-order</strong> and <strong>parallel execution</strong>.</li>
+</ul>
+<p>Benefits:</p>
+<ul>
+<li><strong>Eliminates false dependencies</strong></li>
+<li><strong>Increases parallelism</strong></li>
+<li><strong>Improves CPU throughput</strong></li>
+</ul>
+<p>Summary:</p>
+<p><strong>Register renaming</strong> helps CPUs <strong>run more instructions in parallel</strong> by resolving unnecessary register name conflicts, boosting performance.</p>
 <h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
