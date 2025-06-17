@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/parallelism.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-06-15T03:00:45.575Z">
+<meta property="article:modified_time" content="2025-06-17T16:10:56.738Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          757 words
+          853 words
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          7 mins
+          8 mins
         
       </span>
     
@@ -627,6 +627,57 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p>Summary:</p>
 <p><strong>Register renaming</strong> helps CPUs <strong>run more instructions in parallel</strong> by resolving unnecessary register name conflicts, boosting performance.</p>
+<hr>
+<h3 id="Sign-Magnitude-Representation-原码"><a href="#Sign-Magnitude-Representation-原码" class="headerlink" title="Sign-Magnitude Representation (原码)"></a>Sign-Magnitude Representation (原码)</h3><p><strong>Sign-Magnitude Representation (原码)</strong> is a binary method for representing signed integers.</p>
+<ul>
+<li><strong>Sign bit</strong>: The most significant bit indicates the sign — <code>0</code> for positive, <code>1</code> for negative.</li>
+<li><strong>Magnitude bits</strong>: The remaining bits represent the absolute value of the number in binary.</li>
+</ul>
+<p><strong>Example (using 8 bits):</strong></p>
+<ul>
+<li><code>+5</code> in sign-magnitude: <code>00000101</code></li>
+<li><code>-5</code> in sign-magnitude: <code>10000101</code></li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Symmetrical representation for positive and negative numbers</li>
+<li>Has <strong>two representations of zero</strong>: <code>00000000</code> (+0) and <code>10000000</code> (−0)</li>
+</ul>
+<p>Since arithmetic operations with sign-magnitude require handling the sign separately, it is less efficient in hardware compared to two’s complement.</p>
+<hr>
+<h3 id="One’s-Complement-反码"><a href="#One’s-Complement-反码" class="headerlink" title="One’s Complement (反码)"></a><strong>One’s Complement (反码)</strong></h3><p><strong>One’s Complement (反码)</strong> is a binary method for representing signed integers.</p>
+<ul>
+<li><strong>Positive numbers</strong>: Same as in regular binary.</li>
+<li><strong>Negative numbers</strong>: Invert all bits of the positive number (i.e., change 0 to 1 and 1 to 0).</li>
+</ul>
+<p><strong>Example (using 8 bits):</strong></p>
+<ul>
+<li><code>+5</code>: <code>00000101</code></li>
+<li><code>-5</code>: <code>11111010</code> (one’s complement of <code>00000101</code>)</li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Two representations of zero: <code>00000000</code> (+0) and <code>11111111</code> (−0)</li>
+<li>Subtraction can be done using addition, but still needs end-around carry handling.</li>
+</ul>
+<p>Less efficient than two’s complement for arithmetic operations.</p>
+<hr>
+<h3 id="Two’s-Complement-补码"><a href="#Two’s-Complement-补码" class="headerlink" title="Two’s Complement (补码)"></a>Two’s Complement (补码)</h3><p><strong>Two’s Complement (补码)</strong> is the most common binary method for representing signed integers.</p>
+<ul>
+<li><strong>Positive numbers</strong>: Same as regular binary.</li>
+<li><strong>Negative numbers</strong>: Invert all bits of the positive number (get the one’s complement), then add 1.</li>
+</ul>
+<p><strong>Example (using 8 bits):</strong></p>
+<ul>
+<li><code>+5</code>: <code>00000101</code></li>
+<li><code>-5</code>: <code>11111011</code> (one’s complement of <code>00000101</code> is <code>11111010</code>, plus 1 gives <code>11111011</code>)</li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Only <strong>one zero</strong>: <code>00000000</code></li>
+<li>Arithmetic operations (addition and subtraction) are simple and efficient</li>
+<li>Widely used in modern computers for signed integer representation</li>
+</ul>
 <h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
