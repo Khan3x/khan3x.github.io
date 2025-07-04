@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/parallelism.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-06-17T16:10:56.738Z">
+<meta property="article:modified_time" content="2025-07-04T03:28:17.836Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          853 words
+          953 words
         
       </span>
     
@@ -677,6 +677,123 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li>Only <strong>one zero</strong>: <code>00000000</code></li>
 <li>Arithmetic operations (addition and subtraction) are simple and efficient</li>
 <li>Widely used in modern computers for signed integer representation</li>
+</ul>
+<hr>
+<h3 id="Benchmark"><a href="#Benchmark" class="headerlink" title="Benchmark"></a>Benchmark</h3><p><strong>Benchmark</strong> refers to a <strong>standardized test or reference</strong> used to evaluate the performance or quality of a system, device, program, or product.</p>
+<p>A <strong>benchmark</strong> is a method of assessing the performance of an object by running a set of standard tests and comparing the results to others. It helps measure efficiency and identify areas for improvement.</p>
+<p><strong>Common Use Cases</strong></p>
+<ol>
+<li><p><strong>Computer Hardware:</strong></p>
+<ul>
+<li>Benchmarking CPUs, GPUs, SSDs, etc., by running performance tests and comparing scores.</li>
+<li>Common tools: Cinebench, Geekbench, PCMark.</li>
+</ul>
+</li>
+<li><p><strong>Software Development:</strong></p>
+<ul>
+<li>Measuring the speed or efficiency of code or algorithms to optimize performance.</li>
+</ul>
+</li>
+<li><p><strong>Business Management:</strong></p>
+<ul>
+<li>Comparing business performance to industry best practices to find room for improvement.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="Big-endian"><a href="#Big-endian" class="headerlink" title="Big-endian"></a>Big-endian</h3><p><strong>Big-endian</strong> is a type of <strong>byte order</strong> where the <strong>most significant byte (MSB)</strong> is stored at the <strong>lowest memory address</strong>, and the least significant byte is stored at the highest address.</p>
+<p>Suppose we have a 32-bit hexadecimal number: <code>0x12345678</code></p>
+<p>In <strong>Big-endian</strong> format, it would be stored in memory like this (from low to high address):</p>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th>Byte Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x00</td>
+<td>0x12</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>0x34</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>0x56</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>0x78</td>
+</tr>
+</tbody></table>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>Commonly used in <strong>network protocols</strong> (e.g., TCP&#x2F;IP), hence also known as <strong>network byte order</strong>.</li>
+<li>The opposite of Big-endian is <strong>Little-endian</strong>, where the least significant byte comes first.</li>
+</ul>
+<hr>
+<h3 id="Little-endian-Brief-Explanation"><a href="#Little-endian-Brief-Explanation" class="headerlink" title="Little-endian (Brief Explanation)"></a>Little-endian (Brief Explanation)</h3><p><strong>Little-endian</strong> is a type of <strong>byte order</strong> where the <strong>least significant byte (LSB)</strong> is stored at the <strong>lowest memory address</strong>, and the most significant byte is stored at the highest address.</p>
+<p>Suppose we have a 32-bit hexadecimal number: <code>0x12345678</code></p>
+<p>In <strong>Little-endian</strong> format, it would be stored in memory like this (from low to high address):</p>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th>Byte Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x00</td>
+<td>0x78</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>0x56</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>0x34</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>0x12</td>
+</tr>
+</tbody></table>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li>Commonly used in <strong>x86 architecture</strong> (Intel and AMD CPUs).</li>
+<li>It is the <strong>opposite of Big-endian</strong>, which stores the most significant byte first.</li>
+<li>Easier for some CPUs to handle arithmetic operations on varying byte lengths.</li>
+</ul>
+<hr>
+<h3 id="Temporal-Locality-时间局部性"><a href="#Temporal-Locality-时间局部性" class="headerlink" title="Temporal Locality (时间局部性)"></a>Temporal Locality (时间局部性)</h3><p><strong>Temporal locality</strong> is a common program behavior in computer systems that means:</p>
+<blockquote>
+<p><strong>“If a data item is accessed, it is likely to be accessed again in the near future.”</strong></p>
+</blockquote>
+<p>Consider the following code snippet:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    sum <span class="token operator">+=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+
+<ul>
+<li>When <code>array[0]</code> is accessed, the program will soon access <code>array[1]</code>, <code>array[2]</code>, etc.</li>
+<li>The variable <code>sum</code> is also accessed repeatedly.</li>
+<li>This demonstrates <strong>temporal locality</strong>.</li>
+</ul>
+<p><strong>Additional Notes:</strong></p>
+<ul>
+<li><p><strong>Caches</strong> take advantage of temporal locality to improve performance.</p>
+</li>
+<li><p>Temporal locality commonly appears in:</p>
+<ul>
+<li>Loop variables</li>
+<li>Frequently called functions</li>
+<li>Intermediate computation results</li>
+</ul>
+</li>
 </ul>
 <h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
