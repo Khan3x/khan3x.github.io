@@ -1,0 +1,130 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e293b">
+    Cache Writing Policies Comparison
+  </text>
+  
+  <!-- Write Through Section -->
+  <g>
+    <!-- Write Through Title -->
+    <text x="250" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#dc2626">
+      Write Through
+    </text>
+    
+    <!-- CPU -->
+    <rect x="150" y="120" width="80" height="50" fill="#3b82f6" stroke="#1e40af" stroke-width="2" rx="5"/>
+    <text x="190" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">CPU</text>
+    <text x="190" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Write 42</text>
+    
+    <!-- Cache -->
+    <rect x="150" y="200" width="80" height="50" fill="#10b981" stroke="#047857" stroke-width="2" rx="5"/>
+    <text x="190" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Cache</text>
+    <text x="190" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">42</text>
+    
+    <!-- Main Memory -->
+    <rect x="150" y="280" width="80" height="50" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2" rx="5"/>
+    <text x="190" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Main</text>
+    <text x="190" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Memory</text>
+    
+    <!-- Arrows for Write Through -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+      </marker>
+    </defs>
+    
+    <!-- CPU to Cache arrow -->
+    <line x1="190" y1="170" x2="190" y2="195" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="210" y="185" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">Write</text>
+    
+    <!-- CPU to Memory arrow (direct) -->
+    <path d="M 230 145 Q 280 145 280 315 L 235 315" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="290" y="230" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">Simultaneous</text>
+    <text x="290" y="245" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">Write</text>
+    
+    <!-- Features -->
+    <text x="250" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Features:</text>
+    <text x="250" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#059669">✓ Always consistent</text>
+    <text x="250" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#059669">✓ Simple implementation</text>
+    <text x="250" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#dc2626">✗ Slower writes</text>
+    <text x="250" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#dc2626">✗ Higher memory traffic</text>
+  </g>
+  
+  <!-- Write Back Section -->
+  <g>
+    <!-- Write Back Title -->
+    <text x="750" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#7c3aed">
+      Write Back
+    </text>
+    
+    <!-- CPU -->
+    <rect x="650" y="120" width="80" height="50" fill="#3b82f6" stroke="#1e40af" stroke-width="2" rx="5"/>
+    <text x="690" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">CPU</text>
+    <text x="690" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Write 42</text>
+    
+    <!-- Cache with Dirty Bit -->
+    <rect x="650" y="200" width="80" height="50" fill="#10b981" stroke="#047857" stroke-width="2" rx="5"/>
+    <text x="690" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Cache</text>
+    <text x="690" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">42</text>
+    <text x="690" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#fbbf24">(Dirty)</text>
+    
+    <!-- Main Memory -->
+    <rect x="650" y="280" width="80" height="50" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2" rx="5"/>
+    <text x="690" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Main</text>
+    <text x="690" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Memory</text>
+    
+    <!-- Arrows for Write Back -->
+    <defs>
+      <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#7c3aed"/>
+      </marker>
+      <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+      </marker>
+    </defs>
+    
+    <!-- CPU to Cache arrow -->
+    <line x1="690" y1="170" x2="690" y2="195" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrowhead2)"/>
+    <text x="710" y="185" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed">Write</text>
+    
+    <!-- Cache to Memory arrow (later) -->
+    <line x1="690" y1="250" x2="690" y2="275" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead3)"/>
+    <text x="710" y="265" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b">Later</text>
+    <text x="710" y="280" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b">(Eviction)</text>
+    
+    <!-- Features -->
+    <text x="750" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Features:</text>
+    <text x="750" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#059669">✓ Faster writes</text>
+    <text x="750" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#059669">✓ Reduced memory traffic</text>
+    <text x="750" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#dc2626">✗ Complex control logic</text>
+    <text x="750" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#dc2626">✗ Consistency challenges</text>
+  </g>
+  
+  <!-- Divider Line -->
+  <line x1="500" y1="100" x2="500" y2="470" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Watermark -->
+  <text x="500" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" opacity="0.6">
+    偷偷星球
+  </text>
+  
+  <!-- Legend -->
+  <g>
+    <text x="500" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">
+      Key Differences
+    </text>
+    
+    <rect x="200" y="540" width="600" height="140" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+    
+    <text x="220" y="565" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Write Through:</text>
+    <text x="240" y="585" font-family="Arial, sans-serif" font-size="12" fill="#1e293b">• Every write goes to both cache and memory simultaneously</text>
+    <text x="240" y="605" font-family="Arial, sans-serif" font-size="12" fill="#1e293b">• Memory always has the latest data</text>
+    
+    <text x="220" y="635" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Write Back:</text>
+    <text x="240" y="655" font-family="Arial, sans-serif" font-size="12" fill="#1e293b">• Writes only to cache initially, uses dirty bit to track changes</text>
+    <text x="240" y="675" font-family="Arial, sans-serif" font-size="12" fill="#1e293b">• Memory updated only when cache block is replaced</text>
+  </g>
+</svg>

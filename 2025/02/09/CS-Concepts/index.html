@@ -37,9 +37,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/process.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dynamic_branch.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/parallelism.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/wb.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-04T03:28:17.836Z">
+<meta property="article:modified_time" content="2025-07-04T08:02:39.279Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -243,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          953 words
+          1.1k words
         
       </span>
     
@@ -254,7 +255,7 @@
         
         
         
-          8 mins
+          9 mins
         
       </span>
     
@@ -795,6 +796,91 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 </li>
 </ul>
+<hr>
+<h3 id="Spatial-Locality-空间局部性"><a href="#Spatial-Locality-空间局部性" class="headerlink" title="Spatial Locality (空间局部性)"></a>Spatial Locality (空间局部性)</h3><p><strong>Spatial locality</strong> is a common program behavior in computer systems that means:</p>
+<blockquote>
+<p><strong>“If a data item is accessed, nearby data items (in memory) are likely to be accessed soon.”</strong></p>
+</blockquote>
+<p>Consider the following code snippet:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    sum <span class="token operator">+=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<ul>
+<li>When <code>array[0]</code> is accessed, the program will likely access <code>array[1]</code>, <code>array[2]</code>, …, <code>array[99]</code> shortly after.</li>
+<li>These elements are stored in <strong>adjacent memory locations</strong>, so this illustrates <strong>spatial locality</strong>.</li>
+</ul>
+<p><strong>Additional Notes:</strong></p>
+<ul>
+<li><p><strong>Caches</strong> use spatial locality by loading not just a single data item but also <strong>nearby memory blocks</strong> (called a cache line).</p>
+</li>
+<li><p>Spatial locality commonly appears in:</p>
+<ul>
+<li>Sequential array access</li>
+<li>Traversal of linked lists or other data structures with contiguous memory</li>
+<li>Instruction fetches during linear code execution</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Write-Through（写直达）"><a href="#Write-Through（写直达）" class="headerlink" title="Write Through（写直达）"></a>Write Through（写直达）</h3><p><strong>Write Through</strong> is a <strong>cache writing policy</strong> used in computer architecture to manage how data is written to the memory hierarchy, specifically between the <strong>cache</strong> and <strong>main memory</strong>.</p>
+<p><strong>🔧 Definition:</strong><br>In a <strong>Write Through</strong> policy, <strong>every write operation</strong> to the cache is <strong>immediately and simultaneously written to main memory</strong>. This ensures that the main memory always holds the most up-to-date data.</p>
+<p><strong>✅ Advantages:</strong></p>
+<ul>
+<li><strong>Data consistency</strong>: Main memory always reflects the latest data written by the CPU.</li>
+<li><strong>Simple to implement</strong>: Because memory and cache are always in sync, it simplifies memory coherence in multi-processor systems.</li>
+</ul>
+<p><strong>❌ Disadvantages:</strong></p>
+<ul>
+<li><strong>Slower write performance</strong>: Every write operation must access main memory, which is slower than just writing to cache.</li>
+<li><strong>Higher memory traffic</strong>: Frequent memory writes can increase bus usage and reduce overall system performance.</li>
+</ul>
+<p><strong>🧠 Example:</strong><br>If a CPU writes value <code>42</code> to memory address <code>0xA0</code>:</p>
+<ul>
+<li>The value is written to <strong>L1 cache</strong>.</li>
+<li>At the same time, the value is also written to <strong>main memory</strong>.</li>
+</ul>
+<p><strong>💡 Related Concept:</strong></p>
+<ul>
+<li>Compare with <strong>Write Back</strong> policy, where updates are only made to the cache and written to memory <strong>later</strong>, often when the cache block is replaced.</li>
+</ul>
+<p><strong>Summary:</strong><br>Write Through provides <strong>strong consistency</strong> between cache and memory at the cost of <strong>write speed and efficiency</strong>.</p>
+<hr>
+<h3 id="Write-Back（写回）"><a href="#Write-Back（写回）" class="headerlink" title="Write Back（写回）"></a>Write Back（写回）</h3><p><strong>Write Back</strong> is a <strong>cache writing policy</strong> used in computer architecture to manage how data is written between the <strong>CPU cache</strong> and <strong>main memory</strong>.</p>
+<p><strong>🔧 Definition:</strong><br>In a <strong>Write Back</strong> policy, data is written <strong>only to the cache</strong> at first. The updated data is written to <strong>main memory only when the cache block is replaced</strong> (i.e., evicted). Until then, the main memory may hold stale data.</p>
+<p><strong>✅ Advantages:</strong></p>
+<ul>
+<li><strong>Faster write performance</strong>: Since writes are done only in cache, it reduces the latency of write operations.</li>
+<li><strong>Reduced memory traffic</strong>: Multiple writes to the same memory location are performed only once to main memory when the block is evicted.</li>
+</ul>
+<p><strong>❌ Disadvantages:</strong></p>
+<ul>
+<li><strong>Data inconsistency risk</strong>: Main memory may not reflect the latest data, which complicates memory coherence in multi-core systems.</li>
+<li><strong>More complex control logic</strong>: Needs a <strong>dirty bit</strong> to track whether a cache block has been modified.</li>
+</ul>
+<p><strong>🧠 Example:</strong><br>If the CPU writes value <code>42</code> to memory address <code>0xA0</code>:</p>
+<ul>
+<li>The value is written <strong>only to the cache</strong> (marked as dirty).</li>
+<li>When the cache block containing <code>0xA0</code> is later evicted, <strong>then</strong> the value is written to <strong>main memory</strong>.</li>
+</ul>
+<p><strong>💡 Related Concept:</strong></p>
+<ul>
+<li>Compare with <strong>Write Through</strong>, where every write updates both the cache and main memory <strong>simultaneously</strong>.</li>
+</ul>
+<p><strong>Summary:</strong><br>Write Back improves <strong>write efficiency and performance</strong>, but introduces <strong>complexity and consistency challenges</strong>.</p>
+<img src="/img/concepts/wb.svg" srcset="/img/loading.gif" lazyload alt="Write Back VS Write Through" style="max-width: 100%; height: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+
 <h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
