@@ -38,9 +38,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dynamic_branch.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/parallelism.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/wb.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/multicache.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-04T08:02:39.279Z">
+<meta property="article:modified_time" content="2025-07-04T08:19:20.891Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -244,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k words
+          1.4k words
         
       </span>
     
@@ -255,7 +256,7 @@
         
         
         
-          9 mins
+          12 mins
         
       </span>
     
@@ -871,17 +872,115 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <img src="/img/concepts/wb.svg" srcset="/img/loading.gif" lazyload alt="Write Back VS Write Through" style="max-width: 100%; height: auto;" />
 
 
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>写回（Write Back）</th>
+<th>写直达（Write Through）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>写入位置</td>
+<td>只写缓存（先缓存，后主存）</td>
+<td>同时写入缓存和主存</td>
+</tr>
+<tr>
+<td>写入主存时机</td>
+<td>缓存块被替换时才写回主存</td>
+<td>每次写操作都立即写入主存</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>高性能，减少主存访问，延迟更低</td>
+<td>写入慢，因频繁访问主存</td>
+</tr>
+<tr>
+<td>主存数据一致性</td>
+<td>复杂，需要使用“脏位”等一致性机制管理</td>
+<td>简单，主存总是最新数据</td>
+</tr>
+<tr>
+<td>系统总线负载</td>
+<td>较低，减少写操作带来的总线流量</td>
+<td>较高，写操作总是同步主存，增加总线压力</td>
+</tr>
+<tr>
+<td>缓存一致性维护</td>
+<td>较困难，多核系统中需额外一致性协议支持</td>
+<td>较简单，主存作为权威数据源</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>写操作频繁、对性能要求高的系统</td>
+<td>对一致性要求高、系统结构简单的场景</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Multicache-Multi-level-Cache"><a href="#Multicache-Multi-level-Cache" class="headerlink" title="Multicache (Multi-level Cache)"></a>Multicache (Multi-level Cache)</h3><p><strong>Multicache</strong>, or <strong>Multi-level Cache</strong>, refers to a hierarchical(分层的) caching system used in modern CPUs to bridge the speed gap between the fast processor and the slower main memory. It typically consists of <strong>multiple levels of cache</strong>, such as <strong>L1</strong>, <strong>L2</strong>, and <strong>L3</strong>, each with different sizes, speeds, and purposes.</p>
+<p><strong>🔧 Definition:</strong> A <strong>multi-level cache</strong> system includes:</p>
+<ul>
+<li><strong>L1 Cache</strong>: Closest to the CPU core, smallest and fastest.</li>
+<li><strong>L2 Cache</strong>: Larger than L1, slower, and may be shared or private per core.</li>
+<li><strong>L3 Cache</strong>: Even larger and slower, typically shared across all CPU cores.</li>
+</ul>
+<p>This layered structure allows faster access to frequently used data while reducing latency and improving CPU efficiency.</p>
+<p><strong>🏗️ Structure Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Size</th>
+<th>Speed</th>
+<th>Shared</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L1</td>
+<td>~32KB</td>
+<td>Very fast</td>
+<td>No</td>
+<td>Immediate access for the CPU</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>~256KB</td>
+<td>Fast</td>
+<td>Maybe</td>
+<td>Secondary buffer</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>~8MB</td>
+<td>Slower</td>
+<td>Yes</td>
+<td>Shared cache for all cores</td>
+</tr>
+</tbody></table>
+<p><strong>✅ Advantages:</strong></p>
+<ul>
+<li><strong>Improved performance</strong>: Reduces average memory access time.</li>
+<li><strong>Lower latency</strong>: L1 and L2 caches are much faster than main memory.</li>
+<li><strong>Better scalability</strong>: Helps in multi-core systems where data sharing and access times are critical.</li>
+</ul>
+<p><strong>❌ Disadvantages:</strong></p>
+<ul>
+<li><strong>Complex design</strong>: Managing coherence and consistency across multiple levels is challenging.</li>
+<li><strong>Increased cost and power</strong>: More hardware and logic are required.</li>
+<li><strong>Cache misses</strong>: Still possible, especially if working sets exceed cache sizes.</li>
+</ul>
+<p><strong>💡 Notes:</strong></p>
+<ul>
+<li>Most modern processors use <strong>inclusive（包容）</strong>, <strong>exclusive（排他）</strong>, or <strong>non-inclusive（非包容）</strong> cache strategies to determine how data is stored across cache levels.</li>
+<li>Multi-level cache systems often work in tandem with <strong>cache coherence protocols</strong> like MESI in multi-core CPUs.</li>
+</ul>
+<p><strong>📌 Summary</strong></p>
+<p><strong>Multicache systems</strong> provide a hierarchical buffer between the CPU and main memory, optimizing performance and efficiency by leveraging fast, small caches for frequently accessed data and larger, slower caches for broader access.</p>
+<img src="/img/concepts/multicache.svg" srcset="/img/loading.gif" lazyload alt="multicache" style="max-width: 100%; height: auto;" />
 
-
-
-
-
-
-
-
-
-
-<h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
+<hr>
+<h3 id="Direct-Mapping"><a href="#Direct-Mapping" class="headerlink" title="Direct Mapping"></a>Direct Mapping</h3><h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
 <li><strong>Scalable</strong>: Works well even with thousands of nodes.</li>
