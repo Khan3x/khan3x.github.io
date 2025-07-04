@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/multicache.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-04T08:19:20.891Z">
+<meta property="article:modified_time" content="2025-07-04T09:56:08.432Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -245,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k words
+          1.5k words
         
       </span>
     
@@ -256,7 +256,7 @@
         
         
         
-          12 mins
+          13 mins
         
       </span>
     
@@ -980,7 +980,50 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <img src="/img/concepts/multicache.svg" srcset="/img/loading.gif" lazyload alt="multicache" style="max-width: 100%; height: auto;" />
 
 <hr>
-<h3 id="Direct-Mapping"><a href="#Direct-Mapping" class="headerlink" title="Direct Mapping"></a>Direct Mapping</h3><h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
+<h3 id="Direct-Mapping（直接映射）"><a href="#Direct-Mapping（直接映射）" class="headerlink" title="Direct Mapping（直接映射）"></a>Direct Mapping（直接映射）</h3><p><strong>Direct Mapping</strong> is a simple cache mapping technique used in computer architecture to determine where a memory block will be placed in the cache.</p>
+<p><strong>🔧 Definition:</strong><br>In <strong>Direct Mapping</strong>, each block of main memory maps to <strong>exactly one</strong> cache line. The mapping is usually done using:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Cache Line Index &#x3D; (Main Memory Block Address) mod (Number of Cache Lines)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>This makes it easy and fast to locate data in the cache, but can lead to many <strong>conflicts</strong> if multiple blocks map to the same cache line.</p>
+<p><strong>✅ Advantages:</strong></p>
+<ul>
+<li><strong>Simple and fast</strong> implementation</li>
+<li><strong>Low hardware complexity</strong></li>
+</ul>
+<p><strong>❌ Disadvantages:</strong></p>
+<ul>
+<li><strong>High conflict rate</strong>: Two different memory blocks mapping to the same line will continuously evict each other</li>
+<li><strong>Low flexibility</strong> compared to other mapping techniques (e.g., set-associative)</li>
+</ul>
+<p><strong>🧠 Example:</strong><br>If a cache has 8 lines (0 to 7), and a block from main memory has address 24:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Cache Line &#x3D; 24 mod 8 &#x3D; 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>So this block will always be placed in cache line 0.</p>
+<p><strong>Summary:</strong><br>Direct Mapping provides fast and simple cache access, but is prone to frequent conflicts.</p>
+<hr>
+<h3 id="Set-Associative-Mapping（组相连映射）"><a href="#Set-Associative-Mapping（组相连映射）" class="headerlink" title="Set- Associative Mapping（组相连映射）"></a>Set- Associative Mapping（组相连映射）</h3><p><strong>Set-Associative Mapping</strong> is a cache mapping technique that combines the benefits of both <strong>Direct Mapping</strong> and <strong>Fully Associative Mapping</strong> to balance performance and complexity.</p>
+<p><strong>🔧 Definition:</strong><br>In <strong>Set-Associative Mapping</strong>, the cache is divided into multiple <strong>sets</strong>, and each set contains <strong>multiple cache lines (ways)</strong>. A block from main memory maps to <strong>exactly one set</strong>, but <strong>can be placed in any line (way) within that set</strong>.</p>
+<p>The set is selected using:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Set Index &#x3D; (Main Memory Block Address) mod (Number of Sets)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>Within the set, placement and replacement follow policies like <strong>Least Recently Used (LRU)</strong> or <strong>Random</strong>.</p>
+<p><strong>✅ Advantages:</strong></p>
+<ul>
+<li><strong>Lower conflict rate</strong> than Direct Mapping</li>
+<li><strong>More flexible</strong> placement within sets</li>
+<li><strong>Good balance</strong> between speed and cache hit rate</li>
+</ul>
+<p><strong>❌ Disadvantages:</strong></p>
+<ul>
+<li><strong>More complex</strong> hardware than Direct Mapping</li>
+<li><strong>Slightly slower</strong> lookup due to checking multiple lines in a set</li>
+</ul>
+<p><strong>🧠 Example:</strong><br>If a cache has <strong>4 sets</strong>, each with <strong>2 lines (2-way set-associative)</strong>, and a memory block with address 12:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Set Index &#x3D; 12 mod 4 &#x3D; 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>The block can be placed in <strong>either of the 2 lines in Set 0</strong>.</p>
+<p><strong>Summary:</strong><br>Set-Associative Mapping provides a <strong>balanced approach</strong> with better conflict resolution than Direct Mapping and <strong>less complexity</strong> than Fully Associative Mapping.</p>
+<h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
 <li><strong>Scalable</strong>: Works well even with thousands of nodes.</li>
