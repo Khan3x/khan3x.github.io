@@ -40,9 +40,11 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/wb.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/multicache.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/cache3.jpg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/superscalar.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/tlb.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-05T04:01:18.473Z">
+<meta property="article:modified_time" content="2025-07-05T04:49:52.495Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -246,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k words
+          2k words
         
       </span>
     
@@ -257,7 +259,7 @@
         
         
         
-          15 mins
+          17 mins
         
       </span>
     
@@ -814,6 +816,8 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </li>
 </ul>
 <hr>
+<h3 id="Hardware-Prefetching-a-k-a-Prefetch"><a href="#Hardware-Prefetching-a-k-a-Prefetch" class="headerlink" title="Hardware Prefetching (a.k.a. Prefetch)"></a>Hardware Prefetching (a.k.a. Prefetch)</h3><p><strong>Hardware Prefetching</strong> is a technique where the CPU automatically predicts and loads data into the cache <strong>before</strong> it is actually needed.<br>It helps reduce memory latency by exploiting <strong>spatial</strong> and <strong>temporal locality</strong>.<br>For example, if a program accesses memory sequentially, the hardware may prefetch the next few addresses.<br>Prefetched data is stored in the cache, making future access faster.<br>This improves overall CPU performance, especially in data-intensive workloads.</p>
+<hr>
 <h3 id="Write-Through（写直达）"><a href="#Write-Through（写直达）" class="headerlink" title="Write Through（写直达）"></a>Write Through（写直达）</h3><p><strong>Write Through</strong> is a <strong>cache writing policy</strong> used in computer architecture to manage how data is written to the memory hierarchy, specifically between the <strong>cache</strong> and <strong>main memory</strong>.</p>
 <p><strong>🔧 Definition:</strong><br>In a <strong>Write Through</strong> policy, <strong>every write operation</strong> to the cache is <strong>immediately and simultaneously written to main memory</strong>. This ensures that the main memory always holds the most up-to-date data.</p>
 <p><strong>✅ Advantages:</strong></p>
@@ -1097,7 +1101,13 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </div>
 <p><img src="/img/concepts/cache3.jpg" srcset="/img/loading.gif" lazyload alt="三种cache映射" style="max-width: 100%; height: auto;" /></p>
 <hr>
-<p>当然可以，下面是用英文和 Markdown 格式写的关于计算机组成中的 <strong>TLB（Translation Lookaside Buffer）</strong> 的简要讲解：</p>
+<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><p><strong>Cache</strong> is a small, high-speed memory that stores frequently used data to speed up access. It sits between the CPU and main memory to reduce latency. It enables fast program access to frequently used addresses.</p>
+<hr>
+<h3 id="Non-blocking-Cache（非阻塞缓存）"><a href="#Non-blocking-Cache（非阻塞缓存）" class="headerlink" title="Non-blocking Cache（非阻塞缓存）"></a>Non-blocking Cache（非阻塞缓存）</h3><p>A <strong>Non-blocking Cache</strong> allows the CPU to continue processing other instructions <strong>while waiting for a cache miss</strong> to be resolved.<br>It supports <strong>multiple outstanding memory requests</strong> simultaneously.<br>This improves overall system performance by reducing CPU idle time.<br>Non-blocking caches are especially useful in <strong>out-of-order execution</strong> and <strong>superscalar processors</strong>.<br>They often use structures like <strong>Miss Status Handling Registers (MSHRs)</strong> to track pending requests.</p>
+<p><strong>非阻塞缓存</strong>允许 CPU 在<strong>等待缓存未命中（Cache Miss）处理完成的同时继续执行其他指令</strong>。<br>它支持<strong>多个未完成的内存请求</strong>同时存在。<br>这通过减少 CPU 空闲时间来提升系统整体性能。<br>非阻塞缓存在<strong>乱序执行</strong>和<strong>超标量处理器</strong>中尤为重要。<br>它通常使用如 <strong>未命中状态处理寄存器（Miss Status Handling Registers, MSHRs）</strong> 的结构来追踪未完成的请求。</p>
+<hr>
+<h3 id="Superscalar-Architecture（超标量架构）"><a href="#Superscalar-Architecture（超标量架构）" class="headerlink" title="Superscalar Architecture（超标量架构）"></a>Superscalar Architecture（超标量架构）</h3><p><strong>Superscalar Architecture</strong> is a CPU design that allows the processor to <strong>fetch, decode, and execute multiple instructions simultaneously</strong> during each clock cycle.<br>It achieves this by using <strong>multiple pipelines</strong> and <strong>parallel execution units</strong> (e.g., ALUs, FPUs).<br>This architecture increases <strong>instruction-level parallelism (ILP)</strong>, boosting performance without raising the clock speed.<br>Superscalar CPUs include features like <strong>out-of-order execution</strong>, <strong>register renaming</strong>, and <strong>branch prediction</strong> to handle dependencies and control flow efficiently.<br>Examples of superscalar processors include modern Intel and AMD CPUs.</p>
+<p><img src="/img/concepts/superscalar.svg" srcset="/img/loading.gif" lazyload alt="超标量架构" style="max-width: 100%; height: auto;" /></p>
 <hr>
 <h3 id="🔍-TLB-Translation-Lookaside-Buffer"><a href="#🔍-TLB-Translation-Lookaside-Buffer" class="headerlink" title="🔍 TLB (Translation Lookaside Buffer)"></a>🔍 TLB (Translation Lookaside Buffer)</h3><p><strong>TLB</strong> stands for <strong>Translation Lookaside Buffer</strong>. It is a small, fast cache used in the memory management unit (MMU) of a computer’s CPU to improve the speed of <strong>virtual-to-physical address translation</strong>.</p>
 <p><strong>📌 Why is TLB needed?</strong></p>
@@ -1156,6 +1166,81 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li>Acts as a <strong>fast cache</strong> for recent address translations.</li>
 <li>Helps bridge the speed gap between the CPU and memory systems.</li>
 </ul>
+<hr>
+<h3 id="Page-Table"><a href="#Page-Table" class="headerlink" title="Page Table"></a>Page Table</h3><p>In computer architecture, a <strong>Page Table</strong> is a data structure used by the <strong>virtual memory system</strong> to manage the mapping between <strong>virtual addresses</strong> and <strong>physical addresses</strong>.</p>
+<p><strong>🧠 What is Virtual Memory?</strong></p>
+<p>Virtual memory allows a program to use a large, continuous address space even if the physical memory (RAM) is smaller. The CPU generates <strong>virtual addresses</strong>, which must be translated into <strong>physical addresses</strong> before accessing actual memory.</p>
+<p><strong>📘 What is a Page Table?</strong></p>
+<p>A <strong>Page Table</strong> stores the mapping between <strong>virtual pages</strong> and <strong>physical frames</strong>. Each entry in the page table is called a <strong>Page Table Entry (PTE)</strong> and contains information such as:</p>
+<ul>
+<li><strong>Frame Number</strong>: the physical frame corresponding to the virtual page.</li>
+<li><strong>Valid/Invalid Bit</strong>: indicates if the mapping is valid.</li>
+<li><strong>Protection Bits</strong>: control read/write permissions.</li>
+<li><strong>Dirty Bit</strong>: indicates if the page has been modified.</li>
+<li><strong>Accessed Bit</strong>: indicates if the page has been accessed recently.</li>
+</ul>
+<p><strong>🧾 Example Structure</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Virtual Page Number</th>
+<th>Physical Frame Number</th>
+<th>Valid Bit</th>
+<th>Protection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>5</td>
+<td>1</td>
+<td>Read/Write</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>Read-only</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-</td>
+<td>0</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>🧮 Address Translation Steps</strong></p>
+<ol>
+<li>The CPU generates a <strong>virtual address</strong>.</li>
+<li><p>The virtual address is divided into:</p>
+<ul>
+<li><strong>Page Number</strong></li>
+<li><strong>Offset</strong></li>
+</ul>
+</li>
+<li>The <strong>Page Number</strong> is used to index into the Page Table.</li>
+<li>The Page Table Entry provides the <strong>Frame Number</strong>.</li>
+<li>The <strong>Physical Address</strong> is formed by combining the Frame Number and the Offset.</li>
+</ol>
+<p><strong>🛑 Page Fault</strong></p>
+<p>If the <strong>Valid Bit</strong> is 0, the page is not currently in memory. This triggers a <strong>Page Fault</strong>, and the operating system must load the page from disk into RAM.</p>
+<p><strong>🧭 Types of Page Tables</strong></p>
+<ul>
+<li><strong>Single-Level Page Table</strong>: Simple but not scalable for large address spaces.</li>
+<li><strong>Multi-Level Page Table</strong>: Reduces memory usage by using a tree-like structure.</li>
+<li><strong>Inverted Page Table</strong>: Indexes by physical frame instead of virtual page.</li>
+<li><strong>Hashed Page Table</strong>: Used in systems with large address spaces (like 64-bit).</li>
+</ul>
+<p><strong>📌 Summary</strong></p>
+<ul>
+<li>Page Tables are essential for translating virtual to physical addresses.</li>
+<li>They enable <strong>memory protection</strong>, <strong>process isolation</strong>, and <strong>efficient memory use</strong>.</li>
+<li>Optimized with techniques like <strong>TLB</strong> (Translation Lookaside Buffer) to speed up address translation.</li>
+</ul>
+<p><img src="/img/concepts/tlb.svg" srcset="/img/loading.gif" lazyload alt="虚实地址转换" style="max-width: 100%; height: auto;" /></p>
 <hr>
 <h3 id="🧩-3-Types-of-Cache-Misses"><a href="#🧩-3-Types-of-Cache-Misses" class="headerlink" title="🧩 3 Types of Cache Misses"></a>🧩 3 Types of Cache Misses</h3><p>In computer architecture, a <strong>cache miss</strong> occurs when the data requested by the CPU is <strong>not found in the cache</strong>, requiring access to a slower memory level (like RAM). There are <strong>three main types</strong> of cache misses:</p>
 <p><strong>🧠 Summary Table</strong></p>

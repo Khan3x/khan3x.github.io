@@ -1,0 +1,126 @@
+<svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1000" height="800" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="500" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">
+    虚拟地址到物理地址转换流程
+  </text>
+  
+  <!-- CPU -->
+  <rect x="50" y="80" width="120" height="80" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="5"/>
+  <text x="110" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">CPU</text>
+  
+  <!-- 虚拟地址 -->
+  <rect x="50" y="200" width="120" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="3"/>
+  <text x="110" y="225" text-anchor="middle" font-size="12" font-weight="bold" fill="white">虚拟地址</text>
+  <text x="110" y="255" text-anchor="middle" font-size="10" fill="#2c3e50">VPN | Offset</text>
+  
+  <!-- MMU -->
+  <rect x="250" y="120" width="100" height="100" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="5"/>
+  <text x="300" y="150" text-anchor="middle" font-size="14" font-weight="bold" fill="white">MMU</text>
+  <text x="300" y="170" text-anchor="middle" font-size="10" fill="white">内存管理</text>
+  <text x="300" y="185" text-anchor="middle" font-size="10" fill="white">单元</text>
+  
+  <!-- TLB -->
+  <rect x="420" y="80" width="120" height="80" fill="#f39c12" stroke="#e67e22" stroke-width="2" rx="5"/>
+  <text x="480" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="white">TLB</text>
+  <text x="480" y="135" text-anchor="middle" font-size="10" fill="white">快速缓存</text>
+  
+  <!-- TLB命中检查 -->
+  <polygon points="580,120 620,100 620,140" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+  <text x="640" y="115" font-size="12" fill="#27ae60" font-weight="bold">TLB Hit?</text>
+  <text x="640" y="135" font-size="10" fill="#27ae60">命中检查</text>
+  
+  <!-- 页表 -->
+  <rect x="420" y="240" width="120" height="120" fill="#34495e" stroke="#2c3e50" stroke-width="2" rx="5"/>
+  <text x="480" y="270" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Page Table</text>
+  <text x="480" y="290" text-anchor="middle" font-size="10" fill="white">页表</text>
+  
+  <!-- 页表条目 -->
+  <rect x="435" y="300" width="90" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="480" y="312" text-anchor="middle" font-size="8" fill="#2c3e50">PTE1: Valid=1</text>
+  <rect x="435" y="320" width="90" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="480" y="332" text-anchor="middle" font-size="8" fill="#2c3e50">PTE2: Valid=0</text>
+  <rect x="435" y="340" width="90" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="480" y="352" text-anchor="middle" font-size="8" fill="#2c3e50">PTE3: Valid=1</text>
+  
+  <!-- 磁盘存储 -->
+  <rect x="420" y="450" width="120" height="80" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2" rx="5"/>
+  <text x="480" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Disk</text>
+  <text x="480" y="500" text-anchor="middle" font-size="10" fill="white">磁盘存储</text>
+  <text x="480" y="515" text-anchor="middle" font-size="10" fill="white">页面交换</text>
+  
+  <!-- 物理内存 -->
+  <rect x="700" y="200" width="120" height="200" fill="#16a085" stroke="#138d75" stroke-width="2" rx="5"/>
+  <text x="760" y="230" text-anchor="middle" font-size="14" font-weight="bold" fill="white">物理内存</text>
+  <text x="760" y="250" text-anchor="middle" font-size="10" fill="white">Physical Memory</text>
+  
+  <!-- 内存页框 -->
+  <rect x="715" y="260" width="90" height="25" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="760" y="278" text-anchor="middle" font-size="9" fill="#2c3e50">Frame 0</text>
+  <rect x="715" y="290" width="90" height="25" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="760" y="308" text-anchor="middle" font-size="9" fill="#2c3e50">Frame 1</text>
+  <rect x="715" y="320" width="90" height="25" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="760" y="338" text-anchor="middle" font-size="9" fill="#2c3e50">Frame 2</text>
+  <rect x="715" y="350" width="90" height="25" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="760" y="368" text-anchor="middle" font-size="9" fill="#2c3e50">Frame 3</text>
+  
+  <!-- 物理地址 -->
+  <rect x="700" y="450" width="120" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="3"/>
+  <text x="760" y="475" text-anchor="middle" font-size="12" font-weight="bold" fill="white">物理地址</text>
+  <text x="760" y="505" text-anchor="middle" font-size="10" fill="#2c3e50">PFN | Offset</text>
+  
+  <!-- 箭头和流程 -->
+  <!-- CPU到MMU -->
+  <path d="M 170 120 L 240 120" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="205" y="115" text-anchor="middle" font-size="10" fill="#2c3e50">虚拟地址</text>
+  
+  <!-- MMU到TLB -->
+  <path d="M 350 140 L 410 140" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="380" y="135" text-anchor="middle" font-size="10" fill="#2c3e50">查找</text>
+  
+  <!-- TLB命中到物理内存 -->
+  <path d="M 540 120 L 690 120 L 690 300" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="615" y="115" text-anchor="middle" font-size="10" fill="#27ae60">TLB Hit</text>
+  
+  <!-- TLB失效到页表 -->
+  <path d="M 480 160 L 480 230" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="500" y="200" font-size="10" fill="#e74c3c">TLB Miss</text>
+  
+  <!-- 页表到物理内存 -->
+  <path d="M 540 300 L 690 300" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="615" y="295" text-anchor="middle" font-size="10" fill="#27ae60">Valid=1</text>
+  
+  <!-- 页表到磁盘 -->
+  <path d="M 480 360 L 480 440" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="500" y="405" font-size="10" fill="#e74c3c">Page Fault</text>
+  <text x="500" y="420" font-size="10" fill="#e74c3c">Valid=0</text>
+  
+  <!-- 磁盘到物理内存 -->
+  <path d="M 540 490 L 690 490 L 690 400" stroke="#f39c12" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="615" y="485" text-anchor="middle" font-size="10" fill="#f39c12">页面调入</text>
+  
+  <!-- 物理内存到物理地址 -->
+  <path d="M 760 400 L 760 440" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="780" y="425" font-size="10" fill="#2c3e50">生成</text>
+  
+  <!-- 流程步骤说明 -->
+  <text x="50" y="600" font-size="14" font-weight="bold" fill="#2c3e50">转换流程：</text>
+  <text x="50" y="620" font-size="12" fill="#2c3e50">1. CPU发出虚拟地址请求</text>
+  <text x="50" y="640" font-size="12" fill="#2c3e50">2. MMU首先查找TLB缓存</text>
+  <text x="50" y="660" font-size="12" fill="#2c3e50">3. TLB命中：直接返回物理地址</text>
+  <text x="50" y="680" font-size="12" fill="#2c3e50">4. TLB失效：查找页表</text>
+  <text x="50" y="700" font-size="12" fill="#2c3e50">5. 页表有效：返回物理地址，更新TLB</text>
+  <text x="50" y="720" font-size="12" fill="#2c3e50">6. 页表无效：触发页面错误，从磁盘调入页面</text>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+  
+  <!-- 水印 -->
+  <text x="850" y="750" font-size="12" fill="#bdc3c7" opacity="0.6">偷偷星球</text>
+</svg>
