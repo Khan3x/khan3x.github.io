@@ -39,9 +39,10 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/parallelism.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/wb.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/multicache.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/cache3.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-04T09:56:08.432Z">
+<meta property="article:modified_time" content="2025-07-05T03:39:56.838Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -1023,6 +1024,94 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 
 <p>The block can be placed in <strong>either of the 2 lines in Set 0</strong>.</p>
 <p><strong>Summary:</strong><br>Set-Associative Mapping provides a <strong>balanced approach</strong> with better conflict resolution than Direct Mapping and <strong>less complexity</strong> than Fully Associative Mapping.</p>
+<hr>
+<h3 id="Full-Associative-Mapping（全相联映射）"><a href="#Full-Associative-Mapping（全相联映射）" class="headerlink" title="Full Associative Mapping（全相联映射）"></a>Full Associative Mapping（全相联映射）</h3><p><strong>Full Associative Mapping</strong> is a cache mapping technique in which <strong>a memory block can be placed in any cache line</strong>, offering maximum flexibility and minimal conflict.</p>
+<p><strong>🔧 Definition:</strong><br>In <strong>Full Associative Mapping</strong>, there are <strong>no restrictions</strong> on where a block can be placed in the cache. Any block from main memory can be stored in <strong>any cache line</strong>.</p>
+<p>To find a block, the cache must <strong>search all lines</strong> using <strong>comparators</strong> that match tags.</p>
+<p><strong>✅ Advantages:</strong></p>
+<ul>
+<li><strong>No conflict misses</strong> (except when cache is full)</li>
+<li><strong>Best flexibility</strong> in placement</li>
+<li><strong>Highest cache hit potential</strong></li>
+</ul>
+<p><strong>❌ Disadvantages:</strong></p>
+<ul>
+<li><strong>Complex hardware</strong>: Requires searching the entire cache in parallel</li>
+<li><strong>Slower access time</strong> due to tag comparisons</li>
+<li><strong>Expensive</strong> in terms of power and chip area</li>
+</ul>
+<p><strong>🧠 Example:</strong><br>If a cache has <strong>8 lines</strong>, and a block from memory has address <code>0x2F</code>, it can be placed in <strong>any one</strong> of the 8 lines. When checking for a hit, the cache must compare the block’s tag with the tags of <strong>all 8 lines</strong>.</p>
+<p><strong>Summary:</strong><br>Full Associative Mapping provides <strong>maximum flexibility</strong> and <strong>minimal conflict</strong>, but comes with <strong>higher hardware cost</strong> and <strong>slower lookup times</strong>.</p>
+<hr>
+<h3 id="Comparison-of-Cache-Mapping-Techniques"><a href="#Comparison-of-Cache-Mapping-Techniques" class="headerlink" title="Comparison of Cache Mapping Techniques"></a>Comparison of Cache Mapping Techniques</h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Direct Mapping</th>
+<th>Set-Associative Mapping</th>
+<th>Full Associative Mapping</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Placement Rule</td>
+<td>Each block maps to <strong>one line</strong></td>
+<td>Each block maps to <strong>one set</strong>, can go into <strong>any line</strong> in that set</td>
+<td>Each block can go into <strong>any line</strong> in the cache</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Low</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Hardware Complexity</td>
+<td>Low (simplest)</td>
+<td>Medium</td>
+<td>High (most complex)</td>
+</tr>
+<tr>
+<td>Access Speed</td>
+<td>Fast</td>
+<td>Slightly slower</td>
+<td>Slowest (due to parallel comparisons)</td>
+</tr>
+<tr>
+<td>Conflict Misses</td>
+<td>High</td>
+<td>Lower than Direct Mapping</td>
+<td>None (except capacity misses)</td>
+</tr>
+<tr>
+<td>Replacement Policy</td>
+<td>Not needed (only one line)</td>
+<td>Needed within each set (e.g., LRU)</td>
+<td>Needed for the entire cache (e.g., LRU)</td>
+</tr>
+<tr>
+<td>Cost (Power&#x2F;Area)</td>
+<td>Low</td>
+<td>Moderate</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Use Case Suitability</td>
+<td>Simple, low-power systems</td>
+<td>General-purpose CPUs</td>
+<td>High-performance or critical systems</td>
+</tr>
+</tbody></table>
+<img src="/img/concepts/cache3.jpg" srcset="/img/loading.gif" lazyload alt="三种cache映射" style="max-width: 100%; height: auto;" />
+
+
+
+
+
+
+
+
+
+
 <h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
