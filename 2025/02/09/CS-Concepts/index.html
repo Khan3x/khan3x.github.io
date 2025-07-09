@@ -44,7 +44,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/tlb.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-06T16:01:41.042Z">
+<meta property="article:modified_time" content="2025-07-09T12:14:10.717Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k words
+          4.4k words
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          28 mins
+          37 mins
         
       </span>
     
@@ -1448,7 +1448,123 @@ I2: R2 ← R3 + R4   ; Control dependent on I1<span aria-hidden="true" class="li
 <hr>
 <h3 id="SIMD-Single-Instruction-Multiple-Data"><a href="#SIMD-Single-Instruction-Multiple-Data" class="headerlink" title="SIMD (Single Instruction, Multiple Data)"></a>SIMD (Single Instruction, Multiple Data)</h3><p><strong>SIMD</strong> stands for <strong>Single Instruction, Multiple Data</strong>, a parallel computing model where <strong>one instruction</strong> operates on <strong>multiple data elements simultaneously</strong>.<br>It is especially useful for tasks like <strong>image processing</strong>, <strong>audio&#x2F;video encoding</strong>, <strong>machine learning</strong>, and <strong>scientific computing</strong>.<br>SIMD improves performance by exploiting <strong>data-level parallelism</strong>.<br>Modern CPUs include SIMD instruction sets such as <strong>SSE</strong>, <strong>AVX</strong> (Intel&#x2F;AMD), and <strong>NEON</strong> (ARM).<br>It is a core concept in <strong>vector processing</strong> and used in <strong>GPUs</strong> as well.</p>
 <p><strong>SIMD</strong> 是 <strong>单指令多数据流（Single Instruction, Multiple Data）</strong> 的缩写，是一种并行计算模型，其中<strong>一条指令</strong>可以同时作用于<strong>多个数据元素</strong>。<br>它非常适用于图像处理、音视频编解码、机器学习和科学计算等场景。<br>SIMD 通过挖掘数据级并行性（Data-level Parallelism）来提升性能。<br>现代 CPU 提供了 SIMD 指令集，如 <strong>SSE</strong>、<strong>AVX</strong>（Intel&#x2F;AMD）和 <strong>NEON</strong>（ARM）。<br>它是向量处理（Vector Processing）的核心思想，并广泛用于 <strong>GPU</strong> 中。</p>
-<h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h3 id="Regular-Language"><a href="#Regular-Language" class="headerlink" title="Regular Language"></a>Regular Language</h3><p>A <strong>Regular Language</strong> is a class of formal languages that can be <strong>recognized by finite automata</strong>. It can be described by:</p>
+<h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h3 id="Regular-Grammar"><a href="#Regular-Grammar" class="headerlink" title="Regular Grammar"></a>Regular Grammar</h3><p>A <strong>Regular Grammar</strong> is the simplest type of grammar in the Chomsky hierarchy. It is used to define <strong>regular languages</strong>, which can also be recognized by <strong>finite automata</strong>. Regular grammars are widely used in lexical analysis, pattern matching, and simple parsing tasks.</p>
+<p><strong>📘 Definition</strong></p>
+<p>A <strong>Regular Grammar</strong> is a type of <strong>context-free grammar (CFG)</strong> with special restrictions on its production rules. It consists of:</p>
+<ul>
+<li>A finite set of <strong>non-terminal symbols</strong></li>
+<li>A finite set of <strong>terminal symbols</strong></li>
+<li>A <strong>start symbol</strong></li>
+<li>A finite set of <strong>production rules</strong></li>
+</ul>
+<p><strong>🧾 Types of Regular Grammar</strong></p>
+<p>There are <strong>two forms</strong> of regular grammars:</p>
+<ol>
+<li><strong>Right-Linear Grammar</strong></li>
+</ol>
+<p>All production rules are of the form:</p>
+<ul>
+<li>$A \rightarrow aB$</li>
+<li>$A \rightarrow a$</li>
+<li>$A \rightarrow \varepsilon$ (optional for generating empty string)</li>
+</ul>
+<p>Where:</p>
+<ul>
+<li>$A, B$ are non-terminal symbols</li>
+<li>$a$ is a terminal symbol</li>
+</ul>
+<p>✅ This is the <strong>most common</strong> form used to generate regular languages.</p>
+<ol start="2">
+<li><strong>Left-Linear Grammar</strong></li>
+</ol>
+<p>All production rules are of the form:</p>
+<ul>
+<li>$A \rightarrow Ba$</li>
+<li>$A \rightarrow a$</li>
+<li>$A \rightarrow \varepsilon$</li>
+</ul>
+<p>Both right-linear and left-linear grammars generate <strong>regular languages</strong>, but <strong>mixing them is not allowed</strong> in regular grammar.</p>
+<p><strong>🧮 Example of a Right-Linear Grammar</strong></p>
+<p>Let’s define a grammar for the regular language $L &#x3D; { a^n b \mid n \geq 0 }$:</p>
+<p><strong>Non-terminals</strong>: ${S, A}$<br><strong>Terminals</strong>: ${a, b}$<br><strong>Start symbol</strong>: $S$<br><strong>Production rules</strong>:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">S → aS  
+S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<p>This generates strings like:</p>
+<ul>
+<li><code>b</code></li>
+<li><code>ab</code></li>
+<li><code>aab</code></li>
+<li><code>aaab</code>, etc.</li>
+</ul>
+<p><strong>🤖 Equivalent Automata</strong></p>
+<p>Every regular grammar corresponds to a <strong>finite automaton</strong>, and vice versa:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Regular Grammar</td>
+<td>Generates strings by rules</td>
+</tr>
+<tr>
+<td>Finite Automaton</td>
+<td>Accepts strings by state transitions</td>
+</tr>
+</tbody></table>
+<p>So, regular grammar and finite automaton are <strong>equivalent in expressive power</strong>.</p>
+<p><strong>📊 Closure Properties</strong></p>
+<p>Regular grammars inherit all the closure properties of regular languages:</p>
+<ul>
+<li>✅ Union</li>
+<li>✅ Concatenation</li>
+<li>✅ Kleene Star</li>
+<li>✅ Intersection with regular sets</li>
+<li>✅ Complement</li>
+</ul>
+<p><strong>🚫 Limitations</strong></p>
+<ul>
+<li>Cannot handle <strong>nested structures</strong> (e.g., balanced parentheses)</li>
+<li>Cannot count or match multiple dependencies (e.g., $a^n b^n$)</li>
+</ul>
+<p><strong>✅ Summary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Regular Grammar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Structure</td>
+<td>Right- or left-linear rules</td>
+</tr>
+<tr>
+<td>Generates</td>
+<td>Regular languages</td>
+</tr>
+<tr>
+<td>Equivalent to</td>
+<td>Finite Automaton</td>
+</tr>
+<tr>
+<td>Used in</td>
+<td>Lexical analysis, pattern matching</td>
+</tr>
+<tr>
+<td>Can generate $a^n$</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Can generate $a^n b^n$</td>
+<td>❌ No</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Regular-Language"><a href="#Regular-Language" class="headerlink" title="Regular Language"></a>Regular Language</h3><p>A <strong>Regular Language</strong> is a class of formal languages that can be <strong>recognized by finite automata</strong>. It can be described by:</p>
 <ul>
 <li><strong>Deterministic Finite Automata (DFA)</strong></li>
 <li><strong>Non-deterministic Finite Automata (NFA)</strong></li>
@@ -1791,6 +1907,600 @@ I2: R2 ← R3 + R4   ; Control dependent on I1<span aria-hidden="true" class="li
 <li>Used in <strong>regular expression engines</strong></li>
 <li>Foundations for <strong>parser generators</strong> and <strong>compiler design</strong></li>
 </ul>
+<hr>
+<h3 id="Finite-State-Machine-FSM"><a href="#Finite-State-Machine-FSM" class="headerlink" title="Finite-State Machine (FSM)"></a>Finite-State Machine (FSM)</h3><p>A <strong>Finite-State Machine (FSM)</strong> is a computational model used to design and describe the behavior of digital systems, software, or processes that are dependent on a sequence of inputs and a finite number of internal states.</p>
+<p><strong>🧠 Key Concepts</strong></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>State</strong></td>
+<td>A unique configuration or condition of the system at a given time.</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td>External data or signal that triggers a transition.</td>
+</tr>
+<tr>
+<td><strong>Transition</strong></td>
+<td>The process of moving from one state to another.</td>
+</tr>
+<tr>
+<td><strong>Initial State</strong></td>
+<td>The state in which the FSM starts.</td>
+</tr>
+<tr>
+<td><strong>Final State(s)</strong></td>
+<td>Some FSMs may have one or more accepting states that signify a successful process.</td>
+</tr>
+</tbody></table>
+<p><strong>🛠 Types of FSM</strong></p>
+<ol>
+<li><p><strong>Deterministic Finite Automaton (DFA)</strong></p>
+<ul>
+<li>Each state has <em>exactly one</em> transition for each possible input.</li>
+<li>There is <em>no ambiguity</em> in state transitions.</li>
+</ul>
+</li>
+<li><p><strong>Nondeterministic Finite Automaton (NFA)</strong></p>
+<ul>
+<li>A state can have <em>multiple transitions</em> for the same input.</li>
+<li>May include <em>ε-transitions</em> (transitions without input).</li>
+</ul>
+</li>
+</ol>
+<p><strong>⚙️ Components of an FSM</strong></p>
+<p>An FSM is formally defined as a 5-tuple:</p>
+<p>$$<br>M &#x3D; (Q, \Sigma, \delta, q_0, F)<br>$$</p>
+<p><strong>🧭 How It Works (Example)</strong></p>
+<p>Suppose we have an FSM that accepts binary strings ending in <code>01</code>.</p>
+<ul>
+<li><p><strong>States</strong>: <code>S0</code> (start), <code>S1</code> (seen 0), <code>S2</code> (accepting, seen 01)</p>
+</li>
+<li><p><strong>Input</strong>: <code>0</code>, <code>1</code></p>
+</li>
+<li><p><strong>Transitions</strong>:</p>
+<ul>
+<li>From <code>S0</code>, on <code>0</code> → <code>S1</code></li>
+<li>From <code>S1</code>, on <code>1</code> → <code>S2</code></li>
+<li>From <code>S2</code>, on <code>0</code> → <code>S1</code>, on <code>1</code> → <code>S0</code> (reset if wrong pattern)</li>
+</ul>
+</li>
+</ul>
+<p><strong>📦 Applications</strong></p>
+<ul>
+<li>Lexical analyzers (compilers)</li>
+<li>Protocol design</li>
+<li>Game development (e.g., AI behavior)</li>
+<li>Digital circuit design</li>
+<li>Control systems</li>
+</ul>
+<hr>
+<h3 id="Pumping-Lemma-for-regular-languages"><a href="#Pumping-Lemma-for-regular-languages" class="headerlink" title="Pumping Lemma for regular languages"></a>Pumping Lemma for regular languages</h3><p>The <strong>Pumping Lemma</strong> for regular languages is an important tool in formal language and automata theory, used to prove that a given language is <strong>not</strong> regular. The pumping lemma provides a “pumping” property, which means that certain strings in a regular language can be repeated (or “pumped”) under specific conditions without changing whether the string belongs to the language.</p>
+<p>The pumping lemma mainly applies to regular languages. It states:<br>If a language is regular, then there exists a constant $p$ (called the pumping length), such that for any string $s \in L$ (where $s$ belongs to language $L$) with length greater than or equal to $p$, it is possible to divide $s$ into the following three parts:</p>
+<ul>
+<li><p>$s &#x3D; xyz$, where:</p>
+<ul>
+<li>$x$ is a prefix of $s$ (possibly empty).</li>
+<li>$y$ is the part that can be “pumped”, and $|y| &gt; 0$.</li>
+<li>$z$ is a suffix of $s$ (possibly empty).</li>
+</ul>
+</li>
+</ul>
+<p>Moreover, for any $i \geq 0$, the string $xy^i z$ must also belong to the language $L$. That is, the substring $y$ can be repeated any number of times without affecting whether $s$ belongs to $L$.</p>
+<hr>
+<h3 id="Pumping-Lemma-for-CFLs"><a href="#Pumping-Lemma-for-CFLs" class="headerlink" title="Pumping Lemma for CFLs"></a>Pumping Lemma for CFLs</h3><p>The Pumping Lemma for Context-Free Languages (CFLs) states that for any context-free language $L$, if $L$ is infinite, then there exists a constant $p$ (pumping length), such that for every string $s \in L$ with length greater than or equal to $p$, the string $s$ can be divided into five parts $s &#x3D; uvwxy$, satisfying the following conditions:</p>
+<ol>
+<li>For all $i \geq 0$, $uv^i w x^i y \in L$.</li>
+<li>$|v| + |x| &gt; 0$ (i.e., $v$ and $x$ are not both empty).</li>
+<li>$|vwx| \leq p$ (the total length of $v$, $w$, and $x$ does not exceed the pumping length $p$).</li>
+</ol>
+<p>We assume that $L$ is an infinite context-free language. Since $L$ is a context-free language, based on the structural properties of context-free grammars, it corresponds to a pushdown automaton (PDA). This PDA must satisfy one condition: it can “pump” strings, i.e., repeat certain parts of the string while keeping the resulting string within the language $L$.</p>
+<p>According to the pumping lemma assumption, there exists a pumping length $p$, such that for all strings $s \in L$ with length greater than or equal to $p$, the string $s$ can be decomposed as $s &#x3D; uvwxy$, satisfying the following conditions:</p>
+<ul>
+<li>$|vwx| \leq p$</li>
+<li>$|v| + |x| &gt; 0$</li>
+</ul>
+<p>Context-free languages can be generated by context-free grammars (CFGs) or recognized by pushdown automata (PDAs). We use these structures to demonstrate the pumping lemma.</p>
+<ul>
+<li><p>For any string $s \in L$ with length greater than or equal to $p$, it must be generated by derivation using a context-free grammar.</p>
+</li>
+<li><p>Since $L$ is infinite, there exists a derivation tree for some parts that can be broken down into five parts $uvwxy$, where:</p>
+<ul>
+<li>$v$ and $x$ are the parts that can be “pumped” or repeated.</li>
+<li>The total length of $v$ and $x$ does not exceed $p$.</li>
+<li>This means that for some appropriate $i$, $v$ and $x$ can be repeated without breaking the structure of the language.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The proof here also involves the Pigeonhole Principle, which is not elaborated on in detail.</p>
+</blockquote>
+<p>Based on the structure of context-free languages, the string $s$ can be decomposed as $s &#x3D; uvwxy$, satisfying the following conditions:</p>
+<ul>
+<li>$|vwx| \leq p$, which means the total length of $v$ and $x$ does not exceed the pumping length $p$; their lengths are finite.</li>
+<li>$|v| + |x| &gt; 0$, which means $v$ and $x$ cannot both be empty.</li>
+</ul>
+<p>According to the pumping lemma, we know that if we “pump” the parts $v$ and $x$ of the string $s$, i.e., repeat them multiple times, then the new string $uv^i w x^i y$ will still belong to the language $L$, for all $i \geq 0$.</p>
+<p>According to the pumping lemma assumption, for all $i \geq 0$, $uv^i w x^i y \in L$. This means that by increasing the number of repetitions of parts $v$ and $x$, the string remains within the language $L$.</p>
+<p>The key to this process is that through appropriate decomposition and pumping operations, the structure of the language remains unchanged, and therefore it can be accepted by a context-free grammar or pushdown automaton.</p>
+<p>Using the pumping lemma, we can prove that some languages are <strong>not</strong> context-free. A proof by contradiction is often used to show that a language does not satisfy the requirements of a context-free language. By choosing an appropriate string and assuming it satisfies the conditions of the pumping lemma, we can show that certain operations cause the resulting string to no longer belong to the language, thus concluding that the language is not context-free.</p>
+<hr>
+<p>Using the pumping lemma, we can prove that certain languages are not context-free by contradiction. Suppose we want to prove that a language $L$ is not context-free. The process usually involves the following steps:</p>
+<ol>
+<li>Assume that $L$ is a context-free language and that it satisfies the pumping lemma.</li>
+<li>Choose a string $s \in L$ with length greater than or equal to the pumping length $p$, then decompose it as $s &#x3D; uvwxy$ and apply the pumping lemma.</li>
+<li>Expand $uv^i w x^i y$ and prove that for some values of $i$, $uv^i w x^i y \notin L$, thus leading to a contradiction.</li>
+<li>Conclude that $L$ is not a context-free language.</li>
+</ol>
+<p>Example: Prove that $L &#x3D; { a^n b^n c^n \mid n \geq 0 }$ is not a context-free language.</p>
+<p>We use the pumping lemma for context-free languages to prove that $L &#x3D; { a^n b^n c^n \mid n \geq 0 }$ is not context-free.</p>
+<ol>
+<li><p><strong>Assume $L$ is a context-free language:</strong><br>Assume that $L$ is a context-free language and that a pumping length $p$ exists. According to the pumping lemma, any string $s$ with length greater than or equal to $p$ can be decomposed as $s &#x3D; uvwxy$, where $|vwx| \leq p$ and $|v| + |x| &gt; 0$.</p>
+</li>
+<li><p><strong>Choose the string $s &#x3D; a^p b^p c^p$:</strong><br>Choose the string $s &#x3D; a^p b^p c^p$, which clearly belongs to $L$, and its length $|s| &#x3D; 3p \geq p$.</p>
+</li>
+<li><p><strong>Decompose the string $s$:</strong><br>According to the pumping lemma, $s &#x3D; uvwxy$, where $|vwx| \leq p$ and $|v| + |x| &gt; 0$. Since $|vwx| \leq p$, it can only span one portion of the string (i.e., the $a^n$, $b^n$, or $c^n$ part). Also, since $|v| + |x| &gt; 0$, $v$ and $x$ must include some repeating characters.</p>
+</li>
+<li><p><strong>Apply the pumping lemma:</strong><br>According to the pumping lemma, for all $i \geq 0$, $uv^i w x^i y$ should still belong to $L$. However, if we choose $i &gt; 1$, we get a mismatched string such as $uv^2 w x^2 y$. This string would no longer maintain the same number of <code>a</code>s, <code>b</code>s, and <code>c</code>s, and thus would not belong to $L$.</p>
+</li>
+<li><p><strong>Reach a contradiction:</strong><br>Therefore, we conclude that $L$ cannot be a context-free language because the result from the pumping lemma contradicts the definition of $L$.</p>
+</li>
+</ol>
+<p>The pumping lemma for context-free languages demonstrates certain properties of languages by decomposing and repeating parts of their strings. It provides a method to prove by contradiction that certain languages are not context-free.</p>
+<hr>
+<h3 id="Context-Free-Language-CFL"><a href="#Context-Free-Language-CFL" class="headerlink" title="Context-Free Language (CFL)"></a>Context-Free Language (CFL)</h3><p>A <strong>Context-Free Language (CFL)</strong> is a type of formal language that can be generated by a <strong>Context-Free Grammar (CFG)</strong>. It is an essential concept in the theory of computation and plays a major role in compiler design and parsing.</p>
+<p><strong>📘 What is a Context-Free Grammar (CFG)?</strong></p>
+<p>A <strong>Context-Free Grammar</strong> is a set of recursive rewriting rules (productions) used to generate strings in a language. A CFG is formally defined as a 4-tuple:</p>
+<p>$$<br>G &#x3D; (V, \Sigma, R, S)<br>$$</p>
+<p>Where:</p>
+<ul>
+<li>$V$: A finite set of <strong>variables</strong> (non-terminal symbols)</li>
+<li>$\Sigma$: A finite set of <strong>terminal symbols</strong> (alphabet of the language)</li>
+<li>$R$: A finite set of <strong>production rules</strong>, each of the form $A \rightarrow \gamma$, where $A \in V$ and $\gamma \in (V \cup \Sigma)^*$</li>
+<li>$S$: The <strong>start symbol</strong>, $S \in V$</li>
+</ul>
+<p><strong>🧠 Key Characteristics of CFLs</strong></p>
+<ul>
+<li>The <strong>left-hand side</strong> of every production rule in a CFG has exactly <strong>one non-terminal</strong>.</li>
+<li>A string belongs to the CFL if it can be derived from the start symbol using the rules.</li>
+<li>CFLs are more powerful than <strong>regular languages</strong>, but less powerful than <strong>context-sensitive languages</strong>.</li>
+</ul>
+<p><strong>🧮 Example of a Context-Free Grammar</strong></p>
+<p>Let’s define a CFG for the language $L &#x3D; { a^n b^n \mid n \geq 0 }$:</p>
+<p><strong>Grammar:</strong></p>
+<ul>
+<li><p>$V &#x3D; { S }$</p>
+</li>
+<li><p>$\Sigma &#x3D; { a, b }$</p>
+</li>
+<li><p><strong>Production Rules</strong>:</p>
+<ul>
+<li>$S \rightarrow aSb$</li>
+<li>$S \rightarrow \varepsilon$ <em>(epsilon, the empty string)</em></li>
+</ul>
+</li>
+<li><p>$S$: start symbol</p>
+</li>
+</ul>
+<p>This grammar generates:</p>
+<ul>
+<li>$\varepsilon$</li>
+<li>$ab$</li>
+<li>$aabb$</li>
+<li>$aaabbb$, etc.</li>
+</ul>
+<p><strong>📊 Closure Properties of CFLs</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Closed under?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Union</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Concatenation</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Kleene Star</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Intersection</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Complement</td>
+<td>❌ No</td>
+</tr>
+</tbody></table>
+<p><strong>🖥 Recognizing CFLs with Pushdown Automata (PDA)</strong></p>
+<p>A <strong>Pushdown Automaton (PDA)</strong> is a computational model that recognizes context-free languages.<br>It is similar to a finite automaton but with an added <strong>stack</strong>, which allows it to store an unbounded amount of information.</p>
+<blockquote>
+<p>CFLs are <strong>exactly</strong> the class of languages accepted by nondeterministic PDAs.</p>
+</blockquote>
+<p><strong>🚫 Not All Languages Are CFLs</strong></p>
+<p>Some languages are <strong>not</strong> context-free, for example:</p>
+<p>$$<br>L &#x3D; { a^n b^n c^n \mid n \geq 0 }<br>$$</p>
+<p>No CFG can generate this language because it requires <strong>three-way balancing</strong>, which CFGs cannot handle.</p>
+<p><strong>🧪 Applications of CFLs</strong></p>
+<ul>
+<li><strong>Programming languages</strong> (syntax parsing)</li>
+<li><strong>Compilers</strong> (syntax analysis)</li>
+<li><strong>Natural language processing</strong></li>
+<li><strong>XML and structured data parsing</strong></li>
+</ul>
+<hr>
+<h3 id="Pushdown-Automaton-PDA"><a href="#Pushdown-Automaton-PDA" class="headerlink" title="Pushdown Automaton (PDA)"></a>Pushdown Automaton (PDA)</h3><p>A <strong>Pushdown Automaton (PDA)</strong> is a type of computational model that extends the <strong>finite automaton</strong> by adding a <strong>stack</strong> as memory. This additional memory allows it to recognize <strong>context-free languages</strong> (CFLs), which are more powerful than regular languages.</p>
+<p><strong>🧠 Intuition</strong></p>
+<p>A PDA reads input symbols <strong>one at a time</strong>, transitions between states based on the current input <strong>and</strong> the <strong>top of the stack</strong>, and can <strong>push</strong> or <strong>pop</strong> symbols from the stack.</p>
+<ul>
+<li>Think of the <strong>stack</strong> as an unlimited memory that operates in <strong>LIFO</strong> (Last-In, First-Out) order.</li>
+<li>The PDA uses the stack to keep track of nested or recursive patterns (e.g. matching parentheses).</li>
+</ul>
+<p><strong>🧱 Formal Definition</strong></p>
+<p>A <strong>PDA</strong> is a 7-tuple:</p>
+<p>$$<br>M &#x3D; (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)<br>$$</p>
+<p>Where:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$Q$</td>
+<td>A finite set of <strong>states</strong></td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td>The <strong>input alphabet</strong></td>
+</tr>
+<tr>
+<td>$\Gamma$</td>
+<td>The <strong>stack alphabet</strong></td>
+</tr>
+<tr>
+<td>$\delta$</td>
+<td>The <strong>transition function</strong>: $Q \times (\Sigma \cup \varepsilon) \times \Gamma \rightarrow \mathcal{P}(Q \times \Gamma^*)$</td>
+</tr>
+<tr>
+<td>$q_0$</td>
+<td>The <strong>start state</strong>, $q_0 \in Q$</td>
+</tr>
+<tr>
+<td>$Z_0$</td>
+<td>The <strong>initial stack symbol</strong>, $Z_0 \in \Gamma$</td>
+</tr>
+<tr>
+<td>$F$</td>
+<td>A set of <strong>accepting (final) states</strong>, $F \subseteq Q$</td>
+</tr>
+</tbody></table>
+<p><strong>🔁 Transition Function Explanation</strong></p>
+<p>The transition function:</p>
+<p>$$<br>\delta(q, a, X) &#x3D; { (q’, \gamma) }<br>$$</p>
+<p>Means:</p>
+<ul>
+<li><p>In state $q$, if the input symbol is $a$ (or $\varepsilon$), and the <strong>top of the stack</strong> is $X$,</p>
+</li>
+<li><p>Then the machine can:</p>
+<ul>
+<li><strong>Move</strong> to state $q’$</li>
+<li><strong>Replace</strong> $X$ with $\gamma$ on the stack (where $\gamma$ can be multiple symbols or empty)</li>
+</ul>
+</li>
+</ul>
+<p>🧮 Example: PDA for $L &#x3D; { a^n b^n \mid n \geq 0 }$</p>
+<p>We want to accept strings where the number of <code>a</code>s equals the number of <code>b</code>s.</p>
+<p><strong>Idea</strong>:</p>
+<ul>
+<li>Push <code>A</code> onto the stack for each <code>a</code>.</li>
+<li>Pop <code>A</code> from the stack for each <code>b</code>.</li>
+<li>Accept if the stack is empty at the end.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Stack Operation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Read <code>a</code></td>
+<td>Push <code>A</code></td>
+</tr>
+<tr>
+<td>Read <code>b</code></td>
+<td>Pop <code>A</code></td>
+</tr>
+<tr>
+<td>Input done</td>
+<td>Accept if stack empty</td>
+</tr>
+</tbody></table>
+<p><strong>✅ Acceptance Criteria</strong></p>
+<p>There are <strong>two common acceptance methods</strong> for PDAs:</p>
+<ol>
+<li><strong>By final state</strong>: The PDA ends in an accepting state after reading the entire input.</li>
+<li><strong>By empty stack</strong>: The PDA’s stack is empty after reading the entire input.</li>
+</ol>
+<blockquote>
+<p>Both methods define the same class of languages: <strong>context-free languages</strong>.</p>
+</blockquote>
+<p><strong>⚠️ Deterministic vs Nondeterministic PDA</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>NPDA</strong></td>
+<td>Nondeterministic PDA — accepts all CFLs</td>
+</tr>
+<tr>
+<td><strong>DPDA</strong></td>
+<td>Deterministic PDA — accepts only some CFLs</td>
+</tr>
+</tbody></table>
+<p>Not all context-free languages can be recognized by a deterministic PDA.</p>
+<p>🔬 <strong>Applications</strong></p>
+<ul>
+<li><strong>Parsing</strong> expressions in compilers</li>
+<li><strong>Syntax checking</strong> in programming languages (e.g., bracket matching)</li>
+<li>Modeling <strong>recursive structures</strong></li>
+<li><strong>Natural language processing</strong> (nested phrase structures)</li>
+</ul>
+<hr>
+<h3 id="Ambiguity-of-Grammar"><a href="#Ambiguity-of-Grammar" class="headerlink" title="Ambiguity of Grammar"></a>Ambiguity of Grammar</h3><p>In formal language theory, a <strong>grammar is said to be ambiguous</strong> if there exists <strong>at least one string</strong> that can be generated by the grammar in <strong>more than one way</strong> — specifically, it has <strong>more than one parse tree (or derivation)</strong>.</p>
+<p><strong>📚 Definition</strong></p>
+<p>A <strong>context-free grammar (CFG)</strong> $G$ is <strong>ambiguous</strong> if <strong>there exists a string</strong> $w \in L(G)$ such that:</p>
+<ul>
+<li>$w$ has <strong>two or more different parse trees</strong>, or</li>
+<li>$w$ has <strong>two or more leftmost (or rightmost) derivations</strong></li>
+</ul>
+<p><strong>🧠 Why Does Ambiguity Matter?</strong></p>
+<ul>
+<li><strong>Ambiguous grammars</strong> are problematic in <strong>programming language design</strong>, especially during <strong>parsing</strong>, because a compiler may not know which interpretation is correct.</li>
+<li>Some context-free languages are <strong>inherently ambiguous</strong> — no unambiguous CFG can generate them.</li>
+</ul>
+<p><strong>🧮 Example: An Ambiguous Grammar</strong></p>
+<p>Let’s define a simple grammar for arithmetic expressions:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">E → E + E  
+E → E * E  
+E → (E)  
+E → id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>This grammar generates expressions like <code>id + id * id</code>, but it is <strong>ambiguous</strong> because:</p>
+<ul>
+<li>It can be parsed as <code>(id + id) * id</code></li>
+<li>Or as <code>id + (id * id)</code></li>
+</ul>
+<p>Both are valid interpretations but <strong>yield different parse trees</strong>.</p>
+<p><strong>🌲 Two Different Parse Trees for <code>id + id * id</code></strong></p>
+<p><strong>1. Left-associative (Addition first)</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">    E
+   &#x2F;|\
+  E + E
+ |    |
+id   E * E
+     |   |
+    id  id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p><strong>2. Right-associative (Multiplication first)</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">       E
+      &#x2F;|\
+     E * E
+    |    |
+   E + E id
+  |   |
+id  id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>This shows <strong>ambiguity</strong> in structure and meaning.</p>
+<p><strong>🛠 Disambiguating a Grammar</strong></p>
+<p>To <strong>remove ambiguity</strong>, you can:</p>
+<ul>
+<li><strong>Introduce precedence and associativity rules</strong> (e.g., make <code>*</code> bind tighter than <code>+</code>)</li>
+<li><strong>Refactor the grammar</strong> to eliminate conflicting derivations</li>
+</ul>
+<p>For example:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">E  → E + T | T  
+T  → T * F | F  
+F  → (E) | id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>Now:</p>
+<ul>
+<li><code>*</code> has higher precedence than <code>+</code></li>
+<li>Left associativity is enforced</li>
+<li>This grammar is <strong>unambiguous</strong></li>
+</ul>
+<p><strong>🔥 Inherently Ambiguous Languages</strong></p>
+<p>Some CFLs are <strong>inherently ambiguous</strong>, meaning <strong>no matter how you write the grammar</strong>, some strings will always have multiple parse trees.</p>
+<p>Example language:</p>
+<p>$$<br>L &#x3D; { a^i b^j c^k \mid i &#x3D; j \text{ or } j &#x3D; k }<br>$$</p>
+<p>This language is <strong>not inherently unambiguous</strong> because you can’t write a CFG for it that avoids ambiguity in all cases.</p>
+<p><strong>✅ Summary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Ambiguity</strong></td>
+<td>A string has multiple parse trees or derivations in a grammar</td>
+</tr>
+<tr>
+<td><strong>Unambiguous CFG</strong></td>
+<td>A CFG where every string has <strong>only one</strong> parse tree</td>
+</tr>
+<tr>
+<td><strong>Inherently Ambiguous Language</strong></td>
+<td>A CFL for which <strong>no unambiguous grammar exists</strong></td>
+</tr>
+<tr>
+<td><strong>Solution</strong></td>
+<td>Rewrite grammar with precedence&#x2F;associativity or restructure rules</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Turing-Machine"><a href="#Turing-Machine" class="headerlink" title="Turing Machine"></a>Turing Machine</h3><p>A <strong>Turing Machine</strong> is a powerful abstract computational model introduced by <strong>Alan Turing</strong> in 1936. It forms the foundation of modern computer science and helps define the limits of what can be computed.</p>
+<p><strong>🧱 Definition</strong></p>
+<p>A <strong>Turing Machine (TM)</strong> is a 7-tuple:</p>
+<p>$$<br>M &#x3D; (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})<br>$$</p>
+<p>Where:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$Q$</td>
+<td>A finite set of <strong>states</strong></td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td>The <strong>input alphabet</strong> (does not include the blank symbol <code>□</code>)</td>
+</tr>
+<tr>
+<td>$\Gamma$</td>
+<td>The <strong>tape alphabet</strong> (includes <code>□</code>, the blank symbol)</td>
+</tr>
+<tr>
+<td>$\delta$</td>
+<td>The <strong>transition function</strong>: $Q \times \Gamma \rightarrow Q \times \Gamma \times {L, R}$</td>
+</tr>
+<tr>
+<td>$q_0$</td>
+<td>The <strong>start state</strong></td>
+</tr>
+<tr>
+<td>$q_{\text{accept}}$</td>
+<td>The <strong>accepting state</strong></td>
+</tr>
+<tr>
+<td>$q_{\text{reject}}$</td>
+<td>The <strong>rejecting state</strong> (≠ $q_{\text{accept}}$)</td>
+</tr>
+</tbody></table>
+<p><strong>🧠 How It Works</strong></p>
+<ol>
+<li><p>The machine has an <strong>infinite tape</strong> divided into cells, each holding one symbol from $\Gamma$.</p>
+</li>
+<li><p>A <strong>tape head</strong> reads and writes symbols on the tape and moves <strong>left (L)</strong> or <strong>right (R)</strong>.</p>
+</li>
+<li><p>The machine starts in the <strong>start state</strong> $q_0$, with the tape containing the input string and blanks elsewhere.</p>
+</li>
+<li><p>Based on the current state and the symbol under the head, the <strong>transition function</strong> determines:</p>
+<ul>
+<li>The next state</li>
+<li>The symbol to write</li>
+<li>The direction to move the head</li>
+</ul>
+</li>
+<li><p>The machine halts when it enters either the <strong>accept state</strong> or the <strong>reject state</strong>.</p>
+</li>
+</ol>
+<p><strong>📋 Example Transition</strong></p>
+<p>If:</p>
+<p>$$<br>\delta(q_1, 1) &#x3D; (q_2, 0, R)<br>$$</p>
+<p>It means:</p>
+<ul>
+<li>In state $q_1$, if reading symbol <code>1</code></li>
+<li>Write <code>0</code>, move <strong>right</strong>, and go to state $q_2$</li>
+</ul>
+<p><strong>✅ Acceptance Criteria</strong></p>
+<p>A string is <strong>accepted</strong> by the Turing Machine if, starting from the initial configuration, the machine <strong>eventually reaches the accept state</strong>.</p>
+<p><strong>🧮 Example Language</strong></p>
+<p>Language:</p>
+<p>$$<br>L &#x3D; { w \in {0,1}^* \mid w \text{ has an even number of 0s} }<br>$$</p>
+<p>A Turing Machine for this language could:</p>
+<ul>
+<li>Track even&#x2F;odd count using states</li>
+<li>Scan the tape and change state upon reading <code>0</code></li>
+<li>Halt in the accept state if the final state indicates even count</li>
+</ul>
+<p><strong>🧰 Types of Turing Machines</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Deterministic TM (DTM)</strong></td>
+<td>One possible action per state-symbol pair</td>
+</tr>
+<tr>
+<td><strong>Nondeterministic TM (NTM)</strong></td>
+<td>Multiple possible transitions (theoretical model)</td>
+</tr>
+<tr>
+<td><strong>Multi-tape TM</strong></td>
+<td>Multiple tapes (still equivalent in power to DTM)</td>
+</tr>
+<tr>
+<td><strong>Universal TM</strong></td>
+<td>Simulates any other Turing Machine (like real computers!)</td>
+</tr>
+</tbody></table>
+<p><strong>🔬 Power of Turing Machines</strong></p>
+<p>Turing Machines can simulate:</p>
+<ul>
+<li>Finite automata</li>
+<li>Pushdown automata</li>
+<li>Real programming languages</li>
+</ul>
+<p>They can compute anything that is <strong>computable</strong>, but <strong>some problems are undecidable</strong>, like the <strong>halting problem</strong>.</p>
+<p><strong>🔒 Limitations</strong></p>
+<ul>
+<li><strong>Not all languages are Turing-decidable</strong></li>
+<li><strong>Undecidable problems</strong> exist (e.g., Halting Problem, Post Correspondence Problem)</li>
+</ul>
+<p><strong>✅ Summary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Turing Machine</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Memory</td>
+<td>Infinite tape</td>
+</tr>
+<tr>
+<td>Acceptance</td>
+<td>By entering accept state</td>
+</tr>
+<tr>
+<td>More powerful than</td>
+<td>FA, PDA, CFG</td>
+</tr>
+<tr>
+<td>Can simulate real CPUs</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Can solve all problems</td>
+<td>❌ No (some problems are undecidable)</td>
+</tr>
+</tbody></table>
 <h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
