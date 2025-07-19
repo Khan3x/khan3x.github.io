@@ -19,12 +19,12 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="九州大学2021年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            [Q2] Let us consider a microprocessor that has a 5-stage pipelined datapath. The implemented pipeline stages are IF (Instru">
+    <meta name="description" content="九州大学2021年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             [Q2] Let us consider a microprocessor that has a 5-stage pipelined datapath. The implemented pipeline stages are IF (Instr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="九州大学2021年夏计算机组成">
 <meta property="og:url" content="http://toutou.zeabur.app/2024/12/06/%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A62021%E5%B9%B4%E5%A4%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="九州大学2021年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            [Q2] Let us consider a microprocessor that has a 5-stage pipelined datapath. The implemented pipeline stages are IF (Instru">
+<meta property="og:description" content="九州大学2021年计算机组成答案 by 偷偷             催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             [Q2] Let us consider a microprocessor that has a 5-stage pipelined datapath. The implemented pipeline stages are IF (Instr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-12-06T13:07:54.000Z">
 <meta property="article:modified_time" content="2024-12-08T02:07:42.354Z">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          235 words
+          254 words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          2 mins
+          3 mins
         
       </span>
     
@@ -288,6 +288,7 @@
                 <h1 id="九州大学2021年计算机组成答案-by-偷偷"><a href="#九州大学2021年计算机组成答案-by-偷偷" class="headerlink" title="九州大学2021年计算机组成答案 by 偷偷"></a>九州大学2021年计算机组成答案 by 偷偷</h1><div class="note note-success">
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
+
 <p><strong>[Q2]</strong> Let us consider a microprocessor that has a 5-stage pipelined datapath. The implemented pipeline stages are IF (Instruction Fetch), ID (Instruction Decode), EX (EXecution),MEM (MEMory access), and WB (Write Back). Answer the following questions.</p>
 <hr>
 <p><strong>(1)</strong> The latency of pipeline stages, IF, ID, EX, MEM, and WB, is 240 ps, 400 ps, 200ps, 250 ps, and 180 ps, respectively. Answer the maximum clock frequency of this datapath (unit is GHz).</p>
@@ -295,27 +296,30 @@
 <p><strong>Hint:</strong> The clock period is determined by the slowest (longest latency) pipeline stage.</p>
 </blockquote>
 <p>The slowest stage is ID with a latency of 400 ps. The clock period must be at least as long as this latency to ensure that the slowest stage completes in one cycle.</p>
-<script type="math/tex; mode=display">
-\text{Clock Frequency} = \frac{1}{\text{Clock Period}} = \frac{1}{400 \ \text{ps}} = \frac{1}{400 \times 10^{-12}} = 2.5\ \text{GHz}</script><hr>
+<p>$$<br>\text{Clock Frequency} &#x3D; \frac{1}{\text{Clock Period}} &#x3D; \frac{1}{400 \ \text{ps}} &#x3D; \frac{1}{400 \times 10^{-12}} &#x3D; 2.5\ \text{GHz}<br>$$</p>
+<hr>
 <p><strong>(2)</strong> Consider increasing the number of pipeline stages from 5 to 6 by partitioning a single pipeline stage, IF, ID, EX, MEM, or WB, to two stages. Assume the latency of the partitioned pipeline stages is half of that of the original stage. Choose one pipeline stage that should be partitioned for maximising the clock frequency of the datapath, and answer the maximum clock frequency we can achieve by this design optimization (unit is GHz).</p>
 <p>To get the maximum clock frequency, we need to minimize the clock period, thus the best stage to partition for maximizing the clock frequency is the ID stage.</p>
 <ul>
 <li>By splitting the ID stage, its latency is halved to 200 ps.</li>
 <li>The MEM stage becomes the longest (250 ps), so the clock period is now determined by MEM.</li>
 </ul>
-<script type="math/tex; mode=display">
-\text{Clock Frequency} = \frac{1}{\text{Clock Period}} = \frac{1}{250 \ \text{ps}} = \frac{1}{250 \times 10^{-12}} = 4 \ \text{GHz}</script><hr>
+<p>$$<br>\text{Clock Frequency} &#x3D; \frac{1}{\text{Clock Period}} &#x3D; \frac{1}{250 \ \text{ps}} &#x3D; \frac{1}{250 \times 10^{-12}} &#x3D; 4 \ \text{GHz}<br>$$</p>
+<hr>
 <p><strong>(3)</strong> For the execution of a program, the pipeline stage partitioning presented in (2)caused 10 % increase in CPI (Clock cycles Per Instruction). Assume there are no negative effects caused by the pipeline stage partitioning except for the CPI increase.Answer the performance improvement rate achieved by applying the pipeline stage partitioning.</p>
 <ul>
 <li>Before:</li>
 </ul>
-<script type="math/tex; mode=display">\text{CPU Time} = \frac {IC \cdot CPI}{f} = \frac{IC \cdot CPI} {2.5 \ \text{GHz}}</script><ul>
+<p>$$\text{CPU Time} &#x3D; \frac {IC \cdot CPI}{f} &#x3D; \frac{IC \cdot CPI} {2.5 \ \text{GHz}}$$</p>
+<ul>
 <li>After partitioning:</li>
 </ul>
-<script type="math/tex; mode=display">\text{CPU Time'} = \frac {IC \cdot CPI \cdot \text{110\%} }{f'} = \frac{IC \cdot CPI \cdot  \text{110\%}}{4 \ \text{GHz}}</script><ul>
+<p>$$ \text{CPU Time’} &#x3D; \frac {IC \cdot CPI \cdot \text{110%} }{f’} &#x3D; \frac{IC \cdot CPI \cdot  \text{110%}}{4 \ \text{GHz}} $$</p>
+<ul>
 <li>The improvement rate K is:</li>
 </ul>
-<script type="math/tex; mode=display">K = \frac{\text{CPU Time}}{\text{CPU Time'}} \approx \text{145\%}</script><hr>
+<p>$$ K &#x3D; \frac{\text{CPU Time}}{\text{CPU Time’}} \approx \text{145%} $$</p>
+<hr>
 <p><strong>(4)</strong> Explain the advantages and disadvantages of increasing the number of pipeline stages.</p>
 <ol>
 <li><p><strong>Advantages：</strong></p>
@@ -333,9 +337,10 @@
 </ol>
 <hr>
 <p><strong>[Q3]</strong> Consider a direct-mapped cache memory that accepts a 32-bit memory address consisting of a cache tag field, a cache index field, and a cache block offset field. Suppose a byte addressing scheme, the word size is 4 bytes, the cache size is 16 Kilo-bytes, and the cache block size is 32 bytes. Answer the bit-width of the cache tag field.</p>
-<p>$32 \ bytes = 2^5 \ bytes$, the block offset is $5 \ bits$</p>
-<p>$\text{number of cache blocks} = \frac{16KByte}{32Byte} = 2^9$, the cache index requires $9 \ bits$</p>
-<script type="math/tex; mode=display">Cache \ tag \ width = 32 − Index bits − Offset bits = 32 - 9 - 5 = 18\ bits</script><hr>
+<p>$32 \ bytes &#x3D; 2^5 \ bytes$, the block offset is $5 \ bits$</p>
+<p>$\text{number of cache blocks} &#x3D; \frac{16KByte}{32Byte} &#x3D; 2^9$, the cache index requires $9 \ bits$</p>
+<p>$$ Cache \ tag \ width &#x3D; 32 − Index bits − Offset bits &#x3D; 32 - 9 - 5 &#x3D; 18\ bits $$</p>
+<hr>
 
                 
               </div>
