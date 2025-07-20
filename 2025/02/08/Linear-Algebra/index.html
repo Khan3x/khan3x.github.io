@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-20T09:06:17.021Z">
+<meta property="article:modified_time" content="2025-07-20T09:33:41.275Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.2k words
+          6.8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          52 mins
+          57 mins
         
       </span>
     
@@ -752,6 +752,69 @@
 <p>✅ 最终正交向量组</p>
 <p>$$<br>\mathbf{u}_1 &#x3D; \begin{bmatrix}1\\1\\0\end{bmatrix},\quad<br>\mathbf{u}_2 &#x3D; \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix},\quad<br>\mathbf{u}_3 &#x3D; \begin{bmatrix}-\frac{2}{3}\\\frac{2}{3}\\\frac{2}{3}\end{bmatrix}<br>$$</p>
 <p>也可以将它们归一化（单位化）得到<strong>标准正交基</strong>。</p>
+<h2 id="11-QR-分解（QR-Decomposition）"><a href="#11-QR-分解（QR-Decomposition）" class="headerlink" title="11. QR 分解（QR Decomposition）"></a>11. QR 分解（QR Decomposition）</h2><p><strong>QR 分解</strong>是将一个实矩阵 $A$ 分解成两个矩阵的乘积：</p>
+<p>$$<br>A &#x3D; QR<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$Q$ 是一个 <strong>正交矩阵</strong>（列向量正交且单位长度，$Q^T Q &#x3D; I$）</li>
+<li>$R$ 是一个 <strong>上三角矩阵</strong></li>
+</ul>
+<p><strong>✅ 适用范围</strong></p>
+<ul>
+<li>$A$ 是任意的 $m \times n$（$m \ge n$）的<strong>列满秩矩阵</strong></li>
+<li>通常用于<strong>求解线性方程组</strong>、<strong>最小二乘拟合</strong>、<strong>特征值计算</strong></li>
+</ul>
+<p><strong>🧠 QR 分解的意义</strong></p>
+<p>QR 分解将矩阵分解为：</p>
+<ul>
+<li>$Q$：正交（或单位正交）基底，保持角度与长度；</li>
+<li>$R$：记录了从标准基变换到原始列向量的投影系数。</li>
+</ul>
+<p>几何上，QR 分解提供了一种将向量分解为<strong>正交基的线性组合</strong>的方式。</p>
+<p><strong>🧪 举例</strong></p>
+<p>设矩阵：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>1 &amp; 1 \\<br>1 &amp; 0 \\<br>0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>我们使用 <strong>Gram-Schmidt 正交化</strong> 对 $A$ 的列向量进行处理。</p>
+<p><strong>✅ Step 1: 拆分列向量</strong></p>
+<p>记 $A &#x3D; [\mathbf{a}_1\ \mathbf{a}_2]$：</p>
+<p>$$<br>\mathbf{a}_1 &#x3D; \begin{bmatrix}1\\1\\0\end{bmatrix},\quad<br>\mathbf{a}_2 &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix}<br>$$</p>
+<p><strong>✅ Step 2: Gram-Schmidt 正交化</strong></p>
+<p>$\mathbf{u}_1 &#x3D; \mathbf{a}_1$</p>
+<p>单位化得 $\mathbf{q}_1$：</p>
+<p>$$<br>  |\mathbf{u}_1| &#x3D; \sqrt{1^2 + 1^2 + 0^2} &#x3D; \sqrt{2},\quad<br>  \mathbf{q}_1 &#x3D; \frac{1}{\sqrt{2}} \begin{bmatrix}1\\1\\0\end{bmatrix}<br>$$</p>
+<p>投影：</p>
+<p>$$<br>  \mathrm{proj}_{\mathbf{q}_1}(\mathbf{a}_2) &#x3D; \langle \mathbf{a}_2, \mathbf{q}_1 \rangle \cdot \mathbf{q}_1<br>  &#x3D; \left( \frac{1 \cdot 1 + 0 \cdot 1 + 1 \cdot 0}{\sqrt{2}} \right) \cdot \mathbf{q}_1<br>  &#x3D; \frac{1}{\sqrt{2}} \cdot \mathbf{q}_1<br>$$</p>
+<p>$$<br>  \mathbf{u}_2 &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix} - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} \begin{bmatrix}1\\1\\0\end{bmatrix}<br>  &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix} - \frac{1}{2} \begin{bmatrix}1\\1\\0\end{bmatrix}<br>  &#x3D; \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix}<br>$$</p>
+<p>单位化 $\mathbf{u}_2$ 得 $\mathbf{q}_2$：</p>
+<p>$$<br>  |\mathbf{u}_2| &#x3D; \sqrt{0.5^2 + (-0.5)^2 + 1^2} &#x3D; \sqrt{1.5}<br>$$</p>
+<p>$$<br>  \mathbf{q}_2 &#x3D; \frac{1}{\sqrt{1.5}} \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix}<br>$$</p>
+<p><strong>✅ Step 3: 得到 $Q$ 与 $R$</strong></p>
+<p>$Q &#x3D; [\mathbf{q}_1\ \mathbf{q}_2]$</p>
+<p>$R$ 是：</p>
+<p>  $$<br>  R &#x3D; \begin{bmatrix}<br>  \langle \mathbf{a}_1, \mathbf{q}_1 \rangle &amp; \langle \mathbf{a}_2, \mathbf{q}_1 \rangle \\<br>  0 &amp; \langle \mathbf{a}_2, \mathbf{q}_2 \rangle<br>  \end{bmatrix}<br>  $$</p>
+<p>你可以验证：</p>
+<p>$$<br>A &#x3D; QR<br>$$</p>
+<p>🧾 QR 分解的应用</p>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>解线性方程组</td>
+<td>特别是在最小二乘问题中 $Ax \approx b$</td>
+</tr>
+<tr>
+<td>特征值迭代算法</td>
+<td>QR 算法是一种迭代计算特征值的数值方法</td>
+</tr>
+<tr>
+<td>稳定的矩阵分解</td>
+<td>相较于直接求逆，QR 更稳定、适合数值计算</td>
+</tr>
+</tbody></table>
 
                 
               </div>
