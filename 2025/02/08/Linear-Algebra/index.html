@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-19T12:38:49.339Z">
+<meta property="article:modified_time" content="2025-07-20T04:17:49.187Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k words
+          5.4k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          29 mins
+          46 mins
         
       </span>
     
@@ -514,7 +514,184 @@
 <li><p>此性质称为<strong>多线性性</strong>的一部分，是证明许多行列式性质（如秩判断、线性无关性等）的基础。</p>
 </li>
 </ul>
-<h2 id="5-行列式转置的规律"><a href="#5-行列式转置的规律" class="headerlink" title="5. 行列式转置的规律"></a>5. 行列式转置的规律</h2>
+<h2 id="5-行列式转置的规律"><a href="#5-行列式转置的规律" class="headerlink" title="5. 行列式转置的规律"></a>5. 行列式转置的规律</h2><h3 id="5-1-行列式转置不变性"><a href="#5-1-行列式转置不变性" class="headerlink" title="5.1. 行列式转置不变性"></a>5.1. 行列式转置不变性</h3><p>对于任意 $n \times n$ 的矩阵 $A$，其转置矩阵为 $A^T$，有以下恒等式：</p>
+<p>$$<br>\det(A^T) &#x3D; \det(A)<br>$$</p>
+<p><strong>解释</strong>：行列式是关于行（或列）的交错多线性函数，转置只是行列互换，不影响行列式的值。</p>
+<hr>
+<h3 id="5-2-对易性与乘法规则"><a href="#5-2-对易性与乘法规则" class="headerlink" title="5.2. 对易性与乘法规则"></a>5.2. 对易性与乘法规则</h3><p>对于两个 $n \times n$ 的矩阵 $A$ 和 $B$：</p>
+<p>$$<br>(AB)^T &#x3D; B^T A^T<br>$$</p>
+<p>进而有：</p>
+<p>$$<br>\det((AB)^T) &#x3D; \det(B^T A^T) &#x3D; \det(B^T) \cdot \det(A^T)<br>$$</p>
+<p>又因为转置不改变行列式值，所以有：</p>
+<p>$$<br>\det(AB) &#x3D; \det(A) \cdot \det(B)<br>$$</p>
+<hr>
+<h3 id="5-3-单位矩阵的转置"><a href="#5-3-单位矩阵的转置" class="headerlink" title="5.3. 单位矩阵的转置"></a>5.3. 单位矩阵的转置</h3><p>单位矩阵 $I_n$ 的转置仍为其本身，且行列式为 1：</p>
+<p>$$<br>I_n^T &#x3D; I_n, \quad \det(I_n) &#x3D; 1<br>$$</p>
+<hr>
+<h3 id="5-4-可逆矩阵的转置"><a href="#5-4-可逆矩阵的转置" class="headerlink" title="5.4. 可逆矩阵的转置"></a>5.4. 可逆矩阵的转置</h3><p>若 $A$ 可逆，则 $A^T$ 也可逆，且：</p>
+<p>$$<br>(A^T)^{-1} &#x3D; (A^{-1})^T<br>$$</p>
+<p>进一步有：</p>
+<p>$$<br>\det((A^T)^{-1}) &#x3D; \det((A^{-1})^T) &#x3D; \det(A^{-1}) &#x3D; \frac{1}{\det(A)}<br>$$</p>
+<hr>
+<h3 id="5-5-特殊矩阵的转置与行列式"><a href="#5-5-特殊矩阵的转置与行列式" class="headerlink" title="5.5. 特殊矩阵的转置与行列式"></a>5.5. 特殊矩阵的转置与行列式</h3><ul>
+<li>对称矩阵：$A^T &#x3D; A$，故 $\det(A^T) &#x3D; \det(A)$ 成立自然；</li>
+<li>反对称矩阵：$A^T &#x3D; -A$，当 $n$ 为奇数时，有：</li>
+</ul>
+<p>$$<br>\det(A^T) &#x3D; \det(-A) &#x3D; (-1)^n \det(A) &#x3D; -\det(A)<br>$$</p>
+<p>所以 $\det(A) &#x3D; -\det(A) \Rightarrow \det(A) &#x3D; 0$</p>
+<h2 id="6-行列式为非零（正则）的条件总结"><a href="#6-行列式为非零（正则）的条件总结" class="headerlink" title="6. 行列式为非零（正则）的条件总结"></a>6. 行列式为非零（正则）的条件总结</h2><p>在线性代数中，一个<strong>矩阵是正则矩阵（Regular Matrix）</strong>，也称<strong>非奇异矩阵（Non-singular Matrix）</strong>，当且仅当它的行列式不为零：</p>
+<p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad A \text{ 是正则矩阵}<br>$$</p>
+<p>正则矩阵具有以下等价条件：</p>
+<hr>
+<h3 id="1-存在逆矩阵"><a href="#1-存在逆矩阵" class="headerlink" title="(1) 存在逆矩阵"></a>(1) 存在逆矩阵</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \exists A^{-1},\ A A^{-1} &#x3D; I<br>$$</p>
+<hr>
+<h3 id="2-满秩矩阵"><a href="#2-满秩矩阵" class="headerlink" title="(2) 满秩矩阵"></a>(2) 满秩矩阵</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \text{秩}(!A) &#x3D; n<br>$$</p>
+<p>也就是说，$n \times n$ 的矩阵 $A$ 满秩时其行列式非零。</p>
+<hr>
+<h3 id="3-齐次线性方程组-A-mathbf-x-mathbf-0-仅有零解"><a href="#3-齐次线性方程组-A-mathbf-x-mathbf-0-仅有零解" class="headerlink" title="(3) 齐次线性方程组 $A\mathbf{x} &#x3D; \mathbf{0}$ 仅有零解"></a>(3) 齐次线性方程组 $A\mathbf{x} &#x3D; \mathbf{0}$ 仅有零解</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad A\mathbf{x} &#x3D; \mathbf{0} \text{ 仅有解 } \mathbf{x} &#x3D; \mathbf{0}<br>$$</p>
+<hr>
+<h3 id="4-矩阵列（或行）线性无关"><a href="#4-矩阵列（或行）线性无关" class="headerlink" title="(4) 矩阵列（或行）线性无关"></a>(4) 矩阵列（或行）线性无关</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \text{矩阵的行向量或列向量线性无关}<br>$$</p>
+<hr>
+<h3 id="5-可用初等行变换化为单位矩阵"><a href="#5-可用初等行变换化为单位矩阵" class="headerlink" title="(5) 可用初等行变换化为单位矩阵"></a>(5) 可用初等行变换化为单位矩阵</h3><p>$$<br>\det(A) \ne 0 \quad \Rightarrow \quad A \sim I_n<br>$$</p>
+<p>即矩阵 $A$ 可以通过有限次初等行变换（不改变行列式为零与否）变成单位矩阵。</p>
+<hr>
+<h3 id="6-特征值均不为零（针对方阵）"><a href="#6-特征值均不为零（针对方阵）" class="headerlink" title="(6) 特征值均不为零（针对方阵）"></a>(6) 特征值均不为零（针对方阵）</h3><p>若 $A$ 是 $n \times n$ 方阵，且其所有特征值为 $\lambda_1, \lambda_2, \dots, \lambda_n$，则：</p>
+<p>$$<br>\det(A) &#x3D; \prod_{i&#x3D;1}^n \lambda_i<br>$$</p>
+<p>因此：</p>
+<p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \lambda_i \ne 0,\ \forall i<br>$$</p>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><strong>一个 $n \times n$ 矩阵正则 ⇔ 行列式非零 ⇔ 满秩 ⇔ 可逆 ⇔ 行&#x2F;列线性无关 ⇔ 齐次方程只有零解。</strong></p>
+<h2 id="7-线性相关和线性无关"><a href="#7-线性相关和线性无关" class="headerlink" title="7. 线性相关和线性无关"></a>7. 线性相关和线性无关</h2><p>在<strong>线性代数</strong>中，理解向量的线性相关性和无关性是判断一个向量组是否冗余、是否能构成基底（basis）或张成空间的关键。</p>
+<p><strong>定义</strong></p>
+<p>设有 $n$ 维向量空间中的向量组：</p>
+<p>$$<br>{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k}<br>$$</p>
+<p>我们考虑其是否满足以下关系：</p>
+<p>$$<br>c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_k \mathbf{v}_k &#x3D; \mathbf{0}<br>$$</p>
+<p>其中 $c_1, c_2, \dots, c_k \in \mathbb{R}$（或 $\mathbb{C}$，取决于所在的向量空间）</p>
+<hr>
+<h3 id="7-1-线性相关（Linearly-Dependent）"><a href="#7-1-线性相关（Linearly-Dependent）" class="headerlink" title="7.1 线性相关（Linearly Dependent）"></a><strong>7.1 线性相关（Linearly Dependent）</strong></h3><p>如果<strong>存在一组不全为零的系数</strong> $c_1, c_2, \dots, c_k$，使上述等式成立，即：</p>
+<p>$$<br>\exists, c_i \ne 0,\ \text{使得} \ \sum_{i&#x3D;1}^k c_i \mathbf{v}_i &#x3D; \mathbf{0}<br>$$</p>
+<p>则称向量组<strong>线性相关</strong>。</p>
+<p>➡️ 直观理解：至少有一个向量可以用其他向量线性表示。</p>
+<hr>
+<h3 id="7-2-线性无关（Linearly-Independent）"><a href="#7-2-线性无关（Linearly-Independent）" class="headerlink" title="7.2 线性无关（Linearly Independent）"></a><strong>7.2 线性无关（Linearly Independent）</strong></h3><p>如果<strong>只有当所有系数都为零</strong>时上述等式才能成立：</p>
+<p>$$<br>c_1 &#x3D; c_2 &#x3D; \cdots &#x3D; c_k &#x3D; 0<br>$$</p>
+<p>则称该向量组<strong>线性无关</strong>。</p>
+<p>➡️ 直观理解：没有一个向量可以用其他向量线性组合得到。</p>
+<hr>
+<p><strong>线性相关例子：</strong></p>
+<p>$$<br>\mathbf{v}_1 &#x3D; \begin{bmatrix}1\\2\\3\end{bmatrix},\quad<br>\mathbf{v}_2 &#x3D; \begin{bmatrix}2\\4\\6\end{bmatrix}<br>$$</p>
+<p>我们有：</p>
+<p>$$<br>\mathbf{v}_2 &#x3D; 2\mathbf{v}_1<br>$$</p>
+<p>所以它们<strong>线性相关</strong>，因为存在非零系数使得：</p>
+<p>$$<br>-2\mathbf{v}_1 + \mathbf{v}_2 &#x3D; \mathbf{0}<br>$$</p>
+<hr>
+<p><strong>线性无关例子：</strong></p>
+<p>$$<br>\mathbf{v}_1 &#x3D; \begin{bmatrix}1\\0\\0\end{bmatrix},\quad<br>\mathbf{v}_2 &#x3D; \begin{bmatrix}0\\1\\0\end{bmatrix},\quad<br>\mathbf{v}_3 &#x3D; \begin{bmatrix}0\\0\\1\end{bmatrix}<br>$$</p>
+<p>标准正交基，它们线性无关，因为：</p>
+<p>$$<br>c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 &#x3D; \mathbf{0} \Rightarrow c_1 &#x3D; c_2 &#x3D; c_3 &#x3D; 0<br>$$</p>
+<hr>
+<h3 id="7-3-等价条件总结"><a href="#7-3-等价条件总结" class="headerlink" title="7.3 等价条件总结"></a><strong>7.3 等价条件总结</strong></h3><p>一个向量组线性无关 ⇔ 下列任一条件成立：</p>
+<ul>
+<li><p>向量组组成的矩阵 $A$ 满秩（即 $\text{rank}(A) &#x3D; k$）</p>
+</li>
+<li><p>行列式非零（若是方阵）：</p>
+<p>$$<br>\det(A) \ne 0 \Rightarrow \text{列向量线性无关}<br>$$</p>
+</li>
+<li><p>对应齐次线性方程组只有零解：</p>
+<p>$$<br>A\mathbf{x} &#x3D; \mathbf{0} \Rightarrow \mathbf{x} &#x3D; \mathbf{0}<br>$$</p>
+</li>
+</ul>
+<h2 id="8-Cramer-法则（Cramer’s-Rule）"><a href="#8-Cramer-法则（Cramer’s-Rule）" class="headerlink" title="8. Cramer 法则（Cramer’s Rule）"></a>8. Cramer 法则（Cramer’s Rule）</h2><p><strong>Cramer 法则</strong> 是一种求解<strong>线性方程组</strong>（特别是 $n$ 元 $n$ 次方程组）的方法，适用于系数矩阵可逆（即行列式非零）的情况。</p>
+<p><strong>✅ 适用前提</strong></p>
+<p>设有一个 $n$ 阶线性方程组：</p>
+<p>$$<br>A\mathbf{x} &#x3D; \mathbf{b}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$A$ 是一个 $n \times n$ 的<strong>系数矩阵</strong></li>
+<li>$\mathbf{x} &#x3D; [x_1, x_2, \dots, x_n]^T$ 是<strong>未知向量</strong></li>
+<li>$\mathbf{b}$ 是<strong>常数向量</strong></li>
+</ul>
+<p>如果：</p>
+<p>$$<br>\det(A) \ne 0<br>$$</p>
+<p>则该线性方程组有唯一解，且可以通过 Cramer 法则表示。</p>
+<hr>
+<p><strong>📌 公式表达</strong></p>
+<p>设 $A_i$ 表示用向量 $\mathbf{b}$ 代替 $A$ 的第 $i$ 列后得到的矩阵。</p>
+<p>则未知量 $x_i$ 可表示为：</p>
+<p>$$<br>x_i &#x3D; \frac{\det(A_i)}{\det(A)} \quad \text{for } i &#x3D; 1, 2, \dots, n<br>$$</p>
+<hr>
+<p><strong>🧠 例子</strong></p>
+<p>解方程组：</p>
+<p>$$<br>\begin{cases}<br>2x + 3y &#x3D; 8 \\<br>5x - y &#x3D; 9<br>\end{cases}<br>$$</p>
+<ol>
+<li>构造系数矩阵 $A$：</li>
+</ol>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 3 \<br>5 &amp; -1<br>\end{bmatrix},\quad<br>\mathbf{b} &#x3D; \begin{bmatrix}<br>8 \<br>9<br>\end{bmatrix}<br>$$</p>
+<ol start="2">
+<li>求 $\det(A)$：</li>
+</ol>
+<p>$$<br>\det(A) &#x3D; 2 \cdot (-1) - 5 \cdot 3 &#x3D; -2 - 15 &#x3D; -17<br>$$</p>
+<ol start="3">
+<li>构造 $A_1$（用 $\mathbf{b}$ 替换第1列）：</li>
+</ol>
+<p>$$<br>A_1 &#x3D; \begin{bmatrix}<br>8 &amp; 3 \<br>9 &amp; -1<br>\end{bmatrix},\quad<br>\det(A_1) &#x3D; 8 \cdot (-1) - 9 \cdot 3 &#x3D; -8 - 27 &#x3D; -35<br>$$</p>
+<ol start="4">
+<li>构造 $A_2$（用 $\mathbf{b}$ 替换第2列）：</li>
+</ol>
+<p>$$<br>A_2 &#x3D; \begin{bmatrix}<br>2 &amp; 8 \\<br>5 &amp; 9<br>\end{bmatrix},\quad<br>\det(A_2) &#x3D; 2 \cdot 9 - 5 \cdot 8 &#x3D; 18 - 40 &#x3D; -22<br>$$</p>
+<ol start="5">
+<li>求解：</li>
+</ol>
+<p>$$<br>x &#x3D; \frac{\det(A_1)}{\det(A)} &#x3D; \frac{-35}{-17} &#x3D; \frac{35}{17},\quad<br>y &#x3D; \frac{\det(A_2)}{\det(A)} &#x3D; \frac{-22}{-17} &#x3D; \frac{22}{17}<br>$$</p>
+<p><strong>🧾 总结</strong></p>
+<ul>
+<li>Cramer 法则只能用于 <strong>系数矩阵 $A$ 是方阵且 $\det(A) \ne 0$</strong> 的情形。</li>
+<li>如果 $\det(A) &#x3D; 0$，该方法不适用，需使用高斯消元法等其他方法。</li>
+<li>对于高维度的大型方程组，Cramer 法则计算效率低，适合手算&#x2F;小规模问题。</li>
+</ul>
+<h2 id="9-正交矩阵（Orthogonal-Matrix）的性质总结"><a href="#9-正交矩阵（Orthogonal-Matrix）的性质总结" class="headerlink" title="9. 正交矩阵（Orthogonal Matrix）的性质总结"></a>9. 正交矩阵（Orthogonal Matrix）的性质总结</h2><p><strong>✅ 定义</strong></p>
+<p>一个 $n \times n$ 的实矩阵 $Q$ 被称为<strong>正交矩阵</strong>，当且仅当：</p>
+<p>$$<br>Q^T Q &#x3D; QQ^T &#x3D; I_n<br>$$</p>
+<p>这等价于：</p>
+<p>$$<br>Q^{-1} &#x3D; Q^T<br>$$</p>
+<p><strong>📌 几何意义</strong></p>
+<p>正交矩阵代表一种<strong>保持内积、长度、角度不变</strong>的线性变换，几何上对应：</p>
+<ul>
+<li><strong>旋转（rotation）</strong></li>
+<li><strong>反射（reflection）</strong></li>
+</ul>
+<p><strong>⭐ 常见性质</strong></p>
+<h3 id="9-1-转置等于逆："><a href="#9-1-转置等于逆：" class="headerlink" title="9.1. 转置等于逆："></a>9.1. <strong>转置等于逆：</strong></h3><p>$$<br>Q^{-1} &#x3D; Q^T<br>$$</p>
+<p>这意味着求逆变得非常简单。</p>
+<hr>
+<h3 id="9-2-保持向量长度（范数）不变："><a href="#9-2-保持向量长度（范数）不变：" class="headerlink" title="9.2. 保持向量长度（范数）不变："></a>9.2. <strong>保持向量长度（范数）不变：</strong></h3><p>对任意列向量 $\mathbf{x}$：</p>
+<p>$$<br>| Q\mathbf{x} | &#x3D; | \mathbf{x} |<br>$$</p>
+<hr>
+<h3 id="9-3-保持内积不变："><a href="#9-3-保持内积不变：" class="headerlink" title="9.3. 保持内积不变："></a>9.3. <strong>保持内积不变：</strong></h3><p>对任意两个列向量 $\mathbf{x}, \mathbf{y}$：</p>
+<p>$$<br>\langle Q\mathbf{x}, Q\mathbf{y} \rangle &#x3D; \langle \mathbf{x}, \mathbf{y} \rangle<br>$$</p>
+<p>即保持角度不变。</p>
+<hr>
+<h3 id="9-4-列向量-行向量正交归一："><a href="#9-4-列向量-行向量正交归一：" class="headerlink" title="9.4. 列向量&#x2F;行向量正交归一："></a>9.4. <strong>列向量&#x2F;行向量正交归一：</strong></h3><p>矩阵 $Q$ 的列向量是标准正交组：</p>
+<p>$$<br>\mathbf{q}_i^T \mathbf{q}_j &#x3D; \begin{cases}<br>1 &amp; i &#x3D; j \<br>0 &amp; i \ne j<br>\end{cases}<br>$$</p>
+<hr>
+<h3 id="9-5-行列式为-±1："><a href="#9-5-行列式为-±1：" class="headerlink" title="9.5. 行列式为 ±1："></a>9.5. <strong>行列式为 ±1：</strong></h3><p>$$<br>\det(Q) &#x3D; \pm 1<br>$$</p>
+<ul>
+<li>$\det(Q) &#x3D; 1$ 表示纯旋转</li>
+<li>$\det(Q) &#x3D; -1$ 表示反射变换（如镜像）</li>
+</ul>
+<hr>
+<h3 id="9-6-正交矩阵的乘积仍为正交矩阵："><a href="#9-6-正交矩阵的乘积仍为正交矩阵：" class="headerlink" title="9.6. 正交矩阵的乘积仍为正交矩阵："></a>9.6. <strong>正交矩阵的乘积仍为正交矩阵：</strong></h3><p>若 $Q_1, Q_2$ 均为正交矩阵，则：</p>
+<p>$$<br>Q &#x3D; Q_1 Q_2 \quad \Rightarrow \quad Q \text{ 也是正交矩阵}<br>$$</p>
+<hr>
+<h3 id="9-7-特征值性质："><a href="#9-7-特征值性质：" class="headerlink" title="9.7. 特征值性质："></a>9.7. <strong>特征值性质：</strong></h3><p>正交矩阵的特征值满足：</p>
+<ul>
+<li>模长为 1（即 $|\lambda| &#x3D; 1$）</li>
+<li>可能是复数（例如二维旋转矩阵的特征值为 $e^{\pm i\theta}$）</li>
+</ul>
+<hr>
+<h3 id="9-8-正交矩阵是酉矩阵的实数特例："><a href="#9-8-正交矩阵是酉矩阵的实数特例：" class="headerlink" title="9.8. 正交矩阵是酉矩阵的实数特例："></a>9.8. <strong>正交矩阵是酉矩阵的实数特例：</strong></h3><p>酉矩阵（Unitary Matrix）满足 $U^* U &#x3D; I$（$U^*$ 是共轭转置），正交矩阵是所有元素为实数时的特例。</p>
+
                 
               </div>
             
