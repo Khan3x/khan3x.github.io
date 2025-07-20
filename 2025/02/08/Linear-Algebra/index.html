@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-20T11:57:37.058Z">
+<meta property="article:modified_time" content="2025-07-20T16:17:37.509Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.6k words
+          8.1k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          64 mins
+          68 mins
         
       </span>
     
@@ -874,6 +874,55 @@
 <p>$$<br>\vec{a} &#x3D; (1, 2, 3),\quad \vec{b} &#x3D; (4, 5, 6)<br>$$</p>
 <p>那么：</p>
 <p>$$<br>\vec{a} \times \vec{b} &#x3D;<br>\left|<br>\begin{array}{ccc}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>1 &amp; 2 &amp; 3 \\<br>4 &amp; 5 &amp; 6<br>\end{array}<br>\right|<br>&#x3D; \left( 2\cdot6 - 3\cdot5,\ 3\cdot4 - 1\cdot6,\ 1\cdot5 - 2\cdot4 \right)<br>&#x3D; (-3, 6, -3)<br>$$</p>
+<h2 id="14-特征值（Eigenvalues）"><a href="#14-特征值（Eigenvalues）" class="headerlink" title="14. 特征值（Eigenvalues）"></a>14. 特征值（Eigenvalues）</h2><p>设 $A$ 是一个 $n \times n$ 的方阵，如果存在一个非零向量 $\vec{x} \ne \vec{0}$ 和一个数 $\lambda$，使得：</p>
+<p>$$<br>A \vec{x} &#x3D; \lambda \vec{x}<br>$$</p>
+<p>那么我们称：</p>
+<ul>
+<li>$\lambda$ 是矩阵 $A$ 的<strong>特征值（Eigenvalue）</strong></li>
+<li>$\vec{x}$ 是对应的<strong>特征向量（Eigenvector）</strong></li>
+</ul>
+<hr>
+<h3 id="📌-二、求特征值的方法"><a href="#📌-二、求特征值的方法" class="headerlink" title="📌 二、求特征值的方法"></a>📌 二、求特征值的方法</h3><p>将 $A \vec{x} &#x3D; \lambda \vec{x}$ 改写为：</p>
+<p>$$<br>(A - \lambda I)\vec{x} &#x3D; 0<br>$$</p>
+<p>要使其有<strong>非零解</strong>，需要：</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; 0<br>$$</p>
+<p>这个方程叫做 <strong>特征方程</strong>，解出$\lambda$ 就是特征值。</p>
+<hr>
+<h3 id="📌-三、特征值的性质"><a href="#📌-三、特征值的性质" class="headerlink" title="📌 三、特征值的性质"></a>📌 三、特征值的性质</h3><p>设 $A$ 是 $n \times n$ 的矩阵，$\lambda_1, \dots, \lambda_n$ 是其特征值，则有以下重要性质：</p>
+<p>✅ 1. 特征值之和 &#x3D; $\operatorname{tr}(A)$（矩阵的迹）</p>
+<p>$$<br>\lambda_1 + \lambda_2 + \dots + \lambda_n &#x3D; \operatorname{tr}(A)<br>$$</p>
+<p>迹（trace）定义为矩阵主对角线元素之和：</p>
+<p>$$<br>\operatorname{tr}(A) &#x3D; a_{11} + a_{22} + \dots + a_{nn}<br>$$</p>
+<p>✅ 2. 特征值之积 &#x3D; $\det(A)$（矩阵的行列式）</p>
+<p>$$<br>\lambda_1 \cdot \lambda_2 \cdots \lambda_n &#x3D; \det(A)<br>$$</p>
+<p>✅ 3. 相似矩阵有相同特征值</p>
+<p>如果 $A \sim B$（$A$ 与 $B$ 相似），那么它们的特征值完全相同（包括重数）：</p>
+<p>$$<br>A \sim B \Rightarrow \text{Spec}(A) &#x3D; \text{Spec}(B)<br>$$</p>
+<h2 id="15-矩阵相似（Matrix-Similarity）"><a href="#15-矩阵相似（Matrix-Similarity）" class="headerlink" title="15. 矩阵相似（Matrix Similarity）"></a>15. 矩阵相似（Matrix Similarity）</h2><p>两个 $n \times n$ 矩阵 $A$ 和 $B$，若存在一个可逆矩阵 $P$，使得：</p>
+<p>$$<br>B &#x3D; P^{-1} A P<br>$$</p>
+<p>则称 $A$ 和 $B$ <strong>相似</strong>，记作：</p>
+<p>$$<br>A \sim B<br>$$</p>
+<h3 id="📌-15-1-相似矩阵的性质"><a href="#📌-15-1-相似矩阵的性质" class="headerlink" title="📌 15.1 相似矩阵的性质"></a>📌 15.1 相似矩阵的性质</h3><p><strong>✅ 1. 相似矩阵具有相同的：</strong></p>
+<ul>
+<li>特征值</li>
+<li>行列式（$\det A &#x3D; \det B$）</li>
+<li>迹（$\operatorname{tr}(A) &#x3D; \operatorname{tr}(B)$）</li>
+<li>特征多项式</li>
+</ul>
+<p>✅ 2. 相似矩阵可以视为是<strong>同一个线性变换在不同基下的矩阵表示</strong>。</p>
+<p><strong>✅ 举个例子</strong></p>
+<p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{bmatrix}<br>$$</p>
+<p>我们求其特征值：</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; \begin{vmatrix} 2 - \lambda &amp; 1 \\ 0 &amp; 3 - \lambda \end{vmatrix} &#x3D; (2 - \lambda)(3 - \lambda)<br>$$</p>
+<p>得到特征值：$\lambda &#x3D; 2,\ 3$</p>
+<p>验证性质：</p>
+<ul>
+<li><p>$\operatorname{tr}(A) &#x3D; 2 + 3 &#x3D; 5 &#x3D; \lambda_1 + \lambda_2$</p>
+</li>
+<li><p>$\det(A) &#x3D; 2 \cdot 3 &#x3D; 6 &#x3D; \lambda_1 \cdot \lambda_2$</p>
+</li>
+</ul>
 
                 
               </div>
