@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-20T09:33:41.275Z">
+<meta property="article:modified_time" content="2025-07-20T11:57:37.058Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.8k words
+          7.6k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          57 mins
+          64 mins
         
       </span>
     
@@ -815,6 +815,65 @@
 <td>相较于直接求逆，QR 更稳定、适合数值计算</td>
 </tr>
 </tbody></table>
+<h2 id="12-平面三角形的中点公式-重心公式"><a href="#12-平面三角形的中点公式-重心公式" class="headerlink" title="12. 平面三角形的中点公式 &#x2F; 重心公式"></a>12. 平面三角形的中点公式 &#x2F; 重心公式</h2><h3 id="一、中点公式（Midpoint-Formula）"><a href="#一、中点公式（Midpoint-Formula）" class="headerlink" title="一、中点公式（Midpoint Formula）"></a>一、中点公式（Midpoint Formula）</h3><p>对于二维平面上的两个点 $A(x_1, y_1)$ 和 $B(x_2, y_2)$，线段 $AB$ 的<strong>中点</strong> $M$ 的坐标是：</p>
+<p>$$<br>M &#x3D; \left( \frac{x_1 + x_2}{2},\ \frac{y_1 + y_2}{2} \right)<br>$$</p>
+<p>这个公式的意思是：中点的坐标就是两个端点坐标的平均值。</p>
+<hr>
+<h3 id="二、重心公式（Centroid-of-a-Triangle）"><a href="#二、重心公式（Centroid-of-a-Triangle）" class="headerlink" title="二、重心公式（Centroid of a Triangle）"></a>二、重心公式（Centroid of a Triangle）</h3><p>对于一个三角形，设三个顶点为：</p>
+<ul>
+<li>$A(x_1, y_1)$</li>
+<li>$B(x_2, y_2)$</li>
+<li>$C(x_3, y_3)$</li>
+</ul>
+<p>这个三角形的<strong>重心</strong>（也叫质心、形心）$G$ 的坐标是：</p>
+<p>$$<br>G &#x3D; \left( \frac{x_1 + x_2 + x_3}{3},\ \frac{y_1 + y_2 + y_3}{3} \right)<br>$$</p>
+<p>也就是三角形三个顶点坐标的<strong>平均值</strong>。</p>
+<p><strong>🚩 重心的性质：</strong></p>
+<ol>
+<li>重心是三角形三条<strong>中线</strong>的交点。</li>
+<li>重心将每条中线分成<strong>2:1</strong> 的比例（靠近顶点的部分是较长的那段）。</li>
+<li>重心是三角形“力的平衡点”，如果把每个顶点当作相同质量的点，重心是其平衡中心。</li>
+</ol>
+<p><strong>🧠 举个例子</strong></p>
+<p>设有三角形 $ABC$：</p>
+<ul>
+<li>$A(1, 2)$</li>
+<li>$B(4, 5)$</li>
+<li>$C(7, 1)$</li>
+</ul>
+<p>那么重心 $G$ 的坐标为：</p>
+<p>$$<br>G &#x3D; \left( \frac{1+4+7}{3},\ \frac{2+5+1}{3} \right) &#x3D; \left( \frac{12}{3},\ \frac{8}{3} \right) &#x3D; (4,\ \frac{8}{3})<br>$$</p>
+<h2 id="13-外积（叉积）"><a href="#13-外积（叉积）" class="headerlink" title="13. 外积（叉积）"></a>13. 外积（叉积）</h2><p>外积（<strong>叉积</strong>，Cross Product）是指<strong>三维空间中两个向量相乘</strong>得到一个<strong>垂直于这两个向量的向量</strong>。</p>
+<ul>
+<li><p>设 $\vec{a}$ 和 $\vec{b}$ 是两个三维向量，它们的外积记作：</p>
+<p>$$<br>\vec{a} \times \vec{b}<br>$$</p>
+</li>
+<li><p>运算结果是一个<strong>向量</strong>，其方向由<strong>右手定则</strong>决定，大小为：</p>
+<p>$$<br>|\vec{a} \times \vec{b}| &#x3D; |\vec{a}| \cdot |\vec{b}| \cdot \sin \theta<br>$$</p>
+<p>其中 $\theta$ 是两个向量之间的夹角。</p>
+</li>
+</ul>
+<h3 id="13-1-三维空间两向量的外积公式"><a href="#13-1-三维空间两向量的外积公式" class="headerlink" title="13.1 三维空间两向量的外积公式"></a>13.1 三维空间两向量的外积公式</h3><p>设：</p>
+<p>$$<br>\vec{a} &#x3D; (a_1, a_2, a_3),\quad \vec{b} &#x3D; (b_1, b_2, b_3)<br>$$</p>
+<p>则它们的外积为：</p>
+<p>$$<br>\vec{a} \times \vec{b} &#x3D;<br>\begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>a_1 &amp; a_2 &amp; a_3 \\<br>b_1 &amp; b_2 &amp; b_3<br>\end{vmatrix}<br>&#x3D; \left( a_2 b_3 - a_3 b_2,\ a_3 b_1 - a_1 b_3,\ a_1 b_2 - a_2 b_1 \right)<br>$$</p>
+<h3 id="13-2-外积的演算性质"><a href="#13-2-外积的演算性质" class="headerlink" title="13.2 外积的演算性质"></a>13.2 外积的演算性质</h3><p>📌 1. 反交换性（反对称性）</p>
+<p>$$<br>\vec{a} \times \vec{b} &#x3D; -(\vec{b} \times \vec{a})<br>$$</p>
+<p>📌 2. 与自身的外积为零</p>
+<p>$$<br>\vec{a} \times \vec{a} &#x3D; \vec{0}<br>$$</p>
+<p>📌 3. 分配律</p>
+<p>$$<br>\vec{a} \times (\vec{b} + \vec{c}) &#x3D; \vec{a} \times \vec{b} + \vec{a} \times \vec{c}<br>$$</p>
+<p>📌 4. 数乘结合性</p>
+<p>$$<br>(k\vec{a}) \times \vec{b} &#x3D; k(\vec{a} \times \vec{b}) &#x3D; \vec{a} \times (k\vec{b})<br>$$</p>
+<p>📌 5. 外积垂直于两个原向量</p>
+<p>$$<br>\vec{a} \cdot (\vec{a} \times \vec{b}) &#x3D; 0,\quad \vec{b} \cdot (\vec{a} \times \vec{b}) &#x3D; 0<br>$$</p>
+<h4 id="✅-1-向量-vec-a-times-vec-b-的方向："><a href="#✅-1-向量-vec-a-times-vec-b-的方向：" class="headerlink" title="✅ 1. 向量 $\vec{a} \times \vec{b}$ 的方向："></a>✅ 1. 向量 $\vec{a} \times \vec{b}$ 的<strong>方向</strong>：</h4><p>由<strong>右手定则</strong>决定：用右手四指从 $\vec{a}$ 指向 $\vec{b}$，大拇指所指方向就是 $\vec{a} \times \vec{b}$ 的方向。</p>
+<h4 id="✅-2-向量-vec-a-times-vec-b-的大小："><a href="#✅-2-向量-vec-a-times-vec-b-的大小：" class="headerlink" title="✅ 2. 向量 $\vec{a} \times \vec{b}$ 的大小："></a>✅ 2. 向量 $\vec{a} \times \vec{b}$ 的<strong>大小</strong>：</h4><p>等于由 $\vec{a}$ 和 $\vec{b}$ 构成的<strong>平行四边形的面积</strong>：</p>
+<p>$$<br>|\vec{a} \times \vec{b}| &#x3D; |\vec{a}| |\vec{b}| \sin\theta<br>$$</p>
+<h4 id="✅-五、例题演示"><a href="#✅-五、例题演示" class="headerlink" title="✅ 五、例题演示"></a>✅ 五、例题演示</h4><p>设：</p>
+<p>$$<br>\vec{a} &#x3D; (1, 2, 3),\quad \vec{b} &#x3D; (4, 5, 6)<br>$$</p>
+<p>那么：</p>
+<p>$$<br>\vec{a} \times \vec{b} &#x3D;<br>\left|<br>\begin{array}{ccc}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>1 &amp; 2 &amp; 3 \\<br>4 &amp; 5 &amp; 6<br>\end{array}<br>\right|<br>&#x3D; \left( 2\cdot6 - 3\cdot5,\ 3\cdot4 - 1\cdot6,\ 1\cdot5 - 2\cdot4 \right)<br>&#x3D; (-3, 6, -3)<br>$$</p>
 
                 
               </div>
