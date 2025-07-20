@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-20T16:17:37.509Z">
+<meta property="article:modified_time" content="2025-07-20T16:34:47.633Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.1k words
+          8.8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          68 mins
+          74 mins
         
       </span>
     
@@ -923,7 +923,67 @@
 <li><p>$\det(A) &#x3D; 2 \cdot 3 &#x3D; 6 &#x3D; \lambda_1 \cdot \lambda_2$</p>
 </li>
 </ul>
-
+<h2 id="16-相似对角化（Matrix-Diagonalization）"><a href="#16-相似对角化（Matrix-Diagonalization）" class="headerlink" title="16. 相似对角化（Matrix Diagonalization）"></a>16. 相似对角化（Matrix Diagonalization）</h2><p>设 $A$ 是一个 $n \times n$ 的方阵，如果存在一个<strong>可逆矩阵</strong> $P$ 和一个<strong>对角矩阵</strong> $D$，使得：</p>
+<p>$$<br>A &#x3D; P D P^{-1}<br>$$</p>
+<p>或者写作：</p>
+<p>$$<br>P^{-1} A P &#x3D; D<br>$$</p>
+<p>则称 <strong>$A$ 可对角化（diagonalizable）</strong>，$D$ 是 $A$ 的对角矩阵形式，$P$ 是构造它的特征向量矩阵。</p>
+<p>这就是一个<strong>相似变换</strong>，所以称为<strong>相似对角化</strong>。</p>
+<p><strong>📌 对角化的意义</strong></p>
+<p>对角矩阵 $D$ 形式非常简单，只在主对角线上有数，其余为 0，比如：</p>
+<p>$$<br>D &#x3D; \begin{bmatrix}<br>\lambda_1 &amp; 0 &amp; \cdots &amp; 0 \\<br>0 &amp; \lambda_2 &amp; \cdots &amp; 0 \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>0 &amp; 0 &amp; \cdots &amp; \lambda_n<br>\end{bmatrix}<br>$$</p>
+<p>如果 $A &#x3D; PDP^{-1}$，那么：</p>
+<ul>
+<li>$A^k &#x3D; P D^k P^{-1}$（非常容易计算 $A$ 的高次幂）</li>
+<li>可以简化矩阵函数，如 $e^A &#x3D; P e^D P^{-1}$（线性微分方程中常见）</li>
+</ul>
+<p><strong>📌 对角化的充分必要条件</strong></p>
+<p>一个 $n \times n$ 的矩阵 $A$ <strong>可以对角化</strong>，当且仅当：</p>
+<blockquote>
+<p><strong>$A$ 有 $n$ 个线性无关的特征向量</strong></p>
+</blockquote>
+<p>这相当于说，矩阵 $A$ 是<strong>相似于某个对角矩阵</strong>的充要条件。</p>
+<p><strong>📌 对角化的步骤</strong></p>
+<p>设矩阵 $A$ 是 $n \times n$：</p>
+<p>✅ 步骤1：求特征值 $\lambda$</p>
+<p>解特征方程：</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; 0<br>$$</p>
+<p> ✅ 步骤2：求每个特征值对应的特征向量</p>
+<p>对于每个 $\lambda$，解：</p>
+<p>$$<br>(A - \lambda I)\vec{x} &#x3D; 0<br>$$</p>
+<p>得到线性无关的特征向量。</p>
+<p>✅ 步骤3：构造矩阵 $P$ 和 $D$</p>
+<ul>
+<li>$P$ 的列向量就是所有线性无关的特征向量</li>
+<li>$D$ 是对角矩阵，其对角元素是对应的特征值（顺序和 $P$ 一致）</li>
+</ul>
+<p>📌 例题：对角化一个矩阵</p>
+<p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>4 &amp; 1 \\<br>0 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p><strong>Step 1: 求特征值</strong></p>
+<p>$$<br>\det(A - \lambda I) &#x3D; (4 - \lambda)(2 - \lambda)<br>$$</p>
+<p>得特征值：$\lambda_1 &#x3D; 4,\ \lambda_2 &#x3D; 2$</p>
+<p><strong>Step 2: 求特征向量</strong></p>
+<p>对 $\lambda &#x3D; 4$：</p>
+<p>$$<br>(A - 4I)\vec{x} &#x3D; \begin{bmatrix} 0 &amp; 1 \\ 0 &amp; -2 \end{bmatrix} \vec{x} &#x3D; 0<br>$$</p>
+<p>得特征向量 $\vec{v}_1 &#x3D; \begin{bmatrix} 1 \ 0 \end{bmatrix}$</p>
+<p>对 $\lambda &#x3D; 2$：</p>
+<p>$$<br>(A - 2I)\vec{x} &#x3D; \begin{bmatrix} 2 &amp; 1 \\ 0 &amp; 0 \end{bmatrix} \vec{x} &#x3D; 0<br>$$</p>
+<p>得特征向量 $\vec{v}_2 &#x3D; \begin{bmatrix} -1 \ 2 \end{bmatrix}$</p>
+<p>Step 3: 构造 $P$ 和 $D$</p>
+<p>$$<br>P &#x3D; \begin{bmatrix}<br>1 &amp; -1 \\<br>0 &amp; 2<br>\end{bmatrix},\quad<br>D &#x3D; \begin{bmatrix}<br>4 &amp; 0 \\<br>0 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p>验证：</p>
+<p>$$<br>P^{-1}AP &#x3D; D<br>$$</p>
+<h3 id="📌-一些补充说明"><a href="#📌-一些补充说明" class="headerlink" title="📌 一些补充说明"></a>📌 一些补充说明</h3><p><strong>❗ 不可对角化的情况：</strong></p>
+<p>有些矩阵没有 $n$ 个线性无关特征向量，例如：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>1 &amp; 1 \\<br>0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>它只有一个特征值 $\lambda &#x3D; 1$，但只有一个特征向量 —— 无法对角化（只能<strong>上三角化</strong>或用<strong>Jordan标准形</strong>）。</p>
+<p><strong>✅ 可对角化充要条件回顾：</strong></p>
+<ul>
+<li>有 $n$ 个线性无关的特征向量</li>
+<li>特征值<strong>代数重数 &#x3D; 几何重数</strong>（每个特征值的重数 &#x3D; 特征空间维数）</li>
+</ul>
+<h2 id="17-Jordan"><a href="#17-Jordan" class="headerlink" title="17. Jordan"></a>17. Jordan</h2>
                 
               </div>
             
