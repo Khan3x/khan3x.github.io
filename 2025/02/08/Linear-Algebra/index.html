@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-20T16:34:47.633Z">
+<meta property="article:modified_time" content="2025-07-21T00:01:43.613Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.8k words
+          9.7k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          74 mins
+          82 mins
         
       </span>
     
@@ -983,7 +983,75 @@
 <li>有 $n$ 个线性无关的特征向量</li>
 <li>特征值<strong>代数重数 &#x3D; 几何重数</strong>（每个特征值的重数 &#x3D; 特征空间维数）</li>
 </ul>
-<h2 id="17-Jordan"><a href="#17-Jordan" class="headerlink" title="17. Jordan"></a>17. Jordan</h2>
+<h2 id="17-Jordan标准型（Jordan-Canonical-Form）"><a href="#17-Jordan标准型（Jordan-Canonical-Form）" class="headerlink" title="17. Jordan标准型（Jordan Canonical Form）"></a>17. Jordan标准型（Jordan Canonical Form）</h2><p>一个 $n \times n$ 的复矩阵 $A$ 总可以相似于一个分块上三角矩阵，该矩阵叫做 <strong>Jordan标准型</strong>，记作 $J$：</p>
+<p>$$<br>A \sim J &#x3D; P^{-1}AP<br>$$</p>
+<p>其中 $P$ 是可逆矩阵，$J$ 的形式如下：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>J_1 &amp; &amp; \\<br>&amp; \ddots &amp; \\<br>&amp; &amp; J_k<br>\end{bmatrix}<br>$$</p>
+<p>每个 $J_i$ 是一个<strong>Jordan块（Jordan block）</strong>，它的形式如下：</p>
+<p>$$<br>J_i(\lambda) &#x3D; \begin{bmatrix}<br>\lambda &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\<br>0 &amp; \lambda &amp; 1 &amp; \cdots &amp; 0 \\<br>\vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\<br>0 &amp; \cdots &amp; 0 &amp; \lambda &amp; 1 \\<br>0 &amp; \cdots &amp; \cdots &amp; 0 &amp; \lambda<br>\end{bmatrix}<br>$$</p>
+<p>其中对角线上全是 $\lambda$，超对角线是 $1$，其他是 $0$。</p>
+<p>每一个 <strong>Jordan块</strong> 对应一个 <strong>特征值  $\lambda$<strong>，如果矩阵不能对角化，说明该特征值的</strong>代数重数 &gt; 几何重数</strong>。</p>
+<ul>
+<li><strong>代数重数（algebraic multiplicity）</strong>：特征值 $\lambda$ 在特征多项式中的重数</li>
+<li><strong>几何重数（geometric multiplicity）</strong>：特征空间的维度，也就是 $\dim(\ker(A - \lambda I))$<br>当代数重数 $&gt;$ 几何重数时，$A$ 不可对角化，但可表示成Jordan标准型。</li>
+</ul>
+<p><strong>✅ 构造Jordan标准型的步骤</strong></p>
+<ol>
+<li><strong>求特征值</strong> $\lambda_1, \lambda_2, \dots$</li>
+<li><strong>对每个 $\lambda$ 求代数重数、几何重数</strong></li>
+<li><strong>构造广义特征向量（generalized eigenvectors）</strong></li>
+<li><strong>形成Jordan块</strong></li>
+<li><strong>排列组合，形成Jordan矩阵</strong></li>
+</ol>
+<h3 id="17-1-例子1️⃣"><a href="#17-1-例子1️⃣" class="headerlink" title="17.1 例子1️⃣"></a>17.1 例子1️⃣</h3><p>设</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>5 &amp; 4 &amp; 2 \\<br>0 &amp; 5 &amp; 1 \\<br>0 &amp; 0 &amp; 5<br>\end{bmatrix}<br>$$</p>
+<ul>
+<li>特征值$\lambda &#x3D; 5$</li>
+<li>特征多项式 $(5 - \lambda)^3$，代数重数是 3</li>
+<li>$\ker(A - 5I)$ 只有一个自由变量，所以几何重数是 1</li>
+</ul>
+<p>→ 无法对角化，但可以写成：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>5 &amp; 1 &amp; 0 \\<br>0 &amp; 5 &amp; 1 \\<br>0 &amp; 0 &amp; 5<br>\end{bmatrix}<br>$$</p>
+<h3 id="17-2-例子2️⃣"><a href="#17-2-例子2️⃣" class="headerlink" title="17.2 例子2️⃣"></a>17.2 例子2️⃣</h3><p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>5 &amp; 4 &amp; 2 &amp; 0 &amp; 0 \\<br>0 &amp; 5 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 5 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 3 &amp; 1 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p><strong>✅ Step 1. 求特征值（eigenvalues）</strong></p>
+<p>这是一个<strong>上三角矩阵</strong>，特征值为主对角线上的数：</p>
+<p>$$<br>\lambda_1 &#x3D; 5 \quad（重数 3），\quad<br>\lambda_2 &#x3D; 3 \quad（重数 2）<br>$$</p>
+<p><strong>✅ Step 2. 对每个特征值求几何重数（特征空间维数）</strong></p>
+<p>我们对 $\lambda &#x3D; 5$ 和 $\lambda &#x3D; 3$ 分别求 $\ker(A - \lambda I)$。</p>
+<p>对 $\lambda &#x3D; 5$：</p>
+<p>$$<br>A - 5I &#x3D; \begin{bmatrix}<br>0 &amp; 4 &amp; 2 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; -2 &amp; 1 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; -2<br>\end{bmatrix}<br>$$</p>
+<p>只看 $A_1 &#x3D; A[0:3,0:3]$ 的子块（即对应 $\lambda&#x3D;5$ 的前3行3列）：</p>
+<p>$$<br>A_1 - 5I &#x3D; \begin{bmatrix}<br>0 &amp; 4 &amp; 2 \\<br>0 &amp; 0 &amp; 1 \\<br>0 &amp; 0 &amp; 0<br>\end{bmatrix}<br>$$</p>
+<p>求解 $\ker(A_1 - 5I)$：</p>
+<p>该矩阵的秩为 $2$（两个主元），所以零空间维数是 $3 - 2 &#x3D; 1$</p>
+<p>→ 几何重数为 1，代数重数为 3 → 说明 $\lambda &#x3D; 5$ 对应 <strong>一个大小为3的Jordan块</strong></p>
+<p>对 $\lambda &#x3D; 3$：</p>
+<p>取右下角 $2 \times 2$ 块：</p>
+<p>$$<br>A_2 &#x3D; \begin{bmatrix}<br>3 &amp; 1 \\<br>0 &amp; 3<br>\end{bmatrix}<br>\Rightarrow A_2 - 3I &#x3D; \begin{bmatrix}<br>0 &amp; 1 \\<br>0 &amp; 0<br>\end{bmatrix}<br>$$</p>
+<p>这是阶数为 1 的矩阵，秩为 1，零空间维数是 $2 - 1 &#x3D; 1$</p>
+<p>→ 代数重数为 2，几何重数为 1 → 所以 $\lambda &#x3D; 3$ 对应 <strong>一个大小为2的Jordan块</strong></p>
+<p><strong>✅ Step 3. 确定 Jordan 标准型结构</strong></p>
+<p>我们现在知道：</p>
+<ul>
+<li>特征值 $5$ 有一个大小为 $3$ 的Jordan块</li>
+<li>特征值 $3$ 有一个大小为 $2$ 的Jordan块</li>
+</ul>
+<p><strong>✅ Step 4. 写出Jordan标准型</strong></p>
+<p>Jordan标准型是对角块状矩阵：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>J_1(5) &amp; &amp; \\<br>&amp; J_2(3) &amp;<br>\end{bmatrix}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$J_1(5)$ 是大小为 $3$ 的 Jordan 块：</li>
+</ul>
+<p>$$<br>\begin{bmatrix}<br>5 &amp; 1 &amp; 0 \\<br>0 &amp; 5 &amp; 1 \\<br>0 &amp; 0 &amp; 5<br>\end{bmatrix}<br>$$</p>
+<ul>
+<li>$J_2(3)$ 是大小为 $2$ 的 Jordan 块：</li>
+</ul>
+<p>$$<br>\begin{bmatrix}<br>3 &amp; 1 \\<br>0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p>最终的 Jordan 标准型为：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>5 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; 5 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 5 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 3 &amp; 1 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+
                 
               </div>
             
