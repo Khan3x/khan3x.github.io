@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-21T01:24:52.332Z">
+<meta property="article:modified_time" content="2025-07-21T01:52:19.405Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -241,7 +241,7 @@
         
         
         
-          102 mins
+          104 mins
         
       </span>
     
@@ -1271,6 +1271,29 @@
 <li><p><strong>酉矩阵是“正交矩阵”的复数推广</strong>：<br>所有正交矩阵（实系数、$Q^T Q &#x3D; I$）都是酉矩阵的一种特殊情况。</p>
 </li>
 </ol>
+<h2 id="25-二维旋转矩阵的定义"><a href="#25-二维旋转矩阵的定义" class="headerlink" title="25. 二维旋转矩阵的定义"></a>25. 二维旋转矩阵的定义</h2><p>设有一个二维平面上的向量 $\begin{bmatrix} x \ y \end{bmatrix}$，我们希望将它 **绕原点旋转一个角度 $\theta$**（逆时针方向为正方向），旋转后的新向量 $\begin{bmatrix} x’ \ y’ \end{bmatrix}$ </p>
+<p>这个 $2 \times 2$ 的矩阵就叫做 <strong>二维旋转矩阵</strong>，记作 $R(\theta)$：</p>
+<p>$$<br>R(\theta) &#x3D;<br>\begin{bmatrix}<br>\cos \theta &amp; -\sin \theta \\<br>\sin \theta &amp; \cos \theta<br>\end{bmatrix}<br>$$</p>
+<ol>
+<li><p><strong>正交性（orthogonality）</strong></p>
+<p>$$<br>R(\theta)^T R(\theta) &#x3D; I<br>$$</p>
+<p>说明旋转矩阵是一个正交矩阵。</p>
+</li>
+<li><p><strong>行列式为1</strong></p>
+<p>$$<br>\det(R(\theta)) &#x3D; \cos^2\theta + \sin^2\theta &#x3D; 1<br>$$</p>
+</li>
+<li><p><strong>可逆性</strong></p>
+<p>$$<br>R(\theta)^{-1} &#x3D; R(-\theta)<br>$$</p>
+</li>
+<li><p><strong>保持向量长度</strong></p>
+<p>$$<br>| R(\theta) \mathbf{v} | &#x3D; | \mathbf{v} |<br>$$</p>
+<p>因此旋转变换不改变向量的模长。</p>
+</li>
+<li><p><strong>复数形式（便于与酉矩阵联系）</strong><br>旋转矩阵可以视为复数乘法中的一个例子：</p>
+<p>$$<br>z &#x3D; x + iy \quad\Rightarrow\quad e^{i\theta} z &#x3D; \cos\theta z + i\sin\theta z<br>$$</p>
+</li>
+</ol>
+<p>将点 $(1, 0)$ 逆时针旋转 $90^\circ$（即 $\theta &#x3D; \frac{\pi}{2}$）后变成了 $(0,1)$。</p>
 <h2 id="偷偷说"><a href="#偷偷说" class="headerlink" title="偷偷说"></a>偷偷说</h2><p>线性代数的修考侧重点主要还是各种性质的推导，因此在熟悉每一个概念的时候，对于原理的理解是非常重要的:)</p>
 
                 
