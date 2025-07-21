@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-21T00:34:30.572Z">
+<meta property="article:modified_time" content="2025-07-21T01:08:35.035Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -241,7 +241,7 @@
         
         
         
-          89 mins
+          95 mins
         
       </span>
     
@@ -1129,6 +1129,77 @@
 <p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 1 \\<br>1 &amp; 3<br>\end{bmatrix},\quad x &#x3D; \begin{bmatrix} 1 \\ 1 \end{bmatrix}<br>$$</p>
 <p>$$<br>R_A(x) &#x3D; \frac{7}{2} &#x3D; 3.5<br>$$</p>
 <p>而 $A$ 的特征值是 $\lambda_1 &#x3D; \frac{5 - \sqrt{5}}{2} \approx 1.38$，$\lambda_2 &#x3D; \frac{5 + \sqrt{5}}{2} \approx 3.62$，所以 Rayleigh 商确实落在特征值之间。</p>
+<h2 id="21-SVD-分解（Singular-Value-Decomposition）"><a href="#21-SVD-分解（Singular-Value-Decomposition）" class="headerlink" title="21. SVD 分解（Singular Value Decomposition）"></a>21. SVD 分解（Singular Value Decomposition）</h2><p>对任意一个实矩阵 $A\in\mathbb{R}^{m\times n}$，存在三矩阵分解：</p>
+<p>$$<br>A &#x3D; U ,\Sigma, V^\top<br>$$</p>
+<ul>
+<li><p>$U\in\mathbb{R}^{m\times m}$ 为正交矩阵，列向量称为 <strong>左奇异向量</strong>。</p>
+</li>
+<li><p>$V\in\mathbb{R}^{n\times n}$ 为正交矩阵，列向量称为 <strong>右奇异向量</strong>。</p>
+</li>
+<li><p>$\Sigma\in\mathbb{R}^{m\times n}$ 为“对角”矩阵：</p>
+<p>$$<br>\Sigma &#x3D; \begin{bmatrix}<br>\sigma_1 &amp; &amp; &amp; &amp; \\<br> &amp; \sigma_2 &amp; &amp; &amp; \\<br> &amp; &amp; \ddots &amp; &amp; \\<br> &amp; &amp; &amp; \sigma_r &amp; \\<br> &amp; &amp; &amp; &amp; \mathbf{0}<br>\end{bmatrix},\quad \sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r &gt; 0<br>$$</p>
+<p>其中 $r&#x3D;\operatorname{rank}(A)$，${\sigma_i}$ 称为 <strong>奇异值</strong>。</p>
+</li>
+</ul>
+<h3 id="21-1-SVD-存在性"><a href="#21-1-SVD-存在性" class="headerlink" title="21.1 SVD 存在性"></a>21.1 SVD 存在性</h3><ul>
+<li><p>对任意矩阵 $A$，总存在 SVD。</p>
+</li>
+<li><p>基于对称正定矩阵 $A^\top A$（或 $AA^\top$）的谱分解：</p>
+<p>$$<br>A^\top A &#x3D; V,\Lambda,V^\top,\quad \Lambda &#x3D; \operatorname{diag}(\sigma_1^2,\dots,\sigma_n^2)<br>$$</p>
+<p>取 $\sigma_i&#x3D;\sqrt{\lambda_i}$，再定义 $U$ 的列向量为</p>
+<p>$$<br>u_i &#x3D; \frac{1}{\sigma_i} A,v_i,\quad i&#x3D;1,\dots,r<br>$$</p>
+<p>剩余列向量可任意补全正交基。</p>
+</li>
+</ul>
+<hr>
+<h3 id="🧪-21-2-简单例题"><a href="#🧪-21-2-简单例题" class="headerlink" title="🧪 21.2 简单例题"></a>🧪 21.2 简单例题</h3><p>令</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>3 &amp; 1 \\<br>0 &amp; 2 \\<br>0 &amp; 0<br>\end{bmatrix}_{3\times2}<br>$$</p>
+<ol>
+<li>计算 $A^\top A &#x3D; \begin{bmatrix}9&amp;3\\3&amp;5\end{bmatrix}$，求特征值 $\lambda_1&#x3D;10,\ \lambda_2&#x3D;4$。</li>
+<li>奇异值 $\sigma_1&#x3D;\sqrt{10},\ \sigma_2&#x3D;2$。</li>
+<li>对应单位特征向量 $v_1,v_2$ 构造 $V$，</li>
+<li>计算 $u_i&#x3D;\tfrac1{\sigma_i}Av_i$ 构造 $U$。</li>
+<li>最终得</li>
+</ol>
+<p>$$<br>A &#x3D; U\begin{bmatrix}\sqrt{10}&amp;0\\0&amp;2\\0&amp;0\end{bmatrix}V^\top.<br>$$</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">SVD: A &#x3D; U Σ Vᵀ
+├── U: m×m 正交，左奇异向量
+├── Σ: m×n，奇异值对角
+├── V: n×n 正交，右奇异向量
+├── 存在性: 基于 AᵀA 特征分解
+├── 性质
+│   ├── σ_i ≥ 0
+│   ├── ‖A‖₂ &#x3D; σ₁
+│   ├── ‖A‖_F² &#x3D; Σσ_i²
+│   └── 最优低秩逼近
+└── 应用: PCA, 压缩, 伪逆, 推荐系统…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+
+
+
+<h2 id="22-维数定理（Rank–Nullity-Theorem）"><a href="#22-维数定理（Rank–Nullity-Theorem）" class="headerlink" title="22. 维数定理（Rank–Nullity Theorem）"></a>22. 维数定理（Rank–Nullity Theorem）</h2><p>设 $T: V \to W$ 是从有限维向量空间 $V$ 到 $W$ 的一个线性变换，或者说是一个 $m \times n$ 的矩阵 $A$ 表示 $T$，则有：</p>
+<p>$$<br>\dim(\ker T) + \dim(\operatorname{Im} T) &#x3D; \dim V<br>$$</p>
+<p>也可写作矩阵形式：</p>
+<p>$$<br>\text{nullity}(A) + \text{rank}(A) &#x3D; n<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$\ker T$ 是 $T$ 的核（null space）；</li>
+<li>$\operatorname{Im} T$ 是 $T$ 的像空间（column space）；</li>
+<li>$n$ 是 $A$ 的列数。</li>
+</ul>
+<h3 id="22-1-子空间维数公式（Grassmann’s-Formula）"><a href="#22-1-子空间维数公式（Grassmann’s-Formula）" class="headerlink" title="22.1 子空间维数公式（Grassmann’s Formula）"></a>22.1 子空间维数公式（Grassmann’s Formula）</h3><p>设 $U, W$ 是同一向量空间 $V$ 的两个子空间，则：</p>
+<p>$$<br>\dim(U + W) &#x3D; \dim U + \dim W - \dim(U \cap W)<br>$$</p>
+<p>这被称为<strong>Grassmann 定理</strong>，揭示了两个子空间的<strong>并与交之间的维数关系</strong>。</p>
+<p><strong>✅ 推导简要：</strong></p>
+<p>我们从 $U$ 中选出一个 $\dim(U \cap W)$ 的基，然后补出$U$ 的基，记为 $u_1, …, u_k$；<br>从 $W$ 中也补出剩下的基 $w_1, …, w_l$。</p>
+<p>那么 $U + W$ 的一组生成元为：</p>
+<p>$$<br>{u_1, …, u_k, u_{k+1}, …, u_m, w_{k+1}, …, w_n}<br>$$</p>
+<p>他们是线性无关的，其个数为：</p>
+<p>$$<br>\dim U + \dim W - \dim(U \cap W)<br>$$</p>
+<p><strong>🧩 与矩阵运算结合的理解</strong></p>
+<p>若 $A$ 是 $m \times n$ 的矩阵，$Ax &#x3D; b$ 可解 $\Leftrightarrow b \in \operatorname{Im}(A)$。</p>
+<p>从维数定理得：</p>
+<p>$$<br>\text{解空间的自由变量个数} &#x3D; n - \text{rank}(A)<br>$$</p>
 
                 
               </div>
