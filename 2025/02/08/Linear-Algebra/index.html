@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T11:59:56.000Z">
-<meta property="article:modified_time" content="2025-07-21T00:20:27.640Z">
+<meta property="article:modified_time" content="2025-07-21T00:34:30.572Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Linear Algebra">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k words
+          11k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          85 mins
+          89 mins
         
       </span>
     
@@ -1086,6 +1086,49 @@
 <p>$$<br>Q &#x3D; \begin{bmatrix}<br>\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \<br>\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}}<br>\end{bmatrix},\quad<br>\Lambda &#x3D; \begin{bmatrix}<br>1 &amp; 0 \<br>0 &amp; 3<br>\end{bmatrix}<br>$$</p>
 <p>验证：</p>
 <p>$$<br>Q^\top A Q &#x3D; \Lambda<br>$$</p>
+<h2 id="19-正定矩阵（Positive-Definite-Matrix）"><a href="#19-正定矩阵（Positive-Definite-Matrix）" class="headerlink" title="19. 正定矩阵（Positive Definite Matrix）"></a>19. 正定矩阵（Positive Definite Matrix）</h2><p>一个 $n \times n$ 的<strong>实对称矩阵</strong> $A$ 称为<strong>正定矩阵</strong>（positive definite），如果对任意非零列向量 $\boldsymbol{x} \in \mathbb{R}^n$，都有：</p>
+<p>$$<br>\boldsymbol{x}^\top A \boldsymbol{x} &gt; 0<br>$$</p>
+<p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 0 \\<br>0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p>则对任意非零向量 $\boldsymbol{x} &#x3D; \begin{bmatrix} x_1 \ x_2 \end{bmatrix}$，有：</p>
+<p>$$<br>\boldsymbol{x}^\top A \boldsymbol{x} &#x3D; 2x_1^2 + 3x_2^2 &gt; 0<br>$$</p>
+<p>→ 所以 $A$ 是正定矩阵。</p>
+<p><strong>判断下列矩阵是否正定：</strong></p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; -1 \\<br>-1 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p><strong>方法一：特征值法</strong></p>
+<p>求特征值：</p>
+<p>$$<br>\det\begin{bmatrix}<br>2 - \lambda &amp; -1 \\<br>-1 &amp; 2 - \lambda<br>\end{bmatrix}<br>&#x3D; \lambda^2 - 4\lambda + 3 &#x3D; 0 \Rightarrow \lambda &#x3D; 1, 3<br>$$</p>
+<p>两个特征值都 &gt; 0 → 正定 ✅</p>
+<p><strong>方法二：主子式法</strong></p>
+<ul>
+<li>一级主子式：$2 &gt; 0$</li>
+<li>二级主子式：$\det(A) &#x3D; 2 \cdot 2 - (-1)^2 &#x3D; 3 &gt; 0$</li>
+</ul>
+<p>→ 所有主子式 &gt; 0 → 正定 ✅</p>
+<h2 id="20-Rayleigh-商（Rayleigh-quotient）"><a href="#20-Rayleigh-商（Rayleigh-quotient）" class="headerlink" title="20. Rayleigh 商（Rayleigh quotient）"></a>20. Rayleigh 商（Rayleigh quotient）</h2><p>设 $A$ 是一个 <strong>实对称矩阵</strong>（或者复 Hermitian 矩阵），$x \in \mathbb{R}^n \setminus {0}$，则：</p>
+<p>$$<br>R_A(x) &#x3D; \frac{x^\top A x}{x^\top x}<br>$$</p>
+<p>这个值称为向量 $x$ 关于矩阵 $A$ 的 <strong>Rayleigh 商</strong>（Rayleigh quotient）。</p>
+<ol>
+<li><p>如果 $x$ 是 $A$ 的单位特征向量，则 $R_A(x)$ 就等于对应的特征值：</p>
+<p>$$<br>A x &#x3D; \lambda x \Rightarrow R_A(x) &#x3D; \lambda<br>$$</p>
+</li>
+<li><p>Rayleigh 商是一个关于 $x$ 的函数，其值在某种意义上“逼近”矩阵 $A$ 的特征值。</p>
+</li>
+</ol>
+<hr>
+<h3 id="20-1-🔷-Rayleigh-商与特征值的不等式（极值性质）"><a href="#20-1-🔷-Rayleigh-商与特征值的不等式（极值性质）" class="headerlink" title="20.1 🔷 Rayleigh 商与特征值的不等式（极值性质）"></a>20.1 🔷 Rayleigh 商与特征值的不等式（极值性质）</h3><p>设 $A$ 是 $n \times n$ 的实对称矩阵，其特征值满足：</p>
+<p>$$<br>\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n<br>$$</p>
+<p>则对任意非零向量 $x$，Rayleigh 商满足如下不等式：</p>
+<p>$$<br>\lambda_1 \leq R_A(x) \leq \lambda_n<br>$$</p>
+<p>也就是说，Rayleigh 商的取值总在 $A$ 的最小与最大特征值之间。</p>
+<h3 id="20-2-🌟-Rayleigh-商的极小极大值定理（Courant-Fischer-定理）"><a href="#20-2-🌟-Rayleigh-商的极小极大值定理（Courant-Fischer-定理）" class="headerlink" title="20.2 🌟 Rayleigh 商的极小极大值定理（Courant-Fischer 定理）"></a>20.2 🌟 Rayleigh 商的极小极大值定理（Courant-Fischer 定理）</h3><p>设 $A$ 是实对称矩阵，其特征值记为 $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$，则：</p>
+<p>$$<br>\lambda_k &#x3D; \min_{\dim(V)&#x3D;k} \max_{x \in V,, x \neq 0} R_A(x)<br>$$</p>
+<p>也就是说，$A$ 的第 $k$ 小特征值是所有 $k$ 维子空间中 Rayleigh 商最大值的最小值。</p>
+<p><strong>✅ 举个简单例子</strong></p>
+<p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 1 \\<br>1 &amp; 3<br>\end{bmatrix},\quad x &#x3D; \begin{bmatrix} 1 \\ 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>R_A(x) &#x3D; \frac{7}{2} &#x3D; 3.5<br>$$</p>
+<p>而 $A$ 的特征值是 $\lambda_1 &#x3D; \frac{5 - \sqrt{5}}{2} \approx 1.38$，$\lambda_2 &#x3D; \frac{5 + \sqrt{5}}{2} \approx 3.62$，所以 Rayleigh 商确实落在特征值之间。</p>
 
                 
               </div>
