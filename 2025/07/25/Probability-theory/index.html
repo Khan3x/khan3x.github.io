@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-07-25T01:43:51.417Z">
+<meta property="article:modified_time" content="2025-07-25T02:02:59.966Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k words
+          2.5k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          17 mins
+          22 mins
         
       </span>
     
@@ -490,6 +490,79 @@
 <blockquote>
 <p>所以产品是次品的概率为2.9%。</p>
 </blockquote>
+<h2 id="5-独立性与条件独立性（Independence-Conditional-Independence）"><a href="#5-独立性与条件独立性（Independence-Conditional-Independence）" class="headerlink" title="5. 独立性与条件独立性（Independence &amp; Conditional Independence）"></a>5. 独立性与条件独立性（Independence &amp; Conditional Independence）</h2><h3 id="5-1-两个事件的独立性（Independence-of-Two-Events）"><a href="#5-1-两个事件的独立性（Independence-of-Two-Events）" class="headerlink" title="5.1 两个事件的独立性（Independence of Two Events）"></a>5.1 两个事件的独立性（Independence of Two Events）</h3><p>👉 定义：</p>
+<p>若两个事件 $A$ 和 $B$ 满足：</p>
+<p>$$<br>P(A \cap B) &#x3D; P(A) \cdot P(B)<br>$$</p>
+<p>则称 <strong>$A$ 与 $B$ 相互独立（independent）</strong>，记作：</p>
+<p>$$<br>A \perp B<br>$$</p>
+<blockquote>
+<p>如果 $A$ 与 $B$ 独立，<strong>一个事件是否发生不会影响另一个事件的发生概率</strong>。</p>
+</blockquote>
+<p>即：</p>
+<p>$$<br>P(A \mid B) &#x3D; P(A), \quad P(B \mid A) &#x3D; P(B)<br>$$</p>
+<hr>
+<h3 id="5-2-多个事件的独立性（Mutual-Independence）"><a href="#5-2-多个事件的独立性（Mutual-Independence）" class="headerlink" title="5.2 多个事件的独立性（Mutual Independence）"></a>5.2 多个事件的独立性（Mutual Independence）</h3><p>三个及以上事件的独立性必须满足更强的条件：</p>
+<p>事件 $A_1, A_2, \dots, A_n$ <strong>相互独立</strong> 当且仅当，对任意子集 ${i_1, i_2, \dots, i_k}$ 都有：</p>
+<p>$$<br>P(A_{i_1} \cap A_{i_2} \cap \dots \cap A_{i_k}) &#x3D; P(A_{i_1}) \cdot P(A_{i_2}) \cdots P(A_{i_k})<br>$$</p>
+<p>例如，$A_1, A_2, A_3$ 三个事件独立需要满足：</p>
+<ul>
+<li>$P(A_1 \cap A_2) &#x3D; P(A_1)P(A_2)$</li>
+<li>$P(A_1 \cap A_3) &#x3D; P(A_1)P(A_3)$</li>
+<li>$P(A_2 \cap A_3) &#x3D; P(A_2)P(A_3)$</li>
+<li>$P(A_1 \cap A_2 \cap A_3) &#x3D; P(A_1)P(A_2)P(A_3)$</li>
+</ul>
+<blockquote>
+<p>✅ 所以 <strong>两两独立不代表完全独立（mutual independence）</strong>！</p>
+</blockquote>
+<hr>
+<h3 id="5-3-条件独立性（Conditional-Independence）"><a href="#5-3-条件独立性（Conditional-Independence）" class="headerlink" title="5.3 条件独立性（Conditional Independence）"></a>5.3 条件独立性（Conditional Independence）</h3><p>👉 定义：</p>
+<p>给定事件 $C$，如果事件 $A$ 和 $B$ 满足：</p>
+<p>$$<br>P(A \cap B \mid C) &#x3D; P(A \mid C) \cdot P(B \mid C)<br>$$</p>
+<p>则称 <strong>$A$ 与 $B$ 在 $C$ 条件下独立</strong>，记作：</p>
+<p>$$<br>A \perp B \mid C<br>$$</p>
+<blockquote>
+<p>虽然 $A$ 与 $B$ 在总体上可能有关，但<strong>在知道 $C$ 发生的前提下，它们变得无关</strong>。</p>
+</blockquote>
+<p>举个例子：</p>
+<ul>
+<li>$A$：某人感冒</li>
+<li>$B$：某人发烧</li>
+<li>$C$：该人感染了病毒</li>
+</ul>
+<p>则 $A$ 和 $B$ 在总体上可能有关联，但在给定 $C$（病毒感染）的前提下，$A$ 和 $B$ 的概率分布是独立的。</p>
+<hr>
+<h3 id="5-4-常见误区说明："><a href="#5-4-常见误区说明：" class="headerlink" title="5.4 常见误区说明："></a>5.4 常见误区说明：</h3><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>要点</th>
+<th>易错点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>独立性</td>
+<td>$P(A \cap B) &#x3D; P(A)P(B)$</td>
+<td>与“互斥”不同，互斥事件不能同时发生，但可能不独立</td>
+</tr>
+<tr>
+<td>条件独立性</td>
+<td>$P(A \cap B \mid C) &#x3D; P(A \mid C)P(B \mid C)$</td>
+<td>条件独立 ≠ 无条件独立</td>
+</tr>
+<tr>
+<td>两两独立</td>
+<td>任意两个事件独立</td>
+<td>不等价于相互独立（mutual independence）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="5-5-示例题（简要）"><a href="#5-5-示例题（简要）" class="headerlink" title="5.5 示例题（简要）"></a>5.5 示例题（简要）</h3><blockquote>
+<p>已知 $P(A) &#x3D; 0.5,\ P(B) &#x3D; 0.6,\ P(A \cap B) &#x3D; 0.3$，判断 $A$ 与 $B$ 是否独立？</p>
+</blockquote>
+<p>计算：</p>
+<p>$$<br>P(A) \cdot P(B) &#x3D; 0.5 \cdot 0.6 &#x3D; 0.3<br>$$</p>
+<p>因为 $P(A \cap B) &#x3D; 0.3$，所以：</p>
+<p>✅ <strong>$A$ 与 $B$ 是独立的</strong></p>
 
                 
               </div>
