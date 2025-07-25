@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-07-25T03:10:43.377Z">
+<meta property="article:modified_time" content="2025-07-25T04:11:58.246Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k words
+          3.9k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          31 mins
+          33 mins
         
       </span>
     
@@ -723,6 +723,44 @@
 <ul>
 <li>CDF 是每个随机变量都存在的，即使它既不是纯粹离散也不是纯粹连续（如混合型）。</li>
 <li>CDF 是研究概率分布的基本工具，能完全刻画一个随机变量的分布。</li>
+</ul>
+<h2 id="8-期望和方差"><a href="#8-期望和方差" class="headerlink" title="8. 期望和方差"></a>8. 期望和方差</h2><h3 id="8-1-期望（Expectation）"><a href="#8-1-期望（Expectation）" class="headerlink" title="8.1. 期望（Expectation）"></a>8.1. 期望（Expectation）</h3><p><strong>离散型随机变量 $X$</strong></p>
+<p>如果 $X$ 的概率质量函数为 $P(X &#x3D; x_i) &#x3D; p_i$，则其期望定义为：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; \sum_i x_i \cdot p_i<br>$$</p>
+<p><strong>连续型随机变量 $X$</strong></p>
+<p>如果 $X$ 的概率密度函数为 $f(x)$，则期望为：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; \int_{-\infty}^{\infty} x \cdot f(x) , dx<br>$$</p>
+<p><strong>期望的性质</strong></p>
+<ul>
+<li><p><strong>线性性</strong>：对任意常数 $a, b$ 和随机变量 $X, Y$ 有：</p>
+<p>$$<br>\mathbb{E}[aX + bY] &#x3D; a \mathbb{E}[X] + b \mathbb{E}[Y]<br>$$</p>
+</li>
+<li><p>若 $c$ 为常数，则：</p>
+<p>$$<br>\mathbb{E}[c] &#x3D; c<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="8-2-方差（Variance）"><a href="#8-2-方差（Variance）" class="headerlink" title="8.2. 方差（Variance）"></a>8.2. 方差（Variance）</h3><p>方差衡量随机变量与其期望的偏离程度。</p>
+<p>$$<br>\mathrm{Var}(X) &#x3D; \mathbb{E}[(X - \mathbb{E}[X])^2]<br>$$</p>
+<p>也可以表示为：</p>
+<p>$$<br>\mathrm{Var}(X) &#x3D; \mathbb{E}[X^2] - (\mathbb{E}[X])^2<br>$$</p>
+<p><strong>方差的性质</strong></p>
+<ul>
+<li><p><strong>常数的方差为 0</strong>：</p>
+<p>$$<br>\mathrm{Var}(c) &#x3D; 0<br>$$</p>
+</li>
+<li><p><strong>常数乘积</strong>：</p>
+<p>$$<br>\mathrm{Var}(aX + b) &#x3D; a^2 \cdot \mathrm{Var}(X)<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="8-3-协方差与相关系数"><a href="#8-3-协方差与相关系数" class="headerlink" title="8.3. 协方差与相关系数"></a>8.3. 协方差与相关系数</h3><ul>
+<li><p><strong>协方差定义</strong>：</p>
+<p>$$<br>\mathrm{Cov}(X, Y) &#x3D; \mathbb{E}[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])]<br>$$</p>
+</li>
+<li><p><strong>相关系数</strong>（标准化的协方差）：</p>
+<p>$$<br>\rho_{X,Y} &#x3D; \frac{\mathrm{Cov}(X, Y)}{\sqrt{\mathrm{Var}(X)} \cdot \sqrt{\mathrm{Var}(Y)}}<br>$$</p>
+</li>
 </ul>
 
                 
