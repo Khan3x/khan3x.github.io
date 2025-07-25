@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-07-25T17:00:39.539Z">
+<meta property="article:modified_time" content="2025-07-25T17:05:44.516Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k words
+          5k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          38 mins
+          42 mins
         
       </span>
     
@@ -831,6 +831,86 @@
 <li><p><strong>期望</strong>：$\mathbb{E}[X] &#x3D; n \cdot \frac{K}{N}$</p>
 </li>
 <li><p><strong>方差</strong>：<br>$$<br>\mathrm{Var}(X) &#x3D; n \cdot \frac{K}{N} \cdot \left(1 - \frac{K}{N}\right) \cdot \frac{N - n}{N - 1}<br>$$</p>
+</li>
+</ul>
+<h2 id="12-常见连续型分布"><a href="#12-常见连续型分布" class="headerlink" title="12. 常见连续型分布"></a>12. 常见连续型分布</h2><h3 id="12-1-均匀分布（Uniform-Distribution）"><a href="#12-1-均匀分布（Uniform-Distribution）" class="headerlink" title="12.1 均匀分布（Uniform Distribution）"></a>12.1 均匀分布（Uniform Distribution）</h3><ul>
+<li><p><strong>定义域</strong>：$X \sim U(a, b)$，其中 $a &lt; b$</p>
+</li>
+<li><p><strong>概率密度函数（PDF）</strong>：</p>
+<p>$$<br>f(x) &#x3D; \begin{cases}<br>\frac{1}{b - a}, &amp; a \leq x \leq b \\<br>0, &amp; \text{otherwise}<br>\end{cases}<br>$$</p>
+</li>
+<li><p><strong>期望与方差</strong>：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; \frac{a + b}{2}, \quad \mathrm{Var}(X) &#x3D; \frac{(b - a)^2}{12}<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="12-2-指数分布（Exponential-Distribution）"><a href="#12-2-指数分布（Exponential-Distribution）" class="headerlink" title="12.2 指数分布（Exponential Distribution）"></a>12.2 指数分布（Exponential Distribution）</h3><ul>
+<li><p><strong>定义</strong>：$X \sim \mathrm{Exp}(\lambda)$，其中 $\lambda &gt; 0$</p>
+</li>
+<li><p><strong>概率密度函数</strong>：</p>
+<p>$$<br>f(x) &#x3D; \begin{cases}<br>\lambda e^{-\lambda x}, &amp; x \geq 0 \\<br>0, &amp; x &lt; 0<br>\end{cases}<br>$$</p>
+</li>
+<li><p><strong>期望与方差</strong>：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; \frac{1}{\lambda}, \quad \mathrm{Var}(X) &#x3D; \frac{1}{\lambda^2}<br>$$</p>
+</li>
+<li><p><strong>记忆性</strong>：$\mathbb{P}(X &gt; s + t \mid X &gt; s) &#x3D; \mathbb{P}(X &gt; t)$</p>
+</li>
+</ul>
+<hr>
+<h3 id="12-3-正态分布（Normal-Distribution）"><a href="#12-3-正态分布（Normal-Distribution）" class="headerlink" title="12.3 正态分布（Normal Distribution）"></a>12.3 正态分布（Normal Distribution）</h3><ul>
+<li><p><strong>定义</strong>：$X \sim \mathcal{N}(\mu, \sigma^2)$</p>
+</li>
+<li><p><strong>概率密度函数</strong>：</p>
+<p>$$<br>f(x) &#x3D; \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)<br>$$</p>
+</li>
+<li><p><strong>期望与方差</strong>：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; \mu, \quad \mathrm{Var}(X) &#x3D; \sigma^2<br>$$</p>
+</li>
+<li><p><strong>标准正态分布</strong>：$Z \sim \mathcal{N}(0, 1)$</p>
+</li>
+</ul>
+<hr>
+<h3 id="12-4-伽马分布（Gamma-Distribution）"><a href="#12-4-伽马分布（Gamma-Distribution）" class="headerlink" title="12.4 伽马分布（Gamma Distribution）"></a>12.4 伽马分布（Gamma Distribution）</h3><ul>
+<li><p><strong>定义</strong>：$X \sim \mathrm{Gamma}(\alpha, \lambda)$，其中 $\alpha &gt; 0$ 是形状参数，$\lambda &gt; 0$ 是率参数</p>
+</li>
+<li><p><strong>概率密度函数</strong>：</p>
+<p>$$<br>f(x) &#x3D; \frac{\lambda^\alpha x^{\alpha - 1} e^{-\lambda x}}{\Gamma(\alpha)}, \quad x &gt; 0<br>$$</p>
+</li>
+<li><p><strong>期望与方差</strong>：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; \frac{\alpha}{\lambda}, \quad \mathrm{Var}(X) &#x3D; \frac{\alpha}{\lambda^2}<br>$$</p>
+</li>
+<li><p><strong>特别情况</strong>：</p>
+<ul>
+<li>$\alpha &#x3D; 1$ 时为指数分布</li>
+<li>$\alpha &#x3D; n$（正整数）时为 Erlang 分布</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="12-5-卡方分布（Chi-Square-Distribution）"><a href="#12-5-卡方分布（Chi-Square-Distribution）" class="headerlink" title="12.5 卡方分布（Chi-Square Distribution）"></a>12.5 卡方分布（Chi-Square Distribution）</h3><ul>
+<li><p><strong>定义</strong>：$\chi^2_k$ 是 $k$ 个独立标准正态变量平方和的分布</p>
+</li>
+<li><p><strong>概率密度函数</strong>：</p>
+<p>$$<br>f(x) &#x3D; \frac{1}{2^{k&#x2F;2} \Gamma(k&#x2F;2)} x^{k&#x2F;2 - 1} e^{-x&#x2F;2}, \quad x &gt; 0<br>$$</p>
+</li>
+<li><p><strong>期望与方差</strong>：</p>
+<p>$$<br>\mathbb{E}[X] &#x3D; k, \quad \mathrm{Var}(X) &#x3D; 2k<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="12-6-t-分布（Student’s-t-Distribution）"><a href="#12-6-t-分布（Student’s-t-Distribution）" class="headerlink" title="12.6 t 分布（Student’s t Distribution）"></a>12.6 t 分布（Student’s t Distribution）</h3><ul>
+<li><p><strong>定义</strong>：$T &#x3D; \frac{Z}{\sqrt{V&#x2F;k}}$，其中 $Z \sim \mathcal{N}(0,1)$，$V \sim \chi^2_k$ 且独立</p>
+</li>
+<li><p><strong>期望与方差</strong>：</p>
+<p>$$<br>\mathbb{E}[T] &#x3D; 0 \quad (k &gt; 1), \quad \mathrm{Var}(T) &#x3D; \frac{k}{k - 2} \quad (k &gt; 2)<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="12-7-F-分布（Fisher-Distribution）"><a href="#12-7-F-分布（Fisher-Distribution）" class="headerlink" title="12.7 F 分布（Fisher Distribution）"></a>12.7 F 分布（Fisher Distribution）</h3><ul>
+<li><p><strong>定义</strong>：$F &#x3D; \frac{(U_1&#x2F;d_1)}{(U_2&#x2F;d_2)}$，其中 $U_1 \sim \chi^2_{d_1}$，$U_2 \sim \chi^2_{d_2}$</p>
+</li>
+<li><p><strong>期望</strong>（$d_2 &gt; 2$）：</p>
+<p>$$<br>\mathbb{E}[F] &#x3D; \frac{d_2}{d_2 - 2}<br>$$</p>
 </li>
 </ul>
 
