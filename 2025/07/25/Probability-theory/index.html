@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-07-25T01:17:17.669Z">
+<meta property="article:modified_time" content="2025-07-25T01:43:51.417Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          875 words
+          2k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          8 mins
+          17 mins
         
       </span>
     
@@ -398,6 +398,98 @@
 <hr>
 <h3 id="2-3-概率的范围限制"><a href="#2-3-概率的范围限制" class="headerlink" title="2.3 概率的范围限制"></a>2.3 概率的范围限制</h3><p>概率总是介于 0 与 1 之间：</p>
 <p>$$<br>0 \leq P(A) \leq 1<br>$$</p>
+<h2 id="3-条件概率与贝叶斯公式（Conditional-Probability-and-Bayes’-Theorem）"><a href="#3-条件概率与贝叶斯公式（Conditional-Probability-and-Bayes’-Theorem）" class="headerlink" title="3. 条件概率与贝叶斯公式（Conditional Probability and Bayes’ Theorem）"></a>3. 条件概率与贝叶斯公式（Conditional Probability and Bayes’ Theorem）</h2><h3 id="3-1-条件概率的定义"><a href="#3-1-条件概率的定义" class="headerlink" title="3.1 条件概率的定义"></a>3.1 条件概率的定义</h3><p>设事件 $A$ 和 $B$ 满足 $P(B) &gt; 0$，则 <strong>在事件 $B$ 发生的条件下，事件 $A$ 发生的概率</strong>，称为<strong>条件概率</strong>，记作 $P(A \mid B)$：</p>
+<p>$$<br>P(A \mid B) &#x3D; \frac{P(A \cap B)}{P(B)}<br>$$</p>
+<p>同理，也有：</p>
+<p>$$<br>P(B \mid A) &#x3D; \frac{P(A \cap B)}{P(A)}<br>$$</p>
+<blockquote>
+<p>条件概率体现的是 <strong>“在某个背景下概率的重新评估”</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="3-2-条件概率的性质"><a href="#3-2-条件概率的性质" class="headerlink" title="3.2 条件概率的性质"></a>3.2 条件概率的性质</h3><ol>
+<li><p>非负性：</p>
+<p>$$<br>P(A \mid B) \geq 0<br>$$</p>
+</li>
+<li><p>规范性（$B$ 发生的背景下）：</p>
+<p>$$<br>P(B \mid B) &#x3D; 1<br>$$</p>
+</li>
+<li><p>可加性：<br>若 $A_1, A_2$ 不相交，则：</p>
+<p>$$<br>P(A_1 \cup A_2 \mid B) &#x3D; P(A_1 \mid B) + P(A_2 \mid B)<br>$$</p>
+</li>
+</ol>
+<hr>
+<h3 id="3-3-乘法公式（乘法定理）"><a href="#3-3-乘法公式（乘法定理）" class="headerlink" title="3.3 乘法公式（乘法定理）"></a>3.3 乘法公式（乘法定理）</h3><p>由条件概率定义可得：</p>
+<p>$$<br>P(A \cap B) &#x3D; P(B) \cdot P(A \mid B) &#x3D; P(A) \cdot P(B \mid A)<br>$$</p>
+<p>如果有多个事件 $A_1, A_2, \dots, A_n$，则：</p>
+<p>$$<br>P(A_1 \cap A_2 \cap \dots \cap A_n) &#x3D; P(A_1) \cdot P(A_2 \mid A_1) \cdot P(A_3 \mid A_1 \cap A_2) \cdots<br>$$</p>
+<hr>
+<h3 id="3-4-全概率公式（Law-of-Total-Probability）"><a href="#3-4-全概率公式（Law-of-Total-Probability）" class="headerlink" title="3.4 全概率公式（Law of Total Probability）"></a>3.4 全概率公式（Law of Total Probability）</h3><p>设 ${B_1, B_2, \dots, B_n}$ 是一个<strong>完备事件组</strong>（划分样本空间的互不相交事件）且 $P(B_i) &gt; 0$，则对于任意事件 $A$ 有：</p>
+<p>$$<br>P(A) &#x3D; \sum_{i&#x3D;1}^n P(B_i) \cdot P(A \mid B_i)<br>$$</p>
+<blockquote>
+<p>这表示从多个路径计算 $A$ 的“总概率”。</p>
+</blockquote>
+<hr>
+<h3 id="3-5-贝叶斯公式（Bayes’-Theorem）"><a href="#3-5-贝叶斯公式（Bayes’-Theorem）" class="headerlink" title="3.5 贝叶斯公式（Bayes’ Theorem）"></a>3.5 贝叶斯公式（Bayes’ Theorem）</h3><p>贝叶斯公式用于<strong>在已知结果的情况下“倒推出原因”的概率</strong>。它是全概率公式的逆向应用。</p>
+<p>设 ${B_1, B_2, \dots, B_n}$ 是一个样本空间的划分，$P(B_i) &gt; 0$，且 $P(A) &gt; 0$，则：</p>
+<p>$$<br>P(B_i \mid A) &#x3D; \frac{P(B_i) \cdot P(A \mid B_i)}{\sum_{j&#x3D;1}^{n} P(B_j) \cdot P(A \mid B_j)}<br>$$</p>
+<blockquote>
+<p>🔍 <strong>通俗理解</strong>：已知事件 $A$ 发生，求“是谁导致了 $A$”，概率最大的那个 $B_i$ 通常被认为是最可能的原因。</p>
+</blockquote>
+<hr>
+<h3 id="3-6-示例：诊断问题中的贝叶斯公式"><a href="#3-6-示例：诊断问题中的贝叶斯公式" class="headerlink" title="3.6 示例：诊断问题中的贝叶斯公式"></a>3.6 示例：诊断问题中的贝叶斯公式</h3><ul>
+<li><p>某疾病的患病率为 $P(D) &#x3D; 0.01$</p>
+</li>
+<li><p>检测准确率如下：</p>
+<ul>
+<li>真阳性率：$P(\text{Pos} \mid D) &#x3D; 0.99$</li>
+<li>假阳性率：$P(\text{Pos} \mid D^c) &#x3D; 0.05$</li>
+</ul>
+</li>
+</ul>
+<p>问：一个人检测为阳性，实际患病的概率是多少？即求：</p>
+<p>$$<br>P(D \mid \text{Pos}) &#x3D; \frac{P(D) \cdot P(\text{Pos} \mid D)}{P(D) \cdot P(\text{Pos} \mid D) + P(D^c) \cdot P(\text{Pos} \mid D^c)}<br>$$</p>
+<p>代入得：</p>
+<p>$$<br>P(D \mid \text{Pos}) &#x3D; \frac{0.01 \cdot 0.99}{0.01 \cdot 0.99 + 0.99 \cdot 0.05} \approx 0.1667<br>$$</p>
+<blockquote>
+<p>✅ 即使测试很准，但因为总体患病率低，**阳性者真的患病的概率只有约 16.7%**，这就是贝叶斯定理的威力。</p>
+</blockquote>
+<h2 id="4-全概率公式（Law-of-Total-Probability）"><a href="#4-全概率公式（Law-of-Total-Probability）" class="headerlink" title="4. 全概率公式（Law of Total Probability）"></a>4. 全概率公式（Law of Total Probability）</h2><h3 id="4-1-定义与背景"><a href="#4-1-定义与背景" class="headerlink" title="4.1 定义与背景"></a>4.1 定义与背景</h3><p>在很多实际问题中，我们很难直接计算一个事件 $A$ 的概率，但我们可以将样本空间划分成若干个互不相交的子事件 $B_1, B_2, \dots, B_n$，然后利用这些子事件来<strong>间接求 $A$ 的概率</strong>，这就是<strong>全概率公式</strong>的思想。</p>
+<hr>
+<h3 id="4-2-全概率公式内容"><a href="#4-2-全概率公式内容" class="headerlink" title="4.2 全概率公式内容"></a>4.2 全概率公式内容</h3><p>设事件组 ${B_1, B_2, \dots, B_n}$ 满足：</p>
+<ul>
+<li>两两互不相交（即 $B_i \cap B_j &#x3D; \varnothing,\ i \ne j$）</li>
+<li>它们构成对样本空间 $\Omega$ 的一个划分（即 $\bigcup_{i&#x3D;1}^n B_i &#x3D; \Omega$）</li>
+<li>每个 $B_i$ 的概率都大于 0，即 $P(B_i) &gt; 0$</li>
+</ul>
+<p>则对于任意事件 $A$，有：</p>
+<p>$$<br>P(A) &#x3D; \sum_{i&#x3D;1}^{n} P(B_i) \cdot P(A \mid B_i)<br>$$</p>
+<hr>
+<h3 id="4-3-通俗理解"><a href="#4-3-通俗理解" class="headerlink" title="4.3 通俗理解"></a>4.3 通俗理解</h3><p>可以理解为：</p>
+<blockquote>
+<p><strong>“事件 $A$ 的发生可能由若干种不同的原因 $B_i$ 导致，分别计算在每种原因下 $A$ 的条件概率，然后按每种原因发生的概率加权求和。”</strong></p>
+</blockquote>
+<hr>
+<h3 id="4-4-推导思路"><a href="#4-4-推导思路" class="headerlink" title="4.4 推导思路"></a>4.4 推导思路</h3><p>根据乘法公式：</p>
+<p>$$<br>P(A \cap B_i) &#x3D; P(B_i) \cdot P(A \mid B_i)<br>$$</p>
+<p>又因为 $A$ 可以表示为：</p>
+<p>$$<br>A &#x3D; (A \cap B_1) \cup (A \cap B_2) \cup \dots \cup (A \cap B_n)<br>$$</p>
+<p>且这些交集事件互不相交，于是有：</p>
+<p>$$<br>P(A) &#x3D; \sum_{i&#x3D;1}^{n} P(A \cap B_i) &#x3D; \sum_{i&#x3D;1}^{n} P(B_i) \cdot P(A \mid B_i)<br>$$</p>
+<hr>
+<h3 id="4-5-经典例题"><a href="#4-5-经典例题" class="headerlink" title="4.5 经典例题"></a>4.5 经典例题</h3><blockquote>
+<p>一个工厂有三台机器 $M_1$, $M_2$, $M_3$ 生产产品，它们分别生产 30%、50%、20% 的产品，次品率分别是 2%、3%、4%。问：<strong>随机取出一个产品，它是次品的概率是多少？</strong></p>
+</blockquote>
+<p>设：</p>
+<ul>
+<li>$B_1$：来自 $M_1$，$P(B_1) &#x3D; 0.3$，$P(\text{次品} \mid B_1) &#x3D; 0.02$</li>
+<li>$B_2$：来自 $M_2$，$P(B_2) &#x3D; 0.5$，$P(\text{次品} \mid B_2) &#x3D; 0.03$</li>
+<li>$B_3$：来自 $M_3$，$P(B_3) &#x3D; 0.2$，$P(\text{次品} \mid B_3) &#x3D; 0.04$</li>
+</ul>
+<p>代入全概率公式：</p>
+<p>$$<br>\begin{aligned}<br>P(\text{次品}) &amp;&#x3D; P(B_1) \cdot P(\text{次品} \mid B_1) + P(B_2) \cdot P(\text{次品} \mid B_2) + P(B_3) \cdot P(\text{次品} \mid B_3) \\<br>&amp;&#x3D; 0.3 \cdot 0.02 + 0.5 \cdot 0.03 + 0.2 \cdot 0.04 \\<br>&amp;&#x3D; 0.006 + 0.015 + 0.008 &#x3D; 0.029<br>\end{aligned}<br>$$</p>
+<blockquote>
+<p>所以产品是次品的概率为2.9%。</p>
+</blockquote>
 
                 
               </div>
