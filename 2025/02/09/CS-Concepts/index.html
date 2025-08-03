@@ -42,9 +42,12 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/cache3.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/superscalar.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/tlb.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/random.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/linear.svg">
+<meta property="og:image" content="http://toutou.zeabur.app/img/concepts/logistic.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T14:25:17.000Z">
-<meta property="article:modified_time" content="2025-07-19T11:16:40.948Z">
+<meta property="article:modified_time" content="2025-08-03T15:54:11.603Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -248,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k words
+          6.7k words
         
       </span>
     
@@ -259,7 +262,7 @@
         
         
         
-          39 mins
+          57 mins
         
       </span>
     
@@ -2528,7 +2531,436 @@ F  → (E) | id<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <td>❌ No (some problems are undecidable)</td>
 </tr>
 </tbody></table>
-<h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
+<h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h3 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h3><p><strong>Random Forest</strong> 是一种基于 <strong>集成学习（Ensemble Learning）</strong> 的分类或回归算法，它将多个 <strong>决策树（Decision Tree）</strong> 组合在一起，通过“投票”或“平均”的方式得到最终结果。</p>
+<blockquote>
+<p>它是一种 <strong>Bagging（Bootstrap Aggregation）</strong> 方法，用于减少过拟合、提升泛化能力。</p>
+</blockquote>
+<p><strong>📦 应用于场景</strong></p>
+<ul>
+<li><strong>分类任务</strong>：判断邮件是否垃圾</li>
+<li><strong>回归任务</strong>：预测房价</li>
+<li><strong>特征重要性分析</strong>：哪些变量对预测结果影响最大？</li>
+</ul>
+<p><strong>🧠 核心思想</strong></p>
+<p><strong>多个“弱学习器”</strong>（即单棵决策树）在数据子集上独立训练，然后<strong>集成</strong>它们的预测结果。</p>
+<p><strong>⚙️ 构造过程（算法流程）</strong></p>
+<p>Step 1️⃣：Bootstrap 采样（有放回抽样）</p>
+<p>从训练数据集中<strong>有放回地随机抽样</strong> $N$ 次，构成若干个训练子集（每棵树用一份）</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">原始数据 D = &#123;x1, x2, ..., xn&#125;
+→ 样本子集 D1, D2, ..., Dk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<p>Step 2️⃣：训练多棵决策树（树的多样性来源之一）</p>
+<p>对每个子集 $D_i$ 训练一棵<strong>决策树</strong>，但每个节点划分时只使用<strong>随机选择的部分特征</strong>（通常 $\sqrt{M}$ 个特征）</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">例如：总共有 100 个特征，每个节点只从随机选出的 10 个特征中选择最佳划分<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>Step 3️⃣：集成预测结果</p>
+<ul>
+<li><strong>分类任务</strong>：采用<strong>多数投票</strong>（majority vote）</li>
+<li><strong>回归任务</strong>：采用<strong>平均值</strong>（average）</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 分类投票</span>
+final_class <span class="token operator">=</span> most_common<span class="token punctuation">(</span><span class="token punctuation">[</span>tree<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> tree <span class="token keyword">in</span> forest<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 回归平均</span>
+final_value <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> tree <span class="token keyword">in</span> forest<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token builtin">len</span><span class="token punctuation">(</span>forest<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>🧩 为什么 Random Forest 有效？</p>
+<p>🎯 降低过拟合</p>
+<ul>
+<li>单棵树容易对噪声拟合（高方差）</li>
+<li>多棵树平均可以“相互抵消”过拟合的部分</li>
+</ul>
+<p>🎯 提高泛化能力</p>
+<ul>
+<li>利用数据和特征的随机性，使得每棵树不太相同，整体更强大</li>
+</ul>
+<p>🎯 可并行训练（每棵树相互独立）</p>
+<p><strong>🔍 特征重要性评估</strong></p>
+<p>每棵树训练后可计算各特征在信息增益或 Gini 指数上的贡献<br>→ 可以评估哪些变量对模型影响最大</p>
+<p>📊 时间与空间复杂度</p>
+<p>设：</p>
+<ul>
+<li>$n$：样本数量</li>
+<li>$m$：特征数量</li>
+<li>$k$：树的数量</li>
+<li>$d$：树的平均深度</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>训练时间</td>
+<td>$O(k \cdot n \cdot \log n \cdot m’)$（$m’ \ll m$）</td>
+</tr>
+<tr>
+<td>推理时间</td>
+<td>$O(k \cdot d)$</td>
+</tr>
+<tr>
+<td>空间复杂度</td>
+<td>$O(k \cdot n)$（每棵树存储路径）</td>
+</tr>
+</tbody></table>
+<p> ✅ 优点总结</p>
+<ul>
+<li>不容易过拟合</li>
+<li>可处理高维数据</li>
+<li>对异常值不敏感</li>
+<li>支持特征重要性排序</li>
+<li>适合并行处理</li>
+</ul>
+<p>⚠️ 缺点</p>
+<ul>
+<li>相比单棵树可解释性较差</li>
+<li>训练时间较长</li>
+<li>若样本不平衡，分类性能可能下降</li>
+</ul>
+<p>📌 Python示例（使用 <code>sklearn</code>）</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>ensemble <span class="token keyword">import</span> RandomForestClassifier
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+
+<span class="token comment"># 加载数据</span>
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> load_iris<span class="token punctuation">(</span>return_X_y<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+X_train<span class="token punctuation">,</span> X_test<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> y_test <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">,</span> test_size<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 训练随机森林</span>
+clf <span class="token operator">=</span> RandomForestClassifier<span class="token punctuation">(</span>n_estimators<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> max_features<span class="token operator">=</span><span class="token string">'sqrt'</span><span class="token punctuation">)</span>
+clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span>
+
+<span class="token comment"># 预测</span>
+y_pred <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p><strong>📖 总结表格</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型类型</td>
+<td>集成学习（Bagging）</td>
+</tr>
+<tr>
+<td>基学习器</td>
+<td>决策树</td>
+</tr>
+<tr>
+<td>多样性来源</td>
+<td>数据采样 + 特征子集选择</td>
+</tr>
+<tr>
+<td>聚合方式</td>
+<td>多数投票（分类） &#x2F; 平均（回归）</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>抗过拟合、稳定、能评估特征重要性</td>
+</tr>
+<tr>
+<td>常用库</td>
+<td><code>scikit-learn</code>、<code>xgboost</code>、<code>lightgbm</code>（变种）</td>
+</tr>
+</tbody></table>
+<img src="/img/concepts/random.svg" srcset="/img/loading.gif" lazyload alt="随机森林" style="max-width: 100%; height: auto;" />
+
+
+<hr>
+<h3 id="线性回归（Linear-Regression）"><a href="#线性回归（Linear-Regression）" class="headerlink" title="线性回归（Linear Regression）"></a>线性回归（Linear Regression）</h3><p><strong>线性回归</strong>是一种基础的监督学习算法，用于建立<strong>特征变量（自变量）</strong> 与 <strong>目标变量（因变量）</strong> 之间的<strong>线性关系</strong>模型：</p>
+<p>$$<br>\hat{y} &#x3D; w_1x_1 + w_2x_2 + \dots + w_nx_n + b &#x3D; \mathbf{w}^\top \mathbf{x} + b<br>$$</p>
+<ul>
+<li>$\hat{y}$：预测值</li>
+<li>$\mathbf{x}$：输入特征向量（如 $[x_1, x_2, …, x_n]$）</li>
+<li>$\mathbf{w}$：权重向量（参数）</li>
+<li>$b$：偏置项（intercept）</li>
+</ul>
+<p>🎯 目标</p>
+<p>找到一组参数 $(\mathbf{w}, b)$，使得预测值 $\hat{y}$ <strong>尽可能接近真实值 $y$</strong>。</p>
+<p>📐 损失函数（Loss Function）</p>
+<p>我们最常用的是<strong>均方误差（Mean Squared Error, MSE）</strong>：</p>
+<p>$$<br>J(\mathbf{w}, b) &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)^2<br>&#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} \left( \mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)} \right)^2<br>$$</p>
+<ul>
+<li>$m$：样本数</li>
+<li>最小化 $J(\mathbf{w}, b)$ 就是训练过程的目标</li>
+</ul>
+<p>⚙️ 求解方法</p>
+<p>1️⃣ <strong>正规方程法（Normal Equation）</strong> —— 精确解法</p>
+<p>直接对损失函数求导并解方程：</p>
+<p>$$<br>\mathbf{w} &#x3D; (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}<br>$$</p>
+<ul>
+<li>$\mathbf{X}$：$m \times n$ 的特征矩阵</li>
+<li>$\mathbf{y}$：$m \times 1$ 的目标值向量</li>
+<li>要求 $\mathbf{X}^\top \mathbf{X}$ 可逆（数值稳定性差时需用伪逆）</li>
+</ul>
+<blockquote>
+<p>优点：计算精确<br>缺点：复杂度高 $O(n^3)$，不适合高维大数据</p>
+</blockquote>
+<p>2️⃣ <strong>梯度下降法（Gradient Descent）</strong> —— 近似解法</p>
+<p>对损失函数求偏导，使用迭代方式逼近最优：</p>
+<p>参数更新公式：</p>
+<ul>
+<li><p>对权重：</p>
+<p>$$<br>w_j \leftarrow w_j - \alpha \cdot \frac{\partial J}{\partial w_j}<br>$$</p>
+</li>
+<li><p>对偏置：</p>
+<p>$$<br>b \leftarrow b - \alpha \cdot \frac{\partial J}{\partial b}<br>$$</p>
+</li>
+</ul>
+<p>导数计算结果：</p>
+<p>$$<br>\frac{\partial J}{\partial w_j} &#x3D; \frac{2}{m} \sum_{i&#x3D;1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right) x_j^{(i)}<br>$$</p>
+<p>$$<br>\frac{\partial J}{\partial b} &#x3D; \frac{2}{m} \sum_{i&#x3D;1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)<br>$$</p>
+<p>梯度下降伪代码：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">repeat until converge<span class="token punctuation">:</span>
+    w <span class="token operator">-=</span> alpha <span class="token operator">*</span> gradient_w
+    b <span class="token operator">-=</span> alpha <span class="token operator">*</span> gradient_b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<blockquote>
+<p>优点：适用于大数据集；可在线学习<br>缺点：需调学习率 $\alpha$，收敛较慢</p>
+</blockquote>
+<p>📊 时间复杂度对比</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>时间复杂度</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正规方程法</td>
+<td>$O(n^3)$</td>
+<td>精确但慢</td>
+</tr>
+<tr>
+<td>梯度下降</td>
+<td>$O(knm)$（$k$ 次迭代）</td>
+<td>可调，适合大数据</td>
+</tr>
+</tbody></table>
+<p>📚 Python 示例代码（使用 sklearn）</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LinearRegression
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> make_regression
+
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> make_regression<span class="token punctuation">(</span>n_samples<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> n_features<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> noise<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+model <span class="token operator">=</span> LinearRegression<span class="token punctuation">(</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"权重:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>coef_<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"偏置:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>intercept_<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>📈 可视化例子</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">房价预测：
+x = 面积（㎡），y = 房价（万）
+训练后模型为：y = 1.5x + 20
+
+→ 当输入 x = 100㎡，预测 y = 170万<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p> ✅ 总结</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输入</td>
+<td>多维特征 $\mathbf{x}$</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>连续变量 $\hat{y}$</td>
+</tr>
+<tr>
+<td>模型形式</td>
+<td>线性函数：$\hat{y} &#x3D; \mathbf{w}^\top \mathbf{x} + b$</td>
+</tr>
+<tr>
+<td>损失函数</td>
+<td>均方误差 MSE</td>
+</tr>
+<tr>
+<td>求解方式</td>
+<td>正规方程 or 梯度下降</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>预测问题（价格、评分、趋势）</td>
+</tr>
+</tbody></table>
+<img src="/img/concepts/linear.svg" srcset="/img/loading.gif" lazyload alt="线性回归" style="max-width: 100%; height: auto;" />
+
+
+<hr>
+<h3 id="逻辑回归（Logistic-Regression）"><a href="#逻辑回归（Logistic-Regression）" class="headerlink" title="逻辑回归（Logistic Regression）"></a>逻辑回归（Logistic Regression）</h3><p>逻辑回归用于预测事件发生的<strong>概率</strong>，并将其映射为 0 或 1 等类别。</p>
+<blockquote>
+<p><strong>目标</strong>：学习一个模型，输入特征 $\mathbf{x}$，输出 $\mathbb{P}(y &#x3D; 1 \mid \mathbf{x})$。</p>
+</blockquote>
+<p>⚙️ 模型结构</p>
+<p>逻辑回归的基本模型是：</p>
+<p>$$<br>\hat{y} &#x3D; \sigma(\mathbf{w}^\top \mathbf{x} + b)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$\mathbf{x}$ 是输入特征向量</li>
+<li>$\mathbf{w}$ 是权重向量</li>
+<li>$b$ 是偏置项</li>
+<li>$\sigma(z)$ 是<strong>sigmoid 激活函数</strong>，将任意实数压缩到 $(0,1)$ 区间</li>
+</ul>
+<p>🔁 Sigmoid 函数定义：</p>
+<p>$$<br>\sigma(z) &#x3D; \frac{1}{1 + e^{-z}}<br>$$</p>
+<p>图像如下：</p>
+<ul>
+<li>当 $z \gg 0$，$\sigma(z) \approx 1$</li>
+<li>当 $z \ll 0$，$\sigma(z) \approx 0$</li>
+<li>当 $z &#x3D; 0$，$\sigma(z) &#x3D; 0.5$</li>
+</ul>
+<p>🎯 输出解释</p>
+<p>逻辑回归输出的是一个<strong>概率</strong>：</p>
+<p>$$<br>\hat{y} &#x3D; \mathbb{P}(y &#x3D; 1 \mid \mathbf{x})<br>$$</p>
+<p>决策规则（threshold）：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">if 𝑃(y=1 | x) ≥ 0.5 → 预测为类1
+else → 预测为类0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+
+<img src="/img/concepts/logistic.svg" srcset="/img/loading.gif" lazyload alt="逻辑回归" style="max-width: 100%; height: auto;" />
+
+<p>📉 损失函数（对数似然损失）</p>
+<p>使用的是<strong>对数损失函数（Log Loss）</strong>，源自最大似然估计：</p>
+<p>$$<br>\mathcal{L}(\mathbf{w}, b) &#x3D; -\frac{1}{m} \sum_{i&#x3D;1}^{m} \left[<br>y^{(i)} \log \hat{y}^{(i)} + (1 - y^{(i)}) \log (1 - \hat{y}^{(i)})<br>\right]<br>$$</p>
+<blockquote>
+<ul>
+<li>如果预测 $\hat{y} \to y$，损失很小；</li>
+<li>如果预测相反，损失急剧上升（比如预测为 0.01 实际为 1）</li>
+</ul>
+</blockquote>
+<p>🔁 参数求解方法：梯度下降</p>
+<p>由于损失函数非线性，无法用正规方程解，需使用<strong>数值优化方法</strong>：</p>
+<p>梯度更新公式（对损失函数求偏导）：</p>
+<ul>
+<li>对 $w_j$ 的梯度：</li>
+</ul>
+<p>$$<br>\frac{\partial \mathcal{L}}{\partial w_j} &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (\hat{y}^{(i)} - y^{(i)}) x_j^{(i)}<br>$$</p>
+<ul>
+<li>对 $b$ 的梯度：</li>
+</ul>
+<p>$$<br>\frac{\partial \mathcal{L}}{\partial b} &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (\hat{y}^{(i)} - y^{(i)})<br>$$</p>
+<p>更新方法：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">w <span class="token operator">-=</span> alpha <span class="token operator">*</span> grad_w
+b <span class="token operator">-=</span> alpha <span class="token operator">*</span> grad_b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<p>📊 举例</p>
+<p>假设我们要预测一个人是否患糖尿病：</p>
+<ul>
+<li>$x_1$ &#x3D; 年龄，$x_2$ &#x3D; BMI</li>
+<li>$y \in {0, 1}$ 表示是否患病</li>
+</ul>
+<p>训练后模型为：</p>
+<p>$$<br>\hat{y} &#x3D; \sigma(0.8x_1 + 1.2x_2 - 15)<br>$$</p>
+<p>✅ 优点</p>
+<table>
+<thead>
+<tr>
+<th>优点</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单高效</td>
+<td>算法易于实现，计算代价低</td>
+</tr>
+<tr>
+<td>输出概率</td>
+<td>可用于风险建模、排序等任务</td>
+</tr>
+<tr>
+<td>可解释性强</td>
+<td>系数可表示每个特征对结果的影响方向与强度</td>
+</tr>
+<tr>
+<td>可扩展为多分类 Softmax</td>
+<td>支持逻辑回归的多类扩展</td>
+</tr>
+</tbody></table>
+<p>⚠️ 缺点</p>
+<table>
+<thead>
+<tr>
+<th>缺点</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线性可分性假设</td>
+<td>不能处理复杂非线性关系</td>
+</tr>
+<tr>
+<td>对异常值敏感</td>
+<td>特征未归一化时，模型不稳定</td>
+</tr>
+<tr>
+<td>容易欠拟合</td>
+<td>如果数据不是线性可分，拟合效果差</td>
+</tr>
+</tbody></table>
+<p>📚 Python 示例代码（<code>sklearn</code>）</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LogisticRegression
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+
+<span class="token comment"># 加载数据（仅用前两个类别做二分类）</span>
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> load_iris<span class="token punctuation">(</span>return_X_y<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> X<span class="token punctuation">[</span>y <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y<span class="token punctuation">[</span>y <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">]</span>
+
+X_train<span class="token punctuation">,</span> X_test<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> y_test <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+
+model <span class="token operator">=</span> LogisticRegression<span class="token punctuation">(</span><span class="token punctuation">)</span>
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"预测概率:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"预测结果:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>🔄 与线性回归的区别</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>线性回归</th>
+<th>逻辑回归</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输出</td>
+<td>实数</td>
+<td>概率值 $\in (0, 1)$</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>回归问题（连续值）</td>
+<td>分类问题（二分类&#x2F;多分类）</td>
+</tr>
+<tr>
+<td>激活函数</td>
+<td>无</td>
+<td>Sigmoid &#x2F; Softmax</td>
+</tr>
+<tr>
+<td>损失函数</td>
+<td>均方误差 MSE</td>
+<td>对数损失 Log Loss</td>
+</tr>
+<tr>
+<td>拟合方式</td>
+<td>最小二乘或梯度下降</td>
+<td>最大似然估计（MLE） + 梯度下降</td>
+</tr>
+</tbody></table>
+<h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
 <li><strong>Scalable</strong>: Works well even with thousands of nodes.</li>
