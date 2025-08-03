@@ -59,7 +59,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/DSA/lcs.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/DSA/needle.svg">
 <meta property="article:published_time" content="2024-09-10T14:51:46.000Z">
-<meta property="article:modified_time" content="2025-07-27T01:22:43.144Z">
+<meta property="article:modified_time" content="2025-08-03T13:05:31.847Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="DSA">
@@ -263,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17k words
+          19k words
         
       </span>
     
@@ -274,7 +274,7 @@
         
         
         
-          145 mins
+          157 mins
         
       </span>
     
@@ -1722,6 +1722,219 @@ u3 - v3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <img src="/img/DSA/bha.svg" srcset="/img/loading.gif" lazyload alt="匈牙利算法" style="max-width: 100%; height: auto;" />
 
 
+<hr>
+<h3 id="5-9-欧拉路径-Eulerian-Path"><a href="#5-9-欧拉路径-Eulerian-Path" class="headerlink" title="5.9 欧拉路径(Eulerian Path)"></a>5.9 欧拉路径(Eulerian Path)</h3><p>欧拉路径算法适用于：</p>
+<ul>
+<li><p><strong>无向图</strong>或<strong>有向图</strong></p>
+</li>
+<li><p>使用以下常见数据结构表示图：</p>
+<ul>
+<li>邻接表（推荐）</li>
+<li>邻接矩阵（适合稠密图）</li>
+</ul>
+</li>
+</ul>
+<p><strong>Python中的邻接表：</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">graph <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token number">0</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token number">1</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token number">2</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p><strong>欧拉路径判定条件（算法判断步骤）</strong></p>
+<p>🎯 对于<strong>无向图</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">has_eulerian_path_undirected</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    odd_degree_count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> node <span class="token keyword">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            odd_degree_count <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> odd_degree_count <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> odd_degree_count <span class="token operator">==</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<blockquote>
+<p>若有0个或2个奇数度顶点 → 存在欧拉路径。</p>
+</blockquote>
+<p><strong>🎯 对于有向图</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">has_eulerian_path_directed</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    in_deg <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    out_deg <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">for</span> u <span class="token keyword">in</span> graph<span class="token punctuation">:</span>
+        out_deg<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> v <span class="token keyword">in</span> graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            in_deg<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> in_deg<span class="token punctuation">.</span>get<span class="token punctuation">(</span>v<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+            in_deg<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span>u<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            out_deg<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span>v<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    
+    start_nodes <span class="token operator">=</span> end_nodes <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> node <span class="token keyword">in</span> graph<span class="token punctuation">:</span>
+        out_d <span class="token operator">=</span> out_deg<span class="token punctuation">.</span>get<span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        in_d <span class="token operator">=</span> in_deg<span class="token punctuation">.</span>get<span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> out_d <span class="token operator">-</span> in_d <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            start_nodes <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">elif</span> in_d <span class="token operator">-</span> out_d <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            end_nodes <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">elif</span> in_d <span class="token operator">!=</span> out_d<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>start_nodes <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">and</span> end_nodes <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">(</span>start_nodes <span class="token operator">==</span> <span class="token number">1</span> <span class="token keyword">and</span> end_nodes <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p><strong>欧拉路径构造算法（Hierholzer’s Algorithm）</strong></p>
+<blockquote>
+<p>更高效于 Fleury 算法，时间复杂度为 $O(E)$，适合稀疏图。</p>
+</blockquote>
+<p><strong>💡 算法思路（无向图为例）</strong></p>
+<ol>
+<li>从一个合法的起点出发（若有奇数度，则从奇数度顶点开始）</li>
+<li>用<strong>栈</strong>模拟 DFS 深度优先遍历路径</li>
+<li>每次走一条边，就把它“删掉”</li>
+<li>如果当前节点没有边了，把它弹出，加入结果路径</li>
+<li>最终路径反转后即为欧拉路径</li>
+</ol>
+<p><strong>🚀 Python实现（无向图）</strong></p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+
+<span class="token keyword">def</span> <span class="token function">find_eulerian_path</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    graph <span class="token operator">=</span> <span class="token punctuation">&#123;</span>u<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>vs<span class="token punctuation">)</span> <span class="token keyword">for</span> u<span class="token punctuation">,</span> vs <span class="token keyword">in</span> graph<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+    stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token comment"># 选择起点：奇数度点，如果没有就任选一个</span>
+    start <span class="token operator">=</span> <span class="token builtin">next</span><span class="token punctuation">(</span><span class="token punctuation">(</span>u <span class="token keyword">for</span> u <span class="token keyword">in</span> graph <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">next</span><span class="token punctuation">(</span><span class="token builtin">iter</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>start<span class="token punctuation">)</span>
+
+    <span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+        u <span class="token operator">=</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            v <span class="token operator">=</span> graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            graph<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span>remove<span class="token punctuation">(</span>u<span class="token punctuation">)</span>  <span class="token comment"># 对于无向图，要从两边删除</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            path<span class="token punctuation">.</span>append<span class="token punctuation">(</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> path<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment"># 反转得到正向路径</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>🌟 示例输入</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">graph <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token number">0</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token number">1</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token number">2</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token number">3</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
+
+path <span class="token operator">=</span> find_eulerian_path<span class="token punctuation">(</span>graph<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Eulerian Path:"</span><span class="token punctuation">,</span> path<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>输出可能为：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Eulerian Path: [0, 1, 3, 2, 1]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>🏁 总结：欧拉路径判定与构造流程</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>无向图</th>
+<th>有向图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>判定是否存在欧拉路径</td>
+<td>奇度点数是0或2</td>
+<td>至多1个出度多1和1个入度多1</td>
+</tr>
+<tr>
+<td>起点选择</td>
+<td>若有奇度，从奇度点；否则任意</td>
+<td>出度多1的点；否则任意</td>
+</tr>
+<tr>
+<td>构造路径</td>
+<td>Hierholzer 算法</td>
+<td>同样可以用 Hierholzer，但注意方向</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="5-9-1-欧拉路径相关命题证明"><a href="#5-9-1-欧拉路径相关命题证明" class="headerlink" title="5.9.1 欧拉路径相关命题证明"></a>5.9.1 欧拉路径相关命题证明</h4><p><strong>命题1</strong>：一个<strong>连通</strong>的无向图存在欧拉路径的充要条件是：<br>图中<strong>奇数度顶点的个数是 0 或 2</strong>。</p>
+<p>✏️ 证明（无向图）</p>
+<p>记图为 $G &#x3D; (V, E)$。</p>
+<p>我们需要证明两个方向：</p>
+<p>✅ 正向：存在欧拉路径 ⟹ 奇数度点数为 0 或 2</p>
+<p>设图存在一条欧拉路径 $P$，从 $s$ 到 $t$，路径中每条边仅出现一次。</p>
+<p>观察路径中每个点的度数：</p>
+<ul>
+<li>对于路径中<strong>中间的每个顶点</strong>（即既非起点 $s$ 也非终点 $t$），每次到达它后都必须离开它，所以它们的度数一定是<strong>偶数</strong>。</li>
+<li>如果路径首尾 $s \neq t$，那么 $s$ 只有“出”而没有“入”，$t$ 只有“入”而没有“出”，所以它们的度数都是奇数。</li>
+<li>如果路径是一个回路（$s &#x3D; t$），那么所有点的度数都是偶数。</li>
+</ul>
+<p>因此，图中奇数度顶点最多只能有两个（$s$ 和 $t$），否则不能形成欧拉路径。</p>
+<p>✅ 所以：<strong>奇数度点数为 0（回路）或 2（非回路）</strong>。</p>
+<hr>
+<p>✅ 反向：奇数度点数为 0 或 2 ⟹ 存在欧拉路径</p>
+<p>我们考虑两种情况：</p>
+<ol>
+<li><p><strong>若所有顶点的度数都是偶数</strong>（即奇度点数 &#x3D; 0）：</p>
+<p>欧拉回路存在（Hierholzer 算法可构造）。回路是一种特殊的路径，因此欧拉路径也存在。</p>
+</li>
+<li><p><strong>若恰好两个奇数度顶点</strong>：</p>
+<p>假设这两个点为 $u$ 和 $v$。我们构造一个新图 $G’$，在 $u$ 和 $v$ 之间加一条边 $(u, v)$。</p>
+<ul>
+<li>由于 $u$ 和 $v$ 原本为奇度，加上一条边后变为偶度，其余点度数不变。</li>
+<li>所以 $G’$ 所有顶点都是偶数度 ⇒ $G’$ 有欧拉<strong>回路</strong>。</li>
+<li>在 $G’$ 的欧拉回路中，必定会经过 $(u, v)$。我们从 $u$ 出发，走完整个回路，第一次遇到 $(u, v)$ 时就把它“切开”，只留下从 $u$ 到 $v$ 的路径 ⇒ $G$ 的欧拉路径。</li>
+</ul>
+</li>
+</ol>
+<p>✅ 所以：<strong>奇数度点数为 0 或 2 ⇒ 存在欧拉路径</strong>。</p>
+<hr>
+<p><strong>📌 命题二（有向图）</strong></p>
+<p><strong>命题</strong>：一个<strong>连通</strong>的有向图存在欧拉路径的充要条件是：</p>
+<ul>
+<li>所有顶点满足 $in(v) &#x3D; out(v)$，或者</li>
+<li>恰有一个顶点 $s$ 满足 $out(s) &#x3D; in(s) + 1$，一个顶点 $t$ 满足 $in(t) &#x3D; out(t) + 1$，其余点 $in &#x3D; out$</li>
+</ul>
+<p><strong>✅ 正向：存在欧拉路径 ⟹ 满足上述条件</strong></p>
+<p>假设存在欧拉路径，从顶点 $s$ 到 $t$。</p>
+<p>观察每个顶点的入度 $in(v)$ 与出度 $out(v)$：</p>
+<ul>
+<li>对于中间点（既非 $s$ 也非 $t$）：每进一次就必须出一次 ⇒ $in &#x3D; out$</li>
+<li>起点 $s$：出度比入度多1 ⇒ $out(s) &#x3D; in(s) + 1$</li>
+<li>终点 $t$：入度比出度多1 ⇒ $in(t) &#x3D; out(t) + 1$</li>
+</ul>
+<p>所以图中必须恰好有：</p>
+<ul>
+<li>一个顶点出度多1（起点）</li>
+<li>一个顶点入度多1（终点）</li>
+<li>其他点 $in &#x3D; out$</li>
+</ul>
+<p>或如果是回路情况，则所有点 $in &#x3D; out$</p>
+<p><strong>✅ 反向：满足上述度数条件 ⟹ 存在欧拉路径</strong></p>
+<p>和无向图类似：</p>
+<ul>
+<li><p>如果所有点 $in &#x3D; out$，我们可以从任意点出发，构造一个欧拉<strong>回路</strong>。</p>
+</li>
+<li><p>如果恰有 $s, t$ 满足上述不等度条件：</p>
+<ul>
+<li>我们向图中加入一条边 $(t \to s)$，使得所有点满足 $in &#x3D; out$。</li>
+<li>在新图中存在欧拉回路。</li>
+<li>在这个回路中，$(t \to s)$ 是某一段，我们将其“切断”，得到从 $s$ 到 $t$ 的欧拉路径。</li>
+</ul>
+</li>
+</ul>
+<p><strong>✅ 结论总结</strong></p>
+<table>
+<thead>
+<tr>
+<th>图类型</th>
+<th>欧拉路径存在条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无向图</td>
+<td>图连通且奇度点数为 0 或 2</td>
+</tr>
+<tr>
+<td>有向图</td>
+<td>图连通且：<br>① 所有点 $in &#x3D; out$（回路）<br>② 或存在 $s, t$，满足 $out(s) &#x3D; in(s)+1$，$in(t) &#x3D; out(t)+1$，其余点 $in &#x3D; out$（路径）</td>
+</tr>
+</tbody></table>
 <h2 id="6-Greedy-Algorithm"><a href="#6-Greedy-Algorithm" class="headerlink" title="6. Greedy Algorithm"></a>6. Greedy Algorithm</h2><p><strong>贪心算法</strong>是一种算法设计范式，其核心思想是：在解决问题时，总是做出在当前状态下看起来最优的选择，即局部最优解，希望通过一系列这样的选择能够最终得到全局最优解。这个算法理解起来非常直观，但是合理性证明的话需要严格的数学证明。本章着重讲解最经典的<strong>最大子序和问题（Maximum Subarray）</strong> 和<strong>合并区间问题（Merge Intervals）</strong></p>
 <h3 id="6-1-Maximum-Subarray"><a href="#6-1-Maximum-Subarray" class="headerlink" title="6.1 Maximum Subarray"></a>6.1 Maximum Subarray</h3><p>这道问题可以直接上<a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-subarray/description/">Leetcode 53题</a>练习。</p>
 <blockquote>
