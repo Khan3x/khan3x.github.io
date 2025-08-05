@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-08-05T10:06:47.892Z">
+<meta property="article:modified_time" content="2025-08-05T10:15:47.095Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8k words
+          8.8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          68 mins
+          74 mins
         
       </span>
     
@@ -1331,6 +1331,74 @@
 <li>边缘分布仍为正态</li>
 <li>条件分布仍为正态</li>
 </ul>
+<h2 id="16-联合密度函数（Joint-Probability-Density-Function）"><a href="#16-联合密度函数（Joint-Probability-Density-Function）" class="headerlink" title="16. 联合密度函数（Joint Probability Density Function）"></a>16. 联合密度函数（Joint Probability Density Function）</h2><h3 id="16-1-定义"><a href="#16-1-定义" class="headerlink" title="16.1. 定义"></a>16.1. 定义</h3><p>设 $(X, Y)$ 是二维连续型随机变量，如果存在函数 $f(x, y)$ 满足：</p>
+<p>$$<br>P((X, Y) \in A) &#x3D; \iint_A f(x, y), dx, dy<br>$$</p>
+<p>则称 $f(x, y)$ 是 $(X, Y)$ 的 <strong>联合概率密度函数（joint PDF）</strong>。</p>
+<hr>
+<h3 id="16-2-条件（必须满足）"><a href="#16-2-条件（必须满足）" class="headerlink" title="16.2. 条件（必须满足）"></a>16.2. 条件（必须满足）</h3><ul>
+<li>$f(x, y) \ge 0$</li>
+<li>$\iint_{\mathbb{R}^2} f(x, y), dx, dy &#x3D; 1$</li>
+</ul>
+<hr>
+<h3 id="16-3-与联合分布函数的关系"><a href="#16-3-与联合分布函数的关系" class="headerlink" title="16.3. 与联合分布函数的关系"></a>16.3. 与联合分布函数的关系</h3><p>若 $F(x, y)$ 是 $(X, Y)$ 的<strong>联合分布函数</strong>，则：</p>
+<p>$$<br>f(x, y) &#x3D; \frac{\partial^2 F(x, y)}{\partial x , \partial y}<br>$$</p>
+<p>反过来，联合分布函数也可以通过密度函数积分得出：</p>
+<p>$$<br>F(x, y) &#x3D; \int_{-\infty}^x \int_{-\infty}^y f(s, t), dt, ds<br>$$</p>
+<hr>
+<h3 id="16-4-联合密度函数的重要性质与推导"><a href="#16-4-联合密度函数的重要性质与推导" class="headerlink" title="16.4. 联合密度函数的重要性质与推导"></a>16.4. 联合密度函数的重要性质与推导</h3><p>性质 1：非负性（Non-negativity）</p>
+<p>$$<br>f(x, y) \ge 0,\quad \forall (x, y)<br>$$</p>
+<p><strong>解释</strong>：这是概率的基本性质，密度函数不能为负值。</p>
+<hr>
+<p>性质 2：归一性（Normalization）</p>
+<p>$$<br>\iint_{\mathbb{R}^2} f(x, y), dx, dy &#x3D; 1<br>$$</p>
+<p><strong>推导说明</strong>：</p>
+<p>这是联合随机变量在整个二维平面上的总概率，必须为 1。</p>
+<hr>
+<p>性质 3：边缘密度（Marginal Density）</p>
+<p>通过积分“消去”一个变量来获得边缘密度函数：</p>
+<ul>
+<li><p>$X$ 的边缘密度函数：</p>
+<p>$$<br>f_X(x) &#x3D; \int_{-\infty}^{+\infty} f(x, y), dy<br>$$</p>
+</li>
+<li><p>$Y$ 的边缘密度函数：</p>
+<p>$$<br>f_Y(y) &#x3D; \int_{-\infty}^{+\infty} f(x, y), dx<br>$$</p>
+</li>
+</ul>
+<p><strong>推导说明</strong>：</p>
+<p>$$<br>f_X(x) &#x3D; \frac{d}{dx} P(X \le x) &#x3D; \frac{d}{dx} \left( \int_{-\infty}^x \int_{-\infty}^{\infty} f(s, t), dt, ds \right)<br>&#x3D; \int_{-\infty}^{\infty} f(x, y), dy<br>$$</p>
+<hr>
+<p>性质 4：概率计算公式</p>
+<p>对于任意矩形区域：</p>
+<p>$$<br>P(a &lt; X \le b,\ c &lt; Y \le d) &#x3D; \int_a^b \int_c^d f(x, y), dy, dx<br>$$</p>
+<hr>
+<p>性质 5：独立性的充要条件</p>
+<p>随机变量 $X$ 和 $Y$ 独立 <strong>当且仅当</strong>：</p>
+<p>$$<br>f(x, y) &#x3D; f_X(x) \cdot f_Y(y)<br>$$</p>
+<hr>
+<p>性质 6：条件密度函数（Conditional Density）</p>
+<ul>
+<li><p>条件密度 $X \mid Y &#x3D; y$：</p>
+<p>$$<br>f_{X \mid Y}(x \mid y) &#x3D; \frac{f(x, y)}{f_Y(y)},\quad f_Y(y) &gt; 0<br>$$</p>
+</li>
+<li><p>条件密度 $Y \mid X &#x3D; x$：</p>
+<p>$$<br>f_{Y \mid X}(y \mid x) &#x3D; \frac{f(x, y)}{f_X(x)},\quad f_X(x) &gt; 0<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="16-5-推导实例：边缘密度和条件密度"><a href="#16-5-推导实例：边缘密度和条件密度" class="headerlink" title="16.5. 推导实例：边缘密度和条件密度"></a>16.5. 推导实例：边缘密度和条件密度</h3><p>已知联合密度函数：</p>
+<p>$$<br>f(x, y) &#x3D; \begin{cases}<br>6xy, &amp; 0 &lt; x &lt; 1,\ 0 &lt; y &lt; 1,\ x + y &lt; 1 \\<br>0, &amp; \text{otherwise}<br>\end{cases}<br>$$</p>
+<p>步骤 1：验证是否为联合密度函数</p>
+<p>我们要验证归一性：</p>
+<p>$$<br>\iint_{D} f(x, y), dx, dy &#x3D; \int_0^1 \int_0^{1 - x} 6xy, dy, dx<br>$$</p>
+<p>先对 $y$ 积分：</p>
+<p>$$<br>\int_0^{1 - x} 6xy, dy &#x3D; 6x \cdot \int_0^{1 - x} y, dy &#x3D; 6x \cdot \left[ \frac{y^2}{2} \right]_0^{1 - x}<br>&#x3D; 6x \cdot \frac{(1 - x)^2}{2}<br>$$</p>
+<p>再对 $x$ 积分：</p>
+<p>$$<br>\int_0^1 3x(1 - x)^2, dx &#x3D; 3 \int_0^1 x(1 - 2x + x^2), dx<br>&#x3D; 3 \int_0^1 (x - 2x^2 + x^3), dx<br>&#x3D; 3 \left[ \frac{x^2}{2} - \frac{2x^3}{3} + \frac{x^4}{4} \right]_0^1<br>$$</p>
+<p>计算：</p>
+<p>$$<br>3 \left( \frac{1}{2} - \frac{2}{3} + \frac{1}{4} \right) &#x3D; 3 \cdot \left( \frac{6 - 8 + 3}{12} \right) &#x3D; 3 \cdot \frac{1}{12} &#x3D; \frac{1}{4}<br>$$</p>
+<p>❌ 所以 <strong>不满足归一性</strong>，我们应将 $f(x, y)$ 调整为：</p>
+<p>$$<br>f(x, y) &#x3D; \frac{6xy}{1&#x2F;4} &#x3D; 24xy<br>$$</p>
+<p>使得积分为 1。</p>
 
                 
               </div>
