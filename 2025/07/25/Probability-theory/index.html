@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-08-05T09:23:41.095Z">
+<meta property="article:modified_time" content="2025-08-05T10:06:47.892Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7k words
+          8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          59 mins
+          68 mins
         
       </span>
     
@@ -1175,6 +1175,161 @@
 </li>
 <li><p><strong>性质补充</strong>：常见于收入分布、股票价格建模等。</p>
 </li>
+</ul>
+<h2 id="15-多元随机变量及其分布"><a href="#15-多元随机变量及其分布" class="headerlink" title="15. 多元随机变量及其分布"></a>15. 多元随机变量及其分布</h2><p>多元随机变量是由多个单一随机变量组成的向量，用于描述多个变量之间的联合行为。</p>
+<h3 id="15-1-多元随机变量定义"><a href="#15-1-多元随机变量定义" class="headerlink" title="15.1. 多元随机变量定义"></a>15.1. 多元随机变量定义</h3><p>设有 $n$ 个随机变量 $X_1, X_2, \dots, X_n$，我们定义一个<strong>多元随机变量（Random Vector）</strong>：</p>
+<p>$$<br>\mathbf{X} &#x3D; \begin{bmatrix} X_1 \\ X_2 \\ \vdots \\ X_n \end{bmatrix}<br>$$</p>
+<p>若每个 $X_i$ 都是连续型随机变量，则称 $\mathbf{X}$ 是<strong>多元连续型随机变量</strong>。</p>
+<h3 id="15-2-联合分布函数（Joint-Distribution-Function）"><a href="#15-2-联合分布函数（Joint-Distribution-Function）" class="headerlink" title="15.2. 联合分布函数（Joint Distribution Function）"></a>15.2. 联合分布函数（Joint Distribution Function）</h3><p>✅ 定义：</p>
+<p>设 $(X, Y)$ 是二维随机变量，其<strong>联合分布函数</strong>定义为：</p>
+<p>$$<br>F(x, y) &#x3D; P(X \le x,\ Y \le y)<br>$$</p>
+<p>对于更高维的 $(X_1, X_2, \dots, X_n)$：</p>
+<p>$$<br>F(x_1, x_2, \dots, x_n) &#x3D; P(X_1 \le x_1,\ X_2 \le x_2,\ \dots,\ X_n \le x_n)<br>$$</p>
+<hr>
+<h4 id="15-2-1-联合分布函数的基本性质（二维情况）"><a href="#15-2-1-联合分布函数的基本性质（二维情况）" class="headerlink" title="15.2.1. 联合分布函数的基本性质（二维情况）"></a>15.2.1. 联合分布函数的基本性质（二维情况）</h4><p>设 $F(x, y) &#x3D; P(X \le x,\ Y \le y)$，则它满足以下性质：</p>
+<ol>
+<li><p><strong>单调性（Monotonicity）</strong>：</p>
+<p>$$<br>x_1 \le x_2,\ y_1 \le y_2 \Rightarrow F(x_1, y_1) \le F(x_2, y_2)<br>$$</p>
+</li>
+<li><p><strong>有界性（Boundedness）</strong>：</p>
+<p>$$<br>0 \le F(x, y) \le 1<br>$$</p>
+</li>
+<li><p><strong>右连续性（Right Continuity）</strong>：</p>
+<p>$$<br>\lim_{h \to 0^+,\ k \to 0^+} F(x + h,\ y + k) &#x3D; F(x, y)<br>$$</p>
+</li>
+<li><p><strong>极限性质（Limits at Infinity）</strong>：</p>
+<ul>
+<li>$F(+\infty,\ +\infty) &#x3D; 1$</li>
+<li>$F(-\infty,\ y) &#x3D; F(x,\ -\infty) &#x3D; 0$</li>
+<li>$F(+\infty,\ y) &#x3D; P(Y \le y)$，即为 $Y$ 的边缘分布函数</li>
+</ul>
+</li>
+<li><p><strong>概率计算（由 CDF 得出某区域概率）</strong>：</p>
+<p>$$<br>P(a &lt; X \le b,\ c &lt; Y \le d) &#x3D; F(b, d) - F(a, d) - F(b, c) + F(a, c)<br>$$</p>
+</li>
+</ol>
+<hr>
+<h4 id="15-2-2-联合分布函数的非负性（在密度函数意义下）"><a href="#15-2-2-联合分布函数的非负性（在密度函数意义下）" class="headerlink" title="15.2.2. 联合分布函数的非负性（在密度函数意义下）"></a>15.2.2. 联合分布函数的非负性（在密度函数意义下）</h4><p>若 $X, Y$ 连续，存在联合密度函数 $f(x, y)$，则：</p>
+<ul>
+<li><p>$f(x, y) \ge 0$</p>
+</li>
+<li><p>联合分布函数由密度函数积分给出：</p>
+<p>$$<br>F(x, y) &#x3D; \int_{-\infty}^x \int_{-\infty}^y f(s, t), dt, ds<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="15-3-联合分布列（Joint-Probability-Mass-Function-Joint-PMF）"><a href="#15-3-联合分布列（Joint-Probability-Mass-Function-Joint-PMF）" class="headerlink" title="15.3 联合分布列（Joint Probability Mass Function, Joint PMF）"></a>15.3 联合分布列（Joint Probability Mass Function, Joint PMF）</h3><p>当 $X, Y$ 为<strong>离散随机变量</strong>时，我们用<strong>联合分布列</strong>来描述它们的联合行为。</p>
+<p>✅ 定义：</p>
+<p>联合概率质量函数（Joint PMF）定义为：</p>
+<p>$$<br>p(x_i, y_j) &#x3D; P(X &#x3D; x_i,\ Y &#x3D; y_j)<br>$$</p>
+<p>所有可能的取值 $(x_i, y_j)$ 组成一个二维表格或函数，满足：</p>
+<ol>
+<li><p><strong>非负性</strong>：</p>
+<p>$$<br>p(x_i, y_j) \ge 0<br>$$</p>
+</li>
+<li><p><strong>归一性</strong>：</p>
+<p>$$<br>\sum_i \sum_j p(x_i, y_j) &#x3D; 1<br>$$</p>
+</li>
+</ol>
+<p>📌 相关概念：</p>
+<ul>
+<li><p><strong>边缘分布</strong>：</p>
+<p>$$<br>p_X(x_i) &#x3D; \sum_j p(x_i, y_j),\quad p_Y(y_j) &#x3D; \sum_i p(x_i, y_j)<br>$$</p>
+</li>
+<li><p><strong>条件分布</strong>：</p>
+<p>$$<br>P(X &#x3D; x_i \mid Y &#x3D; y_j) &#x3D; \frac{p(x_i, y_j)}{p_Y(y_j)},\quad \text{若 } p_Y(y_j) &gt; 0<br>$$</p>
+</li>
+<li><p><strong>独立性</strong>：</p>
+<p>若对所有 $(x_i, y_j)$ 都满足：</p>
+<p>$$<br>p(x_i, y_j) &#x3D; p_X(x_i) \cdot p_Y(y_j)<br>$$</p>
+<p>则 $X$ 与 $Y$ 相互独立。</p>
+</li>
+</ul>
+<p>✅ 示例：联合分布列表格（X, Y 为离散）</p>
+<table>
+<thead>
+<tr>
+<th>$Y \backslash X$</th>
+<th>$x_1$</th>
+<th>$x_2$</th>
+<th>$x_3$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$y_1$</td>
+<td>0.1</td>
+<td>0.2</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>$y_2$</td>
+<td>0.1</td>
+<td>0.3</td>
+<td>0.2</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>检查归一性：$0.1 + 0.2 + 0.1 + 0.1 + 0.3 + 0.2 &#x3D; 1$</p>
+</li>
+<li><p>边缘分布：</p>
+<ul>
+<li>$p_X(x_1) &#x3D; 0.1 + 0.1 &#x3D; 0.2$</li>
+<li>$p_Y(y_1) &#x3D; 0.1 + 0.2 + 0.1 &#x3D; 0.4$</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-4-边缘分布（Marginal-Distribution）"><a href="#15-4-边缘分布（Marginal-Distribution）" class="headerlink" title="15.4. 边缘分布（Marginal Distribution）"></a>15.4. 边缘分布（Marginal Distribution）</h3><p>设 $(X, Y)$ 是二维连续型随机变量，联合密度为 $f_{X,Y}(x, y)$，则：</p>
+<ul>
+<li><p>$X$ 的边缘密度：</p>
+<p>$$<br>f_X(x) &#x3D; \int_{-\infty}^{\infty} f_{X,Y}(x, y), dy<br>$$</p>
+</li>
+<li><p>$Y$ 的边缘密度：</p>
+<p>$$<br>f_Y(y) &#x3D; \int_{-\infty}^{\infty} f_{X,Y}(x, y), dx<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="15-5-条件分布（Conditional-Distribution）"><a href="#15-5-条件分布（Conditional-Distribution）" class="headerlink" title="15.5. 条件分布（Conditional Distribution）"></a>15.5. 条件分布（Conditional Distribution）</h3><p>条件密度函数：</p>
+<p>二维情形下，$X$ 在给定 $Y &#x3D; y$ 条件下的密度函数为：</p>
+<p>$$<br>f_{X \mid Y}(x \mid y) &#x3D; \frac{f_{X,Y}(x, y)}{f_Y(y)}<br>$$</p>
+<p>前提是 $f_Y(y) &gt; 0$。</p>
+<hr>
+<h3 id="15-6-独立性"><a href="#15-6-独立性" class="headerlink" title="15.6. 独立性"></a>15.6. 独立性</h3><p>如果：</p>
+<p>$$<br>f_{X,Y}(x, y) &#x3D; f_X(x) \cdot f_Y(y)<br>$$</p>
+<p>则 $X$ 和 $Y$ <strong>相互独立</strong>。</p>
+<p>更一般地，$X_1, \dots, X_n$ 彼此独立，当且仅当：</p>
+<p>$$<br>f_{X_1, \dots, X_n}(x_1, \dots, x_n) &#x3D; \prod_{i&#x3D;1}^n f_{X_i}(x_i)<br>$$</p>
+<hr>
+<h3 id="15-7-协方差与相关系数（Covariance-and-Correlation）"><a href="#15-7-协方差与相关系数（Covariance-and-Correlation）" class="headerlink" title="15.7. 协方差与相关系数（Covariance and Correlation）"></a>15.7. 协方差与相关系数（Covariance and Correlation）</h3><ul>
+<li><p><strong>协方差</strong>：</p>
+<p>对 $(X, Y)$：</p>
+<p>$$<br>\mathrm{Cov}(X, Y) &#x3D; \mathbb{E}[(X - \mu_X)(Y - \mu_Y)] &#x3D; \mathbb{E}[XY] - \mathbb{E}[X] \mathbb{E}[Y]<br>$$</p>
+</li>
+<li><p><strong>相关系数</strong>：</p>
+<p>$$<br>\rho_{X,Y} &#x3D; \frac{\mathrm{Cov}(X, Y)}{\sigma_X \sigma_Y}<br>$$</p>
+<p>$\rho$ 范围为 $[-1, 1]$，$\rho &#x3D; 0$ 不代表独立。</p>
+</li>
+</ul>
+<hr>
+<h3 id="15-8-协方差矩阵（Covariance-Matrix）"><a href="#15-8-协方差矩阵（Covariance-Matrix）" class="headerlink" title="15.8. 协方差矩阵（Covariance Matrix）"></a>15.8. 协方差矩阵（Covariance Matrix）</h3><p>若 $\mathbf{X} &#x3D; [X_1, X_2, \dots, X_n]^\top$，定义其协方差矩阵为：</p>
+<p>$$<br>\Sigma &#x3D; \mathrm{Cov}(\mathbf{X}) &#x3D; \mathbb{E}[(\mathbf{X} - \mu)(\mathbf{X} - \mu)^\top]<br>$$</p>
+<p>其元素为：</p>
+<p>$$<br>\Sigma_{ij} &#x3D; \mathrm{Cov}(X_i, X_j)<br>$$</p>
+<hr>
+<h3 id="15-9-多元正态分布（Multivariate-Normal-Distribution）"><a href="#15-9-多元正态分布（Multivariate-Normal-Distribution）" class="headerlink" title="15.9. 多元正态分布（Multivariate Normal Distribution）"></a>15.9. 多元正态分布（Multivariate Normal Distribution）</h3><p>定义：</p>
+<p>随机向量 $\mathbf{X} \in \mathbb{R}^n$ 服从<strong>多元正态分布</strong>，记作：</p>
+<p>$$<br>\mathbf{X} \sim \mathcal{N}(\mu, \Sigma)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$\mu$ 是均值向量</li>
+<li>$\Sigma$ 是协方差矩阵（对称正定）</li>
+</ul>
+<p>密度函数：</p>
+<p>$$<br>f(\mathbf{x}) &#x3D; \frac{1}{(2\pi)^{n&#x2F;2}|\Sigma|^{1&#x2F;2}} \exp\left( -\frac{1}{2}(\mathbf{x} - \mu)^\top \Sigma^{-1} (\mathbf{x} - \mu) \right)<br>$$</p>
+<p>性质：</p>
+<ul>
+<li>多元正态分布的<strong>任意线性组合仍是正态分布</strong></li>
+<li>边缘分布仍为正态</li>
+<li>条件分布仍为正态</li>
 </ul>
 
                 
