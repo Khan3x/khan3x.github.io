@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-08-06T02:47:12.106Z">
+<meta property="article:modified_time" content="2025-08-06T08:17:50.563Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -241,7 +241,7 @@
         
         
         
-          89 mins
+          96 mins
         
       </span>
     
@@ -1548,6 +1548,204 @@
 <li>$\rho_{ij} &#x3D; 1$ 或 $-1$ 表示完全线性相关</li>
 <li>$\rho_{ij} &#x3D; 0$ 表示无线性相关（不等价于独立）</li>
 </ul>
+<h2 id="20-期望、方差、协方差运算总结（Computation-Rules-for-Expectation-Variance-and-Covariance）"><a href="#20-期望、方差、协方差运算总结（Computation-Rules-for-Expectation-Variance-and-Covariance）" class="headerlink" title="20. 期望、方差、协方差运算总结（Computation Rules for Expectation, Variance, and Covariance）"></a>20. 期望、方差、协方差运算总结（Computation Rules for Expectation, Variance, and Covariance）</h2><h3 id="20-1-期望（Expectation）"><a href="#20-1-期望（Expectation）" class="headerlink" title="20.1. 期望（Expectation）"></a>20.1. 期望（Expectation）</h3><p><strong>📌 基本定义：</strong></p>
+<p>对于随机变量 $X$，其期望为：</p>
+<ul>
+<li>离散型：$\mathbb{E}[X] &#x3D; \sum_x x \cdot P(X &#x3D; x)$</li>
+<li>连续型：$\mathbb{E}[X] &#x3D; \int_{-\infty}^{\infty} x \cdot f_X(x), dx$</li>
+</ul>
+<p>🛠 常见运算性质：</p>
+<table>
+<thead>
+<tr>
+<th>性质名称</th>
+<th>公式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线性性</td>
+<td>$\mathbb{E}[aX + b] &#x3D; a \mathbb{E}[X] + b$</td>
+<td>常数可以提出来</td>
+</tr>
+<tr>
+<td>可加性</td>
+<td>$\mathbb{E}[X + Y] &#x3D; \mathbb{E}[X] + \mathbb{E}[Y]$</td>
+<td>即使 $X,Y$ 不独立也成立</td>
+</tr>
+<tr>
+<td>对常数求期望</td>
+<td>$\mathbb{E}[c] &#x3D; c$</td>
+<td>常数的期望就是它本身</td>
+</tr>
+<tr>
+<td>期望对函数的作用</td>
+<td>$\mathbb{E}[g(X)] \ne g(\mathbb{E}[X])$ 一般不成立</td>
+<td>除非 $g$ 是线性函数</td>
+</tr>
+<tr>
+<td>条件期望线性性</td>
+<td>$\mathbb{E}[aX + bY \mid Z] &#x3D; a \mathbb{E}[X \mid Z] + b \mathbb{E}[Y \mid Z]$</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="20-2-方差（Variance）"><a href="#20-2-方差（Variance）" class="headerlink" title="20.2. 方差（Variance）"></a>20.2. 方差（Variance）</h3><p><strong>📌 基本定义：</strong></p>
+<p>$$<br>\operatorname{Var}(X) &#x3D; \mathbb{E}[(X - \mathbb{E}[X])^2] &#x3D; \mathbb{E}[X^2] - (\mathbb{E}[X])^2<br>$$</p>
+<p><strong>🛠 常见运算性质：</strong></p>
+<table>
+<thead>
+<tr>
+<th>性质名称</th>
+<th>公式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对常数无变化</td>
+<td>$\operatorname{Var}(c) &#x3D; 0$</td>
+<td>常数无波动</td>
+</tr>
+<tr>
+<td>常数倍缩放</td>
+<td>$\operatorname{Var}(aX) &#x3D; a^2 \operatorname{Var}(X)$</td>
+<td>放缩成平方倍</td>
+</tr>
+<tr>
+<td>平移不变性</td>
+<td>$\operatorname{Var}(X + c) &#x3D; \operatorname{Var}(X)$</td>
+<td>加常数不影响波动</td>
+</tr>
+<tr>
+<td>可加性（独立）</td>
+<td>若 $X \perp Y$，则 $\operatorname{Var}(X + Y) &#x3D; \operatorname{Var}(X) + \operatorname{Var}(Y)$</td>
+<td>仅在独立时成立</td>
+</tr>
+<tr>
+<td>推广到线性组合</td>
+<td>若 $X_1, \dots, X_n$ 独立：$\operatorname{Var}\left(\sum a_i X_i\right) &#x3D; \sum a_i^2 \operatorname{Var}(X_i)$</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="20-3-协方差（Covariance）"><a href="#20-3-协方差（Covariance）" class="headerlink" title="20.3. 协方差（Covariance）"></a>20.3. 协方差（Covariance）</h3><p><strong>📌 基本定义：</strong></p>
+<p>$$<br>\operatorname{Cov}(X, Y) &#x3D; \mathbb{E}[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])] &#x3D; \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]<br>$$</p>
+<p><strong>🛠 常见运算性质：</strong></p>
+<table>
+<thead>
+<tr>
+<th>性质名称</th>
+<th>公式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对称性</td>
+<td>$\operatorname{Cov}(X, Y) &#x3D; \operatorname{Cov}(Y, X)$</td>
+<td></td>
+</tr>
+<tr>
+<td>自身协方差</td>
+<td>$\operatorname{Cov}(X, X) &#x3D; \operatorname{Var}(X)$</td>
+<td></td>
+</tr>
+<tr>
+<td>与常数协方差</td>
+<td>$\operatorname{Cov}(X, c) &#x3D; 0$</td>
+<td>常数与变量无协变性</td>
+</tr>
+<tr>
+<td>线性组合</td>
+<td>$\operatorname{Cov}(aX + b, cY + d) &#x3D; ac, \operatorname{Cov}(X, Y)$</td>
+<td>双线性关系</td>
+</tr>
+<tr>
+<td>可加性</td>
+<td>$\operatorname{Cov}(X + Z, Y) &#x3D; \operatorname{Cov}(X, Y) + \operatorname{Cov}(Z, Y)$</td>
+<td></td>
+</tr>
+<tr>
+<td>零协方差不等价于独立</td>
+<td>$\operatorname{Cov}(X, Y) &#x3D; 0 \not\Rightarrow X \perp Y$</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="20-4-相关系数（Correlation-Coefficient）"><a href="#20-4-相关系数（Correlation-Coefficient）" class="headerlink" title="20.4. 相关系数（Correlation Coefficient）"></a>20.4. 相关系数（Correlation Coefficient）</h3><p>$$<br>\rho_{XY} &#x3D; \frac{\operatorname{Cov}(X, Y)}{\sqrt{\operatorname{Var}(X)} \cdot \sqrt{\operatorname{Var}(Y)}}<br>$$</p>
+<ul>
+<li>$\rho_{XY} \in [-1, 1]$</li>
+<li>$\rho_{XY} &#x3D; 0$：无线性相关（但不代表独立）</li>
+<li>$\rho_{XY} &#x3D; \pm 1$：完全线性相关</li>
+</ul>
+<hr>
+<h3 id="20-5-向量-矩阵形式下的运算"><a href="#20-5-向量-矩阵形式下的运算" class="headerlink" title="20.5. 向量&#x2F;矩阵形式下的运算"></a>20.5. 向量&#x2F;矩阵形式下的运算</h3><p>设 $\mathbf{X}$ 是 $n$ 维随机向量，$A$ 是 $m \times n$ 的常数矩阵：</p>
+<p>✅ 期望运算（向量线性性）：</p>
+<p>$$<br>\mathbb{E}[A\mathbf{X}] &#x3D; A \mathbb{E}[\mathbf{X}]<br>$$</p>
+<p>✅ 协方差矩阵定义：</p>
+<p>$$<br>\operatorname{Cov}(\mathbf{X}) &#x3D; \Sigma &#x3D; \mathbb{E}[(\mathbf{X} - \mathbb{E}[\mathbf{X}])(\mathbf{X} - \mathbb{E}[\mathbf{X}])^T]<br>$$</p>
+<p>✅ 协方差的线性变换：</p>
+<p>$$<br>\operatorname{Cov}(A \mathbf{X}) &#x3D; A \Sigma A^T<br>$$</p>
+<p>✅ 两个线性组合的协方差：</p>
+<p>设 $\mathbf{a}, \mathbf{b}$ 为列向量，则：</p>
+<p>$$<br>\operatorname{Cov}(\mathbf{a}^T \mathbf{X}, \mathbf{b}^T \mathbf{X}) &#x3D; \mathbf{a}^T \Sigma \mathbf{b}<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>运算</th>
+<th>公式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>期望</td>
+<td>线性性</td>
+<td>$\mathbb{E}[aX + bY] &#x3D; a\mathbb{E}[X] + b\mathbb{E}[Y]$</td>
+<td>不要求独立</td>
+</tr>
+<tr>
+<td>方差</td>
+<td>放缩</td>
+<td>$\operatorname{Var}(aX) &#x3D; a^2 \operatorname{Var}(X)$</td>
+<td></td>
+</tr>
+<tr>
+<td>方差</td>
+<td>可加性</td>
+<td>$\operatorname{Var}(X + Y) &#x3D; \operatorname{Var}(X) + \operatorname{Var}(Y)$（独立）</td>
+<td>非独立要加协方差项</td>
+</tr>
+<tr>
+<td>协方差</td>
+<td>线性组合</td>
+<td>$\operatorname{Cov}(aX + b, cY + d) &#x3D; ac, \operatorname{Cov}(X, Y)$</td>
+<td></td>
+</tr>
+<tr>
+<td>协方差</td>
+<td>可加性</td>
+<td>$\operatorname{Cov}(X+Z, Y) &#x3D; \operatorname{Cov}(X, Y) + \operatorname{Cov}(Z, Y)$</td>
+<td></td>
+</tr>
+<tr>
+<td>向量期望</td>
+<td>线性性</td>
+<td>$\mathbb{E}[A \mathbf{X}] &#x3D; A \mathbb{E}[\mathbf{X}]$</td>
+<td></td>
+</tr>
+<tr>
+<td>向量协方差</td>
+<td>变换</td>
+<td>$\operatorname{Cov}(A\mathbf{X}) &#x3D; A \Sigma A^T$</td>
+<td></td>
+</tr>
+<tr>
+<td>协方差矩阵</td>
+<td>定义</td>
+<td>$\Sigma &#x3D; \mathbb{E}[(\mathbf{X} - \mu)(\mathbf{X} - \mu)^T]$</td>
+<td></td>
+</tr>
+</tbody></table>
 
                 
               </div>
