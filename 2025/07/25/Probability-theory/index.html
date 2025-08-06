@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-08-06T12:03:35.761Z">
+<meta property="article:modified_time" content="2025-08-06T12:20:20.405Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k words
+          14k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          111 mins
+          117 mins
         
       </span>
     
@@ -2037,6 +2037,94 @@
 <li><p>是实际应用与理论推导中的<strong>基础工具</strong>之一。</p>
 </li>
 </ul>
+<h2 id="24-大数定律"><a href="#24-大数定律" class="headerlink" title="24. 大数定律"></a>24. 大数定律</h2><h3 id="24-1-依概率收敛（Convergence-in-Probability）"><a href="#24-1-依概率收敛（Convergence-in-Probability）" class="headerlink" title="24.1. 依概率收敛（Convergence in Probability）"></a>24.1. 依概率收敛（Convergence in Probability）</h3><p>📌 定义：</p>
+<p>设随机变量列 ${X_n}$，若存在常数 $X$，使得对任意 $\varepsilon &gt; 0$：</p>
+<p>$$<br>\lim_{n \to \infty} P(|X_n - X| &gt; \varepsilon) &#x3D; 0<br>$$</p>
+<p>则称 $X_n$ <strong>依概率收敛于</strong> $X$，记作：</p>
+<p>$$<br>X_n \xrightarrow{P} X<br>$$</p>
+<p>在弱大数定律中，样本均值 $\overline{X}_n$ 通常 <strong>依概率收敛</strong>于 $\mathbb{E}[X]$，即：</p>
+<p>$$<br>\frac{1}{n} \sum_{i&#x3D;1}^n X_i \xrightarrow{P} \mathbb{E}[X]<br>$$</p>
+<hr>
+<h3 id="24-2-伯努利大数定律（Bernoulli’s-Law-of-Large-Numbers）"><a href="#24-2-伯努利大数定律（Bernoulli’s-Law-of-Large-Numbers）" class="headerlink" title="24.2. 伯努利大数定律（Bernoulli’s Law of Large Numbers）"></a>24.2. 伯努利大数定律（Bernoulli’s Law of Large Numbers）</h3><p>设 ${X_i}$ 为一列独立、同分布的<strong>0-1随机变量</strong>，例如重复抛硬币：</p>
+<ul>
+<li>$P(X_i &#x3D; 1) &#x3D; p$，$P(X_i &#x3D; 0) &#x3D; 1 - p$</li>
+</ul>
+<p>定理陈述：</p>
+<p>$$<br>\overline{X}_n \xrightarrow{P} p<br>$$</p>
+<p>也就是说：</p>
+<blockquote>
+<p>当重复试验次数 $n \to \infty$，事件发生的频率趋近于它的概率 $p$。</p>
+</blockquote>
+<p>这是<strong>最早形式的大数定律</strong>，由雅可布·伯努利提出，是现代频率派概率理论的基础。</p>
+<p>📘 举例：</p>
+<p>抛硬币，$P(正面) &#x3D; 0.5$，则长期来看，正面频率趋近于 $0.5$。</p>
+<hr>
+<h3 id="24-3-切比雪夫大数定律（Chebyshev’s-Law-of-Large-Numbers）"><a href="#24-3-切比雪夫大数定律（Chebyshev’s-Law-of-Large-Numbers）" class="headerlink" title="24.3. 切比雪夫大数定律（Chebyshev’s Law of Large Numbers）"></a>24.3. 切比雪夫大数定律（Chebyshev’s Law of Large Numbers）</h3><p>📌 条件更宽松的弱大数定律形式：</p>
+<blockquote>
+<p>设 $X_1, X_2, \dots, X_n$ 为两两独立、具有相同数学期望 $\mu$ 和相同有限方差 $\sigma^2$的随机变量，定义样本均值为：</p>
+</blockquote>
+<p>$$<br>\frac{1}{n} \sum_{i&#x3D;1}^n X_i<br>$$</p>
+<p>则有：</p>
+<p>$$<br>\overline{X}_n \xrightarrow{P} \mu<br>$$</p>
+<p>✅ 推导基于切比雪夫不等式：</p>
+<p>$$<br>P\left( |\overline{X}_n - \mu| \geq \varepsilon \right) \leq \frac{\operatorname{Var}(\overline{X}_n)}{\varepsilon^2} &#x3D; \frac{\sigma^2}{n \varepsilon^2}<br>\to 0 \quad \text{当 } n \to \infty<br>$$</p>
+<p>✅ 特点：</p>
+<ul>
+<li>不要求严格独立同分布，只要“相同期望+有限方差+两两独立”</li>
+<li>是<strong>弱大数定律</strong>的常见应用形式之一</li>
+<li>推导简单，考试常用</li>
+</ul>
+<hr>
+<h3 id="24-4-马尔可夫大数定律（Markov’s-Law-of-Large-Numbers）"><a href="#24-4-马尔可夫大数定律（Markov’s-Law-of-Large-Numbers）" class="headerlink" title="24.4. 马尔可夫大数定律（Markov’s Law of Large Numbers）"></a>24.4. 马尔可夫大数定律（Markov’s Law of Large Numbers）</h3><blockquote>
+<p>设 ${X_i}$ 是一列两两独立、具有<strong>相同上界的数学期望</strong>且满足：</p>
+</blockquote>
+<ul>
+<li>$\sup \mathbb{E}[|X_i|] &lt; \infty$</li>
+<li>$\displaystyle \lim_{n \to \infty} \frac{1}{n^2} \sum_{i&#x3D;1}^n \operatorname{Var}(X_i) &#x3D; 0$</li>
+</ul>
+<p>则有：</p>
+<p>$$<br>\frac{1}{n} \sum_{i&#x3D;1}^n X_i \xrightarrow{P} \mu<br>$$</p>
+<p>✅ 理解方式：</p>
+<ul>
+<li>更适合<strong>非等方差</strong>的情形</li>
+<li>允许 $X_i$ 的方差不相等，但要求整体方差“增长不能太快”</li>
+<li>是一种比切比雪夫定律<strong>更一般化</strong>的弱大数定律</li>
+</ul>
+<p>🟦 总结对比</p>
+<table>
+<thead>
+<tr>
+<th>定律</th>
+<th>收敛形式</th>
+<th>要求</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>依概率收敛</td>
+<td>$\xrightarrow{P}$</td>
+<td>定义型，不是定律</td>
+<td>描述随机变量序列收敛趋势</td>
+</tr>
+<tr>
+<td>伯努利定律</td>
+<td>$\xrightarrow{P} p$</td>
+<td>0-1变量 + 独立同分布</td>
+<td>重复试验&#x2F;频率估计</td>
+</tr>
+<tr>
+<td>切比雪夫定律</td>
+<td>$\xrightarrow{P} \mu$</td>
+<td>相同期望 + 有限方差 + 两两独立</td>
+<td>同分布或近似同分布情形</td>
+</tr>
+<tr>
+<td>马尔可夫定律</td>
+<td>$\xrightarrow{P} \mu$</td>
+<td>弱相似性 + 方差不增长过快</td>
+<td>更一般的样本序列</td>
+</tr>
+</tbody></table>
 
                 
               </div>
