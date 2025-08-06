@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-08-06T12:47:53.249Z">
+<meta property="article:modified_time" content="2025-08-06T14:21:48.634Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k words
+          15k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          120 mins
+          126 mins
         
       </span>
     
@@ -2157,6 +2157,118 @@
 <p>$$<br>\lim_{n \to \infty} \frac{1}{B_n^{2+\delta}} \sum_{i&#x3D;1}^n \mathbb{E}\left[|X_i - \mu_i|^{2+\delta}\right] &#x3D; 0<br>$$</p>
 <p>则有：</p>
 <p>$$<br>\frac{S_n - \sum_{i&#x3D;1}^n \mu_i}{B_n} \xrightarrow{d} \mathcal{N}(0,1)<br>$$</p>
+<h2 id="26-钜函数与矩母函数（PGF-MGF）"><a href="#26-钜函数与矩母函数（PGF-MGF）" class="headerlink" title="26. 钜函数与矩母函数（PGF &amp; MGF）"></a>26. 钜函数与矩母函数（PGF &amp; MGF）</h2><h3 id="26-1-概率生成函数（Probability-Generating-Function-PGF）"><a href="#26-1-概率生成函数（Probability-Generating-Function-PGF）" class="headerlink" title="26.1 概率生成函数（Probability Generating Function, PGF）"></a>26.1 概率生成函数（Probability Generating Function, PGF）</h3><p><strong>📌 定义：</strong></p>
+<p>设 $X$ 是一个<strong>非负整数值</strong>的离散型随机变量，其概率质量函数为 $P(X &#x3D; k) &#x3D; p_k$，则其<strong>概率生成函数</strong>定义为：</p>
+<p>$$<br>G_X(s) &#x3D; \mathbb{E}[s^X] &#x3D; \sum_{k&#x3D;0}^\infty p_k s^k, \quad |s| \leq 1<br>$$</p>
+<p><strong>✅ 性质：</strong></p>
+<ol>
+<li><p><strong>规范性</strong>：$G_X(1) &#x3D; \sum_{k&#x3D;0}^\infty p_k &#x3D; 1$</p>
+</li>
+<li><p><strong>求期望</strong>：$G_X’(1) &#x3D; \mathbb{E}[X]$</p>
+</li>
+<li><p><strong>求方差</strong>：</p>
+<p>$$<br>\text{Var}(X) &#x3D; G_X’’(1) + G_X’(1) - (G_X’(1))^2<br>$$</p>
+</li>
+<li><p><strong>卷积性质</strong>：若 $X$ 与 $Y$ 独立，$Z &#x3D; X + Y$，则：</p>
+<p>$$<br>G_Z(s) &#x3D; G_X(s) \cdot G_Y(s)<br>$$</p>
+</li>
+</ol>
+<hr>
+<p><strong>🎯 示例：泊松分布</strong></p>
+<p>若 $X \sim \mathrm{Poisson}(\lambda)$，则有：</p>
+<p>$$<br>G_X(s) &#x3D; e^{\lambda(s - 1)}<br>$$</p>
+<hr>
+<h3 id="26-2-矩母函数（Moment-Generating-Function-MGF）"><a href="#26-2-矩母函数（Moment-Generating-Function-MGF）" class="headerlink" title="26.2 矩母函数（Moment Generating Function, MGF）"></a>26.2 矩母函数（Moment Generating Function, MGF）</h3><p><strong>📌 定义：</strong></p>
+<p>设 $X$ 是一个随机变量，若存在 $\epsilon &gt; 0$ 使得期望存在，则其<strong>矩母函数</strong>定义为：</p>
+<p>$$<br>M_X(t) &#x3D; \mathbb{E}[e^{tX}], \quad t \in (-\epsilon, \epsilon)<br>$$</p>
+<p><strong>✅ 性质：</strong></p>
+<ol>
+<li><p>计算 $k$ 阶原点矩（raw moment）：</p>
+<p>$$<br>\mathbb{E}[X^k] &#x3D; M_X^{(k)}(0)<br>$$</p>
+<p>即 $k$ 阶原点矩等于 $M_X(t)$ 在 $t&#x3D;0$ 处的 $k$ 阶导数。</p>
+</li>
+<li><p><strong>矩母函数的展开式</strong>：</p>
+<p>$$<br>M_X(t) &#x3D; 1 + \mathbb{E}[X]t + \frac{\mathbb{E}[X^2]}{2!}t^2 + \frac{\mathbb{E}[X^3]}{3!}t^3 + \cdots<br>$$</p>
+</li>
+<li><p><strong>唯一性</strong>：若 $M_X(t)$ 存在，则它<strong>唯一确定</strong>随机变量 $X$ 的分布。</p>
+</li>
+<li><p><strong>卷积性质</strong>（独立变量加法）：</p>
+<p>$$<br>M_{X + Y}(t) &#x3D; M_X(t) \cdot M_Y(t)<br>$$</p>
+</li>
+<li><p><strong>平移性质</strong>：<br>若 $Y &#x3D; X + a$，则：</p>
+<p>$$<br>M_Y(t) &#x3D; e^{at} \cdot M_X(t)<br>$$</p>
+</li>
+<li><p><strong>缩放性质</strong>：<br>若 $Y &#x3D; bX$，则：</p>
+<p>$$<br>M_Y(t) &#x3D; M_X(bt)<br>$$</p>
+</li>
+</ol>
+<hr>
+<p>🧮 示例1：正态分布</p>
+<p>若 $X \sim N(\mu, \sigma^2)$，则：</p>
+<p>$$<br>M_X(t) &#x3D; \exp\left( \mu t + \frac{1}{2} \sigma^2 t^2 \right)<br>$$</p>
+<hr>
+<p>🧮 示例2：指数分布</p>
+<p>若 $X \sim \mathrm{Exp}(\lambda)$，则：</p>
+<p>$$<br>M_X(t) &#x3D; \frac{\lambda}{\lambda - t}, \quad t &lt; \lambda<br>$$</p>
+<hr>
+<h3 id="26-3-原点矩与中心矩"><a href="#26-3-原点矩与中心矩" class="headerlink" title="26.3 原点矩与中心矩"></a>26.3 原点矩与中心矩</h3><p>1️⃣ 原点矩（Raw Moments）：</p>
+<p>原点矩是指关于原点 $0$ 的矩：</p>
+<p>$$<br>\mu_k’ &#x3D; \mathbb{E}[X^k] &#x3D; M_X^{(k)}(0)<br>$$</p>
+<p>前几个原点矩：</p>
+<ul>
+<li>一阶原点矩：$mu_1’ &#x3D; \mathbb{E}[X]$（期望）</li>
+<li>二阶原点矩：$mu_2’ &#x3D; \mathbb{E}[X^2]$</li>
+<li>三阶原点矩：$mu_3’ &#x3D; \mathbb{E}[X^3]$</li>
+</ul>
+<p>2️⃣ 中心矩（Central Moments）：</p>
+<p>中心矩是指关于期望 $\mu &#x3D; \mathbb{E}[X]$ 的矩：</p>
+<p>$$<br>\mu_k &#x3D; \mathbb{E}[(X - \mu)^k]<br>$$</p>
+<ul>
+<li>一阶中心矩：$\mu_1 &#x3D; 0$</li>
+<li>二阶中心矩：$\mu_2 &#x3D; \text{Var}(X)$</li>
+<li>三阶中心矩：用于衡量<strong>偏态（skewness）</strong></li>
+<li>四阶中心矩：用于衡量<strong>峰度（kurtosis）</strong></li>
+</ul>
+<hr>
+<h3 id="26-4-钜函数-vs-矩母函数-比较"><a href="#26-4-钜函数-vs-矩母函数-比较" class="headerlink" title="26.4 钜函数 vs 矩母函数 比较"></a>26.4 钜函数 vs 矩母函数 比较</h3><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>钜函数 PGF</th>
+<th>矩母函数 MGF</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义公式</td>
+<td>$G_X(s) &#x3D; \mathbb{E}[s^X]$</td>
+<td>$M_X(t) &#x3D; \mathbb{E}[e^{tX}]$</td>
+</tr>
+<tr>
+<td>适用范围</td>
+<td>离散非负整数型变量</td>
+<td>任意实值随机变量（若存在）</td>
+</tr>
+<tr>
+<td>导数意义</td>
+<td>$G^{(k)}(1)$ 与 $k$ 阶阶乘矩相关</td>
+<td>$M^{(k)}(0) &#x3D; \mathbb{E}[X^k]$</td>
+</tr>
+<tr>
+<td>分布确定性</td>
+<td>不一定唯一</td>
+<td>若存在，则唯一确定分布</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>组合性质、计数问题、泊松、二项等</td>
+<td>计算矩、证明极限定理等</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="26-5-特征函数"><a href="#26-5-特征函数" class="headerlink" title="26.5 特征函数"></a>26.5 特征函数</h3><p>当 MGF 不存在时，我们通常使用<strong>特征函数</strong>：</p>
+<p>$$<br>\phi_X(t) &#x3D; \mathbb{E}[e^{itX}]<br>$$</p>
+<p>特征函数总是存在，且也唯一确定分布，应用于中心极限定理、收敛性分析等。</p>
+<h2 id="偷偷说"><a href="#偷偷说" class="headerlink" title="偷偷说"></a>偷偷说</h2><p>概率论在我看来还是一个很麻烦的学科www，其中有很多推导证明以及一连串的公式真让人头大。</p>
 
                 
               </div>
