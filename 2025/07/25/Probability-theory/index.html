@@ -27,7 +27,7 @@
 <meta property="og:description" content="Probability Theory本篇笔记主要回顾一下概率论的相关内容。全文没有严格的上下文关系:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio                1. 概率论中集合运算的关系1.1. 基本集合运算定义 并集（Union）：$A \cup B &#x3D; {x \mid x \in A \text{ or } x \in">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-25T00:52:33.000Z">
-<meta property="article:modified_time" content="2025-08-06T02:05:01.337Z">
+<meta property="article:modified_time" content="2025-08-06T02:35:35.328Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Probability Theory">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.4k words
+          9.9k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          79 mins
+          83 mins
         
       </span>
     
@@ -1458,6 +1458,45 @@
 <p>✅ 相关系数矩阵：</p>
 <p>$$<br>\rho_{ij} &#x3D; \frac{\text{Cov}(X_i, X_j)}{\sqrt{\text{Var}(X_i)\text{Var}(X_j)}}<br>$$</p>
 <p>✅ 若 $X_1, …, X_n$ 独立，则协方差矩阵为对角阵。</p>
+<h2 id="18-卷积公式（Convolution-Formula）"><a href="#18-卷积公式（Convolution-Formula）" class="headerlink" title="18. 卷积公式（Convolution Formula）"></a>18. 卷积公式（Convolution Formula）</h2><p>当两个<strong>相互独立</strong>的随机变量 $X$ 和 $Y$ 相加（即 $Z &#x3D; X + Y$）时，我们想要知道 $Z$ 的概率分布。此时就需要使用<strong>卷积公式</strong>来计算 $Z$ 的分布。</p>
+<p>卷积公式的形式取决于 $X$ 和 $Y$ 是离散型还是连续型变量。</p>
+<hr>
+<h3 id="18-1-离散型卷积公式"><a href="#18-1-离散型卷积公式" class="headerlink" title="18.1. 离散型卷积公式"></a>18.1. 离散型卷积公式</h3><p>如果 $X$ 和 $Y$ 是两个<strong>相互独立的离散型随机变量</strong>，则它们的和 $Z &#x3D; X + Y$ 的概率质量函数（pmf）为：</p>
+<p>$$<br>P(Z &#x3D; z) &#x3D; \sum_{k&#x3D;-\infty}^{\infty} P(X &#x3D; k) \cdot P(Y &#x3D; z - k)<br>$$</p>
+<p>这是<strong>离散卷积</strong>，相当于“滑动并叠加”的过程。</p>
+<p>✅ 举例</p>
+<p>假设 $X$ 和 $Y$ 都是取值为 $0, 1, 2$ 的变量，且：</p>
+<ul>
+<li>$P(X&#x3D;0)&#x3D;P(X&#x3D;1)&#x3D;P(X&#x3D;2)&#x3D;\frac{1}{3}$</li>
+<li>$P(Y&#x3D;0)&#x3D;P(Y&#x3D;1)&#x3D;P(Y&#x3D;2)&#x3D;\frac{1}{3}$</li>
+</ul>
+<p>那么 $Z &#x3D; X + Y$ 取值为 $0$ 到 $4$，比如：</p>
+<p>$$<br>P(Z &#x3D; 2) &#x3D; P(X &#x3D; 0)P(Y &#x3D; 2) + P(X &#x3D; 1)P(Y &#x3D; 1) + P(X &#x3D; 2)P(Y &#x3D; 0) &#x3D; \frac{1}{3} \cdot \frac{1}{3} + \frac{1}{3} \cdot \frac{1}{3} + \frac{1}{3} \cdot \frac{1}{3} &#x3D; \frac{1}{3}<br>$$</p>
+<hr>
+<h3 id="18-2-连续型卷积公式"><a href="#18-2-连续型卷积公式" class="headerlink" title="18.2. 连续型卷积公式"></a>18.2. 连续型卷积公式</h3><p>如果 $X$ 和 $Y$ 是<strong>相互独立的连续型随机变量</strong>，具有概率密度函数（pdf） $f_X(x)$ 和 $f_Y(y)$，那么它们和 $Z &#x3D; X + Y$ 的密度函数为：</p>
+<p>$$<br>f_Z(z) &#x3D; \int_{-\infty}^{\infty} f_X(x) \cdot f_Y(z - x) , dx<br>$$</p>
+<p>这个积分称为<strong>连续型卷积</strong>。</p>
+<p>✅ 举例</p>
+<p>如果 $X, Y \sim \text{Uniform}(0,1)$，即均匀分布，那么：</p>
+<ul>
+<li>$f_X(x) &#x3D; 1$ 当 $x \in [0,1]$</li>
+<li>$f_Y(y) &#x3D; 1$ 当 $y \in [0,1]$</li>
+</ul>
+<p>那么 $Z &#x3D; X + Y$ 的密度函数为：</p>
+<p>$$<br>f_Z(z) &#x3D; \begin{cases}<br>z, &amp; 0 \le z \le 1 \\<br>2 - z, &amp; 1 &lt; z \le 2 \\<br>0, &amp; \text{otherwise}<br>\end{cases}<br>$$</p>
+<p>这是一个<strong>三角形分布</strong>（Triangular distribution）。</p>
+<p><strong>卷积公式的几何意义（直观解释）</strong></p>
+<ul>
+<li>卷积可以看作是：把一个函数“翻转并滑动”另一个函数的过程。</li>
+<li>概率意义上就是：把 $X$ 取某值的概率与 $Y$ 取补值的概率相乘后加总。</li>
+</ul>
+<hr>
+<p><strong>卷积的性质</strong></p>
+<ul>
+<li><strong>交换律</strong></li>
+<li><strong>结合律</strong></li>
+<li>若 $X$ 与 $Y$ 独立，且都服从正态分布，则 $X+Y$ 也服从正态分布。</li>
+</ul>
 
                 
               </div>
