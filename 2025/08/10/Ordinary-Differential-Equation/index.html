@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-10T13:41:29.082Z">
+<meta property="article:modified_time" content="2025-08-10T14:16:19.558Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          549 words
+          1k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          5 mins
+          9 mins
         
       </span>
     
@@ -384,6 +384,66 @@
 <li>分离变量法要求方程在某一区域内 $f(x)$ 和 $g(y)$ 可积。</li>
 <li>积分常数 $C$ 不能漏写，且要记住它在代数变形时可以合并。</li>
 </ul>
+<h3 id="1-3-全微分方程"><a href="#1-3-全微分方程" class="headerlink" title="1.3 全微分方程"></a>1.3 全微分方程</h3><p>一个一阶微分方程</p>
+<p>$$<br>M(x, y) , dx + N(x, y) , dy &#x3D; 0<br>$$</p>
+<p>如果存在一个二元函数 $\varphi(x, y)$，使得</p>
+<p>$$<br>d\varphi &#x3D; M(x, y) , dx + N(x, y) , dy<br>$$</p>
+<p>那么这个方程称为<strong>全微分方程</strong>（Exact Differential Equation）。</p>
+<p>换句话说，$M$ 和 $N$ 分别是 $\varphi$ 对 $x$ 和 $y$ 的偏导：</p>
+<p>$$<br>M &#x3D; \frac{\partial \varphi}{\partial x}, \quad N &#x3D; \frac{\partial \varphi}{\partial y}<br>$$</p>
+<p><strong>判别条件</strong></p>
+<p>若 $M$、$N$ 具有连续的一阶偏导，则该方程是全微分方程的充要条件是：</p>
+<p>$$<br>\frac{\partial M}{\partial y} &#x3D; \frac{\partial N}{\partial x}<br>$$</p>
+<p><strong>记忆技巧</strong>：<br>“$M$ 对 $y$ 偏导等于 $N$ 对 $x$ 偏导” → 就是全微分方程。</p>
+<hr>
+<p><strong>解法步骤</strong></p>
+<ol>
+<li><p><strong>检查全微分条件</strong><br>计算 $\frac{\partial M}{\partial y}$ 和 $\frac{\partial N}{\partial x}$，如果相等，就可以继续求解。</p>
+</li>
+<li><p>积分求势函数 $\varphi(x, y)$</p>
+<ul>
+<li><p>先对 $M(x, y)$ 关于 $x$ 积分：</p>
+<p>$$<br>\varphi(x, y) &#x3D; \int M(x, y) , dx + h(y)<br>$$</p>
+<p>这里 $h(y)$ 是积分“常数”，但它可能依赖于 $y$。</p>
+</li>
+</ul>
+</li>
+<li><p>利用 $N(x, y)$ 确定 $h(y)$<br>对上式求 $\frac{\partial \varphi}{\partial y}$，令其等于 $N(x, y)$，解出 $h(y)$。</p>
+</li>
+<li><p><strong>写出通解</strong></p>
+<p>$$<br>\varphi(x, y) &#x3D; C<br>$$</p>
+</li>
+</ol>
+<hr>
+<p><strong>例题</strong><br>求解：</p>
+<p>$$<br>(2xy + 3) , dx + (x^2 + 4y) , dy &#x3D; 0<br>$$</p>
+<p><strong>解</strong>：</p>
+<ol>
+<li><p><strong>检查全微分条件</strong>：</p>
+<p>$$<br>M &#x3D; 2xy + 3, \quad N &#x3D; x^2 + 4y<br>$$</p>
+<p>$$<br>\frac{\partial M}{\partial y} &#x3D; 2x, \quad \frac{\partial N}{\partial x} &#x3D; 2x<br>$$</p>
+<p>条件成立 → 是全微分方程。</p>
+</li>
+<li><p>积分 $M$ 关于 $x$：</p>
+<p>$$<br>\varphi(x, y) &#x3D; \int (2xy + 3) , dx &#x3D; x^2 y + 3x + h(y)<br>$$</p>
+</li>
+<li><p>**利用 $N$ 确定 $h(y)$**：</p>
+<p>$$<br>\frac{\partial \varphi}{\partial y} &#x3D; x^2 + h’(y)<br>$$</p>
+<p>与 $N &#x3D; x^2 + 4y$ 比较，得到：</p>
+<p>$$<br>h’(y) &#x3D; 4y \quad \Rightarrow \quad h(y) &#x3D; 2y^2<br>$$</p>
+</li>
+<li><p><strong>得到势函数</strong>：</p>
+<p>$$<br>\varphi(x, y) &#x3D; x^2 y + 3x + 2y^2<br>$$</p>
+</li>
+<li><p><strong>通解</strong>：</p>
+<p>$$<br>\boxed{x^2 y + 3x + 2y^2 &#x3D; C}<br>$$</p>
+</li>
+</ol>
+<hr>
+<p><strong>特殊情况</strong></p>
+<p>如果全微分条件不满足，可以尝试乘以一个 <strong>积分因子</strong> $\mu(x, y)$，使得：</p>
+<p>$$<br>\mu M , dx + \mu N , dy<br>$$</p>
+<p>变成全微分方程。<br>积分因子可能是 $\mu(x)$、$\mu(y)$ 或 $\mu(x, y)$。</p>
 
                 
               </div>
