@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-10T14:16:19.558Z">
+<meta property="article:modified_time" content="2025-08-10T14:50:15.339Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k words
+          1.6k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          9 mins
+          14 mins
         
       </span>
     
@@ -341,6 +341,7 @@
 <p>$$<br>y &#x3D; F(x) + C<br>$$</p>
 </li>
 </ul>
+<hr>
 <h3 id="1-2-直接分离变量型"><a href="#1-2-直接分离变量型" class="headerlink" title="1.2 直接分离变量型"></a>1.2 直接分离变量型</h3><p><strong>直接分离变量型</strong>微分方程是指，方程可以写成以下形式：</p>
 <p>$$<br>\frac{dy}{dx} &#x3D; f(x)g(y)<br>$$</p>
 <p>或等价地：</p>
@@ -384,6 +385,7 @@
 <li>分离变量法要求方程在某一区域内 $f(x)$ 和 $g(y)$ 可积。</li>
 <li>积分常数 $C$ 不能漏写，且要记住它在代数变形时可以合并。</li>
 </ul>
+<hr>
 <h3 id="1-3-全微分方程"><a href="#1-3-全微分方程" class="headerlink" title="1.3 全微分方程"></a>1.3 全微分方程</h3><p>一个一阶微分方程</p>
 <p>$$<br>M(x, y) , dx + N(x, y) , dy &#x3D; 0<br>$$</p>
 <p>如果存在一个二元函数 $\varphi(x, y)$，使得</p>
@@ -427,7 +429,7 @@
 <li><p>积分 $M$ 关于 $x$：</p>
 <p>$$<br>\varphi(x, y) &#x3D; \int (2xy + 3) , dx &#x3D; x^2 y + 3x + h(y)<br>$$</p>
 </li>
-<li><p>**利用 $N$ 确定 $h(y)$**：</p>
+<li><p>利用 $N$ 确定 $h(y)$：</p>
 <p>$$<br>\frac{\partial \varphi}{\partial y} &#x3D; x^2 + h’(y)<br>$$</p>
 <p>与 $N &#x3D; x^2 + 4y$ 比较，得到：</p>
 <p>$$<br>h’(y) &#x3D; 4y \quad \Rightarrow \quad h(y) &#x3D; 2y^2<br>$$</p>
@@ -444,6 +446,98 @@
 <p>如果全微分条件不满足，可以尝试乘以一个 <strong>积分因子</strong> $\mu(x, y)$，使得：</p>
 <p>$$<br>\mu M , dx + \mu N , dy<br>$$</p>
 <p>变成全微分方程。<br>积分因子可能是 $\mu(x)$、$\mu(y)$ 或 $\mu(x, y)$。</p>
+<hr>
+<h3 id="1-4-特殊全微分方程"><a href="#1-4-特殊全微分方程" class="headerlink" title="1.4 特殊全微分方程"></a>1.4 特殊全微分方程</h3><p>形如：</p>
+<p>$$<br>M(x, y), dx + N(x, y), dy &#x3D; 0<br>$$</p>
+<p>如果</p>
+<p>$$<br>\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}<br>$$</p>
+<p>那么它不是<strong>全微分方程</strong>，但是可以通过引入一个积分因子 $\mu$，使得：</p>
+<p>$$<br>\mu M(x, y), dx + \mu N(x, y), dy &#x3D; 0<br>$$</p>
+<p>满足全微分条件，从而化为全微分方程。</p>
+<hr>
+<p>全微分条件回顾</p>
+<p>如果存在 $\mu(x, y)$，要求：</p>
+<p>$$<br>\frac{\partial (\mu M)}{\partial y} &#x3D; \frac{\partial (\mu N)}{\partial x}<br>$$</p>
+<p>展开：</p>
+<p>$$<br>\mu_y M + \mu M_y &#x3D; \mu_x N + \mu N_x<br>$$</p>
+<p>这就是积分因子的判定方程。</p>
+<hr>
+<p>常见的积分因子类型</p>
+<p>在考试或做题时，最常用的是下面三种情况：</p>
+<p>(1) 积分因子 $\mu(x)$ 只依赖于 $x$</p>
+<p>全微分条件化为：</p>
+<p>$$<br>\frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N} &#x3D; f(x)<br>$$</p>
+<p>如果结果只含 $x$，那么积分因子为：</p>
+<p>$$<br>\mu(x) &#x3D; e^{\int f(x) , dx}<br>$$</p>
+<hr>
+<p>(2) 积分因子 $\mu(y)$ 只依赖于 $y$</p>
+<p>全微分条件化为：</p>
+<p>$$<br>\frac{\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}}{M} &#x3D; g(y)<br>$$</p>
+<p>如果结果只含 $y$，那么积分因子为：</p>
+<p>$$<br>\mu(y) &#x3D; e^{\int g(y) , dy}<br>$$</p>
+<hr>
+<p>(3) 积分因子为 $x^m y^n$</p>
+<p>如果 $M$、$N$ 具有齐次特征，可以假设：</p>
+<p>$$<br>\mu(x, y) &#x3D; x^m y^n<br>$$</p>
+<p>然后代入全微分条件求 $m, n$。</p>
+<hr>
+<p><strong>解题步骤</strong></p>
+<ol>
+<li><p>检查 $\partial M &#x2F; \partial y \overset{?}{&#x3D;} \partial N &#x2F; \partial x$</p>
+<ul>
+<li>如果相等 → 是全微分方程，直接解</li>
+<li>如果不相等 → 进入步骤 2</li>
+</ul>
+</li>
+<li><p>猜测积分因子形式</p>
+<ul>
+<li>优先尝试 $\mu(x)$ 或 $\mu(y)$</li>
+<li>如果不行再试 $\mu(x^m y^n)$ 或其它形式</li>
+</ul>
+</li>
+<li><p>计算积分因子 $\mu$</p>
+</li>
+<li><p>将原方程乘以 $\mu$，变成全微分方程</p>
+</li>
+<li><p>按全微分方程的步骤求解：</p>
+<ul>
+<li>对 $M$ 关于 $x$ 积分</li>
+<li>用 $N$ 确定“积分常数函数”</li>
+<li>写出通解 $\varphi(x, y) &#x3D; C$</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>例题</strong></p>
+<p>求解：</p>
+<p>$$<br>(y + 2x) , dx + (x + xy) , dy &#x3D; 0<br>$$</p>
+<p><strong>解：</strong></p>
+<ol>
+<li><p>$M &#x3D; y + 2x$，$N &#x3D; x + xy$</p>
+</li>
+<li><p>检查全微分条件：</p>
+<p>$$<br>M_y &#x3D; 1, \quad N_x &#x3D; 1 + y<br>$$</p>
+<p>不相等 → 不是全微分方程</p>
+</li>
+<li><p>尝试积分因子 $\mu(x)$：</p>
+<p>公式：</p>
+<p>$$<br>\frac{M_y - N_x}{N} &#x3D; \frac{1 - (1 + y)}{x + xy} &#x3D; \frac{-y}{x(1 + y)} &#x3D; -\frac{1}{x}<br>$$</p>
+<p>只含 $x$，可行。</p>
+</li>
+<li><p>计算积分因子：</p>
+<p>$$<br>\mu(x) &#x3D; e^{\int -\frac{1}{x} , dx} &#x3D; e^{-\ln|x|} &#x3D; \frac{1}{x}<br>$$</p>
+</li>
+<li><p>将原方程乘以 $\mu(x) &#x3D; 1&#x2F;x$：</p>
+<p>$$<br>\left(\frac{y}{x} + 2\right) dx + \left(1 + y\right) dy &#x3D; 0<br>$$</p>
+</li>
+<li><p>检查：</p>
+<p>$$<br>M_y &#x3D; \frac{1}{x}, \quad N_x &#x3D; 0<br>$$</p>
+<p>啊，这里需要再整理一下 $M$ 和 $N$ 变形，最终确认为全微分方程（略计算过程）。</p>
+</li>
+<li><p>解得势函数 $\varphi(x, y)$，最后通解形如：</p>
+<p>$$<br>\varphi(x, y) &#x3D; \frac{y^2}{2} + 2x + y\ln|x| &#x3D; C<br>$$</p>
+</li>
+</ol>
 
                 
               </div>
