@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-12T10:51:12.077Z">
+<meta property="article:modified_time" content="2025-08-12T11:00:32.385Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          739 words
+          1k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          7 mins
+          9 mins
         
       </span>
     
@@ -286,7 +286,7 @@
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
 
-<h2 id="1-信息论基础"><a href="#1-信息论基础" class="headerlink" title="1. 信息论基础"></a>1. 信息论基础</h2><h2 id="1-1-信息量"><a href="#1-1-信息量" class="headerlink" title="1.1 信息量"></a>1.1 信息量</h2><p>在信息论中，“信息量”用来衡量<strong>一个事件发生时，我们获得了多少新的信息</strong>。<br>核心直觉是：</p>
+<h2 id="1-信息论基础"><a href="#1-信息论基础" class="headerlink" title="1. 信息论基础"></a>1. 信息论基础</h2><h3 id="1-1-信息量"><a href="#1-1-信息量" class="headerlink" title="1.1 信息量"></a>1.1 信息量</h3><p>在信息论中，“信息量”用来衡量<strong>一个事件发生时，我们获得了多少新的信息</strong>。<br>核心直觉是：</p>
 <ul>
 <li>事件越罕见，发生时带来的信息越大。</li>
 <li>事件越常见，发生时带来的信息越少。</li>
@@ -342,7 +342,7 @@
 <li>天气预报说今天 100% 下雨 → 你出门看到雨，不惊讶 → 信息量 &#x3D; 0</li>
 <li>天气预报说今天只有 10% 下雨 → 结果你出门被淋了 → 信息量很大（学到了“天气预报错了”）。</li>
 </ul>
-<h2 id="1-2-平均信息量（Average-Information-Content）"><a href="#1-2-平均信息量（Average-Information-Content）" class="headerlink" title="1.2 平均信息量（Average Information Content）"></a>1.2 平均信息量（Average Information Content）</h2><p>在信息论中，平均信息量也叫<strong>熵</strong>（<strong>Entropy</strong>），是衡量一个随机变量（<strong>Random Variable</strong>）平均能带来多少信息的指标。它反映了系统的不确定性（<strong>Uncertainty</strong>）。</p>
+<h3 id="1-2-平均信息量（Average-Information-Content）"><a href="#1-2-平均信息量（Average-Information-Content）" class="headerlink" title="1.2 平均信息量（Average Information Content）"></a>1.2 平均信息量（Average Information Content）</h3><p>在信息论中，平均信息量也叫<strong>熵</strong>（<strong>Entropy</strong>），是衡量一个随机变量（<strong>Random Variable</strong>）平均能带来多少信息的指标。它反映了系统的不确定性（<strong>Uncertainty</strong>）。</p>
 <p>公式：</p>
 <p>$$<br>H(X) &#x3D; - \sum_{i&#x3D;1}^n P(x_i) \log_b P(x_i)<br>$$</p>
 <p>其中：</p>
@@ -362,6 +362,41 @@
 <p>$$<br>P(\text{正}) &#x3D; 0.5, \quad P(\text{反}) &#x3D; 0.5<br>$$</p>
 <p>$$<br>H &#x3D; -[0.5 \log_2 0.5 + 0.5 \log_2 0.5] &#x3D; 1 \ \text{bit}<br>$$</p>
 <p>意思是：每次抛币平均获得 1 比特的信息。</p>
+<h3 id="1-3-二元信息熵（Binary-Entropy）"><a href="#1-3-二元信息熵（Binary-Entropy）" class="headerlink" title="1.3 二元信息熵（Binary Entropy）"></a>1.3 二元信息熵（Binary Entropy）</h3><p><strong>二元信息熵</strong>（<strong>Binary Entropy</strong>）是指一个二元信源（<strong>Binary Source</strong>）的平均信息量（<strong>Average Information Content</strong>）。<br>这种信源只有两种可能输出：</p>
+<p>$$<br>X \in {0, 1}<br>$$</p>
+<p>它的熵由单个参数 $p &#x3D; P(X &#x3D; 1)$ 决定。</p>
+<hr>
+<p>对于概率 $p$（<strong>Probability</strong>）和 $1-p$ 的二元随机变量（<strong>Binary Random Variable</strong>）：</p>
+<p>$$<br>H(p) &#x3D; - p \log_2 p - (1-p) \log_2 (1-p)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$H(p)$：二元熵（<strong>Binary Entropy</strong>）</li>
+<li>$p$：取值为 1 的概率（<strong>Success Probability</strong>）</li>
+<li>$1-p$：取值为 0 的概率（<strong>Failure Probability</strong>）</li>
+<li>$\log_2$：以 2 为底的对数（<strong>Logarithm Base 2</strong>）</li>
+</ul>
+<hr>
+<p><strong>性质</strong></p>
+<ol>
+<li><p><strong>对称性</strong>（<strong>Symmetry</strong>）：</p>
+<p>$$<br>H(p) &#x3D; H(1-p)<br>$$</p>
+<p>因为交换 0 和 1 不影响不确定性。</p>
+</li>
+<li><p><strong>最大值</strong>（<strong>Maximum</strong>）：<br>当 $p &#x3D; 0.5$ 时：</p>
+<p>$$<br>H(0.5) &#x3D; -0.5 \log_2 0.5 - 0.5 \log_2 0.5 &#x3D; 1 \ \text{bit}<br>$$</p>
+<p>这是不确定性最大的情况（完全随机的二元信源）。</p>
+</li>
+<li><p><strong>最小值</strong>（<strong>Minimum</strong>）：<br>当 $p &#x3D; 0$ 或 $p &#x3D; 1$ 时，</p>
+<p>$$<br>H &#x3D; 0<br>$$</p>
+<p>因为输出是确定的，没有信息量。</p>
+</li>
+</ol>
+<hr>
+<p><strong>直观理解</strong></p>
+<ul>
+<li>当一枚硬币（<strong>Coin</strong>）是公平的（$p &#x3D; 0.5$），每次抛掷带来的信息量最大：1 bit</li>
+<li>当一枚硬币几乎总是正面朝上（$p$ 接近 1），信息量很小，因为结果几乎可预测。</li>
+</ul>
 
                 
               </div>
