@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-11T08:52:04.448Z">
+<meta property="article:modified_time" content="2025-08-12T06:15:25.918Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k words
+          4.5k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          24 mins
+          38 mins
         
       </span>
     
@@ -712,6 +712,195 @@
 <li><p>$P(x)$ 影响解的衰减&#x2F;增长趋势，$Q(x)$ 决定解的长期外部驱动形态。</p>
 </li>
 <li><p>如果 $Q(x)$ 是常数或指数函数，计算会非常快；如果是更复杂函数，可能需要分部积分或特殊函数。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-3-初等替换"><a href="#2-3-初等替换" class="headerlink" title="2.3 初等替换"></a>2.3 初等替换</h3><p>在求解微分方程时，如果方程的结构比较复杂，直接求解困难，就可以通过<strong>引入一个新的变量</strong>（或新函数）来把原方程变成一个更简单的方程。<br>这种“引入新变量并求解”的方法，就叫做 <strong>初等替换</strong>。</p>
+<p><strong>关键思想</strong>：<br>把原来的变量（$x, y$）或它们的某个组合（$y&#x2F;x$, $x+y$, $e^y$, $\ln x$ 等）换成一个新变量 $u$，<br>从而让方程的结构更规整，方便分离变量或应用已知公式。</p>
+<hr>
+<p><strong>(1) 变量替换</strong></p>
+<p>当方程里 $y$ 和 $x$ 以某种组合出现时，可以直接设：</p>
+<p>$$<br>u &#x3D; y + ax \quad\text{或}\quad u &#x3D; y - ax \quad\text{或}\quad u &#x3D; \frac{y}{x} \ \dots<br>$$</p>
+<p><strong>例子 1：</strong><br>方程：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; \frac{x+y}{x}<br>$$</p>
+<p>这里 $x+y$ 经常成对出现，所以设：</p>
+<p>$$<br>u &#x3D; x+y \quad\Rightarrow\quad \frac{du}{dx} &#x3D; 1 + \frac{dy}{dx}<br>$$</p>
+<p>把 $\frac{dy}{dx}$ 替进去，就能得到一个关于 $u$ 和 $x$ 的简单方程。</p>
+<hr>
+<p><strong>(2) 自变量替换</strong></p>
+<p>当 $x$ 出现的方式不方便（比如三角函数、指数函数），可以换自变量：</p>
+<p>$$<br>t &#x3D; \varphi(x)<br>$$</p>
+<p>并利用链式法则：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; \frac{dy}{dt} \cdot \frac{dt}{dx}<br>$$</p>
+<p><strong>例子 2：</strong><br>方程：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; \frac{1}{\ln x}<br>$$</p>
+<p>设：</p>
+<p>$$<br>t &#x3D; \ln x \quad\Rightarrow\quad \frac{dt}{dx} &#x3D; \frac{1}{x}<br>$$</p>
+<p>于是：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; \frac{dy}{dt} \cdot \frac{1}{x}<br>$$</p>
+<p>这样变成了 $t$ 的积分问题。</p>
+<hr>
+<p><strong>(3) 因变量替换</strong></p>
+<p>当 $y$ 的表达式比较复杂，可以令：</p>
+<p>$$<br>u &#x3D; \varphi(y)<br>$$</p>
+<p>然后用链式法则：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; \frac{dy}{du} \cdot \frac{du}{dx}<br>$$</p>
+<p><strong>例子 3（伯努利方程）</strong>：</p>
+<p>$$<br>\frac{dy}{dx} + P(x)y &#x3D; Q(x)y^n<br>$$</p>
+<p>令：</p>
+<p>$$<br>u &#x3D; y^{1-n} \quad\Rightarrow\quad \frac{du}{dx} &#x3D; (1-n) y^{-n} \frac{dy}{dx}<br>$$</p>
+<p>可以把它化成一阶线性方程。</p>
+<hr>
+<p><strong>(4) 对称性替换</strong></p>
+<p>如果方程中 $x$ 和 $y$ 对称出现，可以考虑：</p>
+<p>$$<br>u &#x3D; x+y \quad\text{或}\quad u &#x3D; x-y<br>$$</p>
+<p>甚至直接交换自变量与因变量：</p>
+<p>$$<br>x \leftrightarrow y<br>$$</p>
+<p>特别适用于曲线对称问题。</p>
+<hr>
+<p><strong>(5) 乘积或商的替换</strong></p>
+<p>当方程中经常出现 $y&#x2F;x$ 或 $xy$，可设：</p>
+<p>$$<br>u &#x3D; \frac{y}{x} \quad\text{或}\quad u &#x3D; xy<br>$$</p>
+<p>这样能化成齐次方程或可分离变量的形式。</p>
+<p><strong>例子 4（齐次方程）</strong>：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; \frac{x^2 + xy}{x^2}<br>$$</p>
+<p>出现 $\frac{y}{x}$ 的迹象，设：</p>
+<p>$$<br>u &#x3D; \frac{y}{x} \quad\Rightarrow\quad y &#x3D; ux,\ \frac{dy}{dx} &#x3D; u + x\frac{du}{dx}<br>$$</p>
+<p>就能降阶。</p>
+<hr>
+<p><strong>初等替换的通用步骤</strong></p>
+<ol>
+<li><p><strong>观察方程结构</strong><br>找出 $x,y$ 之间反复出现的组合（和、差、积、商、幂、指数、对数等）。</p>
+</li>
+<li><p>设新变量 $u$<br>让方程里的“复杂组合”变成一个简单的 $u$。</p>
+</li>
+<li><p><strong>用链式法则求导</strong><br>把 $\frac{dy}{dx}$ 或 $\frac{d^2y}{dx^2}$ 转换成关于 $u$ 和新自变量的导数。</p>
+</li>
+<li><p><strong>化简方程</strong><br>目标是得到分离变量、线性方程或其他可解的标准形式。</p>
+</li>
+<li><p><strong>回代求解</strong><br>解出 $u$ 后，代回原变量求 $y(x)$。</p>
+</li>
+</ol>
+<hr>
+<p><strong>小结</strong></p>
+<ul>
+<li><p>初等替换是<strong>灵活性很高的技巧</strong>，没有统一的死公式，关键在于<strong>识别模式</strong>。</p>
+</li>
+<li><p>最常见的替换模式：</p>
+<ul>
+<li>$u &#x3D; y&#x2F;x$（齐次方程）</li>
+<li>$u &#x3D; y^{1-n}$（伯努利方程）</li>
+<li>$u &#x3D; x+y$ 或 $u &#x3D; x-y$（对称问题）</li>
+<li>$t &#x3D; \ln x$（自变量换对数）</li>
+<li>$u &#x3D; e^y$（因变量取指数）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-4-非正规型-ODE"><a href="#2-4-非正规型-ODE" class="headerlink" title="2.4 非正规型 ODE"></a>2.4 非正规型 ODE</h3><p>非正规型 ODE在微分方程里通常是指<strong>不能直接写成常规显式形式</strong>的方程，比如不能直接写成</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; f(x, y)<br>$$</p>
+<p>这种形式的微分方程。</p>
+<p>一个<strong>正规型</strong>的一阶常微分方程，一般可以直接写成：</p>
+<p>$$<br>y’ &#x3D; f(x, y)<br>$$</p>
+<p>这种结构简单，变量一目了然。</p>
+<p>而<strong>非正规型 ODE</strong>，就是不能直接这样写的，它的结构可能是：</p>
+<ol>
+<li>既不能显式表示 $y’$</li>
+<li>也不能直接分离 $x$ 和 $y$</li>
+</ol>
+<p>常见的表现形式：</p>
+<ul>
+<li>$F(x, y, y’) &#x3D; 0$（$y’$ 是隐含在方程里的）</li>
+<li>$F(x, y, p) &#x3D; 0$（这里 $p &#x3D; y’$）</li>
+<li>甚至没有明确的自变量，形如 $F(y, y’)&#x3D;0$ 或 $F(x, y’)&#x3D;0$</li>
+</ul>
+<hr>
+<p>(1) 显式形式难以化出 $y’$</p>
+<p>例如：</p>
+<p>$$<br>x^2 (y’)^2 + y^2 &#x3D; 1<br>$$</p>
+<p>这里 $y’$ 是平方形式，不是直接的显式表达式。</p>
+<p><strong>处理方法</strong>：<br>设 $p &#x3D; y’$，转化为关于 $p$ 的代数方程，然后解 $p$，再积分。</p>
+<hr>
+<p>(2) <strong>Clairaut 型</strong></p>
+<p>$$<br>y &#x3D; x y’ + f(y’)<br>$$</p>
+<ul>
+<li>这里 $y’$ 出现在 $x$ 的系数和 $f$ 函数里</li>
+<li>是一种非正规型，因为 $y’$ 没法直接孤立成 $y’ &#x3D; \dots$</li>
+</ul>
+<p><strong>解法</strong>：</p>
+<ol>
+<li>设 $p &#x3D; y’$</li>
+<li>方程变为 $y &#x3D; xp + f(p)$</li>
+<li>对 $x$ 求导：$y’ &#x3D; p &#x3D; p + x p’ + f’(p) p’$</li>
+<li>化简得到 $p’$ 方程，解出 $p$ 的常数解和包络线。</li>
+</ol>
+<hr>
+<p>(3) <strong>Lagrange 型</strong></p>
+<p>$$<br>y &#x3D; x f(p) + g(p),\quad p &#x3D; y’<br>$$</p>
+<p>这是对 Clairaut 型的推广。</p>
+<p><strong>解法</strong>：</p>
+<ul>
+<li>依然令 $p &#x3D; y’$</li>
+<li>代入并对 $x$ 求导，得到关于 $p$ 的可分离变量方程</li>
+<li>解出 $p(x)$，再积分求 $y$</li>
+</ul>
+<hr>
+<p><strong>非显式变量方程</strong></p>
+<p>有时候 $x$ 和 $y$ 地位对称，比如：</p>
+<p>$$<br>F(x, y, y’) &#x3D; 0<br>$$</p>
+<p>这种情况下，可能需要交换自变量与因变量（$x \leftrightarrow y$），或者引入参数 $t$：</p>
+<p>$$<br>x &#x3D; x(t), \quad y &#x3D; y(t)<br>$$</p>
+<p>把一阶方程转成两个关于 $t$ 的方程，最后消去 $t$。</p>
+<hr>
+<p><strong>解法的一般思路</strong></p>
+<p>对于<strong>非正规型</strong>的一阶 ODE，常用的套路是：</p>
+<ol>
+<li><p><strong>引入代换</strong>：<br>令 $p &#x3D; y’$（或其他合适的替换），将 $y’$ 当作独立未知量，把原方程转成关于 $x,y,p$ 的代数方程。</p>
+</li>
+<li><p><strong>消元</strong>：<br>根据方程形式，消去 $y$ 或 $x$，得到 $p$ 与 $x$（或 $y$）的关系。</p>
+</li>
+<li><p><strong>积分还原</strong>：</p>
+<ul>
+<li>如果 $p &#x3D; p(x)$，直接积分 $y &#x3D; \int p(x), dx$</li>
+<li>如果 $p &#x3D; p(y)$，则 $dy&#x2F;dx &#x3D; p(y)$，分离变量积分。</li>
+</ul>
+</li>
+<li><p><strong>特殊解 + 通解</strong>：<br>某些形式（比如 Clairaut 型）除了通解外，还会有一条<strong>包络线</strong>作为特殊解。</p>
+</li>
+</ol>
+<hr>
+<p><strong>例题</strong>（Clairaut 型）：</p>
+<p>$$<br>y &#x3D; x y’ + (y’)^2<br>$$</p>
+<ol>
+<li>设 $p &#x3D; y’$，得：</li>
+</ol>
+<p>$$<br>y &#x3D; x p + p^2<br>$$</p>
+<ol start="2">
+<li>对 $x$ 求导：</li>
+</ol>
+<p>$$<br>p &#x3D; p + x p’ + 2p p’<br>$$</p>
+<p>化简：</p>
+<p>$$<br>(x + 2p) p’ &#x3D; 0<br>$$</p>
+<ol start="3">
+<li><p>两种可能：</p>
+<ul>
+<li>$p’ &#x3D; 0$：$p &#x3D; C$（常数）<br>回代 $y &#x3D; Cx + C^2$（直线族，通解）</li>
+<li>$x + 2p &#x3D; 0$：$p &#x3D; -x&#x2F;2$<br>回代 $y &#x3D; x(-x&#x2F;2) + (-x&#x2F;2)^2 &#x3D; -x^2&#x2F;2 + x^2&#x2F;4 &#x3D; -x^2&#x2F;4$（包络线，特解）</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ul>
+<li><p><strong>非正规型 ODE</strong> 关键特征：$y’$ 没有直接显式表示成 $f(x,y)$</p>
+</li>
+<li><p>常用方法：</p>
+<ul>
+<li>令 $p &#x3D; y’$</li>
+<li>分类型（Clairaut 型、Lagrange 型、对称型等）处理</li>
+<li>有些需要<strong>交换自变量与因变量</strong>或<strong>引入参数</strong></li>
+</ul>
+</li>
+<li><p>注意：有些非正规型方程的<strong>通解和特殊解</strong>是分开求的（尤其是包络线问题）</p>
 </li>
 </ul>
 
