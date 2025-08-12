@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-12T06:49:13.945Z">
+<meta property="article:modified_time" content="2025-08-12T07:10:46.757Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.9k words
+          5.5k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          41 mins
+          46 mins
         
       </span>
     
@@ -992,6 +992,81 @@
 </ol>
 <p><strong>最终解：</strong></p>
 <p>$$<br>\boxed{<br>\begin{cases}<br>y &#x3D; Cx + C^2 &amp; \text{(一般解)} \\<br>y &#x3D; -\frac{x^2}{4} &amp; \text{(特殊解)}<br>\end{cases}<br>}<br>$$</p>
+<hr>
+<h3 id="2-6-拉格朗日方程"><a href="#2-6-拉格朗日方程" class="headerlink" title="2.6 拉格朗日方程"></a>2.6 拉格朗日方程</h3><p>拉格朗日方程是一类一阶非线性微分方程，形式为：</p>
+<p>$$<br>y &#x3D; x f(p) + g(p), \quad p &#x3D; y’ &#x3D; \frac{dy}{dx}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$f(p), g(p)$ 是关于 $p$ 的已知函数</li>
+<li>与克莱罗方程 $y &#x3D; x p + f(p)$ 相比，这里的 $x$ 系数由常数 1 变成了一个函数 $f(p)$</li>
+</ul>
+<hr>
+<p>拉格朗日方程的解法思路是<strong>换元法</strong>，把 $p &#x3D; y’$ 作为新未知函数来求解。</p>
+<p>(1) 换元</p>
+<p>原方程：</p>
+<p>$$<br>y &#x3D; x f(p) + g(p)<br>$$</p>
+<p>对 $x$ 求导：</p>
+<p>$$<br>y’ &#x3D; f(p) + x f’(p) p’ + g’(p) p’<br>$$</p>
+<p>但 $y’ &#x3D; p$，所以：</p>
+<p>$$<br>p &#x3D; f(p) + \big[ x f’(p) + g’(p) \big] p’<br>$$</p>
+<hr>
+<p>(2) 分离 $p’$</p>
+<p>移项得到：</p>
+<p>$$<br>p - f(p) &#x3D; \big[ x f’(p) + g’(p) \big] p’<br>$$</p>
+<p>因此：</p>
+<p>$$<br>\frac{dx}{dp} &#x3D; \frac{g’(p) + x f’(p)}{p - f(p)}<br>$$</p>
+<hr>
+<p>(3) 解线性方程</p>
+<p>这是关于 $x(p)$ 的<strong>一阶线性微分方程</strong>：</p>
+<p>$$<br>\frac{dx}{dp} - \frac{f’(p)}{p - f(p)} x &#x3D; \frac{g’(p)}{p - f(p)}<br>$$</p>
+<p>它的积分因子为：</p>
+<p>$$<br>\mu(p) &#x3D; \exp!\left( -\int \frac{f’(p)}{p - f(p)} , dp \right)<br>$$</p>
+<p>解出 $x(p)$ 后，再用 $y &#x3D; x f(p) + g(p)$ 表达 $y$。</p>
+<hr>
+<p><strong>解法步骤总结</strong></p>
+<ol>
+<li><p><strong>令</strong> $p &#x3D; y’$，将原方程写成 $y &#x3D; x f(p) + g(p)$。</p>
+</li>
+<li><p><strong>求导</strong>得到 $p - f(p) &#x3D; [x f’(p) + g’(p)] p’$。</p>
+</li>
+<li><p><strong>改写为</strong>：</p>
+<p>$$<br>\frac{dx}{dp} - \frac{f’(p)}{p - f(p)} x &#x3D; \frac{g’(p)}{p - f(p)}<br>$$</p>
+</li>
+<li><p><strong>用积分因子法</strong>解 $x(p)$。</p>
+</li>
+<li><p><strong>代回</strong> $y &#x3D; x f(p) + g(p)$，得到<strong>参数形式解</strong>：</p>
+<p>$$<br>\begin{cases}<br>x &#x3D; X(p) \\<br>y &#x3D; x f(p) + g(p)<br>\end{cases}<br>$$</p>
+</li>
+<li><p>特殊解（包络线）：满足 $\displaystyle p - f(p) &#x3D; 0$ 的解，对应直线的包络。</p>
+</li>
+</ol>
+<hr>
+<p><strong>例题</strong><br>解：</p>
+<p>$$<br>y &#x3D; x (p + 1) + \frac{1}{p}, \quad p &#x3D; y’<br>$$</p>
+<p><strong>解：</strong></p>
+<ol>
+<li><p>$f(p) &#x3D; p+1, \quad g(p) &#x3D; \frac{1}{p}$<br>方程：</p>
+<p>$$<br>\frac{dx}{dp} - \frac{f’(p)}{p - f(p)} x &#x3D; \frac{g’(p)}{p - f(p)}<br>$$</p>
+<p>先算：</p>
+<p>$$<br>f’(p) &#x3D; 1, \quad p - f(p) &#x3D; p - (p+1) &#x3D; -1, \quad g’(p) &#x3D; -\frac{1}{p^2}<br>$$</p>
+</li>
+<li><p>代入：</p>
+<p>$$<br>\frac{dx}{dp} - \frac{1}{-1} x &#x3D; \frac{-1&#x2F;p^2}{-1}<br>$$</p>
+<p>即：</p>
+<p>$$<br>\frac{dx}{dp} + x &#x3D; \frac{1}{p^2}<br>$$</p>
+</li>
+<li><p>积分因子：</p>
+<p>$$<br>\mu(p) &#x3D; e^{\int 1, dp} &#x3D; e^{p}<br>$$</p>
+</li>
+<li><p>解得：</p>
+<p>$$<br>e^{p} x &#x3D; \int \frac{e^{p}}{p^2} , dp + C<br>$$</p>
+<p>所以：</p>
+<p>$$<br>x &#x3D; e^{-p} \left( \int \frac{e^{p}}{p^2} , dp + C \right)<br>$$</p>
+</li>
+<li><p>代回 $y &#x3D; x(p+1) + \frac{1}{p}$ 得到参数解：</p>
+<p>$$<br>\begin{cases}<br>x &#x3D; e^{-p} \left( \int \frac{e^{p}}{p^2} , dp + C \right) \\<br>y &#x3D; x(p+1) + \frac{1}{p}<br>\end{cases}<br>$$</p>
+</li>
+</ol>
 
                 
               </div>
