@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-12T07:51:03.958Z">
+<meta property="article:modified_time" content="2025-08-12T08:03:02.217Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.1k words
+          6.7k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          52 mins
+          56 mins
         
       </span>
     
@@ -1155,6 +1155,106 @@
 <td>在很多经典方程中，奇解就是一般解族的包络线</td>
 </tr>
 </tbody></table>
+<hr>
+<h2 id="3-伯努利方程（Bernoulli-Equation）"><a href="#3-伯努利方程（Bernoulli-Equation）" class="headerlink" title="3. 伯努利方程（Bernoulli Equation）"></a>3. 伯努利方程（Bernoulli Equation）</h2><p>伯努利方程是以下形式的一阶非线性微分方程：</p>
+<p>$$<br>\frac{dy}{dx} + P(x) y &#x3D; Q(x) y^n<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$P(x)$、$Q(x)$ 是已知函数</li>
+<li>$n$ 是常数（且 $n \neq 0, 1$，因为 $n &#x3D; 0$ 或 $n &#x3D; 1$ 时方程退化为一阶线性方程）</li>
+</ul>
+<p><strong>特点</strong></p>
+<ul>
+<li>直接看是非线性方程（因为有 $y^n$ 项）</li>
+<li>通过<strong>恰当的变量替换</strong>可以化为一阶线性微分方程</li>
+<li>这个替换就是 $v &#x3D; y^{1-n}$ 或者等价地 $y^{n-1}$ 作为新变量</li>
+</ul>
+<hr>
+<p><strong>解法步骤</strong></p>
+<ol>
+<li><p><strong>写出方程：</strong></p>
+<p>$$<br>\frac{dy}{dx} + P(x) y &#x3D; Q(x) y^n<br>$$</p>
+</li>
+<li><p><strong>变量替换：</strong><br>令：</p>
+<p>$$<br>v &#x3D; y^{1-n}<br>$$</p>
+<p>则：</p>
+<p>$$<br>\frac{dv}{dx} &#x3D; (1-n) y^{-n} \frac{dy}{dx}<br>$$</p>
+</li>
+<li><p><strong>代入原方程：</strong><br>原式两边除以 $y^n$：</p>
+<p>$$<br>y^{-n} \frac{dy}{dx} + P(x) y^{1-n} &#x3D; Q(x)<br>$$</p>
+<p>注意：</p>
+<p>$$<br>y^{-n} \frac{dy}{dx} &#x3D; \frac{1}{1-n} \frac{dv}{dx}<br>$$</p>
+<p>且 $y^{1-n} &#x3D; v$。</p>
+<p>所以：</p>
+<p>$$<br>\frac{1}{1-n} \frac{dv}{dx} + P(x) v &#x3D; Q(x)<br>$$</p>
+</li>
+<li><p><strong>化为线性方程：</strong></p>
+<p>$$<br>\frac{dv}{dx} + (1-n) P(x) v &#x3D; (1-n) Q(x)<br>$$</p>
+<p>这就是关于 $v$ 的一阶线性方程。</p>
+</li>
+<li><p><strong>解线性方程：</strong></p>
+<ul>
+<li><p>积分因子：</p>
+<p>$$<br>\mu(x) &#x3D; e^{\int (1-n) P(x) dx}<br>$$</p>
+</li>
+<li><p>通解：</p>
+<p>$$<br>v(x) &#x3D; \frac{\int \mu(x) (1-n) Q(x) dx + C}{\mu(x)}<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>回代：</strong><br>由 $v &#x3D; y^{1-n}$，得到：</p>
+<p>$$<br>y &#x3D; \big[ v(x) \big]^{\frac{1}{1-n}}<br>$$</p>
+</li>
+</ol>
+<hr>
+<p><strong>特殊情况</strong></p>
+<ul>
+<li><p>当 $n &#x3D; 0$：方程为</p>
+<p>$$<br>\frac{dy}{dx} + P(x) y &#x3D; Q(x)<br>$$</p>
+<p>直接是<strong>一阶线性方程</strong>。</p>
+</li>
+<li><p>当 $n &#x3D; 1$：方程为</p>
+<p>$$<br>\frac{dy}{dx} + \big(P(x) - Q(x)\big) y &#x3D; 0<br>$$</p>
+<p>也是一阶线性方程。</p>
+</li>
+</ul>
+<hr>
+<p><strong>例题</strong><br>解：</p>
+<p>$$<br>\frac{dy}{dx} + y &#x3D; x y^2<br>$$</p>
+<p><strong>解：</strong></p>
+<ol>
+<li><p>$P(x) &#x3D; 1, \quad Q(x) &#x3D; x, \quad n &#x3D; 2$</p>
+</li>
+<li><p>令：</p>
+<p>$$<br>v &#x3D; y^{1-2} &#x3D; y^{-1}<br>$$</p>
+<p>则：</p>
+<p>$$<br>\frac{dv}{dx} &#x3D; -y^{-2} \frac{dy}{dx}<br>$$</p>
+</li>
+<li><p>原方程两边除以 $y^2$：</p>
+<p>$$<br>y^{-2} \frac{dy}{dx} + y^{-1} &#x3D; x<br>$$</p>
+<p>即：</p>
+<p>$$<br>-\frac{dv}{dx} + v &#x3D; x<br>$$</p>
+</li>
+<li><p>改写为：</p>
+<p>$$<br>\frac{dv}{dx} - v &#x3D; -x<br>$$</p>
+</li>
+<li><p>积分因子：</p>
+<p>$$<br>\mu(x) &#x3D; e^{\int -1 , dx} &#x3D; e^{-x}<br>$$</p>
+</li>
+<li><p>解：</p>
+<p>$$<br>e^{-x} v &#x3D; \int -x e^{-x} dx + C<br>$$</p>
+<p>分部积分：</p>
+<p>$$<br>\int -x e^{-x} dx &#x3D; (x+1) e^{-x}<br>$$</p>
+<p>所以：</p>
+<p>$$<br>e^{-x} v &#x3D; (x+1) e^{-x} + C<br>$$</p>
+<p>$$<br>v &#x3D; x + 1 + C e^{x}<br>$$</p>
+</li>
+<li><p>回代 $v &#x3D; y^{-1}$：</p>
+<p>$$<br>\frac{1}{y} &#x3D; x + 1 + C e^{x}<br>$$</p>
+<p>因此：</p>
+<p>$$<br>y &#x3D; \frac{1}{x + 1 + C e^{x}}<br>$$</p>
+</li>
+</ol>
 
                 
               </div>
