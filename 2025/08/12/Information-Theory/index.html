@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-12T14:20:40.044Z">
+<meta property="article:modified_time" content="2025-08-12T14:38:14.955Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k words
+          2.7k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          21 mins
+          23 mins
         
       </span>
     
@@ -565,6 +565,69 @@
 <p>则：</p>
 <p>$$<br>I(A \mid 1) &#x3D; -\log_2 (0.25) &#x3D; 2 \ \text{bits}<br>$$</p>
 <p>意思是：在已知 $Y&#x3D;1$ 的情况下，确定 $X&#x3D;A$ 仍然需要 2 比特的信息。</p>
+<hr>
+<h3 id="2-3-联合熵（Joint-Entropy）"><a href="#2-3-联合熵（Joint-Entropy）" class="headerlink" title="2.3  联合熵（Joint Entropy）"></a>2.3  联合熵（Joint Entropy）</h3><p><strong>联合熵</strong>（<strong>Joint Entropy</strong>）描述了<strong>两个随机变量</strong>（<strong>Random Variables</strong>）$X$ 和 $Y$ <strong>同时取值</strong>时的平均信息量（<strong>Average Information Content</strong>）。</p>
+<p>它是对<strong>联合概率分布</strong>（<strong>Joint Probability Distribution</strong>）上<strong>联合自信息量</strong>（<strong>Joint Self-Information</strong>）的期望：</p>
+<p>$$<br>H(X, Y) &#x3D; - \sum_{x} \sum_{y} p(x, y) \log_b p(x, y)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$p(x, y)$：联合概率（<strong>Joint Probability</strong>）</li>
+<li>$b$：对数底（<strong>Logarithm Base</strong>），$b&#x3D;2$ 时单位是 <strong>bit</strong>，$b&#x3D;e$ 时单位是 <strong>nat</strong>。</li>
+</ul>
+<hr>
+<ul>
+<li><p>联合熵度量的是观察到<strong>整个事件对</strong> $(X, Y)$ 所需的平均信息量。</p>
+</li>
+<li><p>如果 $X$ 和 $Y$ 独立（<strong>Independent</strong>），则：</p>
+<p>$$<br>H(X, Y) &#x3D; H(X) + H(Y)<br>$$</p>
+</li>
+<li><p>如果 $X$ 完全由 $Y$ 决定（<strong>Deterministic Relationship</strong>），那么：</p>
+<p>$$<br>H(X, Y) &#x3D; H(Y) &#x3D; H(X)<br>$$</p>
+<p>因为知道一个变量就完全知道另一个变量，不会增加不确定性。</p>
+</li>
+</ul>
+<hr>
+<p><strong>性质</strong></p>
+<ol>
+<li><p><strong>非负性</strong>（<strong>Non-Negativity</strong>）</p>
+<p>$$<br>H(X, Y) \ge 0<br>$$</p>
+</li>
+<li><p><strong>上界</strong>（<strong>Upper Bound</strong>）</p>
+<p>$$<br>H(X, Y) \le H(X) + H(Y)<br>$$</p>
+<p>等号在独立时成立。</p>
+</li>
+<li><p><strong>链式法则</strong>（<strong>Chain Rule</strong>）</p>
+<p>$$<br>H(X, Y) &#x3D; H(X) + H(Y \mid X)<br>$$</p>
+<p>或：</p>
+<p>$$<br>H(X, Y) &#x3D; H(Y) + H(X \mid Y)<br>$$</p>
+<p>表示联合熵可以分解为单个熵 + 条件熵。</p>
+</li>
+</ol>
+<hr>
+<p><strong>举例</strong></p>
+<p>假设：</p>
+<table>
+<thead>
+<tr>
+<th>X&#x2F;Y</th>
+<th>y₁</th>
+<th>y₂</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x₁</td>
+<td>0.25</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>x₂</td>
+<td>0.25</td>
+<td>0.25</td>
+</tr>
+</tbody></table>
+<p>则：</p>
+<p>$$<br>H(X, Y) &#x3D; -\sum_{x,y} 0.25 \log_2 0.25 &#x3D; -4 \times 0.25 \times (-2) &#x3D; 2 \ \text{bits}<br>$$</p>
+<p>说明每次观察到 $(X, Y)$ 对需要 2 比特的信息。</p>
 
                 
               </div>
