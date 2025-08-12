@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-12T08:03:02.217Z">
+<meta property="article:modified_time" content="2025-08-12T08:31:39.215Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.7k words
+          7.3k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          56 mins
+          61 mins
         
       </span>
     
@@ -1255,6 +1255,101 @@
 <p>$$<br>y &#x3D; \frac{1}{x + 1 + C e^{x}}<br>$$</p>
 </li>
 </ol>
+<h2 id="4-Riccati-方程"><a href="#4-Riccati-方程" class="headerlink" title="4. Riccati 方程"></a>4. Riccati 方程</h2><p>Riccati 方程，它在微分方程里是一个重要的非线性一阶方程类型。</p>
+<p><strong>Riccati 方程</strong>的标准形式是：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; a(x) y^2 + b(x) y + c(x)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$a(x), b(x), c(x)$ 是已知函数</li>
+<li>这是一个<strong>非线性一阶方程</strong>（因为有 $y^2$ 项）</li>
+<li>如果 $a(x) \equiv 0$，它就退化为线性方程</li>
+</ul>
+<hr>
+<p><strong>特点</strong></p>
+<ol>
+<li><strong>非线性</strong>：主要难度在 $y^2$ 项</li>
+<li><strong>可通过一个已知特解转化为线性方程</strong><br>Riccati 方程<strong>一般不能直接求解</strong>，但是如果你知道它的一个特解 $y_p(x)$，就可以化简。</li>
+</ol>
+<hr>
+<p>解法思想（已知一个特解的情况）</p>
+<p>假设我们已经知道一个特解：</p>
+<p>$$<br>y_p’(x) &#x3D; a(x) y_p^2 + b(x) y_p + c(x)<br>$$</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li><p><strong>作代换</strong>：</p>
+<p>$$<br>y(x) &#x3D; y_p(x) + \frac{1}{u(x)}<br>$$</p>
+</li>
+<li><p><strong>求导</strong>：</p>
+<p>$$<br>y’ &#x3D; y_p’ - \frac{u’}{u^2}<br>$$</p>
+</li>
+<li><p><strong>代入原方程</strong>：<br>用 $y &#x3D; y_p + 1&#x2F;u$ 和 $y’$ 代入：</p>
+<p>$$<br>y_p’ - \frac{u’}{u^2} &#x3D; a \left(y_p + \frac{1}{u}\right)^2 + b\left(y_p + \frac{1}{u}\right) + c<br>$$</p>
+</li>
+<li><p><strong>利用特解方程消去非必要项</strong>：<br>因为 $y_p$ 满足原方程，<br>把 $y_p’ &#x3D; a y_p^2 + b y_p + c$ 代掉，可以消去关于 $y_p$ 的一大堆项。</p>
+<p>结果会变成：</p>
+<p>$$<br>-\frac{u’}{u^2} &#x3D; \frac{2 a y_p + b}{u} + \frac{a}{u^2}<br>$$</p>
+</li>
+<li><p>**乘以 $u^2$**：</p>
+<p>$$<br>-u’ &#x3D; (2 a y_p + b) u + a<br>$$</p>
+<p>这就是一个<strong>一阶线性方程</strong>：</p>
+<p>$$<br>u’ + (2 a y_p + b) u &#x3D; -a<br>$$</p>
+</li>
+<li><p><strong>解线性方程</strong>：</p>
+<ul>
+<li><p>积分因子：</p>
+<p>$$<br>\mu(x) &#x3D; e^{\int (2 a y_p + b) dx}<br>$$</p>
+</li>
+<li><p>解出 $u(x)$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>回代</strong>：</p>
+<p>$$<br>y(x) &#x3D; y_p(x) + \frac{1}{u(x)}<br>$$</p>
+</li>
+</ol>
+<hr>
+<p><strong>特殊情况</strong></p>
+<ul>
+<li>如果 $a(x)$ 是常数，且 $b(x), c(x)$ 也简单，有时可以用特殊代换 $y &#x3D; -\frac{1}{a} \frac{u’}{u}$ 直接化为二阶线性方程。</li>
+<li>实际上 Riccati 方程和二阶线性方程有一一对应关系（它是二阶线性方程通过比值变换得到的）。</li>
+</ul>
+<hr>
+<p><strong>举个简单例子</strong></p>
+<p>解：</p>
+<p>$$<br>\frac{dy}{dx} &#x3D; y^2 - x^2<br>$$</p>
+<ol>
+<li><p>尝试找一个简单特解：假设 $y_p &#x3D; x$，则</p>
+<p>$$<br>y_p’ &#x3D; 1, \quad y_p^2 - x^2 &#x3D; x^2 - x^2 &#x3D; 0<br>$$</p>
+<p>不满足 → 失败</p>
+<p>尝试 $y_p &#x3D; -x$，同样失败。换常数解 $y_p &#x3D; k$：</p>
+<p>$$<br>0 &#x3D; k^2 - x^2<br>$$</p>
+<p>不可能恒成立 → 也失败。<br>（说明这个例子得用二阶线性方法处理，而不是直接找常数解）</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>一阶非线性 ODE</td>
+</tr>
+<tr>
+<td>一般形式</td>
+<td>$y’ &#x3D; a(x) y^2 + b(x) y + c(x)$</td>
+</tr>
+<tr>
+<td>解法关键</td>
+<td>已知一个特解时可化为一阶线性方程</td>
+</tr>
+<tr>
+<td>与二阶方程关系</td>
+<td>可由二阶线性方程的解变换得到</td>
+</tr>
+</tbody></table>
 
                 
               </div>
