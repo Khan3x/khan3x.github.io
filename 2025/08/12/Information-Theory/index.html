@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-12T14:09:23.977Z">
+<meta property="article:modified_time" content="2025-08-12T14:20:40.044Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k words
+          2.4k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          18 mins
+          21 mins
         
       </span>
     
@@ -530,6 +530,41 @@
 <p>例子：事件 $(1, b)$ 的联合自信息量：</p>
 <p>$$<br>I(1, b) &#x3D; -\log_2 (0.125) &#x3D; -\log_2 \left(\frac{1}{8}\right) &#x3D; 3 \ \text{bits}<br>$$</p>
 <p>说明这个事件发生时，我们获得了 3 比特的新信息。</p>
+<hr>
+<h3 id="2-2-条件自信息量（Conditional-Self-Information）"><a href="#2-2-条件自信息量（Conditional-Self-Information）" class="headerlink" title="2.2 条件自信息量（Conditional Self-Information）"></a>2.2 条件自信息量（Conditional Self-Information）</h3><p><strong>条件自信息量</strong>（<strong>Conditional Self-Information</strong>）描述了在已知一个事件发生的前提下，另一个事件发生所带来的信息量。</p>
+<p>如果随机变量 $X$ 取到值 $x$，并且我们已知 $Y &#x3D; y$ 已经发生，那么条件自信息量定义为：</p>
+<p>$$<br>I(x \mid y) &#x3D; -\log_b p(x \mid y)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$p(x \mid y)$：条件概率（<strong>Conditional Probability</strong>）</li>
+<li>$b$：对数底（<strong>Logarithm Base</strong>），通常取 2（单位 bit）或 $e$（单位 nat）</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>条件自信息量</strong>表示在额外信息（已知 $Y&#x3D;y$）下，我们需要多少信息来确定 $X&#x3D;x$。</p>
+</li>
+<li><p>如果 $X$ 和 $Y$ 独立（<strong>Independent</strong>），则：</p>
+<p>$$<br>p(x \mid y) &#x3D; p(x) \quad\Rightarrow\quad I(x \mid y) &#x3D; I(x)<br>$$</p>
+<p>已知 $Y$ 不会减少对 $X$ 的不确定性。</p>
+</li>
+<li><p>如果 $Y$ 能确定 $X$，则 $p(x \mid y) &#x3D; 1$，此时：</p>
+<p>$$<br>I(x \mid y) &#x3D; 0<br>$$</p>
+<p>说明已知 $Y$ 后不需要额外信息来确定 $X$。</p>
+</li>
+</ul>
+<hr>
+<p><strong>条件熵</strong>（Conditional Entropy）是条件自信息量的<strong>期望值</strong>：</p>
+<p>$$<br>H(X\mid Y) &#x3D; -\sum_{y}\sum_{x} p(x,y)\log p(x\mid y).<br>$$</p>
+<hr>
+<p><strong>举例假设：</strong></p>
+<ul>
+<li>$X \in {A, B}$</li>
+<li>$Y \in {1, 2}$<br>并且已知：</li>
+</ul>
+<p>$$<br>p(X&#x3D;A \mid Y&#x3D;1) &#x3D; 0.25<br>$$</p>
+<p>则：</p>
+<p>$$<br>I(A \mid 1) &#x3D; -\log_2 (0.25) &#x3D; 2 \ \text{bits}<br>$$</p>
+<p>意思是：在已知 $Y&#x3D;1$ 的情况下，确定 $X&#x3D;A$ 仍然需要 2 比特的信息。</p>
 
                 
               </div>
