@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-12T11:06:28.001Z">
+<meta property="article:modified_time" content="2025-08-12T13:40:31.945Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          1.7k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          12 mins
+          15 mins
         
       </span>
     
@@ -427,6 +427,54 @@
 <p>归一化熵：</p>
 <p>$$<br>h(s) &#x3D; \frac{1.5}{2} &#x3D; 0.75<br>$$</p>
 <p>意思是：这个信源的随机性相当于最随机信源的 75%。</p>
+<hr>
+<h3 id="1-5-冗余度（Redundancy）"><a href="#1-5-冗余度（Redundancy）" class="headerlink" title="1.5 冗余度（Redundancy）"></a>1.5 冗余度（Redundancy）</h3><p><strong>冗余度</strong>（<strong>Redundancy</strong>）表示一个信源（<strong>Source</strong>）在编码或符号序列中，<strong>不携带新信息</strong>的部分所占的比例。<br>它描述了信源中“可预测性”（<strong>Predictability</strong>）的大小。</p>
+<p>换句话说，冗余度 &#x3D; 1 − 随机性程度。<br>在很多情况下，信源的符号分布并不是均匀的，因此它的熵低于最大可能的熵，差值就是冗余造成的。</p>
+<hr>
+<p>假设信源字母表（<strong>Alphabet</strong>）大小为 $M$，</p>
+<ul>
+<li>实际熵：$H(s)$（<strong>Entropy</strong>）</li>
+<li>最大熵：$H_{\max} &#x3D; \log_2 M$（<strong>Maximum Entropy</strong>）</li>
+</ul>
+<p><strong>归一化形式的冗余度</strong>（<strong>Normalized Redundancy</strong>）：</p>
+<p>$$<br>R &#x3D; 1 - \frac{H(s)}{\log_2 M}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$R$：冗余度（Redundancy）</li>
+<li>$\frac{H(s)}{\log_2 M}$：归一化熵（Normalized Entropy），也叫相对熵（Relative Entropy，在另一种定义下）</li>
+</ul>
+<hr>
+<p><strong>性质</strong></p>
+<ol>
+<li><p><strong>范围</strong>：</p>
+<p>$$<br>0 \le R \le 1<br>$$</p>
+<ul>
+<li>$R &#x3D; 0$：完全随机，无冗余</li>
+<li>$R &#x3D; 1$：完全确定，全是冗余</li>
+</ul>
+</li>
+<li><p><strong>解释</strong>：</p>
+<ul>
+<li>高冗余度意味着数据中有较多的可预测性，容易压缩（<strong>Compressibility</strong>）</li>
+<li>低冗余度意味着数据更随机，压缩率低</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>例子：假设字母表大小 $M &#x3D; 4$：<br>最大熵：</p>
+<p>$$<br>H_{\max} &#x3D; \log_2 4 &#x3D; 2\ \text{bits}<br>$$</p>
+<p>某信源熵：</p>
+<p>$$<br>H(s) &#x3D; 1.5\ \text{bits}<br>$$</p>
+<p>冗余度：</p>
+<p>$$<br>R &#x3D; 1 - \frac{1.5}{2} &#x3D; 0.25<br>$$</p>
+<p>这意味着信源中有 25% 的信息是冗余的，可被预测或压缩掉。</p>
+<hr>
+<p><strong>应用</strong></p>
+<ul>
+<li><strong>自然语言</strong>（Natural Language）：英语的冗余度大约 50%，这使得我们即使漏掉一些字母，也能推断出完整单词。</li>
+<li><strong>通信系统</strong>（Communication Systems）：适当增加冗余（如校验码 <strong>Error-Detecting Codes</strong>）可以提高抗噪能力。</li>
+<li><strong>数据压缩</strong>（Data Compression）：压缩的过程本质上是消除冗余。</li>
+</ul>
 
                 
               </div>
