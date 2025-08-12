@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-12T13:40:31.945Z">
+<meta property="article:modified_time" content="2025-08-12T14:09:23.977Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k words
+          2.1k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          15 mins
+          18 mins
         
       </span>
     
@@ -475,6 +475,61 @@
 <li><strong>通信系统</strong>（Communication Systems）：适当增加冗余（如校验码 <strong>Error-Detecting Codes</strong>）可以提高抗噪能力。</li>
 <li><strong>数据压缩</strong>（Data Compression）：压缩的过程本质上是消除冗余。</li>
 </ul>
+<h2 id="2-熵的计算"><a href="#2-熵的计算" class="headerlink" title="2. 熵的计算"></a>2. 熵的计算</h2><h3 id="2-1-联合自信息量（Joint-Self-Information）"><a href="#2-1-联合自信息量（Joint-Self-Information）" class="headerlink" title="2.1 联合自信息量（Joint Self-Information）"></a>2.1 联合自信息量（Joint Self-Information）</h3><p><strong>联合自信息量</strong>（<strong>Joint Self-Information</strong>）是衡量<strong>两个随机变量同时取到特定值</strong>这一事件所包含的信息量。<br>它是单个事件自信息量的推广，定义在<strong>联合事件</strong>（<strong>Joint Event</strong>）上。</p>
+<p>如果我们有两个随机变量 $X$ 和 $Y$，某一次观测的结果是 $(x, y)$，则其联合自信息量为：</p>
+<p>$$<br>I(x, y) &#x3D; -\log_b p(x, y)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$p(x, y)$：联合概率（<strong>Joint Probability</strong>）</li>
+<li>$b$：对数底（<strong>Logarithm Base</strong>），常用 $b &#x3D; 2$（单位 <strong>bit</strong>）或 $b &#x3D; e$（单位 <strong>nat</strong>）</li>
+</ul>
+<hr>
+<p><strong>解释</strong></p>
+<ul>
+<li><p><strong>概率越小</strong>的联合事件，信息量越大（更“惊喜”）。</p>
+</li>
+<li><p>如果 $X$ 和 $Y$ 独立：</p>
+<p>$$<br>p(x, y) &#x3D; p(x) \cdot p(y) \quad\Rightarrow\quad I(x, y) &#x3D; I(x) + I(y)<br>$$</p>
+<p>这表明独立事件的联合自信息量等于它们单独信息量的和。</p>
+</li>
+</ul>
+<hr>
+<p><strong>与联合熵的关系</strong></p>
+<p><strong>联合熵</strong>（Joint Entropy）其实是<strong>联合自信息量的期望值</strong>：</p>
+<p>$$<br>H(X, Y) &#x3D; \mathbb{E}[I(X, Y)] &#x3D; -\sum_{x}\sum_{y} p(x, y) \log p(x, y)<br>$$</p>
+<p>所以：</p>
+<ul>
+<li>联合自信息量 → 单次事件的“惊讶度”</li>
+<li>联合熵 → 平均“惊讶度”</li>
+</ul>
+<hr>
+<p>假设：</p>
+<ul>
+<li>$X$ 取值 ${0, 1}$</li>
+<li>$Y$ 取值 ${a, b}$<br>联合概率表（Joint Probability Table）为：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$a$</th>
+<th>$b$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td>0.5</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>0.125</td>
+<td>0.125</td>
+</tr>
+</tbody></table>
+<p>例子：事件 $(1, b)$ 的联合自信息量：</p>
+<p>$$<br>I(1, b) &#x3D; -\log_2 (0.125) &#x3D; -\log_2 \left(\frac{1}{8}\right) &#x3D; 3 \ \text{bits}<br>$$</p>
+<p>说明这个事件发生时，我们获得了 3 比特的新信息。</p>
 
                 
               </div>
