@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-12T06:15:25.918Z">
+<meta property="article:modified_time" content="2025-08-12T06:49:13.945Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k words
+          4.9k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          38 mins
+          41 mins
         
       </span>
     
@@ -903,6 +903,95 @@
 <li><p>注意：有些非正规型方程的<strong>通解和特殊解</strong>是分开求的（尤其是包络线问题）</p>
 </li>
 </ul>
+<h3 id="2-5-克莱罗方程"><a href="#2-5-克莱罗方程" class="headerlink" title="2.5 克莱罗方程"></a>2.5 克莱罗方程</h3><p><strong>定义</strong><br>克莱罗方程是以下形式的一阶微分方程：</p>
+<p>$$<br>y &#x3D; x y’ + f(y’)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$y$ 是未知函数</li>
+<li>$y’ &#x3D; \frac{dy}{dx}$</li>
+<li>$f(y’)$ 是关于 $y’$ 的已知函数</li>
+</ul>
+<p>这里的特殊之处是：方程 对 $y$ 和 $y’$ 是线性的，但 $f(y’)$ 是非线性函数。</p>
+<hr>
+<p><strong>解法步骤</strong></p>
+<p><strong>(1) 一般解</strong></p>
+<ol>
+<li><p>对方程</p>
+<p>$$<br>y &#x3D; x y’ + f(y’)<br>$$</p>
+<p>对 $x$ 两边求导：</p>
+<p>$$<br>y’ &#x3D; y’ + x y’’ + f’(y’) \cdot y’’<br>$$</p>
+</li>
+<li><p>化简：</p>
+<ul>
+<li><p>左右同时都有 $y’$，相减得到</p>
+<p>$$<br>0 &#x3D; (x + f’(y’)) y’’<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p>由乘积等于零，可得两种情况：</p>
+<ul>
+<li><p><strong>情况1</strong>：$y’’ &#x3D; 0$</p>
+<ul>
+<li><p>积分得 $y’ &#x3D; C$（常数）</p>
+</li>
+<li><p>代回原方程：</p>
+<p>$$<br>y &#x3D; Cx + f(C)<br>$$</p>
+<p>这就是 <strong>一般解</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>情况2</strong>：$x + f’(y’) &#x3D; 0$</p>
+<ul>
+<li><p>解出 $y’$：</p>
+<p>$$<br>x &#x3D; - f’(p) \quad (\text{令 } p &#x3D; y’)<br>$$</p>
+<ul>
+<li>将 $p$ 代回 $y &#x3D; x p + f(p)$ 得到特殊解（见下）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>(2) 特殊解（包络线解）</strong></p>
+<p>当 $x + f’(p) &#x3D; 0$ 时：</p>
+<ol>
+<li><p>解出 $p$（常数）：</p>
+<p>$$<br>p &#x3D; \varphi(x) \quad\text{(通过 } f’(p) &#x3D; -x \text{ 得到关系式)}<br>$$</p>
+</li>
+<li><p>将 $p$ 代回</p>
+<p>$$<br>y &#x3D; x p + f(p)<br>$$</p>
+<p>得到的曲线，就是所有直线 $y &#x3D; Cx + f(C)$ 的 <strong>包络线</strong>。</p>
+</li>
+</ol>
+<hr>
+<p><strong>解法总结</strong></p>
+<ul>
+<li><p><strong>一般解</strong>：一族直线</p>
+<p>$$<br>y &#x3D; Cx + f(C)<br>$$</p>
+</li>
+<li><p><strong>特殊解</strong>：这族直线的包络线，由</p>
+<p>$$<br>x + f’(C) &#x3D; 0<br>$$</p>
+<p>与一般解的形式联立得到。</p>
+</li>
+</ul>
+<hr>
+<p><strong>例题</strong><br>解方程</p>
+<p>$$<br>y &#x3D; x y’ + (y’)^2<br>$$</p>
+<p><strong>解：</strong></p>
+<ol>
+<li><p>一般解<br>令 $y’ &#x3D; C$，代回：</p>
+<p>$$<br>y &#x3D; Cx + C^2<br>$$</p>
+</li>
+<li><p>特殊解<br>$f(p) &#x3D; p^2 \implies f’(p) &#x3D; 2p$<br>特殊条件：</p>
+<p>$$<br>x + 2p &#x3D; 0 \implies p &#x3D; -\frac{x}{2}<br>$$</p>
+<p>代回：</p>
+<p>$$<br>y &#x3D; x\left(-\frac{x}{2}\right) + \left(-\frac{x}{2}\right)^2<br>&#x3D; -\frac{x^2}{2} + \frac{x^2}{4} &#x3D; -\frac{x^2}{4}<br>$$</p>
+</li>
+</ol>
+<p><strong>最终解：</strong></p>
+<p>$$<br>\boxed{<br>\begin{cases}<br>y &#x3D; Cx + C^2 &amp; \text{(一般解)} \\<br>y &#x3D; -\frac{x^2}{4} &amp; \text{(特殊解)}<br>\end{cases}<br>}<br>$$</p>
 
                 
               </div>
