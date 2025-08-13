@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-12T08:51:08.357Z">
+<meta property="article:modified_time" content="2025-08-13T09:08:14.036Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.3k words
+          8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          61 mins
+          67 mins
         
       </span>
     
@@ -1350,7 +1350,88 @@
 <td>可由二阶线性方程的解变换得到</td>
 </tr>
 </tbody></table>
-<h2 id="5-常系数微分方程组"><a href="#5-常系数微分方程组" class="headerlink" title="5. 常系数微分方程组"></a>5. 常系数微分方程组</h2>
+<h2 id="5-常系数微分方程组"><a href="#5-常系数微分方程组" class="headerlink" title="5. 常系数微分方程组"></a>5. 常系数微分方程组</h2><h3 id="5-1-齐次线性微分方程组"><a href="#5-1-齐次线性微分方程组" class="headerlink" title="5.1. 齐次线性微分方程组"></a>5.1. 齐次线性微分方程组</h3><p><strong>齐次线性微分方程组</strong>指的是形如：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D; A\mathbf{x}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$\mathbf{x}(t) &#x3D; \begin{bmatrix} x_1(t) \ x_2(t) \ \vdots \ x_n(t) \end{bmatrix}$ 为未知函数列向量</li>
+<li>$A$ 是 $n \times n$ 的常系数矩阵（常见情形）</li>
+<li>没有常数项或强迫项（因此称为<strong>齐次 homogeneous</strong>）</li>
+</ul>
+<p>如果有附加项 $\mathbf{f}(t)$（即 $\frac{d\mathbf{x}}{dt} &#x3D; A\mathbf{x} + \mathbf{f}(t)$），那就是<strong>非齐次</strong>的情形（5.2）。</p>
+<hr>
+<p><strong>矩阵形式与基本思路</strong></p>
+<p>齐次系统：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D; A\mathbf{x}<br>$$</p>
+<p>的解法与一阶线性常微分方程类似，只不过未知量是向量，系数是矩阵。</p>
+<p>核心思想：</p>
+<ul>
+<li>单个变量 $y’ &#x3D; ay$ 的解是 $y(t) &#x3D; C e^{at}$</li>
+<li>矩阵系统的解是 $\mathbf{x}(t) &#x3D; e^{At} \mathbf{C}$，其中 $e^{At}$ 是矩阵指数。</li>
+</ul>
+<hr>
+<p><strong>解法步骤（常系数情形）</strong></p>
+<p><strong>步骤 1：</strong> 写出特征方程</p>
+<p>从矩阵方程：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D; A\mathbf{x}<br>$$</p>
+<p>假设解形如 $\mathbf{x}(t) &#x3D; \mathbf{v} e^{\lambda t}$，代入得到：</p>
+<p>$$<br>A\mathbf{v} &#x3D; \lambda \mathbf{v}<br>$$</p>
+<p>这是矩阵 $A$ 的<strong>特征值问题</strong>。</p>
+<p>得到<strong>特征方程</strong>：</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>步骤 2：</strong> 求特征值 $\lambda_i$</p>
+<p>每个特征值对应一个（或多个）特征向量。</p>
+<hr>
+<p><strong>步骤 3：</strong> 求特征向量 $\mathbf{v}_i$</p>
+<p>对于每个 $\lambda_i$，解：</p>
+<p>$$<br>(A - \lambda_i I)\mathbf{v} &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>步骤 4：</strong> 写出通解</p>
+<p>如果 $A$ 有 $n$ 个线性无关的特征向量：</p>
+<p>$$<br>\mathbf{x}(t) &#x3D; c_1 \mathbf{v}_1 e^{\lambda_1 t} + c_2 \mathbf{v}_2 e^{\lambda_2 t} + \dots + c_n \mathbf{v}_n e^{\lambda_n t}<br>$$</p>
+<hr>
+<p><strong>步骤 5（特殊情况）：</strong> 特征值重根或复数</p>
+<ul>
+<li><strong>重根</strong>：用广义特征向量求解，解中会出现多项式因子 $t^k$</li>
+<li><strong>复特征值</strong>：如果 $\lambda &#x3D; \alpha \pm i\beta$，则解可化为：</li>
+</ul>
+<p>$$<br>e^{\alpha t} \left[ \mathbf{p} \cos(\beta t) + \mathbf{q} \sin(\beta t) \right]<br>$$</p>
+<hr>
+<p><strong>例子</strong><br>求解：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D;<br>\begin{bmatrix}<br>2 &amp; 1 \\<br>1 &amp; 2<br>\end{bmatrix} \mathbf{x}<br>$$</p>
+<hr>
+<p><strong>Step 1</strong>：特征方程</p>
+<p>$$<br>\det\begin{bmatrix} 2-\lambda &amp; 1 \\ 1 &amp; 2-\lambda \end{bmatrix} &#x3D; (2-\lambda)^2 - 1 &#x3D; \lambda^2 - 4\lambda + 3 &#x3D; 0<br>$$</p>
+<p>$$<br>\Rightarrow \lambda_1 &#x3D; 1, \quad \lambda_2 &#x3D; 3<br>$$</p>
+<hr>
+<p><strong>Step 2</strong>：特征向量</p>
+<ul>
+<li>对 $\lambda_1 &#x3D; 1$：</li>
+</ul>
+<p>$$<br>\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix} \mathbf{v} &#x3D; 0 \quad \Rightarrow \quad \mathbf{v}_1 &#x3D; \begin{bmatrix} 1 \\ -1 \end{bmatrix}<br>$$</p>
+<ul>
+<li>对 $\lambda_2 &#x3D; 3$：</li>
+</ul>
+<p>$$<br>\begin{bmatrix} -1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix} \mathbf{v} &#x3D; 0 \quad \Rightarrow \quad \mathbf{v}_2 &#x3D; \begin{bmatrix} 1 \\ 1 \end{bmatrix}<br>$$</p>
+<hr>
+<p><strong>Step 3</strong>：通解</p>
+<p>$$<br>\mathbf{x}(t) &#x3D; c_1 \begin{bmatrix} 1 \\ -1 \end{bmatrix} e^{t} + c_2 \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^{3t}<br>$$</p>
+<hr>
+<p><strong>矩阵指数法（更一般的形式）</strong></p>
+<p>如果直接求 $e^{At}$：</p>
+<p>$$<br>e^{At} &#x3D; I + At + \frac{A^2 t^2}{2!} + \dots<br>$$</p>
+<p>一旦求得 $e^{At}$，通解是：</p>
+<p>$$<br>\mathbf{x}(t) &#x3D; e^{At} \mathbf{x}(0)<br>$$</p>
+<p>适合初值问题。</p>
+<hr>
+<ul>
+<li>关键思想：将系统转化为<strong>特征值问题</strong></li>
+<li>通解是若干个指数函数和特征向量的线性组合</li>
+<li>复数特征值会产生正弦和余弦项</li>
+<li>矩阵指数 $e^{At}$ 是更高阶统一解法</li>
+</ul>
+
                 
               </div>
             
