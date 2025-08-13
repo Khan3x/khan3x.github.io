@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-13T09:08:14.036Z">
+<meta property="article:modified_time" content="2025-08-13T09:26:22.843Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8k words
+          8.8k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          67 mins
+          74 mins
         
       </span>
     
@@ -1430,6 +1430,98 @@
 <li>通解是若干个指数函数和特征向量的线性组合</li>
 <li>复数特征值会产生正弦和余弦项</li>
 <li>矩阵指数 $e^{At}$ 是更高阶统一解法</li>
+</ul>
+<hr>
+<h3 id="5-2-非齐次线性微分方程组"><a href="#5-2-非齐次线性微分方程组" class="headerlink" title="5.2. 非齐次线性微分方程组"></a>5.2. 非齐次线性微分方程组</h3><p><strong>非齐次线性微分方程组</strong> 一般写作：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D; A\mathbf{x} + \mathbf{f}(t)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$\mathbf{x}(t) \in \mathbb{R}^n$：未知向量函数</li>
+<li>$A$：$n \times n$ 常系数矩阵（也可以是 $t$ 的函数，但常系数最常见）</li>
+<li>$\mathbf{f}(t)$：已知向量函数，称为<strong>外部输入</strong>或<strong>强迫项</strong>（forcing term）</li>
+</ul>
+<p>如果 $\mathbf{f}(t) \equiv \mathbf{0}$，就退化成齐次系统。</p>
+<hr>
+<p><strong>一般解的结构</strong> </p>
+<p><strong>核心性质</strong>：<br>非齐次线性系统的解 &#x3D; 齐次系统的通解 + 任意一个特解。</p>
+<p>即：</p>
+<p>$$<br>\mathbf{x}(t) &#x3D; \mathbf{x}_h(t) + \mathbf{x}_p(t)<br>$$</p>
+<ul>
+<li>$\mathbf{x}_h(t)$：齐次方程 $\frac{d\mathbf{x}}{dt} &#x3D; A\mathbf{x}$ 的通解（5.1 已讲）</li>
+<li>$\mathbf{x}_p(t)$：非齐次方程的一个特解</li>
+</ul>
+<hr>
+<p><strong>解法方法</strong></p>
+<p>方法一：<strong>常数变易法（Variation of Parameters）</strong></p>
+<p>Step 1：求齐次通解</p>
+<p>齐次解：</p>
+<p>$$<br>\mathbf{x}_h(t) &#x3D; e^{At} \mathbf{C}<br>$$</p>
+<p>Step 2：假设常数变为函数</p>
+<p>将常数向量 $\mathbf{C}$ 改为 $\mathbf{u}(t)$：</p>
+<p>$$<br>\mathbf{x}_p(t) &#x3D; e^{At} \mathbf{u}(t)<br>$$</p>
+<p>Step 3：代回原方程</p>
+<p>代入 $\frac{d\mathbf{x}_p}{dt} &#x3D; A e^{At} \mathbf{u}(t) + e^{At} \mathbf{u}’(t)$：</p>
+<p>$$<br>A e^{At} \mathbf{u}(t) + e^{At} \mathbf{u}’(t) &#x3D; A e^{At} \mathbf{u}(t) + \mathbf{f}(t)<br>$$</p>
+<p>化简得到：</p>
+<p>$$<br>e^{At} \mathbf{u}’(t) &#x3D; \mathbf{f}(t)<br>$$</p>
+<p>因此：</p>
+<p>$$<br>\mathbf{u}’(t) &#x3D; e^{-At} \mathbf{f}(t)<br>$$</p>
+<p>Step 4：积分求 $\mathbf{u}(t)$</p>
+<p>$$<br>\mathbf{u}(t) &#x3D; \int e^{-At} \mathbf{f}(t) , dt<br>$$</p>
+<p>Step 5：写出特解</p>
+<p>$$<br>\mathbf{x}_p(t) &#x3D; e^{At} \int e^{-At} \mathbf{f}(t) , dt<br>$$</p>
+<hr>
+<p>方法二：<strong>矩阵指数公式（Duhamel 公式）</strong></p>
+<p>直接给出初值问题解：</p>
+<p>$$<br>\mathbf{x}(t) &#x3D; e^{A(t-t_0)} \mathbf{x}(t_0) + \int_{t_0}^t e^{A(t-s)} \mathbf{f}(s) , ds<br>$$</p>
+<ul>
+<li>第一项：齐次解（由初值决定）</li>
+<li>第二项：外部输入对系统的影响（卷积形式）</li>
+</ul>
+<hr>
+<p>方法三：<strong>待定系数法</strong></p>
+<ul>
+<li>适合 $\mathbf{f}(t)$ 是多项式、指数、正弦&#x2F;余弦等<strong>有限组合</strong>的情况</li>
+<li>假设特解形式与 $\mathbf{f}(t)$ 类似，代入方程求系数</li>
+</ul>
+<p>例如：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D;<br>\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{bmatrix} \mathbf{x} +<br>\begin{bmatrix} e^t \\ \cos t \end{bmatrix}<br>$$</p>
+<p>可以分别假设特解第一分量是 $k e^t$，第二分量是 $a\cos t + b\sin t$。</p>
+<hr>
+<p><strong>例子</strong></p>
+<p>求解：</p>
+<p>$$<br>\frac{d\mathbf{x}}{dt} &#x3D;<br>\begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{bmatrix} \mathbf{x} +<br>\begin{bmatrix} e^{2t} \\ t \end{bmatrix}<br>$$</p>
+<hr>
+<p><strong>Step 1</strong>：齐次解</p>
+<p>$$<br>\mathbf{x}_h(t) &#x3D;<br>\begin{bmatrix} C_1 e^{2t} \\ C_2 e^{3t} \end{bmatrix}<br>$$</p>
+<hr>
+<p><strong>Step 2</strong>：特解（待定系数法）</p>
+<ul>
+<li>对第一分量：</li>
+</ul>
+<p>$$<br>x_1’ &#x3D; 2x_1 + e^{2t}<br>$$</p>
+<p>假设 $x_{1p} &#x3D; kt e^{2t}$，代入：</p>
+<p>$$<br>(2k t + k)e^{2t} &#x3D; 2k t e^{2t} + e^{2t} \quad\Rightarrow\quad k &#x3D; 1<br>$$</p>
+<p>所以 $x_{1p} &#x3D; t e^{2t}$</p>
+<ul>
+<li>对第二分量：</li>
+</ul>
+<p>$$<br>x_2’ &#x3D; 3x_2 + t<br>$$</p>
+<p>假设 $x_{2p} &#x3D; at + b$，代入：</p>
+<p>$$<br>a &#x3D; 3(at + b) + t \quad\Rightarrow\quad a &#x3D; 3a,\quad 0 &#x3D; 3b + t<br>$$</p>
+<p>（发现不匹配，说明应改为二次多项式）<br>改假设 $x_{2p} &#x3D; at^2 + bt + c$，代入解得 $a &#x3D; -\frac12$, $b &#x3D; -\frac13$, $c &#x3D; -\frac19$。</p>
+<hr>
+<p><strong>Step 3</strong>：总解</p>
+<p>$$<br>\mathbf{x}(t) &#x3D;<br>\begin{bmatrix} C_1 e^{2t} + t e^{2t} \\ C_2 e^{3t} - \frac12 t^2 - \frac13 t - \frac19 \end{bmatrix}<br>$$</p>
+<hr>
+<ul>
+<li><strong>核心公式</strong>（常数变易法 &#x2F; Duhamel 公式）：</li>
+</ul>
+<p>$$<br>\mathbf{x}(t) &#x3D; e^{A(t-t_0)}\mathbf{x}(t_0) + \int_{t_0}^t e^{A(t-s)} \mathbf{f}(s) , ds<br>$$</p>
+<ul>
+<li>齐次解：取 $\mathbf{f}(t) \equiv 0$</li>
+<li>特解：用常数变易法或待定系数法求</li>
+<li>对于工程控制系统，Duhamel 公式直接给出系统对输入的响应（卷积形式）</li>
 </ul>
 
                 
