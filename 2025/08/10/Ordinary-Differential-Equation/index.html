@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-13T12:33:16.076Z">
+<meta property="article:modified_time" content="2025-08-13T12:47:44.788Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.4k words
+          10k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          79 mins
+          84 mins
         
       </span>
     
@@ -1614,6 +1614,88 @@
 <li>有重根时出现 $\ln x$</li>
 <li>有复根时出现 $\cos(\beta \ln x), \sin(\beta \ln x)$</li>
 <li>通过 $t &#x3D; \ln x$ 可以化为常系数方程</li>
+</ul>
+<hr>
+<h3 id="6-2-高阶齐次欧拉方程"><a href="#6-2-高阶齐次欧拉方程" class="headerlink" title="6.2 高阶齐次欧拉方程"></a>6.2 高阶齐次欧拉方程</h3><p><strong>高阶齐次欧拉方程</strong>，它是二阶欧拉方程在高阶（3 阶、4 阶…）的自然推广。</p>
+<p>一个 <strong>n 阶齐次欧拉方程</strong> 一般写成：</p>
+<p>$$<br>x^n y^{(n)} + a_{n-1} x^{n-1} y^{(n-1)} + a_{n-2} x^{n-2} y^{(n-2)} + \dots + a_1 x y’ + a_0 y &#x3D; 0<br>$$</p>
+<p>其中 $a_k$ 都是常数，且各项的 $x$ 次方与导数的阶数相加相等（这就是“等次”）。</p>
+<hr>
+<p><strong>解法思想</strong></p>
+<p>高阶欧拉方程和二阶欧拉方程的核心方法<strong>完全一样</strong>：</p>
+<ul>
+<li>猜解 $y &#x3D; x^m$（幂函数）</li>
+<li>化为<strong>代数方程</strong>（特征方程）</li>
+<li>解出 $m$ 后，根据根的类型写出通解</li>
+</ul>
+<hr>
+<p><strong>解法步骤</strong></p>
+<p>Step 1：试探解</p>
+<p>设</p>
+<p>$$<br>y &#x3D; x^m<br>$$</p>
+<p>计算导数：</p>
+<p>$$<br>y’ &#x3D; m x^{m-1}, \quad y’’ &#x3D; m(m-1) x^{m-2}, \quad y^{(k)} &#x3D; m(m-1)\dots(m-k+1) x^{m-k}<br>$$</p>
+<hr>
+<p>Step 2：代入方程</p>
+<p>以三阶为例：</p>
+<p>$$<br>x^3 y’’’ + a_2 x^2 y’’ + a_1 x y’ + a_0 y &#x3D; 0<br>$$</p>
+<p>代入 $y &#x3D; x^m$：</p>
+<p>$$<br>x^3 [m(m-1)(m-2) x^{m-3}] + a_2 x^2 [m(m-1) x^{m-2}] + a_1 x [m x^{m-1}] + a_0 x^m &#x3D; 0<br>$$</p>
+<p>化简：</p>
+<p>$$<br>\big[ m(m-1)(m-2) + a_2 m(m-1) + a_1 m + a_0 \big] x^m &#x3D; 0<br>$$</p>
+<hr>
+<p>Step 3：特征方程</p>
+<p>得到<strong>m 的多项式方程</strong>：</p>
+<p>$$<br>m(m-1)(m-2) + a_2 m(m-1) + a_1 m + a_0 &#x3D; 0<br>$$</p>
+<p>一般情况下，n 阶欧拉方程的特征方程是一个 <strong>n 次多项式</strong>。</p>
+<hr>
+<p>Step 4：根据根的情况写解</p>
+<p>设多项式有根：</p>
+<ul>
+<li><p>不同实根 $m_1, m_2, \dots, m_n$：</p>
+<p>$$<br>y &#x3D; C_1 x^{m_1} + C_2 x^{m_2} + \dots + C_n x^{m_n}<br>$$</p>
+</li>
+<li><p>重根：若 $m$ 是重根，解中会出现 $\ln x$ 的幂次：</p>
+<p>$$<br>x^m, \quad x^m \ln x, \quad x^m (\ln x)^2, \dots<br>$$</p>
+</li>
+<li><p>复根：若 $m &#x3D; \alpha \pm i\beta$，则解为：</p>
+<p>$$<br>x^{\alpha} \cos(\beta \ln x), \quad x^{\alpha} \sin(\beta \ln x)<br>$$</p>
+<p>（多个复根可叠加）</p>
+</li>
+</ul>
+<hr>
+<p><strong>对数变换法（另一种思路）</strong></p>
+<p>令 $t &#x3D; \ln x, ; Y(t) &#x3D; y(e^t)$，有：</p>
+<p>$$<br>\frac{d}{dx} &#x3D; \frac{1}{x} \frac{d}{dt}<br>$$</p>
+<p>这样高阶欧拉方程会变成一个<strong>常系数高阶方程</strong>：</p>
+<p>$$<br>Y^{(n)} + b_{n-1} Y^{(n-1)} + \dots + b_0 Y &#x3D; 0<br>$$</p>
+<p>直接用常系数法解，然后再代回 $x &#x3D; e^t$。</p>
+<hr>
+<p><strong>例</strong>：解</p>
+<p>$$<br>x^3 y’’’ - 3x^2 y’’ + 4x y’ - 4y &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>Step 1</strong> 试 $y &#x3D; x^m$，代入得特征方程：</p>
+<p>$$<br>m(m-1)(m-2) - 3m(m-1) + 4m - 4 &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>Step 2</strong> 展开：</p>
+<p>$$<br>m^3 - 3m^2 + 2m - 3m^2 + 3m + 4m - 4 &#x3D; m^3 - 6m^2 + 9m - 4 &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>Step 3</strong> 因式分解：</p>
+<p>$$<br>(m-1)^2 (m-4) &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>Step 4</strong> 根：</p>
+<ul>
+<li>重根 $m&#x3D;1$（重数 2）</li>
+<li>单根 $m&#x3D;4$</li>
+</ul>
+<p>解：</p>
+<p>$$<br>y &#x3D; C_1 x + C_2 x \ln x + C_3 x^4<br>$$</p>
+<hr>
+<p>高阶齐次欧拉方程：</p>
+<ul>
+<li>与二阶欧拉方程方法相同，只是特征方程阶数更高</li>
+<li>根的类型 → 通解的结构（幂函数、幂×对数、幂×三角）</li>
+<li>对数变换 $t &#x3D; \ln x$ 可以一键变成常系数问题</li>
 </ul>
 
                 
