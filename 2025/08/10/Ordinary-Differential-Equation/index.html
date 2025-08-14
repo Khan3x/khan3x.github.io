@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-13T12:57:14.507Z">
+<meta property="article:modified_time" content="2025-08-14T01:04:33.355Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -241,7 +241,7 @@
         
         
         
-          90 mins
+          94 mins
         
       </span>
     
@@ -1796,7 +1796,102 @@
 <li><p><strong>通解</strong> &#x3D; 齐次解 + 特解</p>
 </li>
 </ol>
-<h2 id="7-二阶常微分方程"><a href="#7-二阶常微分方程" class="headerlink" title="7. 二阶常微分方程"></a>7. 二阶常微分方程</h2><h2 id="8-高阶微分方程"><a href="#8-高阶微分方程" class="headerlink" title="8. 高阶微分方程"></a>8. 高阶微分方程</h2>
+<h2 id="7-二阶常微分方程"><a href="#7-二阶常微分方程" class="headerlink" title="7. 二阶常微分方程"></a>7. 二阶常微分方程</h2><h3 id="7-1-二阶齐次常微分方程"><a href="#7-1-二阶齐次常微分方程" class="headerlink" title="7.1. 二阶齐次常微分方程"></a>7.1. 二阶齐次常微分方程</h3><p><strong>二阶齐次常微分方程</strong>是指形如：</p>
+<p>$$<br>a y’’ + b y’ + c y &#x3D; 0<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$a, b, c$ 为常数（$a \neq 0$）</li>
+<li>$y’’$ 是 $y$ 关于 $x$ 的二阶导数</li>
+<li>$y’$ 是一阶导数</li>
+<li>$y$ 是未知函数</li>
+</ul>
+<p>这是一个<strong>二阶、线性、常系数、齐次</strong>的常微分方程。</p>
+<hr>
+<p><strong>解法思路</strong><br>(1) 特征方程法</p>
+<p>我们假设解的形式为：</p>
+<p>$$<br>y &#x3D; e^{rx}<br>$$</p>
+<p>代入原方程：</p>
+<p>$$<br>a (r^2 e^{rx}) + b (r e^{rx}) + c (e^{rx}) &#x3D; 0<br>$$</p>
+<p>提取 $e^{rx}$（它永不为零）：</p>
+<p>$$<br>a r^2 + b r + c &#x3D; 0<br>$$</p>
+<p>得到<strong>特征方程</strong>：</p>
+<p>$$<br>a r^2 + b r + c &#x3D; 0<br>$$</p>
+<hr>
+<p>(2) 根据判别式分类讨论</p>
+<p>设判别式：</p>
+<p>$$<br>\Delta &#x3D; b^2 - 4ac<br>$$</p>
+<ol>
+<li><p><strong>两个不相等的实根</strong> $r_1, r_2$（$\Delta &gt; 0$）</p>
+<p>$$<br>y &#x3D; C_1 e^{r_1 x} + C_2 e^{r_2 x}<br>$$</p>
+<p>其中 $C_1, C_2$ 为常数。</p>
+</li>
+<li><p><strong>两个相等的实根</strong> $r_1 &#x3D; r_2 &#x3D; r$（$\Delta &#x3D; 0$）</p>
+<p>$$<br>y &#x3D; (C_1 + C_2 x) e^{rx}<br>$$</p>
+<p>或写作</p>
+<p>$$<br>y &#x3D; C_1 e^{rx} + C_2 x e^{rx}<br>$$</p>
+</li>
+<li><p><strong>一对共轭复根</strong> $r_{1,2} &#x3D; \alpha \pm i \beta$（$\Delta &lt; 0$）<br>根据欧拉公式 $e^{i\beta x} &#x3D; \cos(\beta x) + i\sin(\beta x)$，解为</p>
+<p>$$<br>y &#x3D; e^{\alpha x} \left( C_1 \cos(\beta x) + C_2 \sin(\beta x) \right)<br>$$</p>
+</li>
+</ol>
+<hr>
+<p>三种情况总结表</p>
+<table>
+<thead>
+<tr>
+<th>判别式 $\Delta$</th>
+<th>根的类型</th>
+<th>通解形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\Delta &gt; 0$</td>
+<td>两个不等实根 $r_1, r_2$</td>
+<td>$y &#x3D; C_1 e^{r_1 x} + C_2 e^{r_2 x}$</td>
+</tr>
+<tr>
+<td>$\Delta &#x3D; 0$</td>
+<td>两个相等实根 $r$</td>
+<td>$y &#x3D; (C_1 + C_2 x) e^{rx}$</td>
+</tr>
+<tr>
+<td>$\Delta &lt; 0$</td>
+<td>共轭复根 $\alpha \pm i \beta$</td>
+<td>$y &#x3D; e^{\alpha x} ( C_1 \cos \beta x + C_2 \sin \beta x)$</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>例1</strong><br>解方程：</p>
+<p>$$<br>y’’ - 5y’ + 6y &#x3D; 0<br>$$</p>
+<p><strong>解：</strong><br>特征方程：</p>
+<p>$$<br>r^2 - 5r + 6 &#x3D; 0<br>$$</p>
+<p>$$<br>(r - 2)(r - 3) &#x3D; 0 \quad\Rightarrow\quad r_1 &#x3D; 2,\ r_2 &#x3D; 3<br>$$</p>
+<p>通解：</p>
+<p>$$<br>y &#x3D; C_1 e^{2x} + C_2 e^{3x}<br>$$</p>
+<hr>
+<p><strong>例2</strong><br>解方程：</p>
+<p>$$<br>y’’ - 4y’ + 4y &#x3D; 0<br>$$</p>
+<p><strong>解：</strong><br>特征方程：</p>
+<p>$$<br>r^2 - 4r + 4 &#x3D; 0<br>$$</p>
+<p>$$<br>(r - 2)^2 &#x3D; 0 \quad\Rightarrow\quad r &#x3D; 2<br>$$</p>
+<p>通解：</p>
+<p>$$<br>y &#x3D; (C_1 + C_2 x) e^{2x}<br>$$</p>
+<hr>
+<p><strong>例3</strong><br>解方程：</p>
+<p>$$<br>y’’ + 2y’ + 5y &#x3D; 0<br>$$</p>
+<p><strong>解：</strong><br>特征方程：</p>
+<p>$$<br>r^2 + 2r + 5 &#x3D; 0<br>$$</p>
+<p>$$<br>r &#x3D; -1 \pm 2i<br>$$</p>
+<p>通解：</p>
+<p>$$<br>y &#x3D; e^{-x} \left( C_1 \cos 2x + C_2 \sin 2x \right)<br>$$</p>
+<hr>
+<p><strong>小结</strong></p>
+<ul>
+<li>核心方法：假设指数型解 $y&#x3D;e^{rx}$ → 求特征方程 → 分类讨论</li>
+<li>三种根型决定三种解的形式</li>
+<li>复数根时记得用欧拉公式化为实解</li>
+</ul>
+<h2 id="8-高阶微分方程"><a href="#8-高阶微分方程" class="headerlink" title="8. 高阶微分方程"></a>8. 高阶微分方程</h2>
                 
               </div>
             
