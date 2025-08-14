@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-14T09:16:32.946Z">
+<meta property="article:modified_time" content="2025-08-14T09:29:31.922Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k words
+          14k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          112 mins
+          114 mins
         
       </span>
     
@@ -2187,6 +2187,44 @@
 <p>定理：若 $p(x), q(x), r(x)$ 在区间 $I$ 上连续，则对于初值条件</p>
 <p>$$<br>y(x_0) &#x3D; y_0, \quad y’(x_0) &#x3D; y_1,<br>$$</p>
 <p>该方程在 $I$ 上存在唯一解。</p>
+<hr>
+<p>🌟 例题</p>
+<p>解方程：</p>
+<p>$$<br>y’’ - 3y’ + 2y &#x3D; e^x.<br>$$</p>
+<hr>
+<p><strong>Step 1：</strong> 写出齐次方程</p>
+<p>齐次方程为：</p>
+<p>$$<br>y’’ - 3y’ + 2y &#x3D; 0.<br>$$</p>
+<p>设 $y &#x3D; e^{\lambda x}$，得到<strong>特征方程</strong>：</p>
+<p>$$<br>\lambda^2 - 3\lambda + 2 &#x3D; 0.<br>$$</p>
+<p>解得：</p>
+<p>$$<br>\lambda_1 &#x3D; 1, \quad \lambda_2 &#x3D; 2.<br>$$</p>
+<p>所以齐次解为：</p>
+<p>$$<br>y_h(x) &#x3D; C_1 e^x + C_2 e^{2x}.<br>$$</p>
+<hr>
+<p><strong>Step 2：</strong> 求特解 $y_p(x)$</p>
+<p>右边 $r(x) &#x3D; e^x$，它和齐次解中的 $e^x$ <strong>重复</strong>（称为“共振情况”），所以我们尝试特解形式：</p>
+<p>$$<br>y_p(x) &#x3D; Ax e^x.<br>$$</p>
+<hr>
+<p><strong>Step 3：代入原方程</strong></p>
+<p>计算导数：</p>
+<p>$$<br>y_p’ &#x3D; A e^x + Ax e^x,<br>$$</p>
+<p>$$<br>y_p’’ &#x3D; 2Ae^x + Ax e^x.<br>$$</p>
+<p>代入方程：</p>
+<p>$$<br>(2Ae^x + Ax e^x) - 3(Ae^x + Ax e^x) + 2(Ax e^x) &#x3D; e^x.<br>$$</p>
+<p>整理：</p>
+<p>$$<br>(2A - 3A)e^x + (A - 3A + 2A)x e^x &#x3D; e^x,<br>$$</p>
+<p>$$<br>(-A)e^x + 0 \cdot x e^x &#x3D; e^x.<br>$$</p>
+<p>于是：</p>
+<p>$$<br>-A e^x &#x3D; e^x \quad \Rightarrow \quad A &#x3D; -1.<br>$$</p>
+<p>所以：</p>
+<p>$$<br>y_p(x) &#x3D; -x e^x.<br>$$</p>
+<hr>
+<p><strong>Step 4：写出通解</strong></p>
+<p>通解为：</p>
+<p>$$<br>y(x) &#x3D; y_h(x) + y_p(x) &#x3D; C_1 e^x + C_2 e^{2x} - x e^x.<br>$$</p>
+<p>✅ 最终答案</p>
+<p>$$<br>\boxed{y(x) &#x3D; C_1 e^x + C_2 e^{2x} - x e^x}<br>$$</p>
 <h2 id="偷偷说"><a href="#偷偷说" class="headerlink" title="偷偷说"></a>偷偷说</h2><p>微分方程相对来说，在修考只是一个Side Dish的存在www，熟记每个模板应该就没有太大问题了。</p>
 
                 
