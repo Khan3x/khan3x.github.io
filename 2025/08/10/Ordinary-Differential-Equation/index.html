@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ordinary Differential Equation常微分方程特性总结              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 初等解法本章主要介绍常微分方程的初等解法 1.1 直接积分型如果一阶微分方程可以直接写成下面的形式： $$\frac{dy}{dx} &#x3D; f(x)$$ 也就是说，右边只含有 $x$（不含 $y">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-10T12:54:47.000Z">
-<meta property="article:modified_time" content="2025-08-14T08:19:37.827Z">
+<meta property="article:modified_time" content="2025-08-14T09:16:32.946Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Ordinary Differential Equation">
@@ -241,7 +241,7 @@
         
         
         
-          108 mins
+          112 mins
         
       </span>
     
@@ -2133,6 +2133,61 @@
 <p>解得：</p>
 <p>$$<br>z &#x3D; C_1 e^x + C_2 e^{-x}<br>$$</p>
 <p>再积分两次得到 $y(x)$。</p>
+<hr>
+<h3 id="8-2-二阶线性微分方程"><a href="#8-2-二阶线性微分方程" class="headerlink" title="8.2. 二阶线性微分方程"></a>8.2. 二阶线性微分方程</h3><p><strong>二阶线性微分方程 (Second-order Linear Differential Equation)</strong> 指的是含有未知函数 $y(x)$、其一阶导数 $y’(x)$、二阶导数 $y’’(x)$ 的方程，并且 $y(x)$、$y’(x)$、$y’’(x)$ 的系数只依赖于 $x$，且方程关于 $y$ 是<strong>线性的</strong>。一般写成：</p>
+<p>$$<br>a_2(x)y’’ + a_1(x)y’ + a_0(x)y &#x3D; f(x), \quad a_2(x) \neq 0<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$a_2(x), a_1(x), a_0(x)$ 称为系数函数 (coefficient functions)；</li>
+<li>$f(x)$ 称为非齐次项 (nonhomogeneous term)；</li>
+<li>如果 $f(x) &#x3D; 0$，则称为齐次方程 (homogeneous equation)。</li>
+</ul>
+<hr>
+<p>通常将方程化为标准形式：</p>
+<p>$$<br>y’’ + p(x)y’ + q(x)y &#x3D; r(x),<br>$$</p>
+<p>其中<br>$p(x) &#x3D; \dfrac{a_1(x)}{a_2(x)}$，<br>$q(x) &#x3D; \dfrac{a_0(x)}{a_2(x)}$，<br>$r(x) &#x3D; \dfrac{f(x)}{a_2(x)}$。</p>
+<hr>
+<p>二阶线性方程的解分为两部分：</p>
+<p>$$<br>y(x) &#x3D; y_h(x) + y_p(x),<br>$$</p>
+<ul>
+<li>$y_h(x)$：齐次方程的通解 (complementary solution, homogeneous solution)<br>解 $y’’ + p(x)y’ + q(x)y &#x3D; 0$。</li>
+<li>$y_p(x)$：非齐次方程的特解 (particular solution)<br>解 $y’’ + p(x)y’ + q(x)y &#x3D; r(x)$ 的一个特殊解。</li>
+</ul>
+<hr>
+<p><strong>齐次方程的解法</strong></p>
+<p>考虑常系数情形（最常见也最重要）：</p>
+<p>$$<br>y’’ + ay’ + by &#x3D; 0.<br>$$</p>
+<p>1️⃣特征方程 (Characteristic equation)</p>
+<p>假设解形如 $y &#x3D; e^{\lambda x}$，代入得到：</p>
+<p>$$<br>\lambda^2 + a\lambda + b &#x3D; 0.<br>$$</p>
+<p>这是<strong>特征方程</strong>，解的情况分为三类：</p>
+<ol>
+<li><p>两个不相等实根 $\lambda_1, \lambda_2$</p>
+<p>$$<br>y_h(x) &#x3D; C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x}.<br>$$</p>
+</li>
+<li><p>一个重根 $\lambda$</p>
+<p>$$<br>y_h(x) &#x3D; (C_1 + C_2 x)e^{\lambda x}.<br>$$</p>
+</li>
+<li><p>一对共轭复根 $\lambda_{1,2} &#x3D; \alpha \pm i\beta$</p>
+<p>$$<br>y_h(x) &#x3D; e^{\alpha x}\big(C_1\cos(\beta x) + C_2\sin(\beta x)\big).<br>$$</p>
+</li>
+</ol>
+<hr>
+<p>常见的求特解方法有：</p>
+<ol>
+<li><p><strong>待定系数法 (Method of Undetermined Coefficients)</strong><br>适用于 $r(x)$ 是多项式、指数函数、三角函数或它们的线性组合。假设 $y_p(x)$ 的形式与 $r(x)$ 类似，再代入确定系数。</p>
+</li>
+<li><p><strong>参数变动法 (Variation of Parameters)</strong><br>一种通用方法，设</p>
+<p>$$<br>y_p(x) &#x3D; u_1(x)y_1(x) + u_2(x)y_2(x),<br>$$</p>
+<p>其中 $y_1, y_2$ 是齐次方程的两个基本解，然后利用行列式公式（Wronskian 行列式）解出 $u_1, u_2$。</p>
+</li>
+</ol>
+<hr>
+<p><strong>解的存在唯一性</strong></p>
+<p>定理：若 $p(x), q(x), r(x)$ 在区间 $I$ 上连续，则对于初值条件</p>
+<p>$$<br>y(x_0) &#x3D; y_0, \quad y’(x_0) &#x3D; y_1,<br>$$</p>
+<p>该方程在 $I$ 上存在唯一解。</p>
+<h2 id="偷偷说"><a href="#偷偷说" class="headerlink" title="偷偷说"></a>偷偷说</h2><p>微分方程相对来说，在修考只是一个Side Dish的存在www，熟记每个模板应该就没有太大问题了。</p>
 
                 
               </div>
