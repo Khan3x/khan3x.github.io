@@ -1,0 +1,184 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    网络分层模型对比
+  </text>
+  
+  <!-- OSI 7层模型 -->
+  <g>
+    <text x="200" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#34495e">
+      OSI 7层模型
+    </text>
+    
+    <!-- 第7层 - 应用层 -->
+    <rect x="50" y="80" width="300" height="40" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="200" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      7. 应用层 (Application Layer)
+    </text>
+    <text x="360" y="105" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      HTTP, FTP, SMTP
+    </text>
+    
+    <!-- 第6层 - 表示层 -->
+    <rect x="50" y="120" width="300" height="40" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+    <text x="200" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      6. 表示层 (Presentation Layer)
+    </text>
+    <text x="360" y="145" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      JPEG, SSL, 加密
+    </text>
+    
+    <!-- 第5层 - 会话层 -->
+    <rect x="50" y="160" width="300" height="40" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+    <text x="200" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      5. 会话层 (Session Layer)
+    </text>
+    <text x="360" y="185" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      RPC, NetBIOS
+    </text>
+    
+    <!-- 第4层 - 传输层 -->
+    <rect x="50" y="200" width="300" height="40" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+    <text x="200" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      4. 传输层 (Transport Layer)
+    </text>
+    <text x="360" y="225" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      TCP, UDP
+    </text>
+    
+    <!-- 第3层 - 网络层 -->
+    <rect x="50" y="240" width="300" height="40" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="200" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      3. 网络层 (Network Layer)
+    </text>
+    <text x="360" y="265" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      IP, ICMP, 路由器
+    </text>
+    
+    <!-- 第2层 - 数据链路层 -->
+    <rect x="50" y="280" width="300" height="40" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="200" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      2. 数据链路层 (Data Link Layer)
+    </text>
+    <text x="360" y="305" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      Ethernet, MAC, 交换机
+    </text>
+    
+    <!-- 第1层 - 物理层 -->
+    <rect x="50" y="320" width="300" height="40" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+    <text x="200" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      1. 物理层 (Physical Layer)
+    </text>
+    <text x="360" y="345" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">
+      网线, 光纤, 集线器
+    </text>
+  </g>
+  
+  <!-- TCP/IP 4层模型 -->
+  <g>
+    <text x="600" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#34495e">
+      TCP/IP 4层模型
+    </text>
+    
+    <!-- 第4层 - 应用层 -->
+    <rect x="450" y="80" width="300" height="80" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      4. 应用层 (Application Layer)
+    </text>
+    <text x="600" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      HTTP, DNS, FTP, SMTP
+    </text>
+    <text x="600" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffcccb">
+      (对应OSI 5-7层)
+    </text>
+    
+    <!-- 第3层 - 传输层 -->
+    <rect x="450" y="160" width="300" height="60" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+    <text x="600" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      3. 传输层 (Transport Layer)
+    </text>
+    <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      TCP, UDP
+    </text>
+    
+    <!-- 第2层 - 网际层 -->
+    <rect x="450" y="220" width="300" height="60" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="600" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      2. 网际层 (Internet Layer)
+    </text>
+    <text x="600" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      IP, ICMP, ARP
+    </text>
+    
+    <!-- 第1层 - 网络接口层 -->
+    <rect x="450" y="280" width="300" height="80" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="600" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">
+      1. 网络接口层 (Network Interface)
+    </text>
+    <text x="600" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Ethernet, Wi-Fi, PPP
+    </text>
+    <text x="600" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e8d5f0">
+      (对应OSI 1-2层)
+    </text>
+  </g>
+  
+  <!-- 连接线和箭头 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7f8c8d" />
+    </marker>
+  </defs>
+  
+  <!-- OSI应用层到TCP/IP应用层的连接 -->
+  <path d="M 350 100 Q 400 80 450 120" stroke="#7f8c8d" stroke-width="2" 
+        fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+  
+  <!-- OSI传输层到TCP/IP传输层的连接 -->
+  <path d="M 350 220 L 450 190" stroke="#7f8c8d" stroke-width="2" 
+        fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+  
+  <!-- OSI网络层到TCP/IP网际层的连接 -->
+  <path d="M 350 260 L 450 250" stroke="#7f8c8d" stroke-width="2" 
+        fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+  
+  <!-- OSI数据链路层+物理层到TCP/IP网络接口层的连接 -->
+  <path d="M 350 320 Q 400 340 450 320" stroke="#7f8c8d" stroke-width="2" 
+        fill="none" marker-end="url(#arrowhead)" opacity="0.6"/>
+  
+  <!-- 水印 - 偷偷星球 -->
+  <g opacity="0.15" transform="translate(400, 300) rotate(-25)">
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" 
+          font-size="48" font-weight="bold" fill="#7f8c8d">
+      偷偷星球
+    </text>
+  </g>
+  
+  <!-- 特点说明 -->
+  <g>
+    <rect x="50" y="400" width="700" height="160" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="10"/>
+    <text x="70" y="425" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      💡 主要区别与特点：
+    </text>
+    
+    <text x="70" y="450" font-family="Arial, sans-serif" font-size="14" fill="#34495e">
+      • OSI模型：理论化强，层次清晰，但过于复杂，实际应用较少
+    </text>
+    <text x="70" y="470" font-family="Arial, sans-serif" font-size="14" fill="#34495e">
+      • TCP/IP模型：实用性强，互联网事实标准，层次简化合理
+    </text>
+    <text x="70" y="490" font-family="Arial, sans-serif" font-size="14" fill="#34495e">
+      • 对应关系：TCP/IP应用层 = OSI(5+6+7层)，网络接口层 = OSI(1+2层)
+    </text>
+    <text x="70" y="510" font-family="Arial, sans-serif" font-size="14" fill="#34495e">
+      • 核心思想：分层解耦，上层使用下层服务，每层专注特定功能
+    </text>
+    <text x="70" y="530" font-family="Arial, sans-serif" font-size="14" fill="#e74c3c" font-weight="bold">
+      📌 记忆要点：OSI七层 vs TCP/IP四层，协议对应关系，实际采用TCP/IP
+    </text>
+  </g>
+</svg>
