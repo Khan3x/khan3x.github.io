@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/logistic.svg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/dht.svg">
 <meta property="article:published_time" content="2025-02-09T15:25:17.000Z">
-<meta property="article:modified_time" content="2025-08-03T15:54:11.603Z">
+<meta property="article:modified_time" content="2025-08-17T17:39:06.135Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="CS Concepts">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.7k words
+          7.2k words
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          57 mins
+          61 mins
         
       </span>
     
@@ -2960,6 +2960,243 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 <td>最大似然估计（MLE） + 梯度下降</td>
 </tr>
 </tbody></table>
+<hr>
+<h3 id="Reinforcement-Learning-RL"><a href="#Reinforcement-Learning-RL" class="headerlink" title="Reinforcement Learning (RL)"></a>Reinforcement Learning (RL)</h3><p>Reinforcement Learning (RL) is a type of machine learning method whose core idea is <strong>learning the optimal policy through interaction with the environment</strong>. In simple terms, an agent interacts with an environment by taking actions, receives rewards or penalties based on the outcomes, and continuously adjusts its behavior to maximize the long-term cumulative reward.</p>
+<p>Key components include:</p>
+<ol>
+<li><strong>Agent</strong>: The entity that performs actions.</li>
+<li><strong>Environment</strong>: The external system in which the agent operates, providing feedback on actions.</li>
+<li><strong>State (s)</strong>: A description of the environment at a given time.</li>
+<li><strong>Action (a)</strong>: The choices the agent can make.</li>
+<li><strong>Reward (r)</strong>: Immediate feedback from the environment, used to evaluate the quality of actions.</li>
+<li><strong>Policy (π)</strong>: The rule the agent follows to select actions based on the state.</li>
+<li><strong>Value Function (V)</strong>: Evaluates the expected future cumulative reward of a state or state-action pair.</li>
+</ol>
+<p>The main goal of reinforcement learning is <strong>to learn an optimal policy that allows the agent to maximize its long-term cumulative reward</strong>.</p>
+<hr>
+<h3 id="Q-Learning"><a href="#Q-Learning" class="headerlink" title="Q Learning"></a>Q Learning</h3><p>Q-Learning is a <strong>model-free</strong> algorithm in Reinforcement Learning used to learn the optimal policy. It works by learning a <strong>Q-function (Q-Value Function)</strong> that evaluates the value of each state-action pair, guiding the agent to choose actions that maximize long-term rewards.</p>
+<p>Core ideas:</p>
+<ol>
+<li><p><strong>Q-function (Q(s, a))</strong>: Represents the <strong>expected cumulative reward</strong> of taking action <code>a</code> in state <code>s</code>.</p>
+</li>
+<li><p><strong>Update formula (Bellman equation)</strong>:</p>
+<p>$$<br>Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a’} Q(s’, a’) - Q(s, a) \big]<br>$$</p>
+<ul>
+<li>$\alpha$: learning rate, controlling the update step</li>
+<li>$\gamma$: discount factor, balancing immediate and future rewards</li>
+<li>$r$: immediate reward received from the action</li>
+<li>$s’$: the new state after taking the action</li>
+</ul>
+</li>
+<li><p><strong>Learning process</strong>: The agent explores the environment and continuously updates the Q-values. Eventually, it converges to the optimal Q-function, allowing the agent to <strong>select the action with the maximum expected reward in each state</strong>.</p>
+</li>
+</ol>
+<p>In short, Q-Learning is a method that enables an agent to learn the best decisions in each state through trial-and-error experience.</p>
+<hr>
+<h3 id="Cross-Validation"><a href="#Cross-Validation" class="headerlink" title="Cross Validation"></a>Cross Validation</h3><p>Cross validation is a method in machine learning used to <strong>evaluate model performance and prevent overfitting</strong>. It works by <strong>splitting the dataset into multiple parts, training the model on some parts, and validating it on the remaining parts</strong>, providing a more reliable estimate of how the model will perform on unseen data.</p>
+<p>Core ideas:</p>
+<ol>
+<li><p><strong>Data splitting</strong>: Divide the dataset into $k$ parts (folds), commonly called <strong>k-fold cross validation</strong>.</p>
+</li>
+<li><p><strong>Training and validation</strong>:</p>
+<ul>
+<li>In each iteration, use $k-1$ folds as the training set and the remaining fold as the validation set.</li>
+<li>Train the model and evaluate its performance on the validation set (e.g., accuracy, mean squared error).</li>
+</ul>
+</li>
+<li><p><strong>Repeat $k$ times</strong>: Each fold serves as the validation set once.</p>
+</li>
+<li><p><strong>Aggregate results</strong>: Average the performance metrics over the $k$ iterations to get a reliable estimate of the model’s overall performance.</p>
+</li>
+</ol>
+<p>Advantages:</p>
+<ul>
+<li>Provides a more stable assessment of model performance, reducing bias from a single train-test split.</li>
+<li>Helps in model selection and hyperparameter tuning.</li>
+</ul>
+<p>Common variants:</p>
+<ul>
+<li><strong>Leave-One-Out CV (LOOCV)</strong>: Each iteration leaves one sample for validation.</li>
+<li><strong>Stratified k-Fold CV</strong>: Maintains the proportion of each class in classification problems.</li>
+</ul>
+<p>In short, cross validation allows the model to <strong>“practice and test” on different data splits multiple times, yielding a more robust estimate of performance</strong>.</p>
+<hr>
+<h3 id="Policy-based-and-Value-based-methods"><a href="#Policy-based-and-Value-based-methods" class="headerlink" title="Policy-based and Value-based methods"></a>Policy-based and Value-based methods</h3><p>In Reinforcement Learning (RL), <strong>Policy-based</strong> and <strong>Value-based</strong> methods are two core approaches. The main difference lies in what they learn: one learns the policy directly, while the other learns the value function.</p>
+<p><strong>Value-based Methods</strong></p>
+<p><strong>Core idea</strong>: Learn the <strong>value function</strong> and derive the optimal policy indirectly.</p>
+<ul>
+<li><p><strong>Types of value functions</strong>:</p>
+<ul>
+<li><strong>State value function $V(s)$</strong>: Expected cumulative reward starting from state $s$.</li>
+<li><strong>Action value function $Q(s, a)$</strong>: Expected cumulative reward of taking action $a$ in state $s$.</li>
+</ul>
+</li>
+<li><p><strong>Typical algorithms</strong>:</p>
+<ul>
+<li>Q-Learning</li>
+<li>Deep Q-Network (DQN)</li>
+</ul>
+</li>
+<li><p><strong>Characteristics</strong>:</p>
+<ul>
+<li><p>Does not directly output a policy. The policy is obtained by selecting the action with the highest value in each state:</p>
+<p>$$<br>\pi(s) &#x3D; \arg\max_a Q(s, a)<br>$$</p>
+</li>
+<li><p>Better suited for discrete action spaces.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Policy-based Methods</strong></p>
+<p><strong>Core idea</strong>: Learn the <strong>policy function $\pi(a|s)$</strong> directly, which outputs the probability of taking each action in a given state.</p>
+<ul>
+<li><p><strong>Characteristics</strong>:</p>
+<ul>
+<li><p>Optimizes the policy directly without first learning a value function.</p>
+</li>
+<li><p>Naturally handles continuous action spaces.</p>
+</li>
+<li><p>Often uses gradient-based methods to optimize the policy:</p>
+<p>$$<br>\nabla_\theta J(\theta) &#x3D; \mathbb{E}_{s,a \sim \pi_\theta} \Big[ \nabla_\theta \log \pi_\theta(a|s) , Q^{\pi_\theta}(s, a) \Big]<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Typical algorithms</strong>:</p>
+<ul>
+<li>REINFORCE</li>
+<li>Actor-Critic (combines policy and value approaches)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Summary Comparison</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Value-based</th>
+<th>Policy-based</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Learning target</td>
+<td>Value function $V$ or $Q$</td>
+<td>Policy (\pi(a</td>
+<td>s))</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Optimal action or action values</td>
+<td>Action probability distribution</td>
+<td></td>
+</tr>
+<tr>
+<td>Action space</td>
+<td>Discrete</td>
+<td>Discrete or continuous</td>
+<td></td>
+</tr>
+<tr>
+<td>Advantages</td>
+<td>Stable, easy to understand</td>
+<td>Handles continuous actions, more flexible</td>
+<td></td>
+</tr>
+<tr>
+<td>Disadvantages</td>
+<td>Hard to handle continuous actions</td>
+<td>Slower convergence, higher variance</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<p>In short:</p>
+<ul>
+<li><strong>Value-based</strong>: First learn “which actions are good,” then select actions.</li>
+<li><strong>Policy-based</strong>: Directly learn “what action to take in each state.”</li>
+</ul>
+<hr>
+<h3 id="Supervised-Learning-VS-Unsupervised-Learning"><a href="#Supervised-Learning-VS-Unsupervised-Learning" class="headerlink" title="Supervised Learning VS Unsupervised Learning"></a>Supervised Learning VS Unsupervised Learning</h3><p>In Machine Learning, <strong>Supervised Learning</strong> and <strong>Unsupervised Learning</strong> are two fundamental paradigms. The main difference lies in whether the training data includes labels.</p>
+<hr>
+<p><strong>Supervised Learning</strong></p>
+<p><strong>Definition:</strong><br>Supervised learning uses <strong>labeled data</strong> for training, allowing the model to learn the mapping between input and output. The goal is for the model to correctly predict outputs for new, unseen inputs.</p>
+<p><strong>Key characteristics:</strong></p>
+<ul>
+<li>Training data contains inputs $X$ and corresponding labels $Y$</li>
+<li>The model learns by minimizing the error between predicted outputs and true labels</li>
+</ul>
+<p><strong>Common tasks:</strong></p>
+<ul>
+<li><strong>Classification</strong>: Output is a discrete label, e.g., spam detection (spam&#x2F;ham), sentiment analysis (positive&#x2F;negative)</li>
+<li><strong>Regression</strong>: Output is a continuous value, e.g., house price prediction, stock price forecasting</li>
+</ul>
+<p><strong>Typical algorithms:</strong></p>
+<ul>
+<li>Logistic Regression</li>
+<li>Support Vector Machines (SVM)</li>
+<li>Decision Trees, Random Forests</li>
+<li>Neural Networks</li>
+</ul>
+<hr>
+<p><strong>Unsupervised Learning</strong></p>
+<p><strong>Definition:</strong><br>Unsupervised learning uses <strong>unlabeled data</strong> for training. The model must discover patterns, structures, or distributions in the data on its own.</p>
+<p><strong>Key characteristics:</strong></p>
+<ul>
+<li>Training data only contains input $X$, no corresponding output</li>
+<li>The model identifies patterns, similarities, or clusters in the data</li>
+</ul>
+<p><strong>Common tasks:</strong></p>
+<ul>
+<li><strong>Clustering</strong>: Grouping similar data points, e.g., customer segmentation, image grouping</li>
+<li><strong>Dimensionality Reduction</strong>: Simplifying data representation, e.g., PCA, t-SNE, for visualization or feature extraction</li>
+<li><strong>Anomaly Detection</strong>: Identifying outlier data points</li>
+</ul>
+<p><strong>Typical algorithms:</strong></p>
+<ul>
+<li>K-Means</li>
+<li>Hierarchical Clustering</li>
+<li>Principal Component Analysis (PCA)</li>
+<li>Autoencoders</li>
+</ul>
+<hr>
+<p>Summary Comparison</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Supervised Learning</th>
+<th>Unsupervised Learning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data type</td>
+<td>Labeled data</td>
+<td>Unlabeled data</td>
+</tr>
+<tr>
+<td>Goal</td>
+<td>Learn input-output mapping</td>
+<td>Discover data structure or patterns</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Class labels or continuous values</td>
+<td>Clusters, feature representations, or anomalies</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Spam detection, house price prediction</td>
+<td>Customer segmentation, dimensionality reduction</td>
+</tr>
+</tbody></table>
+<hr>
+<p>Simple intuition:</p>
+<ul>
+<li><strong>Supervised Learning</strong>: A teacher provides the “correct answers,” and you learn to predict.</li>
+<li><strong>Unsupervised Learning</strong>: No teacher; you discover patterns on your own.</li>
+</ul>
 <h2 id="7-Digital-Circuit"><a href="#7-Digital-Circuit" class="headerlink" title="7. Digital Circuit"></a>7. Digital Circuit</h2><h2 id="8-Computer-Networks"><a href="#8-Computer-Networks" class="headerlink" title="8. Computer Networks"></a>8. Computer Networks</h2><h3 id="Distributed-Hash-Table-DHT"><a href="#Distributed-Hash-Table-DHT" class="headerlink" title="Distributed Hash Table (DHT)"></a>Distributed Hash Table (DHT)</h3><p>A <strong>Distributed Hash Table (DHT)</strong> is a decentralized system that provides a lookup service similar to a hash table: it stores <strong>(key, value)</strong> pairs and allows efficient retrieval of the value given a key. Instead of relying on a central server, DHT distributes the data across a network of nodes (often used in <strong>peer-to-peer networks</strong> and <strong>IoT</strong> systems).</p>
 <p>Key Features:</p>
 <ul>
@@ -2970,8 +3207,142 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 <p>DHTs are often used in applications like <strong>BitTorrent</strong> and <strong>distributed file systems</strong>, and are relevant in wireless and digital communication contexts, which aligns well with your research interests in IoT.</p>
 <img src="/img/concepts/dht.svg" srcset="/img/loading.gif" lazyload alt="DHT" style="max-width: 100%; height: auto;" />
 
-
-
+<hr>
+<h3 id="Ethernet"><a href="#Ethernet" class="headerlink" title="Ethernet"></a>Ethernet</h3><p>Ethernet is a communication technology used for local area networks (LANs). It defines how computers and network devices send and receive data over a wired medium, typically twisted-pair cables or fiber optics. In brief:</p>
+<ol>
+<li><p><strong>Basic Principle</strong>: Ethernet uses <strong>frames</strong> as the basic unit of data transmission. Each frame contains the destination address, source address, data, and a checksum (CRC) for error detection.</p>
+</li>
+<li><p><strong>Communication Method</strong>: Traditional Ethernet uses <strong>CSMA&#x2F;CD (Carrier Sense Multiple Access with Collision Detection)</strong> to avoid data collisions. Modern switched Ethernet largely eliminates the need for collision detection, as each port has a dedicated communication channel.</p>
+</li>
+<li><p><strong>Speed and Evolution</strong>: The original Ethernet speed was <strong>10 Mbps</strong>, later evolving to <strong>100 Mbps (Fast Ethernet), 1 Gbps (Gigabit Ethernet), 10 Gbps</strong>, and even higher.</p>
+</li>
+<li><p><strong>Applications</strong>: Ethernet is the most widely used wired LAN standard, connecting computers, servers, routers, and switches to enable data transmission within a local network.</p>
+</li>
+</ol>
+<hr>
+<h3 id="Mac-Address"><a href="#Mac-Address" class="headerlink" title="Mac Address"></a>Mac Address</h3><p>A MAC address (<strong>Media Access Control Address</strong>) is an address that uniquely identifies a network device within a <strong>local area network (LAN)</strong>. It is used in network technologies like <strong>Ethernet and Wi-Fi</strong>, operating at the <strong>data link layer (Layer 2 of the OSI model)</strong>.</p>
+<p><strong>Key Points:</strong></p>
+<ol>
+<li><p><strong>Uniqueness</strong></p>
+<ul>
+<li>Each network interface card (NIC) or wireless module has a unique MAC address, usually assigned by the manufacturer.</li>
+<li>It is typically 48 bits long and represented as <strong>six hexadecimal pairs</strong>, for example: <code>00:1A:2B:3C:4D:5E</code>.</li>
+</ul>
+</li>
+<li><p><strong>Function</strong></p>
+<ul>
+<li>Identifies devices within a LAN.</li>
+<li>Used as the <strong>source and destination address</strong> in Ethernet frames, ensuring data reaches the correct device.</li>
+</ul>
+</li>
+<li><p><strong>Difference from IP Address</strong></p>
+<ul>
+<li><strong>MAC Address</strong>: Hardware address, fixed and unique within a LAN.</li>
+<li><strong>IP Address</strong>: Logical address, can change with the network environment, used for routing across networks.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>💡 <strong>Analogy</strong>:</p>
+<ul>
+<li>A MAC address is like a <strong>house number</strong>, used to locate a specific house within a neighborhood (LAN).</li>
+<li>An IP address is like the <strong>street and city address</strong>, used to find the house across cities or networks.</li>
+</ul>
+<hr>
+<h3 id="Time-Division-Multiple-Access-TDMA"><a href="#Time-Division-Multiple-Access-TDMA" class="headerlink" title="Time Division Multiple Access (TDMA)"></a>Time Division Multiple Access (TDMA)</h3><p>In computer networks and communication systems, <strong>Time Division Multiple Access (TDMA)</strong> is a technique that allows <strong>multiple users to share the same frequency resource</strong> by dividing time into separate slots for each user.</p>
+<hr>
+<p><strong>Basic Concept</strong></p>
+<ul>
+<li><strong>TDMA principle</strong>: A frequency channel is divided into several consecutive <strong>time slots</strong>, and each user transmits data exclusively during its assigned slot.</li>
+<li><strong>Core idea</strong>: Different users use the same frequency at <strong>different times</strong> to avoid collisions.</li>
+</ul>
+<hr>
+<p><strong>Working Process</strong></p>
+<ol>
+<li><p><strong>Frame structure</strong>:</p>
+<ul>
+<li>TDMA divides the communication cycle into <strong>frames</strong>, and each frame is further divided into several <strong>time slots</strong>.</li>
+<li>Each user is assigned one or more fixed time slots.</li>
+</ul>
+</li>
+<li><p><strong>Transmission and reception</strong>:</p>
+<ul>
+<li>When a user’s time slot arrives, it sends data while other users remain idle or receive.</li>
+<li>After the time slot ends, the next user transmits.</li>
+</ul>
+</li>
+<li><p><strong>Synchronization requirement</strong>:</p>
+<ul>
+<li>Precise time synchronization is needed to ensure users transmit strictly within their own slots (via synchronization signals or clocks).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>Characteristics</strong></p>
+<ul>
+<li><p><strong>Advantages</strong>:</p>
+<ul>
+<li>No interference: Users transmit at different times without colliding.</li>
+<li>High spectrum efficiency: The same frequency can be shared by multiple users.</li>
+<li>Simple and easy to implement, suitable for systems with a fixed number of users.</li>
+</ul>
+</li>
+<li><p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>High requirement for time synchronization, increasing hardware complexity.</li>
+<li>If a user has no data to send, the time slot is wasted (low efficiency).</li>
+<li>Not ideal for bursty traffic with unpredictable data.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Applications</strong></p>
+<ul>
+<li><strong>GSM cellular networks</strong>: Each user occupies a different time slot for voice or data transmission.</li>
+<li><strong>Satellite communication</strong>: Multiple users share the same uplink&#x2F;downlink frequency channel.</li>
+<li><strong>Industrial control networks</strong>: Periodic data collection and transmission.</li>
+</ul>
+<hr>
+<p>Simple analogy:</p>
+<blockquote>
+<p>TDMA is like taking turns on a single-lane road—each person drives during their assigned time slot to avoid congestion.</p>
+</blockquote>
+<hr>
+<h3 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h3><p><strong>ALOHA</strong> is an early wireless multiple access protocol that allows multiple terminals to share the same channel. Its core idea is <strong>transmit whenever you have data, and retransmit if a collision occurs</strong>.</p>
+<hr>
+<p><strong>Basic Principle</strong></p>
+<ul>
+<li>Each terminal <strong>sends a data frame immediately</strong> when it has data.</li>
+<li>If two terminals transmit simultaneously, a <strong>collision</strong> occurs.</li>
+<li>After a collision, the terminal waits for a random time before <strong>retransmitting</strong> the data.</li>
+</ul>
+<hr>
+<p><strong>Characteristics</strong></p>
+<ul>
+<li><p><strong>Advantages</strong>:</p>
+<ul>
+<li>Simple and easy to implement</li>
+<li>No complex scheduling mechanism required</li>
+</ul>
+</li>
+<li><p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>Low spectrum efficiency (high collision rate)</li>
+<li>Efficiency drops significantly as the number of terminals increases</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Improved Versions</strong></p>
+<ul>
+<li><strong>Pure ALOHA</strong>: Terminals transmit whenever they have data; if a collision occurs, they retransmit after a random delay.</li>
+<li><strong>Slotted ALOHA</strong>: Time is divided into fixed slots, and terminals can only transmit at the beginning of a slot, reducing the collision probability by half.</li>
+</ul>
+<hr>
+<p>Simple analogy:</p>
+<blockquote>
+<p>Pure ALOHA is like everyone speaking on the same channel whenever they want—if they speak at the same time, a collision occurs and they retry. Slotted ALOHA is like everyone taking turns speaking in time slots, reducing the chance of collisions.</p>
+</blockquote>
 <h2 id="9-Cryptography"><a href="#9-Cryptography" class="headerlink" title="9. Cryptography"></a>9. Cryptography</h2><h3 id="🔐-Digital-Signatures"><a href="#🔐-Digital-Signatures" class="headerlink" title="🔐 Digital Signatures"></a>🔐 Digital Signatures</h3><p>A <strong>digital signature</strong> is a <strong>cryptographic technique</strong> used to <strong>verify the authenticity and integrity</strong> of a digital message or document.<br>It is a <strong>secure form of electronic signature</strong> based on <strong>public-key cryptography</strong>.</p>
 <p><strong>🛠️ How It Works</strong></p>
 <ol>
