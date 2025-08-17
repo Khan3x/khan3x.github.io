@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-17T10:04:09.457Z">
+<meta property="article:modified_time" content="2025-08-17T10:15:43.154Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.9k words
+          5.5k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          41 mins
+          47 mins
         
       </span>
     
@@ -846,6 +846,46 @@
 <li>互信息 $I(X;Y)$ &#x3D; 已知 $Y$ 后，$X$ 的不确定性减少量。</li>
 <li>本质上是<strong>相对熵</strong> $D_{\text{KL}}(p(x,y),|,p(x)p(y))$。</li>
 <li>它量化了“两个变量共享的信息量”。</li>
+</ul>
+<h3 id="2-7-互信息量与熵的证明"><a href="#2-7-互信息量与熵的证明" class="headerlink" title="2.7 互信息量与熵的证明"></a>2.7 互信息量与熵的证明</h3><p>下面给出几种等价而常用的<strong>严格推导</strong>，把互信息与熵的公式互相“推”出来。默认对数为 $\log_2$。</p>
+<hr>
+<h4 id="2-6-1-从互信息的“比值定义”推到熵恒等式"><a href="#2-6-1-从互信息的“比值定义”推到熵恒等式" class="headerlink" title="2.6.1 从互信息的“比值定义”推到熵恒等式"></a>2.6.1 从互信息的“比值定义”推到熵恒等式</h4><p><strong>定义</strong>（离散型）：</p>
+<p>$$<br>I(X;Y)&#x3D;\sum_{x,y}p(x,y),\log\frac{p(x,y)}{p(x),p(y)}.<br>$$</p>
+<p>把对数拆成和于是得到</p>
+<p>$$<br>\boxed{I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)}.<br>$$</p>
+<p>再配合联合熵链式法则 $H(X,Y)&#x3D;H(Y)+H(X\mid Y)$，立刻推出另外两条等价式：</p>
+<p>$$<br>\boxed{I(X;Y)&#x3D;H(X)-H(X\mid Y)}<br>\qquad\text{以及}\qquad<br>\boxed{I(X;Y)&#x3D;H(Y)-H(Y\mid X)}.<br>$$</p>
+<hr>
+<h4 id="2-6-2-从“相对熵视角”一行证明"><a href="#2-6-2-从“相对熵视角”一行证明" class="headerlink" title="2.6.2 从“相对熵视角”一行证明"></a>2.6.2 从“相对熵视角”一行证明</h4><p>把互信息写成相对熵（KL 散度）：</p>
+<p>$$<br>I(X;Y)&#x3D;D_{\mathrm{KL}}\bigl(p_{X,Y},|,p_X p_Y\bigr)<br>&#x3D;\sum_{x,y}p(x,y)\log\frac{p(x,y)}{p(x)p(y)}.<br>$$</p>
+<p>按上式同样展开即可得到<br>$I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)$<br>以及前述两条差分式<br>$I(X;Y)&#x3D;H(X)-H(X|Y)&#x3D;H(Y)-H(Y|X)$。</p>
+<p>顺便可见 <strong>非负性</strong> 与 <strong>独立当且仅当互信息为 0</strong>：</p>
+<p>$$<br>I(X;Y)&#x3D;D_{\mathrm{KL}}(p_{X,Y},|,p_Xp_Y)\ge 0,<br>\quad<br>&#x3D;0 \iff p_{X,Y}&#x3D;p_Xp_Y.<br>$$</p>
+<hr>
+<h4 id="2-6-3-“从互信息生成熵”：-H-X-I-X-X"><a href="#2-6-3-“从互信息生成熵”：-H-X-I-X-X" class="headerlink" title="2.6.3 “从互信息生成熵”：$H(X)&#x3D;I(X;X)$"></a>2.6.3 “从互信息生成熵”：$H(X)&#x3D;I(X;X)$</h4><p>把 $Y$ 取成 $X$ 本身（“自互信息”）：</p>
+<p>$$<br>\begin{aligned}<br>I(X;X)<br>&amp;&#x3D;\sum_x p(x,x)\log\frac{p(x,x)}{p(x),p(x)}<br>&#x3D;\sum_x p(x)\log\frac{p(x)}{p(x)^2}<br>&#x3D;\sum_x p(x)\log\frac{1}{p(x)}\<br>&amp;&#x3D;-\sum_x p(x)\log p(x)<br>&#x3D;\boxed{H(X)}.<br>\end{aligned}<br>$$</p>
+<p>这给出一个优雅结论：<strong>熵就是变量与自身的互信息</strong>。</p>
+<hr>
+<h4 id="2-6-4-从链式法则侧推（等价回路）"><a href="#2-6-4-从链式法则侧推（等价回路）" class="headerlink" title="2.6.4 从链式法则侧推（等价回路）"></a>2.6.4 从链式法则侧推（等价回路）</h4><p>由链式法则</p>
+<p>$$<br>H(X,Y)&#x3D;H(Y)+H(X|Y),<br>$$</p>
+<p>代回第 1) 式 $I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)$ 得</p>
+<p>$$<br>I(X;Y)&#x3D;H(X)-H(X|Y),<br>$$</p>
+<p>同理交换 $X,Y$ 得另一式。三者互为等价环。</p>
+<hr>
+<h4 id="2-6-5-连续型（差分熵）提示"><a href="#2-6-5-连续型（差分熵）提示" class="headerlink" title="2.6.5 连续型（差分熵）提示"></a>2.6.5 连续型（差分熵）提示</h4><p>对连续变量（密度 $f$），定义</p>
+<p>$$<br>I(X;Y)&#x3D;\int f_{X,Y}(x,y)\log\frac{f_{X,Y}(x,y)}{f_X(x)f_Y(y)},\mathrm{d}x,\mathrm{d}y,<br>$$</p>
+<p>同样可得</p>
+<p>$$<br>I(X;Y)&#x3D;h(X)+h(Y)-h(X,Y)&#x3D;h(X)-h(X|Y)&#x3D;h(Y)-h(Y|X),<br>$$</p>
+<p>注意差分熵 $h(\cdot)$ 可为负，但上述恒等式依旧成立。</p>
+<hr>
+<ul>
+<li><p>由定义 $I&#x3D;\sum p\log\frac{p}{pp}$ 直接代数展开，就得到</p>
+<p>$$<br>I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)&#x3D;H(X)-H(X|Y)&#x3D;H(Y)-H(Y|X).<br>$$</p>
+</li>
+<li><p>由 $I(X;X)$ 能<strong>反推</strong>出熵的标准公式 $H(X)&#x3D;-\sum p\log p$。</p>
+</li>
+<li><p>由 KL 视角立即得到非负性与独立性判据。</p>
+</li>
 </ul>
 
                 
