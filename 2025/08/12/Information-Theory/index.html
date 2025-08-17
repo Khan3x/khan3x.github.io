@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-17T08:54:25.728Z">
+<meta property="article:modified_time" content="2025-08-17T09:51:29.959Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k words
+          4.3k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          30 mins
+          36 mins
         
       </span>
     
@@ -717,6 +717,52 @@
 <li>在通信、机器学习、统计建模里，用来度量“一个变量对另一个变量的不确定性削减”。</li>
 </ul>
 <hr>
+<h3 id="2-5-链式法则证明"><a href="#2-5-链式法则证明" class="headerlink" title="2.5 链式法则证明"></a>2.5 链式法则证明</h3><h4 id="2-5-1-二元情形的证明"><a href="#2-5-1-二元情形的证明" class="headerlink" title="2.5.1 二元情形的证明"></a>2.5.1 二元情形的证明</h4><p><strong>命题</strong>：对离散随机变量 $X,Y$，有</p>
+<p>$$<br>H(X,Y)&#x3D;H(Y)+H(X\mid Y).<br>$$</p>
+<p><strong>证明</strong>（从定义出发）：</p>
+<p>$$<br>\begin{aligned}<br>H(X,Y)<br>&amp;&#x3D; -\sum_{x,y} p(x,y),\log p(x,y) \<br>&amp;&#x3D; -\sum_{x,y} p(x,y),\log\big(p(y),p(x\mid y)\big) \qquad (\text{乘法法则 } p(x,y)&#x3D;p(y)p(x|y))\<br>&amp;&#x3D; -\sum_{x,y} p(x,y),\log p(y);-;\sum_{x,y} p(x,y),\log p(x\mid y) \<br>&amp;&#x3D; -\sum_{y}!\Big(\sum_{x}p(x,y)\Big)\log p(y);-;\sum_{y}!\sum_{x} p(y),p(x\mid y),\log p(x\mid y) \<br>&amp;&#x3D; -\sum_{y} p(y),\log p(y);-;\sum_{y} p(y)\Big(\sum_{x} p(x\mid y),\log p(x\mid y)\Big) \<br>&amp;&#x3D; H(Y);+;\sum_{y} p(y),H(X\mid Y&#x3D;y) \<br>&amp;&#x3D; H(Y)+H(X\mid Y).<br>\end{aligned}<br>$$</p>
+<p>证毕。</p>
+<blockquote>
+<p>同样也可写成期望形式：<br>$H(X,Y)&#x3D;\mathbb{E}[-\log p(X,Y)] &#x3D; \mathbb{E}[-\log p(Y)] + \mathbb{E}[-\log p(X\mid Y)] &#x3D; H(Y)+H(X\mid Y)$。</p>
+</blockquote>
+<hr>
+<h4 id="2-5-2-推广到-n-个变量"><a href="#2-5-2-推广到-n-个变量" class="headerlink" title="2.5.2 推广到 $n$ 个变量"></a>2.5.2 推广到 $n$ 个变量</h4><p><strong>命题</strong>：对离散随机变量 $X_1,\dots,X_n$，</p>
+<p>$$<br>H(X_1,\dots,X_n)&#x3D;\sum_{i&#x3D;1}^{n} H\big(X_i \mid X_1,\dots,X_{i-1}\big).<br>$$</p>
+<p><strong>证明思路</strong>：数学归纳法或反复应用二元链式法则。</p>
+<ul>
+<li>当 $n&#x3D;2$ 时即上一节已证。</li>
+<li>假设对 $n-1$ 个变量成立，则</li>
+</ul>
+<p>$$<br>\begin{aligned}<br>H(X_1,\dots,X_n)<br>&amp;&#x3D; H(X_1,\dots,X_{n-1}) + H\big(X_n \mid X_1,\dots,X_{n-1}\big) \<br>&amp;&#x3D; \sum_{i&#x3D;1}^{n-1} H\big(X_i \mid X_1,\dots,X_{i-1}\big) + H\big(X_n \mid X_1,\dots,X_{n-1}\big).<br>\end{aligned}<br>$$</p>
+<p>归纳完成。</p>
+<hr>
+<h4 id="2-5-3-带条件的链式法则"><a href="#2-5-3-带条件的链式法则" class="headerlink" title="2.5.3 带条件的链式法则"></a>2.5.3 带条件的链式法则</h4><p>对任意随机变量（或变量组）$Z$：</p>
+<p>$$<br>H(X,Y\mid Z)&#x3D;H(Y\mid Z)+H(X\mid Y,Z),<br>$$</p>
+<p>以及</p>
+<p>$$<br>H(X_1,\dots,X_n\mid Z)&#x3D;\sum_{i&#x3D;1}^{n} H\big(X_i \mid X_1,\dots,X_{i-1},Z\big).<br>$$</p>
+<p><strong>证明</strong>：把所有概率替换为条件于 $Z$ 的条件概率（如 $p(x,y\mid z)$），逐点固定 $Z&#x3D;z$ 后对上一节的证明按 $z$ 加权求期望即可。</p>
+<hr>
+<h4 id="2-5-4-几个常用等价式与推论"><a href="#2-5-4-几个常用等价式与推论" class="headerlink" title="2.5.4 几个常用等价式与推论"></a>2.5.4 几个常用等价式与推论</h4><ol>
+<li><p><strong>互信息展开</strong></p>
+<p>$$<br>I(X;Y)&#x3D;H(X)-H(X\mid Y)&#x3D;H(Y)-H(Y\mid X).<br>$$</p>
+<p>由链式法则和 $H(X,Y)&#x3D;H(X)+H(Y)-I(X;Y)$ 互相推出。</p>
+</li>
+<li><p><strong>三者互信息的链式展开</strong></p>
+<p>$$<br>I(X;Y,Z)&#x3D;I(X;Y)+I(X;Z\mid Y).<br>$$</p>
+</li>
+<li><p><strong>独立与确定性的极端</strong></p>
+<ul>
+<li>若 $X\perp Y$，则 $H(X\mid Y)&#x3D;H(X)$，链式法则退化为 $H(X,Y)&#x3D;H(X)+H(Y)$。</li>
+<li>若 $X$ 由 $Y$ 确定，则 $H(X\mid Y)&#x3D;0$，于是 $H(X,Y)&#x3D;H(Y)$。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="2-5-5-连续情形（差分熵）提示"><a href="#2-5-5-连续情形（差分熵）提示" class="headerlink" title="2.5.5 连续情形（差分熵）提示"></a>2.5.5 连续情形（差分熵）提示</h4><p>对连续随机变量，差分熵 $h(\cdot)$ 也满足形式相同的链式法则：</p>
+<p>$$<br>h(X,Y)&#x3D;h(Y)+h(X\mid Y),<br>$$</p>
+<p>证明同样基于密度的乘法法则 $f_{X,Y}(x,y)&#x3D;f_Y(y)f_{X\mid Y}(x\mid y)$ 与积分版的推导。需要注意差分熵可以为负，但链式关系依然成立。</p>
+<hr>
+<p><strong>小结</strong>：链式法则本质是把联合分布分解为连乘的条件分布（乘法法则），再把 $-\log$ 作用到连乘上变为求和，最后用“先求条件熵、再按条件加权平均”的结构完成。</p>
 
                 
               </div>
