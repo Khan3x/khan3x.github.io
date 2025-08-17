@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-12T14:38:14.955Z">
+<meta property="article:modified_time" content="2025-08-17T08:54:25.728Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k words
+          3.5k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          23 mins
+          30 mins
         
       </span>
     
@@ -628,6 +628,95 @@
 <p>则：</p>
 <p>$$<br>H(X, Y) &#x3D; -\sum_{x,y} 0.25 \log_2 0.25 &#x3D; -4 \times 0.25 \times (-2) &#x3D; 2 \ \text{bits}<br>$$</p>
 <p>说明每次观察到 $(X, Y)$ 对需要 2 比特的信息。</p>
+<hr>
+<h3 id="2-4-条件熵（Conditional-Entropy）"><a href="#2-4-条件熵（Conditional-Entropy）" class="headerlink" title="2.4 条件熵（Conditional Entropy）"></a>2.4 条件熵（Conditional Entropy）</h3><p>条件熵是用来衡量在已知一个随机变量 $Y$ 的情况下，另一个随机变量 $X$ 的不确定性。</p>
+<p>设 $X, Y$ 是两个离散型随机变量，联合分布为 $p(x,y)$，则 <strong>条件熵</strong> 定义为：</p>
+<p>$$<br>H(X \mid Y) &#x3D; - \sum_{y} p(y) \sum_{x} p(x \mid y) \log p(x \mid y)<br>$$</p>
+<p>也可以写作期望形式：</p>
+<p>$$<br>H(X \mid Y) &#x3D; \sum_{y} p(y) H(X \mid Y&#x3D;y)<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$H(X \mid Y&#x3D;y)$ 表示在 $Y&#x3D;y$ 的条件下，$X$ 的熵。</li>
+<li>$H(X \mid Y)$ 表示整体上 $X$ 在已知 $Y$ 的情况下的不确定性。</li>
+</ul>
+<hr>
+<p><strong>含义（Intuition）</strong></p>
+<ul>
+<li>$H(X)$ 表示 $X$ 的原始不确定性。</li>
+<li>$H(X \mid Y)$ 表示在知道 $Y$ 的情况下，$X$ 还剩下多少不确定性。</li>
+</ul>
+<p>👉 所以 条件熵就是已知 $Y$ 后，$X$ 还包含多少信息的不确定性。</p>
+<p>例如：</p>
+<ul>
+<li>如果 $X$ 和 $Y$ 完全独立，则 $H(X \mid Y) &#x3D; H(X)$。</li>
+<li>如果 $X$ 由 $Y$ 唯一确定，则 $H(X \mid Y) &#x3D; 0$。</li>
+</ul>
+<hr>
+<p><strong>常用公式（Formulas）</strong></p>
+<ol>
+<li><p><strong>与联合熵的关系</strong></p>
+<p>$$<br>H(X,Y) &#x3D; H(Y) + H(X \mid Y) &#x3D; H(X) + H(Y \mid X)<br>$$</p>
+<p>这说明：联合熵可以分解成一个变量的熵加上另一个变量的条件熵。</p>
+</li>
+<li><p><strong>与互信息的关系</strong></p>
+<p>$$<br>I(X;Y) &#x3D; H(X) - H(X \mid Y) &#x3D; H(Y) - H(Y \mid X)<br>$$</p>
+<p>互信息（Mutual Information）就是熵的减少量，即知道 $Y$ 以后 $X$ 的不确定性减少了多少。</p>
+</li>
+</ol>
+<hr>
+<p>假设有一个二元变量：</p>
+<ul>
+<li>$X$ 表示天气是否下雨：$X&#x3D;{0&#x3D;\text{不下雨}, 1&#x3D;\text{下雨}}$</li>
+<li>$Y$ 表示是否打伞：$Y&#x3D;{0&#x3D;\text{不打伞}, 1&#x3D;\text{打伞}}$</li>
+</ul>
+<p>设分布为：</p>
+<ul>
+<li>$p(X&#x3D;1)&#x3D;0.3, ; p(X&#x3D;0)&#x3D;0.7$</li>
+<li>$p(Y&#x3D;1 \mid X&#x3D;1)&#x3D;0.9, ; p(Y&#x3D;0 \mid X&#x3D;1)&#x3D;0.1$</li>
+<li>$p(Y&#x3D;1 \mid X&#x3D;0)&#x3D;0.2, ; p(Y&#x3D;0 \mid X&#x3D;0)&#x3D;0.8$</li>
+</ul>
+<p>我们要计算 $H(X \mid Y)$。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li><p>先求边际分布 $p(Y)$：</p>
+<p>$$<br>p(Y&#x3D;1) &#x3D; p(X&#x3D;1)p(Y&#x3D;1 \mid X&#x3D;1) + p(X&#x3D;0)p(Y&#x3D;1 \mid X&#x3D;0)<br>$$</p>
+<p>$$<br>&#x3D; 0.3 \times 0.9 + 0.7 \times 0.2 &#x3D; 0.27 + 0.14 &#x3D; 0.41<br>$$</p>
+<p>同理：</p>
+<p>$$<br>p(Y&#x3D;0) &#x3D; 0.59<br>$$</p>
+</li>
+<li><p>再求条件分布 $p(X \mid Y)$：<br>例如</p>
+<p>$$<br>p(X&#x3D;1 \mid Y&#x3D;1) &#x3D; \frac{p(X&#x3D;1,Y&#x3D;1)}{p(Y&#x3D;1)} &#x3D; \frac{0.27}{0.41} \approx 0.6585<br>$$</p>
+<p>$$<br>p(X&#x3D;0 \mid Y&#x3D;1) &#x3D; 1 - 0.6585 &#x3D; 0.3415<br>$$</p>
+<p>同理可求 $p(X \mid Y&#x3D;0)$。</p>
+</li>
+<li><p>计算条件熵：</p>
+<p>$$<br>H(X \mid Y) &#x3D; \sum_y p(y) H(X \mid Y&#x3D;y)<br>$$</p>
+<p>代入数值可得结果。</p>
+</li>
+</ol>
+<p>👉 这表示：当我们知道一个人是否打伞（$Y$）时，对天气是否下雨（$X$）的不确定性减少了。</p>
+<hr>
+<p><strong>性质（Properties）</strong></p>
+<ol>
+<li><p>非负性：</p>
+<p>$$<br>H(X \mid Y) \geq 0<br>$$</p>
+</li>
+<li><p>小于等于原熵：</p>
+<p>$$<br>H(X \mid Y) \leq H(X)<br>$$</p>
+<p>（已知信息只会减少不确定性，不会增加）</p>
+</li>
+<li><p>独立时等号成立：</p>
+<p>$$<br>H(X \mid Y) &#x3D; H(X), \quad \text{若 $X$ 与 $Y$ 独立}<br>$$</p>
+</li>
+</ol>
+<hr>
+<p>✨总结：</p>
+<ul>
+<li>条件熵 $H(X \mid Y)$ &#x3D; 已知 $Y$ 后，$X$ 还剩下的不确定性。</li>
+<li>它是联合熵和互信息的重要桥梁。</li>
+<li>在通信、机器学习、统计建模里，用来度量“一个变量对另一个变量的不确定性削减”。</li>
+</ul>
+<hr>
 
                 
               </div>
