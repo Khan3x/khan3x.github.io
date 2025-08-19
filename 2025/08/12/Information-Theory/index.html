@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="偷偷星球">
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-17T10:15:43.154Z">
+<meta property="article:published_time" content="2025-08-12T08:54:52.000Z">
+<meta property="article:modified_time" content="2025-08-19T09:33:41.477Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.5k words
+          6.3k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          47 mins
+          53 mins
         
       </span>
     
@@ -887,6 +887,80 @@
 <li><p>由 KL 视角立即得到非负性与独立性判据。</p>
 </li>
 </ul>
+<hr>
+<h3 id="2-8-离散无记忆信源及其扩展"><a href="#2-8-离散无记忆信源及其扩展" class="headerlink" title="2.8 离散无记忆信源及其扩展"></a>2.8 离散无记忆信源及其扩展</h3><p>在信息论中，研究的对象之一就是 <strong>信源（source）</strong>。信源就是信息产生的来源，比如文字、语音、视频信号等等。为了分析和建模，我们通常对信源进行数学抽象。</p>
+<h4 id="2-8-1-离散信源（Discrete-Source）"><a href="#2-8-1-离散信源（Discrete-Source）" class="headerlink" title="2.8.1 离散信源（Discrete Source）"></a>2.8.1 离散信源（Discrete Source）</h4><ul>
+<li><p><strong>定义</strong>：<br>一个信源在每个离散时刻 $t&#x3D;1,2,3,\dots$ 输出一个符号 $X_t$，这些符号取自一个有限或可数的字母表（alphabet） $\mathcal{X} &#x3D; {x_1, x_2, \dots, x_m}$。</p>
+<p>信源输出的序列为：</p>
+<p>$$<br>X_1, X_2, X_3, \dots<br>$$</p>
+</li>
+<li><p><strong>信源的统计特性</strong>：<br>信源可以用 <strong>符号的概率分布</strong> 来描述：</p>
+<p>$$<br>P(X &#x3D; x_i) &#x3D; p_i, \quad i&#x3D;1,2,\dots,m, \quad \sum_{i&#x3D;1}^m p_i &#x3D; 1<br>$$</p>
+</li>
+</ul>
+<hr>
+<h4 id="2-8-2-无记忆信源（Memoryless-Source）"><a href="#2-8-2-无记忆信源（Memoryless-Source）" class="headerlink" title="2.8.2 无记忆信源（Memoryless Source）"></a>2.8.2 无记忆信源（Memoryless Source）</h4><ul>
+<li><p><strong>定义</strong>：<br>如果一个信源在每个时刻输出的符号 <strong>相互独立</strong>，并且都服从同一个概率分布 $P(X)$，则称为 <strong>无记忆信源</strong>。</p>
+<p>也就是说：</p>
+<p>$$<br>P(X_1 &#x3D; x_{i_1}, X_2 &#x3D; x_{i_2}, \dots, X_n &#x3D; x_{i_n}) &#x3D; \prod_{k&#x3D;1}^n P(X_k &#x3D; x_{i_k})<br>$$</p>
+</li>
+<li><p><strong>含义</strong>：</p>
+<ul>
+<li>“无记忆”表示：信源在某个时刻输出的符号，不依赖于过去输出的符号。</li>
+<li>常见的例子：抛硬币、掷骰子、文本中独立的字母序列（不考虑语言结构）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-8-3-信源扩展（Source-Extension）"><a href="#2-8-3-信源扩展（Source-Extension）" class="headerlink" title="2.8.3 信源扩展（Source Extension）"></a>2.8.3 信源扩展（Source Extension）</h4><ul>
+<li><p><strong>动机</strong>：<br>为了更好地分析信源信息量，我们不仅可以看单个符号，还可以看“<strong>符号块</strong>”（block）。</p>
+</li>
+<li><p><strong>定义</strong>：<br>将无记忆信源的输出分组，每 $n$ 个符号作为一个“超级符号（super-symbol）”，组成一个新的扩展信源，称为 $n$ 阶扩展信源（$n$-th extension source）。</p>
+<p>例如：原始信源符号为 $X$，其字母表为 $\mathcal{X}&#x3D;{x_1, \dots, x_m}$，那么：</p>
+<ul>
+<li><p>$n$ 阶扩展信源的字母表为：</p>
+<p>$$<br>\mathcal{X}^n &#x3D; { (x_{i_1}, x_{i_2}, \dots, x_{i_n}) \mid x_{i_k} \in \mathcal{X} }<br>$$</p>
+<p>共 $m^n$ 个符号。</p>
+</li>
+<li><p>扩展信源的概率分布为：</p>
+<p>$$<br>P(x_{i_1}, x_{i_2}, \dots, x_{i_n}) &#x3D; \prod_{k&#x3D;1}^n P(x_{i_k})<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>熵的关系</strong>：<br>单符号信源的熵为：</p>
+<p>$$<br>H(X) &#x3D; -\sum_{i&#x3D;1}^m p_i \log p_i<br>$$</p>
+<p>$n$ 阶扩展信源的熵为：</p>
+<p>$$<br>H(X^n) &#x3D; - \sum_{(x_{i_1}, \dots, x_{i_n})} P(x_{i_1}, \dots, x_{i_n}) \log P(x_{i_1}, \dots, x_{i_n})<br>$$</p>
+<p>对于无记忆信源：</p>
+<p>$$<br>H(X^n) &#x3D; n H(X)<br>$$</p>
+<p>每个符号的平均信息量（熵率）保持不变：</p>
+<p>$$<br>\frac{H(X^n)}{n} &#x3D; H(X)<br>$$</p>
+</li>
+</ul>
+<hr>
+<h4 id="2-8-4-示例"><a href="#2-8-4-示例" class="headerlink" title="2.8.4 示例"></a>2.8.4 示例</h4><p>假设一个无记忆二元信源（binary source）：</p>
+<p>$$<br>\mathcal{X} &#x3D; {0,1}, \quad P(0) &#x3D; 0.25, \quad P(1)&#x3D;0.75<br>$$</p>
+<ol>
+<li><p>单符号信源熵：</p>
+<p>$$<br>H(X) &#x3D; -0.25\log_2 0.25 - 0.75 \log_2 0.75 \approx 0.811 \ \text{bits&#x2F;symbol}<br>$$</p>
+</li>
+<li><p>二阶扩展信源字母表：</p>
+<p>$$<br>{00, 01, 10, 11}<br>$$</p>
+<p>概率分别为：<br>$P(00)&#x3D;0.25^2&#x3D;0.0625$<br>$P(01)&#x3D;0.25 \times 0.75&#x3D;0.1875$<br>$P(10)&#x3D;0.75 \times 0.25&#x3D;0.1875$<br>$P(11)&#x3D;0.75^2&#x3D;0.5625$</p>
+<p>熵：</p>
+<p>$$<br>H(X^2) &#x3D; -\sum P(x_i) \log_2 P(x_i) \approx 1.622 \ \text{bits&#x2F;2 symbols}<br>$$</p>
+<p>每符号熵率：</p>
+<p>$$<br>H(X^2)&#x2F;2 &#x3D; 0.811 \ \text{bits&#x2F;symbol}<br>$$</p>
+<p>与单符号信源熵相同。</p>
+</li>
+</ol>
+<hr>
+<p>✅ <strong>总结</strong>：</p>
+<ol>
+<li><strong>离散无记忆信源</strong>：每次独立、相同分布地输出符号。</li>
+<li><strong>信源扩展</strong>：将多个符号打包成新的“超级符号”，便于编码和分析。</li>
+<li><strong>熵的性质</strong>：无记忆信源的熵是可加的，扩展不会改变熵率。</li>
+</ol>
 
                 
               </div>
