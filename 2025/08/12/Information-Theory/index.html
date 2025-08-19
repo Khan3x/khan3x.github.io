@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T08:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-19T10:14:46.160Z">
+<meta property="article:modified_time" content="2025-08-19T10:32:48.496Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9k words
+          9.9k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          75 mins
+          83 mins
         
       </span>
     
@@ -1228,6 +1228,120 @@
 <li>前缀码 (Prefix code)：没有码字是另一码字的前缀 → 即时解码 → 是最常用的唯一可译码。</li>
 </ol>
 <p>👉 在实际通信和压缩中，前缀码 是最重要的编码形式，例如 Huffman 编码 (Huffman coding) 就是经典的前缀码。</p>
+<hr>
+<h3 id="4-6-Huffman-编码-Huffman-Coding"><a href="#4-6-Huffman-编码-Huffman-Coding" class="headerlink" title="4.6 Huffman 编码 (Huffman Coding)"></a>4.6 Huffman 编码 (Huffman Coding)</h3><p>在信源编码 (source coding) 中，我们的目标是：</p>
+<ul>
+<li>用尽可能少的比特来表示信源符号；</li>
+<li>符合 无失真 (lossless) 的要求，即可以唯一解码。</li>
+</ul>
+<p>Huffman 编码是 David A. Huffman 在 1952 年提出的最优前缀码 (optimal prefix code) 构造算法。<br>它的特点是：</p>
+<ul>
+<li><strong>输入</strong>：信源符号及其概率分布 $P(x)$；</li>
+<li><strong>输出</strong>：一组满足前缀码性质的二进制码字；</li>
+<li><strong>目标</strong>：使平均码长 (average codeword length) 最小，且接近于香农熵 $H(X)$。</li>
+</ul>
+<p>Huffman 编码的核心思想是：<br>👉 高概率的符号用短码字表示，低概率的符号用长码字表示。</p>
+<p>这样可以降低整体平均码长。</p>
+<hr>
+<p><strong>Huffman 编码算法 (Algorithm)</strong></p>
+<p>假设信源字母表为 $\mathcal{X} &#x3D; {x_1, x_2, \dots, x_m}$，对应概率为 $p_1, p_2, \dots, p_m$。<br>算法步骤如下：</p>
+<ol>
+<li><p>排序 (Sort)<br>将所有符号按概率从大到小排序。</p>
+</li>
+<li><p>合并 (Merge)<br>取出概率最小的两个符号，合并为一个新的“复合符号”，其概率等于两者之和。</p>
+</li>
+<li><p>重复 (Iterate)<br>将新符号加入集合，重新排序，再次合并两个最小概率的符号，直到只剩一个根节点。</p>
+</li>
+<li><p>分配码字 (Assign Codes)<br>在合并树 (Huffman tree) 中，约定：</p>
+<ul>
+<li>左分支 → 0</li>
+<li>右分支 → 1<br>最后从根到叶子路径即为该符号的码字。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>示例 (Example)</p>
+<p>信源字母表：${A, B, C, D}$<br>概率：</p>
+<p>$$<br>P(A) &#x3D; 0.4, \quad P(B) &#x3D; 0.3, \quad P(C) &#x3D; 0.2, \quad P(D) &#x3D; 0.1<br>$$</p>
+<p>Step 1: 排序</p>
+<p>$A(0.4), B(0.3), C(0.2), D(0.1)$</p>
+<p>Step 2: 合并最小的两个符号</p>
+<p>$C(0.2) + D(0.1) \to CD(0.3)$</p>
+<p>现在：$A(0.4), B(0.3), CD(0.3)$</p>
+<p>Step 3: 再合并</p>
+<p>$B(0.3) + CD(0.3) \to BCD(0.6)$</p>
+<p>现在：$A(0.4), BCD(0.6)$</p>
+<p>Step 4: 合并</p>
+<p>$A(0.4) + BCD(0.6) \to 根(1.0)$</p>
+<p>Step 5: 分配码字</p>
+<ul>
+<li>$A$: 0</li>
+<li>$B$: 10</li>
+<li>$C$: 110</li>
+<li>$D$: 111</li>
+</ul>
+<p>得到 Huffman 编码：</p>
+<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 110, \quad D \to 111<br>$$</p>
+<hr>
+<p><strong>平均码长 (Average Codeword Length)</strong></p>
+<p>定义：</p>
+<p>$$<br>L &#x3D; \sum_{i&#x3D;1}^m p_i \cdot l_i<br>$$</p>
+<p>其中 $l_i$ 是符号 $x_i$ 的码字长度。</p>
+<p>在上例中：</p>
+<ul>
+<li>$A$: 长度 1</li>
+<li>$B$: 长度 2</li>
+<li>$C$: 长度 3</li>
+<li>$D$: 长度 3</li>
+</ul>
+<p>$$<br>L &#x3D; 0.4 \cdot 1 + 0.3 \cdot 2 + 0.2 \cdot 3 + 0.1 \cdot 3 &#x3D; 1.9 \ \text{比特&#x2F;符号}<br>$$</p>
+<p>信源熵：</p>
+<p>$$<br>H(X) &#x3D; -\sum p_i \log_2 p_i \approx 1.846 \ \text{比特&#x2F;符号}<br>$$</p>
+<p>结论：</p>
+<p>$$<br>H(X) \le L &lt; H(X) + 1<br>$$</p>
+<p>这是Huffman 编码最优性的定理。</p>
+<hr>
+<p><strong>Huffman 编码的性质 (Properties)</strong></p>
+<ol>
+<li><p>最优前缀码 (Optimal Prefix Code)</p>
+<ul>
+<li>对于给定符号概率分布，Huffman 编码得到的平均码长 $L$ 是最小的。</li>
+</ul>
+</li>
+<li><p>接近熵 (Close to Entropy)</p>
+<ul>
+<li>$H(X) \le L &lt; H(X) + 1$。</li>
+</ul>
+</li>
+<li><p>唯一性 (Uniqueness)</p>
+<ul>
+<li>当所有概率均为 $2^{-n}$ 形式时，Huffman 编码唯一。</li>
+<li>否则可能有多个等价的 Huffman 树（不同结构但平均码长相同）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>Huffman 编码的局限性 (Limitations)</strong></p>
+<ol>
+<li>依赖精确概率：需要事先知道信源概率分布。</li>
+<li>非整数熵问题：如果 $H(X)$ 不是整数，Huffman 编码无法完全达到熵的下界。</li>
+<li>动态信源问题：信源概率随时间变化时，Huffman 编码需频繁更新。</li>
+<li>符号独立性假设：假设符号独立，而实际信源可能有记忆性。</li>
+</ol>
+<hr>
+<p><strong>应用 (Applications)</strong></p>
+<ul>
+<li>数据压缩：ZIP 文件、GZIP、PNG 图像格式、MP3 等都使用 Huffman 编码作为核心算法。</li>
+<li>通信系统：在信道编码前先做 Huffman 编码以减少冗余。</li>
+</ul>
+<hr>
+<p><strong>✅ 总结</strong></p>
+<ul>
+<li>Huffman 编码是 最优前缀码 构造算法。</li>
+<li>步骤：合并最小概率符号 → 构造 Huffman 树 → 分配码字。</li>
+<li>性质：平均码长最小，满足 $H(X) \le L &lt; H(X)+1$。</li>
+<li>局限性：需已知概率分布，且对动态信源效果不佳。</li>
+</ul>
 
                 
               </div>
