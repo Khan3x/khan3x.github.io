@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T08:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-19T09:33:41.477Z">
+<meta property="article:modified_time" content="2025-08-19T09:53:03.451Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k words
+          7.3k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          53 mins
+          62 mins
         
       </span>
     
@@ -961,6 +961,100 @@
 <li><strong>信源扩展</strong>：将多个符号打包成新的“超级符号”，便于编码和分析。</li>
 <li><strong>熵的性质</strong>：无记忆信源的熵是可加的，扩展不会改变熵率。</li>
 </ol>
+<hr>
+<h2 id="3-马尔可夫信源"><a href="#3-马尔可夫信源" class="headerlink" title="3. 马尔可夫信源"></a>3. 马尔可夫信源</h2><p>在现实世界中，大多数信源并不是完全 <strong>无记忆 (memoryless)</strong> 的。比如自然语言文本中，某个字母的出现往往和前一个字母相关；视频序列中，某一帧和上一帧之间存在强烈的相关性。为了建模这类“有记忆”的信源，就引入了 马尔可夫信源 (Markov Source)。</p>
+<hr>
+<h3 id="3-1-马尔可夫链-Markov-Chain-基础"><a href="#3-1-马尔可夫链-Markov-Chain-基础" class="headerlink" title="3.1 马尔可夫链 (Markov Chain) 基础"></a>3.1 马尔可夫链 (Markov Chain) 基础</h3><ul>
+<li><p>定义 (Definition)：<br>若随机过程 $X_1, X_2, X_3, \dots$ 满足条件</p>
+<p>$$<br>P(X_{n+1} &#x3D; x \mid X_n, X_{n-1}, \dots, X_1) &#x3D; P(X_{n+1} &#x3D; x \mid X_n)<br>$$</p>
+<p>则称其为马尔可夫链 (Markov Chain)。</p>
+<p>👉 含义：下一个符号的概率只依赖于当前状态 (current state)，而与更早的状态无关。</p>
+</li>
+<li><p>转移概率 (Transition Probability)：<br>记作：</p>
+<p>$$<br>p_{ij} &#x3D; P(X_{n+1} &#x3D; x_j \mid X_n &#x3D; x_i)<br>$$</p>
+<p>满足：</p>
+<p>$$<br>p_{ij} \ge 0, \quad \sum_j p_{ij} &#x3D; 1<br>$$</p>
+</li>
+<li><p>状态转移矩阵 (Transition Matrix)：</p>
+<p>$$<br>P &#x3D; \begin{bmatrix}<br>p_{11} &amp; p_{12} &amp; \cdots &amp; p_{1m} \\<br>p_{21} &amp; p_{22} &amp; \cdots &amp; p_{2m} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>p_{m1} &amp; p_{m2} &amp; \cdots &amp; p_{mm}<br>\end{bmatrix}<br>$$</p>
+<p>其中 $m$ 是信源字母表大小。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-2-马尔可夫信源-Markov-Source"><a href="#3-2-马尔可夫信源-Markov-Source" class="headerlink" title="3.2 马尔可夫信源 (Markov Source)"></a>3.2 马尔可夫信源 (Markov Source)</h3><ul>
+<li><p>定义 (Definition)：<br>如果一个信源可以用马尔可夫链建模，即每个符号的产生概率依赖于前一个符号，则称其为 一阶马尔可夫信源 (First-order Markov Source)。</p>
+<p>更一般地，若符号的产生依赖于前 $k$ 个符号，则称为 $k$ 阶马尔可夫信源 ($k$-th Order Markov Source)。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-3-平稳分布-Stationary-Distribution"><a href="#3-3-平稳分布-Stationary-Distribution" class="headerlink" title="3.3 平稳分布 (Stationary Distribution)"></a>3.3 平稳分布 (Stationary Distribution)</h3><ul>
+<li><p>定义 (Definition)：<br>如果存在一个概率分布 $pi &#x3D; (\pi_1, \pi_2, \dots, \pi_m)$，使得：</p>
+<p>$$<br>\pi &#x3D; \pi P, \quad \sum_i \pi_i &#x3D; 1<br>$$</p>
+<p>则称 $\pi$ 为 平稳分布 (stationary distribution)。</p>
+</li>
+<li><p>意义：<br>长时间运行后，马尔可夫信源的状态分布会收敛于 $\pi$，与初始状态无关。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-4-马尔可夫信源的熵率-Entropy-Rate"><a href="#3-4-马尔可夫信源的熵率-Entropy-Rate" class="headerlink" title="3.4 马尔可夫信源的熵率 (Entropy Rate)"></a>3.4 马尔可夫信源的熵率 (Entropy Rate)</h3><ul>
+<li><p>符号信息熵 (Entropy per symbol)：<br>对于一般信源，熵率定义为：</p>
+<p>$$<br>H &#x3D; \lim_{n \to \infty} \frac{1}{n} H(X_1, X_2, \dots, X_n)<br>$$</p>
+</li>
+<li><p>一阶马尔可夫信源的熵率 (Entropy Rate of First-order Markov Source)：<br>若平稳分布为 $\pi_i$，转移概率为 $p_{ij}$，则：</p>
+<p>$$<br>H &#x3D; - \sum_{i&#x3D;1}^m \pi_i \sum_{j&#x3D;1}^m p_{ij} \log p_{ij}<br>$$</p>
+<p>👉 含义：熵率是“加权平均条件熵 (conditional entropy)”：</p>
+<p>$$<br>H &#x3D; H(X_{n+1} \mid X_n)<br>$$</p>
+</li>
+<li><p>特殊情况：</p>
+<ul>
+<li>如果 $p_{ij}$ 与 $i$ 无关（即各状态转移概率相同），则马尔可夫信源退化为无记忆信源 (memoryless source)。</li>
+<li>若马尔可夫信源高度相关（如总是保持状态不变），则熵率趋近于 $0$。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-5-二阶及高阶马尔可夫信源-Higher-order-Markov-Sources"><a href="#3-5-二阶及高阶马尔可夫信源-Higher-order-Markov-Sources" class="headerlink" title="3.5 二阶及高阶马尔可夫信源 (Higher-order Markov Sources)"></a>3.5 二阶及高阶马尔可夫信源 (Higher-order Markov Sources)</h3><ul>
+<li><p><strong>定义</strong>：<br>若符号依赖于前 $k$ 个符号，则称为 $k$ 阶马尔可夫信源。</p>
+<p>$$<br>P(X_{n+1} \mid X_n, X_{n-1}, \dots, X_{1}) &#x3D; P(X_{n+1} \mid X_n, \dots, X_{n-k+1})<br>$$</p>
+</li>
+<li><p><strong>化简技巧</strong>：<br>可以把 $k$ 阶马尔可夫信源 转换为 一阶马尔可夫信源，方法是把“长度为 $k$ 的符号块”当作一个超级状态 (super-state)。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-6-马尔可夫信源的编码意义-Coding-Implications"><a href="#3-6-马尔可夫信源的编码意义-Coding-Implications" class="headerlink" title="3.6 马尔可夫信源的编码意义 (Coding Implications)"></a>3.6 马尔可夫信源的编码意义 (Coding Implications)</h3><ol>
+<li><p>压缩效率 (Compression Efficiency)：</p>
+<ul>
+<li>无记忆信源的编码只利用单个符号的概率分布。</li>
+<li>马尔可夫信源的符号间有相关性，若编码时考虑符号相关性，可以提高压缩率。</li>
+</ul>
+</li>
+<li><p>预测编码 (Predictive Coding)：</p>
+<ul>
+<li>马尔可夫信源可用于预测下一个符号。</li>
+<li>在自然语言处理中，$n$ 元模型 (n-gram model) 就是 $n-1$ 阶马尔可夫模型。</li>
+</ul>
+</li>
+<li><p>熵率作为极限 (Entropy Rate as Limit)：</p>
+<ul>
+<li>在最佳编码 (optimal coding) 下，平均码长 (average code length) 接近熵率 $H$。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="3-7-示例-Example"><a href="#3-7-示例-Example" class="headerlink" title="3.7 示例 (Example)"></a>3.7 示例 (Example)</h3><p>考虑一个二元马尔可夫信源：$\mathcal{X} &#x3D; {0,1}$<br>转移概率矩阵：</p>
+<p>$$<br>P &#x3D; \begin{bmatrix}<br>0.9 &amp; 0.1 \\<br>0.5 &amp; 0.5<br>\end{bmatrix}<br>$$</p>
+<ul>
+<li><p>求平稳分布：<br>解方程 $\pi &#x3D; \pi P$：</p>
+<p>$$<br>\pi &#x3D; (0.8333, \ 0.1667)<br>$$</p>
+</li>
+<li><p>熵率：</p>
+<p>$$<br>H &#x3D; - \sum_{i&#x3D;1}^2 \pi_i \sum_{j&#x3D;1}^2 p_{ij} \log_2 p_{ij}<br>$$</p>
+<p>计算：</p>
+<p>$$<br>H \approx -0.8333(0.9 \log_2 0.9 + 0.1 \log_2 0.1)<br> -0.1667(0.5 \log_2 0.5 + 0.5 \log_2 0.5)<br>$$</p>
+<p>$$<br>\approx 0.503 \ \text{bits&#x2F;symbol}<br>$$</p>
+</li>
+</ul>
+<p>👉 比无记忆二元信源的最大熵 $1$ bits&#x2F;symbol 要低，说明存在相关性 (correlation)。</p>
 
                 
               </div>
