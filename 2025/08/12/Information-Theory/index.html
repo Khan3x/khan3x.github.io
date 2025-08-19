@@ -27,7 +27,7 @@
 <meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T08:54:52.000Z">
-<meta property="article:modified_time" content="2025-08-19T09:53:03.451Z">
+<meta property="article:modified_time" content="2025-08-19T10:14:46.160Z">
 <meta property="article:author" content="toutou">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.3k words
+          9k words
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          62 mins
+          75 mins
         
       </span>
     
@@ -1055,6 +1055,179 @@
 </li>
 </ul>
 <p>👉 比无记忆二元信源的最大熵 $1$ bits&#x2F;symbol 要低，说明存在相关性 (correlation)。</p>
+<hr>
+<h2 id="4-信源编码-Source-Coding"><a href="#4-信源编码-Source-Coding" class="headerlink" title="4. 信源编码 (Source Coding)"></a>4. 信源编码 (Source Coding)</h2><p><strong>信源编码 (source coding)</strong> 是信息论的核心任务之一，目标是将信源符号序列表示为二进制序列，尽可能减少冗余，使得传输和存储更加高效。</p>
+<p>在信源编码的研究中，首先需要定义“码 (code)”的性质。根据符号和码字 (codeword) 之间的对应关系，可以区分 奇异码 (singular code) 与 非奇异码 (non-singular code)。</p>
+<hr>
+<h3 id="4-1-奇异码-Singular-Code"><a href="#4-1-奇异码-Singular-Code" class="headerlink" title="4.1 奇异码 (Singular Code)"></a>4.1 奇异码 (Singular Code)</h3><p>如果某个编码方案中，至少有两个不同的信源符号 (different source symbols) 被映射到相同的码字 (same codeword)，则称这个编码方案为奇异码 (singular code)。</p>
+<p>形式化表达：<br>设信源字母表为 $\mathcal{X} &#x3D; {x_1, x_2, \dots, x_m}$，码字集合为 $\mathcal{C} &#x3D; {c_1, c_2, \dots, c_m}$。<br>如果 $\exists i \ne j$，使得 $c_i &#x3D; c_j$，则该码是奇异码。</p>
+<hr>
+<p><strong>特点 (Properties)</strong></p>
+<ol>
+<li>不可区分性 (indistinguishability)：两个不同符号编码成同一个码字，解码时无法区分，信息丢失。</li>
+<li>不可逆性 (irreversibility)：奇异码不是一一映射，不存在解码的唯一性。</li>
+<li>无实际应用价值 (no practical use)：因为无法保证信息还原。</li>
+</ol>
+<hr>
+<p><strong>示例 (Example)</strong></p>
+<ul>
+<li><p>信源字母表：$\mathcal{X} &#x3D; {A, B, C}$</p>
+</li>
+<li><p>编码方案：</p>
+<p>$$<br>A \to 0, \quad B \to 0, \quad C \to 1<br>$$</p>
+</li>
+</ul>
+<p>在这个例子中，$A$ 和 $B$ 都被编码为 <strong>0</strong>，所以该码是 <strong>奇异码</strong>。<br>当接收到码字 “0” 时，解码器无法区分它对应的是 $A$ 还是 $B$。</p>
+<hr>
+<h3 id="4-2-非奇异码-Non-Singular-Code"><a href="#4-2-非奇异码-Non-Singular-Code" class="headerlink" title="4.2 非奇异码 (Non-Singular Code)"></a>4.2 非奇异码 (Non-Singular Code)</h3><p>如果编码方案保证 <strong>不同的信源符号 (different source symbols)</strong> 一定映射为 不同的码字 (different codewords)，则称其为 非奇异码 (non-singular code)。</p>
+<p>形式化表达：<br>若 $\forall i \ne j$，有 $c_i \ne c_j$，则该码是 <strong>非奇异码</strong>。</p>
+<hr>
+<p><strong>特点 (Properties)</strong></p>
+<ol>
+<li>一一对应 (one-to-one mapping)：不同符号对应不同码字。</li>
+<li>可逆性 (reversibility)：至少在 符号级别 (symbol level) 可以解码。</li>
+<li>必要条件 (necessary condition)：非奇异性是信源编码的基本要求，否则无法保证信息还原。</li>
+</ol>
+<hr>
+<p><strong>示例 (Example)</strong></p>
+<ul>
+<li><p>信源字母表：$\mathcal{X} &#x3D; {A, B, C}$</p>
+</li>
+<li><p>编码方案：</p>
+<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 11<br>$$</p>
+</li>
+</ul>
+<p>在这个编码中，不同的符号被映射为不同的码字，因此它是 <strong>非奇异码</strong>。</p>
+<p>当接收到 “0” 时一定是 $A$，接收到 “10” 时一定是 $B$，接收到 “11” 时一定是 $C$。</p>
+<hr>
+<h3 id="4-3-非奇异码的局限性-Limitations"><a href="#4-3-非奇异码的局限性-Limitations" class="headerlink" title="4.3 非奇异码的局限性 (Limitations)"></a>4.3 非奇异码的局限性 (Limitations)</h3><ul>
+<li><p>非奇异码只能保证 <strong>单个符号与码字一一对应</strong>，但并不能保证符号序列的唯一解码性。<br>例如：</p>
+<p>$$<br>A \to 0, \quad B \to 01, \quad C \to 011<br>$$</p>
+<p>虽然这是非奇异码，但当接收到 “011” 时，可能被解读为：</p>
+<ul>
+<li>$C$，或</li>
+<li>$A$ + $B$，或</li>
+<li>$A$ + $A$ + $C$ 的部分前缀。<br>这说明仅有非奇异性不足以保证正确解码，还需要更严格的约束（→ 前缀码 prefix code，在 <strong>4.3</strong> 里会继续讨论）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>✅ 总结</strong></p>
+<ol>
+<li><p>奇异码 (Singular Code)：</p>
+<ul>
+<li>不同信源符号可能映射到同一码字。</li>
+<li>不能唯一解码，信息丢失。</li>
+<li>没有实际应用价值。</li>
+</ul>
+</li>
+<li><p>非奇异码 (Non-Singular Code)：</p>
+<ul>
+<li>不同信源符号对应不同码字。</li>
+<li>符号级别可逆。</li>
+<li>是信源编码的必要条件，但并不足够，还需要 <strong>唯一可译码 (uniquely decodable code)</strong> 与 <strong>前缀码 (prefix code)</strong> 来进一步保证解码的唯一性和效率。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="4-4-唯一可译码-Uniquely-Decodable-Code"><a href="#4-4-唯一可译码-Uniquely-Decodable-Code" class="headerlink" title="4.4 唯一可译码 (Uniquely Decodable Code)"></a>4.4 唯一可译码 (Uniquely Decodable Code)</h3><p>若一个编码方案不仅保证 <strong>单个符号的唯一性</strong>，而且保证 <strong>任意有限长的码字串 (concatenation of codewords)</strong> 都能被唯一地分解为信源符号序列，则称该码为 唯一可译码 (uniquely decodable code)。</p>
+<p>👉 换句话说：</p>
+<ul>
+<li>接收方在得到一串比特后，能唯一地确定它由哪些码字组成。</li>
+<li>不会出现多种可能的解码方式。</li>
+</ul>
+<hr>
+<p><strong>与非奇异码的关系</strong></p>
+<ul>
+<li><strong>非奇异码</strong>：保证 <strong>单个符号 ↔ 单个码字</strong> 是一一对应的。</li>
+<li><strong>唯一可译码</strong>：进一步保证 <strong>任意码字串</strong> 也能唯一分解。</li>
+<li>所有唯一可译码一定是非奇异码，但反之不成立。</li>
+</ul>
+<hr>
+<p><strong>示例 (Example 1)</strong></p>
+<p>信源字母表：${A, B, C}$<br>编码方案：</p>
+<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 11<br>$$</p>
+<p>这是一个非奇异码。</p>
+<ul>
+<li><p>序列 “01110” 的解码唯一：</p>
+<ul>
+<li>$0 \to A$</li>
+<li>$11 \to C$</li>
+<li>$10 \to B$<br>即 “ACB”。</li>
+</ul>
+</li>
+</ul>
+<p>该码也是 <strong>唯一可译码</strong>。</p>
+<hr>
+<p><strong>示例 (Example 2 - 非唯一可译)</strong></p>
+<p>信源字母表：${A, B, C}$<br>编码方案：</p>
+<p>$$<br>A \to 0, \quad B \to 01, \quad C \to 011<br>$$</p>
+<p>这是非奇异码（不同符号对应不同码字）。<br>但考虑码字串 “011”：</p>
+<ul>
+<li>可能是 $C$</li>
+<li>也可能是 $A + B$<br>所以这是 <strong>非唯一可译码</strong>。</li>
+</ul>
+<hr>
+<p>判定工具：Kraft–McMillan 不等式 (Kraft–McMillan Inequality)</p>
+<ul>
+<li><p>定理：一个 $D$ 元（$D&#x3D;2$ 表示二进制）的码是唯一可译码的 <strong>充要条件</strong> 是：<br>存在一组码长 ${l_1, l_2, \dots, l_m}$ 满足：</p>
+<p>$$<br>\sum_{i&#x3D;1}^m D^{-l_i} \leq 1<br>$$</p>
+</li>
+<li><p>这个条件保证码字在无限二叉树中不会产生歧义。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-5-前缀码-Prefix-Code"><a href="#4-5-前缀码-Prefix-Code" class="headerlink" title="4.5 前缀码 (Prefix Code)"></a>4.5 前缀码 (Prefix Code)</h3><p>若一个码满足：没有任何码字是另一个码字的前缀 (prefix)，则称该码为 前缀码 (prefix code)。</p>
+<p>👉 含义：接收方在读取比特时，只要遇到一个完整的码字，就能立即解码，不必等待后续比特。</p>
+<hr>
+<p><strong>特点 (Properties)</strong></p>
+<ol>
+<li>即时解码 (instantaneous decoding)：不需要等待更多输入，比特流可以逐位解码。</li>
+<li>唯一可译 (uniquely decodable)：所有前缀码都是唯一可译码。</li>
+<li>构造方法 (construction)：常见的 Huffman 编码 (Huffman coding) 就是前缀码。</li>
+</ol>
+<hr>
+<p><strong>示例 (Example 1 - 前缀码)</strong></p>
+<p>信源字母表：${A, B, C, D}$<br>编码方案：</p>
+<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 110, \quad D \to 111<br>$$</p>
+<ul>
+<li>没有任何码字是另一个码字的前缀。</li>
+<li>因此这是一个 <strong>前缀码</strong>。</li>
+</ul>
+<p>码字串 “0110110” 解码过程：</p>
+<ul>
+<li>0 → A</li>
+<li>110 → C</li>
+<li>110 → C<br>解码唯一且即时完成：结果 “ACC”。</li>
+</ul>
+<hr>
+<p><strong>示例 (Example 2 - 非前缀码)</strong></p>
+<p>信源字母表：${A, B}$<br>编码方案：</p>
+<p>$$<br>A \to 0, \quad B \to 01<br>$$</p>
+<ul>
+<li>“0” 是 “01” 的前缀。</li>
+<li>因此这是 <strong>非前缀码</strong>。</li>
+</ul>
+<p>解码时若接收到 “01”，可能是 “A + …” 或直接 “B”，需要等待更多比特，无法即时解码。</p>
+<hr>
+<p><strong>前缀码与 Kraft–McMillan 不等式</strong></p>
+<ul>
+<li><p>前缀码一定满足 Kraft–McMillan 不等式。</p>
+</li>
+<li><p>Kraft–McMillan 定理：如果 ${l_i}$ 满足</p>
+<p>$$<br>\sum_{i&#x3D;1}^m 2^{-l_i} \le 1<br>$$</p>
+<p>那么一定存在一个二进制前缀码，其码长恰好为 ${l_i}$。</p>
+</li>
+</ul>
+<hr>
+<p><strong>✅ 总结</strong></p>
+<ol>
+<li>奇异码 (Singular code)：不同符号可能映射到同一码字 → 无法解码 → 无用。</li>
+<li>非奇异码 (Non-singular code)：不同符号有不同码字 → 单符号可逆，但序列可能歧义。</li>
+<li>唯一可译码 (Uniquely decodable code)：任意码字串都能唯一分解 → 可保证正确信息还原。</li>
+<li>前缀码 (Prefix code)：没有码字是另一码字的前缀 → 即时解码 → 是最常用的唯一可译码。</li>
+</ol>
+<p>👉 在实际通信和压缩中，前缀码 是最重要的编码形式，例如 Huffman 编码 (Huffman coding) 就是经典的前缀码。</p>
 
                 
               </div>
