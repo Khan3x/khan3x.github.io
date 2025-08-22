@@ -1,0 +1,133 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">连续信号与离散信号对比</text>
+  
+  <!-- 连续信号部分 -->
+  <g id="continuous-signal">
+    <!-- 坐标轴背景 -->
+    <rect x="50" y="60" width="320" height="180" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+    
+    <!-- X轴 -->
+    <line x1="60" y1="220" x2="360" y2="220" stroke="#333" stroke-width="2"/>
+    <!-- Y轴 -->
+    <line x1="60" y1="80" x2="60" y2="220" stroke="#333" stroke-width="2"/>
+    
+    <!-- 连续信号标题 -->
+    <text x="210" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2980b9">连续信号 x(t)</text>
+    
+    <!-- 连续正弦波 -->
+    <path d="M60,150 Q80,100 100,150 T140,150 T180,150 T220,150 T260,150 T300,150 T340,150" 
+          fill="none" stroke="#e74c3c" stroke-width="3"/>
+    
+    <!-- X轴标记 -->
+    <line x1="100" y1="215" x2="100" y2="225" stroke="#666"/>
+    <text x="100" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">t₁</text>
+    <line x1="180" y1="215" x2="180" y2="225" stroke="#666"/>
+    <text x="180" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">t₂</text>
+    <line x1="260" y1="215" x2="260" y2="225" stroke="#666"/>
+    <text x="260" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">t₃</text>
+    
+    <!-- Y轴标记 -->
+    <line x1="55" y1="100" x2="65" y2="100" stroke="#666"/>
+    <text x="45" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">A</text>
+    <line x1="55" y1="200" x2="65" y2="200" stroke="#666"/>
+    <text x="45" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">-A</text>
+    
+    <!-- 轴标签 -->
+    <text x="365" y="225" font-family="Arial, sans-serif" font-size="14" fill="#333">t</text>
+    <text x="50" y="75" font-family="Arial, sans-serif" font-size="14" fill="#333">x(t)</text>
+    
+    <!-- 连续性说明 -->
+    <text x="210" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">• 在所有时间点都有定义</text>
+    <text x="210" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">• 平滑连续的曲线</text>
+  </g>
+  
+  <!-- 离散信号部分 -->
+  <g id="discrete-signal">
+    <!-- 坐标轴背景 -->
+    <rect x="430" y="60" width="320" height="180" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+    
+    <!-- X轴 -->
+    <line x1="440" y1="220" x2="740" y2="220" stroke="#333" stroke-width="2"/>
+    <!-- Y轴 -->
+    <line x1="440" y1="80" x2="440" y2="220" stroke="#333" stroke-width="2"/>
+    
+    <!-- 离散信号标题 -->
+    <text x="590" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#27ae60">离散信号 x[n]</text>
+    
+    <!-- 离散信号点和垂直线 -->
+    <g stroke="#27ae60" fill="#27ae60">
+      <!-- 采样点 -->
+      <line x1="480" y1="180" x2="480" y2="220" stroke-width="2"/>
+      <circle cx="480" cy="180" r="4"/>
+      
+      <line x1="520" y1="120" x2="520" y2="220" stroke-width="2"/>
+      <circle cx="520" cy="120" r="4"/>
+      
+      <line x1="560" y1="180" x2="560" y2="220" stroke-width="2"/>
+      <circle cx="560" cy="180" r="4"/>
+      
+      <line x1="600" y1="140" x2="600" y2="220" stroke-width="2"/>
+      <circle cx="600" cy="140" r="4"/>
+      
+      <line x1="640" y1="160" x2="640" y2="220" stroke-width="2"/>
+      <circle cx="640" cy="160" r="4"/>
+      
+      <line x1="680" y1="200" x2="680" y2="220" stroke-width="2"/>
+      <circle cx="680" cy="200" r="4"/>
+      
+      <line x1="720" y1="180" x2="720" y2="220" stroke-width="2"/>
+      <circle cx="720" cy="180" r="4"/>
+    </g>
+    
+    <!-- X轴标记 -->
+    <line x1="480" y1="215" x2="480" y2="225" stroke="#666"/>
+    <text x="480" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">0</text>
+    <line x1="560" y1="215" x2="560" y2="225" stroke="#666"/>
+    <text x="560" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">2</text>
+    <line x1="640" y1="215" x2="640" y2="225" stroke="#666"/>
+    <text x="640" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">4</text>
+    <line x1="720" y1="215" x2="720" y2="225" stroke="#666"/>
+    <text x="720" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">6</text>
+    
+    <!-- Y轴标记 -->
+    <line x1="435" y1="100" x2="445" y2="100" stroke="#666"/>
+    <text x="425" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">A</text>
+    <line x1="435" y1="200" x2="445" y2="200" stroke="#666"/>
+    <text x="425" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#666">-A</text>
+    
+    <!-- 轴标签 -->
+    <text x="745" y="225" font-family="Arial, sans-serif" font-size="14" fill="#333">n</text>
+    <text x="430" y="75" font-family="Arial, sans-serif" font-size="14" fill="#333">x[n]</text>
+    
+    <!-- 离散性说明 -->
+    <text x="590" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">• 只在特定时间点有定义</text>
+    <text x="590" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">• 独立的采样点</text>
+  </g>
+  
+  <!-- 主要特点对比 -->
+  <g id="comparison">
+    <rect x="100" y="320" width="600" height="120" fill="white" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#34495e">主要特点对比</text>
+    
+    <text x="120" y="365" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2980b9">连续信号:</text>
+    <text x="120" y="380" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 时间变量连续 (t ∈ ℝ)</text>
+    <text x="120" y="395" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 幅值可以连续变化</text>
+    <text x="120" y="410" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 模拟信号的数学模型</text>
+    <text x="120" y="425" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 用微积分处理</text>
+    
+    <text x="420" y="365" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#27ae60">离散信号:</text>
+    <text x="420" y="380" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 时间变量离散 (n ∈ ℤ)</text>
+    <text x="420" y="395" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 幅值在采样点确定</text>
+    <text x="420" y="410" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 数字信号的数学模型</text>
+    <text x="420" y="425" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 用差分方程处理</text>
+  </g>
+  
+  <!-- 水印 -->
+  <g opacity="0.3">
+    <text x="700" y="480" font-family="Arial, sans-serif" font-size="14" fill="#95a5a6" transform="rotate(-15, 700, 480)">偷偷星球</text>
+  </g>
+</svg>
