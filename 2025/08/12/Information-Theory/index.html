@@ -19,12 +19,12 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
+    <meta name="description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它带来的信息是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Information Theory">
 <meta property="og:url" content="http://toutou.zeabur.app/2025/08/12/Information-Theory/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio             1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它">
+<meta property="og:description" content="Information Theory信息论要点笔记📒              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            1. 信息论基础1.1 信息量在信息论中，“信息量”用来衡量一个事件发生时，我们获得了多少新的信息。核心直觉是：  事件越罕见，发生时带来的信息越大。 事件越常见，发生时带来的信息越少。 事件必然发生（概率 &#x3D; 1）时，它带来的信息是">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-12T09:54:52.000Z">
 <meta property="article:modified_time" content="2025-08-22T04:41:43.615Z">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.9k words
+          9.5k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          83 mins
+          80 mins
         
       </span>
     
@@ -287,12 +287,11 @@
 <div class="note note-success">
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
-
 <h2 id="1-信息论基础"><a href="#1-信息论基础" class="headerlink" title="1. 信息论基础"></a>1. 信息论基础</h2><h3 id="1-1-信息量"><a href="#1-1-信息量" class="headerlink" title="1.1 信息量"></a>1.1 信息量</h3><p>在信息论中，“信息量”用来衡量<strong>一个事件发生时，我们获得了多少新的信息</strong>。<br>核心直觉是：</p>
 <ul>
 <li>事件越罕见，发生时带来的信息越大。</li>
 <li>事件越常见，发生时带来的信息越少。</li>
-<li>事件必然发生（概率 &#x3D; 1）时，它带来的信息是 0（因为没学到新东西）。</li>
+<li>事件必然发生（概率 = 1）时，它带来的信息是 0（因为没学到新东西）。</li>
 </ul>
 <p>举个例子：</p>
 <ul>
@@ -301,8 +300,8 @@
 </ul>
 <hr>
 <p>信息论的创始人 <strong>Shannon（香农）</strong> 给信息量下的定义是：</p>
-<p>$$<br>I(x) &#x3D; -\log_b P(x)<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+I(x) = -\log_b P(x)</script><p>其中：</p>
 <ul>
 <li>$P(x)$：事件 $x$ 发生的概率</li>
 <li>$b$：对数的底（常用 2 表示以“比特”为单位，也可以用自然对数表示“纳特”）</li>
@@ -311,10 +310,10 @@
 <p>香农选择对数有几个原因：</p>
 <ol>
 <li><p><strong>可加性</strong><br>如果两个事件是独立的：</p>
-<p>$$<br>I(x,y) &#x3D; I(x) + I(y)<br>$$</p>
-<p>用概率乘法定律：</p>
-<p>$$<br>P(x,y) &#x3D; P(x)P(y)<br>$$</p>
-<p>取对数就变成加法，数学上很优雅。</p>
+<script type="math/tex; mode=display">
+I(x,y) = I(x) + I(y)</script><p>用概率乘法定律：</p>
+<script type="math/tex; mode=display">
+P(x,y) = P(x)P(y)</script><p>取对数就变成加法，数学上很优雅。</p>
 </li>
 <li><p><strong>方便量纲统一</strong><br>用 $\log_2$ 时，单位是 <strong>bit</strong>（比特），方便和二进制系统关联。</p>
 </li>
@@ -327,31 +326,31 @@
 <li><strong>哈特莱（hartley）</strong>：底为 10 的对数</li>
 </ul>
 <p>举例：<br>如果一个事件的概率是 $\frac12$，它的信息量是：</p>
-<p>$$<br>I &#x3D; -\log_2 \frac12 &#x3D; 1 \ \text{bit}<br>$$</p>
-<p>意思是：得知该事件发生，等价于获得 1 个二进制是&#x2F;否问题的答案。</p>
+<script type="math/tex; mode=display">
+I = -\log_2 \frac12 = 1 \ \text{bit}</script><p>意思是：得知该事件发生，等价于获得 1 个二进制是/否问题的答案。</p>
 <hr>
 <p><strong>信息量的特点</strong></p>
 <ol>
 <li><strong>非负性</strong>：$I(x) \ge 0$</li>
 <li><strong>概率越小 → 信息量越大</strong></li>
-<li><strong>确定性事件</strong>（$P &#x3D; 1$）的信息量为 0</li>
-<li>对稀有事件（如 $P &#x3D; 0.0001$），信息量很大。</li>
+<li><strong>确定性事件</strong>（$P = 1$）的信息量为 0</li>
+<li>对稀有事件（如 $P = 0.0001$），信息量很大。</li>
 </ol>
 <hr>
 <p><strong>一个生活类比</strong></p>
 <p>把“信息量”想象成<strong>惊讶程度</strong>：</p>
 <ul>
-<li>天气预报说今天 100% 下雨 → 你出门看到雨，不惊讶 → 信息量 &#x3D; 0</li>
+<li>天气预报说今天 100% 下雨 → 你出门看到雨，不惊讶 → 信息量 = 0</li>
 <li>天气预报说今天只有 10% 下雨 → 结果你出门被淋了 → 信息量很大（学到了“天气预报错了”）。</li>
 </ul>
 <h3 id="1-2-平均信息量（Average-Information-Content）"><a href="#1-2-平均信息量（Average-Information-Content）" class="headerlink" title="1.2 平均信息量（Average Information Content）"></a>1.2 平均信息量（Average Information Content）</h3><p>在信息论中，平均信息量也叫<strong>熵</strong>（<strong>Entropy</strong>），是衡量一个随机变量（<strong>Random Variable</strong>）平均能带来多少信息的指标。它反映了系统的不确定性（<strong>Uncertainty</strong>）。</p>
 <p>公式：</p>
-<p>$$<br>H(X) &#x3D; - \sum_{i&#x3D;1}^n P(x_i) \log_b P(x_i)<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+H(X) = - \sum_{i=1}^n P(x_i) \log_b P(x_i)</script><p>其中：</p>
 <ul>
 <li>$X$：离散型随机变量（<strong>Discrete Random Variable</strong>）</li>
 <li>$P(x_i)$：事件 $x_i$ 发生的概率（<strong>Probability</strong>）</li>
-<li>$b$：对数底（<strong>Logarithm Base</strong>），常用 $b &#x3D; 2$（单位 bit）</li>
+<li>$b$：对数底（<strong>Logarithm Base</strong>），常用 $b = 2$（单位 bit）</li>
 </ul>
 <hr>
 <p><strong>直观理解</strong></p>
@@ -361,16 +360,16 @@
 </ul>
 <hr>
 <p>假设抛一个<strong>公平硬币</strong>（<strong>Fair Coin</strong>）：</p>
-<p>$$<br>P(\text{正}) &#x3D; 0.5, \quad P(\text{反}) &#x3D; 0.5<br>$$</p>
-<p>$$<br>H &#x3D; -[0.5 \log_2 0.5 + 0.5 \log_2 0.5] &#x3D; 1 \ \text{bit}<br>$$</p>
-<p>意思是：每次抛币平均获得 1 比特的信息。</p>
+<script type="math/tex; mode=display">
+P(\text{正}) = 0.5, \quad P(\text{反}) = 0.5</script><script type="math/tex; mode=display">
+H = -[0.5 \log_2 0.5 + 0.5 \log_2 0.5] = 1 \ \text{bit}</script><p>意思是：每次抛币平均获得 1 比特的信息。</p>
 <h3 id="1-3-二元信息熵（Binary-Entropy）"><a href="#1-3-二元信息熵（Binary-Entropy）" class="headerlink" title="1.3 二元信息熵（Binary Entropy）"></a>1.3 二元信息熵（Binary Entropy）</h3><p><strong>二元信息熵</strong>（<strong>Binary Entropy</strong>）是指一个二元信源（<strong>Binary Source</strong>）的平均信息量（<strong>Average Information Content</strong>）。<br>这种信源只有两种可能输出：</p>
-<p>$$<br>X \in {0, 1}<br>$$</p>
-<p>它的熵由单个参数 $p &#x3D; P(X &#x3D; 1)$ 决定。</p>
+<script type="math/tex; mode=display">
+X \in \{0, 1\}</script><p>它的熵由单个参数 $p = P(X = 1)$ 决定。</p>
 <hr>
 <p>对于概率 $p$（<strong>Probability</strong>）和 $1-p$ 的二元随机变量（<strong>Binary Random Variable</strong>）：</p>
-<p>$$<br>H(p) &#x3D; - p \log_2 p - (1-p) \log_2 (1-p)<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+H(p) = - p \log_2 p - (1-p) \log_2 (1-p)</script><p>其中：</p>
 <ul>
 <li>$H(p)$：二元熵（<strong>Binary Entropy</strong>）</li>
 <li>$p$：取值为 1 的概率（<strong>Success Probability</strong>）</li>
@@ -381,26 +380,26 @@
 <p><strong>性质</strong></p>
 <ol>
 <li><p><strong>对称性</strong>（<strong>Symmetry</strong>）：</p>
-<p>$$<br>H(p) &#x3D; H(1-p)<br>$$</p>
-<p>因为交换 0 和 1 不影响不确定性。</p>
+<script type="math/tex; mode=display">
+H(p) = H(1-p)</script><p>因为交换 0 和 1 不影响不确定性。</p>
 </li>
-<li><p><strong>最大值</strong>（<strong>Maximum</strong>）：<br>当 $p &#x3D; 0.5$ 时：</p>
-<p>$$<br>H(0.5) &#x3D; -0.5 \log_2 0.5 - 0.5 \log_2 0.5 &#x3D; 1 \ \text{bit}<br>$$</p>
-<p>这是不确定性最大的情况（完全随机的二元信源）。</p>
+<li><p><strong>最大值</strong>（<strong>Maximum</strong>）：<br>当 $p = 0.5$ 时：</p>
+<script type="math/tex; mode=display">
+H(0.5) = -0.5 \log_2 0.5 - 0.5 \log_2 0.5 = 1 \ \text{bit}</script><p>这是不确定性最大的情况（完全随机的二元信源）。</p>
 </li>
-<li><p><strong>最小值</strong>（<strong>Minimum</strong>）：<br>当 $p &#x3D; 0$ 或 $p &#x3D; 1$ 时，</p>
-<p>$$<br>H &#x3D; 0<br>$$</p>
-<p>因为输出是确定的，没有信息量。</p>
+<li><p><strong>最小值</strong>（<strong>Minimum</strong>）：<br>当 $p = 0$ 或 $p = 1$ 时，</p>
+<script type="math/tex; mode=display">
+H = 0</script><p>因为输出是确定的，没有信息量。</p>
 </li>
 </ol>
 <hr>
 <p><strong>直观理解</strong></p>
 <ul>
-<li>当一枚硬币（<strong>Coin</strong>）是公平的（$p &#x3D; 0.5$），每次抛掷带来的信息量最大：1 bit</li>
+<li>当一枚硬币（<strong>Coin</strong>）是公平的（$p = 0.5$），每次抛掷带来的信息量最大：1 bit</li>
 <li>当一枚硬币几乎总是正面朝上（$p$ 接近 1），信息量很小，因为结果几乎可预测。</li>
 </ul>
-<h3 id="1-4-归一化熵（Normalized-Entropy）"><a href="#1-4-归一化熵（Normalized-Entropy）" class="headerlink" title="1.4 归一化熵（Normalized Entropy）"></a>1.4 归一化熵（Normalized Entropy）</h3><p>$$<br>h(s) &#x3D; \frac{H(s)}{\log_2 M}<br>$$</p>
-<p>是<strong>归一化熵</strong>（<strong>Normalized Entropy</strong>）的形式，有时候也叫<strong>相对熵</strong>（Relative Entropy，另一种用法）。</p>
+<h3 id="1-4-归一化熵（Normalized-Entropy）"><a href="#1-4-归一化熵（Normalized-Entropy）" class="headerlink" title="1.4 归一化熵（Normalized Entropy）"></a>1.4 归一化熵（Normalized Entropy）</h3><script type="math/tex; mode=display">
+h(s) = \frac{H(s)}{\log_2 M}</script><p>是<strong>归一化熵</strong>（<strong>Normalized Entropy</strong>）的形式，有时候也叫<strong>相对熵</strong>（Relative Entropy，另一种用法）。</p>
 <p>这个公式的意思是：</p>
 <ul>
 <li>$H(s)$：信源（<strong>Source</strong>）的熵（<strong>Entropy</strong>），表示平均每个符号的信息量。</li>
@@ -410,37 +409,37 @@
 </ul>
 <hr>
 <p>熵的最大值出现在概率均匀时：</p>
-<p>$$<br>H_{\max} &#x3D; \log_2 M<br>$$</p>
-<p>所以，为了得到一个 <strong>0 到 1 之间</strong> 的量，人们用：</p>
-<p>$$<br>h(s) &#x3D; \frac{H(s)}{\log_2 M}<br>$$</p>
-<ul>
-<li>如果 $h(s) &#x3D; 1$：信源是完全均匀的（最不可预测）。</li>
-<li>如果 $h(s) &#x3D; 0$：信源是完全确定的（可预测，没有信息量）。</li>
+<script type="math/tex; mode=display">
+H_{\max} = \log_2 M</script><p>所以，为了得到一个 <strong>0 到 1 之间</strong> 的量，人们用：</p>
+<script type="math/tex; mode=display">
+h(s) = \frac{H(s)}{\log_2 M}</script><ul>
+<li>如果 $h(s) = 1$：信源是完全均匀的（最不可预测）。</li>
+<li>如果 $h(s) = 0$：信源是完全确定的（可预测，没有信息量）。</li>
 <li>介于 0 和 1 之间：有一定规律性，但不是完全可预测。</li>
 </ul>
 <hr>
-<p>假设信源字母表 $M &#x3D; 4$，符号概率：</p>
-<p>$$<br>P &#x3D; {0.5, 0.25, 0.25, 0}<br>$$</p>
-<p>计算：</p>
-<p>$$<br>H(s) &#x3D; -[0.5\log_2 0.5 + 0.25\log_2 0.25 + 0.25\log_2 0.25]<br>$$</p>
-<p>$$<br>H(s) &#x3D; 1.5\ \text{bits}<br>$$</p>
-<p>最大熵：</p>
-<p>$$<br>\log_2 4 &#x3D; 2\ \text{bits}<br>$$</p>
-<p>归一化熵：</p>
-<p>$$<br>h(s) &#x3D; \frac{1.5}{2} &#x3D; 0.75<br>$$</p>
-<p>意思是：这个信源的随机性相当于最随机信源的 75%。</p>
+<p>假设信源字母表 $M = 4$，符号概率：</p>
+<script type="math/tex; mode=display">
+P = \{0.5, 0.25, 0.25, 0\}</script><p>计算：</p>
+<script type="math/tex; mode=display">
+H(s) = -[0.5\log_2 0.5 + 0.25\log_2 0.25 + 0.25\log_2 0.25]</script><script type="math/tex; mode=display">
+H(s) = 1.5\ \text{bits}</script><p>最大熵：</p>
+<script type="math/tex; mode=display">
+\log_2 4 = 2\ \text{bits}</script><p>归一化熵：</p>
+<script type="math/tex; mode=display">
+h(s) = \frac{1.5}{2} = 0.75</script><p>意思是：这个信源的随机性相当于最随机信源的 75%。</p>
 <hr>
 <h3 id="1-5-冗余度（Redundancy）"><a href="#1-5-冗余度（Redundancy）" class="headerlink" title="1.5 冗余度（Redundancy）"></a>1.5 冗余度（Redundancy）</h3><p><strong>冗余度</strong>（<strong>Redundancy</strong>）表示一个信源（<strong>Source</strong>）在编码或符号序列中，<strong>不携带新信息</strong>的部分所占的比例。<br>它描述了信源中“可预测性”（<strong>Predictability</strong>）的大小。</p>
-<p>换句话说，冗余度 &#x3D; 1 − 随机性程度。<br>在很多情况下，信源的符号分布并不是均匀的，因此它的熵低于最大可能的熵，差值就是冗余造成的。</p>
+<p>换句话说，冗余度 = 1 − 随机性程度。<br>在很多情况下，信源的符号分布并不是均匀的，因此它的熵低于最大可能的熵，差值就是冗余造成的。</p>
 <hr>
 <p>假设信源字母表（<strong>Alphabet</strong>）大小为 $M$，</p>
 <ul>
 <li>实际熵：$H(s)$（<strong>Entropy</strong>）</li>
-<li>最大熵：$H_{\max} &#x3D; \log_2 M$（<strong>Maximum Entropy</strong>）</li>
+<li>最大熵：$H_{\max} = \log_2 M$（<strong>Maximum Entropy</strong>）</li>
 </ul>
 <p><strong>归一化形式的冗余度</strong>（<strong>Normalized Redundancy</strong>）：</p>
-<p>$$<br>R &#x3D; 1 - \frac{H(s)}{\log_2 M}<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+R = 1 - \frac{H(s)}{\log_2 M}</script><p>其中：</p>
 <ul>
 <li>$R$：冗余度（Redundancy）</li>
 <li>$\frac{H(s)}{\log_2 M}$：归一化熵（Normalized Entropy），也叫相对熵（Relative Entropy，在另一种定义下）</li>
@@ -449,10 +448,10 @@
 <p><strong>性质</strong></p>
 <ol>
 <li><p><strong>范围</strong>：</p>
-<p>$$<br>0 \le R \le 1<br>$$</p>
-<ul>
-<li>$R &#x3D; 0$：完全随机，无冗余</li>
-<li>$R &#x3D; 1$：完全确定，全是冗余</li>
+<script type="math/tex; mode=display">
+0 \le R \le 1</script><ul>
+<li>$R = 0$：完全随机，无冗余</li>
+<li>$R = 1$：完全确定，全是冗余</li>
 </ul>
 </li>
 <li><p><strong>解释</strong>：</p>
@@ -463,13 +462,13 @@
 </li>
 </ol>
 <hr>
-<p>例子：假设字母表大小 $M &#x3D; 4$：<br>最大熵：</p>
-<p>$$<br>H_{\max} &#x3D; \log_2 4 &#x3D; 2\ \text{bits}<br>$$</p>
-<p>某信源熵：</p>
-<p>$$<br>H(s) &#x3D; 1.5\ \text{bits}<br>$$</p>
-<p>冗余度：</p>
-<p>$$<br>R &#x3D; 1 - \frac{1.5}{2} &#x3D; 0.25<br>$$</p>
-<p>这意味着信源中有 25% 的信息是冗余的，可被预测或压缩掉。</p>
+<p>例子：假设字母表大小 $M = 4$：<br>最大熵：</p>
+<script type="math/tex; mode=display">
+H_{\max} = \log_2 4 = 2\ \text{bits}</script><p>某信源熵：</p>
+<script type="math/tex; mode=display">
+H(s) = 1.5\ \text{bits}</script><p>冗余度：</p>
+<script type="math/tex; mode=display">
+R = 1 - \frac{1.5}{2} = 0.25</script><p>这意味着信源中有 25% 的信息是冗余的，可被预测或压缩掉。</p>
 <hr>
 <p><strong>应用</strong></p>
 <ul>
@@ -479,27 +478,26 @@
 </ul>
 <h2 id="2-熵的计算"><a href="#2-熵的计算" class="headerlink" title="2. 熵的计算"></a>2. 熵的计算</h2><h3 id="2-1-联合自信息量（Joint-Self-Information）"><a href="#2-1-联合自信息量（Joint-Self-Information）" class="headerlink" title="2.1 联合自信息量（Joint Self-Information）"></a>2.1 联合自信息量（Joint Self-Information）</h3><p><strong>联合自信息量</strong>（<strong>Joint Self-Information</strong>）是衡量<strong>两个随机变量同时取到特定值</strong>这一事件所包含的信息量。<br>它是单个事件自信息量的推广，定义在<strong>联合事件</strong>（<strong>Joint Event</strong>）上。</p>
 <p>如果我们有两个随机变量 $X$ 和 $Y$，某一次观测的结果是 $(x, y)$，则其联合自信息量为：</p>
-<p>$$<br>I(x, y) &#x3D; -\log_b p(x, y)<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+I(x, y) = -\log_b p(x, y)</script><p>其中：</p>
 <ul>
 <li>$p(x, y)$：联合概率（<strong>Joint Probability</strong>）</li>
-<li>$b$：对数底（<strong>Logarithm Base</strong>），常用 $b &#x3D; 2$（单位 <strong>bit</strong>）或 $b &#x3D; e$（单位 <strong>nat</strong>）</li>
+<li>$b$：对数底（<strong>Logarithm Base</strong>），常用 $b = 2$（单位 <strong>bit</strong>）或 $b = e$（单位 <strong>nat</strong>）</li>
 </ul>
 <hr>
 <p><strong>解释</strong></p>
 <ul>
-<li><p><strong>概率越小</strong>的联合事件，信息量越大（更“惊喜”）。</p>
-</li>
+<li><strong>概率越小</strong>的联合事件，信息量越大（更“惊喜”）。</li>
 <li><p>如果 $X$ 和 $Y$ 独立：</p>
-<p>$$<br>p(x, y) &#x3D; p(x) \cdot p(y) \quad\Rightarrow\quad I(x, y) &#x3D; I(x) + I(y)<br>$$</p>
-<p>这表明独立事件的联合自信息量等于它们单独信息量的和。</p>
+<script type="math/tex; mode=display">
+p(x, y) = p(x) \cdot p(y) \quad\Rightarrow\quad I(x, y) = I(x) + I(y)</script><p>这表明独立事件的联合自信息量等于它们单独信息量的和。</p>
 </li>
 </ul>
 <hr>
 <p><strong>与联合熵的关系</strong></p>
 <p><strong>联合熵</strong>（Joint Entropy）其实是<strong>联合自信息量的期望值</strong>：</p>
-<p>$$<br>H(X, Y) &#x3D; \mathbb{E}[I(X, Y)] &#x3D; -\sum_{x}\sum_{y} p(x, y) \log p(x, y)<br>$$</p>
-<p>所以：</p>
+<script type="math/tex; mode=display">
+H(X, Y) = \mathbb{E}[I(X, Y)] = -\sum_{x}\sum_{y} p(x, y) \log p(x, y)</script><p>所以：</p>
 <ul>
 <li>联合自信息量 → 单次事件的“惊讶度”</li>
 <li>联合熵 → 平均“惊讶度”</li>
@@ -510,6 +508,7 @@
 <li>$X$ 取值 ${0, 1}$</li>
 <li>$Y$ 取值 ${a, b}$<br>联合概率表（Joint Probability Table）为：</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -518,7 +517,8 @@
 <th>$b$</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>0</strong></td>
 <td>0.5</td>
 <td>0.25</td>
@@ -528,95 +528,97 @@
 <td>0.125</td>
 <td>0.125</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>例子：事件 $(1, b)$ 的联合自信息量：</p>
-<p>$$<br>I(1, b) &#x3D; -\log_2 (0.125) &#x3D; -\log_2 \left(\frac{1}{8}\right) &#x3D; 3 \ \text{bits}<br>$$</p>
-<p>说明这个事件发生时，我们获得了 3 比特的新信息。</p>
+<script type="math/tex; mode=display">
+I(1, b) = -\log_2 (0.125) = -\log_2 \left(\frac{1}{8}\right) = 3 \ \text{bits}</script><p>说明这个事件发生时，我们获得了 3 比特的新信息。</p>
 <hr>
 <h3 id="2-2-条件自信息量（Conditional-Self-Information）"><a href="#2-2-条件自信息量（Conditional-Self-Information）" class="headerlink" title="2.2 条件自信息量（Conditional Self-Information）"></a>2.2 条件自信息量（Conditional Self-Information）</h3><p><strong>条件自信息量</strong>（<strong>Conditional Self-Information</strong>）描述了在已知一个事件发生的前提下，另一个事件发生所带来的信息量。</p>
-<p>如果随机变量 $X$ 取到值 $x$，并且我们已知 $Y &#x3D; y$ 已经发生，那么条件自信息量定义为：</p>
-<p>$$<br>I(x \mid y) &#x3D; -\log_b p(x \mid y)<br>$$</p>
-<p>其中：</p>
+<p>如果随机变量 $X$ 取到值 $x$，并且我们已知 $Y = y$ 已经发生，那么条件自信息量定义为：</p>
+<script type="math/tex; mode=display">
+I(x \mid y) = -\log_b p(x \mid y)</script><p>其中：</p>
 <ul>
 <li>$p(x \mid y)$：条件概率（<strong>Conditional Probability</strong>）</li>
 <li>$b$：对数底（<strong>Logarithm Base</strong>），通常取 2（单位 bit）或 $e$（单位 nat）</li>
 </ul>
 <hr>
 <ul>
-<li><p><strong>条件自信息量</strong>表示在额外信息（已知 $Y&#x3D;y$）下，我们需要多少信息来确定 $X&#x3D;x$。</p>
-</li>
+<li><strong>条件自信息量</strong>表示在额外信息（已知 $Y=y$）下，我们需要多少信息来确定 $X=x$。</li>
 <li><p>如果 $X$ 和 $Y$ 独立（<strong>Independent</strong>），则：</p>
-<p>$$<br>p(x \mid y) &#x3D; p(x) \quad\Rightarrow\quad I(x \mid y) &#x3D; I(x)<br>$$</p>
-<p>已知 $Y$ 不会减少对 $X$ 的不确定性。</p>
+<script type="math/tex; mode=display">
+p(x \mid y) = p(x) \quad\Rightarrow\quad I(x \mid y) = I(x)</script><p>已知 $Y$ 不会减少对 $X$ 的不确定性。</p>
 </li>
-<li><p>如果 $Y$ 能确定 $X$，则 $p(x \mid y) &#x3D; 1$，此时：</p>
-<p>$$<br>I(x \mid y) &#x3D; 0<br>$$</p>
-<p>说明已知 $Y$ 后不需要额外信息来确定 $X$。</p>
+<li><p>如果 $Y$ 能确定 $X$，则 $p(x \mid y) = 1$，此时：</p>
+<script type="math/tex; mode=display">
+I(x \mid y) = 0</script><p>说明已知 $Y$ 后不需要额外信息来确定 $X$。</p>
 </li>
 </ul>
 <hr>
 <p><strong>条件熵</strong>（Conditional Entropy）是条件自信息量的<strong>期望值</strong>：</p>
-<p>$$<br>H(X\mid Y) &#x3D; -\sum_{y}\sum_{x} p(x,y)\log p(x\mid y).<br>$$</p>
-<hr>
+<script type="math/tex; mode=display">
+H(X\mid Y) = -\sum_{y}\sum_{x} p(x,y)\log p(x\mid y).</script><hr>
 <p><strong>举例假设：</strong></p>
 <ul>
 <li>$X \in {A, B}$</li>
 <li>$Y \in {1, 2}$<br>并且已知：</li>
 </ul>
-<p>$$<br>p(X&#x3D;A \mid Y&#x3D;1) &#x3D; 0.25<br>$$</p>
-<p>则：</p>
-<p>$$<br>I(A \mid 1) &#x3D; -\log_2 (0.25) &#x3D; 2 \ \text{bits}<br>$$</p>
-<p>意思是：在已知 $Y&#x3D;1$ 的情况下，确定 $X&#x3D;A$ 仍然需要 2 比特的信息。</p>
+<script type="math/tex; mode=display">
+p(X=A \mid Y=1) = 0.25</script><p>则：</p>
+<script type="math/tex; mode=display">
+I(A \mid 1) = -\log_2 (0.25) = 2 \ \text{bits}</script><p>意思是：在已知 $Y=1$ 的情况下，确定 $X=A$ 仍然需要 2 比特的信息。</p>
 <hr>
 <h3 id="2-3-联合熵（Joint-Entropy）"><a href="#2-3-联合熵（Joint-Entropy）" class="headerlink" title="2.3  联合熵（Joint Entropy）"></a>2.3  联合熵（Joint Entropy）</h3><p><strong>联合熵</strong>（<strong>Joint Entropy</strong>）描述了<strong>两个随机变量</strong>（<strong>Random Variables</strong>）$X$ 和 $Y$ <strong>同时取值</strong>时的平均信息量（<strong>Average Information Content</strong>）。</p>
 <p>它是对<strong>联合概率分布</strong>（<strong>Joint Probability Distribution</strong>）上<strong>联合自信息量</strong>（<strong>Joint Self-Information</strong>）的期望：</p>
-<p>$$<br>H(X, Y) &#x3D; - \sum_{x} \sum_{y} p(x, y) \log_b p(x, y)<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+H(X, Y) = - \sum_{x} \sum_{y} p(x, y) \log_b p(x, y)</script><p>其中：</p>
 <ul>
 <li>$p(x, y)$：联合概率（<strong>Joint Probability</strong>）</li>
-<li>$b$：对数底（<strong>Logarithm Base</strong>），$b&#x3D;2$ 时单位是 <strong>bit</strong>，$b&#x3D;e$ 时单位是 <strong>nat</strong>。</li>
+<li>$b$：对数底（<strong>Logarithm Base</strong>），$b=2$ 时单位是 <strong>bit</strong>，$b=e$ 时单位是 <strong>nat</strong>。</li>
 </ul>
 <hr>
 <ul>
-<li><p>联合熵度量的是观察到<strong>整个事件对</strong> $(X, Y)$ 所需的平均信息量。</p>
-</li>
+<li>联合熵度量的是观察到<strong>整个事件对</strong> $(X, Y)$ 所需的平均信息量。</li>
 <li><p>如果 $X$ 和 $Y$ 独立（<strong>Independent</strong>），则：</p>
-<p>$$<br>H(X, Y) &#x3D; H(X) + H(Y)<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H(X, Y) = H(X) + H(Y)</script></li>
 <li><p>如果 $X$ 完全由 $Y$ 决定（<strong>Deterministic Relationship</strong>），那么：</p>
-<p>$$<br>H(X, Y) &#x3D; H(Y) &#x3D; H(X)<br>$$</p>
-<p>因为知道一个变量就完全知道另一个变量，不会增加不确定性。</p>
+<script type="math/tex; mode=display">
+H(X, Y) = H(Y) = H(X)</script><p>因为知道一个变量就完全知道另一个变量，不会增加不确定性。</p>
 </li>
 </ul>
 <hr>
 <p><strong>性质</strong></p>
 <ol>
 <li><p><strong>非负性</strong>（<strong>Non-Negativity</strong>）</p>
-<p>$$<br>H(X, Y) \ge 0<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H(X, Y) \ge 0</script></li>
 <li><p><strong>上界</strong>（<strong>Upper Bound</strong>）</p>
-<p>$$<br>H(X, Y) \le H(X) + H(Y)<br>$$</p>
-<p>等号在独立时成立。</p>
+<script type="math/tex; mode=display">
+H(X, Y) \le H(X) + H(Y)</script><p>等号在独立时成立。</p>
 </li>
 <li><p><strong>链式法则</strong>（<strong>Chain Rule</strong>）</p>
-<p>$$<br>H(X, Y) &#x3D; H(X) + H(Y \mid X)<br>$$</p>
-<p>或：</p>
-<p>$$<br>H(X, Y) &#x3D; H(Y) + H(X \mid Y)<br>$$</p>
-<p>表示联合熵可以分解为单个熵 + 条件熵。</p>
+<script type="math/tex; mode=display">
+H(X, Y) = H(X) + H(Y \mid X)</script><p>或：</p>
+<script type="math/tex; mode=display">
+H(X, Y) = H(Y) + H(X \mid Y)</script><p>表示联合熵可以分解为单个熵 + 条件熵。</p>
 </li>
 </ol>
 <hr>
 <p><strong>举例</strong></p>
 <p>假设：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th>X&#x2F;Y</th>
+<th>X/Y</th>
 <th>y₁</th>
 <th>y₂</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>x₁</td>
 <td>0.25</td>
 <td>0.25</td>
@@ -626,19 +628,21 @@
 <td>0.25</td>
 <td>0.25</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>则：</p>
-<p>$$<br>H(X, Y) &#x3D; -\sum_{x,y} 0.25 \log_2 0.25 &#x3D; -4 \times 0.25 \times (-2) &#x3D; 2 \ \text{bits}<br>$$</p>
-<p>说明每次观察到 $(X, Y)$ 对需要 2 比特的信息。</p>
+<script type="math/tex; mode=display">
+H(X, Y) = -\sum_{x,y} 0.25 \log_2 0.25 = -4 \times 0.25 \times (-2) = 2 \ \text{bits}</script><p>说明每次观察到 $(X, Y)$ 对需要 2 比特的信息。</p>
 <hr>
 <h3 id="2-4-条件熵（Conditional-Entropy）"><a href="#2-4-条件熵（Conditional-Entropy）" class="headerlink" title="2.4 条件熵（Conditional Entropy）"></a>2.4 条件熵（Conditional Entropy）</h3><p>条件熵是用来衡量在已知一个随机变量 $Y$ 的情况下，另一个随机变量 $X$ 的不确定性。</p>
 <p>设 $X, Y$ 是两个离散型随机变量，联合分布为 $p(x,y)$，则 <strong>条件熵</strong> 定义为：</p>
-<p>$$<br>H(X \mid Y) &#x3D; - \sum_{y} p(y) \sum_{x} p(x \mid y) \log p(x \mid y)<br>$$</p>
-<p>也可以写作期望形式：</p>
-<p>$$<br>H(X \mid Y) &#x3D; \sum_{y} p(y) H(X \mid Y&#x3D;y)<br>$$</p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+H(X \mid Y) = - \sum_{y} p(y) \sum_{x} p(x \mid y) \log p(x \mid y)</script><p>也可以写作期望形式：</p>
+<script type="math/tex; mode=display">
+H(X \mid Y) = \sum_{y} p(y) H(X \mid Y=y)</script><p>其中：</p>
 <ul>
-<li>$H(X \mid Y&#x3D;y)$ 表示在 $Y&#x3D;y$ 的条件下，$X$ 的熵。</li>
+<li>$H(X \mid Y=y)$ 表示在 $Y=y$ 的条件下，$X$ 的熵。</li>
 <li>$H(X \mid Y)$ 表示整体上 $X$ 在已知 $Y$ 的情况下的不确定性。</li>
 </ul>
 <hr>
@@ -650,50 +654,50 @@
 <p>👉 所以 条件熵就是已知 $Y$ 后，$X$ 还包含多少信息的不确定性。</p>
 <p>例如：</p>
 <ul>
-<li>如果 $X$ 和 $Y$ 完全独立，则 $H(X \mid Y) &#x3D; H(X)$。</li>
-<li>如果 $X$ 由 $Y$ 唯一确定，则 $H(X \mid Y) &#x3D; 0$。</li>
+<li>如果 $X$ 和 $Y$ 完全独立，则 $H(X \mid Y) = H(X)$。</li>
+<li>如果 $X$ 由 $Y$ 唯一确定，则 $H(X \mid Y) = 0$。</li>
 </ul>
 <hr>
 <p><strong>常用公式（Formulas）</strong></p>
 <ol>
 <li><p><strong>与联合熵的关系</strong></p>
-<p>$$<br>H(X,Y) &#x3D; H(Y) + H(X \mid Y) &#x3D; H(X) + H(Y \mid X)<br>$$</p>
-<p>这说明：联合熵可以分解成一个变量的熵加上另一个变量的条件熵。</p>
+<script type="math/tex; mode=display">
+H(X,Y) = H(Y) + H(X \mid Y) = H(X) + H(Y \mid X)</script><p>这说明：联合熵可以分解成一个变量的熵加上另一个变量的条件熵。</p>
 </li>
 <li><p><strong>与互信息的关系</strong></p>
-<p>$$<br>I(X;Y) &#x3D; H(X) - H(X \mid Y) &#x3D; H(Y) - H(Y \mid X)<br>$$</p>
-<p>互信息（Mutual Information）就是熵的减少量，即知道 $Y$ 以后 $X$ 的不确定性减少了多少。</p>
+<script type="math/tex; mode=display">
+I(X;Y) = H(X) - H(X \mid Y) = H(Y) - H(Y \mid X)</script><p>互信息（Mutual Information）就是熵的减少量，即知道 $Y$ 以后 $X$ 的不确定性减少了多少。</p>
 </li>
 </ol>
 <hr>
 <p>假设有一个二元变量：</p>
 <ul>
-<li>$X$ 表示天气是否下雨：$X&#x3D;{0&#x3D;\text{不下雨}, 1&#x3D;\text{下雨}}$</li>
-<li>$Y$ 表示是否打伞：$Y&#x3D;{0&#x3D;\text{不打伞}, 1&#x3D;\text{打伞}}$</li>
+<li>$X$ 表示天气是否下雨：$X={0=\text{不下雨}, 1=\text{下雨}}$</li>
+<li>$Y$ 表示是否打伞：$Y={0=\text{不打伞}, 1=\text{打伞}}$</li>
 </ul>
 <p>设分布为：</p>
 <ul>
-<li>$p(X&#x3D;1)&#x3D;0.3, ; p(X&#x3D;0)&#x3D;0.7$</li>
-<li>$p(Y&#x3D;1 \mid X&#x3D;1)&#x3D;0.9, ; p(Y&#x3D;0 \mid X&#x3D;1)&#x3D;0.1$</li>
-<li>$p(Y&#x3D;1 \mid X&#x3D;0)&#x3D;0.2, ; p(Y&#x3D;0 \mid X&#x3D;0)&#x3D;0.8$</li>
+<li>$p(X=1)=0.3, ; p(X=0)=0.7$</li>
+<li>$p(Y=1 \mid X=1)=0.9, ; p(Y=0 \mid X=1)=0.1$</li>
+<li>$p(Y=1 \mid X=0)=0.2, ; p(Y=0 \mid X=0)=0.8$</li>
 </ul>
 <p>我们要计算 $H(X \mid Y)$。</p>
 <p><strong>步骤</strong>：</p>
 <ol>
 <li><p>先求边际分布 $p(Y)$：</p>
-<p>$$<br>p(Y&#x3D;1) &#x3D; p(X&#x3D;1)p(Y&#x3D;1 \mid X&#x3D;1) + p(X&#x3D;0)p(Y&#x3D;1 \mid X&#x3D;0)<br>$$</p>
-<p>$$<br>&#x3D; 0.3 \times 0.9 + 0.7 \times 0.2 &#x3D; 0.27 + 0.14 &#x3D; 0.41<br>$$</p>
-<p>同理：</p>
-<p>$$<br>p(Y&#x3D;0) &#x3D; 0.59<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+p(Y=1) = p(X=1)p(Y=1 \mid X=1) + p(X=0)p(Y=1 \mid X=0)</script><script type="math/tex; mode=display">
+= 0.3 \times 0.9 + 0.7 \times 0.2 = 0.27 + 0.14 = 0.41</script><p>同理：</p>
+<script type="math/tex; mode=display">
+p(Y=0) = 0.59</script></li>
 <li><p>再求条件分布 $p(X \mid Y)$：<br>例如</p>
-<p>$$<br>p(X&#x3D;1 \mid Y&#x3D;1) &#x3D; \frac{p(X&#x3D;1,Y&#x3D;1)}{p(Y&#x3D;1)} &#x3D; \frac{0.27}{0.41} \approx 0.6585<br>$$</p>
-<p>$$<br>p(X&#x3D;0 \mid Y&#x3D;1) &#x3D; 1 - 0.6585 &#x3D; 0.3415<br>$$</p>
-<p>同理可求 $p(X \mid Y&#x3D;0)$。</p>
+<script type="math/tex; mode=display">
+p(X=1 \mid Y=1) = \frac{p(X=1,Y=1)}{p(Y=1)} = \frac{0.27}{0.41} \approx 0.6585</script><script type="math/tex; mode=display">
+p(X=0 \mid Y=1) = 1 - 0.6585 = 0.3415</script><p>同理可求 $p(X \mid Y=0)$。</p>
 </li>
 <li><p>计算条件熵：</p>
-<p>$$<br>H(X \mid Y) &#x3D; \sum_y p(y) H(X \mid Y&#x3D;y)<br>$$</p>
-<p>代入数值可得结果。</p>
+<script type="math/tex; mode=display">
+H(X \mid Y) = \sum_y p(y) H(X \mid Y=y)</script><p>代入数值可得结果。</p>
 </li>
 </ol>
 <p>👉 这表示：当我们知道一个人是否打伞（$Y$）时，对天气是否下雨（$X$）的不确定性减少了。</p>
@@ -701,120 +705,133 @@
 <p><strong>性质（Properties）</strong></p>
 <ol>
 <li><p>非负性：</p>
-<p>$$<br>H(X \mid Y) \geq 0<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H(X \mid Y) \geq 0</script></li>
 <li><p>小于等于原熵：</p>
-<p>$$<br>H(X \mid Y) \leq H(X)<br>$$</p>
-<p>（已知信息只会减少不确定性，不会增加）</p>
+<script type="math/tex; mode=display">
+H(X \mid Y) \leq H(X)</script><p>（已知信息只会减少不确定性，不会增加）</p>
 </li>
 <li><p>独立时等号成立：</p>
-<p>$$<br>H(X \mid Y) &#x3D; H(X), \quad \text{若 $X$ 与 $Y$ 独立}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H(X \mid Y) = H(X), \quad \text{若 $X$ 与 $Y$ 独立}</script></li>
 </ol>
 <hr>
 <p>✨总结：</p>
 <ul>
-<li>条件熵 $H(X \mid Y)$ &#x3D; 已知 $Y$ 后，$X$ 还剩下的不确定性。</li>
+<li>条件熵 $H(X \mid Y)$ = 已知 $Y$ 后，$X$ 还剩下的不确定性。</li>
 <li>它是联合熵和互信息的重要桥梁。</li>
 <li>在通信、机器学习、统计建模里，用来度量“一个变量对另一个变量的不确定性削减”。</li>
 </ul>
 <hr>
 <h3 id="2-5-链式法则证明"><a href="#2-5-链式法则证明" class="headerlink" title="2.5 链式法则证明"></a>2.5 链式法则证明</h3><h4 id="2-5-1-二元情形的证明"><a href="#2-5-1-二元情形的证明" class="headerlink" title="2.5.1 二元情形的证明"></a>2.5.1 二元情形的证明</h4><p><strong>命题</strong>：对离散随机变量 $X,Y$，有</p>
-<p>$$<br>H(X,Y)&#x3D;H(Y)+H(X\mid Y).<br>$$</p>
-<p><strong>证明</strong>（从定义出发）：</p>
-<p>$$<br>\begin{aligned}<br>H(X,Y)<br>&amp;&#x3D; -\sum_{x,y} p(x,y),\log p(x,y) \<br>&amp;&#x3D; -\sum_{x,y} p(x,y),\log\big(p(y),p(x\mid y)\big) \qquad (\text{乘法法则 } p(x,y)&#x3D;p(y)p(x|y))\<br>&amp;&#x3D; -\sum_{x,y} p(x,y),\log p(y);-;\sum_{x,y} p(x,y),\log p(x\mid y) \<br>&amp;&#x3D; -\sum_{y}!\Big(\sum_{x}p(x,y)\Big)\log p(y);-;\sum_{y}!\sum_{x} p(y),p(x\mid y),\log p(x\mid y) \<br>&amp;&#x3D; -\sum_{y} p(y),\log p(y);-;\sum_{y} p(y)\Big(\sum_{x} p(x\mid y),\log p(x\mid y)\Big) \<br>&amp;&#x3D; H(Y);+;\sum_{y} p(y),H(X\mid Y&#x3D;y) \<br>&amp;&#x3D; H(Y)+H(X\mid Y).<br>\end{aligned}<br>$$</p>
-<p>证毕。</p>
+<script type="math/tex; mode=display">
+H(X,Y)=H(Y)+H(X\mid Y).</script><p><strong>证明</strong>（从定义出发）：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+H(X,Y)
+&= -\sum_{x,y} p(x,y)\,\log p(x,y) \\
+&= -\sum_{x,y} p(x,y)\,\log\big(p(y)\,p(x\mid y)\big) \qquad (\text{乘法法则 } p(x,y)=p(y)p(x|y))\\
+&= -\sum_{x,y} p(x,y)\,\log p(y)\;-\;\sum_{x,y} p(x,y)\,\log p(x\mid y) \\
+&= -\sum_{y}\!\Big(\sum_{x}p(x,y)\Big)\log p(y)\;-\;\sum_{y}\!\sum_{x} p(y)\,p(x\mid y)\,\log p(x\mid y) \\
+&= -\sum_{y} p(y)\,\log p(y)\;-\;\sum_{y} p(y)\Big(\sum_{x} p(x\mid y)\,\log p(x\mid y)\Big) \\
+&= H(Y)\;+\;\sum_{y} p(y)\,H(X\mid Y=y) \\
+&= H(Y)+H(X\mid Y).
+\end{aligned}</script><p>证毕。</p>
 <blockquote>
-<p>同样也可写成期望形式：<br>$H(X,Y)&#x3D;\mathbb{E}[-\log p(X,Y)] &#x3D; \mathbb{E}[-\log p(Y)] + \mathbb{E}[-\log p(X\mid Y)] &#x3D; H(Y)+H(X\mid Y)$。</p>
+<p>同样也可写成期望形式：<br>$H(X,Y)=\mathbb{E}[-\log p(X,Y)] = \mathbb{E}[-\log p(Y)] + \mathbb{E}[-\log p(X\mid Y)] = H(Y)+H(X\mid Y)$。</p>
 </blockquote>
 <hr>
 <h4 id="2-5-2-推广到-n-个变量"><a href="#2-5-2-推广到-n-个变量" class="headerlink" title="2.5.2 推广到 $n$ 个变量"></a>2.5.2 推广到 $n$ 个变量</h4><p><strong>命题</strong>：对离散随机变量 $X_1,\dots,X_n$，</p>
-<p>$$<br>H(X_1,\dots,X_n)&#x3D;\sum_{i&#x3D;1}^{n} H\big(X_i \mid X_1,\dots,X_{i-1}\big).<br>$$</p>
-<p><strong>证明思路</strong>：数学归纳法或反复应用二元链式法则。</p>
+<script type="math/tex; mode=display">
+H(X_1,\dots,X_n)=\sum_{i=1}^{n} H\big(X_i \mid X_1,\dots,X_{i-1}\big).</script><p><strong>证明思路</strong>：数学归纳法或反复应用二元链式法则。</p>
 <ul>
-<li>当 $n&#x3D;2$ 时即上一节已证。</li>
+<li>当 $n=2$ 时即上一节已证。</li>
 <li>假设对 $n-1$ 个变量成立，则</li>
 </ul>
-<p>$$<br>\begin{aligned}<br>H(X_1,\dots,X_n)<br>&amp;&#x3D; H(X_1,\dots,X_{n-1}) + H\big(X_n \mid X_1,\dots,X_{n-1}\big) \<br>&amp;&#x3D; \sum_{i&#x3D;1}^{n-1} H\big(X_i \mid X_1,\dots,X_{i-1}\big) + H\big(X_n \mid X_1,\dots,X_{n-1}\big).<br>\end{aligned}<br>$$</p>
-<p>归纳完成。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+H(X_1,\dots,X_n)
+&= H(X_1,\dots,X_{n-1}) + H\big(X_n \mid X_1,\dots,X_{n-1}\big) \\
+&= \sum_{i=1}^{n-1} H\big(X_i \mid X_1,\dots,X_{i-1}\big) + H\big(X_n \mid X_1,\dots,X_{n-1}\big).
+\end{aligned}</script><p>归纳完成。</p>
 <hr>
 <h4 id="2-5-3-带条件的链式法则"><a href="#2-5-3-带条件的链式法则" class="headerlink" title="2.5.3 带条件的链式法则"></a>2.5.3 带条件的链式法则</h4><p>对任意随机变量（或变量组）$Z$：</p>
-<p>$$<br>H(X,Y\mid Z)&#x3D;H(Y\mid Z)+H(X\mid Y,Z),<br>$$</p>
-<p>以及</p>
-<p>$$<br>H(X_1,\dots,X_n\mid Z)&#x3D;\sum_{i&#x3D;1}^{n} H\big(X_i \mid X_1,\dots,X_{i-1},Z\big).<br>$$</p>
-<p><strong>证明</strong>：把所有概率替换为条件于 $Z$ 的条件概率（如 $p(x,y\mid z)$），逐点固定 $Z&#x3D;z$ 后对上一节的证明按 $z$ 加权求期望即可。</p>
+<script type="math/tex; mode=display">
+H(X,Y\mid Z)=H(Y\mid Z)+H(X\mid Y,Z),</script><p>以及</p>
+<script type="math/tex; mode=display">
+H(X_1,\dots,X_n\mid Z)=\sum_{i=1}^{n} H\big(X_i \mid X_1,\dots,X_{i-1},Z\big).</script><p><strong>证明</strong>：把所有概率替换为条件于 $Z$ 的条件概率（如 $p(x,y\mid z)$），逐点固定 $Z=z$ 后对上一节的证明按 $z$ 加权求期望即可。</p>
 <hr>
 <h4 id="2-5-4-几个常用等价式与推论"><a href="#2-5-4-几个常用等价式与推论" class="headerlink" title="2.5.4 几个常用等价式与推论"></a>2.5.4 几个常用等价式与推论</h4><ol>
 <li><p><strong>互信息展开</strong></p>
-<p>$$<br>I(X;Y)&#x3D;H(X)-H(X\mid Y)&#x3D;H(Y)-H(Y\mid X).<br>$$</p>
-<p>由链式法则和 $H(X,Y)&#x3D;H(X)+H(Y)-I(X;Y)$ 互相推出。</p>
+<script type="math/tex; mode=display">
+I(X;Y)=H(X)-H(X\mid Y)=H(Y)-H(Y\mid X).</script><p>由链式法则和 $H(X,Y)=H(X)+H(Y)-I(X;Y)$ 互相推出。</p>
 </li>
 <li><p><strong>三者互信息的链式展开</strong></p>
-<p>$$<br>I(X;Y,Z)&#x3D;I(X;Y)+I(X;Z\mid Y).<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+I(X;Y,Z)=I(X;Y)+I(X;Z\mid Y).</script></li>
 <li><p><strong>独立与确定性的极端</strong></p>
 <ul>
-<li>若 $X\perp Y$，则 $H(X\mid Y)&#x3D;H(X)$，链式法则退化为 $H(X,Y)&#x3D;H(X)+H(Y)$。</li>
-<li>若 $X$ 由 $Y$ 确定，则 $H(X\mid Y)&#x3D;0$，于是 $H(X,Y)&#x3D;H(Y)$。</li>
+<li>若 $X\perp Y$，则 $H(X\mid Y)=H(X)$，链式法则退化为 $H(X,Y)=H(X)+H(Y)$。</li>
+<li>若 $X$ 由 $Y$ 确定，则 $H(X\mid Y)=0$，于是 $H(X,Y)=H(Y)$。</li>
 </ul>
 </li>
 </ol>
 <hr>
 <h4 id="2-5-5-连续情形（差分熵）提示"><a href="#2-5-5-连续情形（差分熵）提示" class="headerlink" title="2.5.5 连续情形（差分熵）提示"></a>2.5.5 连续情形（差分熵）提示</h4><p>对连续随机变量，差分熵 $h(\cdot)$ 也满足形式相同的链式法则：</p>
-<p>$$<br>h(X,Y)&#x3D;h(Y)+h(X\mid Y),<br>$$</p>
-<p>证明同样基于密度的乘法法则 $f_{X,Y}(x,y)&#x3D;f_Y(y)f_{X\mid Y}(x\mid y)$ 与积分版的推导。需要注意差分熵可以为负，但链式关系依然成立。</p>
+<script type="math/tex; mode=display">
+h(X,Y)=h(Y)+h(X\mid Y),</script><p>证明同样基于密度的乘法法则 $f<em>{X,Y}(x,y)=f_Y(y)f</em>{X\mid Y}(x\mid y)$ 与积分版的推导。需要注意差分熵可以为负，但链式关系依然成立。</p>
 <hr>
 <p><strong>小结</strong>：链式法则本质是把联合分布分解为连乘的条件分布（乘法法则），再把 $-\log$ 作用到连乘上变为求和，最后用“先求条件熵、再按条件加权平均”的结构完成。</p>
 <hr>
 <h3 id="2-6-互信息量（Mutual-Information）"><a href="#2-6-互信息量（Mutual-Information）" class="headerlink" title="2.6 互信息量（Mutual Information）"></a>2.6 互信息量（Mutual Information）</h3><p>设 $X, Y$ 是两个随机变量，联合分布为 $p(x,y)$，边际分布为 $p(x), p(y)$。<br><strong>互信息量</strong>定义为：</p>
-<p>$$<br>I(X;Y) &#x3D; \sum_{x}\sum_{y} p(x,y)\log \frac{p(x,y)}{p(x)p(y)}.<br>$$</p>
-<p>等价写法：</p>
+<script type="math/tex; mode=display">
+I(X;Y) = \sum_{x}\sum_{y} p(x,y)\log \frac{p(x,y)}{p(x)p(y)}.</script><p>等价写法：</p>
 <ul>
 <li>由熵定义：</li>
 </ul>
-<p>$$<br>I(X;Y) &#x3D; H(X) - H(X\mid Y).<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+I(X;Y) = H(X) - H(X\mid Y).</script><ul>
 <li>对称性：</li>
 </ul>
-<p>$$<br>I(X;Y) &#x3D; H(Y) - H(Y\mid X).<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+I(X;Y) = H(Y) - H(Y\mid X).</script><ul>
 <li>与联合熵关系：</li>
 </ul>
-<p>$$<br>I(X;Y) &#x3D; H(X)+H(Y)-H(X,Y).<br>$$</p>
-<hr>
+<script type="math/tex; mode=display">
+I(X;Y) = H(X)+H(Y)-H(X,Y).</script><hr>
 <p><strong>含义（Intuition）</strong></p>
 <ul>
 <li>熵 $H(X)$ 表示 $X$ 的不确定性。</li>
 <li>条件熵 $H(X\mid Y)$ 表示已知 $Y$ 后 $X$ 还剩下的不确定性。</li>
-<li>互信息 $I(X;Y)$ &#x3D; 不确定性的减少量 &#x3D; $Y$ 对 $X$ 提供的信息量。</li>
+<li>互信息 $I(X;Y)$ = 不确定性的减少量 = $Y$ 对 $X$ 提供的信息量。</li>
 </ul>
 <p>👉 换句话说：<br>互信息衡量的是 $X$ 与 $Y$ 之间的相关性，即知道 $Y$ 能减少多少关于 $X$ 的不确定性。</p>
 <hr>
 <p><strong>性质（Properties）</strong></p>
 <ol>
 <li><p><strong>非负性</strong></p>
-<p>$$<br>I(X;Y) \geq 0<br>$$</p>
-<p>且当且仅当 $X, Y$ 独立时，$I(X;Y)&#x3D;0$。<br>（证明基于相对熵： $I(X;Y)&#x3D;D_{\text{KL}}(p(x,y)\parallel p(x)p(y))$）。</p>
+<script type="math/tex; mode=display">
+I(X;Y) \geq 0</script><p>且当且仅当 $X, Y$ 独立时，$I(X;Y)=0$。<br>（证明基于相对熵： $I(X;Y)=D_{\text{KL}}(p(x,y)\parallel p(x)p(y))$）。</p>
 </li>
 <li><p><strong>对称性</strong></p>
-<p>$$<br>I(X;Y) &#x3D; I(Y;X).<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+I(X;Y) = I(Y;X).</script></li>
 <li><p><strong>上界</strong></p>
-<p>$$<br>I(X;Y) \leq \min{H(X), H(Y)}.<br>$$</p>
-<p>（你最多只能学到对方熵那么多信息。）</p>
+<script type="math/tex; mode=display">
+I(X;Y) \leq \min\{H(X), H(Y)\}.</script><p>（你最多只能学到对方熵那么多信息。）</p>
 </li>
 <li><p><strong>链式法则</strong>（多变量）</p>
-<p>$$<br>I(X;Y,Z) &#x3D; I(X;Y) + I(X;Z\mid Y).<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+I(X;Y,Z) = I(X;Y) + I(X;Z\mid Y).</script></li>
 <li><p><strong>条件互信息</strong></p>
-<p>$$<br>I(X;Y\mid Z) &#x3D; H(X\mid Z) - H(X\mid Y,Z).<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+I(X;Y\mid Z) = H(X\mid Z) - H(X\mid Y,Z).</script></li>
 </ol>
 <hr>
 <p>假设还是上次的“天气（下雨与否）– 打伞与否”的例子：</p>
 <ul>
-<li>$X&#x3D;$ 天气是否下雨（1&#x3D;下雨, 0&#x3D;不下雨）。</li>
-<li>$Y&#x3D;$ 是否打伞（1&#x3D;打伞, 0&#x3D;不打伞）。</li>
+<li>$X=$ 天气是否下雨（1=下雨, 0=不下雨）。</li>
+<li>$Y=$ 是否打伞（1=打伞, 0=不打伞）。</li>
 </ul>
 <p>我们之前算过：</p>
 <ul>
@@ -822,15 +839,14 @@
 <li>$H(X\mid Y)\approx 0.551$ bits</li>
 </ul>
 <p>所以：</p>
-<p>$$<br>I(X;Y)&#x3D;H(X)-H(X\mid Y)\approx 0.881-0.551&#x3D;0.330\ \text{bits}.<br>$$</p>
-<p>这意味着：知道“是否打伞”能减少约 0.33 bit 的“下雨不确定性”。</p>
+<script type="math/tex; mode=display">
+I(X;Y)=H(X)-H(X\mid Y)\approx 0.881-0.551=0.330\ \text{bits}.</script><p>这意味着：知道“是否打伞”能减少约 0.33 bit 的“下雨不确定性”。</p>
 <hr>
 <p>互信息可以看成<strong>两个熵的交集</strong>：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token function">H</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span>      <span class="token function">H</span><span class="token punctuation">(</span>Y<span class="token punctuation">)</span>
   ●---------●
    \       /
     \ <span class="token function">I</span><span class="token punctuation">(</span>X<span class="token punctuation">;</span>Y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-
 <ul>
 <li>圈的大小代表不确定性（熵）。</li>
 <li>重叠部分就是互信息。</li>
@@ -840,72 +856,83 @@
 <ol>
 <li><strong>特征选择</strong>：在机器学习中，用互信息衡量一个特征对目标变量的信息贡献。</li>
 <li><strong>通信系统</strong>：互信息衡量信道输入和输出的相关程度，最大化互信息得到<strong>信道容量</strong>。</li>
-<li><strong>独立性检验</strong>：如果 $I(X;Y)&#x3D;0$，就可以判定 $X,Y$ 独立。</li>
+<li><strong>独立性检验</strong>：如果 $I(X;Y)=0$，就可以判定 $X,Y$ 独立。</li>
 </ol>
 <hr>
 <p>✅ <strong>总结：</strong></p>
 <ul>
-<li>互信息 $I(X;Y)$ &#x3D; 已知 $Y$ 后，$X$ 的不确定性减少量。</li>
-<li>本质上是<strong>相对熵</strong> $D_{\text{KL}}(p(x,y),|,p(x)p(y))$。</li>
+<li>互信息 $I(X;Y)$ = 已知 $Y$ 后，$X$ 的不确定性减少量。</li>
+<li>本质上是<strong>相对熵</strong> $D_{\text{KL}}(p(x,y)\,|\,p(x)p(y))$。</li>
 <li>它量化了“两个变量共享的信息量”。</li>
 </ul>
 <h3 id="2-7-互信息量与熵的证明"><a href="#2-7-互信息量与熵的证明" class="headerlink" title="2.7 互信息量与熵的证明"></a>2.7 互信息量与熵的证明</h3><p>下面给出几种等价而常用的<strong>严格推导</strong>，把互信息与熵的公式互相“推”出来。默认对数为 $\log_2$。</p>
 <hr>
 <h4 id="2-6-1-从互信息的“比值定义”推到熵恒等式"><a href="#2-6-1-从互信息的“比值定义”推到熵恒等式" class="headerlink" title="2.6.1 从互信息的“比值定义”推到熵恒等式"></a>2.6.1 从互信息的“比值定义”推到熵恒等式</h4><p><strong>定义</strong>（离散型）：</p>
-<p>$$<br>I(X;Y)&#x3D;\sum_{x,y}p(x,y),\log\frac{p(x,y)}{p(x),p(y)}.<br>$$</p>
-<p>把对数拆成和于是得到</p>
-<p>$$<br>\boxed{I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)}.<br>$$</p>
-<p>再配合联合熵链式法则 $H(X,Y)&#x3D;H(Y)+H(X\mid Y)$，立刻推出另外两条等价式：</p>
-<p>$$<br>\boxed{I(X;Y)&#x3D;H(X)-H(X\mid Y)}<br>\qquad\text{以及}\qquad<br>\boxed{I(X;Y)&#x3D;H(Y)-H(Y\mid X)}.<br>$$</p>
-<hr>
+<script type="math/tex; mode=display">
+I(X;Y)=\sum_{x,y}p(x,y)\,\log\frac{p(x,y)}{p(x)\,p(y)}.</script><p>把对数拆成和于是得到</p>
+<script type="math/tex; mode=display">
+\boxed{I(X;Y)=H(X)+H(Y)-H(X,Y)}.</script><p>再配合联合熵链式法则 $H(X,Y)=H(Y)+H(X\mid Y)$，立刻推出另外两条等价式：</p>
+<script type="math/tex; mode=display">
+\boxed{I(X;Y)=H(X)-H(X\mid Y)}
+\qquad\text{以及}\qquad
+\boxed{I(X;Y)=H(Y)-H(Y\mid X)}.</script><hr>
 <h4 id="2-6-2-从“相对熵视角”一行证明"><a href="#2-6-2-从“相对熵视角”一行证明" class="headerlink" title="2.6.2 从“相对熵视角”一行证明"></a>2.6.2 从“相对熵视角”一行证明</h4><p>把互信息写成相对熵（KL 散度）：</p>
-<p>$$<br>I(X;Y)&#x3D;D_{\mathrm{KL}}\bigl(p_{X,Y},|,p_X p_Y\bigr)<br>&#x3D;\sum_{x,y}p(x,y)\log\frac{p(x,y)}{p(x)p(y)}.<br>$$</p>
-<p>按上式同样展开即可得到<br>$I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)$<br>以及前述两条差分式<br>$I(X;Y)&#x3D;H(X)-H(X|Y)&#x3D;H(Y)-H(Y|X)$。</p>
+<script type="math/tex; mode=display">
+I(X;Y)=D_{\mathrm{KL}}\bigl(p_{X,Y}\,\|\,p_X p_Y\bigr)
+=\sum_{x,y}p(x,y)\log\frac{p(x,y)}{p(x)p(y)}.</script><p>按上式同样展开即可得到<br>$I(X;Y)=H(X)+H(Y)-H(X,Y)$<br>以及前述两条差分式<br>$I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)$。</p>
 <p>顺便可见 <strong>非负性</strong> 与 <strong>独立当且仅当互信息为 0</strong>：</p>
-<p>$$<br>I(X;Y)&#x3D;D_{\mathrm{KL}}(p_{X,Y},|,p_Xp_Y)\ge 0,<br>\quad<br>&#x3D;0 \iff p_{X,Y}&#x3D;p_Xp_Y.<br>$$</p>
-<hr>
-<h4 id="2-6-3-“从互信息生成熵”：-H-X-I-X-X"><a href="#2-6-3-“从互信息生成熵”：-H-X-I-X-X" class="headerlink" title="2.6.3 “从互信息生成熵”：$H(X)&#x3D;I(X;X)$"></a>2.6.3 “从互信息生成熵”：$H(X)&#x3D;I(X;X)$</h4><p>把 $Y$ 取成 $X$ 本身（“自互信息”）：</p>
-<p>$$<br>\begin{aligned}<br>I(X;X)<br>&amp;&#x3D;\sum_x p(x,x)\log\frac{p(x,x)}{p(x),p(x)}<br>&#x3D;\sum_x p(x)\log\frac{p(x)}{p(x)^2}<br>&#x3D;\sum_x p(x)\log\frac{1}{p(x)}\<br>&amp;&#x3D;-\sum_x p(x)\log p(x)<br>&#x3D;\boxed{H(X)}.<br>\end{aligned}<br>$$</p>
-<p>这给出一个优雅结论：<strong>熵就是变量与自身的互信息</strong>。</p>
+<script type="math/tex; mode=display">
+I(X;Y)=D_{\mathrm{KL}}(p_{X,Y}\,\|\,p_Xp_Y)\ge 0,
+\quad
+=0 \iff p_{X,Y}=p_Xp_Y.</script><hr>
+<h4 id="2-6-3-“从互信息生成熵”：-H-X-I-X-X"><a href="#2-6-3-“从互信息生成熵”：-H-X-I-X-X" class="headerlink" title="2.6.3 “从互信息生成熵”：$H(X)=I(X;X)$"></a>2.6.3 “从互信息生成熵”：$H(X)=I(X;X)$</h4><p>把 $Y$ 取成 $X$ 本身（“自互信息”）：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+I(X;X)
+&=\sum_x p(x,x)\log\frac{p(x,x)}{p(x)\,p(x)}
+=\sum_x p(x)\log\frac{p(x)}{p(x)^2}
+=\sum_x p(x)\log\frac{1}{p(x)}\\
+&=-\sum_x p(x)\log p(x)
+=\boxed{H(X)}.
+\end{aligned}</script><p>这给出一个优雅结论：<strong>熵就是变量与自身的互信息</strong>。</p>
 <hr>
 <h4 id="2-6-4-从链式法则侧推（等价回路）"><a href="#2-6-4-从链式法则侧推（等价回路）" class="headerlink" title="2.6.4 从链式法则侧推（等价回路）"></a>2.6.4 从链式法则侧推（等价回路）</h4><p>由链式法则</p>
-<p>$$<br>H(X,Y)&#x3D;H(Y)+H(X|Y),<br>$$</p>
-<p>代回第 1) 式 $I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)$ 得</p>
-<p>$$<br>I(X;Y)&#x3D;H(X)-H(X|Y),<br>$$</p>
-<p>同理交换 $X,Y$ 得另一式。三者互为等价环。</p>
+<script type="math/tex; mode=display">
+H(X,Y)=H(Y)+H(X|Y),</script><p>代回第 1) 式 $I(X;Y)=H(X)+H(Y)-H(X,Y)$ 得</p>
+<script type="math/tex; mode=display">
+I(X;Y)=H(X)-H(X|Y),</script><p>同理交换 $X,Y$ 得另一式。三者互为等价环。</p>
 <hr>
 <h4 id="2-6-5-连续型（差分熵）提示"><a href="#2-6-5-连续型（差分熵）提示" class="headerlink" title="2.6.5 连续型（差分熵）提示"></a>2.6.5 连续型（差分熵）提示</h4><p>对连续变量（密度 $f$），定义</p>
-<p>$$<br>I(X;Y)&#x3D;\int f_{X,Y}(x,y)\log\frac{f_{X,Y}(x,y)}{f_X(x)f_Y(y)},\mathrm{d}x,\mathrm{d}y,<br>$$</p>
-<p>同样可得</p>
-<p>$$<br>I(X;Y)&#x3D;h(X)+h(Y)-h(X,Y)&#x3D;h(X)-h(X|Y)&#x3D;h(Y)-h(Y|X),<br>$$</p>
-<p>注意差分熵 $h(\cdot)$ 可为负，但上述恒等式依旧成立。</p>
+<script type="math/tex; mode=display">
+I(X;Y)=\int f_{X,Y}(x,y)\log\frac{f_{X,Y}(x,y)}{f_X(x)f_Y(y)}\,\mathrm{d}x\,\mathrm{d}y,</script><p>同样可得</p>
+<script type="math/tex; mode=display">
+I(X;Y)=h(X)+h(Y)-h(X,Y)=h(X)-h(X|Y)=h(Y)-h(Y|X),</script><p>注意差分熵 $h(\cdot)$ 可为负，但上述恒等式依旧成立。</p>
 <hr>
 <ul>
-<li><p>由定义 $I&#x3D;\sum p\log\frac{p}{pp}$ 直接代数展开，就得到</p>
-<p>$$<br>I(X;Y)&#x3D;H(X)+H(Y)-H(X,Y)&#x3D;H(X)-H(X|Y)&#x3D;H(Y)-H(Y|X).<br>$$</p>
+<li><p>由定义 $I=\sum p\log\frac{p}{pp}$ 直接代数展开，就得到</p>
+<script type="math/tex; mode=display">
+I(X;Y)=H(X)+H(Y)-H(X,Y)=H(X)-H(X|Y)=H(Y)-H(Y|X).</script></li>
+<li><p>由 $I(X;X)$ 能<strong>反推</strong>出熵的标准公式 $H(X)=-\sum p\log p$。</p>
 </li>
-<li><p>由 $I(X;X)$ 能<strong>反推</strong>出熵的标准公式 $H(X)&#x3D;-\sum p\log p$。</p>
-</li>
-<li><p>由 KL 视角立即得到非负性与独立性判据。</p>
-</li>
+<li>由 KL 视角立即得到非负性与独立性判据。</li>
 </ul>
 <hr>
 <h3 id="2-8-离散无记忆信源及其扩展"><a href="#2-8-离散无记忆信源及其扩展" class="headerlink" title="2.8 离散无记忆信源及其扩展"></a>2.8 离散无记忆信源及其扩展</h3><p>在信息论中，研究的对象之一就是 <strong>信源（source）</strong>。信源就是信息产生的来源，比如文字、语音、视频信号等等。为了分析和建模，我们通常对信源进行数学抽象。</p>
 <h4 id="2-8-1-离散信源（Discrete-Source）"><a href="#2-8-1-离散信源（Discrete-Source）" class="headerlink" title="2.8.1 离散信源（Discrete Source）"></a>2.8.1 离散信源（Discrete Source）</h4><ul>
-<li><p><strong>定义</strong>：<br>一个信源在每个离散时刻 $t&#x3D;1,2,3,\dots$ 输出一个符号 $X_t$，这些符号取自一个有限或可数的字母表（alphabet） $\mathcal{X} &#x3D; {x_1, x_2, \dots, x_m}$。</p>
+<li><p><strong>定义</strong>：<br>一个信源在每个离散时刻 $t=1,2,3,\dots$ 输出一个符号 $X_t$，这些符号取自一个有限或可数的字母表（alphabet） $\mathcal{X} = {x_1, x_2, \dots, x_m}$。</p>
 <p>信源输出的序列为：</p>
-<p>$$<br>X_1, X_2, X_3, \dots<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+X_1, X_2, X_3, \dots</script></li>
 <li><p><strong>信源的统计特性</strong>：<br>信源可以用 <strong>符号的概率分布</strong> 来描述：</p>
-<p>$$<br>P(X &#x3D; x_i) &#x3D; p_i, \quad i&#x3D;1,2,\dots,m, \quad \sum_{i&#x3D;1}^m p_i &#x3D; 1<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+P(X = x_i) = p_i, \quad i=1,2,\dots,m, \quad \sum_{i=1}^m p_i = 1</script></li>
 </ul>
 <hr>
 <h4 id="2-8-2-无记忆信源（Memoryless-Source）"><a href="#2-8-2-无记忆信源（Memoryless-Source）" class="headerlink" title="2.8.2 无记忆信源（Memoryless Source）"></a>2.8.2 无记忆信源（Memoryless Source）</h4><ul>
 <li><p><strong>定义</strong>：<br>如果一个信源在每个时刻输出的符号 <strong>相互独立</strong>，并且都服从同一个概率分布 $P(X)$，则称为 <strong>无记忆信源</strong>。</p>
 <p>也就是说：</p>
-<p>$$<br>P(X_1 &#x3D; x_{i_1}, X_2 &#x3D; x_{i_2}, \dots, X_n &#x3D; x_{i_n}) &#x3D; \prod_{k&#x3D;1}^n P(X_k &#x3D; x_{i_k})<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+P(X_1 = x_{i_1}, X_2 = x_{i_2}, \dots, X_n = x_{i_n}) = \prod_{k=1}^n P(X_k = x_{i_k})</script></li>
 <li><p><strong>含义</strong>：</p>
 <ul>
 <li>“无记忆”表示：信源在某个时刻输出的符号，不依赖于过去输出的符号。</li>
@@ -918,42 +945,42 @@
 <li><p><strong>动机</strong>：<br>为了更好地分析信源信息量，我们不仅可以看单个符号，还可以看“<strong>符号块</strong>”（block）。</p>
 </li>
 <li><p><strong>定义</strong>：<br>将无记忆信源的输出分组，每 $n$ 个符号作为一个“超级符号（super-symbol）”，组成一个新的扩展信源，称为 $n$ 阶扩展信源（$n$-th extension source）。</p>
-<p>例如：原始信源符号为 $X$，其字母表为 $\mathcal{X}&#x3D;{x_1, \dots, x_m}$，那么：</p>
+<p>例如：原始信源符号为 $X$，其字母表为 $\mathcal{X}={x_1, \dots, x_m}$，那么：</p>
 <ul>
 <li><p>$n$ 阶扩展信源的字母表为：</p>
-<p>$$<br>\mathcal{X}^n &#x3D; { (x_{i_1}, x_{i_2}, \dots, x_{i_n}) \mid x_{i_k} \in \mathcal{X} }<br>$$</p>
-<p>共 $m^n$ 个符号。</p>
+<script type="math/tex; mode=display">
+\mathcal{X}^n = \{ (x_{i_1}, x_{i_2}, \dots, x_{i_n}) \mid x_{i_k} \in \mathcal{X} \}</script><p>共 $m^n$ 个符号。</p>
 </li>
 <li><p>扩展信源的概率分布为：</p>
-<p>$$<br>P(x_{i_1}, x_{i_2}, \dots, x_{i_n}) &#x3D; \prod_{k&#x3D;1}^n P(x_{i_k})<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+P(x_{i_1}, x_{i_2}, \dots, x_{i_n}) = \prod_{k=1}^n P(x_{i_k})</script></li>
 </ul>
 </li>
 <li><p><strong>熵的关系</strong>：<br>单符号信源的熵为：</p>
-<p>$$<br>H(X) &#x3D; -\sum_{i&#x3D;1}^m p_i \log p_i<br>$$</p>
-<p>$n$ 阶扩展信源的熵为：</p>
-<p>$$<br>H(X^n) &#x3D; - \sum_{(x_{i_1}, \dots, x_{i_n})} P(x_{i_1}, \dots, x_{i_n}) \log P(x_{i_1}, \dots, x_{i_n})<br>$$</p>
-<p>对于无记忆信源：</p>
-<p>$$<br>H(X^n) &#x3D; n H(X)<br>$$</p>
-<p>每个符号的平均信息量（熵率）保持不变：</p>
-<p>$$<br>\frac{H(X^n)}{n} &#x3D; H(X)<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H(X) = -\sum_{i=1}^m p_i \log p_i</script><p>$n$ 阶扩展信源的熵为：</p>
+<script type="math/tex; mode=display">
+H(X^n) = - \sum_{(x_{i_1}, \dots, x_{i_n})} P(x_{i_1}, \dots, x_{i_n}) \log P(x_{i_1}, \dots, x_{i_n})</script><p>对于无记忆信源：</p>
+<script type="math/tex; mode=display">
+H(X^n) = n H(X)</script><p>每个符号的平均信息量（熵率）保持不变：</p>
+<script type="math/tex; mode=display">
+\frac{H(X^n)}{n} = H(X)</script></li>
 </ul>
 <hr>
 <h4 id="2-8-4-示例"><a href="#2-8-4-示例" class="headerlink" title="2.8.4 示例"></a>2.8.4 示例</h4><p>假设一个无记忆二元信源（binary source）：</p>
-<p>$$<br>\mathcal{X} &#x3D; {0,1}, \quad P(0) &#x3D; 0.25, \quad P(1)&#x3D;0.75<br>$$</p>
-<ol>
+<script type="math/tex; mode=display">
+\mathcal{X} = \{0,1\}, \quad P(0) = 0.25, \quad P(1)=0.75</script><ol>
 <li><p>单符号信源熵：</p>
-<p>$$<br>H(X) &#x3D; -0.25\log_2 0.25 - 0.75 \log_2 0.75 \approx 0.811 \ \text{bits&#x2F;symbol}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H(X) = -0.25\log_2 0.25 - 0.75 \log_2 0.75 \approx 0.811 \ \text{bits/symbol}</script></li>
 <li><p>二阶扩展信源字母表：</p>
-<p>$$<br>{00, 01, 10, 11}<br>$$</p>
-<p>概率分别为：<br>$P(00)&#x3D;0.25^2&#x3D;0.0625$<br>$P(01)&#x3D;0.25 \times 0.75&#x3D;0.1875$<br>$P(10)&#x3D;0.75 \times 0.25&#x3D;0.1875$<br>$P(11)&#x3D;0.75^2&#x3D;0.5625$</p>
+<script type="math/tex; mode=display">
+\{00, 01, 10, 11\}</script><p>概率分别为：<br>$P(00)=0.25^2=0.0625$<br>$P(01)=0.25 \times 0.75=0.1875$<br>$P(10)=0.75 \times 0.25=0.1875$<br>$P(11)=0.75^2=0.5625$</p>
 <p>熵：</p>
-<p>$$<br>H(X^2) &#x3D; -\sum P(x_i) \log_2 P(x_i) \approx 1.622 \ \text{bits&#x2F;2 symbols}<br>$$</p>
-<p>每符号熵率：</p>
-<p>$$<br>H(X^2)&#x2F;2 &#x3D; 0.811 \ \text{bits&#x2F;symbol}<br>$$</p>
-<p>与单符号信源熵相同。</p>
+<script type="math/tex; mode=display">
+H(X^2) = -\sum P(x_i) \log_2 P(x_i) \approx 1.622 \ \text{bits/2 symbols}</script><p>每符号熵率：</p>
+<script type="math/tex; mode=display">
+H(X^2)/2 = 0.811 \ \text{bits/symbol}</script><p>与单符号信源熵相同。</p>
 </li>
 </ol>
 <hr>
@@ -968,18 +995,23 @@
 <hr>
 <h3 id="3-1-马尔可夫链-Markov-Chain-基础"><a href="#3-1-马尔可夫链-Markov-Chain-基础" class="headerlink" title="3.1 马尔可夫链 (Markov Chain) 基础"></a>3.1 马尔可夫链 (Markov Chain) 基础</h3><ul>
 <li><p>定义 (Definition)：<br>若随机过程 $X_1, X_2, X_3, \dots$ 满足条件</p>
-<p>$$<br>P(X_{n+1} &#x3D; x \mid X_n, X_{n-1}, \dots, X_1) &#x3D; P(X_{n+1} &#x3D; x \mid X_n)<br>$$</p>
-<p>则称其为马尔可夫链 (Markov Chain)。</p>
+<script type="math/tex; mode=display">
+P(X_{n+1} = x \mid X_n, X_{n-1}, \dots, X_1) = P(X_{n+1} = x \mid X_n)</script><p>则称其为马尔可夫链 (Markov Chain)。</p>
 <p>👉 含义：下一个符号的概率只依赖于当前状态 (current state)，而与更早的状态无关。</p>
 </li>
 <li><p>转移概率 (Transition Probability)：<br>记作：</p>
-<p>$$<br>p_{ij} &#x3D; P(X_{n+1} &#x3D; x_j \mid X_n &#x3D; x_i)<br>$$</p>
-<p>满足：</p>
-<p>$$<br>p_{ij} \ge 0, \quad \sum_j p_{ij} &#x3D; 1<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+p_{ij} = P(X_{n+1} = x_j \mid X_n = x_i)</script><p>满足：</p>
+<script type="math/tex; mode=display">
+p_{ij} \ge 0, \quad \sum_j p_{ij} = 1</script></li>
 <li><p>状态转移矩阵 (Transition Matrix)：</p>
-<p>$$<br>P &#x3D; \begin{bmatrix}<br>p_{11} &amp; p_{12} &amp; \cdots &amp; p_{1m} \\<br>p_{21} &amp; p_{22} &amp; \cdots &amp; p_{2m} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>p_{m1} &amp; p_{m2} &amp; \cdots &amp; p_{mm}<br>\end{bmatrix}<br>$$</p>
-<p>其中 $m$ 是信源字母表大小。</p>
+<script type="math/tex; mode=display">
+P = \begin{bmatrix}
+p_{11} & p_{12} & \cdots & p_{1m} \\\\
+p_{21} & p_{22} & \cdots & p_{2m} \\\\
+\vdots & \vdots & \ddots & \vdots \\\\
+p_{m1} & p_{m2} & \cdots & p_{mm}
+\end{bmatrix}</script><p>其中 $m$ 是信源字母表大小。</p>
 </li>
 </ul>
 <hr>
@@ -990,9 +1022,9 @@
 </ul>
 <hr>
 <h3 id="3-3-平稳分布-Stationary-Distribution"><a href="#3-3-平稳分布-Stationary-Distribution" class="headerlink" title="3.3 平稳分布 (Stationary Distribution)"></a>3.3 平稳分布 (Stationary Distribution)</h3><ul>
-<li><p>定义 (Definition)：<br>如果存在一个概率分布 $pi &#x3D; (\pi_1, \pi_2, \dots, \pi_m)$，使得：</p>
-<p>$$<br>\pi &#x3D; \pi P, \quad \sum_i \pi_i &#x3D; 1<br>$$</p>
-<p>则称 $\pi$ 为 平稳分布 (stationary distribution)。</p>
+<li><p>定义 (Definition)：<br>如果存在一个概率分布 $pi = (\pi_1, \pi_2, \dots, \pi_m)$，使得：</p>
+<script type="math/tex; mode=display">
+\pi = \pi P, \quad \sum_i \pi_i = 1</script><p>则称 $\pi$ 为 平稳分布 (stationary distribution)。</p>
 </li>
 <li><p>意义：<br>长时间运行后，马尔可夫信源的状态分布会收敛于 $\pi$，与初始状态无关。</p>
 </li>
@@ -1000,13 +1032,13 @@
 <hr>
 <h3 id="3-4-马尔可夫信源的熵率-Entropy-Rate"><a href="#3-4-马尔可夫信源的熵率-Entropy-Rate" class="headerlink" title="3.4 马尔可夫信源的熵率 (Entropy Rate)"></a>3.4 马尔可夫信源的熵率 (Entropy Rate)</h3><ul>
 <li><p>符号信息熵 (Entropy per symbol)：<br>对于一般信源，熵率定义为：</p>
-<p>$$<br>H &#x3D; \lim_{n \to \infty} \frac{1}{n} H(X_1, X_2, \dots, X_n)<br>$$</p>
-</li>
-<li><p>一阶马尔可夫信源的熵率 (Entropy Rate of First-order Markov Source)：<br>若平稳分布为 $\pi_i$，转移概率为 $p_{ij}$，则：</p>
-<p>$$<br>H &#x3D; - \sum_{i&#x3D;1}^m \pi_i \sum_{j&#x3D;1}^m p_{ij} \log p_{ij}<br>$$</p>
-<p>👉 含义：熵率是“加权平均条件熵 (conditional entropy)”：</p>
-<p>$$<br>H &#x3D; H(X_{n+1} \mid X_n)<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H = \lim_{n \to \infty} \frac{1}{n} H(X_1, X_2, \dots, X_n)</script></li>
+<li><p>一阶马尔可夫信源的熵率 (Entropy Rate of First-order Markov Source)：<br>若平稳分布为 $\pi<em>i$，转移概率为 $p</em>{ij}$，则：</p>
+<script type="math/tex; mode=display">
+H = - \sum_{i=1}^m \pi_i \sum_{j=1}^m p_{ij} \log p_{ij}</script><p>👉 含义：熵率是“加权平均条件熵 (conditional entropy)”：</p>
+<script type="math/tex; mode=display">
+H = H(X_{n+1} \mid X_n)</script></li>
 <li><p>特殊情况：</p>
 <ul>
 <li>如果 $p_{ij}$ 与 $i$ 无关（即各状态转移概率相同），则马尔可夫信源退化为无记忆信源 (memoryless source)。</li>
@@ -1017,8 +1049,8 @@
 <hr>
 <h3 id="3-5-二阶及高阶马尔可夫信源-Higher-order-Markov-Sources"><a href="#3-5-二阶及高阶马尔可夫信源-Higher-order-Markov-Sources" class="headerlink" title="3.5 二阶及高阶马尔可夫信源 (Higher-order Markov Sources)"></a>3.5 二阶及高阶马尔可夫信源 (Higher-order Markov Sources)</h3><ul>
 <li><p><strong>定义</strong>：<br>若符号依赖于前 $k$ 个符号，则称为 $k$ 阶马尔可夫信源。</p>
-<p>$$<br>P(X_{n+1} \mid X_n, X_{n-1}, \dots, X_{1}) &#x3D; P(X_{n+1} \mid X_n, \dots, X_{n-k+1})<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+P(X_{n+1} \mid X_n, X_{n-1}, \dots, X_{1}) = P(X_{n+1} \mid X_n, \dots, X_{n-k+1})</script></li>
 <li><p><strong>化简技巧</strong>：<br>可以把 $k$ 阶马尔可夫信源 转换为 一阶马尔可夫信源，方法是把“长度为 $k$ 的符号块”当作一个超级状态 (super-state)。</p>
 </li>
 </ul>
@@ -1043,26 +1075,30 @@
 </li>
 </ol>
 <hr>
-<h3 id="3-7-示例-Example"><a href="#3-7-示例-Example" class="headerlink" title="3.7 示例 (Example)"></a>3.7 示例 (Example)</h3><p>考虑一个二元马尔可夫信源：$\mathcal{X} &#x3D; {0,1}$<br>转移概率矩阵：</p>
-<p>$$<br>P &#x3D; \begin{bmatrix}<br>0.9 &amp; 0.1 \\<br>0.5 &amp; 0.5<br>\end{bmatrix}<br>$$</p>
-<ul>
-<li><p>求平稳分布：<br>解方程 $\pi &#x3D; \pi P$：</p>
-<p>$$<br>\pi &#x3D; (0.8333, \ 0.1667)<br>$$</p>
-</li>
+<h3 id="3-7-示例-Example"><a href="#3-7-示例-Example" class="headerlink" title="3.7 示例 (Example)"></a>3.7 示例 (Example)</h3><p>考虑一个二元马尔可夫信源：$\mathcal{X} = {0,1}$<br>转移概率矩阵：</p>
+<script type="math/tex; mode=display">
+P = \begin{bmatrix}
+0.9 & 0.1 \\\\
+0.5 & 0.5
+\end{bmatrix}</script><ul>
+<li><p>求平稳分布：<br>解方程 $\pi = \pi P$：</p>
+<script type="math/tex; mode=display">
+\pi = (0.8333, \ 0.1667)</script></li>
 <li><p>熵率：</p>
-<p>$$<br>H &#x3D; - \sum_{i&#x3D;1}^2 \pi_i \sum_{j&#x3D;1}^2 p_{ij} \log_2 p_{ij}<br>$$</p>
-<p>计算：</p>
-<p>$$<br>H \approx -0.8333(0.9 \log_2 0.9 + 0.1 \log_2 0.1)<br> -0.1667(0.5 \log_2 0.5 + 0.5 \log_2 0.5)<br>$$</p>
-<p>$$<br>\approx 0.503 \ \text{bits&#x2F;symbol}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+H = - \sum_{i=1}^2 \pi_i \sum_{j=1}^2 p_{ij} \log_2 p_{ij}</script><p>计算：</p>
+<script type="math/tex; mode=display">
+H \approx -0.8333(0.9 \log_2 0.9 + 0.1 \log_2 0.1) 
+     -0.1667(0.5 \log_2 0.5 + 0.5 \log_2 0.5)</script><script type="math/tex; mode=display">
+\approx 0.503 \ \text{bits/symbol}</script></li>
 </ul>
-<p>👉 比无记忆二元信源的最大熵 $1$ bits&#x2F;symbol 要低，说明存在相关性 (correlation)。</p>
+<p>👉 比无记忆二元信源的最大熵 $1$ bits/symbol 要低，说明存在相关性 (correlation)。</p>
 <hr>
 <h2 id="4-信源编码-Source-Coding"><a href="#4-信源编码-Source-Coding" class="headerlink" title="4. 信源编码 (Source Coding)"></a>4. 信源编码 (Source Coding)</h2><p><strong>信源编码 (source coding)</strong> 是信息论的核心任务之一，目标是将信源符号序列表示为二进制序列，尽可能减少冗余，使得传输和存储更加高效。</p>
 <p>在信源编码的研究中，首先需要定义“码 (code)”的性质。根据符号和码字 (codeword) 之间的对应关系，可以区分 奇异码 (singular code) 与 非奇异码 (non-singular code)。</p>
 <hr>
 <h3 id="4-1-奇异码-Singular-Code"><a href="#4-1-奇异码-Singular-Code" class="headerlink" title="4.1 奇异码 (Singular Code)"></a>4.1 奇异码 (Singular Code)</h3><p>如果某个编码方案中，至少有两个不同的信源符号 (different source symbols) 被映射到相同的码字 (same codeword)，则称这个编码方案为奇异码 (singular code)。</p>
-<p>形式化表达：<br>设信源字母表为 $\mathcal{X} &#x3D; {x_1, x_2, \dots, x_m}$，码字集合为 $\mathcal{C} &#x3D; {c_1, c_2, \dots, c_m}$。<br>如果 $\exists i \ne j$，使得 $c_i &#x3D; c_j$，则该码是奇异码。</p>
+<p>形式化表达：<br>设信源字母表为 $\mathcal{X} = {x_1, x_2, \dots, x_m}$，码字集合为 $\mathcal{C} = {c_1, c_2, \dots, c_m}$。<br>如果 $\exists i \ne j$，使得 $c_i = c_j$，则该码是奇异码。</p>
 <hr>
 <p><strong>特点 (Properties)</strong></p>
 <ol>
@@ -1073,11 +1109,10 @@
 <hr>
 <p><strong>示例 (Example)</strong></p>
 <ul>
-<li><p>信源字母表：$\mathcal{X} &#x3D; {A, B, C}$</p>
-</li>
+<li>信源字母表：$\mathcal{X} = {A, B, C}$</li>
 <li><p>编码方案：</p>
-<p>$$<br>A \to 0, \quad B \to 0, \quad C \to 1<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 0, \quad C \to 1</script></li>
 </ul>
 <p>在这个例子中，$A$ 和 $B$ 都被编码为 <strong>0</strong>，所以该码是 <strong>奇异码</strong>。<br>当接收到码字 “0” 时，解码器无法区分它对应的是 $A$ 还是 $B$。</p>
 <hr>
@@ -1093,19 +1128,18 @@
 <hr>
 <p><strong>示例 (Example)</strong></p>
 <ul>
-<li><p>信源字母表：$\mathcal{X} &#x3D; {A, B, C}$</p>
-</li>
+<li>信源字母表：$\mathcal{X} = {A, B, C}$</li>
 <li><p>编码方案：</p>
-<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 11<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 10, \quad C \to 11</script></li>
 </ul>
 <p>在这个编码中，不同的符号被映射为不同的码字，因此它是 <strong>非奇异码</strong>。</p>
 <p>当接收到 “0” 时一定是 $A$，接收到 “10” 时一定是 $B$，接收到 “11” 时一定是 $C$。</p>
 <hr>
 <h3 id="4-3-非奇异码的局限性-Limitations"><a href="#4-3-非奇异码的局限性-Limitations" class="headerlink" title="4.3 非奇异码的局限性 (Limitations)"></a>4.3 非奇异码的局限性 (Limitations)</h3><ul>
 <li><p>非奇异码只能保证 <strong>单个符号与码字一一对应</strong>，但并不能保证符号序列的唯一解码性。<br>例如：</p>
-<p>$$<br>A \to 0, \quad B \to 01, \quad C \to 011<br>$$</p>
-<p>虽然这是非奇异码，但当接收到 “011” 时，可能被解读为：</p>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 01, \quad C \to 011</script><p>虽然这是非奇异码，但当接收到 “011” 时，可能被解读为：</p>
 <ul>
 <li>$C$，或</li>
 <li>$A$ + $B$，或</li>
@@ -1148,8 +1182,8 @@
 <hr>
 <p><strong>示例 (Example 1)</strong></p>
 <p>信源字母表：${A, B, C}$<br>编码方案：</p>
-<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 11<br>$$</p>
-<p>这是一个非奇异码。</p>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 10, \quad C \to 11</script><p>这是一个非奇异码。</p>
 <ul>
 <li><p>序列 “01110” 的解码唯一：</p>
 <ul>
@@ -1163,8 +1197,8 @@
 <hr>
 <p><strong>示例 (Example 2 - 非唯一可译)</strong></p>
 <p>信源字母表：${A, B, C}$<br>编码方案：</p>
-<p>$$<br>A \to 0, \quad B \to 01, \quad C \to 011<br>$$</p>
-<p>这是非奇异码（不同符号对应不同码字）。<br>但考虑码字串 “011”：</p>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 01, \quad C \to 011</script><p>这是非奇异码（不同符号对应不同码字）。<br>但考虑码字串 “011”：</p>
 <ul>
 <li>可能是 $C$</li>
 <li>也可能是 $A + B$<br>所以这是 <strong>非唯一可译码</strong>。</li>
@@ -1172,11 +1206,10 @@
 <hr>
 <p>判定工具：Kraft–McMillan 不等式 (Kraft–McMillan Inequality)</p>
 <ul>
-<li><p>定理：一个 $D$ 元（$D&#x3D;2$ 表示二进制）的码是唯一可译码的 <strong>充要条件</strong> 是：<br>存在一组码长 ${l_1, l_2, \dots, l_m}$ 满足：</p>
-<p>$$<br>\sum_{i&#x3D;1}^m D^{-l_i} \leq 1<br>$$</p>
-</li>
-<li><p>这个条件保证码字在无限二叉树中不会产生歧义。</p>
-</li>
+<li><p>定理：一个 $D$ 元（$D=2$ 表示二进制）的码是唯一可译码的 <strong>充要条件</strong> 是：<br>存在一组码长 ${l_1, l_2, \dots, l_m}$ 满足：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^m D^{-l_i} \leq 1</script></li>
+<li>这个条件保证码字在无限二叉树中不会产生歧义。</li>
 </ul>
 <hr>
 <h3 id="4-5-前缀码-Prefix-Code"><a href="#4-5-前缀码-Prefix-Code" class="headerlink" title="4.5 前缀码 (Prefix Code)"></a>4.5 前缀码 (Prefix Code)</h3><p>若一个码满足：没有任何码字是另一个码字的前缀 (prefix)，则称该码为 前缀码 (prefix code)。</p>
@@ -1191,8 +1224,8 @@
 <hr>
 <p><strong>示例 (Example 1 - 前缀码)</strong></p>
 <p>信源字母表：${A, B, C, D}$<br>编码方案：</p>
-<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 110, \quad D \to 111<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 10, \quad C \to 110, \quad D \to 111</script><ul>
 <li>没有任何码字是另一个码字的前缀。</li>
 <li>因此这是一个 <strong>前缀码</strong>。</li>
 </ul>
@@ -1205,8 +1238,8 @@
 <hr>
 <p><strong>示例 (Example 2 - 非前缀码)</strong></p>
 <p>信源字母表：${A, B}$<br>编码方案：</p>
-<p>$$<br>A \to 0, \quad B \to 01<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 01</script><ul>
 <li>“0” 是 “01” 的前缀。</li>
 <li>因此这是 <strong>非前缀码</strong>。</li>
 </ul>
@@ -1214,11 +1247,10 @@
 <hr>
 <p><strong>前缀码与 Kraft–McMillan 不等式</strong></p>
 <ul>
-<li><p>前缀码一定满足 Kraft–McMillan 不等式。</p>
-</li>
+<li>前缀码一定满足 Kraft–McMillan 不等式。</li>
 <li><p>Kraft–McMillan 定理：如果 ${l_i}$ 满足</p>
-<p>$$<br>\sum_{i&#x3D;1}^m 2^{-l_i} \le 1<br>$$</p>
-<p>那么一定存在一个二进制前缀码，其码长恰好为 ${l_i}$。</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^m 2^{-l_i} \le 1</script><p>那么一定存在一个二进制前缀码，其码长恰好为 ${l_i}$。</p>
 </li>
 </ul>
 <hr>
@@ -1246,7 +1278,7 @@
 <p>这样可以降低整体平均码长。</p>
 <hr>
 <p><strong>Huffman 编码算法 (Algorithm)</strong></p>
-<p>假设信源字母表为 $\mathcal{X} &#x3D; {x_1, x_2, \dots, x_m}$，对应概率为 $p_1, p_2, \dots, p_m$。<br>算法步骤如下：</p>
+<p>假设信源字母表为 $\mathcal{X} = {x_1, x_2, \dots, x_m}$，对应概率为 $p_1, p_2, \dots, p_m$。<br>算法步骤如下：</p>
 <ol>
 <li><p>排序 (Sort)<br>将所有符号按概率从大到小排序。</p>
 </li>
@@ -1264,8 +1296,8 @@
 <hr>
 <p>示例 (Example)</p>
 <p>信源字母表：${A, B, C, D}$<br>概率：</p>
-<p>$$<br>P(A) &#x3D; 0.4, \quad P(B) &#x3D; 0.3, \quad P(C) &#x3D; 0.2, \quad P(D) &#x3D; 0.1<br>$$</p>
-<p>Step 1: 排序</p>
+<script type="math/tex; mode=display">
+P(A) = 0.4, \quad P(B) = 0.3, \quad P(C) = 0.2, \quad P(D) = 0.1</script><p>Step 1: 排序</p>
 <p>$A(0.4), B(0.3), C(0.2), D(0.1)$</p>
 <p>Step 2: 合并最小的两个符号</p>
 <p>$C(0.2) + D(0.1) \to CD(0.3)$</p>
@@ -1283,12 +1315,12 @@
 <li>$D$: 111</li>
 </ul>
 <p>得到 Huffman 编码：</p>
-<p>$$<br>A \to 0, \quad B \to 10, \quad C \to 110, \quad D \to 111<br>$$</p>
-<hr>
+<script type="math/tex; mode=display">
+A \to 0, \quad B \to 10, \quad C \to 110, \quad D \to 111</script><hr>
 <p><strong>平均码长 (Average Codeword Length)</strong></p>
 <p>定义：</p>
-<p>$$<br>L &#x3D; \sum_{i&#x3D;1}^m p_i \cdot l_i<br>$$</p>
-<p>其中 $l_i$ 是符号 $x_i$ 的码字长度。</p>
+<script type="math/tex; mode=display">
+L = \sum_{i=1}^m p_i \cdot l_i</script><p>其中 $l_i$ 是符号 $x_i$ 的码字长度。</p>
 <p>在上例中：</p>
 <ul>
 <li>$A$: 长度 1</li>
@@ -1296,12 +1328,12 @@
 <li>$C$: 长度 3</li>
 <li>$D$: 长度 3</li>
 </ul>
-<p>$$<br>L &#x3D; 0.4 \cdot 1 + 0.3 \cdot 2 + 0.2 \cdot 3 + 0.1 \cdot 3 &#x3D; 1.9 \ \text{比特&#x2F;符号}<br>$$</p>
-<p>信源熵：</p>
-<p>$$<br>H(X) &#x3D; -\sum p_i \log_2 p_i \approx 1.846 \ \text{比特&#x2F;符号}<br>$$</p>
-<p>结论：</p>
-<p>$$<br>H(X) \le L &lt; H(X) + 1<br>$$</p>
-<p>这是Huffman 编码最优性的定理。</p>
+<script type="math/tex; mode=display">
+L = 0.4 \cdot 1 + 0.3 \cdot 2 + 0.2 \cdot 3 + 0.1 \cdot 3 = 1.9 \ \text{比特/符号}</script><p>信源熵：</p>
+<script type="math/tex; mode=display">
+H(X) = -\sum p_i \log_2 p_i \approx 1.846 \ \text{比特/符号}</script><p>结论：</p>
+<script type="math/tex; mode=display">
+H(X) \le L < H(X) + 1</script><p>这是Huffman 编码最优性的定理。</p>
 <hr>
 <p><strong>Huffman 编码的性质 (Properties)</strong></p>
 <ol>
