@@ -19,12 +19,12 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。 定理">
+    <meta name="description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linear Algebra">
 <meta property="og:url" content="http://toutou.zeabur.app/2025/02/08/Linear-Algebra/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio            1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。 定理">
+<meta property="og:description" content="Linear Algebra本篇线性代数内容主要讲解一下关键的地方，以及一些重要的二级结论推导。全文没有严格的上下文关系。              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）哈密尔顿-凯莱定理是线性代数中的一个重要定理，它描述了每个方阵都满足自己的特征多项式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-08T12:59:56.000Z">
 <meta property="article:modified_time" content="2025-07-21T02:09:04.059Z">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k words
+          13k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          101 mins
+          107 mins
         
       </span>
     
@@ -287,26 +287,24 @@
 <div class="note note-success">
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
+
+
 <h2 id="1-哈密尔顿-凯莱定理（Cayley-Hamilton-Theorem）"><a href="#1-哈密尔顿-凯莱定理（Cayley-Hamilton-Theorem）" class="headerlink" title="1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）"></a>1. 哈密尔顿-凯莱定理（Cayley-Hamilton Theorem）</h2><p><strong>哈密尔顿-凯莱定理</strong>是线性代数中的一个重要定理，它描述了<strong>每个方阵都满足自己的特征多项式</strong>。</p>
-<p><strong>定理内容</strong>： <strong>设 $A$ 是一个 $n \times n$ 的方阵，其特征多项式为</strong></p>
-<script type="math/tex; mode=display">
-p_A(\lambda) = \det(\lambda I - A) = c_n \lambda^n + c_{n-1} \lambda^{n-1} + \dots + c_1 \lambda + c_0</script><p>其中 $I$ 是 $n$ 阶单位矩阵，$c_i$ 是多项式的系数。</p>
-<p>那么，将矩阵 $A$ 代入它的特征多项式，会得到：</p>
-<script type="math/tex; mode=display">
-p_A(A) = c_n A^n + c_{n-1} A^{n-1} + \dots + c_1 A + c_0 I = 0</script><p>即 <strong>矩阵 $A$ 代入自己的特征多项式后，结果是零矩阵</strong>。</p>
+<p><strong>定理内容</strong>： <strong>设 $A$ 是一个 $n \times n$ 的方阵，其特征多项式为</strong><br>$$<br>p_A(\lambda) &#x3D; \det(\lambda I - A) &#x3D; c_n \lambda^n + c_{n-1} \lambda^{n-1} + \dots + c_1 \lambda + c_0<br>$$<br>其中 $I$ 是 $n$ 阶单位矩阵，$c_i$ 是多项式的系数。</p>
+<p>那么，将矩阵 $A$ 代入它的特征多项式，会得到：<br>$$<br>p_A(A) &#x3D; c_n A^n + c_{n-1} A^{n-1} + \dots + c_1 A + c_0 I &#x3D; 0<br>$$<br>即 <strong>矩阵 $A$ 代入自己的特征多项式后，结果是零矩阵</strong>。</p>
 <hr>
 <p><strong>证明思路（大致想法）</strong> 哈密尔顿-凯莱定理的证明通常有几种方法，最常见的方法基于矩阵的<strong>最小多项式</strong>：</p>
 <ol>
 <li><p><strong>最小多项式法</strong>：  </p>
 <ul>
-<li>设矩阵 $A$ 的最小多项式是 $m_A(\lambda)$，即 $m_A(A) = 0$ 且 $m_A(\lambda)$ 是 $A$ 所满足的次数最低的首一多项式。</li>
-<li>由于特征多项式 $p_A(\lambda)$ 是 $A$ 的一个多项式，并且所有矩阵的特征多项式都能被它的最小多项式整除（即 $p_A(\lambda) = m_A(\lambda) q(\lambda)$），因此 $p_A(A) = 0$ 也成立。</li>
+<li>设矩阵 $A$ 的最小多项式是 $m_A(\lambda)$，即 $m_A(A) &#x3D; 0$ 且 $m_A(\lambda)$ 是 $A$ 所满足的次数最低的首一多项式。</li>
+<li>由于特征多项式 $p_A(\lambda)$ 是 $A$ 的一个多项式，并且所有矩阵的特征多项式都能被它的最小多项式整除（即 $p_A(\lambda) &#x3D; m_A(\lambda) q(\lambda)$），因此 $p_A(A) &#x3D; 0$ 也成立。</li>
 </ul>
 </li>
 <li><p><strong>利用行列式展开</strong>：</p>
 <ul>
-<li>设 $A$ 的特征多项式 $p_A(\lambda) = \det(\lambda I - A)$。</li>
-<li>将 $A$ 代入 $p_A(\lambda)$ 后，利用矩阵的特征向量与特征值的性质，可以证明 $p_A(A) = 0$。</li>
+<li>设 $A$ 的特征多项式 $p_A(\lambda) &#x3D; \det(\lambda I - A)$。</li>
+<li>将 $A$ 代入 $p_A(\lambda)$ 后，利用矩阵的特征向量与特征值的性质，可以证明 $p_A(A) &#x3D; 0$。</li>
 </ul>
 </li>
 <li><p><strong>外代数法（或幂零矩阵分解）</strong>：</p>
@@ -316,35 +314,28 @@ p_A(A) = c_n A^n + c_{n-1} A^{n-1} + \dots + c_1 A + c_0 I = 0</script><p>即 <s
 </li>
 </ol>
 <hr>
-<p><strong>示例计算</strong> 假设我们有矩阵：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix} 2 & 1 \\\\
- 0 & 3 \end{bmatrix}</script><ol>
-<li><p><strong>计算特征多项式</strong>：</p>
-<script type="math/tex; mode=display">
-p_A(\lambda) = \det(\lambda I - A) = \begin{vmatrix} \lambda - 2 & -1 \\\\ 0 & \lambda - 3 \end{vmatrix}</script><p>计算行列式：</p>
-<script type="math/tex; mode=display">
-(\lambda - 2)(\lambda - 3)</script><p>所以特征多项式为：</p>
-<script type="math/tex; mode=display">
-p_A(\lambda) = \lambda^2 - 5\lambda + 6</script></li>
+<p><strong>示例计算</strong> 假设我们有矩阵：<br>$$<br>A &#x3D; \begin{bmatrix} 2 &amp; 1 \\<br> 0 &amp; 3 \end{bmatrix}<br>$$</p>
+<ol>
+<li><p><strong>计算特征多项式</strong>：<br>$$<br>p_A(\lambda) &#x3D; \det(\lambda I - A) &#x3D; \begin{vmatrix} \lambda - 2 &amp; -1 \\ 0 &amp; \lambda - 3 \end{vmatrix}<br>$$</p>
+<p>计算行列式：<br>$$<br>(\lambda - 2)(\lambda - 3)<br>$$</p>
+<p>所以特征多项式为：</p>
+<p>$$<br>p_A(\lambda) &#x3D; \lambda^2 - 5\lambda + 6<br>$$</p>
+</li>
 <li><p><strong>代入 $A$ 计算</strong>：</p>
-<script type="math/tex; mode=display">
-A^2 - 5A + 6I = \begin{bmatrix} 2 & 1 \\\\ 0 & 3 \end{bmatrix}^2 - 5 \begin{bmatrix} 2 & 1 \\\\ 0 & 3 \end{bmatrix} + 6 \begin{bmatrix} 1 & 0 \\\\ 0 & 1 \end{bmatrix}</script><p>计算 $A^2$：</p>
-<script type="math/tex; mode=display">
-A^2 = \begin{bmatrix} 4 & 5 \\\\ 0 & 9 \end{bmatrix}</script><p>计算：</p>
-<script type="math/tex; mode=display">
-A^2 - 5A + 6I = \begin{bmatrix} 4 & 5 \\\\ 0 & 9 \end{bmatrix} - \begin{bmatrix} 10 & 5 \\\\ 0 & 15 \end{bmatrix} + \begin{bmatrix} 6 & 0 \\\\ 0 & 6 \end{bmatrix}</script><script type="math/tex; mode=display">
-= \begin{bmatrix} 0 & 0 \\\\ 0 & 0 \end{bmatrix}</script><p>所以确实满足 $p_A(A) = 0$。</p>
+<p>$$<br>A^2 - 5A + 6I &#x3D; \begin{bmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{bmatrix}^2 - 5 \begin{bmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{bmatrix} + 6 \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}<br>$$</p>
+<p>计算 $A^2$：</p>
+<p>$$<br>A^2 &#x3D; \begin{bmatrix} 4 &amp; 5 \\ 0 &amp; 9 \end{bmatrix}<br>$$</p>
+<p>计算：</p>
+<p>$$<br>A^2 - 5A + 6I &#x3D; \begin{bmatrix} 4 &amp; 5 \\ 0 &amp; 9 \end{bmatrix} - \begin{bmatrix} 10 &amp; 5 \\ 0 &amp; 15 \end{bmatrix} + \begin{bmatrix} 6 &amp; 0 \\ 0 &amp; 6 \end{bmatrix}<br>$$<br>$$<br>&#x3D; \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{bmatrix}<br>$$</p>
+<p>所以确实满足 $p_A(A) &#x3D; 0$。</p>
 </li>
 </ol>
 <hr>
 <p><strong>应用</strong></p>
 <ol>
-<li><p><strong>计算矩阵的幂</strong>：<br>由于 $p_A(A) = 0$，可以将 $A^n$ 表示为 $A$ 的低次幂的线性组合，从而避免直接计算高次矩阵幂。</p>
+<li><p><strong>计算矩阵的幂</strong>：<br>由于 $p_A(A) &#x3D; 0$，可以将 $A^n$ 表示为 $A$ 的低次幂的线性组合，从而避免直接计算高次矩阵幂。</p>
 </li>
-<li><p><strong>求矩阵的逆</strong>：<br>若 $A$ 可逆，利用哈密尔顿-凯莱定理，可以通过特征多项式表示 $A^{-1}$：</p>
-<script type="math/tex; mode=display">
-A^{-1} = \frac{1}{c_0}(-c_1 I - c_2 A - \dots - c_{n-1} A^{n-1})</script><p>这样可以避免高维矩阵的直接求逆运算。</p>
+<li><p><strong>求矩阵的逆</strong>：<br>若 $A$ 可逆，利用哈密尔顿-凯莱定理，可以通过特征多项式表示 $A^{-1}$：<br>$$<br>A^{-1} &#x3D; \frac{1}{c_0}(-c_1 I - c_2 A - \dots - c_{n-1} A^{n-1})<br>$$<br>这样可以避免高维矩阵的直接求逆运算。</p>
 </li>
 <li><p><strong>微分方程的求解</strong>：<br>在常微分方程中，矩阵指数 $e^{At}$ 可以用哈密尔顿-凯莱定理来化简计算。</p>
 </li>
@@ -374,11 +365,11 @@ A^{-1} = \frac{1}{c_0}(-c_1 I - c_2 A - \dots - c_{n-1} A^{n-1})</script><p>这�
 <li><strong>满秩矩阵（Full Rank）</strong>：如果一个 $m \times n$ 矩阵 $A$ 的秩等于 $\min(m, n)$，则它表示的线性变换是<strong>最大维度</strong>的，即它能够映射到尽可能大的空间。</li>
 <li><strong>降秩矩阵（Rank Deficient）</strong>：如果 $\operatorname{rank}(A) &lt; \min(m, n)$，说明 $A$ 作为一个线性变换时，会把某些维度“压缩”到更低维的空间，可能导致信息丢失或映射不可逆。</li>
 </ul>
-<h3 id="2-4-线性方程组解的情况"><a href="#2-4-线性方程组解的情况" class="headerlink" title="2.4. 线性方程组解的情况"></a><strong>2.4. 线性方程组解的情况</strong></h3><p>矩阵秩决定了线性方程组 $Ax = b$ 的解的情况：</p>
+<h3 id="2-4-线性方程组解的情况"><a href="#2-4-线性方程组解的情况" class="headerlink" title="2.4. 线性方程组解的情况"></a><strong>2.4. 线性方程组解的情况</strong></h3><p>矩阵秩决定了线性方程组 $Ax &#x3D; b$ 的解的情况：</p>
 <ul>
-<li><strong>如果 $\operatorname{rank}(A) = \operatorname{rank}([A | b])$</strong>，则系统<strong>有解</strong>。</li>
-<li><strong>如果 $\operatorname{rank}(A) &lt; \operatorname{rank}([A | b])$</strong>，则系统<strong>无解</strong>（矛盾方程）。</li>
-<li><strong>如果 $\operatorname{rank}(A) = \operatorname{rank}([A | b]) = n$</strong>（$A$ 是方阵且满秩），则系统有<strong>唯一解</strong>。</li>
+<li><strong>如果 $\operatorname{rank}(A) &#x3D; \operatorname{rank}([A | b])$<strong>，则系统</strong>有解</strong>。</li>
+<li><strong>如果 $\operatorname{rank}(A) &lt; \operatorname{rank}([A | b])$<strong>，则系统</strong>无解</strong>（矛盾方程）。</li>
+<li><strong>如果 $\operatorname{rank}(A) &#x3D; \operatorname{rank}([A | b]) &#x3D; n$<strong>（$A$ 是方阵且满秩），则系统有</strong>唯一解</strong>。</li>
 <li><strong>如果 $\operatorname{rank}(A) &lt; n$，则系统有无穷多解</strong>（自由变量存在）。</li>
 </ul>
 <h3 id="2-5-低秩矩阵的几何解释"><a href="#2-5-低秩矩阵的几何解释" class="headerlink" title="2.5. 低秩矩阵的几何解释"></a><strong>2.5. 低秩矩阵的几何解释</strong></h3><ul>
@@ -395,45 +386,26 @@ A^{-1} = \frac{1}{c_0}(-c_1 I - c_2 A - \dots - c_{n-1} A^{n-1})</script><p>这�
 </ol>
 <h2 id="3-范德蒙行列式（Vandermonde-Determinant）"><a href="#3-范德蒙行列式（Vandermonde-Determinant）" class="headerlink" title="3. 范德蒙行列式（Vandermonde Determinant）"></a><strong>3. 范德蒙行列式（Vandermonde Determinant）</strong></h2><p>范德蒙行列式是线性代数中一个重要的行列式，在多项式插值、数值分析、群论和组合数学等领域都有广泛应用。</p>
 <h3 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1. 定义"></a><strong>3.1. 定义</strong></h3><p>范德蒙行列式是一个特殊形式的行列式，其元素由一组数的幂次构成：</p>
-<script type="math/tex; mode=display">
-V(x_1, x_2, \dots, x_n) =
-\begin{vmatrix}
-1 & x_1 & x_1^2 & \cdots & x_1^{n-1} \\\\
-1 & x_2 & x_2^2 & \cdots & x_2^{n-1} \\\\
-1 & x_3 & x_3^2 & \cdots & x_3^{n-1} \\\\
-\vdots & \vdots & \vdots & \ddots & \vdots \\\\
-1 & x_n & x_n^2 & \cdots & x_n^{n-1}
-\end{vmatrix}</script><p>该行列式的值称为<strong>范德蒙行列式</strong>（Vandermonde Determinant）。</p>
+<p>$$<br>V(x_1, x_2, \dots, x_n) &#x3D;<br>\begin{vmatrix}<br>1 &amp; x_1 &amp; x_1^2 &amp; \cdots &amp; x_1^{n-1} \\<br>1 &amp; x_2 &amp; x_2^2 &amp; \cdots &amp; x_2^{n-1} \\<br>1 &amp; x_3 &amp; x_3^2 &amp; \cdots &amp; x_3^{n-1} \\<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>1 &amp; x_n &amp; x_n^2 &amp; \cdots &amp; x_n^{n-1}<br>\end{vmatrix}<br>$$</p>
+<p>该行列式的值称为<strong>范德蒙行列式</strong>（Vandermonde Determinant）。</p>
 <h3 id="3-2-计算范德蒙行列式"><a href="#3-2-计算范德蒙行列式" class="headerlink" title="3.2. 计算范德蒙行列式"></a><strong>3.2. 计算范德蒙行列式</strong></h3><p>范德蒙行列式的值有一个标准的封闭表达式：</p>
-<script type="math/tex; mode=display">
-V(x_1, x_2, \dots, x_n) = \prod_{1 \leq i < j \leq n} (x_j - x_i)</script><p>即，范德蒙行列式等于所有数 $x_1, x_2, \dots, x_n$ 之间两两之差的乘积。</p>
-<p><strong>示例：计算 $n=3$ 的范德蒙行列式</strong></p>
-<script type="math/tex; mode=display">
-V(x_1, x_2, x_3) =
-\begin{vmatrix}
-1 & x_1 & x_1^2 \\\\
-1 & x_2 & x_2^2 \\\\
-1 & x_3 & x_3^2
-\end{vmatrix}</script><p>按照行列式的展开计算：</p>
-<script type="math/tex; mode=display">
-V(x_1, x_2, x_3) = (x_2 - x_1)(x_3 - x_1)(x_3 - x_2)</script><p>与一般公式一致！</p>
+<p>$$<br>V(x_1, x_2, \dots, x_n) &#x3D; \prod_{1 \leq i &lt; j \leq n} (x_j - x_i)<br>$$</p>
+<p>即，范德蒙行列式等于所有数 $x_1, x_2, \dots, x_n$ 之间两两之差的乘积。</p>
+<p><strong>示例：计算 $n&#x3D;3$ 的范德蒙行列式</strong><br>$$<br>V(x_1, x_2, x_3) &#x3D;<br>\begin{vmatrix}<br>1 &amp; x_1 &amp; x_1^2 \\<br>1 &amp; x_2 &amp; x_2^2 \\<br>1 &amp; x_3 &amp; x_3^2<br>\end{vmatrix}<br>$$</p>
+<p>按照行列式的展开计算：<br>$$<br>V(x_1, x_2, x_3) &#x3D; (x_2 - x_1)(x_3 - x_1)(x_3 - x_2)<br>$$</p>
+<p>与一般公式一致！</p>
 <hr>
-<h3 id="3-3-范德蒙行列式的性质"><a href="#3-3-范德蒙行列式的性质" class="headerlink" title="3.3. 范德蒙行列式的性质"></a><strong>3.3. 范德蒙行列式的性质</strong></h3><h4 id="1-反对称性"><a href="#1-反对称性" class="headerlink" title="(1) 反对称性"></a><strong>(1) 反对称性</strong></h4><p>范德蒙行列式的值对任意两行（或两列）交换后变号：</p>
-<script type="math/tex; mode=display">
-V(\dots, x_i, x_j, \dots) = -V(\dots, x_j, x_i, \dots)</script><p>因此，如果有两个相同的 $x_i = x_j$，则 $(x_j - x_i) = 0$，导致整个行列式为零。这说明<strong>范德蒙行列式在变量相等时退化为零</strong>。</p>
-<h4 id="2-递归性质"><a href="#2-递归性质" class="headerlink" title="(2) 递归性质"></a><strong>(2) 递归性质</strong></h4><script type="math/tex; mode=display">
-V(x_1, x_2, \dots, x_n) =
-V(x_1, x_2, \dots, x_{n-1}) \prod_{j=1}^{n-1} (x_n - x_j)</script><p>即，可以通过 $n-1$ 阶范德蒙行列式逐步计算出 $n$ 阶的结果。</p>
+<h3 id="3-3-范德蒙行列式的性质"><a href="#3-3-范德蒙行列式的性质" class="headerlink" title="3.3. 范德蒙行列式的性质"></a><strong>3.3. 范德蒙行列式的性质</strong></h3><h4 id="1-反对称性"><a href="#1-反对称性" class="headerlink" title="(1) 反对称性"></a><strong>(1) 反对称性</strong></h4><p>范德蒙行列式的值对任意两行（或两列）交换后变号：<br>$$<br>V(\dots, x_i, x_j, \dots) &#x3D; -V(\dots, x_j, x_i, \dots)<br>$$<br>因此，如果有两个相同的 $x_i &#x3D; x_j$，则 $(x_j - x_i) &#x3D; 0$，导致整个行列式为零。这说明<strong>范德蒙行列式在变量相等时退化为零</strong>。</p>
+<h4 id="2-递归性质"><a href="#2-递归性质" class="headerlink" title="(2) 递归性质"></a><strong>(2) 递归性质</strong></h4><p>$$<br>V(x_1, x_2, \dots, x_n) &#x3D;<br>V(x_1, x_2, \dots, x_{n-1}) \prod_{j&#x3D;1}^{n-1} (x_n - x_j)<br>$$<br>即，可以通过 $n-1$ 阶范德蒙行列式逐步计算出 $n$ 阶的结果。</p>
 <h3 id="3-4-应用"><a href="#3-4-应用" class="headerlink" title="3.4. 应用"></a><strong>3.4. 应用</strong></h3><h4 id="1-多项式插值"><a href="#1-多项式插值" class="headerlink" title="(1) 多项式插值"></a><strong>(1) 多项式插值</strong></h4><p>在拉格朗日插值法中，范德蒙矩阵用于构造一组线性方程来求解插值系数。如果 $x_1, x_2, \dots, x_n$ 互不相同，则范德蒙矩阵是满秩的，因此该线性系统有唯一解。</p>
 <h4 id="2-线性无关性"><a href="#2-线性无关性" class="headerlink" title="(2) 线性无关性"></a><strong>(2) 线性无关性</strong></h4><p>范德蒙矩阵的行（或列）是线性无关的，当且仅当 $x_i$ 互不相同。这一性质用于多项式插值和数值分析中判断点集是否能构成唯一的插值多项式。</p>
 <h4 id="3-代数和组合数学"><a href="#3-代数和组合数学" class="headerlink" title="(3) 代数和组合数学"></a><strong>(3) 代数和组合数学</strong></h4><p>范德蒙行列式与<strong>牛顿插值公式</strong>、<strong>伽罗瓦理论</strong>、<strong>排列和置换的计数问题</strong>密切相关。</p>
 <h3 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5. 总结"></a><strong>3.5. 总结</strong></h3><ul>
 <li><strong>定义</strong>：范德蒙行列式是一个特殊的行列式，其元素由一组变量的幂构成。</li>
-<li><strong>计算公式</strong>：<script type="math/tex; mode=display">
-V(x_1, x_2, \dots, x_n) = \prod_{1 \leq i < j \leq n} (x_j - x_i)</script></li>
+<li><strong>计算公式</strong>：<br>$$<br>V(x_1, x_2, \dots, x_n) &#x3D; \prod_{1 \leq i &lt; j \leq n} (x_j - x_i)<br>$$</li>
 <li><strong>性质</strong>：<ul>
 <li>反对称性：交换两行（或两列）后变号。</li>
-<li>若存在 $x_i = x_j$，则范德蒙行列式为 0。</li>
+<li>若存在 $x_i &#x3D; x_j$，则范德蒙行列式为 0。</li>
 <li>可以递归计算。</li>
 </ul>
 </li>
@@ -446,15 +418,12 @@ V(x_1, x_2, \dots, x_n) = \prod_{1 \leq i < j \leq n} (x_j - x_i)</script></li>
 </ul>
 <h2 id="4-行列式的运算规律"><a href="#4-行列式的运算规律" class="headerlink" title="4. 行列式的运算规律"></a>4. 行列式的运算规律</h2><p>设 $A$、$B$ 是 $n \times n$ 的方阵，$|A|$ 表示矩阵 $A$ 的行列式。以下是常见的运算规律：</p>
 <h3 id="4-1-行列式的基本性质"><a href="#4-1-行列式的基本性质" class="headerlink" title="4.1 行列式的基本性质"></a>4.1 行列式的基本性质</h3><ol>
-<li><p><strong>单位矩阵的行列式为 1：</strong></p>
-<script type="math/tex; mode=display">
-|I_n| = 1</script></li>
-<li><p><strong>行列式的转置不变：</strong></p>
-<script type="math/tex; mode=display">
-|A^\mathrm{T}| = |A|</script></li>
+<li><p><strong>单位矩阵的行列式为 1：</strong><br>$$<br>|I_n| &#x3D; 1<br>$$</p>
+</li>
+<li><p><strong>行列式的转置不变：</strong><br>$$<br>|A^\mathrm{T}| &#x3D; |A|<br>$$</p>
+</li>
 </ol>
 <h3 id="4-2-初等行变换对行列式的影响"><a href="#4-2-初等行变换对行列式的影响" class="headerlink" title="4.2 初等行变换对行列式的影响"></a>4.2 初等行变换对行列式的影响</h3><p>对矩阵 $A$ 进行以下初等行变换时，行列式发生如下变化：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -462,8 +431,7 @@ V(x_1, x_2, \dots, x_n) = \prod_{1 \leq i < j \leq n} (x_j - x_i)</script></li>
 <th>对行列式的影响</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>两行交换</td>
 <td>行列式变号（乘以 $-1$）</td>
 </tr>
@@ -475,33 +443,26 @@ V(x_1, x_2, \dots, x_n) = \prod_{1 \leq i < j \leq n} (x_j - x_i)</script></li>
 <td>某行加上另一行的若干倍</td>
 <td>行列式不变</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>✅ <strong>结论</strong>：可以通过行变换将矩阵化为上三角矩阵，然后通过对角线元素相乘计算行列式，记得调整符号！</p>
-<h3 id="4-3-行列式的乘积法则"><a href="#4-3-行列式的乘积法则" class="headerlink" title="4.3 行列式的乘积法则"></a>4.3 行列式的乘积法则</h3><script type="math/tex; mode=display">
-|AB| = |A||B|</script><ul>
+<h3 id="4-3-行列式的乘积法则"><a href="#4-3-行列式的乘积法则" class="headerlink" title="4.3 行列式的乘积法则"></a>4.3 行列式的乘积法则</h3><p>$$<br>|AB| &#x3D; |A||B|<br>$$</p>
+<ul>
 <li><strong>提示</strong>：前提是 $A, B$ 都是 $n \times n$ 的方阵。</li>
-<li><strong>常见用法</strong>：推导可逆条件时使用。比如若 $|A| \ne 0$，则 $A$ 可逆，且：<script type="math/tex; mode=display">
-|A^{-1}| = \frac{1}{|A|}</script></li>
+<li><strong>常见用法</strong>：推导可逆条件时使用。比如若 $|A| \ne 0$，则 $A$ 可逆，且：<br>$$<br>|A^{-1}| &#x3D; \frac{1}{|A|}<br>$$</li>
 </ul>
-<h3 id="4-4-行列式与数乘"><a href="#4-4-行列式与数乘" class="headerlink" title="4.4 行列式与数乘"></a>4.4 行列式与数乘</h3><p>如果矩阵 $A$ 是 $n \times n$ 的方阵，$k$ 是数，则：</p>
-<script type="math/tex; mode=display">
-|kA| = k^n |A|</script><blockquote>
+<h3 id="4-4-行列式与数乘"><a href="#4-4-行列式与数乘" class="headerlink" title="4.4 行列式与数乘"></a>4.4 行列式与数乘</h3><p>如果矩阵 $A$ 是 $n \times n$ 的方阵，$k$ 是数，则：<br>$$<br>|kA| &#x3D; k^n |A|<br>$$</p>
+<blockquote>
 <p>直观理解：每一行都乘以 $k$，相当于 $n$ 个 $k$ 相乘。</p>
 </blockquote>
 <h3 id="4-5-行列式与逆矩阵、幂运算"><a href="#4-5-行列式与逆矩阵、幂运算" class="headerlink" title="4.5 行列式与逆矩阵、幂运算"></a>4.5 行列式与逆矩阵、幂运算</h3><ul>
-<li><p><strong>逆矩阵：</strong></p>
-<script type="math/tex; mode=display">
-|A^{-1}| = \frac{1}{|A|} \quad \text{前提：}|A| \ne 0</script></li>
-<li><p><strong>幂运算（整数次幂）：</strong></p>
-<script type="math/tex; mode=display">
-|A^m| = |A|^m</script></li>
+<li><p><strong>逆矩阵：</strong><br>$$<br>|A^{-1}| &#x3D; \frac{1}{|A|} \quad \text{前提：}|A| \ne 0<br>$$</p>
+</li>
+<li><p><strong>幂运算（整数次幂）：</strong><br>$$<br>|A^m| &#x3D; |A|^m<br>$$</p>
+</li>
 </ul>
 <h3 id="4-6-常见错误认识（⚠️务必注意）"><a href="#4-6-常见错误认识（⚠️务必注意）" class="headerlink" title="4.6 常见错误认识（⚠️务必注意）"></a>4.6 常见错误认识（⚠️务必注意）</h3><ol>
-<li><p><strong>行列式不能线性拆分：</strong></p>
-<script type="math/tex; mode=display">
-|A + B| \ne |A| + |B| \quad \text{一般不成立！}</script></li>
+<li><p><strong>行列式不能线性拆分：</strong><br>$$<br>|A + B| \ne |A| + |B| \quad \text{一般不成立！}<br>$$</p>
+</li>
 <li><p><strong>不是所有矩阵都有行列式：</strong></p>
 <ul>
 <li>只有<strong>方阵</strong>才有行列式。</li>
@@ -511,265 +472,225 @@ V(x_1, x_2, \dots, x_n) = \prod_{1 \leq i < j \leq n} (x_j - x_i)</script></li>
 </ol>
 <hr>
 <h3 id="4-7-特殊矩阵的行列式"><a href="#4-7-特殊矩阵的行列式" class="headerlink" title="4.7 特殊矩阵的行列式"></a>4.7 特殊矩阵的行列式</h3><ul>
-<li><p><strong>上三角/下三角矩阵（或对角矩阵）：</strong></p>
-<script type="math/tex; mode=display">
-|\text{三角矩阵}| = \text{主对角线元素的乘积}</script></li>
-<li><p><strong>伴随矩阵（Adjoint Matrix）相关：</strong><br>若 $A$ 是可逆方阵：</p>
-<script type="math/tex; mode=display">
-A^{-1} = \frac{1}{|A|} \cdot \text{adj}(A)</script></li>
+<li><p><strong>上三角&#x2F;下三角矩阵（或对角矩阵）：</strong><br>$$<br>|\text{三角矩阵}| &#x3D; \text{主对角线元素的乘积}<br>$$</p>
+</li>
+<li><p><strong>伴随矩阵（Adjoint Matrix）相关：</strong><br>若 $A$ 是可逆方阵：<br>$$<br>A^{-1} &#x3D; \frac{1}{|A|} \cdot \text{adj}(A)<br>$$</p>
+</li>
 </ul>
 <hr>
 <h3 id="4-8-行列式的列的加法性（线性性）"><a href="#4-8-行列式的列的加法性（线性性）" class="headerlink" title="4.8 行列式的列的加法性（线性性）"></a><strong>4.8 行列式的列的加法性（线性性）</strong></h3><p>设 $A$ 是一个 $n \times n$ 的矩阵，如果第 $j$ 列是两个向量 $\mathbf{v}, \mathbf{w}$ 的和：</p>
-<script type="math/tex; mode=display">
-\text{col}_j = \mathbf{v} + \mathbf{w}</script><p>那么行列式满足加法性：</p>
-<script type="math/tex; mode=display">
-\det A = \det A(\text{col}_j = \mathbf{v}) + \det A(\text{col}_j = \mathbf{w})</script><p>同样地，如果该列乘以一个标量 $\lambda$，则有数乘性：</p>
-<script type="math/tex; mode=display">
-\det A(\text{col}_j = \lambda \mathbf{v}) = \lambda \cdot \det A(\text{col}_j = \mathbf{v})</script><p>这说明行列式关于任意一列是<strong>线性的函数</strong>，即具备“列的可拆性”。</p>
+<p>$$<br>\text{col}_j &#x3D; \mathbf{v} + \mathbf{w}<br>$$</p>
+<p>那么行列式满足加法性：</p>
+<p>$$<br>\det A &#x3D; \det A(\text{col}_j &#x3D; \mathbf{v}) + \det A(\text{col}_j &#x3D; \mathbf{w})<br>$$</p>
+<p>同样地，如果该列乘以一个标量 $\lambda$，则有数乘性：</p>
+<p>$$<br>\det A(\text{col}_j &#x3D; \lambda \mathbf{v}) &#x3D; \lambda \cdot \det A(\text{col}_j &#x3D; \mathbf{v})<br>$$</p>
+<p>这说明行列式关于任意一列是<strong>线性的函数</strong>，即具备“列的可拆性”。</p>
 <p><strong>4.3 证明（排列展开法）</strong></p>
 <p>根据行列式定义：</p>
-<script type="math/tex; mode=display">
-\det A = \sum_{\sigma \in S_n} \operatorname{sgn}(\sigma) \cdot a_{1\sigma(1)} a_{2\sigma(2)} \cdots a_{n\sigma(n)}</script><p>设第 $j$ 列为 $\mathbf{v} + \mathbf{w}$，则 $a_{ij} = v_i + w_i$。</p>
+<p>$$<br>\det A &#x3D; \sum_{\sigma \in S_n} \operatorname{sgn}(\sigma) \cdot a_{1\sigma(1)} a_{2\sigma(2)} \cdots a_{n\sigma(n)}<br>$$</p>
+<p>设第 $j$ 列为 $\mathbf{v} + \mathbf{w}$，则 $a_{ij} &#x3D; v_i + w_i$。</p>
 <p>将其代入行列式展开中，借助乘法对加法的分配律，可以将涉及第 $j$ 列的所有项拆成两部分，从而得到：</p>
-<script type="math/tex; mode=display">
-\det A = \det A(\text{col}_j = \mathbf{v}) + \det A(\text{col}_j = \mathbf{w})</script><p><strong>4.4 示例（$2 \times 2$ 矩阵）</strong></p>
+<p>$$<br>\det A &#x3D; \det A(\text{col}_j &#x3D; \mathbf{v}) + \det A(\text{col}_j &#x3D; \mathbf{w})<br>$$</p>
+<p><strong>4.4 示例（$2 \times 2$ 矩阵）</strong></p>
 <p>设矩阵 $A$ 为：</p>
-<script type="math/tex; mode=display">
-A =
-\begin{bmatrix}
-1 & a + c \\\\
-2 & b + d
-\end{bmatrix}</script><p>计算其行列式：</p>
-<script type="math/tex; mode=display">
-\det A = 1 \cdot (b + d) - 2 \cdot (a + c)
-= (b - 2a) + (d - 2c)</script><script type="math/tex; mode=display">
-\det A_1 = 
-\begin{vmatrix}
-1 & a \\\\
-2 & b
-\end{vmatrix}
-= 1 \cdot b - 2 \cdot a = b - 2a</script><script type="math/tex; mode=display">
-\det A_2 =
-\begin{vmatrix}
-1 & c \\\\
-2 & d
-\end{vmatrix}
-= 1 \cdot d - 2 \cdot c = d - 2c</script><p>因此：</p>
-<script type="math/tex; mode=display">
-\det A = \det A_1 + \det A_2 = (b - 2a) + (d - 2c)</script><p>验证了列的加法性成立。</p>
+<p>$$<br>A &#x3D;<br>\begin{bmatrix}<br>1 &amp; a + c \\<br>2 &amp; b + d<br>\end{bmatrix}<br>$$</p>
+<p>计算其行列式：</p>
+<p>$$<br>\det A &#x3D; 1 \cdot (b + d) - 2 \cdot (a + c)<br>&#x3D; (b - 2a) + (d - 2c)<br>$$</p>
+<p>$$<br>\det A_1 &#x3D;<br>\begin{vmatrix}<br>1 &amp; a \\<br>2 &amp; b<br>\end{vmatrix}<br>&#x3D; 1 \cdot b - 2 \cdot a &#x3D; b - 2a<br>$$</p>
+<p>$$<br>\det A_2 &#x3D;<br>\begin{vmatrix}<br>1 &amp; c \\<br>2 &amp; d<br>\end{vmatrix}<br>&#x3D; 1 \cdot d - 2 \cdot c &#x3D; d - 2c<br>$$</p>
+<p>因此：</p>
+<p>$$<br>\det A &#x3D; \det A_1 + \det A_2 &#x3D; (b - 2a) + (d - 2c)<br>$$</p>
+<p>验证了列的加法性成立。</p>
 <p><strong>4.5 总结</strong></p>
 <ul>
-<li>行列式对每一列是<strong>线性函数</strong>；</li>
+<li><p>行列式对每一列是<strong>线性函数</strong>；</p>
+</li>
 <li><p>包括两条性质：</p>
 <ul>
-<li><strong>加法性</strong>：若某列是 $\mathbf{v} + \mathbf{w}$，则 $\det A = \det(\text{col}_j = \mathbf{v}) + \det(\text{col}_j = \mathbf{w})$；</li>
-<li><strong>数乘性</strong>：若某列为 $\lambda \mathbf{v}$，则 $\det A = \lambda \cdot \det(\text{col}_j = \mathbf{v})$；</li>
+<li><strong>加法性</strong>：若某列是 $\mathbf{v} + \mathbf{w}$，则 $\det A &#x3D; \det(\text{col}_j &#x3D; \mathbf{v}) + \det(\text{col}_j &#x3D; \mathbf{w})$；</li>
+<li><strong>数乘性</strong>：若某列为 $\lambda \mathbf{v}$，则 $\det A &#x3D; \lambda \cdot \det(\text{col}_j &#x3D; \mathbf{v})$；</li>
 </ul>
 </li>
-<li>此性质称为<strong>多线性性</strong>的一部分，是证明许多行列式性质（如秩判断、线性无关性等）的基础。</li>
+<li><p>此性质称为<strong>多线性性</strong>的一部分，是证明许多行列式性质（如秩判断、线性无关性等）的基础。</p>
+</li>
 </ul>
 <h2 id="5-行列式转置的规律"><a href="#5-行列式转置的规律" class="headerlink" title="5. 行列式转置的规律"></a>5. 行列式转置的规律</h2><h3 id="5-1-行列式转置不变性"><a href="#5-1-行列式转置不变性" class="headerlink" title="5.1. 行列式转置不变性"></a>5.1. 行列式转置不变性</h3><p>对于任意 $n \times n$ 的矩阵 $A$，其转置矩阵为 $A^T$，有以下恒等式：</p>
-<script type="math/tex; mode=display">
-\det(A^T) = \det(A)</script><p><strong>解释</strong>：行列式是关于行（或列）的交错多线性函数，转置只是行列互换，不影响行列式的值。</p>
+<p>$$<br>\det(A^T) &#x3D; \det(A)<br>$$</p>
+<p><strong>解释</strong>：行列式是关于行（或列）的交错多线性函数，转置只是行列互换，不影响行列式的值。</p>
 <hr>
 <h3 id="5-2-对易性与乘法规则"><a href="#5-2-对易性与乘法规则" class="headerlink" title="5.2. 对易性与乘法规则"></a>5.2. 对易性与乘法规则</h3><p>对于两个 $n \times n$ 的矩阵 $A$ 和 $B$：</p>
-<script type="math/tex; mode=display">
-(AB)^T = B^T A^T</script><p>进而有：</p>
-<script type="math/tex; mode=display">
-\det((AB)^T) = \det(B^T A^T) = \det(B^T) \cdot \det(A^T)</script><p>又因为转置不改变行列式值，所以有：</p>
-<script type="math/tex; mode=display">
-\det(AB) = \det(A) \cdot \det(B)</script><hr>
+<p>$$<br>(AB)^T &#x3D; B^T A^T<br>$$</p>
+<p>进而有：</p>
+<p>$$<br>\det((AB)^T) &#x3D; \det(B^T A^T) &#x3D; \det(B^T) \cdot \det(A^T)<br>$$</p>
+<p>又因为转置不改变行列式值，所以有：</p>
+<p>$$<br>\det(AB) &#x3D; \det(A) \cdot \det(B)<br>$$</p>
+<hr>
 <h3 id="5-3-单位矩阵的转置"><a href="#5-3-单位矩阵的转置" class="headerlink" title="5.3. 单位矩阵的转置"></a>5.3. 单位矩阵的转置</h3><p>单位矩阵 $I_n$ 的转置仍为其本身，且行列式为 1：</p>
-<script type="math/tex; mode=display">
-I_n^T = I_n, \quad \det(I_n) = 1</script><hr>
+<p>$$<br>I_n^T &#x3D; I_n, \quad \det(I_n) &#x3D; 1<br>$$</p>
+<hr>
 <h3 id="5-4-可逆矩阵的转置"><a href="#5-4-可逆矩阵的转置" class="headerlink" title="5.4. 可逆矩阵的转置"></a>5.4. 可逆矩阵的转置</h3><p>若 $A$ 可逆，则 $A^T$ 也可逆，且：</p>
-<script type="math/tex; mode=display">
-(A^T)^{-1} = (A^{-1})^T</script><p>进一步有：</p>
-<script type="math/tex; mode=display">
-\det((A^T)^{-1}) = \det((A^{-1})^T) = \det(A^{-1}) = \frac{1}{\det(A)}</script><hr>
+<p>$$<br>(A^T)^{-1} &#x3D; (A^{-1})^T<br>$$</p>
+<p>进一步有：</p>
+<p>$$<br>\det((A^T)^{-1}) &#x3D; \det((A^{-1})^T) &#x3D; \det(A^{-1}) &#x3D; \frac{1}{\det(A)}<br>$$</p>
+<hr>
 <h3 id="5-5-特殊矩阵的转置与行列式"><a href="#5-5-特殊矩阵的转置与行列式" class="headerlink" title="5.5. 特殊矩阵的转置与行列式"></a>5.5. 特殊矩阵的转置与行列式</h3><ul>
-<li>对称矩阵：$A^T = A$，故 $\det(A^T) = \det(A)$ 成立自然；</li>
-<li>反对称矩阵：$A^T = -A$，当 $n$ 为奇数时，有：</li>
+<li>对称矩阵：$A^T &#x3D; A$，故 $\det(A^T) &#x3D; \det(A)$ 成立自然；</li>
+<li>反对称矩阵：$A^T &#x3D; -A$，当 $n$ 为奇数时，有：</li>
 </ul>
-<script type="math/tex; mode=display">
-\det(A^T) = \det(-A) = (-1)^n \det(A) = -\det(A)</script><p>所以 $\det(A) = -\det(A) \Rightarrow \det(A) = 0$</p>
+<p>$$<br>\det(A^T) &#x3D; \det(-A) &#x3D; (-1)^n \det(A) &#x3D; -\det(A)<br>$$</p>
+<p>所以 $\det(A) &#x3D; -\det(A) \Rightarrow \det(A) &#x3D; 0$</p>
 <h2 id="6-行列式为非零（正则）的条件总结"><a href="#6-行列式为非零（正则）的条件总结" class="headerlink" title="6. 行列式为非零（正则）的条件总结"></a>6. 行列式为非零（正则）的条件总结</h2><p>在线性代数中，一个<strong>矩阵是正则矩阵（Regular Matrix）</strong>，也称<strong>非奇异矩阵（Non-singular Matrix）</strong>，当且仅当它的行列式不为零：</p>
-<script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Leftrightarrow \quad A \text{ 是正则矩阵}</script><p>正则矩阵具有以下等价条件：</p>
+<p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad A \text{ 是正则矩阵}<br>$$</p>
+<p>正则矩阵具有以下等价条件：</p>
 <hr>
-<h3 id="1-存在逆矩阵"><a href="#1-存在逆矩阵" class="headerlink" title="(1) 存在逆矩阵"></a>(1) 存在逆矩阵</h3><script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Leftrightarrow \quad \exists A^{-1},\ A A^{-1} = I</script><hr>
-<h3 id="2-满秩矩阵"><a href="#2-满秩矩阵" class="headerlink" title="(2) 满秩矩阵"></a>(2) 满秩矩阵</h3><script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Leftrightarrow \quad \text{秩}(\!A) = n</script><p>也就是说，$n \times n$ 的矩阵 $A$ 满秩时其行列式非零。</p>
+<h3 id="1-存在逆矩阵"><a href="#1-存在逆矩阵" class="headerlink" title="(1) 存在逆矩阵"></a>(1) 存在逆矩阵</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \exists A^{-1},\ A A^{-1} &#x3D; I<br>$$</p>
 <hr>
-<h3 id="3-齐次线性方程组-A-mathbf-x-mathbf-0-仅有零解"><a href="#3-齐次线性方程组-A-mathbf-x-mathbf-0-仅有零解" class="headerlink" title="(3) 齐次线性方程组 $A\mathbf{x} = \mathbf{0}$ 仅有零解"></a>(3) 齐次线性方程组 $A\mathbf{x} = \mathbf{0}$ 仅有零解</h3><script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Leftrightarrow \quad A\mathbf{x} = \mathbf{0} \text{ 仅有解 } \mathbf{x} = \mathbf{0}</script><hr>
-<h3 id="4-矩阵列（或行）线性无关"><a href="#4-矩阵列（或行）线性无关" class="headerlink" title="(4) 矩阵列（或行）线性无关"></a>(4) 矩阵列（或行）线性无关</h3><script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Leftrightarrow \quad \text{矩阵的行向量或列向量线性无关}</script><hr>
-<h3 id="5-可用初等行变换化为单位矩阵"><a href="#5-可用初等行变换化为单位矩阵" class="headerlink" title="(5) 可用初等行变换化为单位矩阵"></a>(5) 可用初等行变换化为单位矩阵</h3><script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Rightarrow \quad A \sim I_n</script><p>即矩阵 $A$ 可以通过有限次初等行变换（不改变行列式为零与否）变成单位矩阵。</p>
+<h3 id="2-满秩矩阵"><a href="#2-满秩矩阵" class="headerlink" title="(2) 满秩矩阵"></a>(2) 满秩矩阵</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \text{秩}(!A) &#x3D; n<br>$$</p>
+<p>也就是说，$n \times n$ 的矩阵 $A$ 满秩时其行列式非零。</p>
+<hr>
+<h3 id="3-齐次线性方程组-A-mathbf-x-mathbf-0-仅有零解"><a href="#3-齐次线性方程组-A-mathbf-x-mathbf-0-仅有零解" class="headerlink" title="(3) 齐次线性方程组 $A\mathbf{x} &#x3D; \mathbf{0}$ 仅有零解"></a>(3) 齐次线性方程组 $A\mathbf{x} &#x3D; \mathbf{0}$ 仅有零解</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad A\mathbf{x} &#x3D; \mathbf{0} \text{ 仅有解 } \mathbf{x} &#x3D; \mathbf{0}<br>$$</p>
+<hr>
+<h3 id="4-矩阵列（或行）线性无关"><a href="#4-矩阵列（或行）线性无关" class="headerlink" title="(4) 矩阵列（或行）线性无关"></a>(4) 矩阵列（或行）线性无关</h3><p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \text{矩阵的行向量或列向量线性无关}<br>$$</p>
+<hr>
+<h3 id="5-可用初等行变换化为单位矩阵"><a href="#5-可用初等行变换化为单位矩阵" class="headerlink" title="(5) 可用初等行变换化为单位矩阵"></a>(5) 可用初等行变换化为单位矩阵</h3><p>$$<br>\det(A) \ne 0 \quad \Rightarrow \quad A \sim I_n<br>$$</p>
+<p>即矩阵 $A$ 可以通过有限次初等行变换（不改变行列式为零与否）变成单位矩阵。</p>
 <hr>
 <h3 id="6-特征值均不为零（针对方阵）"><a href="#6-特征值均不为零（针对方阵）" class="headerlink" title="(6) 特征值均不为零（针对方阵）"></a>(6) 特征值均不为零（针对方阵）</h3><p>若 $A$ 是 $n \times n$ 方阵，且其所有特征值为 $\lambda_1, \lambda_2, \dots, \lambda_n$，则：</p>
-<script type="math/tex; mode=display">
-\det(A) = \prod_{i=1}^n \lambda_i</script><p>因此：</p>
-<script type="math/tex; mode=display">
-\det(A) \ne 0 \quad \Leftrightarrow \quad \lambda_i \ne 0,\ \forall i</script><hr>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><strong>一个 $n \times n$ 矩阵正则 ⇔ 行列式非零 ⇔ 满秩 ⇔ 可逆 ⇔ 行/列线性无关 ⇔ 齐次方程只有零解。</strong></p>
+<p>$$<br>\det(A) &#x3D; \prod_{i&#x3D;1}^n \lambda_i<br>$$</p>
+<p>因此：</p>
+<p>$$<br>\det(A) \ne 0 \quad \Leftrightarrow \quad \lambda_i \ne 0,\ \forall i<br>$$</p>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><strong>一个 $n \times n$ 矩阵正则 ⇔ 行列式非零 ⇔ 满秩 ⇔ 可逆 ⇔ 行&#x2F;列线性无关 ⇔ 齐次方程只有零解。</strong></p>
 <h2 id="7-线性相关和线性无关"><a href="#7-线性相关和线性无关" class="headerlink" title="7. 线性相关和线性无关"></a>7. 线性相关和线性无关</h2><p>在<strong>线性代数</strong>中，理解向量的线性相关性和无关性是判断一个向量组是否冗余、是否能构成基底（basis）或张成空间的关键。</p>
 <p><strong>定义</strong></p>
 <p>设有 $n$ 维向量空间中的向量组：</p>
-<script type="math/tex; mode=display">
-\{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k\}</script><p>我们考虑其是否满足以下关系：</p>
-<script type="math/tex; mode=display">
-c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_k \mathbf{v}_k = \mathbf{0}</script><p>其中 $c_1, c_2, \dots, c_k \in \mathbb{R}$（或 $\mathbb{C}$，取决于所在的向量空间）</p>
+<p>$$<br>{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_k}<br>$$</p>
+<p>我们考虑其是否满足以下关系：</p>
+<p>$$<br>c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_k \mathbf{v}_k &#x3D; \mathbf{0}<br>$$</p>
+<p>其中 $c_1, c_2, \dots, c_k \in \mathbb{R}$（或 $\mathbb{C}$，取决于所在的向量空间）</p>
 <hr>
 <h3 id="7-1-线性相关（Linearly-Dependent）"><a href="#7-1-线性相关（Linearly-Dependent）" class="headerlink" title="7.1 线性相关（Linearly Dependent）"></a><strong>7.1 线性相关（Linearly Dependent）</strong></h3><p>如果<strong>存在一组不全为零的系数</strong> $c_1, c_2, \dots, c_k$，使上述等式成立，即：</p>
-<script type="math/tex; mode=display">
-\exists\, c_i \ne 0,\ \text{使得} \ \sum_{i=1}^k c_i \mathbf{v}_i = \mathbf{0}</script><p>则称向量组<strong>线性相关</strong>。</p>
+<p>$$<br>\exists, c_i \ne 0,\ \text{使得} \ \sum_{i&#x3D;1}^k c_i \mathbf{v}_i &#x3D; \mathbf{0}<br>$$</p>
+<p>则称向量组<strong>线性相关</strong>。</p>
 <p>➡️ 直观理解：至少有一个向量可以用其他向量线性表示。</p>
 <hr>
 <h3 id="7-2-线性无关（Linearly-Independent）"><a href="#7-2-线性无关（Linearly-Independent）" class="headerlink" title="7.2 线性无关（Linearly Independent）"></a><strong>7.2 线性无关（Linearly Independent）</strong></h3><p>如果<strong>只有当所有系数都为零</strong>时上述等式才能成立：</p>
-<script type="math/tex; mode=display">
-c_1 = c_2 = \cdots = c_k = 0</script><p>则称该向量组<strong>线性无关</strong>。</p>
+<p>$$<br>c_1 &#x3D; c_2 &#x3D; \cdots &#x3D; c_k &#x3D; 0<br>$$</p>
+<p>则称该向量组<strong>线性无关</strong>。</p>
 <p>➡️ 直观理解：没有一个向量可以用其他向量线性组合得到。</p>
 <hr>
 <p><strong>线性相关例子：</strong></p>
-<script type="math/tex; mode=display">
-\mathbf{v}_1 = \begin{bmatrix}1\\\\2\\\\3\end{bmatrix},\quad
-\mathbf{v}_2 = \begin{bmatrix}2\\\\4\\\\6\end{bmatrix}</script><p>我们有：</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_2 = 2\mathbf{v}_1</script><p>所以它们<strong>线性相关</strong>，因为存在非零系数使得：</p>
-<script type="math/tex; mode=display">
--2\mathbf{v}_1 + \mathbf{v}_2 = \mathbf{0}</script><hr>
+<p>$$<br>\mathbf{v}_1 &#x3D; \begin{bmatrix}1\\2\\3\end{bmatrix},\quad<br>\mathbf{v}_2 &#x3D; \begin{bmatrix}2\\4\\6\end{bmatrix}<br>$$</p>
+<p>我们有：</p>
+<p>$$<br>\mathbf{v}_2 &#x3D; 2\mathbf{v}_1<br>$$</p>
+<p>所以它们<strong>线性相关</strong>，因为存在非零系数使得：</p>
+<p>$$<br>-2\mathbf{v}_1 + \mathbf{v}_2 &#x3D; \mathbf{0}<br>$$</p>
+<hr>
 <p><strong>线性无关例子：</strong></p>
-<script type="math/tex; mode=display">
-\mathbf{v}_1 = \begin{bmatrix}1\\\\0\\\\0\end{bmatrix},\quad
-\mathbf{v}_2 = \begin{bmatrix}0\\\\1\\\\0\end{bmatrix},\quad
-\mathbf{v}_3 = \begin{bmatrix}0\\\\0\\\\1\end{bmatrix}</script><p>标准正交基，它们线性无关，因为：</p>
-<script type="math/tex; mode=display">
-c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 = \mathbf{0} \Rightarrow c_1 = c_2 = c_3 = 0</script><hr>
+<p>$$<br>\mathbf{v}_1 &#x3D; \begin{bmatrix}1\\0\\0\end{bmatrix},\quad<br>\mathbf{v}_2 &#x3D; \begin{bmatrix}0\\1\\0\end{bmatrix},\quad<br>\mathbf{v}_3 &#x3D; \begin{bmatrix}0\\0\\1\end{bmatrix}<br>$$</p>
+<p>标准正交基，它们线性无关，因为：</p>
+<p>$$<br>c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 &#x3D; \mathbf{0} \Rightarrow c_1 &#x3D; c_2 &#x3D; c_3 &#x3D; 0<br>$$</p>
+<hr>
 <h3 id="7-3-等价条件总结"><a href="#7-3-等价条件总结" class="headerlink" title="7.3 等价条件总结"></a><strong>7.3 等价条件总结</strong></h3><p>一个向量组线性无关 ⇔ 下列任一条件成立：</p>
 <ul>
-<li><p>向量组组成的矩阵 $A$ 满秩（即 $\text{rank}(A) = k$）</p>
+<li><p>向量组组成的矩阵 $A$ 满秩（即 $\text{rank}(A) &#x3D; k$）</p>
 </li>
 <li><p>行列式非零（若是方阵）：</p>
-<script type="math/tex; mode=display">
-\det(A) \ne 0 \Rightarrow \text{列向量线性无关}</script></li>
+<p>$$<br>\det(A) \ne 0 \Rightarrow \text{列向量线性无关}<br>$$</p>
+</li>
 <li><p>对应齐次线性方程组只有零解：</p>
-<script type="math/tex; mode=display">
-A\mathbf{x} = \mathbf{0} \Rightarrow \mathbf{x} = \mathbf{0}</script></li>
+<p>$$<br>A\mathbf{x} &#x3D; \mathbf{0} \Rightarrow \mathbf{x} &#x3D; \mathbf{0}<br>$$</p>
+</li>
 </ul>
 <h2 id="8-Cramer-法则（Cramer’s-Rule）"><a href="#8-Cramer-法则（Cramer’s-Rule）" class="headerlink" title="8. Cramer 法则（Cramer’s Rule）"></a>8. Cramer 法则（Cramer’s Rule）</h2><p><strong>Cramer 法则</strong> 是一种求解<strong>线性方程组</strong>（特别是 $n$ 元 $n$ 次方程组）的方法，适用于系数矩阵可逆（即行列式非零）的情况。</p>
 <p><strong>✅ 适用前提</strong></p>
 <p>设有一个 $n$ 阶线性方程组：</p>
-<script type="math/tex; mode=display">
-A\mathbf{x} = \mathbf{b}</script><p>其中：</p>
+<p>$$<br>A\mathbf{x} &#x3D; \mathbf{b}<br>$$</p>
+<p>其中：</p>
 <ul>
 <li>$A$ 是一个 $n \times n$ 的<strong>系数矩阵</strong></li>
-<li>$\mathbf{x} = [x_1, x_2, \dots, x_n]^T$ 是<strong>未知向量</strong></li>
+<li>$\mathbf{x} &#x3D; [x_1, x_2, \dots, x_n]^T$ 是<strong>未知向量</strong></li>
 <li>$\mathbf{b}$ 是<strong>常数向量</strong></li>
 </ul>
 <p>如果：</p>
-<script type="math/tex; mode=display">
-\det(A) \ne 0</script><p>则该线性方程组有唯一解，且可以通过 Cramer 法则表示。</p>
+<p>$$<br>\det(A) \ne 0<br>$$</p>
+<p>则该线性方程组有唯一解，且可以通过 Cramer 法则表示。</p>
 <hr>
 <p><strong>📌 公式表达</strong></p>
 <p>设 $A_i$ 表示用向量 $\mathbf{b}$ 代替 $A$ 的第 $i$ 列后得到的矩阵。</p>
 <p>则未知量 $x_i$ 可表示为：</p>
-<script type="math/tex; mode=display">
-x_i = \frac{\det(A_i)}{\det(A)} \quad \text{for } i = 1, 2, \dots, n</script><hr>
+<p>$$<br>x_i &#x3D; \frac{\det(A_i)}{\det(A)} \quad \text{for } i &#x3D; 1, 2, \dots, n<br>$$</p>
+<hr>
 <p><strong>🧠 例子</strong></p>
 <p>解方程组：</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-2x + 3y = 8 \\\\
-5x - y = 9
-\end{cases}</script><ol>
+<p>$$<br>\begin{cases}<br>2x + 3y &#x3D; 8 \\<br>5x - y &#x3D; 9<br>\end{cases}<br>$$</p>
+<ol>
 <li>构造系数矩阵 $A$：</li>
 </ol>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-2 & 3 \\
-5 & -1
-\end{bmatrix},\quad
-\mathbf{b} = \begin{bmatrix}
-8 \\
-9
-\end{bmatrix}</script><ol>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 3 \<br>5 &amp; -1<br>\end{bmatrix},\quad<br>\mathbf{b} &#x3D; \begin{bmatrix}<br>8 \<br>9<br>\end{bmatrix}<br>$$</p>
+<ol start="2">
 <li>求 $\det(A)$：</li>
 </ol>
-<script type="math/tex; mode=display">
-\det(A) = 2 \cdot (-1) - 5 \cdot 3 = -2 - 15 = -17</script><ol>
+<p>$$<br>\det(A) &#x3D; 2 \cdot (-1) - 5 \cdot 3 &#x3D; -2 - 15 &#x3D; -17<br>$$</p>
+<ol start="3">
 <li>构造 $A_1$（用 $\mathbf{b}$ 替换第1列）：</li>
 </ol>
-<script type="math/tex; mode=display">
-A_1 = \begin{bmatrix}
-8 & 3 \\
-9 & -1
-\end{bmatrix},\quad
-\det(A_1) = 8 \cdot (-1) - 9 \cdot 3 = -8 - 27 = -35</script><ol>
+<p>$$<br>A_1 &#x3D; \begin{bmatrix}<br>8 &amp; 3 \<br>9 &amp; -1<br>\end{bmatrix},\quad<br>\det(A_1) &#x3D; 8 \cdot (-1) - 9 \cdot 3 &#x3D; -8 - 27 &#x3D; -35<br>$$</p>
+<ol start="4">
 <li>构造 $A_2$（用 $\mathbf{b}$ 替换第2列）：</li>
 </ol>
-<script type="math/tex; mode=display">
-A_2 = \begin{bmatrix}
-2 & 8 \\\\
-5 & 9
-\end{bmatrix},\quad
-\det(A_2) = 2 \cdot 9 - 5 \cdot 8 = 18 - 40 = -22</script><ol>
+<p>$$<br>A_2 &#x3D; \begin{bmatrix}<br>2 &amp; 8 \\<br>5 &amp; 9<br>\end{bmatrix},\quad<br>\det(A_2) &#x3D; 2 \cdot 9 - 5 \cdot 8 &#x3D; 18 - 40 &#x3D; -22<br>$$</p>
+<ol start="5">
 <li>求解：</li>
 </ol>
-<script type="math/tex; mode=display">
-x = \frac{\det(A_1)}{\det(A)} = \frac{-35}{-17} = \frac{35}{17},\quad
-y = \frac{\det(A_2)}{\det(A)} = \frac{-22}{-17} = \frac{22}{17}</script><p><strong>🧾 总结</strong></p>
+<p>$$<br>x &#x3D; \frac{\det(A_1)}{\det(A)} &#x3D; \frac{-35}{-17} &#x3D; \frac{35}{17},\quad<br>y &#x3D; \frac{\det(A_2)}{\det(A)} &#x3D; \frac{-22}{-17} &#x3D; \frac{22}{17}<br>$$</p>
+<p><strong>🧾 总结</strong></p>
 <ul>
 <li>Cramer 法则只能用于 <strong>系数矩阵 $A$ 是方阵且 $\det(A) \ne 0$</strong> 的情形。</li>
-<li>如果 $\det(A) = 0$，该方法不适用，需使用高斯消元法等其他方法。</li>
-<li>对于高维度的大型方程组，Cramer 法则计算效率低，适合手算/小规模问题。</li>
+<li>如果 $\det(A) &#x3D; 0$，该方法不适用，需使用高斯消元法等其他方法。</li>
+<li>对于高维度的大型方程组，Cramer 法则计算效率低，适合手算&#x2F;小规模问题。</li>
 </ul>
 <h2 id="9-正交矩阵（Orthogonal-Matrix）的性质总结"><a href="#9-正交矩阵（Orthogonal-Matrix）的性质总结" class="headerlink" title="9. 正交矩阵（Orthogonal Matrix）的性质总结"></a>9. 正交矩阵（Orthogonal Matrix）的性质总结</h2><p><strong>✅ 定义</strong></p>
 <p>一个 $n \times n$ 的实矩阵 $Q$ 被称为<strong>正交矩阵</strong>，当且仅当：</p>
-<script type="math/tex; mode=display">
-Q^T Q = QQ^T = I_n</script><p>这等价于：</p>
-<script type="math/tex; mode=display">
-Q^{-1} = Q^T</script><p><strong>📌 几何意义</strong></p>
+<p>$$<br>Q^T Q &#x3D; QQ^T &#x3D; I_n<br>$$</p>
+<p>这等价于：</p>
+<p>$$<br>Q^{-1} &#x3D; Q^T<br>$$</p>
+<p><strong>📌 几何意义</strong></p>
 <p>正交矩阵代表一种<strong>保持内积、长度、角度不变</strong>的线性变换，几何上对应：</p>
 <ul>
 <li><strong>旋转（rotation）</strong></li>
 <li><strong>反射（reflection）</strong></li>
 </ul>
 <p><strong>⭐ 常见性质</strong></p>
-<h3 id="9-1-转置等于逆："><a href="#9-1-转置等于逆：" class="headerlink" title="9.1. 转置等于逆："></a>9.1. <strong>转置等于逆：</strong></h3><script type="math/tex; mode=display">
-Q^{-1} = Q^T</script><p>这意味着求逆变得非常简单。</p>
+<h3 id="9-1-转置等于逆："><a href="#9-1-转置等于逆：" class="headerlink" title="9.1. 转置等于逆："></a>9.1. <strong>转置等于逆：</strong></h3><p>$$<br>Q^{-1} &#x3D; Q^T<br>$$</p>
+<p>这意味着求逆变得非常简单。</p>
 <hr>
 <h3 id="9-2-保持向量长度（范数）不变："><a href="#9-2-保持向量长度（范数）不变：" class="headerlink" title="9.2. 保持向量长度（范数）不变："></a>9.2. <strong>保持向量长度（范数）不变：</strong></h3><p>对任意列向量 $\mathbf{x}$：</p>
-<script type="math/tex; mode=display">
-\| Q\mathbf{x} \| = \| \mathbf{x} \|</script><hr>
-<h3 id="9-3-保持内积不变："><a href="#9-3-保持内积不变：" class="headerlink" title="9.3. 保持内积不变："></a>9.3. <strong>保持内积不变：</strong></h3><p>对任意两个列向量 $\mathbf{x}, \mathbf{y}$：</p>
-<script type="math/tex; mode=display">
-\langle Q\mathbf{x}, Q\mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle</script><p>即保持角度不变。</p>
+<p>$$<br>| Q\mathbf{x} | &#x3D; | \mathbf{x} |<br>$$</p>
 <hr>
-<h3 id="9-4-列向量-行向量正交归一："><a href="#9-4-列向量-行向量正交归一：" class="headerlink" title="9.4. 列向量/行向量正交归一："></a>9.4. <strong>列向量/行向量正交归一：</strong></h3><p>矩阵 $Q$ 的列向量是标准正交组：</p>
-<script type="math/tex; mode=display">
-\mathbf{q}_i^T \mathbf{q}_j = \begin{cases}
-1 & i = j \\
-0 & i \ne j
-\end{cases}</script><hr>
-<h3 id="9-5-行列式为-±1："><a href="#9-5-行列式为-±1：" class="headerlink" title="9.5. 行列式为 ±1："></a>9.5. <strong>行列式为 ±1：</strong></h3><script type="math/tex; mode=display">
-\det(Q) = \pm 1</script><ul>
-<li>$\det(Q) = 1$ 表示纯旋转</li>
-<li>$\det(Q) = -1$ 表示反射变换（如镜像）</li>
+<h3 id="9-3-保持内积不变："><a href="#9-3-保持内积不变：" class="headerlink" title="9.3. 保持内积不变："></a>9.3. <strong>保持内积不变：</strong></h3><p>对任意两个列向量 $\mathbf{x}, \mathbf{y}$：</p>
+<p>$$<br>\langle Q\mathbf{x}, Q\mathbf{y} \rangle &#x3D; \langle \mathbf{x}, \mathbf{y} \rangle<br>$$</p>
+<p>即保持角度不变。</p>
+<hr>
+<h3 id="9-4-列向量-行向量正交归一："><a href="#9-4-列向量-行向量正交归一：" class="headerlink" title="9.4. 列向量&#x2F;行向量正交归一："></a>9.4. <strong>列向量&#x2F;行向量正交归一：</strong></h3><p>矩阵 $Q$ 的列向量是标准正交组：</p>
+<p>$$<br>\mathbf{q}_i^T \mathbf{q}_j &#x3D; \begin{cases}<br>1 &amp; i &#x3D; j \<br>0 &amp; i \ne j<br>\end{cases}<br>$$</p>
+<hr>
+<h3 id="9-5-行列式为-±1："><a href="#9-5-行列式为-±1：" class="headerlink" title="9.5. 行列式为 ±1："></a>9.5. <strong>行列式为 ±1：</strong></h3><p>$$<br>\det(Q) &#x3D; \pm 1<br>$$</p>
+<ul>
+<li>$\det(Q) &#x3D; 1$ 表示纯旋转</li>
+<li>$\det(Q) &#x3D; -1$ 表示反射变换（如镜像）</li>
 </ul>
 <hr>
 <h3 id="9-6-正交矩阵的乘积仍为正交矩阵："><a href="#9-6-正交矩阵的乘积仍为正交矩阵：" class="headerlink" title="9.6. 正交矩阵的乘积仍为正交矩阵："></a>9.6. <strong>正交矩阵的乘积仍为正交矩阵：</strong></h3><p>若 $Q_1, Q_2$ 均为正交矩阵，则：</p>
-<script type="math/tex; mode=display">
-Q = Q_1 Q_2 \quad \Rightarrow \quad Q \text{ 也是正交矩阵}</script><hr>
+<p>$$<br>Q &#x3D; Q_1 Q_2 \quad \Rightarrow \quad Q \text{ 也是正交矩阵}<br>$$</p>
+<hr>
 <h3 id="9-7-特征值性质："><a href="#9-7-特征值性质：" class="headerlink" title="9.7. 特征值性质："></a>9.7. <strong>特征值性质：</strong></h3><p>正交矩阵的特征值满足：</p>
 <ul>
-<li>模长为 1（即 $|\lambda| = 1$）</li>
+<li>模长为 1（即 $|\lambda| &#x3D; 1$）</li>
 <li>可能是复数（例如二维旋转矩阵的特征值为 $e^{\pm i\theta}$）</li>
 </ul>
 <hr>
-<h3 id="9-8-正交矩阵是酉矩阵的实数特例："><a href="#9-8-正交矩阵是酉矩阵的实数特例：" class="headerlink" title="9.8. 正交矩阵是酉矩阵的实数特例："></a>9.8. <strong>正交矩阵是酉矩阵的实数特例：</strong></h3><p>酉矩阵（Unitary Matrix）满足 $U^<em> U = I$（$U^</em>$ 是共轭转置），正交矩阵是所有元素为实数时的特例。</p>
+<h3 id="9-8-正交矩阵是酉矩阵的实数特例："><a href="#9-8-正交矩阵是酉矩阵的实数特例：" class="headerlink" title="9.8. 正交矩阵是酉矩阵的实数特例："></a>9.8. <strong>正交矩阵是酉矩阵的实数特例：</strong></h3><p>酉矩阵（Unitary Matrix）满足 $U^* U &#x3D; I$（$U^*$ 是共轭转置），正交矩阵是所有元素为实数时的特例。</p>
 <h2 id="10-Schmidt-正交化（Gram-Schmidt-Orthogonalization）"><a href="#10-Schmidt-正交化（Gram-Schmidt-Orthogonalization）" class="headerlink" title="10. Schmidt 正交化（Gram-Schmidt Orthogonalization）"></a>10. Schmidt 正交化（Gram-Schmidt Orthogonalization）</h2><p><strong>Gram-Schmidt 正交化</strong>是一种将一组线性无关的向量，构造为一组 <strong>正交</strong> 或 <strong>标准正交（单位正交）</strong> 向量的方法，常用于：</p>
 <ul>
 <li>求正交（单位正交）基底</li>
@@ -778,74 +699,64 @@ Q = Q_1 Q_2 \quad \Rightarrow \quad Q \text{ 也是正交矩阵}</script><hr>
 </ul>
 <p>✅ 输入条件</p>
 <p>设有一组线性无关的向量组：</p>
-<script type="math/tex; mode=display">
-\{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n\}</script><p>目标是构造出一组正交向量组：</p>
-<script type="math/tex; mode=display">
-\{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n\}</script><p>使得：</p>
-<script type="math/tex; mode=display">
-\text{span}(\mathbf{v}_1, \dots, \mathbf{v}_k) = \text{span}(\mathbf{u}_1, \dots, \mathbf{u}_k),\quad \text{且 } \langle \mathbf{u}_i, \mathbf{u}_j \rangle = 0\ (i \ne j)</script><p><strong>🧠 正交化步骤（原始版）</strong></p>
+<p>$$<br>{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n}<br>$$</p>
+<p>目标是构造出一组正交向量组：</p>
+<p>$$<br>{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n}<br>$$</p>
+<p>使得：</p>
+<p>$$<br>\text{span}(\mathbf{v}_1, \dots, \mathbf{v}_k) &#x3D; \text{span}(\mathbf{u}_1, \dots, \mathbf{u}_k),\quad \text{且 } \langle \mathbf{u}_i, \mathbf{u}_j \rangle &#x3D; 0\ (i \ne j)<br>$$</p>
+<p><strong>🧠 正交化步骤（原始版）</strong></p>
 <ol>
 <li>第一个向量直接取：</li>
 </ol>
-<script type="math/tex; mode=display">
-\mathbf{u}_1 = \mathbf{v}_1</script><ol>
+<p>$$<br>\mathbf{u}_1 &#x3D; \mathbf{v}_1<br>$$</p>
+<ol start="2">
 <li>之后每一步都从当前向量中<strong>减去它在前面所有正交向量上的投影</strong>：</li>
 </ol>
 <p>向量在 $\mathbf{u}_j$ 上的投影定义为：</p>
-<script type="math/tex; mode=display">
-\mathrm{proj}_{\mathbf{u}_j}(\mathbf{v}_k) = \frac{\langle \mathbf{v}_k, \mathbf{u}_j \rangle}{\langle \mathbf{u}_j, \mathbf{u}_j \rangle} \mathbf{u}_j</script><p><strong>✨ 若要单位正交（正交归一化）</strong></p>
+<p>$$<br>\mathrm{proj}_{\mathbf{u}_j}(\mathbf{v}_k) &#x3D; \frac{\langle \mathbf{v}_k, \mathbf{u}_j \rangle}{\langle \mathbf{u}_j, \mathbf{u}_j \rangle} \mathbf{u}_j<br>$$</p>
+<p><strong>✨ 若要单位正交（正交归一化）</strong></p>
 <p>定义：</p>
-<script type="math/tex; mode=display">
-\mathbf{e}_k = \frac{\mathbf{u}_k}{\|\mathbf{u}_k\|}</script><p>📌 二维实例</p>
+<p>$$<br>\mathbf{e}_k &#x3D; \frac{\mathbf{u}_k}{|\mathbf{u}_k|}<br>$$</p>
+<p>📌 二维实例</p>
 <p>设：</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_1 = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix},\quad
-\mathbf{v}_2 = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}</script><p>步骤如下：</p>
+<p>$$<br>\mathbf{v}_1 &#x3D; \begin{bmatrix} 1 \\ 1 \end{bmatrix},\quad<br>\mathbf{v}_2 &#x3D; \begin{bmatrix} 1 \\ 0 \end{bmatrix}<br>$$</p>
+<p>步骤如下：</p>
 <ul>
 <li>第一步：</li>
 </ul>
-<script type="math/tex; mode=display">
-  \mathbf{u}_1 = \mathbf{v}_1 = \begin{bmatrix}1\\\\1\end{bmatrix}</script><ul>
+<p>$$<br>  \mathbf{u}_1 &#x3D; \mathbf{v}_1 &#x3D; \begin{bmatrix}1\\1\end{bmatrix}<br>$$</p>
+<ul>
 <li><p>若归一化：</p>
-<script type="math/tex; mode=display">
-\mathbf{e}_1 = \frac{1}{\sqrt{2}} \begin{bmatrix}1\\\\1\end{bmatrix},\quad
-\mathbf{e}_2 = \frac{1}{\sqrt{2}} \begin{bmatrix}1\\\\-1\end{bmatrix}</script></li>
+<p>$$<br>\mathbf{e}_1 &#x3D; \frac{1}{\sqrt{2}} \begin{bmatrix}1\\1\end{bmatrix},\quad<br>\mathbf{e}_2 &#x3D; \frac{1}{\sqrt{2}} \begin{bmatrix}1\\-1\end{bmatrix}<br>$$</p>
+</li>
 </ul>
 <h3 id="10-1-🎯-示例：三个向量的-Gram-Schmidt-正交化"><a href="#10-1-🎯-示例：三个向量的-Gram-Schmidt-正交化" class="headerlink" title="10.1 🎯 示例：三个向量的 Gram-Schmidt 正交化"></a>10.1 🎯 示例：三个向量的 Gram-Schmidt 正交化</h3><p>设向量组：</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_1 = \begin{bmatrix}1\\\\1\\\\0\end{bmatrix},\quad
-\mathbf{v}_2 = \begin{bmatrix}1\\\\0\\\\1\end{bmatrix},\quad
-\mathbf{v}_3 = \begin{bmatrix}0\\\\1\\\\1\end{bmatrix}</script><p>我们的目标是构造出一组<strong>正交向量</strong> ${\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3}$。</p>
+<p>$$<br>\mathbf{v}_1 &#x3D; \begin{bmatrix}1\\1\\0\end{bmatrix},\quad<br>\mathbf{v}_2 &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix},\quad<br>\mathbf{v}_3 &#x3D; \begin{bmatrix}0\\1\\1\end{bmatrix}<br>$$</p>
+<p>我们的目标是构造出一组<strong>正交向量</strong> ${\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3}$。</p>
 <p>✅ Step 1: 第一个向量直接取</p>
-<script type="math/tex; mode=display">
-\mathbf{u}_1 = \mathbf{v}_1 = \begin{bmatrix}1\\\\1\\\\0\end{bmatrix}</script><p> ✅ Step 2: 计算 $\mathbf{u}_2$</p>
+<p>$$<br>\mathbf{u}_1 &#x3D; \mathbf{v}_1 &#x3D; \begin{bmatrix}1\\1\\0\end{bmatrix}<br>$$</p>
+<p> ✅ Step 2: 计算 $\mathbf{u}_2$</p>
 <p>首先计算投影：</p>
-<script type="math/tex; mode=display">
-\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_2)
-= \frac{\langle \mathbf{v}_2, \mathbf{u}_1 \rangle}{\langle \mathbf{u}_1, \mathbf{u}_1 \rangle} \mathbf{u}_1</script><p>内积：</p>
-<script type="math/tex; mode=display">
-\langle \mathbf{v}_2, \mathbf{u}_1 \rangle = 1 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 = 1 \\\\
-\langle \mathbf{u}_1, \mathbf{u}_1 \rangle = 1^2 + 1^2 + 0^2 = 2</script><p>所以：</p>
-<script type="math/tex; mode=display">
-\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_2) = \frac{1}{2} \begin{bmatrix}1\\\\1\\\\0\end{bmatrix} = \begin{bmatrix}0.5\\\\0.5\\\\0\end{bmatrix}</script><p>✅ Step 3: 计算 $\mathbf{u}_3$</p>
+<p>$$<br>\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_2)<br>&#x3D; \frac{\langle \mathbf{v}_2, \mathbf{u}_1 \rangle}{\langle \mathbf{u}_1, \mathbf{u}_1 \rangle} \mathbf{u}_1<br>$$</p>
+<p>内积：</p>
+<p>$$<br>\langle \mathbf{v}_2, \mathbf{u}_1 \rangle &#x3D; 1 \cdot 1 + 0 \cdot 1 + 1 \cdot 0 &#x3D; 1 \\<br>\langle \mathbf{u}_1, \mathbf{u}_1 \rangle &#x3D; 1^2 + 1^2 + 0^2 &#x3D; 2<br>$$</p>
+<p>所以：</p>
+<p>$$<br>\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_2) &#x3D; \frac{1}{2} \begin{bmatrix}1\\1\\0\end{bmatrix} &#x3D; \begin{bmatrix}0.5\\0.5\\0\end{bmatrix}<br>$$</p>
+<p>✅ Step 3: 计算 $\mathbf{u}_3$</p>
 <p>先计算 $\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_3)$：</p>
-<script type="math/tex; mode=display">
-\langle \mathbf{v}_3, \mathbf{u}_1 \rangle = 0 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 = 1 \\\\
-\langle \mathbf{u}_1, \mathbf{u}_1 \rangle = 2</script><script type="math/tex; mode=display">
-\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_3) = \frac{1}{2} \begin{bmatrix}1\\\\1\\\\0\end{bmatrix} = \begin{bmatrix}0.5\\\\0.5\\\\0\end{bmatrix}</script><p>再计算 $\mathrm{proj}_{\mathbf{u}_2}(\mathbf{v}_3)$：</p>
-<script type="math/tex; mode=display">
-\langle \mathbf{v}_3, \mathbf{u}_2 \rangle = 0.5 \cdot 0 + (-0.5) \cdot 1 + 1 \cdot 1 = -0.5 + 1 = 0.5 \\\\
-\langle \mathbf{u}_2, \mathbf{u}_2 \rangle = 0.5^2 + (-0.5)^2 + 1^2 = 0.25 + 0.25 + 1 = 1.5</script><script type="math/tex; mode=display">
-\mathrm{proj}_{\mathbf{u}_2}(\mathbf{v}_3) = \frac{0.5}{1.5} \begin{bmatrix}0.5\\\\-0.5\\\\1\end{bmatrix} = \frac{1}{3} \begin{bmatrix}0.5\\\\-0.5\\\\1\end{bmatrix} = \begin{bmatrix}\frac{1}{6}\\\\-\frac{1}{6}\\\\\frac{1}{3}\end{bmatrix}</script><p>✅ 最终正交向量组</p>
-<script type="math/tex; mode=display">
-\mathbf{u}_1 = \begin{bmatrix}1\\\\1\\\\0\end{bmatrix},\quad
-\mathbf{u}_2 = \begin{bmatrix}0.5\\\\-0.5\\\\1\end{bmatrix},\quad
-\mathbf{u}_3 = \begin{bmatrix}-\frac{2}{3}\\\\\frac{2}{3}\\\\\frac{2}{3}\end{bmatrix}</script><p>也可以将它们归一化（单位化）得到<strong>标准正交基</strong>。</p>
+<p>$$<br>\langle \mathbf{v}_3, \mathbf{u}_1 \rangle &#x3D; 0 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 &#x3D; 1 \\<br>\langle \mathbf{u}_1, \mathbf{u}_1 \rangle &#x3D; 2<br>$$</p>
+<p>$$<br>\mathrm{proj}_{\mathbf{u}_1}(\mathbf{v}_3) &#x3D; \frac{1}{2} \begin{bmatrix}1\\1\\0\end{bmatrix} &#x3D; \begin{bmatrix}0.5\\0.5\\0\end{bmatrix}<br>$$</p>
+<p>再计算 $\mathrm{proj}_{\mathbf{u}_2}(\mathbf{v}_3)$：</p>
+<p>$$<br>\langle \mathbf{v}_3, \mathbf{u}_2 \rangle &#x3D; 0.5 \cdot 0 + (-0.5) \cdot 1 + 1 \cdot 1 &#x3D; -0.5 + 1 &#x3D; 0.5 \\<br>\langle \mathbf{u}_2, \mathbf{u}_2 \rangle &#x3D; 0.5^2 + (-0.5)^2 + 1^2 &#x3D; 0.25 + 0.25 + 1 &#x3D; 1.5<br>$$</p>
+<p>$$<br>\mathrm{proj}_{\mathbf{u}_2}(\mathbf{v}_3) &#x3D; \frac{0.5}{1.5} \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix} &#x3D; \frac{1}{3} \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix} &#x3D; \begin{bmatrix}\frac{1}{6}\\-\frac{1}{6}\\\frac{1}{3}\end{bmatrix}<br>$$</p>
+<p>✅ 最终正交向量组</p>
+<p>$$<br>\mathbf{u}_1 &#x3D; \begin{bmatrix}1\\1\\0\end{bmatrix},\quad<br>\mathbf{u}_2 &#x3D; \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix},\quad<br>\mathbf{u}_3 &#x3D; \begin{bmatrix}-\frac{2}{3}\\\frac{2}{3}\\\frac{2}{3}\end{bmatrix}<br>$$</p>
+<p>也可以将它们归一化（单位化）得到<strong>标准正交基</strong>。</p>
 <h2 id="11-QR-分解（QR-Decomposition）"><a href="#11-QR-分解（QR-Decomposition）" class="headerlink" title="11. QR 分解（QR Decomposition）"></a>11. QR 分解（QR Decomposition）</h2><p><strong>QR 分解</strong>是将一个实矩阵 $A$ 分解成两个矩阵的乘积：</p>
-<script type="math/tex; mode=display">
-A = QR</script><p>其中：</p>
+<p>$$<br>A &#x3D; QR<br>$$</p>
+<p>其中：</p>
 <ul>
-<li>$Q$ 是一个 <strong>正交矩阵</strong>（列向量正交且单位长度，$Q^T Q = I$）</li>
+<li>$Q$ 是一个 <strong>正交矩阵</strong>（列向量正交且单位长度，$Q^T Q &#x3D; I$）</li>
 <li>$R$ 是一个 <strong>上三角矩阵</strong></li>
 </ul>
 <p><strong>✅ 适用范围</strong></p>
@@ -862,42 +773,28 @@ A = QR</script><p>其中：</p>
 <p>几何上，QR 分解提供了一种将向量分解为<strong>正交基的线性组合</strong>的方式。</p>
 <p><strong>🧪 举例</strong></p>
 <p>设矩阵：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-1 & 1 \\\\
-1 & 0 \\\\
-0 & 1
-\end{bmatrix}</script><p>我们使用 <strong>Gram-Schmidt 正交化</strong> 对 $A$ 的列向量进行处理。</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>1 &amp; 1 \\<br>1 &amp; 0 \\<br>0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>我们使用 <strong>Gram-Schmidt 正交化</strong> 对 $A$ 的列向量进行处理。</p>
 <p><strong>✅ Step 1: 拆分列向量</strong></p>
-<p>记 $A = [\mathbf{a}_1\ \mathbf{a}_2]$：</p>
-<script type="math/tex; mode=display">
-\mathbf{a}_1 = \begin{bmatrix}1\\\\1\\\\0\end{bmatrix},\quad
-\mathbf{a}_2 = \begin{bmatrix}1\\\\0\\\\1\end{bmatrix}</script><p><strong>✅ Step 2: Gram-Schmidt 正交化</strong></p>
-<p>$\mathbf{u}_1 = \mathbf{a}_1$</p>
+<p>记 $A &#x3D; [\mathbf{a}_1\ \mathbf{a}_2]$：</p>
+<p>$$<br>\mathbf{a}_1 &#x3D; \begin{bmatrix}1\\1\\0\end{bmatrix},\quad<br>\mathbf{a}_2 &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix}<br>$$</p>
+<p><strong>✅ Step 2: Gram-Schmidt 正交化</strong></p>
+<p>$\mathbf{u}_1 &#x3D; \mathbf{a}_1$</p>
 <p>单位化得 $\mathbf{q}_1$：</p>
-<script type="math/tex; mode=display">
-  \|\mathbf{u}_1\| = \sqrt{1^2 + 1^2 + 0^2} = \sqrt{2},\quad
-  \mathbf{q}_1 = \frac{1}{\sqrt{2}} \begin{bmatrix}1\\\\1\\\\0\end{bmatrix}</script><p>投影：</p>
-<script type="math/tex; mode=display">
-  \mathrm{proj}_{\mathbf{q}_1}(\mathbf{a}_2) = \langle \mathbf{a}_2, \mathbf{q}_1 \rangle \cdot \mathbf{q}_1
-  = \left( \frac{1 \cdot 1 + 0 \cdot 1 + 1 \cdot 0}{\sqrt{2}} \right) \cdot \mathbf{q}_1
-  = \frac{1}{\sqrt{2}} \cdot \mathbf{q}_1</script><script type="math/tex; mode=display">
-  \mathbf{u}_2 = \begin{bmatrix}1\\\\0\\\\1\end{bmatrix} - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} \begin{bmatrix}1\\\\1\\\\0\end{bmatrix}
-  = \begin{bmatrix}1\\\\0\\\\1\end{bmatrix} - \frac{1}{2} \begin{bmatrix}1\\\\1\\\\0\end{bmatrix}
-  = \begin{bmatrix}0.5\\\\-0.5\\\\1\end{bmatrix}</script><p>单位化 $\mathbf{u}_2$ 得 $\mathbf{q}_2$：</p>
-<script type="math/tex; mode=display">
-  \|\mathbf{u}_2\| = \sqrt{0.5^2 + (-0.5)^2 + 1^2} = \sqrt{1.5}</script><script type="math/tex; mode=display">
-  \mathbf{q}_2 = \frac{1}{\sqrt{1.5}} \begin{bmatrix}0.5\\\\-0.5\\\\1\end{bmatrix}</script><p><strong>✅ Step 3: 得到 $Q$ 与 $R$</strong></p>
-<p>$Q = [\mathbf{q}_1\ \mathbf{q}_2]$</p>
+<p>$$<br>  |\mathbf{u}_1| &#x3D; \sqrt{1^2 + 1^2 + 0^2} &#x3D; \sqrt{2},\quad<br>  \mathbf{q}_1 &#x3D; \frac{1}{\sqrt{2}} \begin{bmatrix}1\\1\\0\end{bmatrix}<br>$$</p>
+<p>投影：</p>
+<p>$$<br>  \mathrm{proj}_{\mathbf{q}_1}(\mathbf{a}_2) &#x3D; \langle \mathbf{a}_2, \mathbf{q}_1 \rangle \cdot \mathbf{q}_1<br>  &#x3D; \left( \frac{1 \cdot 1 + 0 \cdot 1 + 1 \cdot 0}{\sqrt{2}} \right) \cdot \mathbf{q}_1<br>  &#x3D; \frac{1}{\sqrt{2}} \cdot \mathbf{q}_1<br>$$</p>
+<p>$$<br>  \mathbf{u}_2 &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix} - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} \begin{bmatrix}1\\1\\0\end{bmatrix}<br>  &#x3D; \begin{bmatrix}1\\0\\1\end{bmatrix} - \frac{1}{2} \begin{bmatrix}1\\1\\0\end{bmatrix}<br>  &#x3D; \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix}<br>$$</p>
+<p>单位化 $\mathbf{u}_2$ 得 $\mathbf{q}_2$：</p>
+<p>$$<br>  |\mathbf{u}_2| &#x3D; \sqrt{0.5^2 + (-0.5)^2 + 1^2} &#x3D; \sqrt{1.5}<br>$$</p>
+<p>$$<br>  \mathbf{q}_2 &#x3D; \frac{1}{\sqrt{1.5}} \begin{bmatrix}0.5\\-0.5\\1\end{bmatrix}<br>$$</p>
+<p><strong>✅ Step 3: 得到 $Q$ 与 $R$</strong></p>
+<p>$Q &#x3D; [\mathbf{q}_1\ \mathbf{q}_2]$</p>
 <p>$R$ 是：</p>
-<script type="math/tex; mode=display">
-  R = \begin{bmatrix}
-  \langle \mathbf{a}_1, \mathbf{q}_1 \rangle & \langle \mathbf{a}_2, \mathbf{q}_1 \rangle \\\\
-  0 & \langle \mathbf{a}_2, \mathbf{q}_2 \rangle
-  \end{bmatrix}</script><p>你可以验证：</p>
-<script type="math/tex; mode=display">
-A = QR</script><p>🧾 QR 分解的应用</p>
-<div class="table-container">
+<p>  $$<br>  R &#x3D; \begin{bmatrix}<br>  \langle \mathbf{a}_1, \mathbf{q}_1 \rangle &amp; \langle \mathbf{a}_2, \mathbf{q}_1 \rangle \\<br>  0 &amp; \langle \mathbf{a}_2, \mathbf{q}_2 \rangle<br>  \end{bmatrix}<br>  $$</p>
+<p>你可以验证：</p>
+<p>$$<br>A &#x3D; QR<br>$$</p>
+<p>🧾 QR 分解的应用</p>
 <table>
 <thead>
 <tr>
@@ -905,8 +802,7 @@ A = QR</script><p>🧾 QR 分解的应用</p>
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>解线性方程组</td>
 <td>特别是在最小二乘问题中 $Ax \approx b$</td>
 </tr>
@@ -918,12 +814,10 @@ A = QR</script><p>🧾 QR 分解的应用</p>
 <td>稳定的矩阵分解</td>
 <td>相较于直接求逆，QR 更稳定、适合数值计算</td>
 </tr>
-</tbody>
-</table>
-</div>
-<h2 id="12-平面三角形的中点公式-重心公式"><a href="#12-平面三角形的中点公式-重心公式" class="headerlink" title="12. 平面三角形的中点公式 / 重心公式"></a>12. 平面三角形的中点公式 / 重心公式</h2><h3 id="一、中点公式（Midpoint-Formula）"><a href="#一、中点公式（Midpoint-Formula）" class="headerlink" title="一、中点公式（Midpoint Formula）"></a>一、中点公式（Midpoint Formula）</h3><p>对于二维平面上的两个点 $A(x_1, y_1)$ 和 $B(x_2, y_2)$，线段 $AB$ 的<strong>中点</strong> $M$ 的坐标是：</p>
-<script type="math/tex; mode=display">
-M = \left( \frac{x_1 + x_2}{2},\ \frac{y_1 + y_2}{2} \right)</script><p>这个公式的意思是：中点的坐标就是两个端点坐标的平均值。</p>
+</tbody></table>
+<h2 id="12-平面三角形的中点公式-重心公式"><a href="#12-平面三角形的中点公式-重心公式" class="headerlink" title="12. 平面三角形的中点公式 &#x2F; 重心公式"></a>12. 平面三角形的中点公式 &#x2F; 重心公式</h2><h3 id="一、中点公式（Midpoint-Formula）"><a href="#一、中点公式（Midpoint-Formula）" class="headerlink" title="一、中点公式（Midpoint Formula）"></a>一、中点公式（Midpoint Formula）</h3><p>对于二维平面上的两个点 $A(x_1, y_1)$ 和 $B(x_2, y_2)$，线段 $AB$ 的<strong>中点</strong> $M$ 的坐标是：</p>
+<p>$$<br>M &#x3D; \left( \frac{x_1 + x_2}{2},\ \frac{y_1 + y_2}{2} \right)<br>$$</p>
+<p>这个公式的意思是：中点的坐标就是两个端点坐标的平均值。</p>
 <hr>
 <h3 id="二、重心公式（Centroid-of-a-Triangle）"><a href="#二、重心公式（Centroid-of-a-Triangle）" class="headerlink" title="二、重心公式（Centroid of a Triangle）"></a>二、重心公式（Centroid of a Triangle）</h3><p>对于一个三角形，设三个顶点为：</p>
 <ul>
@@ -932,8 +826,8 @@ M = \left( \frac{x_1 + x_2}{2},\ \frac{y_1 + y_2}{2} \right)</script><p>这个�
 <li>$C(x_3, y_3)$</li>
 </ul>
 <p>这个三角形的<strong>重心</strong>（也叫质心、形心）$G$ 的坐标是：</p>
-<script type="math/tex; mode=display">
-G = \left( \frac{x_1 + x_2 + x_3}{3},\ \frac{y_1 + y_2 + y_3}{3} \right)</script><p>也就是三角形三个顶点坐标的<strong>平均值</strong>。</p>
+<p>$$<br>G &#x3D; \left( \frac{x_1 + x_2 + x_3}{3},\ \frac{y_1 + y_2 + y_3}{3} \right)<br>$$</p>
+<p>也就是三角形三个顶点坐标的<strong>平均值</strong>。</p>
 <p><strong>🚩 重心的性质：</strong></p>
 <ol>
 <li>重心是三角形三条<strong>中线</strong>的交点。</li>
@@ -948,120 +842,100 @@ G = \left( \frac{x_1 + x_2 + x_3}{3},\ \frac{y_1 + y_2 + y_3}{3} \right)</script
 <li>$C(7, 1)$</li>
 </ul>
 <p>那么重心 $G$ 的坐标为：</p>
-<script type="math/tex; mode=display">
-G = \left( \frac{1+4+7}{3},\ \frac{2+5+1}{3} \right) = \left( \frac{12}{3},\ \frac{8}{3} \right) = (4,\ \frac{8}{3})</script><h2 id="13-外积（叉积）"><a href="#13-外积（叉积）" class="headerlink" title="13. 外积（叉积）"></a>13. 外积（叉积）</h2><p>外积（<strong>叉积</strong>，Cross Product）是指<strong>三维空间中两个向量相乘</strong>得到一个<strong>垂直于这两个向量的向量</strong>。</p>
+<p>$$<br>G &#x3D; \left( \frac{1+4+7}{3},\ \frac{2+5+1}{3} \right) &#x3D; \left( \frac{12}{3},\ \frac{8}{3} \right) &#x3D; (4,\ \frac{8}{3})<br>$$</p>
+<h2 id="13-外积（叉积）"><a href="#13-外积（叉积）" class="headerlink" title="13. 外积（叉积）"></a>13. 外积（叉积）</h2><p>外积（<strong>叉积</strong>，Cross Product）是指<strong>三维空间中两个向量相乘</strong>得到一个<strong>垂直于这两个向量的向量</strong>。</p>
 <ul>
 <li><p>设 $\vec{a}$ 和 $\vec{b}$ 是两个三维向量，它们的外积记作：</p>
-<script type="math/tex; mode=display">
-\vec{a} \times \vec{b}</script></li>
+<p>$$<br>\vec{a} \times \vec{b}<br>$$</p>
+</li>
 <li><p>运算结果是一个<strong>向量</strong>，其方向由<strong>右手定则</strong>决定，大小为：</p>
-<script type="math/tex; mode=display">
-|\vec{a} \times \vec{b}| = |\vec{a}| \cdot |\vec{b}| \cdot \sin \theta</script><p>其中 $\theta$ 是两个向量之间的夹角。</p>
+<p>$$<br>|\vec{a} \times \vec{b}| &#x3D; |\vec{a}| \cdot |\vec{b}| \cdot \sin \theta<br>$$</p>
+<p>其中 $\theta$ 是两个向量之间的夹角。</p>
 </li>
 </ul>
 <h3 id="13-1-三维空间两向量的外积公式"><a href="#13-1-三维空间两向量的外积公式" class="headerlink" title="13.1 三维空间两向量的外积公式"></a>13.1 三维空间两向量的外积公式</h3><p>设：</p>
-<script type="math/tex; mode=display">
-\vec{a} = (a_1, a_2, a_3),\quad \vec{b} = (b_1, b_2, b_3)</script><p>则它们的外积为：</p>
-<script type="math/tex; mode=display">
-\vec{a} \times \vec{b} = 
-\begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\\\
-a_1 & a_2 & a_3 \\\\
-b_1 & b_2 & b_3
-\end{vmatrix}
-= \left( a_2 b_3 - a_3 b_2,\ a_3 b_1 - a_1 b_3,\ a_1 b_2 - a_2 b_1 \right)</script><h3 id="13-2-外积的演算性质"><a href="#13-2-外积的演算性质" class="headerlink" title="13.2 外积的演算性质"></a>13.2 外积的演算性质</h3><p>📌 1. 反交换性（反对称性）</p>
-<script type="math/tex; mode=display">
-\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})</script><p>📌 2. 与自身的外积为零</p>
-<script type="math/tex; mode=display">
-\vec{a} \times \vec{a} = \vec{0}</script><p>📌 3. 分配律</p>
-<script type="math/tex; mode=display">
-\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}</script><p>📌 4. 数乘结合性</p>
-<script type="math/tex; mode=display">
-(k\vec{a}) \times \vec{b} = k(\vec{a} \times \vec{b}) = \vec{a} \times (k\vec{b})</script><p>📌 5. 外积垂直于两个原向量</p>
-<script type="math/tex; mode=display">
-\vec{a} \cdot (\vec{a} \times \vec{b}) = 0,\quad \vec{b} \cdot (\vec{a} \times \vec{b}) = 0</script><h4 id="✅-1-向量-vec-a-times-vec-b-的方向："><a href="#✅-1-向量-vec-a-times-vec-b-的方向：" class="headerlink" title="✅ 1. 向量 $\vec{a} \times \vec{b}$ 的方向："></a>✅ 1. 向量 $\vec{a} \times \vec{b}$ 的<strong>方向</strong>：</h4><p>由<strong>右手定则</strong>决定：用右手四指从 $\vec{a}$ 指向 $\vec{b}$，大拇指所指方向就是 $\vec{a} \times \vec{b}$ 的方向。</p>
+<p>$$<br>\vec{a} &#x3D; (a_1, a_2, a_3),\quad \vec{b} &#x3D; (b_1, b_2, b_3)<br>$$</p>
+<p>则它们的外积为：</p>
+<p>$$<br>\vec{a} \times \vec{b} &#x3D;<br>\begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>a_1 &amp; a_2 &amp; a_3 \\<br>b_1 &amp; b_2 &amp; b_3<br>\end{vmatrix}<br>&#x3D; \left( a_2 b_3 - a_3 b_2,\ a_3 b_1 - a_1 b_3,\ a_1 b_2 - a_2 b_1 \right)<br>$$</p>
+<h3 id="13-2-外积的演算性质"><a href="#13-2-外积的演算性质" class="headerlink" title="13.2 外积的演算性质"></a>13.2 外积的演算性质</h3><p>📌 1. 反交换性（反对称性）</p>
+<p>$$<br>\vec{a} \times \vec{b} &#x3D; -(\vec{b} \times \vec{a})<br>$$</p>
+<p>📌 2. 与自身的外积为零</p>
+<p>$$<br>\vec{a} \times \vec{a} &#x3D; \vec{0}<br>$$</p>
+<p>📌 3. 分配律</p>
+<p>$$<br>\vec{a} \times (\vec{b} + \vec{c}) &#x3D; \vec{a} \times \vec{b} + \vec{a} \times \vec{c}<br>$$</p>
+<p>📌 4. 数乘结合性</p>
+<p>$$<br>(k\vec{a}) \times \vec{b} &#x3D; k(\vec{a} \times \vec{b}) &#x3D; \vec{a} \times (k\vec{b})<br>$$</p>
+<p>📌 5. 外积垂直于两个原向量</p>
+<p>$$<br>\vec{a} \cdot (\vec{a} \times \vec{b}) &#x3D; 0,\quad \vec{b} \cdot (\vec{a} \times \vec{b}) &#x3D; 0<br>$$</p>
+<h4 id="✅-1-向量-vec-a-times-vec-b-的方向："><a href="#✅-1-向量-vec-a-times-vec-b-的方向：" class="headerlink" title="✅ 1. 向量 $\vec{a} \times \vec{b}$ 的方向："></a>✅ 1. 向量 $\vec{a} \times \vec{b}$ 的<strong>方向</strong>：</h4><p>由<strong>右手定则</strong>决定：用右手四指从 $\vec{a}$ 指向 $\vec{b}$，大拇指所指方向就是 $\vec{a} \times \vec{b}$ 的方向。</p>
 <h4 id="✅-2-向量-vec-a-times-vec-b-的大小："><a href="#✅-2-向量-vec-a-times-vec-b-的大小：" class="headerlink" title="✅ 2. 向量 $\vec{a} \times \vec{b}$ 的大小："></a>✅ 2. 向量 $\vec{a} \times \vec{b}$ 的<strong>大小</strong>：</h4><p>等于由 $\vec{a}$ 和 $\vec{b}$ 构成的<strong>平行四边形的面积</strong>：</p>
-<script type="math/tex; mode=display">
-|\vec{a} \times \vec{b}| = |\vec{a}| |\vec{b}| \sin\theta</script><h4 id="✅-五、例题演示"><a href="#✅-五、例题演示" class="headerlink" title="✅ 五、例题演示"></a>✅ 五、例题演示</h4><p>设：</p>
-<script type="math/tex; mode=display">
-\vec{a} = (1, 2, 3),\quad \vec{b} = (4, 5, 6)</script><p>那么：</p>
-<script type="math/tex; mode=display">
-\vec{a} \times \vec{b} =
-\left|
-\begin{array}{ccc}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\\\
-1 & 2 & 3 \\\\
-4 & 5 & 6
-\end{array}
-\right|
-= \left( 2\cdot6 - 3\cdot5,\ 3\cdot4 - 1\cdot6,\ 1\cdot5 - 2\cdot4 \right)
-= (-3, 6, -3)</script><h2 id="14-特征值（Eigenvalues）"><a href="#14-特征值（Eigenvalues）" class="headerlink" title="14. 特征值（Eigenvalues）"></a>14. 特征值（Eigenvalues）</h2><p>设 $A$ 是一个 $n \times n$ 的方阵，如果存在一个非零向量 $\vec{x} \ne \vec{0}$ 和一个数 $\lambda$，使得：</p>
-<script type="math/tex; mode=display">
-A \vec{x} = \lambda \vec{x}</script><p>那么我们称：</p>
+<p>$$<br>|\vec{a} \times \vec{b}| &#x3D; |\vec{a}| |\vec{b}| \sin\theta<br>$$</p>
+<h4 id="✅-五、例题演示"><a href="#✅-五、例题演示" class="headerlink" title="✅ 五、例题演示"></a>✅ 五、例题演示</h4><p>设：</p>
+<p>$$<br>\vec{a} &#x3D; (1, 2, 3),\quad \vec{b} &#x3D; (4, 5, 6)<br>$$</p>
+<p>那么：</p>
+<p>$$<br>\vec{a} \times \vec{b} &#x3D;<br>\left|<br>\begin{array}{ccc}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>1 &amp; 2 &amp; 3 \\<br>4 &amp; 5 &amp; 6<br>\end{array}<br>\right|<br>&#x3D; \left( 2\cdot6 - 3\cdot5,\ 3\cdot4 - 1\cdot6,\ 1\cdot5 - 2\cdot4 \right)<br>&#x3D; (-3, 6, -3)<br>$$</p>
+<h2 id="14-特征值（Eigenvalues）"><a href="#14-特征值（Eigenvalues）" class="headerlink" title="14. 特征值（Eigenvalues）"></a>14. 特征值（Eigenvalues）</h2><p>设 $A$ 是一个 $n \times n$ 的方阵，如果存在一个非零向量 $\vec{x} \ne \vec{0}$ 和一个数 $\lambda$，使得：</p>
+<p>$$<br>A \vec{x} &#x3D; \lambda \vec{x}<br>$$</p>
+<p>那么我们称：</p>
 <ul>
 <li>$\lambda$ 是矩阵 $A$ 的<strong>特征值（Eigenvalue）</strong></li>
 <li>$\vec{x}$ 是对应的<strong>特征向量（Eigenvector）</strong></li>
 </ul>
 <hr>
-<h3 id="📌-二、求特征值的方法"><a href="#📌-二、求特征值的方法" class="headerlink" title="📌 二、求特征值的方法"></a>📌 二、求特征值的方法</h3><p>将 $A \vec{x} = \lambda \vec{x}$ 改写为：</p>
-<script type="math/tex; mode=display">
-(A - \lambda I)\vec{x} = 0</script><p>要使其有<strong>非零解</strong>，需要：</p>
-<script type="math/tex; mode=display">
-\det(A - \lambda I) = 0</script><p>这个方程叫做 <strong>特征方程</strong>，解出$\lambda$ 就是特征值。</p>
+<h3 id="📌-二、求特征值的方法"><a href="#📌-二、求特征值的方法" class="headerlink" title="📌 二、求特征值的方法"></a>📌 二、求特征值的方法</h3><p>将 $A \vec{x} &#x3D; \lambda \vec{x}$ 改写为：</p>
+<p>$$<br>(A - \lambda I)\vec{x} &#x3D; 0<br>$$</p>
+<p>要使其有<strong>非零解</strong>，需要：</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; 0<br>$$</p>
+<p>这个方程叫做 <strong>特征方程</strong>，解出$\lambda$ 就是特征值。</p>
 <hr>
 <h3 id="📌-三、特征值的性质"><a href="#📌-三、特征值的性质" class="headerlink" title="📌 三、特征值的性质"></a>📌 三、特征值的性质</h3><p>设 $A$ 是 $n \times n$ 的矩阵，$\lambda_1, \dots, \lambda_n$ 是其特征值，则有以下重要性质：</p>
-<p>✅ 1. 特征值之和 = $\operatorname{tr}(A)$（矩阵的迹）</p>
-<script type="math/tex; mode=display">
-\lambda_1 + \lambda_2 + \dots + \lambda_n = \operatorname{tr}(A)</script><p>迹（trace）定义为矩阵主对角线元素之和：</p>
-<script type="math/tex; mode=display">
-\operatorname{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}</script><p>✅ 2. 特征值之积 = $\det(A)$（矩阵的行列式）</p>
-<script type="math/tex; mode=display">
-\lambda_1 \cdot \lambda_2 \cdots \lambda_n = \det(A)</script><p>✅ 3. 相似矩阵有相同特征值</p>
+<p>✅ 1. 特征值之和 &#x3D; $\operatorname{tr}(A)$（矩阵的迹）</p>
+<p>$$<br>\lambda_1 + \lambda_2 + \dots + \lambda_n &#x3D; \operatorname{tr}(A)<br>$$</p>
+<p>迹（trace）定义为矩阵主对角线元素之和：</p>
+<p>$$<br>\operatorname{tr}(A) &#x3D; a_{11} + a_{22} + \dots + a_{nn}<br>$$</p>
+<p>✅ 2. 特征值之积 &#x3D; $\det(A)$（矩阵的行列式）</p>
+<p>$$<br>\lambda_1 \cdot \lambda_2 \cdots \lambda_n &#x3D; \det(A)<br>$$</p>
+<p>✅ 3. 相似矩阵有相同特征值</p>
 <p>如果 $A \sim B$（$A$ 与 $B$ 相似），那么它们的特征值完全相同（包括重数）：</p>
-<script type="math/tex; mode=display">
-A \sim B \Rightarrow \text{Spec}(A) = \text{Spec}(B)</script><h2 id="15-矩阵相似（Matrix-Similarity）"><a href="#15-矩阵相似（Matrix-Similarity）" class="headerlink" title="15. 矩阵相似（Matrix Similarity）"></a>15. 矩阵相似（Matrix Similarity）</h2><p>两个 $n \times n$ 矩阵 $A$ 和 $B$，若存在一个可逆矩阵 $P$，使得：</p>
-<script type="math/tex; mode=display">
-B = P^{-1} A P</script><p>则称 $A$ 和 $B$ <strong>相似</strong>，记作：</p>
-<script type="math/tex; mode=display">
-A \sim B</script><h3 id="📌-15-1-相似矩阵的性质"><a href="#📌-15-1-相似矩阵的性质" class="headerlink" title="📌 15.1 相似矩阵的性质"></a>📌 15.1 相似矩阵的性质</h3><p><strong>✅ 1. 相似矩阵具有相同的：</strong></p>
+<p>$$<br>A \sim B \Rightarrow \text{Spec}(A) &#x3D; \text{Spec}(B)<br>$$</p>
+<h2 id="15-矩阵相似（Matrix-Similarity）"><a href="#15-矩阵相似（Matrix-Similarity）" class="headerlink" title="15. 矩阵相似（Matrix Similarity）"></a>15. 矩阵相似（Matrix Similarity）</h2><p>两个 $n \times n$ 矩阵 $A$ 和 $B$，若存在一个可逆矩阵 $P$，使得：</p>
+<p>$$<br>B &#x3D; P^{-1} A P<br>$$</p>
+<p>则称 $A$ 和 $B$ <strong>相似</strong>，记作：</p>
+<p>$$<br>A \sim B<br>$$</p>
+<h3 id="📌-15-1-相似矩阵的性质"><a href="#📌-15-1-相似矩阵的性质" class="headerlink" title="📌 15.1 相似矩阵的性质"></a>📌 15.1 相似矩阵的性质</h3><p><strong>✅ 1. 相似矩阵具有相同的：</strong></p>
 <ul>
 <li>特征值</li>
-<li>行列式（$\det A = \det B$）</li>
-<li>迹（$\operatorname{tr}(A) = \operatorname{tr}(B)$）</li>
+<li>行列式（$\det A &#x3D; \det B$）</li>
+<li>迹（$\operatorname{tr}(A) &#x3D; \operatorname{tr}(B)$）</li>
 <li>特征多项式</li>
 </ul>
 <p>✅ 2. 相似矩阵可以视为是<strong>同一个线性变换在不同基下的矩阵表示</strong>。</p>
 <p><strong>✅ 举个例子</strong></p>
 <p>设：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix} 2 & 1 \\\\ 0 & 3 \end{bmatrix}</script><p>我们求其特征值：</p>
-<script type="math/tex; mode=display">
-\det(A - \lambda I) = \begin{vmatrix} 2 - \lambda & 1 \\\\ 0 & 3 - \lambda \end{vmatrix} = (2 - \lambda)(3 - \lambda)</script><p>得到特征值：$\lambda = 2,\ 3$</p>
+<p>$$<br>A &#x3D; \begin{bmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{bmatrix}<br>$$</p>
+<p>我们求其特征值：</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; \begin{vmatrix} 2 - \lambda &amp; 1 \\ 0 &amp; 3 - \lambda \end{vmatrix} &#x3D; (2 - \lambda)(3 - \lambda)<br>$$</p>
+<p>得到特征值：$\lambda &#x3D; 2,\ 3$</p>
 <p>验证性质：</p>
 <ul>
-<li><p>$\operatorname{tr}(A) = 2 + 3 = 5 = \lambda_1 + \lambda_2$</p>
+<li><p>$\operatorname{tr}(A) &#x3D; 2 + 3 &#x3D; 5 &#x3D; \lambda_1 + \lambda_2$</p>
 </li>
-<li><p>$\det(A) = 2 \cdot 3 = 6 = \lambda_1 \cdot \lambda_2$</p>
+<li><p>$\det(A) &#x3D; 2 \cdot 3 &#x3D; 6 &#x3D; \lambda_1 \cdot \lambda_2$</p>
 </li>
 </ul>
 <h2 id="16-相似对角化（Matrix-Diagonalization）"><a href="#16-相似对角化（Matrix-Diagonalization）" class="headerlink" title="16. 相似对角化（Matrix Diagonalization）"></a>16. 相似对角化（Matrix Diagonalization）</h2><p>设 $A$ 是一个 $n \times n$ 的方阵，如果存在一个<strong>可逆矩阵</strong> $P$ 和一个<strong>对角矩阵</strong> $D$，使得：</p>
-<script type="math/tex; mode=display">
-A = P D P^{-1}</script><p>或者写作：</p>
-<script type="math/tex; mode=display">
-P^{-1} A P = D</script><p>则称 <strong>$A$ 可对角化（diagonalizable）</strong>，$D$ 是 $A$ 的对角矩阵形式，$P$ 是构造它的特征向量矩阵。</p>
+<p>$$<br>A &#x3D; P D P^{-1}<br>$$</p>
+<p>或者写作：</p>
+<p>$$<br>P^{-1} A P &#x3D; D<br>$$</p>
+<p>则称 <strong>$A$ 可对角化（diagonalizable）</strong>，$D$ 是 $A$ 的对角矩阵形式，$P$ 是构造它的特征向量矩阵。</p>
 <p>这就是一个<strong>相似变换</strong>，所以称为<strong>相似对角化</strong>。</p>
 <p><strong>📌 对角化的意义</strong></p>
 <p>对角矩阵 $D$ 形式非常简单，只在主对角线上有数，其余为 0，比如：</p>
-<script type="math/tex; mode=display">
-D = \begin{bmatrix}
-\lambda_1 & 0 & \cdots & 0 \\\\
-0 & \lambda_2 & \cdots & 0 \\\\
-\vdots & \vdots & \ddots & \vdots \\\\
-0 & 0 & \cdots & \lambda_n
-\end{bmatrix}</script><p>如果 $A = PDP^{-1}$，那么：</p>
+<p>$$<br>D &#x3D; \begin{bmatrix}<br>\lambda_1 &amp; 0 &amp; \cdots &amp; 0 \\<br>0 &amp; \lambda_2 &amp; \cdots &amp; 0 \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>0 &amp; 0 &amp; \cdots &amp; \lambda_n<br>\end{bmatrix}<br>$$</p>
+<p>如果 $A &#x3D; PDP^{-1}$，那么：</p>
 <ul>
-<li>$A^k = P D^k P^{-1}$（非常容易计算 $A$ 的高次幂）</li>
-<li>可以简化矩阵函数，如 $e^A = P e^D P^{-1}$（线性微分方程中常见）</li>
+<li>$A^k &#x3D; P D^k P^{-1}$（非常容易计算 $A$ 的高次幂）</li>
+<li>可以简化矩阵函数，如 $e^A &#x3D; P e^D P^{-1}$（线性微分方程中常见）</li>
 </ul>
 <p><strong>📌 对角化的充分必要条件</strong></p>
 <p>一个 $n \times n$ 的矩阵 $A$ <strong>可以对角化</strong>，当且仅当：</p>
@@ -1073,11 +947,11 @@ D = \begin{bmatrix}
 <p>设矩阵 $A$ 是 $n \times n$：</p>
 <p>✅ 步骤1：求特征值 $\lambda$</p>
 <p>解特征方程：</p>
-<script type="math/tex; mode=display">
-\det(A - \lambda I) = 0</script><p> ✅ 步骤2：求每个特征值对应的特征向量</p>
+<p>$$<br>\det(A - \lambda I) &#x3D; 0<br>$$</p>
+<p> ✅ 步骤2：求每个特征值对应的特征向量</p>
 <p>对于每个 $\lambda$，解：</p>
-<script type="math/tex; mode=display">
-(A - \lambda I)\vec{x} = 0</script><p>得到线性无关的特征向量。</p>
+<p>$$<br>(A - \lambda I)\vec{x} &#x3D; 0<br>$$</p>
+<p>得到线性无关的特征向量。</p>
 <p>✅ 步骤3：构造矩阵 $P$ 和 $D$</p>
 <ul>
 <li>$P$ 的列向量就是所有线性无关的特征向量</li>
@@ -1085,61 +959,38 @@ D = \begin{bmatrix}
 </ul>
 <p>📌 例题：对角化一个矩阵</p>
 <p>设：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-4 & 1 \\\\
-0 & 2
-\end{bmatrix}</script><p><strong>Step 1: 求特征值</strong></p>
-<script type="math/tex; mode=display">
-\det(A - \lambda I) = (4 - \lambda)(2 - \lambda)</script><p>得特征值：$\lambda_1 = 4,\ \lambda_2 = 2$</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>4 &amp; 1 \\<br>0 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p><strong>Step 1: 求特征值</strong></p>
+<p>$$<br>\det(A - \lambda I) &#x3D; (4 - \lambda)(2 - \lambda)<br>$$</p>
+<p>得特征值：$\lambda_1 &#x3D; 4,\ \lambda_2 &#x3D; 2$</p>
 <p><strong>Step 2: 求特征向量</strong></p>
-<p>对 $\lambda = 4$：</p>
-<script type="math/tex; mode=display">
-(A - 4I)\vec{x} = \begin{bmatrix} 0 & 1 \\\\ 0 & -2 \end{bmatrix} \vec{x} = 0</script><p>得特征向量 $\vec{v}_1 = \begin{bmatrix} 1 \ 0 \end{bmatrix}$</p>
-<p>对 $\lambda = 2$：</p>
-<script type="math/tex; mode=display">
-(A - 2I)\vec{x} = \begin{bmatrix} 2 & 1 \\\\ 0 & 0 \end{bmatrix} \vec{x} = 0</script><p>得特征向量 $\vec{v}_2 = \begin{bmatrix} -1 \ 2 \end{bmatrix}$</p>
+<p>对 $\lambda &#x3D; 4$：</p>
+<p>$$<br>(A - 4I)\vec{x} &#x3D; \begin{bmatrix} 0 &amp; 1 \\ 0 &amp; -2 \end{bmatrix} \vec{x} &#x3D; 0<br>$$</p>
+<p>得特征向量 $\vec{v}_1 &#x3D; \begin{bmatrix} 1 \ 0 \end{bmatrix}$</p>
+<p>对 $\lambda &#x3D; 2$：</p>
+<p>$$<br>(A - 2I)\vec{x} &#x3D; \begin{bmatrix} 2 &amp; 1 \\ 0 &amp; 0 \end{bmatrix} \vec{x} &#x3D; 0<br>$$</p>
+<p>得特征向量 $\vec{v}_2 &#x3D; \begin{bmatrix} -1 \ 2 \end{bmatrix}$</p>
 <p>Step 3: 构造 $P$ 和 $D$</p>
-<script type="math/tex; mode=display">
-P = \begin{bmatrix}
-1 & -1 \\\\
-0 & 2
-\end{bmatrix},\quad
-D = \begin{bmatrix}
-4 & 0 \\\\
-0 & 2
-\end{bmatrix}</script><p>验证：</p>
-<script type="math/tex; mode=display">
-P^{-1}AP = D</script><h3 id="📌-一些补充说明"><a href="#📌-一些补充说明" class="headerlink" title="📌 一些补充说明"></a>📌 一些补充说明</h3><p><strong>❗ 不可对角化的情况：</strong></p>
+<p>$$<br>P &#x3D; \begin{bmatrix}<br>1 &amp; -1 \\<br>0 &amp; 2<br>\end{bmatrix},\quad<br>D &#x3D; \begin{bmatrix}<br>4 &amp; 0 \\<br>0 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p>验证：</p>
+<p>$$<br>P^{-1}AP &#x3D; D<br>$$</p>
+<h3 id="📌-一些补充说明"><a href="#📌-一些补充说明" class="headerlink" title="📌 一些补充说明"></a>📌 一些补充说明</h3><p><strong>❗ 不可对角化的情况：</strong></p>
 <p>有些矩阵没有 $n$ 个线性无关特征向量，例如：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-1 & 1 \\\\
-0 & 1
-\end{bmatrix}</script><p>它只有一个特征值 $\lambda = 1$，但只有一个特征向量 —— 无法对角化（只能<strong>上三角化</strong>或用<strong>Jordan标准形</strong>）。</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>1 &amp; 1 \\<br>0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>它只有一个特征值 $\lambda &#x3D; 1$，但只有一个特征向量 —— 无法对角化（只能<strong>上三角化</strong>或用<strong>Jordan标准形</strong>）。</p>
 <p><strong>✅ 可对角化充要条件回顾：</strong></p>
 <ul>
 <li>有 $n$ 个线性无关的特征向量</li>
-<li>特征值<strong>代数重数 = 几何重数</strong>（每个特征值的重数 = 特征空间维数）</li>
+<li>特征值<strong>代数重数 &#x3D; 几何重数</strong>（每个特征值的重数 &#x3D; 特征空间维数）</li>
 </ul>
 <h2 id="17-Jordan标准型（Jordan-Canonical-Form）"><a href="#17-Jordan标准型（Jordan-Canonical-Form）" class="headerlink" title="17. Jordan标准型（Jordan Canonical Form）"></a>17. Jordan标准型（Jordan Canonical Form）</h2><p>一个 $n \times n$ 的复矩阵 $A$ 总可以相似于一个分块上三角矩阵，该矩阵叫做 <strong>Jordan标准型</strong>，记作 $J$：</p>
-<script type="math/tex; mode=display">
-A \sim J = P^{-1}AP</script><p>其中 $P$ 是可逆矩阵，$J$ 的形式如下：</p>
-<script type="math/tex; mode=display">
-J = \begin{bmatrix}
-J_1 & & \\\\
-& \ddots & \\\\
-& & J_k
-\end{bmatrix}</script><p>每个 $J_i$ 是一个<strong>Jordan块（Jordan block）</strong>，它的形式如下：</p>
-<script type="math/tex; mode=display">
-J_i(\lambda) = \begin{bmatrix}
-\lambda & 1 & 0 & \cdots & 0 \\\\
-0 & \lambda & 1 & \cdots & 0 \\\\
-\vdots & \ddots & \ddots & \ddots & \vdots \\\\
-0 & \cdots & 0 & \lambda & 1 \\\\
-0 & \cdots & \cdots & 0 & \lambda
-\end{bmatrix}</script><p>其中对角线上全是 $\lambda$，超对角线是 $1$，其他是 $0$。</p>
-<p>每一个 <strong>Jordan块</strong> 对应一个 <strong>特征值  $\lambda$</strong>，如果矩阵不能对角化，说明该特征值的<strong>代数重数 &gt; 几何重数</strong>。</p>
+<p>$$<br>A \sim J &#x3D; P^{-1}AP<br>$$</p>
+<p>其中 $P$ 是可逆矩阵，$J$ 的形式如下：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>J_1 &amp; &amp; \\<br>&amp; \ddots &amp; \\<br>&amp; &amp; J_k<br>\end{bmatrix}<br>$$</p>
+<p>每个 $J_i$ 是一个<strong>Jordan块（Jordan block）</strong>，它的形式如下：</p>
+<p>$$<br>J_i(\lambda) &#x3D; \begin{bmatrix}<br>\lambda &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\<br>0 &amp; \lambda &amp; 1 &amp; \cdots &amp; 0 \\<br>\vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\<br>0 &amp; \cdots &amp; 0 &amp; \lambda &amp; 1 \\<br>0 &amp; \cdots &amp; \cdots &amp; 0 &amp; \lambda<br>\end{bmatrix}<br>$$</p>
+<p>其中对角线上全是 $\lambda$，超对角线是 $1$，其他是 $0$。</p>
+<p>每一个 <strong>Jordan块</strong> 对应一个 <strong>特征值  $\lambda$<strong>，如果矩阵不能对角化，说明该特征值的</strong>代数重数 &gt; 几何重数</strong>。</p>
 <ul>
 <li><strong>代数重数（algebraic multiplicity）</strong>：特征值 $\lambda$ 在特征多项式中的重数</li>
 <li><strong>几何重数（geometric multiplicity）</strong>：特征空间的维度，也就是 $\dim(\ker(A - \lambda I))$<br>当代数重数 $&gt;$ 几何重数时，$A$ 不可对角化，但可表示成Jordan标准型。</li>
@@ -1153,65 +1004,33 @@ J_i(\lambda) = \begin{bmatrix}
 <li><strong>排列组合，形成Jordan矩阵</strong></li>
 </ol>
 <h3 id="17-1-例子1️⃣"><a href="#17-1-例子1️⃣" class="headerlink" title="17.1 例子1️⃣"></a>17.1 例子1️⃣</h3><p>设</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-5 & 4 & 2 \\\\
-0 & 5 & 1 \\\\
-0 & 0 & 5
-\end{bmatrix}</script><ul>
-<li>特征值$\lambda = 5$</li>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>5 &amp; 4 &amp; 2 \\<br>0 &amp; 5 &amp; 1 \\<br>0 &amp; 0 &amp; 5<br>\end{bmatrix}<br>$$</p>
+<ul>
+<li>特征值$\lambda &#x3D; 5$</li>
 <li>特征多项式 $(5 - \lambda)^3$，代数重数是 3</li>
 <li>$\ker(A - 5I)$ 只有一个自由变量，所以几何重数是 1</li>
 </ul>
 <p>→ 无法对角化，但可以写成：</p>
-<script type="math/tex; mode=display">
-J = \begin{bmatrix}
-5 & 1 & 0 \\\\
-0 & 5 & 1 \\\\
-0 & 0 & 5
-\end{bmatrix}</script><h3 id="17-2-例子2️⃣"><a href="#17-2-例子2️⃣" class="headerlink" title="17.2 例子2️⃣"></a>17.2 例子2️⃣</h3><p>设：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-5 & 4 & 2 & 0 & 0 \\\\
-0 & 5 & 1 & 0 & 0 \\\\
-0 & 0 & 5 & 0 & 0 \\\\
-0 & 0 & 0 & 3 & 1 \\\\
-0 & 0 & 0 & 0 & 3
-\end{bmatrix}</script><p><strong>✅ Step 1. 求特征值（eigenvalues）</strong></p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>5 &amp; 1 &amp; 0 \\<br>0 &amp; 5 &amp; 1 \\<br>0 &amp; 0 &amp; 5<br>\end{bmatrix}<br>$$</p>
+<h3 id="17-2-例子2️⃣"><a href="#17-2-例子2️⃣" class="headerlink" title="17.2 例子2️⃣"></a>17.2 例子2️⃣</h3><p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>5 &amp; 4 &amp; 2 &amp; 0 &amp; 0 \\<br>0 &amp; 5 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 5 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 3 &amp; 1 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p><strong>✅ Step 1. 求特征值（eigenvalues）</strong></p>
 <p>这是一个<strong>上三角矩阵</strong>，特征值为主对角线上的数：</p>
-<script type="math/tex; mode=display">
-\lambda_1 = 5 \quad（重数 3），\quad
-\lambda_2 = 3 \quad（重数 2）</script><p><strong>✅ Step 2. 对每个特征值求几何重数（特征空间维数）</strong></p>
-<p>我们对 $\lambda = 5$ 和 $\lambda = 3$ 分别求 $\ker(A - \lambda I)$。</p>
-<p>对 $\lambda = 5$：</p>
-<script type="math/tex; mode=display">
-A - 5I = \begin{bmatrix}
-0 & 4 & 2 & 0 & 0 \\\\
-0 & 0 & 1 & 0 & 0 \\\\
-0 & 0 & 0 & 0 & 0 \\\\
-0 & 0 & 0 & -2 & 1 \\\\
-0 & 0 & 0 & 0 & -2
-\end{bmatrix}</script><p>只看 $A_1 = A[0:3,0:3]$ 的子块（即对应 $\lambda=5$ 的前3行3列）：</p>
-<script type="math/tex; mode=display">
-A_1 - 5I = \begin{bmatrix}
-0 & 4 & 2 \\\\
-0 & 0 & 1 \\\\
-0 & 0 & 0
-\end{bmatrix}</script><p>求解 $\ker(A_1 - 5I)$：</p>
-<p>该矩阵的秩为 $2$（两个主元），所以零空间维数是 $3 - 2 = 1$</p>
-<p>→ 几何重数为 1，代数重数为 3 → 说明 $\lambda = 5$ 对应 <strong>一个大小为3的Jordan块</strong></p>
-<p>对 $\lambda = 3$：</p>
+<p>$$<br>\lambda_1 &#x3D; 5 \quad（重数 3），\quad<br>\lambda_2 &#x3D; 3 \quad（重数 2）<br>$$</p>
+<p><strong>✅ Step 2. 对每个特征值求几何重数（特征空间维数）</strong></p>
+<p>我们对 $\lambda &#x3D; 5$ 和 $\lambda &#x3D; 3$ 分别求 $\ker(A - \lambda I)$。</p>
+<p>对 $\lambda &#x3D; 5$：</p>
+<p>$$<br>A - 5I &#x3D; \begin{bmatrix}<br>0 &amp; 4 &amp; 2 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; -2 &amp; 1 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; -2<br>\end{bmatrix}<br>$$</p>
+<p>只看 $A_1 &#x3D; A[0:3,0:3]$ 的子块（即对应 $\lambda&#x3D;5$ 的前3行3列）：</p>
+<p>$$<br>A_1 - 5I &#x3D; \begin{bmatrix}<br>0 &amp; 4 &amp; 2 \\<br>0 &amp; 0 &amp; 1 \\<br>0 &amp; 0 &amp; 0<br>\end{bmatrix}<br>$$</p>
+<p>求解 $\ker(A_1 - 5I)$：</p>
+<p>该矩阵的秩为 $2$（两个主元），所以零空间维数是 $3 - 2 &#x3D; 1$</p>
+<p>→ 几何重数为 1，代数重数为 3 → 说明 $\lambda &#x3D; 5$ 对应 <strong>一个大小为3的Jordan块</strong></p>
+<p>对 $\lambda &#x3D; 3$：</p>
 <p>取右下角 $2 \times 2$ 块：</p>
-<script type="math/tex; mode=display">
-A_2 = \begin{bmatrix}
-3 & 1 \\\\
-0 & 3
-\end{bmatrix}
-\Rightarrow A_2 - 3I = \begin{bmatrix}
-0 & 1 \\\\
-0 & 0
-\end{bmatrix}</script><p>这是阶数为 1 的矩阵，秩为 1，零空间维数是 $2 - 1 = 1$</p>
-<p>→ 代数重数为 2，几何重数为 1 → 所以 $\lambda = 3$ 对应 <strong>一个大小为2的Jordan块</strong></p>
+<p>$$<br>A_2 &#x3D; \begin{bmatrix}<br>3 &amp; 1 \\<br>0 &amp; 3<br>\end{bmatrix}<br>\Rightarrow A_2 - 3I &#x3D; \begin{bmatrix}<br>0 &amp; 1 \\<br>0 &amp; 0<br>\end{bmatrix}<br>$$</p>
+<p>这是阶数为 1 的矩阵，秩为 1，零空间维数是 $2 - 1 &#x3D; 1$</p>
+<p>→ 代数重数为 2，几何重数为 1 → 所以 $\lambda &#x3D; 3$ 对应 <strong>一个大小为2的Jordan块</strong></p>
 <p><strong>✅ Step 3. 确定 Jordan 标准型结构</strong></p>
 <p>我们现在知道：</p>
 <ul>
@@ -1220,187 +1039,130 @@ A_2 = \begin{bmatrix}
 </ul>
 <p><strong>✅ Step 4. 写出Jordan标准型</strong></p>
 <p>Jordan标准型是对角块状矩阵：</p>
-<script type="math/tex; mode=display">
-J = \begin{bmatrix}
-J_1(5) & & \\\\
-& J_2(3) &
-\end{bmatrix}</script><p>其中：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>J_1(5) &amp; &amp; \\<br>&amp; J_2(3) &amp;<br>\end{bmatrix}<br>$$</p>
+<p>其中：</p>
 <ul>
 <li>$J_1(5)$ 是大小为 $3$ 的 Jordan 块：</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-5 & 1 & 0 \\\\
-0 & 5 & 1 \\\\
-0 & 0 & 5
-\end{bmatrix}</script><ul>
+<p>$$<br>\begin{bmatrix}<br>5 &amp; 1 &amp; 0 \\<br>0 &amp; 5 &amp; 1 \\<br>0 &amp; 0 &amp; 5<br>\end{bmatrix}<br>$$</p>
+<ul>
 <li>$J_2(3)$ 是大小为 $2$ 的 Jordan 块：</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-3 & 1 \\\\
-0 & 3
-\end{bmatrix}</script><p>最终的 Jordan 标准型为：</p>
-<script type="math/tex; mode=display">
-J = \begin{bmatrix}
-5 & 1 & 0 & 0 & 0 \\\\
-0 & 5 & 1 & 0 & 0 \\\\
-0 & 0 & 5 & 0 & 0 \\\\
-0 & 0 & 0 & 3 & 1 \\\\
-0 & 0 & 0 & 0 & 3
-\end{bmatrix}</script><h2 id="18-实对称矩阵（Real-Symmetric-Matrix）"><a href="#18-实对称矩阵（Real-Symmetric-Matrix）" class="headerlink" title="18. 实对称矩阵（Real Symmetric Matrix）"></a>18. 实对称矩阵（Real Symmetric Matrix）</h2><p>一个实矩阵 $A \in \mathbb{R}^{n \times n}$ 称为<strong>实对称矩阵</strong>，如果它等于它的转置：</p>
-<script type="math/tex; mode=display">
-A^\top = A</script><p>也就是说，$A$ 满足：</p>
-<script type="math/tex; mode=display">
-a_{ij} = a_{ji},\quad \forall i, j</script><p>实对称矩阵最重要的定理是：</p>
+<p>$$<br>\begin{bmatrix}<br>3 &amp; 1 \\<br>0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p>最终的 Jordan 标准型为：</p>
+<p>$$<br>J &#x3D; \begin{bmatrix}<br>5 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; 5 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 5 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 3 &amp; 1 \\<br>0 &amp; 0 &amp; 0 &amp; 0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<h2 id="18-实对称矩阵（Real-Symmetric-Matrix）"><a href="#18-实对称矩阵（Real-Symmetric-Matrix）" class="headerlink" title="18. 实对称矩阵（Real Symmetric Matrix）"></a>18. 实对称矩阵（Real Symmetric Matrix）</h2><p>一个实矩阵 $A \in \mathbb{R}^{n \times n}$ 称为<strong>实对称矩阵</strong>，如果它等于它的转置：</p>
+<p>$$<br>A^\top &#x3D; A<br>$$</p>
+<p>也就是说，$A$ 满足：</p>
+<p>$$<br>a_{ij} &#x3D; a_{ji},\quad \forall i, j<br>$$</p>
+<p>实对称矩阵最重要的定理是：</p>
 <blockquote>
 <p><strong>实对称矩阵总可以正交对角化。</strong></p>
 </blockquote>
 <p><strong>更形式化地说</strong>：</p>
-<p>若 $A$ 是 $n \times n$ 的实对称矩阵，则存在一个 <strong>正交矩阵</strong> $Q$（即 $Q^\top Q = I$），使得：</p>
-<script type="math/tex; mode=display">
-Q^\top A Q = \Lambda</script><p>其中 $\Lambda$ 是一个对角矩阵，其对角线上的元素为 $A$ 的实特征值。</p>
+<p>若 $A$ 是 $n \times n$ 的实对称矩阵，则存在一个 <strong>正交矩阵</strong> $Q$（即 $Q^\top Q &#x3D; I$），使得：</p>
+<p>$$<br>Q^\top A Q &#x3D; \Lambda<br>$$</p>
+<p>其中 $\Lambda$ 是一个对角矩阵，其对角线上的元素为 $A$ 的实特征值。</p>
 <p>这称为 <strong>谱定理（Spectral Theorem）</strong>。</p>
 <p>设：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-2 & -1 \\\\
--1 & 2
-\end{bmatrix}</script><p>这是一个<strong>实对称矩阵</strong>。我们来对角化它：</p>
-<p>解 $\det(A - \lambda I) = 0$：</p>
-<script type="math/tex; mode=display">
-\begin{vmatrix}
-2 - \lambda & -1 \\\\
--1 & 2 - \lambda
-\end{vmatrix}
-= (2 - \lambda)^2 - 1 = \lambda^2 - 4\lambda + 3 = 0</script><p>解得：</p>
-<script type="math/tex; mode=display">
-\lambda_1 = 1,\quad \lambda_2 = 3</script><ul>
-<li>对 $\lambda = 1$：</li>
-</ul>
-<script type="math/tex; mode=display">
-A - I = \begin{bmatrix}
-1 & -1 \\\\
--1 & 1
-\end{bmatrix} \Rightarrow x_1 = x_2</script><p>特征向量：$\boldsymbol{v}_1 = \begin{bmatrix} 1 \ 1 \end{bmatrix}$</p>
-<p>单位化得：$\boldsymbol{u}_1 = \dfrac{1}{\sqrt{2}} \begin{bmatrix} 1 \ 1 \end{bmatrix}$</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; -1 \\<br>-1 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p>这是一个<strong>实对称矩阵</strong>。我们来对角化它：</p>
+<p>解 $\det(A - \lambda I) &#x3D; 0$：</p>
+<p>$$<br>\begin{vmatrix}<br>2 - \lambda &amp; -1 \\<br>-1 &amp; 2 - \lambda<br>\end{vmatrix}<br>&#x3D; (2 - \lambda)^2 - 1 &#x3D; \lambda^2 - 4\lambda + 3 &#x3D; 0<br>$$</p>
+<p>解得：</p>
+<p>$$<br>\lambda_1 &#x3D; 1,\quad \lambda_2 &#x3D; 3<br>$$</p>
 <ul>
-<li>对 $\lambda = 3$：</li>
+<li>对 $\lambda &#x3D; 1$：</li>
 </ul>
-<script type="math/tex; mode=display">
-A - 3I = \begin{bmatrix}
--1 & -1 \\\\
--1 & -1
-\end{bmatrix} \Rightarrow x_1 = -x_2</script><p>特征向量：$\boldsymbol{v}_2 = \begin{bmatrix} 1 \ -1 \end{bmatrix}$</p>
-<p>单位化得：$\boldsymbol{u}_2 = \dfrac{1}{\sqrt{2}} \begin{bmatrix} 1 \ -1 \end{bmatrix}$</p>
-<script type="math/tex; mode=display">
-Q = \begin{bmatrix}
-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
-\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
-\end{bmatrix},\quad
-\Lambda = \begin{bmatrix}
-1 & 0 \\
-0 & 3
-\end{bmatrix}</script><p>验证：</p>
-<script type="math/tex; mode=display">
-Q^\top A Q = \Lambda</script><h2 id="19-正定矩阵（Positive-Definite-Matrix）"><a href="#19-正定矩阵（Positive-Definite-Matrix）" class="headerlink" title="19. 正定矩阵（Positive Definite Matrix）"></a>19. 正定矩阵（Positive Definite Matrix）</h2><p>一个 $n \times n$ 的<strong>实对称矩阵</strong> $A$ 称为<strong>正定矩阵</strong>（positive definite），如果对任意非零列向量 $\boldsymbol{x} \in \mathbb{R}^n$，都有：</p>
-<script type="math/tex; mode=display">
-\boldsymbol{x}^\top A \boldsymbol{x} > 0</script><p>设：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-2 & 0 \\\\
-0 & 3
-\end{bmatrix}</script><p>则对任意非零向量 $\boldsymbol{x} = \begin{bmatrix} x_1 \ x_2 \end{bmatrix}$，有：</p>
-<script type="math/tex; mode=display">
-\boldsymbol{x}^\top A \boldsymbol{x} = 2x_1^2 + 3x_2^2 > 0</script><p>→ 所以 $A$ 是正定矩阵。</p>
+<p>$$<br>A - I &#x3D; \begin{bmatrix}<br>1 &amp; -1 \\<br>-1 &amp; 1<br>\end{bmatrix} \Rightarrow x_1 &#x3D; x_2<br>$$</p>
+<p>特征向量：$\boldsymbol{v}_1 &#x3D; \begin{bmatrix} 1 \ 1 \end{bmatrix}$</p>
+<p>单位化得：$\boldsymbol{u}_1 &#x3D; \dfrac{1}{\sqrt{2}} \begin{bmatrix} 1 \ 1 \end{bmatrix}$</p>
+<ul>
+<li>对 $\lambda &#x3D; 3$：</li>
+</ul>
+<p>$$<br>A - 3I &#x3D; \begin{bmatrix}<br>-1 &amp; -1 \\<br>-1 &amp; -1<br>\end{bmatrix} \Rightarrow x_1 &#x3D; -x_2<br>$$</p>
+<p>特征向量：$\boldsymbol{v}_2 &#x3D; \begin{bmatrix} 1 \ -1 \end{bmatrix}$</p>
+<p>单位化得：$\boldsymbol{u}_2 &#x3D; \dfrac{1}{\sqrt{2}} \begin{bmatrix} 1 \ -1 \end{bmatrix}$</p>
+<p>$$<br>Q &#x3D; \begin{bmatrix}<br>\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \<br>\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}}<br>\end{bmatrix},\quad<br>\Lambda &#x3D; \begin{bmatrix}<br>1 &amp; 0 \<br>0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p>验证：</p>
+<p>$$<br>Q^\top A Q &#x3D; \Lambda<br>$$</p>
+<h2 id="19-正定矩阵（Positive-Definite-Matrix）"><a href="#19-正定矩阵（Positive-Definite-Matrix）" class="headerlink" title="19. 正定矩阵（Positive Definite Matrix）"></a>19. 正定矩阵（Positive Definite Matrix）</h2><p>一个 $n \times n$ 的<strong>实对称矩阵</strong> $A$ 称为<strong>正定矩阵</strong>（positive definite），如果对任意非零列向量 $\boldsymbol{x} \in \mathbb{R}^n$，都有：</p>
+<p>$$<br>\boldsymbol{x}^\top A \boldsymbol{x} &gt; 0<br>$$</p>
+<p>设：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 0 \\<br>0 &amp; 3<br>\end{bmatrix}<br>$$</p>
+<p>则对任意非零向量 $\boldsymbol{x} &#x3D; \begin{bmatrix} x_1 \ x_2 \end{bmatrix}$，有：</p>
+<p>$$<br>\boldsymbol{x}^\top A \boldsymbol{x} &#x3D; 2x_1^2 + 3x_2^2 &gt; 0<br>$$</p>
+<p>→ 所以 $A$ 是正定矩阵。</p>
 <p><strong>判断下列矩阵是否正定：</strong></p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-2 & -1 \\\\
--1 & 2
-\end{bmatrix}</script><p><strong>方法一：特征值法</strong></p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; -1 \\<br>-1 &amp; 2<br>\end{bmatrix}<br>$$</p>
+<p><strong>方法一：特征值法</strong></p>
 <p>求特征值：</p>
-<script type="math/tex; mode=display">
-\det\begin{bmatrix}
-2 - \lambda & -1 \\\\
--1 & 2 - \lambda
-\end{bmatrix}
-= \lambda^2 - 4\lambda + 3 = 0 \Rightarrow \lambda = 1, 3</script><p>两个特征值都 &gt; 0 → 正定 ✅</p>
+<p>$$<br>\det\begin{bmatrix}<br>2 - \lambda &amp; -1 \\<br>-1 &amp; 2 - \lambda<br>\end{bmatrix}<br>&#x3D; \lambda^2 - 4\lambda + 3 &#x3D; 0 \Rightarrow \lambda &#x3D; 1, 3<br>$$</p>
+<p>两个特征值都 &gt; 0 → 正定 ✅</p>
 <p><strong>方法二：主子式法</strong></p>
 <ul>
 <li>一级主子式：$2 &gt; 0$</li>
-<li>二级主子式：$\det(A) = 2 \cdot 2 - (-1)^2 = 3 &gt; 0$</li>
+<li>二级主子式：$\det(A) &#x3D; 2 \cdot 2 - (-1)^2 &#x3D; 3 &gt; 0$</li>
 </ul>
 <p>→ 所有主子式 &gt; 0 → 正定 ✅</p>
 <h2 id="20-Rayleigh-商（Rayleigh-quotient）"><a href="#20-Rayleigh-商（Rayleigh-quotient）" class="headerlink" title="20. Rayleigh 商（Rayleigh quotient）"></a>20. Rayleigh 商（Rayleigh quotient）</h2><p>设 $A$ 是一个 <strong>实对称矩阵</strong>（或者复 Hermitian 矩阵），$x \in \mathbb{R}^n \setminus {0}$，则：</p>
-<script type="math/tex; mode=display">
-R_A(x) = \frac{x^\top A x}{x^\top x}</script><p>这个值称为向量 $x$ 关于矩阵 $A$ 的 <strong>Rayleigh 商</strong>（Rayleigh quotient）。</p>
+<p>$$<br>R_A(x) &#x3D; \frac{x^\top A x}{x^\top x}<br>$$</p>
+<p>这个值称为向量 $x$ 关于矩阵 $A$ 的 <strong>Rayleigh 商</strong>（Rayleigh quotient）。</p>
 <ol>
 <li><p>如果 $x$ 是 $A$ 的单位特征向量，则 $R_A(x)$ 就等于对应的特征值：</p>
-<script type="math/tex; mode=display">
-A x = \lambda x \Rightarrow R_A(x) = \lambda</script></li>
-</ol>
-<ol>
-<li>Rayleigh 商是一个关于 $x$ 的函数，其值在某种意义上“逼近”矩阵 $A$ 的特征值。</li>
+<p>$$<br>A x &#x3D; \lambda x \Rightarrow R_A(x) &#x3D; \lambda<br>$$</p>
+</li>
+<li><p>Rayleigh 商是一个关于 $x$ 的函数，其值在某种意义上“逼近”矩阵 $A$ 的特征值。</p>
+</li>
 </ol>
 <hr>
 <h3 id="20-1-🔷-Rayleigh-商与特征值的不等式（极值性质）"><a href="#20-1-🔷-Rayleigh-商与特征值的不等式（极值性质）" class="headerlink" title="20.1 🔷 Rayleigh 商与特征值的不等式（极值性质）"></a>20.1 🔷 Rayleigh 商与特征值的不等式（极值性质）</h3><p>设 $A$ 是 $n \times n$ 的实对称矩阵，其特征值满足：</p>
-<script type="math/tex; mode=display">
-\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n</script><p>则对任意非零向量 $x$，Rayleigh 商满足如下不等式：</p>
-<script type="math/tex; mode=display">
-\lambda_1 \leq R_A(x) \leq \lambda_n</script><p>也就是说，Rayleigh 商的取值总在 $A$ 的最小与最大特征值之间。</p>
+<p>$$<br>\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n<br>$$</p>
+<p>则对任意非零向量 $x$，Rayleigh 商满足如下不等式：</p>
+<p>$$<br>\lambda_1 \leq R_A(x) \leq \lambda_n<br>$$</p>
+<p>也就是说，Rayleigh 商的取值总在 $A$ 的最小与最大特征值之间。</p>
 <h3 id="20-2-🌟-Rayleigh-商的极小极大值定理（Courant-Fischer-定理）"><a href="#20-2-🌟-Rayleigh-商的极小极大值定理（Courant-Fischer-定理）" class="headerlink" title="20.2 🌟 Rayleigh 商的极小极大值定理（Courant-Fischer 定理）"></a>20.2 🌟 Rayleigh 商的极小极大值定理（Courant-Fischer 定理）</h3><p>设 $A$ 是实对称矩阵，其特征值记为 $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$，则：</p>
-<script type="math/tex; mode=display">
-\lambda_k = \min_{\dim(V)=k} \max_{x \in V,\, x \neq 0} R_A(x)</script><p>也就是说，$A$ 的第 $k$ 小特征值是所有 $k$ 维子空间中 Rayleigh 商最大值的最小值。</p>
+<p>$$<br>\lambda_k &#x3D; \min_{\dim(V)&#x3D;k} \max_{x \in V,, x \neq 0} R_A(x)<br>$$</p>
+<p>也就是说，$A$ 的第 $k$ 小特征值是所有 $k$ 维子空间中 Rayleigh 商最大值的最小值。</p>
 <p><strong>✅ 举个简单例子</strong></p>
 <p>设：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-2 & 1 \\\\
-1 & 3
-\end{bmatrix},\quad x = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix}</script><script type="math/tex; mode=display">
-R_A(x) = \frac{7}{2} = 3.5</script><p>而 $A$ 的特征值是 $\lambda_1 = \frac{5 - \sqrt{5}}{2} \approx 1.38$，$\lambda_2 = \frac{5 + \sqrt{5}}{2} \approx 3.62$，所以 Rayleigh 商确实落在特征值之间。</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 1 \\<br>1 &amp; 3<br>\end{bmatrix},\quad x &#x3D; \begin{bmatrix} 1 \\ 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>R_A(x) &#x3D; \frac{7}{2} &#x3D; 3.5<br>$$</p>
+<p>而 $A$ 的特征值是 $\lambda_1 &#x3D; \frac{5 - \sqrt{5}}{2} \approx 1.38$，$\lambda_2 &#x3D; \frac{5 + \sqrt{5}}{2} \approx 3.62$，所以 Rayleigh 商确实落在特征值之间。</p>
 <h2 id="21-SVD-分解（Singular-Value-Decomposition）"><a href="#21-SVD-分解（Singular-Value-Decomposition）" class="headerlink" title="21. SVD 分解（Singular Value Decomposition）"></a>21. SVD 分解（Singular Value Decomposition）</h2><p>对任意一个实矩阵 $A\in\mathbb{R}^{m\times n}$，存在三矩阵分解：</p>
-<script type="math/tex; mode=display">
-A = U \,\Sigma\, V^\top</script><ul>
-<li>$U\in\mathbb{R}^{m\times m}$ 为正交矩阵，列向量称为 <strong>左奇异向量</strong>。</li>
-<li>$V\in\mathbb{R}^{n\times n}$ 为正交矩阵，列向量称为 <strong>右奇异向量</strong>。</li>
+<p>$$<br>A &#x3D; U ,\Sigma, V^\top<br>$$</p>
+<ul>
+<li><p>$U\in\mathbb{R}^{m\times m}$ 为正交矩阵，列向量称为 <strong>左奇异向量</strong>。</p>
+</li>
+<li><p>$V\in\mathbb{R}^{n\times n}$ 为正交矩阵，列向量称为 <strong>右奇异向量</strong>。</p>
+</li>
 <li><p>$\Sigma\in\mathbb{R}^{m\times n}$ 为“对角”矩阵：</p>
-<script type="math/tex; mode=display">
-\Sigma = \begin{bmatrix}
-\sigma_1 & & & & \\\\
- & \sigma_2 & & & \\\\
- & & \ddots & & \\\\
- & & & \sigma_r & \\\\
- & & & & \mathbf{0}
-\end{bmatrix},\quad \sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0</script><p>其中 $r=\operatorname{rank}(A)$，${\sigma_i}$ 称为 <strong>奇异值</strong>。</p>
+<p>$$<br>\Sigma &#x3D; \begin{bmatrix}<br>\sigma_1 &amp; &amp; &amp; &amp; \\<br> &amp; \sigma_2 &amp; &amp; &amp; \\<br> &amp; &amp; \ddots &amp; &amp; \\<br> &amp; &amp; &amp; \sigma_r &amp; \\<br> &amp; &amp; &amp; &amp; \mathbf{0}<br>\end{bmatrix},\quad \sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r &gt; 0<br>$$</p>
+<p>其中 $r&#x3D;\operatorname{rank}(A)$，${\sigma_i}$ 称为 <strong>奇异值</strong>。</p>
 </li>
 </ul>
 <h3 id="21-1-SVD-存在性"><a href="#21-1-SVD-存在性" class="headerlink" title="21.1 SVD 存在性"></a>21.1 SVD 存在性</h3><ul>
-<li>对任意矩阵 $A$，总存在 SVD。</li>
+<li><p>对任意矩阵 $A$，总存在 SVD。</p>
+</li>
 <li><p>基于对称正定矩阵 $A^\top A$（或 $AA^\top$）的谱分解：</p>
-<script type="math/tex; mode=display">
-A^\top A = V\,\Lambda\,V^\top,\quad \Lambda = \operatorname{diag}(\sigma_1^2,\dots,\sigma_n^2)</script><p>取 $\sigma_i=\sqrt{\lambda_i}$，再定义 $U$ 的列向量为</p>
-<script type="math/tex; mode=display">
-u_i = \frac{1}{\sigma_i} A\,v_i,\quad i=1,\dots,r</script><p>剩余列向量可任意补全正交基。</p>
+<p>$$<br>A^\top A &#x3D; V,\Lambda,V^\top,\quad \Lambda &#x3D; \operatorname{diag}(\sigma_1^2,\dots,\sigma_n^2)<br>$$</p>
+<p>取 $\sigma_i&#x3D;\sqrt{\lambda_i}$，再定义 $U$ 的列向量为</p>
+<p>$$<br>u_i &#x3D; \frac{1}{\sigma_i} A,v_i,\quad i&#x3D;1,\dots,r<br>$$</p>
+<p>剩余列向量可任意补全正交基。</p>
 </li>
 </ul>
 <hr>
 <h3 id="🧪-21-2-简单例题"><a href="#🧪-21-2-简单例题" class="headerlink" title="🧪 21.2 简单例题"></a>🧪 21.2 简单例题</h3><p>令</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-3 & 1 \\\\
-0 & 2 \\\\
-0 & 0
-\end{bmatrix}_{3\times2}</script><ol>
-<li>计算 $A^\top A = \begin{bmatrix}9&amp;3\\3&amp;5\end{bmatrix}$，求特征值 $\lambda_1=10,\ \lambda_2=4$。</li>
-<li>奇异值 $\sigma_1=\sqrt{10},\ \sigma_2=2$。</li>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>3 &amp; 1 \\<br>0 &amp; 2 \\<br>0 &amp; 0<br>\end{bmatrix}_{3\times2}<br>$$</p>
+<ol>
+<li>计算 $A^\top A &#x3D; \begin{bmatrix}9&amp;3\\3&amp;5\end{bmatrix}$，求特征值 $\lambda_1&#x3D;10,\ \lambda_2&#x3D;4$。</li>
+<li>奇异值 $\sigma_1&#x3D;\sqrt{10},\ \sigma_2&#x3D;2$。</li>
 <li>对应单位特征向量 $v_1,v_2$ 构造 $V$，</li>
-<li>计算 $u_i=\tfrac1{\sigma_i}Av_i$ 构造 $U$。</li>
+<li>计算 $u_i&#x3D;\tfrac1{\sigma_i}Av_i$ 构造 $U$。</li>
 <li>最终得</li>
 </ol>
-<script type="math/tex; mode=display">
-A = U\begin{bmatrix}\sqrt{10}&0\\\\0&2\\\\0&0\end{bmatrix}V^\top.</script><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">SVD: A &#x3D; U Σ Vᵀ
+<p>$$<br>A &#x3D; U\begin{bmatrix}\sqrt{10}&amp;0\\0&amp;2\\0&amp;0\end{bmatrix}V^\top.<br>$$</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">SVD: A &#x3D; U Σ Vᵀ
 ├── U: m×m 正交，左奇异向量
 ├── Σ: m×n，奇异值对角
 ├── V: n×n 正交，右奇异向量
@@ -1411,139 +1173,127 @@ A = U\begin{bmatrix}\sqrt{10}&0\\\\0&2\\\\0&0\end{bmatrix}V^\top.</script><figur
 │   ├── ‖A‖_F² &#x3D; Σσ_i²
 │   └── 最优低秩逼近
 └── 应用: PCA, 压缩, 伪逆, 推荐系统…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+
+
+
 <h2 id="22-维数定理（Rank–Nullity-Theorem）"><a href="#22-维数定理（Rank–Nullity-Theorem）" class="headerlink" title="22. 维数定理（Rank–Nullity Theorem）"></a>22. 维数定理（Rank–Nullity Theorem）</h2><p>设 $T: V \to W$ 是从有限维向量空间 $V$ 到 $W$ 的一个线性变换，或者说是一个 $m \times n$ 的矩阵 $A$ 表示 $T$，则有：</p>
-<script type="math/tex; mode=display">
-\dim(\ker T) + \dim(\operatorname{Im} T) = \dim V</script><p>也可写作矩阵形式：</p>
-<script type="math/tex; mode=display">
-\text{nullity}(A) + \text{rank}(A) = n</script><p>其中：</p>
+<p>$$<br>\dim(\ker T) + \dim(\operatorname{Im} T) &#x3D; \dim V<br>$$</p>
+<p>也可写作矩阵形式：</p>
+<p>$$<br>\text{nullity}(A) + \text{rank}(A) &#x3D; n<br>$$</p>
+<p>其中：</p>
 <ul>
 <li>$\ker T$ 是 $T$ 的核（null space）；</li>
 <li>$\operatorname{Im} T$ 是 $T$ 的像空间（column space）；</li>
 <li>$n$ 是 $A$ 的列数。</li>
 </ul>
 <h3 id="22-1-子空间维数公式（Grassmann’s-Formula）"><a href="#22-1-子空间维数公式（Grassmann’s-Formula）" class="headerlink" title="22.1 子空间维数公式（Grassmann’s Formula）"></a>22.1 子空间维数公式（Grassmann’s Formula）</h3><p>设 $U, W$ 是同一向量空间 $V$ 的两个子空间，则：</p>
-<script type="math/tex; mode=display">
-\dim(U + W) = \dim U + \dim W - \dim(U \cap W)</script><p>这被称为<strong>Grassmann 定理</strong>，揭示了两个子空间的<strong>并与交之间的维数关系</strong>。</p>
+<p>$$<br>\dim(U + W) &#x3D; \dim U + \dim W - \dim(U \cap W)<br>$$</p>
+<p>这被称为<strong>Grassmann 定理</strong>，揭示了两个子空间的<strong>并与交之间的维数关系</strong>。</p>
 <p><strong>✅ 推导简要：</strong></p>
 <p>我们从 $U$ 中选出一个 $\dim(U \cap W)$ 的基，然后补出$U$ 的基，记为 $u_1, …, u_k$；<br>从 $W$ 中也补出剩下的基 $w_1, …, w_l$。</p>
 <p>那么 $U + W$ 的一组生成元为：</p>
-<script type="math/tex; mode=display">
-\{u_1, ..., u_k, u_{k+1}, ..., u_m, w_{k+1}, ..., w_n\}</script><p>他们是线性无关的，其个数为：</p>
-<script type="math/tex; mode=display">
-\dim U + \dim W - \dim(U \cap W)</script><p><strong>🧩 与矩阵运算结合的理解</strong></p>
-<p>若 $A$ 是 $m \times n$ 的矩阵，$Ax = b$ 可解 $\Leftrightarrow b \in \operatorname{Im}(A)$。</p>
+<p>$$<br>{u_1, …, u_k, u_{k+1}, …, u_m, w_{k+1}, …, w_n}<br>$$</p>
+<p>他们是线性无关的，其个数为：</p>
+<p>$$<br>\dim U + \dim W - \dim(U \cap W)<br>$$</p>
+<p><strong>🧩 与矩阵运算结合的理解</strong></p>
+<p>若 $A$ 是 $m \times n$ 的矩阵，$Ax &#x3D; b$ 可解 $\Leftrightarrow b \in \operatorname{Im}(A)$。</p>
 <p>从维数定理得：</p>
-<script type="math/tex; mode=display">
-\text{解空间的自由变量个数} = n - \text{rank}(A)</script><h2 id="23-Hermite矩阵（Hermitian-Matrix）"><a href="#23-Hermite矩阵（Hermitian-Matrix）" class="headerlink" title="23. Hermite矩阵（Hermitian Matrix）"></a>23. Hermite矩阵（Hermitian Matrix）</h2><p><strong>Hermite矩阵</strong>（也称为厄米矩阵）是指<strong>等于其自身共轭转置</strong>的方阵。</p>
+<p>$$<br>\text{解空间的自由变量个数} &#x3D; n - \text{rank}(A)<br>$$</p>
+<h2 id="23-Hermite矩阵（Hermitian-Matrix）"><a href="#23-Hermite矩阵（Hermitian-Matrix）" class="headerlink" title="23. Hermite矩阵（Hermitian Matrix）"></a>23. Hermite矩阵（Hermitian Matrix）</h2><p><strong>Hermite矩阵</strong>（也称为厄米矩阵）是指<strong>等于其自身共轭转置</strong>的方阵。</p>
 <p>数学表达为：</p>
-<script type="math/tex; mode=display">
-A = A^*</script><p>其中：</p>
+<p>$$<br>A &#x3D; A^*<br>$$</p>
+<p>其中：</p>
 <ul>
 <li>$A$ 是一个复矩阵；</li>
 <li>$A^*$ 表示 $A$ 的共轭转置（先取复共轭，再转置）。</li>
 </ul>
 <p>也就是说，对于所有 $i, j$，都有：</p>
-<script type="math/tex; mode=display">
-a_{ij} = \overline{a_{ji}}</script><p>一个 $2 \times 2$ 的 Hermite 矩阵：</p>
-<script type="math/tex; mode=display">
-A = \begin{bmatrix}
-2 & 3+i \\\\
-3-i & 5
-\end{bmatrix}</script><p>验证是否是 Hermite 矩阵：</p>
+<p>$$<br>a_{ij} &#x3D; \overline{a_{ji}}<br>$$</p>
+<p>一个 $2 \times 2$ 的 Hermite 矩阵：</p>
+<p>$$<br>A &#x3D; \begin{bmatrix}<br>2 &amp; 3+i \\<br>3-i &amp; 5<br>\end{bmatrix}<br>$$</p>
+<p>验证是否是 Hermite 矩阵：</p>
 <p>先取转置：</p>
-<script type="math/tex; mode=display">
-A^T = \begin{bmatrix}
-2 & 3-i \\\\
-3+i & 5
-\end{bmatrix}</script><p>然后取共轭（即共轭转置）：</p>
-<script type="math/tex; mode=display">
-A^* = \begin{bmatrix}
-2 & 3+i \\\\
-3-i & 5
-\end{bmatrix} = A</script><p>所以它是 Hermite 矩阵。</p>
+<p>$$<br>A^T &#x3D; \begin{bmatrix}<br>2 &amp; 3-i \\<br>3+i &amp; 5<br>\end{bmatrix}<br>$$</p>
+<p>然后取共轭（即共轭转置）：</p>
+<p>$$<br>A^* &#x3D; \begin{bmatrix}<br>2 &amp; 3+i \\<br>3-i &amp; 5<br>\end{bmatrix} &#x3D; A<br>$$</p>
+<p>所以它是 Hermite 矩阵。</p>
 <hr>
 <h3 id="23-1-Hermite矩阵的重要性质："><a href="#23-1-Hermite矩阵的重要性质：" class="headerlink" title="23.1 Hermite矩阵的重要性质："></a>23.1 Hermite矩阵的重要性质：</h3><ol>
 <li><p><strong>所有特征值都是实数</strong><br>即使矩阵中含有复数，只要它是 Hermite 矩阵，其特征值一定是实数。</p>
 </li>
 <li><p><strong>不同特征值对应的特征向量正交</strong><br>如果 $\lambda_1 \neq \lambda_2$，则对应的特征向量 $\mathbf{v}_1$ 和 $\mathbf{v}_2$ 满足：</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_1^* \mathbf{v}_2 = 0</script></li>
-<li><p><strong>可以酉对角化（unitarily diagonalizable）</strong><br>存在酉矩阵 $U$，使得：</p>
-<script type="math/tex; mode=display">
-A = U \Lambda U^*</script><p>其中 $\Lambda$ 是实对角矩阵（包含所有实特征值）。</p>
+<p>$$<br>\mathbf{v}_1^* \mathbf{v}_2 &#x3D; 0<br>$$</p>
 </li>
-<li><p><strong>主对角线上元素一定是实数</strong><br>因为对于 $i=j$，有 $a<em>{ii} = \overline{a</em>{ii}}$，说明 $a_{ii}$ 为实数。</p>
+<li><p><strong>可以酉对角化（unitarily diagonalizable）</strong><br>存在酉矩阵 $U$，使得：</p>
+<p>$$<br>A &#x3D; U \Lambda U^*<br>$$</p>
+<p>其中 $\Lambda$ 是实对角矩阵（包含所有实特征值）。</p>
+</li>
+<li><p><strong>主对角线上元素一定是实数</strong><br>因为对于 $i&#x3D;j$，有 $a_{ii} &#x3D; \overline{a_{ii}}$，说明 $a_{ii}$ 为实数。</p>
 </li>
 <li><p><strong>Hermite矩阵的所有特征向量可以构成一个标准正交基底（单位酉矩阵）</strong></p>
 </li>
 </ol>
 <hr>
 <p>实对称矩阵是 Hermite 矩阵的一种特殊情况，即：</p>
-<script type="math/tex; mode=display">
-A = A^T = A^* \quad (\text{当 } A \text{ 是实矩阵时})</script><p>所以<strong>实对称矩阵是 Hermite 矩阵的子集</strong>。</p>
+<p>$$<br>A &#x3D; A^T &#x3D; A^* \quad (\text{当 } A \text{ 是实矩阵时})<br>$$</p>
+<p>所以<strong>实对称矩阵是 Hermite 矩阵的子集</strong>。</p>
 <p>好的，我们来讲解线性代数中非常重要的一类矩阵：<strong>酉矩阵（Unitary Matrix）</strong>。</p>
 <h2 id="24-酉矩阵（Unitary-Matrix）"><a href="#24-酉矩阵（Unitary-Matrix）" class="headerlink" title="24. 酉矩阵（Unitary Matrix）"></a>24. 酉矩阵（Unitary Matrix）</h2><p>在复数域 $\mathbb{C}$ 中，如果一个复方阵 $U$ 满足</p>
-<script type="math/tex; mode=display">
-U^\dagger U = UU^\dagger = I</script><p>则称 $U$ 是一个<strong>酉矩阵</strong>，其中 $U^\dagger$ 表示 $U$ 的<strong>共轭转置矩阵</strong>（又叫埃尔米特共轭，Hermitian conjugate）：</p>
-<script type="math/tex; mode=display">
-U^\dagger = \overline{U}^T</script><p>酉矩阵是复数域中对应于实数域中<strong>正交矩阵</strong>的推广。</p>
+<p>$$<br>U^\dagger U &#x3D; UU^\dagger &#x3D; I<br>$$</p>
+<p>则称 $U$ 是一个<strong>酉矩阵</strong>，其中 $U^\dagger$ 表示 $U$ 的<strong>共轭转置矩阵</strong>（又叫埃尔米特共轭，Hermitian conjugate）：</p>
+<p>$$<br>U^\dagger &#x3D; \overline{U}^T<br>$$</p>
+<p>酉矩阵是复数域中对应于实数域中<strong>正交矩阵</strong>的推广。</p>
 <ul>
 <li>$\overline{U}$ 是 $U$ 的<strong>元素共轭矩阵</strong>，即对每个元素取复共轭。</li>
 <li>$U^T$ 是 $U$ 的转置。</li>
 <li>所以 $U^\dagger$ 是先取共轭再转置。</li>
 </ul>
 <hr>
-<h3 id="🧠-24-1-几个例子"><a href="#🧠-24-1-几个例子" class="headerlink" title="🧠 24.1 几个例子"></a>🧠 24.1 几个例子</h3><h3 id="1-单位矩阵一定是酉矩阵："><a href="#1-单位矩阵一定是酉矩阵：" class="headerlink" title="1. 单位矩阵一定是酉矩阵："></a>1. 单位矩阵一定是酉矩阵：</h3><script type="math/tex; mode=display">
-U = I_n \Rightarrow U^\dagger = I_n, \quad U^\dagger U = I_n</script><hr>
+<h3 id="🧠-24-1-几个例子"><a href="#🧠-24-1-几个例子" class="headerlink" title="🧠 24.1 几个例子"></a>🧠 24.1 几个例子</h3><h3 id="1-单位矩阵一定是酉矩阵："><a href="#1-单位矩阵一定是酉矩阵：" class="headerlink" title="1. 单位矩阵一定是酉矩阵："></a>1. 单位矩阵一定是酉矩阵：</h3><p>$$<br>U &#x3D; I_n \Rightarrow U^\dagger &#x3D; I_n, \quad U^\dagger U &#x3D; I_n<br>$$</p>
+<hr>
 <h3 id="2-复旋转矩阵："><a href="#2-复旋转矩阵：" class="headerlink" title="2. 复旋转矩阵："></a>2. 复旋转矩阵：</h3><p>考虑二维复旋转矩阵：</p>
-<script type="math/tex; mode=display">
-U = \begin{bmatrix}
-\cos\theta & \sin\theta \\\\
--\sin\theta & \cos\theta
-\end{bmatrix}</script><p>当 $\theta$ 为实数，这个是正交矩阵；若 $\cos\theta$ 和 $\sin\theta$ 是复数单位模数，这将成为酉矩阵。</p>
+<p>$$<br>U &#x3D; \begin{bmatrix}<br>\cos\theta &amp; \sin\theta \\<br>-\sin\theta &amp; \cos\theta<br>\end{bmatrix}<br>$$</p>
+<p>当 $\theta$ 为实数，这个是正交矩阵；若 $\cos\theta$ 和 $\sin\theta$ 是复数单位模数，这将成为酉矩阵。</p>
 <hr>
 <h3 id="3-酉矩阵的性质"><a href="#3-酉矩阵的性质" class="headerlink" title="3. 酉矩阵的性质"></a>3. 酉矩阵的性质</h3><ol>
 <li><p><strong>保持内积</strong>：</p>
-<script type="math/tex; mode=display">
-\langle Ux, Uy \rangle = \langle x, y \rangle</script><p>酉变换不改变向量之间的夹角和长度（模）。</p>
+<p>$$<br>\langle Ux, Uy \rangle &#x3D; \langle x, y \rangle<br>$$</p>
+<p>酉变换不改变向量之间的夹角和长度（模）。</p>
 </li>
 <li><p><strong>酉矩阵的逆是其共轭转置</strong>：</p>
-<script type="math/tex; mode=display">
-U^{-1} = U^\dagger</script></li>
-<li><p><strong>特征值模长为 1</strong>：<br>若 $\lambda$ 是 $U$ 的特征值，则 $|\lambda| = 1$</p>
+<p>$$<br>U^{-1} &#x3D; U^\dagger<br>$$</p>
+</li>
+<li><p><strong>特征值模长为 1</strong>：<br>若 $\lambda$ 是 $U$ 的特征值，则 $|\lambda| &#x3D; 1$</p>
 </li>
 <li><p><strong>酉矩阵构成一个群</strong>：<br>酉矩阵在乘法下构成群（封闭性、单位元、逆元存在、结合性）。</p>
 </li>
-<li><p><strong>酉矩阵是“正交矩阵”的复数推广</strong>：<br>所有正交矩阵（实系数、$Q^T Q = I$）都是酉矩阵的一种特殊情况。</p>
+<li><p><strong>酉矩阵是“正交矩阵”的复数推广</strong>：<br>所有正交矩阵（实系数、$Q^T Q &#x3D; I$）都是酉矩阵的一种特殊情况。</p>
 </li>
 </ol>
 <h2 id="25-二维旋转矩阵的定义"><a href="#25-二维旋转矩阵的定义" class="headerlink" title="25. 二维旋转矩阵的定义"></a>25. 二维旋转矩阵的定义</h2><p>设有一个二维平面上的向量 $\begin{bmatrix} x \ y \end{bmatrix}$，我们希望将它绕原点旋转一个角度 $\theta$（逆时针方向为正方向），旋转后的新向量 $\begin{bmatrix} x’ \ y’ \end{bmatrix}$ </p>
 <p>这个 $2 \times 2$ 的矩阵就叫做 <strong>二维旋转矩阵</strong>，记作 $R(\theta)$：</p>
-<script type="math/tex; mode=display">
-R(\theta) =
-\begin{bmatrix}
-\cos \theta & -\sin \theta \\\\
-\sin \theta & \cos \theta
-\end{bmatrix}</script><ol>
+<p>$$<br>R(\theta) &#x3D;<br>\begin{bmatrix}<br>\cos \theta &amp; -\sin \theta \\<br>\sin \theta &amp; \cos \theta<br>\end{bmatrix}<br>$$</p>
+<ol>
 <li><p><strong>正交性（orthogonality）</strong></p>
-<script type="math/tex; mode=display">
-R(\theta)^T R(\theta) = I</script><p>说明旋转矩阵是一个正交矩阵。</p>
+<p>$$<br>R(\theta)^T R(\theta) &#x3D; I<br>$$</p>
+<p>说明旋转矩阵是一个正交矩阵。</p>
 </li>
 <li><p><strong>行列式为1</strong></p>
-<script type="math/tex; mode=display">
-\det(R(\theta)) = \cos^2\theta + \sin^2\theta = 1</script></li>
+<p>$$<br>\det(R(\theta)) &#x3D; \cos^2\theta + \sin^2\theta &#x3D; 1<br>$$</p>
+</li>
 <li><p><strong>可逆性</strong></p>
-<script type="math/tex; mode=display">
-R(\theta)^{-1} = R(-\theta)</script></li>
+<p>$$<br>R(\theta)^{-1} &#x3D; R(-\theta)<br>$$</p>
+</li>
 <li><p><strong>保持向量长度</strong></p>
-<script type="math/tex; mode=display">
-\| R(\theta) \mathbf{v} \| = \| \mathbf{v} \|</script><p>因此旋转变换不改变向量的模长。</p>
+<p>$$<br>| R(\theta) \mathbf{v} | &#x3D; | \mathbf{v} |<br>$$</p>
+<p>因此旋转变换不改变向量的模长。</p>
 </li>
 <li><p><strong>复数形式（便于与酉矩阵联系）</strong><br>旋转矩阵可以视为复数乘法中的一个例子：</p>
-<script type="math/tex; mode=display">
-z = x + iy \quad\Rightarrow\quad e^{i\theta} z = \cos\theta z + i\sin\theta z</script></li>
+<p>$$<br>z &#x3D; x + iy \quad\Rightarrow\quad e^{i\theta} z &#x3D; \cos\theta z + i\sin\theta z<br>$$</p>
+</li>
 </ol>
-<p>将点 $(1, 0)$ 逆时针旋转 $90^\circ$（即 $\theta = \frac{\pi}{2}$）后变成了 $(0,1)$。</p>
+<p>将点 $(1, 0)$ 逆时针旋转 $90^\circ$（即 $\theta &#x3D; \frac{\pi}{2}$）后变成了 $(0,1)$。</p>
 <h2 id="26-常见的矩阵求导公式"><a href="#26-常见的矩阵求导公式" class="headerlink" title="26. 常见的矩阵求导公式"></a>26. 常见的矩阵求导公式</h2><ul>
 <li>$x \in \mathbb{R}^{n \times 1}$：列向量</li>
 <li>$A \in \mathbb{R}^{n \times n}$：矩阵</li>
@@ -1552,38 +1302,38 @@ z = x + iy \quad\Rightarrow\quad e^{i\theta} z = \cos\theta z + i\sin\theta z</s
 </ul>
 <p><strong>1.向量对向量的导数</strong></p>
 <ul>
-<li><p>$\frac{\partial (a^T x)}{\partial x} = a$</p>
+<li><p>$\frac{\partial (a^T x)}{\partial x} &#x3D; a$</p>
 <blockquote>
 <p>标量，$a$ 是常向量</p>
 </blockquote>
 </li>
-<li><p>$\frac{\partial (x^T a)}{\partial x} = a$</p>
+<li><p>$\frac{\partial (x^T a)}{\partial x} &#x3D; a$</p>
 <blockquote>
-<p>同上，注意 $x^T a = a^T x$</p>
+<p>同上，注意 $x^T a &#x3D; a^T x$</p>
 </blockquote>
 </li>
 </ul>
 <p><strong>2.二次型（最常用）</strong></p>
 <ul>
-<li><p>$\frac{\partial (x^T A x)}{\partial x} = (A + A^T) x$</p>
+<li><p>$\frac{\partial (x^T A x)}{\partial x} &#x3D; (A + A^T) x$</p>
 <blockquote>
 <p>若 $A$ 对称，则简化为 $2A x$</p>
 </blockquote>
 </li>
-<li><p>$\frac{\partial (x^T x)}{\partial x} = 2x$</p>
+<li><p>$\frac{\partial (x^T x)}{\partial x} &#x3D; 2x$</p>
 <blockquote>
-<p>即 $A = I$ 的特例</p>
+<p>即 $A &#x3D; I$ 的特例</p>
 </blockquote>
 </li>
 </ul>
 <p><strong>3.向量-矩阵乘积</strong></p>
 <ul>
-<li><p>$\frac{\partial (A x)}{\partial x} = A$</p>
+<li><p>$\frac{\partial (A x)}{\partial x} &#x3D; A$</p>
 <blockquote>
 <p>$Ax$ 是一个向量，对 $x$ 求导为矩阵 $A$</p>
 </blockquote>
 </li>
-<li><p>$\frac{\partial (x^T A)}{\partial x} = A^T$</p>
+<li><p>$\frac{\partial (x^T A)}{\partial x} &#x3D; A^T$</p>
 <blockquote>
 <p>$x^T A$ 是行向量，对 $x$ 的导数是 $A^T$</p>
 </blockquote>
@@ -1591,10 +1341,9 @@ z = x + iy \quad\Rightarrow\quad e^{i\theta} z = \cos\theta z + i\sin\theta z</s
 </ul>
 <p><strong>4.Frobenius 范数相关</strong></p>
 <ul>
-<li>$\frac{\partial |A|_F^2}{\partial A} = 2A$</li>
-</ul>
-<ul>
-<li><p>$\frac{\partial |Ax - b|_2^2}{\partial x} = 2A^T (Ax - b)$</p>
+<li><p>$\frac{\partial |A|_F^2}{\partial A} &#x3D; 2A$</p>
+</li>
+<li><p>$\frac{\partial |Ax - b|_2^2}{\partial x} &#x3D; 2A^T (Ax - b)$</p>
 <blockquote>
 <p>最常用于线性回归</p>
 </blockquote>
@@ -1602,8 +1351,9 @@ z = x + iy \quad\Rightarrow\quad e^{i\theta} z = \cos\theta z + i\sin\theta z</s
 </ul>
 <p><strong>5.矩阵迹相关</strong></p>
 <ul>
-<li>$\frac{\partial \text{Tr}(A^T x)}{\partial x} = A$</li>
-<li><p>$\frac{\partial \text{Tr}(x^T A x)}{\partial x} = (A + A^T) x$</p>
+<li><p>$\frac{\partial \text{Tr}(A^T x)}{\partial x} &#x3D; A$</p>
+</li>
+<li><p>$\frac{\partial \text{Tr}(x^T A x)}{\partial x} &#x3D; (A + A^T) x$</p>
 <blockquote>
 <p>等价于 $x^T A x$ 的求导（注意 $x$ 是列向量）</p>
 </blockquote>
@@ -1611,22 +1361,22 @@ z = x + iy \quad\Rightarrow\quad e^{i\theta} z = \cos\theta z + i\sin\theta z</s
 </ul>
 <p><strong>6.常见复合函数</strong></p>
 <ul>
-<li><p>$f(x) = \log(\sigma(x))$, $\sigma(x) = \frac{1}{1+e^{-x}}$</p>
+<li><p>$f(x) &#x3D; \log(\sigma(x))$, $\sigma(x) &#x3D; \frac{1}{1+e^{-x}}$</p>
 <blockquote>
-<p>$\frac{df}{dx} = \sigma(x)(1 - \sigma(x))$</p>
+<p>$\frac{df}{dx} &#x3D; \sigma(x)(1 - \sigma(x))$</p>
 </blockquote>
 </li>
-<li><p>$f(x) = |Ax - b|_2^2 + \lambda |x|_2^2$</p>
+<li><p>$f(x) &#x3D; |Ax - b|_2^2 + \lambda |x|_2^2$</p>
 <blockquote>
-<p>$\frac{df}{dx} = 2A^T (Ax - b) + 2\lambda x$</p>
+<p>$\frac{df}{dx} &#x3D; 2A^T (Ax - b) + 2\lambda x$</p>
 </blockquote>
 </li>
 </ul>
 <p>✳️ 延伸：矩阵对矩阵求导（高级）</p>
 <ul>
-<li>$\frac{\partial \text{Tr}(AB)}{\partial A} = B^T$</li>
-<li>$\frac{\partial \text{Tr}(A^T A)}{\partial A} = 2A$</li>
-<li>$\frac{\partial \text{Tr}(A X B)}{\partial X} = A^T B^T$</li>
+<li>$\frac{\partial \text{Tr}(AB)}{\partial A} &#x3D; B^T$</li>
+<li>$\frac{\partial \text{Tr}(A^T A)}{\partial A} &#x3D; 2A$</li>
+<li>$\frac{\partial \text{Tr}(A X B)}{\partial X} &#x3D; A^T B^T$</li>
 </ul>
 <h2 id="偷偷说"><a href="#偷偷说" class="headerlink" title="偷偷说"></a>偷偷说</h2><p>线性代数的修考侧重点主要还是各种性质的推导，因此在熟悉每一个概念的时候，对于原理的理解是非常重要的:).<br>PS: 调整这些公式的格式真的太考验我耐心了…</p>
 
