@@ -19,16 +19,16 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Signals and Systems信号与系统知识点梳理:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. Introduction1.1 连续时间信号与离散信号 (Continuous-Time Signals and Discrete-Time Signals)信号 (Signal)  定义：信号是携带信息的函数 (a">
+    <meta name="description" content="Signals and Systems信号与系统知识点梳理:) 参考书籍📚：Signals &amp; Systems 2nd Edition by Oppenheim              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. Introduction1.1 连续时间信号与离散信号 (Continuous-Time Signals a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Signals and Systems">
 <meta property="og:url" content="http://toutou.zeabur.app/2025/08/22/Signals-and-Systems/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="Signals and Systems信号与系统知识点梳理:)              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. Introduction1.1 连续时间信号与离散信号 (Continuous-Time Signals and Discrete-Time Signals)信号 (Signal)  定义：信号是携带信息的函数 (a">
+<meta property="og:description" content="Signals and Systems信号与系统知识点梳理:) 参考书籍📚：Signals &amp; Systems 2nd Edition by Oppenheim              催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio              1. Introduction1.1 连续时间信号与离散信号 (Continuous-Time Signals a">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T05:38:46.000Z">
-<meta property="article:modified_time" content="2025-08-22T16:01:51.800Z">
+<meta property="article:modified_time" content="2025-09-16T14:33:40.609Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k words
+          4.4k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          30 mins
+          37 mins
         
       </span>
     
@@ -285,7 +285,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Signals-and-Systems"><a href="#Signals-and-Systems" class="headerlink" title="Signals and Systems"></a>Signals and Systems</h1><p>信号与系统知识点梳理:)</p>
+                <h1 id="Signals-and-Systems"><a href="#Signals-and-Systems" class="headerlink" title="Signals and Systems"></a>Signals and Systems</h1><p>信号与系统知识点梳理:) 参考书籍📚：Signals &amp; Systems 2nd Edition by Oppenheim</p>
 <div class="note note-success">
             <p>催更｜辅导｜私塾兼职｜联系偷偷：LifeGoesOn_Rio</p>
           </div>
@@ -797,6 +797,112 @@
 <li>计算 $\omega_0&#x2F;(2\pi)$。</li>
 <li>若为有理数 → 周期；若为无理数 → 非周期。</li>
 </ol>
+<hr>
+<h3 id="1-7-离散时间单位脉冲和单位阶越函数"><a href="#1-7-离散时间单位脉冲和单位阶越函数" class="headerlink" title="1.7 离散时间单位脉冲和单位阶越函数"></a>1.7 离散时间单位脉冲和单位阶越函数</h3><p>在离散时间系统 (Discrete-Time Systems) 中，<strong>单位脉冲序列 (Unit Impulse Sequence)</strong> 和 <strong>单位阶跃序列 (Unit Step Sequence)</strong> 是两类最基本的信号。</p>
+<p>离散时间单位脉冲序列 (Discrete-Time Unit Impulse Sequence)：</p>
+<p>记作 $\delta[n]$，定义为：</p>
+<p>$$<br>\delta[n] &#x3D;<br>\begin{cases}<br>1, &amp; n &#x3D; 0 \\<br>0, &amp; n \neq 0<br>\end{cases}<br>$$</p>
+<p><strong>特点 (Characteristics)</strong></p>
+<ul>
+<li>只在 $n&#x3D;0$ 时刻取值为1，其余时刻为0。</li>
+<li>常被称为 克罗内克函数 (Kronecker Delta)。</li>
+<li>在离散系统中，用来作为“测试信号 (Test Signal)”，因为它能激发系统的全部动态。</li>
+</ul>
+<hr>
+<p>离散时间单位阶跃序列 (Discrete-Time Unit Step Sequence)</p>
+<p>记作 $u[n]$，定义为：</p>
+<p>$$<br>u[n] &#x3D;<br>\begin{cases}<br>1, &amp; n \geq 0 \\<br>0, &amp; n &lt; 0<br>\end{cases}<br>$$</p>
+<p>特点 (Characteristics)</p>
+<ul>
+<li>表示一个从 $n&#x3D;0$ 开始持续为1的信号。</li>
+<li>在实际中表示某个信号从 $n&#x3D;0$ 时刻开始“开启 (Switch On)”。</li>
+</ul>
+<hr>
+<p>脉冲与阶跃的关系 (Relationship Between Impulse and Step)</p>
+<p>在离散时间中，脉冲序列和阶跃序列有如下关系：</p>
+<ul>
+<li><p>脉冲是阶跃的差分 (Impulse is the difference of Step):</p>
+<p>$$<br>\delta[n] &#x3D; u[n] - u[n-1]<br>$$</p>
+</li>
+<li><p>阶跃是脉冲的累加和 (Step is the sum of Impulses):</p>
+<p>$$<br>u[n] &#x3D; \sum_{k&#x3D;-\infty}^n \delta[k]<br>$$</p>
+</li>
+</ul>
+<p>👉 直观理解：</p>
+<ul>
+<li>阶跃信号就像是一串“积累的1”；</li>
+<li>脉冲信号就像是“单位增量 (Unit Increment)”——阶跃从0变到1时，就出现了一个脉冲。</li>
+</ul>
+<p>✅ <strong>总结 (Summary)</strong></p>
+<ul>
+<li><p>单位脉冲序列 (Unit Impulse Sequence, $\delta[n]$)：<br>仅在 $n&#x3D;0$ 时取1，其余为0。</p>
+</li>
+<li><p>单位阶跃序列 (Unit Step Sequence, $u[n]$)：<br>从 $n&#x3D;0$ 开始为1，此后一直为1。</p>
+</li>
+<li><p>关系：</p>
+<ul>
+<li>$\delta[n] &#x3D; u[n] - u[n-1]$</li>
+<li>$u[n] &#x3D; \sum_{k&#x3D;-\infty}^n \delta[k]$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="1-8-连续时间单位脉冲和单位阶跃函数"><a href="#1-8-连续时间单位脉冲和单位阶跃函数" class="headerlink" title="1.8 连续时间单位脉冲和单位阶跃函数"></a>1.8 连续时间单位脉冲和单位阶跃函数</h3><p>在连续时间系统 (Continuous-Time Systems) 中，<strong>单位脉冲函数 (Unit Impulse Function)</strong> 和 <strong>单位阶跃函数 (Unit Step Function)</strong> 是最基础的两个信号。</p>
+<hr>
+<p>单位阶跃函数 (Unit Step Function, $u(t)$)</p>
+<p>定义：</p>
+<p>$$<br>u(t) &#x3D;<br>\begin{cases}<br>0, &amp; t &lt; 0 \\<br>1, &amp; t \geq 0<br>\end{cases}<br>$$</p>
+<p>特点 (Characteristics):</p>
+<ul>
+<li>在 $t&#x3D;0$ 时刻从 0 突然跳到 1。</li>
+<li>代表“开关信号 (Switch Signal)”，例如电源在 $t&#x3D;0$ 打开。</li>
+<li>在系统分析中，常用于表示信号从某一时刻开始作用。</li>
+</ul>
+<hr>
+<p>单位脉冲函数 (Unit Impulse Function, $\delta(t)$)</p>
+<p>单位脉冲是一个理想化 (Idealized) 信号，定义为：</p>
+<ol>
+<li>几乎处处为0 (Zero everywhere except at $t&#x3D;0$)；</li>
+<li>在 $t&#x3D;0$ 处取无限大 (Infinity at $t&#x3D;0$)；</li>
+<li>面积 (Area) 等于 1：</li>
+</ol>
+<p>$$<br>\int_{-\infty}^{+\infty} \delta(t) , dt &#x3D; 1<br>$$</p>
+<p>特点 (Characteristics)</p>
+<ul>
+<li>也称 狄拉克函数 (Dirac Delta Function)。</li>
+<li>表示一个“瞬时冲击 (Instantaneous Impulse)”或“冲击力 (Impulse Force)”。</li>
+<li>常用来定义系统的 冲激响应 (Impulse Response, $h(t)$)。</li>
+</ul>
+<hr>
+<p>阶跃与脉冲的关系 (Relationship Between Step and Impulse)</p>
+<p>它们之间有微积分关系：</p>
+<ul>
+<li>脉冲是阶跃的导数 (Impulse is the derivative of Step)</li>
+</ul>
+<p>$$<br>\delta(t) &#x3D; \frac{d}{dt} u(t)<br>$$</p>
+<ul>
+<li>阶跃是脉冲的积分 (Step is the integral of Impulse)</li>
+</ul>
+<p>$$<br>u(t) &#x3D; \int_{-\infty}^t \delta(\tau) , d\tau<br>$$</p>
+<p>👉 直观解释 (Intuitive Explanation)：</p>
+<ul>
+<li>阶跃函数 $u(t)$ 在 $t&#x3D;0$ 发生突变，相当于由一个“瞬间冲击 (Impulse)”触发；</li>
+<li>脉冲函数 $\delta(t)$ 表示那个“突变的瞬间”。</li>
+</ul>
+<hr>
+<p>✅ <strong>总结 (Summary)</strong></p>
+<ul>
+<li><p>单位阶跃函数 (Unit Step Function, $u(t)$)：表示一个在 $t&#x3D;0$ 打开的开关信号。</p>
+</li>
+<li><p>单位脉冲函数 (Unit Impulse Function, $\delta(t)$)：表示瞬时冲击。</p>
+</li>
+<li><p>它们的关系：</p>
+<ul>
+<li>$\delta(t) &#x3D; u’(t)$</li>
+<li>$u(t) &#x3D; \int \delta(t),dt$</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
