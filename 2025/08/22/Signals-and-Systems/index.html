@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T05:38:46.000Z">
-<meta property="article:modified_time" content="2025-09-18T10:06:46.342Z">
+<meta property="article:modified_time" content="2025-09-18T11:25:26.244Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6k words
+          6.6k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          51 mins
+          55 mins
         
       </span>
     
@@ -1068,6 +1068,61 @@
 <li><strong>稳定系统</strong>：不会“爆炸”，输入如果有限，输出一定有限。</li>
 <li><strong>不稳定系统</strong>：可能“失控”，即使输入有限，输出也可能无限大。</li>
 <li>现实中的物理系统大多数情况下需要保持稳定，否则会无法使用（比如通信系统、控制系统）。</li>
+</ul>
+<hr>
+<h4 id="1-9-5-时不变性"><a href="#1-9-5-时不变性" class="headerlink" title="1.9.5 时不变性"></a>1.9.5 时不变性</h4><ol>
+<li><p><strong>时不变系统（Time-Invariant System）</strong><br>如果系统的性质不会随时间改变，即输入信号延迟（或提前）一段时间，输出也相应延迟（或提前）相同的时间，而系统本身的响应形式不发生变化，这样的系统称为时不变系统。</p>
+<ul>
+<li><strong>数学表达式</strong>：<br>对任意输入 $x(t)$，系统输出为 $y(t) &#x3D; T[x(t)]$。<br>如果对延迟后的输入 $x(t-t_0)$，输出是<br>$y(t-t_0) &#x3D; T[x(t-t_0)]$<br>则该系统为时不变系统。</li>
+</ul>
+</li>
+<li><p><strong>时变系统（Time-Variant System）</strong><br>如果系统的性质随时间改变，即使输入延迟，输出不只是简单延迟，而是发生变化，这样的系统是时变系统。</p>
+</li>
+</ol>
+<hr>
+<p>要判断一个系统是否时不变，一般步骤是：</p>
+<ol>
+<li><p>先对输入 $x(t)$ 作用系统，得到输出 $y(t)$；</p>
+</li>
+<li><p>再将输入延迟 $t_0$，得到 $x(t-t_0)$，通过系统得到新的输出；</p>
+</li>
+<li><p>最后比较新的输出是否等于原输出的延迟版 $y(t-t_0)$。</p>
+<ul>
+<li>如果完全相等 → 系统时不变；</li>
+<li>如果不相等 → 系统时变。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>例子</p>
+<ol>
+<li><p><strong>时不变系统的例子</strong></p>
+<ul>
+<li><p>缩放系统：<br>$y(t) &#x3D; 2x(t)$<br>输入延迟 $t_0$ 后输出就是 $2x(t-t_0)$，和原输出延迟一致，因此是时不变系统。</p>
+</li>
+<li><p>延迟系统：<br>$y(t) &#x3D; x(t-3)$<br>如果输入延迟 $t_0$，输出会是 $x((t-t_0)-3) &#x3D; y(t-t_0)$，因此是时不变系统。</p>
+</li>
+</ul>
+<hr>
+</li>
+<li><p><strong>时变系统的例子</strong></p>
+<ul>
+<li><p>乘以时间的系统：<br>$y(t) &#x3D; t \cdot x(t)$</p>
+<ul>
+<li>原输出延迟：$y(t-t_0) &#x3D; (t-t_0)x(t-t_0)$</li>
+<li>延迟输入后输出：$T[x(t-t_0)] &#x3D; t \cdot x(t-t_0)$<br>两者不同，因此是时变系统。</li>
+</ul>
+</li>
+<li><p>指数加权系统：<br>$y(t) &#x3D; e^t x(t)$<br>系统显式依赖于时间 $t$，所以是时变系统。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>直观理解</strong></p>
+<ul>
+<li><strong>时不变系统</strong>：系统的“规则”固定不变，永远一致。例如电阻、电容这种基本元件组成的 LTI 系统。</li>
+<li><strong>时变系统</strong>：系统的“规则”随时间变化，像“环境改变了”一样。例如某些随时间老化的材料系统、时间相关的滤波器。</li>
 </ul>
 
                 
