@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T05:38:46.000Z">
-<meta property="article:modified_time" content="2025-09-20T12:04:22.158Z">
+<meta property="article:modified_time" content="2025-10-30T05:28:34.436Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.5k words
+          8.5k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          63 mins
+          71 mins
         
       </span>
     
@@ -1165,7 +1165,7 @@
 <li><strong>非线性系统</strong>：输入和输出的关系复杂，会产生失真、谐波或混叠。现实中许多系统都是非线性的，但线性模型常用于近似分析。</li>
 </ul>
 <hr>
-<h3 id="1-10-能量和功率"><a href="#1-10-能量和功率" class="headerlink" title="1.10 能量和功率"></a>1.10 能量和功率</h3><p>在信号与系统中，信号可以分为 <strong>能量信号 (Energy Signal)</strong> 和 **功率信号 (Power Signal)**。<br>这两类信号的划分，依赖于信号的 <strong>能量</strong> 和 <strong>平均功率</strong> 的定义。</p>
+<h3 id="1-10-能量和功率"><a href="#1-10-能量和功率" class="headerlink" title="1.10 能量和功率"></a>1.10 能量和功率</h3><p>在信号与系统中，信号可以分为 <strong>能量信号 (Energy Signal)</strong> 和 <strong>功率信号 (Power Signal)</strong> 。<br>这两类信号的划分，依赖于信号的 <strong>能量</strong> 和 <strong>平均功率</strong> 的定义。</p>
 <hr>
 <p>连续时间信号，设信号为 $x(t)$。</p>
 <p>(1) 能量 (Energy)</p>
@@ -1228,7 +1228,126 @@
 <p>→ 功率信号。</p>
 </li>
 </ol>
+<hr>
+<h3 id="1-11-系统的级联与并联"><a href="#1-11-系统的级联与并联" class="headerlink" title="1.11 系统的级联与并联"></a>1.11 系统的级联与并联</h3><p>在复杂信号系统中，一个系统往往可以分解为多个子系统的组合。常见的组合方式有两种：</p>
+<ul>
+<li><p>级联 (Cascade)：<br>信号先经过一个系统，再进入下一个系统处理，依次传递。<br>👉 类似于“流水线处理”。</p>
+</li>
+<li><p>并联 (Parallel)：<br>输入信号同时进入多个子系统，每个子系统独立处理后，将输出相加，得到总输出。<br>👉 类似于“多通道合并”。</p>
+</li>
+</ul>
+<hr>
+<p><strong>(1) 级联系统</strong></p>
+<p>设两个系统分别是 $T_1$ 和 $T_2$：</p>
+<ul>
+<li>输入 $x(t)$ 先进入 $T_1$，输出 $y_1(t)$；</li>
+<li>再将 $y_1(t)$ 输入到 $T_2$，输出 $y(t)$。</li>
+</ul>
+<p>数学关系：</p>
+<p>$$<br>y(t) &#x3D; T_2[T_1[x(t)]]<br>$$</p>
+<p>如果系统是 <strong>线性时不变系统 (LTI system)</strong> ，它们的系统函数分别为 $H_1(s)$ 和 $H_2(s)$，则级联后的系统函数：</p>
+<p>$$<br>H(s) &#x3D; H_1(s) \cdot H_2(s)<br>$$</p>
+<p>在离散域：</p>
+<p>$$<br>H(z) &#x3D; H_1(z) \cdot H_2(z)<br>$$</p>
+<hr>
+<p>(2) 并联系统</p>
+<p>输入 $x(t)$ 同时进入两个系统 $T_1$ 和 $T_2$：</p>
+<ul>
+<li>$y_1(t) &#x3D; T_1[x(t)]$</li>
+<li>$y_2(t) &#x3D; T_2[x(t)]$<br>总输出：</li>
+</ul>
+<p>$$<br>y(t) &#x3D; y_1(t) + y_2(t)<br>$$</p>
+<p>系统函数：</p>
+<p>$$<br>H(s) &#x3D; H_1(s) + H_2(s)<br>$$</p>
+<p>在离散域：</p>
+<p>$$<br>H(z) &#x3D; H_1(z) + H_2(z)<br>$$</p>
+<hr>
+<p><strong>图示理解</strong></p>
+<p> (1) 级联系统</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-scss" data-language="scss"><code class="language-scss"><span class="token function">x</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> ──► [ T1 ] ──► [ T2 ] ──► <span class="token function">y</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
+<p> (2) 并联系统</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-scss" data-language="scss"><code class="language-scss">           ┌──► [ T1 ] ──► <span class="token function">y1</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> ─┐
+<span class="token function">x</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> ──►───┤                      ├──► <span class="token function">y</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+           └──► [ T2 ] ──► <span class="token function">y2</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> ─┘<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<hr>
+<p><strong>性质</strong></p>
+<ul>
+<li><p><strong>交换律 (Commutativity)</strong></p>
+<ul>
+<li><p>对于 <strong>LTI 系统</strong>：<br>级联运算满足交换律：</p>
+<p>$$<br>H_1(s) \cdot H_2(s) &#x3D; H_2(s) \cdot H_1(s)<br>$$</p>
+<p>并联运算显然也满足交换律：</p>
+<p>$$<br>H_1(s) + H_2(s) &#x3D; H_2(s) + H_1(s)<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>结合律 (Associativity)</strong></p>
+<ul>
+<li><p>级联：</p>
+<p>$$<br>(H_1 \cdot H_2) \cdot H_3 &#x3D; H_1 \cdot (H_2 \cdot H_3)<br>$$</p>
+</li>
+<li><p>并联：</p>
+<p>$$<br>(H_1 + H_2) + H_3 &#x3D; H_1 + (H_2 + H_3)<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>👉 因此，在 LTI 系统分析中，级联和并联组合可以灵活重排。</p>
+<hr>
+<p><strong>例 1：级联系统</strong><br>已知两个离散系统的系统函数：</p>
+<p>$$<br>H_1(z) &#x3D; \frac{1}{1 - 0.5z^{-1}}, \quad H_2(z) &#x3D; 1 - z^{-1}<br>$$</p>
+<p>求级联后的系统函数。</p>
+<p><strong>解：</strong></p>
+<p>$$<br>H(z) &#x3D; H_1(z) \cdot H_2(z) &#x3D; \frac{1}{1 - 0.5z^{-1}} \cdot (1 - z^{-1})<br>$$</p>
+<hr>
+<p><strong>例 2：并联系统</strong><br>已知两个连续系统的系统函数：</p>
+<p>$$<br>H_1(s) &#x3D; \frac{1}{s+1}, \quad H_2(s) &#x3D; \frac{1}{s+2}<br>$$</p>
+<p>求并联后的系统函数。</p>
+<p><strong>解：</strong></p>
+<p>$$<br>H(s) &#x3D; H_1(s) + H_2(s) &#x3D; \frac{1}{s+1} + \frac{1}{s+2}<br>$$</p>
+<hr>
+<p>✅ 小结：</p>
+<ul>
+<li><strong>级联 → 系统函数相乘</strong></li>
+<li><strong>并联 → 系统函数相加</strong></li>
+<li><strong>LTI 系统</strong>下，级联和并联都满足交换律与结合律。</li>
+</ul>
+<hr>
+<h2 id="2-Linear-Time-Invariant-System"><a href="#2-Linear-Time-Invariant-System" class="headerlink" title="2. Linear Time-Invariant System"></a>2. Linear Time-Invariant System</h2><h3 id="2-1-离散时间卷积和-Discrete-Time-Convolution-Sum"><a href="#2-1-离散时间卷积和-Discrete-Time-Convolution-Sum" class="headerlink" title="2.1 离散时间卷积和 (Discrete-Time Convolution Sum)"></a>2.1 离散时间卷积和 (Discrete-Time Convolution Sum)</h3><p>在离散时间系统中，<strong>输入信号</strong> $x[n]$ (input signal) 经过 <strong>系统</strong> $h[n]$ (system &#x2F; impulse response) 后，得到 <strong>输出信号</strong> $y[n]$ (output signal)。<br>对于 **线性时不变系统 (Linear Time-Invariant system, LTI system)**，输出可以通过 <strong>卷积和 (convolution sum)</strong> 表示：</p>
+<p>$$<br>y[n] &#x3D; \sum_{k&#x3D;-\infty}^{+\infty} x[k] \cdot h[n-k]<br>$$</p>
+<p>这就是 <strong>离散时间卷积和 (Discrete-Time Convolution Sum)</strong> 的基本公式。</p>
+<hr>
+<p><strong>卷积的物理意义 (Physical Meaning)</strong></p>
+<ol>
+<li><p><strong>分解输入 (Decomposition of Input)</strong><br>把输入信号 $x[n]$ 看作若干个加权的冲激函数 $\delta[n]$ 的叠加。</p>
+<p>$$<br>x[n] &#x3D; \sum_{k&#x3D;-\infty}^{+\infty} x[k] \cdot \delta[n-k]<br>$$</p>
+</li>
+<li><p><strong>系统的线性响应 (Linear Response of System)</strong><br>由于系统的线性特性，每个冲激 $\delta[n-k]$ 会产生一个 <strong>缩放平移后的冲激响应</strong> $h[n-k]$。</p>
+</li>
+<li><p><strong>系统的时不变性 (Time-Invariance of System)</strong><br>使得不同的冲激响应可以直接平移叠加。</p>
+</li>
+</ol>
+<p>最终，所有加权的冲激响应叠加，就得到了 <strong>卷积和公式</strong>。</p>
+<hr>
+<p>小例子 (Example)</p>
+<p>设：</p>
+<ul>
+<li>输入信号 $x[n] &#x3D; {1, 2}$ （即 $x[0]&#x3D;1, x[1]&#x3D;2$）</li>
+<li>系统冲激响应 $h[n] &#x3D; {1, 1}$ （即 $h[0]&#x3D;1, h[1]&#x3D;1$）</li>
+</ul>
+<p>计算输出 $y[n]$：</p>
+<p>$$<br>y[n] &#x3D; \sum_{k&#x3D;-\infty}^{+\infty} x[k] \cdot h[n-k]<br>$$</p>
+<p>逐点计算：</p>
+<ul>
+<li>$y[0] &#x3D; x[0]h[0] &#x3D; 1\cdot 1 &#x3D; 1$</li>
+<li>$y[1] &#x3D; x[0]h[1] + x[1]h[0] &#x3D; 1\cdot 1 + 2\cdot 1 &#x3D; 3$</li>
+<li>$y[2] &#x3D; x[1]h[1] &#x3D; 2\cdot 1 &#x3D; 2$</li>
+</ul>
+<p>所以：</p>
+<p>$$<br>y[n] &#x3D; {1, 3, 2}<br>$$</p>
+<h2 id="2-Linear-Time-Invariant-Systems"><a href="#2-Linear-Time-Invariant-Systems" class="headerlink" title="2. Linear Time-Invariant Systems"></a>2. Linear Time-Invariant Systems</h2>
                 
               </div>
             
