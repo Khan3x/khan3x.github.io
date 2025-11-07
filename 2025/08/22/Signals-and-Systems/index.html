@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T05:38:46.000Z">
-<meta property="article:modified_time" content="2025-11-02T03:34:48.394Z">
+<meta property="article:modified_time" content="2025-11-07T14:38:38.034Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -243,7 +243,7 @@
         
         
         
-          102 mins
+          103 mins
         
       </span>
     
@@ -941,6 +941,13 @@
 <li><strong>无记忆系统</strong>：系统只“看当前”，不关心过去，也不预测未来。</li>
 <li><strong>记忆系统</strong>：系统会“记住”输入的历史（或者依赖未来），因此需要更多存储或计算。</li>
 </ul>
+<p><strong>无记忆系统判定依据</strong></p>
+<ul>
+<li>$x$与$y$括号里的数完全一样</li>
+</ul>
+<blockquote>
+<p>无记忆系统一定是因果系统</p>
+</blockquote>
 <hr>
 <h4 id="1-9-2-可逆性与可逆系统"><a href="#1-9-2-可逆性与可逆系统" class="headerlink" title="1.9.2 可逆性与可逆系统"></a>1.9.2 可逆性与可逆系统</h4><ol>
 <li><p><strong>可逆系统（Invertible System）</strong><br>如果一个系统的输出唯一地决定了输入，也就是说 <strong>不同的输入会产生不同的输出</strong>，并且我们可以根据输出恢复输入，那么这个系统就是可逆系统。</p>
@@ -1018,6 +1025,10 @@
 <ul>
 <li><strong>因果系统</strong>：只“看过去和现在”，不预测未来，符合现实世界。</li>
 <li><strong>非因果系统</strong>：需要提前知道未来，物理上不可实现，但可以作为数学工具使用。</li>
+</ul>
+<p><strong>因果性系统判定Tips</strong></p>
+<ul>
+<li>$x$括号里的系数恒小于$y$括号里的数</li>
 </ul>
 <hr>
 <h4 id="1-9-4-稳定性（Stability）"><a href="#1-9-4-稳定性（Stability）" class="headerlink" title="1.9.4 稳定性（Stability）"></a>1.9.4 稳定性（Stability）</h4><p>在信号与系统中，我们通常关心的是 <strong>有界输入–有界输出稳定性（Bounded-Input Bounded-Output Stability，简称 BIBO 稳定性）</strong>。</p>
@@ -1124,8 +1135,7 @@
 <li><strong>时不变系统</strong>：系统的“规则”固定不变，永远一致。例如电阻、电容这种基本元件组成的 LTI 系统。</li>
 <li><strong>时变系统</strong>：系统的“规则”随时间变化，像“环境改变了”一样。例如某些随时间老化的材料系统、时间相关的滤波器。</li>
 </ul>
-<hr>
-<h4 id="1-9-6-线性（Linearity）"><a href="#1-9-6-线性（Linearity）" class="headerlink" title="1.9.6 线性（Linearity）"></a>1.9.6 线性（Linearity）</h4><p><strong>线性系统（Linear System）</strong><br>  如果一个系统满足 <strong>叠加原理（Principle of Superposition）</strong>，即同时满足 <strong>可加性（Additivity）</strong> 和 <strong>齐次性（Homogeneity，也叫比例性&#x2F;Scaling）</strong>，那么该系统称为线性系统。</p>
+<h2 id="时不变系统判断依据-1️⃣-t-只在-x-的括号里-2️⃣-t-只能是-t-不能是-2t-2t-t-2-等其他函数"><a href="#时不变系统判断依据-1️⃣-t-只在-x-的括号里-2️⃣-t-只能是-t-不能是-2t-2t-t-2-等其他函数" class="headerlink" title="时不变系统判断依据* 1️⃣$t$只在$x$的括号里* 2️⃣$t$只能是$t$,不能是$2t$, $2t$, $t^2$等其他函数"></a><strong>时不变系统判断依据</strong><br>* 1️⃣$t$只在$x$的括号里<br>* 2️⃣$t$只能是$t$,不能是$2t$, $2t$, $t^2$等其他函数</h2><h4 id="1-9-6-线性（Linearity）"><a href="#1-9-6-线性（Linearity）" class="headerlink" title="1.9.6 线性（Linearity）"></a>1.9.6 线性（Linearity）</h4><p><strong>线性系统（Linear System）</strong><br>  如果一个系统满足 <strong>叠加原理（Principle of Superposition）</strong>，即同时满足 <strong>可加性（Additivity）</strong> 和 <strong>齐次性（Homogeneity，也叫比例性&#x2F;Scaling）</strong>，那么该系统称为线性系统。</p>
 <p>设系统算子为 $T[\cdot]$，输入信号为 $x_1(t), x_2(t)$，对应输出为 $y_1(t), y_2(t)$。</p>
 <ol>
 <li><p><strong>可加性（Additivity）</strong><br>$T[x_1(t) + x_2(t)] &#x3D; T[x_1(t)] + T[x_2(t)]$</p>
@@ -1163,6 +1173,11 @@
 <ul>
 <li><strong>线性系统</strong>：输入和输出的关系是“规则的”“可预测的”，不会引入新的频率成分。</li>
 <li><strong>非线性系统</strong>：输入和输出的关系复杂，会产生失真、谐波或混叠。现实中许多系统都是非线性的，但线性模型常用于近似分析。</li>
+</ul>
+<p><strong>线性系统判断依据</strong></p>
+<ul>
+<li>1️⃣每一项都有$X$</li>
+<li>2️⃣每一项的$X$都是1次</li>
 </ul>
 <hr>
 <h3 id="1-10-能量和功率"><a href="#1-10-能量和功率" class="headerlink" title="1.10 能量和功率"></a>1.10 能量和功率</h3><p>在信号与系统中，信号可以分为 <strong>能量信号 (Energy Signal)</strong> 和 <strong>功率信号 (Power Signal)</strong> 。<br>这两类信号的划分，依赖于信号的 <strong>能量</strong> 和 <strong>平均功率</strong> 的定义。</p>
@@ -1315,6 +1330,10 @@
 <li><strong>LTI 系统</strong>下，级联和并联都满足交换律与结合律。</li>
 </ul>
 <hr>
+<h3 id="1-20-图像题口诀"><a href="#1-20-图像题口诀" class="headerlink" title="1.20 图像题口诀"></a>1.20 图像题口诀</h3><p>1️⃣化成标准形式：例如$X(3t+6) &#x3D; X(3(t+2))$</p>
+<p>2️⃣前有负号翻转</p>
+<p>3️⃣系数&gt;1压缩，系数&lt;1拉伸</p>
+<p>4️⃣+左移，-右移</p>
 <h2 id="2-Linear-Time-Invariant-System"><a href="#2-Linear-Time-Invariant-System" class="headerlink" title="2. Linear Time-Invariant System"></a>2. Linear Time-Invariant System</h2><h3 id="2-1-离散时间卷积和-Discrete-Time-Convolution-Sum"><a href="#2-1-离散时间卷积和-Discrete-Time-Convolution-Sum" class="headerlink" title="2.1 离散时间卷积和 (Discrete-Time Convolution Sum)"></a>2.1 离散时间卷积和 (Discrete-Time Convolution Sum)</h3><p>在离散时间系统中，<strong>输入信号</strong> $x[n]$ (input signal) 经过 <strong>系统</strong> $h[n]$ (system &#x2F; impulse response) 后，得到 <strong>输出信号</strong> $y[n]$ (output signal)。对于线性时不变系统 (Linear Time-Invariant system, LTI system)，输出可以通过 <strong>卷积和 (convolution sum)</strong> 表示：</p>
 <p>$$<br>y[n] &#x3D; \sum_{k&#x3D;-\infty}^{+\infty} x[k] \cdot h[n-k]<br>$$</p>
 <p>这就是 <strong>离散时间卷积和 (Discrete-Time Convolution Sum)</strong> 的基本公式。</p>
