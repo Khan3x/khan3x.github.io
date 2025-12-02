@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-02T05:04:16.360Z">
+<meta property="article:modified_time" content="2025-12-02T05:52:33.928Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -243,7 +243,7 @@
         
         
         
-          130 mins
+          138 mins
         
       </span>
     
@@ -1834,6 +1834,92 @@
 <li><strong>物理意义</strong>：不同频率的能量是独立的，互不干扰。</li>
 <li><strong>工具作用</strong>：它让我们能从复杂的混合信号中，把某个具体的频率成分 $a_n$ 单独“拎”出来计算。</li>
 </ul>
+<hr>
+<h3 id="3-4-傅立叶系数"><a href="#3-4-傅立叶系数" class="headerlink" title="3.4 傅立叶系数"></a>3.4 傅立叶系数</h3><p>在不同的教材和体系中，符号的使用可能会略有不同。根据常见的<strong>信号与系统</strong>（如 Oppenheim 教材）或<strong>工程数学</strong>习惯：</p>
+<ul>
+<li>**$a_k$ 和 $b_k$**（你提到的 <strong>$B_k$<strong>）通常指</strong>三角形式</strong>傅立叶级数的系数。</li>
+<li><strong>$C_k$<strong>（有时写作 $X_k$ 或 $c_n$）通常指</strong>复指数形式</strong>傅立叶级数的系数。</li>
+</ul>
+<hr>
+<ol>
+<li>三角形式系数：$B_k$ (和 $B_0$)</li>
+</ol>
+<p>假设信号 $f(t)$ 的周期为 $T$，基波角频率为 $\omega_0 &#x3D; \frac{2\pi}{T}$。<br>三角形式展开为：<br>$$f(t) &#x3D; a_0 + \sum_{k&#x3D;1}^{\infty} [a_k \cos(k\omega_0 t) + \mathbf{B_k} \sin(k\omega_0 t)]$$<br><em>(注：有些教材用 $b_k$ 表示正弦系数，这里对应你问的 $B_k$)</em></p>
+<p><strong>(1) 如何求 $B_k$？</strong><br>利用正交性，乘以 $\sin(k\omega_0 t)$ 并积分：<br>$$\mathbf{B_k} &#x3D; \frac{2}{T} \int_{0}^{T} f(t) \sin(k\omega_0 t) , dt$$<br><em>(积分区间也可以取 $[-\frac{T}{2}, \frac{T}{2}]$)</em></p>
+<ul>
+<li><strong>$B_k$ 的物理意义：</strong><br>  它代表了信号中频率为 $k\omega_0$ 的<strong>正弦分量</strong>的“权重”或“强度”。<ul>
+<li>如果 $f(t)$ 是<strong>奇函数</strong>（关于原点对称），那么只有 $B_k$ 有值，$a_k$ 全为 0。</li>
+</ul>
+</li>
+</ul>
+<p><strong>(2) 关于 $B_0$</strong></p>
+<p>在标准的三角形式中，**$B_0$ 实际上是 0**。</p>
+<ul>
+<li><strong>原因：</strong> 把 $k&#x3D;0$ 代入 $B_k \sin(k\omega_0 t)$，因为 $\sin(0) &#x3D; 0$，所以这一项恒为 0。</li>
+<li><strong>常数项去哪了？</strong> 常数项（直流分量）通常由 <strong>$a_0$</strong> 表示：<br>  $$a_0 &#x3D; \frac{1}{T} \int_0^T f(t) dt$$<br>  <em>(注：如果你看到的教材里确实写了 $B_0$，请确认它是否把余弦项也合并了，或者是特殊的符号定义，但通常正弦系数的 0 次项没有意义)</em></li>
+</ul>
+<hr>
+<ol start="2">
+<li>复指数形式系数：$C_k$</li>
+</ol>
+<p>这是现代信号处理最常用的形式：<br>$$f(t) &#x3D; \sum_{k&#x3D;-\infty}^{\infty} \mathbf{C_k} e^{j k \omega_0 t}$$</p>
+<p><strong>(1) 如何求 $C_k$？</strong></p>
+<p>直接对信号乘以 $e^{-j k \omega_0 t}$（注意指数上有负号）并求平均：<br>$$\mathbf{C_k} &#x3D; \frac{1}{T} \int_{0}^{T} f(t) e^{-j k \omega_0 t} , dt$$</p>
+<p><strong>(2) $C_k$ 的物理意义</strong></p>
+<p>$C_k$ 是一个<strong>复数</strong>，它同时包含了<strong>幅度</strong>和<strong>相位</strong>信息。<br>$$C_k &#x3D; |C_k| e^{j\phi_k}$$</p>
+<ul>
+<li><strong>$|C_k|$ (幅度谱)：</strong> 表示频率为 $k\omega_0$ 的分量的能量大小。</li>
+<li><strong>$\phi_k$ (相位谱)：</strong> 表示该频率分量的相位偏移。</li>
+<li><strong>$C_0$ (当 k&#x3D;0)：</strong> 就是直流分量（平均值），$C_0 &#x3D; a_0$。</li>
+</ul>
+<hr>
+<ol start="3">
+<li>它们之间有什么关系？</li>
+</ol>
+<p>这是连接“传统数学”和“现代信号处理”的桥梁。利用欧拉公式 ($e^{jx} &#x3D; \cos x + j\sin x$)，我们可以推导出 $C_k$ 与 $a_k, B_k$ 的关系：</p>
+<p>$$\mathbf{C_k} &#x3D; \frac{1}{2} (a_k - j B_k) \quad (\text{当 } k &gt; 0)$$</p>
+<p>$$\mathbf{C_{-k}} &#x3D; \frac{1}{2} (a_k + j B_k) &#x3D; C_k^* \quad (\text{共轭关系})$$</p>
+<p>$$\mathbf{C_0} &#x3D; a_0$$</p>
+<p><strong>这意味着：</strong><br>如果你算出了三角系数 $a_k$ 和 $B_k$，你可以直接写出 $C_k$，不用再去积分一遍复指数！</p>
+<p>总结对照表</p>
+<table>
+<thead>
+<tr>
+<th align="left">符号</th>
+<th align="left">名称</th>
+<th align="left">计算公式 (周期 $T$)</th>
+<th align="left">物理意义</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>$a_0$ &#x2F; $C_0$</strong></td>
+<td align="left">直流分量</td>
+<td align="left">$\frac{1}{T} \int f(t) dt$</td>
+<td align="left">信号的平均高度</td>
+<td align="left">也就是 $k&#x3D;0$ 时的值</td>
+</tr>
+<tr>
+<td align="left"><strong>$B_k$</strong></td>
+<td align="left">正弦系数</td>
+<td align="left">$\frac{2}{T} \int f(t) \sin(k\omega_0 t) dt$</td>
+<td align="left">正弦波的权重</td>
+<td align="left">奇函数只含此项</td>
+</tr>
+<tr>
+<td align="left"><strong>$C_k$</strong></td>
+<td align="left">复傅立叶系数</td>
+<td align="left">$\frac{1}{T} \int f(t) e^{-jk\omega_0 t} dt$</td>
+<td align="left">频谱（复数），含幅度和相位</td>
+<td align="left">工程最常用</td>
+</tr>
+</tbody></table>
+<p><strong>做题小贴士：</strong></p>
+<ol>
+<li>如果题目给的是<strong>实偶函数</strong>，$B_k&#x3D;0$，$C_k$ 是实数。</li>
+<li>如果题目给的是<strong>实奇函数</strong>，$a_k&#x3D;0$，$C_k$ 是纯虚数。</li>
+<li>如果只要求画<strong>幅度谱</strong>，通常算 $C_k$ 更快；如果要求写出具体的 $\sin&#x2F;\cos$ 表达式，算 $a_k, B_k$ 更直观。</li>
+</ol>
 
                 
               </div>
