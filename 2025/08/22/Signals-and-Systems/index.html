@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-01T11:01:25.091Z">
+<meta property="article:modified_time" content="2025-12-02T05:04:16.360Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k words
+          16k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          104 mins
+          130 mins
         
       </span>
     
@@ -1599,7 +1599,242 @@
 <hr>
 <p>“完全重叠”时的计算捷径当两个信号都是幅值恒定的矩形脉冲时，计算“完全重叠”区的卷积值有一个非常简单的捷径：</p>
 <p>$$<br>y[n] &#x3D; (\text{较短信号的长度}) \times (\text{信号 1 的幅值}) \times (\text{信号 2 的幅值})<br>$$</p>
-<h2 id="3-傅立叶变换"><a href="#3-傅立叶变换" class="headerlink" title="3. 傅立叶变换"></a>3. 傅立叶变换</h2><h3 id="3-1-傅立叶级数"><a href="#3-1-傅立叶级数" class="headerlink" title="3.1 傅立叶级数"></a>3.1 傅立叶级数</h3>
+<h2 id="3-傅立叶变换"><a href="#3-傅立叶变换" class="headerlink" title="3. 傅立叶变换"></a>3. 傅立叶变换</h2><h3 id="3-1-傅立叶级数（Fourier-Series）"><a href="#3-1-傅立叶级数（Fourier-Series）" class="headerlink" title="3.1 傅立叶级数（Fourier Series）"></a>3.1 傅立叶级数（Fourier Series）</h3><p>简单来说，傅立叶级数的核心思想是：<strong>任何周期性的复杂函数，都可以看作是许多简单的正弦波（Sine）和余弦波（Cosine）叠加而成的。</strong></p>
+<p>我们可以把它想象成数学界的“三棱镜”：三棱镜把白光分解成七色光谱，而傅立叶级数把一个复杂的信号分解成不同频率的简单波形。</p>
+<p>以下我将从直观理解、数学表达、以及它的意义三个方面为你讲解。</p>
+<hr>
+<p>为了理解傅立叶级数，我们可以用两个类比：</p>
+<ul>
+<li><strong>音乐和弦：</strong> 当你在钢琴上同时按下一个和弦（比如 C 和弦），你听到的声音是一个复杂的波形。但是，这个复杂的波形其实是由三个简单的单音（根音、三度音、五度音）叠加在一起形成的。傅立叶级数就是那个能把这个和弦“听”回去，告诉你它是由哪几个单音组成的工具。</li>
+<li><strong>乐高积木：</strong> 正弦波和余弦波就像是最基础的积木块。无论你想搭一个多么奇怪形状的周期性城堡（比如方波、三角波、锯齿波），只要你用的积木块（正弦波）足够多，并且调整它们的大小（振幅）和位置（相位），你就能无限逼近那个形状。</li>
+</ul>
+<hr>
+<p>假设我们有一个周期为 $T$ 的函数 $f(t)$，我们想把它拆解。傅立叶告诉我们，它可以写成这样的形式：</p>
+<p>$$f(t) &#x3D; a_0 + \sum_{n&#x3D;1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$</p>
+<p>这里的每一项都有具体的物理意义：</p>
+<ol>
+<li><p><strong>$a_0$ (直流分量&#x2F;平均值)：</strong><br>这是波形的“基准线”或平均高度。比如一个电压信号是在 0V 上下波动，还是在 5V 上下波动。</p>
+</li>
+<li><p><strong>$\omega_0$ (基波频率)：</strong><br>这是信号最基本的节奏，由周期决定 ($\omega_0 &#x3D; \frac{2\pi}{T}$)。</p>
+</li>
+<li><p><strong>$n\omega_0$ (谐波频率)：</strong><br>求和符号 $\sum$ 里的 $n&#x3D;1, 2, 3…$ 代表频率的倍数。</p>
+<ul>
+<li>$n&#x3D;1$ 是基波（一次谐波）。</li>
+<li>$n&#x3D;2$ 是二次谐波（频率是基波的2倍，听起来高八度）。</li>
+<li>$n$ 越大，波动的频率越快，用来修饰波形的细节和棱角。</li>
+</ul>
+</li>
+<li><p><strong>$a_n$ 和 $b_n$ (傅立叶系数)：</strong><br>这就像是“配方表”。它们告诉我们在某个频率 $n\omega_0$ 上，应该放入多少“分量”的余弦波或正弦波。</p>
+<ul>
+<li>计算这些系数需要用到积分（利用三角函数的正交性）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>想象一个方波（像开关一样，只有高电平和低电平）。它看起来完全不像圆滑的正弦波，对吧？</p>
+<p>但如果我们用傅立叶级数去合成它：</p>
+<ol>
+<li>先拿一个和它频率一样的正弦波（基波），大概有了个形状，但是那是圆的。</li>
+<li>加入一个 3 倍频率的正弦波（幅度小一点），波峰变平了一点。</li>
+<li>加入一个 5 倍频率的正弦波…</li>
+<li>加入一个 7 倍频率的正弦波…</li>
+</ol>
+<p><strong>结果：</strong> 随着叠加的高频分量越来越多，波形的边缘会越来越陡峭，顶部越来越平，最终变成了一个完美的方波。</p>
+<blockquote>
+<p><strong>这就是傅立叶级数的魔力：用圆滑的波，造出有棱角的波。</strong></p>
+</blockquote>
+<hr>
+<p>复指数形式（工程界的通用语）</p>
+<p>在信号与系统、电路分析中，我们更喜欢用欧拉公式 $e^{jx} &#x3D; \cos x + j\sin x$ 将上述公式简化。这被称为<strong>复指数形式的傅立叶级数</strong>：</p>
+<p>$$f(t) &#x3D; \sum_{n&#x3D;-\infty}^{\infty} C_n e^{j n \omega_0 t}$$</p>
+<ul>
+<li>这种形式把正弦和余弦统一成了指数函数。</li>
+<li>它引入了“负频率”的概念（数学上的构造，为了计算方便）。</li>
+<li>系数 $C_n$ 包含了振幅和相位的信息（通常是复数）。</li>
+<li><strong>这是通向“傅立叶变换”的关键桥梁。</strong></li>
+</ul>
+<hr>
+<p>傅立叶级数不仅是数学游戏，它是现代文明的基石之一：</p>
+<ul>
+<li><strong>信号处理（去噪）：</strong> 比如录音里有高频噪音。我们把声音做傅立叶展开，找到高频对应的系数，把它们人为地设为 0（滤除），再还原回去，声音就干净了。</li>
+<li><strong>数据压缩（JPEG&#x2F;MP3）：</strong> 图片或音乐包含大量数据。但通过傅立叶分析，我们发现很多人眼&#x2F;人耳听不到的细节（高频分量）对应的系数很小。我们可以直接丢弃这些数据，从而极大地减小文件体积，这就是 MP3 和 JPEG 的原理（基于类似的思想）。</li>
+<li><strong>解微分方程（热传导）：</strong> 它可以把复杂的微积分问题，转换成简单的代数问题来求解。</li>
+</ul>
+<hr>
+<h3 id="3-2-常用计算公式总结"><a href="#3-2-常用计算公式总结" class="headerlink" title="3.2 常用计算公式总结"></a>3.2 常用计算公式总结</h3><p>以下是定义在周期 $T_0$（或 $[-\frac{T_0}{2}, \frac{T_0}{2}]$）上的常用积分总结。</p>
+<p>这里假设 $\omega_0 &#x3D; \frac{2\pi}{T_0}$，且 $m, n$ 均为非负整数。</p>
+<hr>
+<ol>
+<li>最基础的“归零”积分 (Basic Zero Integrals)</li>
+</ol>
+<p><strong>原理：</strong> 一个完整的正弦或余弦波，在一个周期内，正半周和负半周的面积正好抵消。</p>
+<p>$$\int_{0}^{T_0} \cos(n\omega_0 t) , dt &#x3D; 0 \quad (n \neq 0)$$<br>$$\int_{0}^{T_0} \sin(n\omega_0 t) , dt &#x3D; 0$$</p>
+<ul>
+<li><strong>注意：</strong> 积分区间只要长度是 $T_0$ 即可，比如 $[-\frac{T_0}{2}, \frac{T_0}{2}]$ 结果也一样。</li>
+</ul>
+<hr>
+<ol start="2">
+<li>正交性积分 (Orthogonality) —— <strong>重中之重</strong></li>
+</ol>
+<p>这是计算傅立叶系数 $a_n, b_n$ 的核心依据。利用<strong>积化和差</strong>原理，当频率不同时，两个三角函数相乘的积分为 0。</p>
+<p> (1) 不同频率相乘 ($m \neq n$)<br>$$\int_{0}^{T_0} \cos(n\omega_0 t) \cdot \cos(m\omega_0 t) , dt &#x3D; 0$$<br>$$\int_{0}^{T_0} \sin(n\omega_0 t) \cdot \sin(m\omega_0 t) , dt &#x3D; 0$$<br>$$\int_{0}^{T_0} \sin(n\omega_0 t) \cdot \cos(m\omega_0 t) , dt &#x3D; 0$$</p>
+<p>(2) 同频率相乘 ($m &#x3D; n \neq 0$) —— <strong>这是唯一算出非零值的地方</strong></p>
+<p>当 $m&#x3D;n$ 时，变成平方项。利用 $\cos^2 x &#x3D; \frac{1+\cos 2x}{2}$ 和 $\sin^2 x &#x3D; \frac{1-\cos 2x}{2}$，常数项积出来是 $T_0&#x2F;2$。</p>
+<p>$$\int_{0}^{T_0} \cos^2(n\omega_0 t) , dt &#x3D; \frac{T_0}{2}$$<br>$$\int_{0}^{T_0} \sin^2(n\omega_0 t) , dt &#x3D; \frac{T_0}{2}$$</p>
+<ul>
+<li><strong>特例注意：</strong> $\int_{0}^{T_0} \sin(n\omega_0 t) \cos(n\omega_0 t) , dt &#x3D; 0$ （因为这等于 $\frac{1}{2}\sin(2n\omega_0 t)$，还是积分为0）。</li>
+</ul>
+<hr>
+<ol start="3">
+<li>奇偶性秒杀技巧 (Symmetry Shortcuts)</li>
+</ol>
+<p>在做题时，<strong>第一步永远是看对称性</strong>。如果积分区间是对称的（如 $[-\pi, \pi]$ 或 $[-\frac{T_0}{2}, \frac{T_0}{2}]$），利用奇偶性可以直接划掉一半的计算量。</p>
+<p>设积分区间为 $[-L, L]$：</p>
+<ul>
+<li><strong>奇函数 $\times$ 偶函数 &#x3D; 奇函数</strong> $\rightarrow$ 积分为 <strong>0</strong><ul>
+<li>例如：$t \cdot \cos(nt)$，$\sin(t) \cdot \cos(t)$</li>
+</ul>
+</li>
+<li><strong>奇函数 $\times$ 奇函数 &#x3D; 偶函数</strong> $\rightarrow$ 积分为 <strong>2倍的半边积分</strong><ul>
+<li>例如：$t \cdot \sin(nt)$</li>
+</ul>
+</li>
+<li><strong>偶函数 $\times$ 偶函数 &#x3D; 偶函数</strong> $\rightarrow$ 积分为 <strong>2倍的半边积分</strong><ul>
+<li>例如：$t^2 \cdot \cos(nt)$</li>
+</ul>
+</li>
+</ul>
+<p><strong>实战结论：</strong></p>
+<ul>
+<li>若 $f(t)$ 是<strong>偶函数</strong>（如方波关于y轴对称）：$b_n &#x3D; 0$，只算 $a_0, a_n$。</li>
+<li>若 $f(t)$ 是<strong>奇函数</strong>（如锯齿波关于原点对称）：$a_n &#x3D; 0$，只算 $b_n$。</li>
+</ul>
+<hr>
+<ol start="4">
+<li>经常遇到的分部积分 (Integration by Parts)</li>
+</ol>
+<p>在计算三角波、锯齿波的傅立叶系数时，经常遇到 $t$ 乘以三角函数的情况。与其每次都推导 $udv$，不如记住这两个不定积分形式：</p>
+<p>$$\int t \cos(at) , dt &#x3D; \frac{\cos(at)}{a^2} + \frac{t \sin(at)}{a}$$<br>$$\int t \sin(at) , dt &#x3D; \frac{\sin(at)}{a^2} - \frac{t \cos(at)}{a}$$</p>
+<p><strong>助记口诀：</strong></p>
+<ul>
+<li>积分 $\cos$ 变 $\sin$，再积变 $-\cos$。</li>
+<li>$t$ 随着积分在求导中消失。</li>
+<li>注意分母 $a$ 的次数增加。</li>
+</ul>
+<hr>
+<ol start="5">
+<li>常见特殊值的化简 (Simplify the Result)</li>
+</ol>
+<p>算出系数后，通常带有 $\cos(n\pi)$ 或 $\sin(n\pi)$，一定要化简成 $(-1)^n$ 的形式，这是标准答案的要求。</p>
+<ul>
+<li>$\sin(n\pi) &#x3D; 0$</li>
+<li>$\cos(n\pi) &#x3D; (-1)^n$</li>
+<li>$\cos(2n\pi) &#x3D; 1$</li>
+<li>$\sin(n\pi&#x2F;2) &#x3D; \begin{cases} 0 &amp; n \text{ 为偶数} \ (-1)^{\frac{n-1}{2}} &amp; n \text{ 为奇数} \end{cases}$</li>
+<li>$\cos(n\pi) - 1 &#x3D; (-1)^n - 1 &#x3D; \begin{cases} -2 &amp; n \text{ 为奇数} \ 0 &amp; n \text{ 为偶数} \end{cases}$</li>
+</ul>
+<hr>
+<p>总结一张表 (Cheatsheet)</p>
+<table>
+<thead>
+<tr>
+<th align="left">积分式 (积分区间 $T_0$)</th>
+<th align="left">结果 ($n \neq m$)</th>
+<th align="left">结果 ($n &#x3D; m \neq 0$)</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$\int \sin(n\omega t)$</td>
+<td align="left">$0$</td>
+<td align="left">$0$</td>
+<td align="left">面积抵消</td>
+</tr>
+<tr>
+<td align="left">$\int \cos(n\omega t)$</td>
+<td align="left">$0$</td>
+<td align="left">$0$</td>
+<td align="left">面积抵消</td>
+</tr>
+<tr>
+<td align="left">$\int \sin(n\omega t)\cos(m\omega t)$</td>
+<td align="left">$0$</td>
+<td align="left">$0$</td>
+<td align="left">总是正交</td>
+</tr>
+<tr>
+<td align="left">$\int \sin(n\omega t)\sin(m\omega t)$</td>
+<td align="left">$0$</td>
+<td align="left"><strong>$T_0&#x2F;2$</strong></td>
+<td align="left">只有这里有值</td>
+</tr>
+<tr>
+<td align="left">$\int \cos(n\omega t)\cos(m\omega t)$</td>
+<td align="left">$0$</td>
+<td align="left"><strong>$T_0&#x2F;2$</strong></td>
+<td align="left">只有这里有值</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="3-3-傅立叶级数的正交性"><a href="#3-3-傅立叶级数的正交性" class="headerlink" title="3.3 傅立叶级数的正交性"></a>3.3 傅立叶级数的正交性</h3><p>这是一个非常核心的概念。<strong>“正交性”（Orthogonality）是傅立叶级数赖以生存的灵魂。</strong></p>
+<p>如果没有正交性，我们根本无法算出傅立叶系数 $a_n$ 和 $b_n$。</p>
+<hr>
+<p>第一步：从向量类比（直观理解）</p>
+<p>在三维几何（线性代数）中，我们说两个向量 $\vec{A}$ 和 $\vec{B}$ 是<strong>正交（垂直）</strong>的，如果它们的<strong>点积</strong>为 0：</p>
+<p>$$\vec{A} \cdot \vec{B} &#x3D; 0$$</p>
+<p>比如说，X轴上的单位向量 $\vec{i}$ 和 Y轴上的单位向量 $\vec{j}$ 就是正交的。<br>这意味着什么？意味着<strong>你在 X 轴上怎么跑，都不会改变你在 Y 轴上的坐标</strong>。这两个分量是<strong>互不干扰</strong>的。</p>
+<p><strong>迁移到函数：</strong><br>在信号与系统中，我们将“函数”看作是“无穷维的向量”。</p>
+<ul>
+<li><strong>向量的点积</strong>变成<strong>函数的积分</strong>（内积）。</li>
+<li>如果在周期 $T$ 内，两个函数的乘积积分为 0，我们说这两个函数<strong>正交</strong>。</li>
+</ul>
+<p>$$ \int_{0}^{T} f(t) \cdot g(t) , dt &#x3D; 0 \implies \text{f(t) 与 g(t) 正交}$$</p>
+<hr>
+<p>第二步：三角函数系的“正交性”事实</p>
+<p>傅立叶级数之所以成立，是因为三角函数集 ${1, \cos(\omega t), \sin(\omega t), \cos(2\omega t), \sin(2\omega t), …}$ 构成了一个<strong>正交完备集</strong>。</p>
+<p>这里的<strong>正交性</strong>具体指我们之前总结的那个公式：</p>
+<p><strong>只要频率不同（或者一个是正弦一个是余弦），它们“打架”（相乘积分）的结果就是 0。</strong></p>
+<ol>
+<li><p><strong>自己跟别人打（$m \neq n$）：</strong><br>$$\int_0^T \cos(n\omega t) \cos(m\omega t) dt &#x3D; 0$$<br>（不同频率的波，哪怕都是 Cosine，也是正交的）</p>
+</li>
+<li><p><strong>正弦跟余弦打（哪怕 $m &#x3D; n$）：</strong><br>$$\int_0^T \sin(n\omega t) \cos(n\omega t) dt &#x3D; 0$$<br>（同频率的 Sine 和 Cosine 也是正交的）</p>
+</li>
+</ol>
+<p><strong>只有自己跟自己打（$m&#x3D;n$ 且同类型）才会有值（$T&#x2F;2$）。</strong></p>
+<hr>
+<p>第三步：正交性的威力——“筛选性质”</p>
+<p>这是你在考试中最需要理解的逻辑：<strong>为什么我们要用正交性？</strong></p>
+<p>假设我们有一个复杂的信号 $f(t)$，它是无数个波叠加而成的：<br>$$f(t) &#x3D; a_0 + a_1\cos(\omega t) + a_2\cos(2\omega t) + \dots + a_k\cos(k\omega t) + \dots$$</p>
+<p>现在，我想知道 <strong>$a_k$ 到底是多少？</strong>（也就是求第 $k$ 次谐波的系数）。</p>
+<p><strong>操作方法：</strong><br>就像用滤网一样，我把等式两边同时乘以 $\cos(k\omega t)$，然后对一个周期积分。</p>
+<p>$$\int_0^T f(t) \cdot \cos(k\omega t) , dt &#x3D; \int_0^T \left[ \sum_{n&#x3D;0}^{\infty} a_n \cos(n\omega t) \right] \cdot \cos(k\omega t) , dt$$</p>
+<p><strong>奇迹发生了（利用正交性）：</strong></p>
+<ul>
+<li>等式右边有无数项相加。</li>
+<li>但是，因为正交性，当 $n \neq k$ 时，$\int \cos(n\omega t)\cos(k\omega t) &#x3D; 0$。</li>
+<li><strong>所有其他的项全部死掉了（变成了0）！</strong></li>
+<li><strong>只有当 $n&#x3D;k$ 的那一项活了下来。</strong></li>
+</ul>
+<p>等式变成了：<br>$$\int_0^T f(t) \cos(k\omega t) , dt &#x3D; a_k \cdot \underbrace{\int_0^T \cos^2(k\omega t) , dt}_{T&#x2F;2}$$</p>
+<p>$$\int_0^T f(t) \cos(k\omega t) , dt &#x3D; a_k \cdot \frac{T}{2}$$</p>
+<p>于是，我们轻松解出了 $a_k$：<br>$$\boxed{a_k &#x3D; \frac{2}{T} \int_0^T f(t) \cos(k\omega t) , dt}$$</p>
+<p><strong>结论：</strong> 正交性就像一个精准的“探针”。想提取哪个频率的成分，就乘上那个频率的波并积分，其他的干扰项会自动归零。</p>
+<hr>
+<p>数学证明（为什么是0？）</p>
+<p>如果你在面试或笔试中需要简单证明为什么不同频率积分是 0，你需要用到<strong>积化和差公式</strong>。</p>
+<p>证明： $\int_0^T \cos(n\omega t) \cos(m\omega t) , dt &#x3D; 0$ （其中 $n \neq m$, $\omega &#x3D; 2\pi&#x2F;T$）</p>
+<p>利用公式：$\cos A \cos B &#x3D; \frac{1}{2}[\cos(A-B) + \cos(A+B)]$</p>
+<p>$$I &#x3D; \frac{1}{2} \int_0^T \left[ \cos((n-m)\omega t) + \cos((n+m)\omega t) \right] , dt$$</p>
+<p>因为 $n, m$ 都是整数且 $n \neq m$，所以 $(n-m)$ 和 $(n+m)$ 也是非零整数。<br>这意味着我们在积<strong>完整的余弦波</strong>（可能是 1 个周期，也可能是 5 个周期）。</p>
+<p><strong>一个完整的余弦波，正负面积刚好抵消，积分为 0。</strong></p>
+<p>$$I &#x3D; \frac{1}{2} (0 + 0) &#x3D; 0$$</p>
+<hr>
+<ul>
+<li><strong>正交性</strong>意味着：不同频率的三角函数相乘并积分，结果为 0。</li>
+<li><strong>物理意义</strong>：不同频率的能量是独立的，互不干扰。</li>
+<li><strong>工具作用</strong>：它让我们能从复杂的混合信号中，把某个具体的频率成分 $a_n$ 单独“拎”出来计算。</li>
+</ul>
+
                 
               </div>
             
