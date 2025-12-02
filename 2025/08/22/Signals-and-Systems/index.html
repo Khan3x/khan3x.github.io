@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-02T06:07:52.813Z">
+<meta property="article:modified_time" content="2025-12-02T06:27:46.224Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18k words
+          21k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          149 mins
+          174 mins
         
       </span>
     
@@ -1968,6 +1968,248 @@
 <p>得证。</p>
 <hr>
 <p>结论<br>$$\int_{-\infty}^{\infty} \frac{\sin(\omega t)}{t} dt &#x3D; \begin{cases} \pi &amp; (\omega &gt; 0) \\ -\pi &amp; (\omega &lt; 0) \\ 0 &amp; (\omega &#x3D; 0) \end{cases}$$</p>
+<hr>
+<h3 id="3-6-傅立叶变换以及反变换"><a href="#3-6-傅立叶变换以及反变换" class="headerlink" title="3.6 傅立叶变换以及反变换"></a>3.6 傅立叶变换以及反变换</h3><p>这是一对互为<strong>镜像</strong>的数学工具，是连接时域（Time Domain）和频域（Frequency Domain）的桥梁。</p>
+<ul>
+<li><strong>时域信号 $f(t)$<strong>：就像你在 DAW（宿主软件）里看到的</strong>波形（Waveform）</strong>。它告诉你某个时间点电压（音量）是多少，但很难直接看出它由哪些音高（频率）组成。</li>
+<li><strong>频域信号 $F(\omega)$<strong>：就像</strong>频谱分析仪（Spectrum Analyzer）</strong>或<strong>EQ 均衡器</strong>的界面。它不关心时间，只告诉你：低频有多少 dB？高频有多少 dB？</li>
+</ul>
+<p><strong>傅立叶变换（FT）</strong>：把波形变成频谱（分析成分）。<br><strong>傅立叶反变换（IFT）</strong>：把频谱变回波形（合成信号）。</p>
+<hr>
+<p>最通用的定义如下（角频率 $\omega$ 版本）：</p>
+<p>傅立叶变换 (FT) —— 分析</p>
+<p>$$F(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-j\omega t} dt$$</p>
+<ul>
+<li><strong>输入</strong>：$f(t)$（关于时间的函数）</li>
+<li><strong>输出</strong>：$F(\omega)$（关于频率的函数，通常是复数，包含<strong>幅度</strong>和<strong>相位</strong>信息）。</li>
+<li><strong>物理意义</strong>：拿着一个频率为 $\omega$ 的探测器（$e^{-j\omega t}$）去“扫描”原信号。<ul>
+<li>积分代表“累加&#x2F;相关性”。</li>
+<li>如果 $f(t)$ 里包含很多 $\omega$ 频率的成分，积分值就很大。</li>
+<li>如果 $f(t)$ 里没有这个频率，积分结果趋近于 0（正交性抵消）。</li>
+</ul>
+</li>
+</ul>
+<p>傅立叶反变换 (IFT) —— 合成</p>
+<p>$$f(t) &#x3D; \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} d\omega$$</p>
+<ul>
+<li><strong>输入</strong>：$F(\omega)$（频谱配方）</li>
+<li><strong>输出</strong>：$f(t)$（复原的时间波形）。</li>
+<li><strong>物理意义</strong>：<strong>加权叠加</strong>。<ul>
+<li>$e^{j\omega t}$ 是基本的旋转向量（可以理解为纯正弦波）。</li>
+<li>我们按照 $F(\omega)$ 指定的强度（幅度）和起始位置（相位），把无穷多个不同频率的波<strong>加在一起</strong>（积分），最后就神奇地还原出了原来的波形。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意系数 $\frac{1}{2\pi}$<strong>：<br>在 $\omega$ 域中，这个系数通常放在</strong>反变换</strong>里。如果你考的是物理系，或者用 $f$ (Hz) 而不是 $\omega$ (rad&#x2F;s)，系数的位置可能会变（变成 $\sqrt{2\pi}$ 或消失）。</p>
+</blockquote>
+<hr>
+<p>深度解析：为什么是 $e^{-j\omega t}$？</p>
+<p>你在做 Beat 的时候，可能习惯用 Sine Wave（正弦波）作为 Sub Bass。但在数学上，处理 $\sin$ 和 $\cos$ 的加减乘除太麻烦了。</p>
+<p>欧拉公式拯救了我们：<br>$$e^{j\theta} &#x3D; \cos \theta + j \sin \theta$$</p>
+<ul>
+<li><strong>螺旋视角</strong>：$e^{j\omega t}$ 代表一个在复平面上以角速度 $\omega$ <strong>逆时针旋转</strong>的向量。</li>
+<li><strong>FT 的 $e^{-j\omega t}$<strong>：这是</strong>顺时针</strong>旋转。它的作用是抵消原信号中的旋转分量，让其“停下来”以便我们测量其大小（即计算直流分量）。</li>
+<li><strong>IFT 的 $e^{j\omega t}$<strong>：这是</strong>逆时针</strong>旋转。它的作用是让静止的频谱数据“转动起来”，生成实际的波动。</li>
+</ul>
+<hr>
+<p>想象你在做一个 <strong>Boombap Beat</strong>：</p>
+<ol>
+<li><p><strong>合成（IFT 的过程）：</strong></p>
+<ul>
+<li>你从静音开始。</li>
+<li>你拿来一个 50Hz 的正弦波（Sub Bass），把音量推大。</li>
+<li>你拿来一个 200Hz 的波（Snare 基频），音量适中。</li>
+<li>你拿来一堆 5000Hz+ 的波（Hi-hat 泛音）。</li>
+<li>Mix Bus（总线）把它们混合在一起，输出一个复杂的波形文件。</li>
+<li>这就是反变换：从频率成分 $\to$ 生成波形。</li>
+</ul>
+</li>
+<li><p><strong>采样与处理（FT 的过程）：</strong></p>
+<ul>
+<li>你从老唱片里采样了一段鼓声（复杂的 $f(t)$）。</li>
+<li>你挂了一个 EQ（均衡器）。EQ 必须先“听懂”这段音频里有多少低频、多少高频。</li>
+<li>EQ 内部就在做<strong>变换</strong>：它把波形拆解，告诉你“100Hz 处有 3dB 的能量”。</li>
+<li><strong>这就是正变换：从波形 $\to$ 获得频率分布。</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>“对偶（Duality）”关系的性质：</p>
+<ol>
+<li><strong>线性性质</strong>：$a f_1(t) + b f_2(t) \leftrightarrow a F_1(\omega) + b F_2(\omega)$（混音时不失真）。</li>
+<li><strong>时移性质</strong>：$f(t-t_0) \leftrightarrow F(\omega)e^{-j\omega t_0}$。<ul>
+<li>你在 DAW 里把波形往后拖一秒，频谱的<strong>幅度</strong>（EQ 曲线）不会变，但<strong>相位</strong>会变。</li>
+</ul>
+</li>
+<li><strong>卷积定理（最重要的考点）</strong>：<ul>
+<li><strong>时域卷积 &#x3D; 频域相乘</strong></li>
+<li>$f(t) * h(t) \leftrightarrow F(\omega) \cdot H(\omega)$</li>
+<li><em>解释：</em> 这就是为什么我们说卷积是“过系统”。信号 $X$ 通过一个系统 $H$（比如混响 Reverb），在时域是复杂的卷积运算，但在频域只是简单地把频谱乘起来（改变各个频率的增益）。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>FT</strong> 是<strong>拆解</strong>：把乐高积木搭好的房子（时域信号）拆成一堆分类好的砖块（频域数据）。</li>
+<li><strong>IFT</strong> 是<strong>组装</strong>：按照说明书（频域数据），把砖块重新搭成房子（时域信号）。</li>
+</ul>
+<hr>
+<h3 id="3-7-常见傅立叶变换对"><a href="#3-7-常见傅立叶变换对" class="headerlink" title="3.7 常见傅立叶变换对"></a>3.7 常见傅立叶变换对</h3><p>我们采用最通用的定义：$F(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-j\omega t} dt$。</p>
+<hr>
+<p>速查表</p>
+<table>
+<thead>
+<tr>
+<th align="left">信号名称</th>
+<th align="left">时域 $f(t)$</th>
+<th align="left">频域 $F(\omega)$</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. 冲激函数</strong></td>
+<td align="left">$\delta(t)$</td>
+<td align="left">$1$</td>
+<td align="left">全频带能量相等 (白噪声)</td>
+</tr>
+<tr>
+<td align="left"><strong>2. 直流信号</strong></td>
+<td align="left">$1$</td>
+<td align="left">$2\pi \delta(\omega)$</td>
+<td align="left">只有 0 频率有值</td>
+</tr>
+<tr>
+<td align="left"><strong>3. 单边指数</strong></td>
+<td align="left">$e^{-at}u(t), (a&gt;0)$</td>
+<td align="left">$\frac{1}{a + j\omega}$</td>
+<td align="left">系统稳定性的基础</td>
+</tr>
+<tr>
+<td align="left"><strong>4. 门函数</strong></td>
+<td align="left">$\text{rect}(t&#x2F;\tau)$</td>
+<td align="left">$\tau \text{sinc}(\frac{\omega \tau}{2\pi})$ 或 $\tau \frac{\sin(\omega\tau&#x2F;2)}{\omega\tau&#x2F;2}$</td>
+<td align="left">矩形 $\leftrightarrow$ Sinc</td>
+</tr>
+<tr>
+<td align="left"><strong>5. 符号函数</strong></td>
+<td align="left">$\text{sgn}(t)$</td>
+<td align="left">$\frac{2}{j\omega}$</td>
+<td align="left">用于推导阶跃信号</td>
+</tr>
+</tbody></table>
+<hr>
+<p>详细推导与证明</p>
+<blockquote>
+<p>冲激函数 (The Delta Function)</p>
+</blockquote>
+<p>$$f(t) &#x3D; \delta(t)$$<br>这是最简单但最重要的一个。<br><strong>证明：</strong><br>利用冲激函数的<strong>采样性质</strong> (Sampling Property)：$\int_{-\infty}^{\infty} \delta(t) g(t) dt &#x3D; g(0)$。<br>$$F(\omega) &#x3D; \int_{-\infty}^{\infty} \delta(t) e^{-j\omega t} dt &#x3D; e^{-j\omega \cdot 0} &#x3D; 1$$<br><strong>直观理解：</strong> 一个无限窄的瞬间脉冲（比如你的 Click 采样），包含了所有频率成分，且强度相等。</p>
+<blockquote>
+<p>直流常数 (The Constant)</p>
+</blockquote>
+<p>$$f(t) &#x3D; 1$$<br>直接积分 $\int 1 \cdot e^{-j\omega t} dt$ 不收敛，必须利用<strong>对偶性 (Duality)</strong> 来证明。<br><strong>证明：</strong><br>已知 $\delta(t) \leftrightarrow 1$。<br>根据对偶性：若 $f(t) \leftrightarrow F(\omega)$，则 $F(t) \leftrightarrow 2\pi f(-\omega)$。<br>将 $\delta(t) \leftrightarrow 1$ 代入：<br>把 $F(t) &#x3D; 1$ 看作时域信号，那么它的频谱是 $2\pi \delta(-\omega)$。<br>因为 $\delta$ 函数是偶函数，即 $\delta(-\omega) &#x3D; \delta(\omega)$。<br>$$\therefore \mathcal{F}[1] &#x3D; 2\pi \delta(\omega)$$</p>
+<blockquote>
+<p>单边指数衰减 (Exponential Decay)</p>
+</blockquote>
+<p>$$f(t) &#x3D; e^{-at}u(t) \quad (a &gt; 0)$$<br>这是线性系统（LTI）冲激响应最常见的形式。<br><strong>证明：</strong><br>因为有阶跃函数 $u(t)$，积分下限从 0 开始。<br>$$F(\omega) &#x3D; \int_{0}^{\infty} e^{-at} e^{-j\omega t} dt &#x3D; \int_{0}^{\infty} e^{-(a+j\omega)t} dt$$<br>计算定积分：<br>$$&#x3D; \left[ \frac{-1}{a+j\omega} e^{-(a+j\omega)t} \right]_{0}^{\infty}$$<br>由于 $a&gt;0$，当 $t \to \infty$ 时，$e^{-at} \to 0$。<br>$$&#x3D; 0 - \left( \frac{-1}{a+j\omega} \cdot 1 \right) &#x3D; \frac{1}{a+j\omega}$$</p>
+<blockquote>
+<p>矩形脉冲 &#x2F; 门函数 (Rectangular Pulse)</p>
+</blockquote>
+<p>设脉冲宽度为 $\tau$，幅度为 1，中心在原点。<br>$$f(t) &#x3D; \begin{cases} 1 &amp; |t| &lt; \tau&#x2F;2 \ 0 &amp; \text{其他} \end{cases}$$<br><strong>证明：</strong><br>$$F(\omega) &#x3D; \int_{-\tau&#x2F;2}^{\tau&#x2F;2} 1 \cdot e^{-j\omega t} dt &#x3D; \left[ \frac{e^{-j\omega t}}{-j\omega} \right]_{-\tau&#x2F;2}^{\tau&#x2F;2}$$<br>代入上下限：<br>$$&#x3D; \frac{e^{-j\omega \tau&#x2F;2} - e^{j\omega \tau&#x2F;2}}{-j\omega} &#x3D; \frac{e^{j\omega \tau&#x2F;2} - e^{-j\omega \tau&#x2F;2}}{j\omega}$$<br>利用欧拉公式 $\sin x &#x3D; \frac{e^{jx} - e^{-jx}}{2j}$，分子部分就是 $2j \sin(\omega \tau&#x2F;2)$。<br>$$&#x3D; \frac{2j \sin(\omega \tau&#x2F;2)}{j\omega} &#x3D; \frac{2 \sin(\omega \tau&#x2F;2)}{\omega}$$<br>为了凑成 Sinc 函数的形式（$\text{Sa}(x) &#x3D; \sin x &#x2F; x$），分子分母同乘 $\tau&#x2F;2$：<br>$$&#x3D; \tau \frac{\sin(\omega \tau&#x2F;2)}{\omega \tau&#x2F;2} &#x3D; \tau \text{Sa}\left(\frac{\omega \tau}{2}\right)$$<br><em>(注：不同教材对 Sinc 定义略有不同，有的含 $\pi$，有的不含，考试时以此推导结果为准)</em></p>
+<blockquote>
+<ol>
+<li>符号函数 (Signum Function)</li>
+</ol>
+</blockquote>
+<p>$$f(t) &#x3D; \text{sgn}(t) &#x3D; \begin{cases} 1 &amp; t&gt;0 \ -1 &amp; t&lt;0 \end{cases}$$<br>直接积分也不收敛，需要引入一个衰减因子 $e^{-a|t|}$ 然后令 $a \to 0$。<br><strong>证明：</strong><br>$$f(t) &#x3D; \lim_{a \to 0} (e^{-at}u(t) - e^{at}u(-t))$$<br>这就是一个向右的衰减指数 减去 一个向左的衰减指数。<br>利用<strong>线性性质</strong>和刚才推导的<strong>单边指数公式</strong>：<br>右边部分：$\frac{1}{a+j\omega}$<br>左边部分（利用时间反转性质）：$\frac{1}{a-j\omega}$<br>$$F(\omega) &#x3D; \lim_{a \to 0} \left( \frac{1}{a+j\omega} - \frac{1}{a-j\omega} \right)$$<br>通分：<br>$$&#x3D; \lim_{a \to 0} \frac{(a-j\omega) - (a+j\omega)}{a^2 + \omega^2} &#x3D; \lim_{a \to 0} \frac{-2j\omega}{a^2 + \omega^2}$$<br>令 $a&#x3D;0$：<br>$$&#x3D; \frac{-2j\omega}{\omega^2} &#x3D; \frac{-2j}{\omega} &#x3D; \frac{2}{j\omega}$$</p>
+<hr>
+<p><strong>例子：</strong><br>求 $f(t) &#x3D; e^{-a|t|}$ (双边指数) 的傅立叶变换。</p>
+<p><strong>思路：</strong><br>不要积分！把它看作 $e^{-at}u(t)$ 加上 $e^{at}u(-t)$。</p>
+<ol>
+<li>由对 3 可知，$e^{-at}u(t) \leftrightarrow \frac{1}{a+j\omega}$。</li>
+<li>由时间反转性质，$e^{at}u(-t) \leftrightarrow \frac{1}{a-j\omega}$。</li>
+<li>两者相加：<br>$$F(\omega) &#x3D; \frac{1}{a+j\omega} + \frac{1}{a-j\omega} &#x3D; \frac{a-j\omega + a+j\omega}{a^2 + \omega^2} &#x3D; \frac{2a}{a^2 + \omega^2}$$<br>这就是著名的 柯西分布（Lorentzian function）形式。</li>
+</ol>
+<hr>
+<p>速查表 (Cheat Sheet)</p>
+<table>
+<thead>
+<tr>
+<th align="left">信号 $f(t)$</th>
+<th align="left">频域 $F(\omega)$</th>
+<th align="left">核心特征&#x2F;物理意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. 阶跃函数 $u(t)$</strong></td>
+<td align="left">$\pi \delta(\omega) + \frac{1}{j\omega}$</td>
+<td align="left"><strong>直流分量</strong> + $1&#x2F;f$ 衰减</td>
+</tr>
+<tr>
+<td align="left"><strong>2. 余弦波 $\cos(\omega_0 t)$</strong></td>
+<td align="left">$\pi [\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]$</td>
+<td align="left">频谱上左右各一根“柱子”</td>
+</tr>
+<tr>
+<td align="left"><strong>3. 正弦波 $\sin(\omega_0 t)$</strong></td>
+<td align="left">$-j\pi [\delta(\omega - \omega_0) - \delta(\omega + \omega_0)]$</td>
+<td align="left">同上，但相位不同（虚数）</td>
+</tr>
+<tr>
+<td align="left"><strong>4. Sinc函数 $\frac{\sin(Wt)}{\pi t}$</strong></td>
+<td align="left">$G_{2W}(\omega)$ (带宽为 $W$ 的矩形门)</td>
+<td align="left"><strong>理想低通滤波器</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p>单位阶跃函数 $u(t)$</p>
+</blockquote>
+<p>$$u(t) &#x3D; \begin{cases} 1 &amp; t &gt; 0 \ 0 &amp; t &lt; 0 \end{cases}$$</p>
+<p><strong>难点：</strong> 直接积分 $\int_0^\infty 1 \cdot e^{-j\omega t} dt$ 不收敛。<br><strong>技巧：</strong> 利用<strong>奇偶分解</strong>，把 $u(t)$ 拆解成“直流常数”和“符号函数”。</p>
+<p><strong>证明：</strong><br>我们可以把阶跃函数写成：<br>$$u(t) &#x3D; \frac{1}{2} + \frac{1}{2}\text{sgn}(t)$$<br><em>(解释：$1&#x2F;2 + 1&#x2F;2 &#x3D; 1$ (当 $t&gt;0$)；$1&#x2F;2 - 1&#x2F;2 &#x3D; 0$ (当 $t&lt;0$))</em></p>
+<p>利用线性性质，分别求这两部分的变换：</p>
+<ol>
+<li><strong>常数部分：</strong> 之前讲过，$\mathcal{F}[1] &#x3D; 2\pi \delta(\omega)$。<br>所以 $\mathcal{F}[1&#x2F;2] &#x3D; \pi \delta(\omega)$。</li>
+<li><strong>符号函数部分：</strong> 之前讲过，$\mathcal{F}[\text{sgn}(t)] &#x3D; \frac{2}{j\omega}$。<br>所以 $\mathcal{F}[\frac{1}{2}\text{sgn}(t)] &#x3D; \frac{1}{2} \cdot \frac{2}{j\omega} &#x3D; \frac{1}{j\omega}$。</li>
+</ol>
+<p><strong>结论：</strong><br>$$F(\omega) &#x3D; \pi \delta(\omega) + \frac{1}{j\omega}$$</p>
+<blockquote>
+<p><strong>Producer 的直觉：</strong><br>想象你突然打开一个合成器（从静音突然变成恒定电压）。</p>
+<ul>
+<li>$\pi \delta(\omega)$：这是<strong>DC Offset（直流偏移）</strong>，因为电压停在 1V 没下来。</li>
+<li>$\frac{1}{j\omega}$：这是那个“啪”的一声（Click&#x2F;Pop），包含了丰富的高频，但随着频率升高能量迅速衰减。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>余弦波 $\cos(\omega_0 t)$ 与 3. 正弦波 $\sin(\omega_0 t)$</p>
+</blockquote>
+<p><strong>难点：</strong> 也是积分不收敛。<br><strong>技巧：</strong> <strong>欧拉公式</strong> + <strong>频移性质</strong>。<br>回顾性质：$\mathcal{F}[e^{j\omega_0 t}] &#x3D; 2\pi \delta(\omega - \omega_0)$ （频谱搬移）。</p>
+<blockquote>
+<p>证明 $\cos(\omega_0 t)$：</p>
+</blockquote>
+<p>$$\cos(\omega_0 t) &#x3D; \frac{e^{j\omega_0 t} + e^{-j\omega_0 t}}{2}$$<br>两边取傅立叶变换：<br>$$F(\omega) &#x3D; \frac{1}{2} \left( 2\pi \delta(\omega - \omega_0) + 2\pi \delta(\omega - (-\omega_0)) \right)$$<br>$$F(\omega) &#x3D; \pi \delta(\omega - \omega_0) + \pi \delta(\omega + \omega_0)$$</p>
+<blockquote>
+<p>证明 $\sin(\omega_0 t)$：</p>
+</blockquote>
+<p>$$\sin(\omega_0 t) &#x3D; \frac{e^{j\omega_0 t} - e^{-j\omega_0 t}}{2j}$$<br>两边取傅立叶变换：<br>$$F(\omega) &#x3D; \frac{1}{2j} \left( 2\pi \delta(\omega - \omega_0) - 2\pi \delta(\omega + \omega_0) \right)$$<br>$$F(\omega) &#x3D; -j\pi \delta(\omega - \omega_0) + j\pi \delta(\omega + \omega_0)$$<br>或者写成：<br>$$F(\omega) &#x3D; -j\pi [\delta(\omega - \omega_0) - \delta(\omega + \omega_0)]$$</p>
+<blockquote>
+<p><strong>图解：</strong><br>如果你在频谱仪上看一个纯正弦波（Pure Sine），你会看到什么？<br>理论上是<strong>一根柱子</strong>。但在数学的双边频谱里，它是<strong>对称的两根柱子</strong>（正负频率各一根）。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Sinc 函数 $\frac{\sin(W t)}{\pi t}$</p>
+</blockquote>
+<p>这是一个在<strong>采样定理</strong>和<strong>滤波器设计</strong>中至高无上的函数。<br><em>(注意：为了区分变量，我用 $W$ 代表截止频率常数)</em></p>
+<p><strong>目标：</strong> 求 $f(t) &#x3D; \frac{\sin(W t)}{\pi t}$ 的变换。</p>
+<p><strong>技巧：</strong> 利用<strong>对偶性 (Duality)<strong>。<br>我们之前证明过：</strong>矩形脉冲 $\rightarrow$ Sinc 频谱</strong>。<br>根据对称性：<strong>Sinc 脉冲 $\rightarrow$ 矩形频谱</strong>。</p>
+<p><strong>证明：</strong></p>
+<ol>
+<li>回顾“门函数”（矩形）的变换：<br>设频域有一个门函数 $G(\omega)$，即理想低通滤波器：<br>$$G(\omega) &#x3D; \begin{cases} 1 &amp; |\omega| &lt; W \ 0 &amp; |\omega| &gt; W \end{cases}$$</li>
+<li>对这个 $G(\omega)$ 做反变换求 $g(t)$：<br>$$g(t) &#x3D; \frac{1}{2\pi} \int_{-W}^{W} 1 \cdot e^{j\omega t} d\omega$$<br>$$&#x3D; \frac{1}{2\pi} \left[ \frac{e^{j\omega t}}{jt} \right]_{-W}^{W} &#x3D; \frac{1}{2\pi jt} (e^{jWt} - e^{-jWt})$$<br>$$&#x3D; \frac{1}{\pi t} \sin(Wt) &#x3D; \frac{\sin(Wt)}{\pi t}$$</li>
+<li><strong>逆向思维成功：</strong><br>既然频域的“矩形 $G(\omega)$” 对应 时域的“Sinc $g(t)$”。<br>那么，时域的 $f(t) &#x3D; \frac{\sin(Wt)}{\pi t}$，其傅立叶变换就是那个频域矩形。</li>
+</ol>
+<p><strong>结论：</strong><br>$$F(\omega) &#x3D; \begin{cases} 1 &amp; |\omega| &lt; W \\ 0 &amp; \text{其他} \end{cases}$$</p>
 
                 
               </div>
