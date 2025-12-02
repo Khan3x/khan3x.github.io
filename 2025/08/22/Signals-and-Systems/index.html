@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-02T05:52:33.928Z">
+<meta property="article:modified_time" content="2025-12-02T06:07:52.813Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          16k words
+          18k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          138 mins
+          149 mins
         
       </span>
     
@@ -1920,6 +1920,54 @@
 <li>如果题目给的是<strong>实奇函数</strong>，$a_k&#x3D;0$，$C_k$ 是纯虚数。</li>
 <li>如果只要求画<strong>幅度谱</strong>，通常算 $C_k$ 更快；如果要求写出具体的 $\sin&#x2F;\cos$ 表达式，算 $a_k, B_k$ 更直观。</li>
 </ol>
+<hr>
+<h3 id="3-5-快速计算小工具"><a href="#3-5-快速计算小工具" class="headerlink" title="3.5 快速计算小工具"></a>3.5 快速计算小工具</h3><p>黎曼-勒贝格引理 (Riemann-Lebesgue Lemma)：</p>
+<p><strong>内容：</strong> 如果 $f(x)$ 绝对可积，那么当 $n \rightarrow \infty$ 时，其傅立叶系数 $a_n, b_n$ 趋于 0。<br>$$\lim_{n \to \infty} \int_{-\pi}^{\pi} f(x) \cos(nx) dx &#x3D; 0$$</p>
+<ul>
+<li><strong>实战意义：</strong> 这是一个<strong>验算工具</strong>。如果你算出来的傅立叶级数系数，当 $n$ 很大时没有趋近于 0（例如变成常数或无穷大），说明你<strong>一定算错了</strong>。</li>
+</ul>
+<hr>
+<p>著名的狄利克雷积分 (Dirichlet Integral)。</p>
+<p>首先，我们观察积分 $I &#x3D; \int_{-\infty}^{\infty} \frac{\sin(\omega t)}{t} , dt$。</p>
+<p>假设 $\omega &gt; 0$（通常情况）：<br>令 $x &#x3D; \omega t$，则 $t &#x3D; x&#x2F;\omega$， $dt &#x3D; dx&#x2F;\omega$。<br>当 $t \to \infty$ 时 $x \to \infty$，当 $t \to -\infty$ 时 $x \to -\infty$。</p>
+<p>代入积分：<br>$$I &#x3D; \int_{-\infty}^{\infty} \frac{\sin(x)}{x&#x2F;\omega} \cdot \frac{dx}{\omega} &#x3D; \int_{-\infty}^{\infty} \frac{\sin(x)}{x} , dx$$</p>
+<p>因此，我们只需要证明标准形式 <strong>$\int_{-\infty}^{\infty} \frac{\sin(x)}{x} , dx &#x3D; \pi$</strong> 即可。</p>
+<p>(注：如果 $\omega &lt; 0$，积分限会翻转，结果为 $-\pi$。如果 $\omega&#x3D;0$，结果为 0。所以通解是 $\pi \cdot \text{sgn}(\omega)$)。</p>
+<hr>
+<p>方法一：利用傅立叶变换（信号与系统视角）</p>
+<p>这是最快的方法，利用了<strong>矩形脉冲 (Rect)</strong> 和 <strong>Sinc 函数</strong> 互为傅立叶变换对的性质。</p>
+<p><strong>1. 定义频域函数</strong><br>构造一个频域上的矩形函数（理想低通滤波器）：<br>$$<br>X(j\nu) &#x3D;<br>\begin{cases}<br>1, &amp; |\nu| &lt; 1 \\<br>0, &amp; |\nu| &gt; 1<br>\end{cases}<br>$$<br><em>(注：这里用 $\nu$ 表示频率变量，以免和题目中的 $t, x$ 混淆)</em></p>
+<p><strong>2. 求其傅立叶逆变换 (IDFT)</strong><br>根据定义，时域信号 $x(t)$ 为：<br>$$x(t) &#x3D; \frac{1}{2\pi} \int_{-\infty}^{\infty} X(j\nu) e^{j\nu t} , d\nu$$</p>
+<p>代入 $X(j\nu)$ 的定义：<br>$$x(t) &#x3D; \frac{1}{2\pi} \int_{-1}^{1} 1 \cdot e^{j\nu t} , d\nu$$</p>
+<p>计算该定积分：<br>$$x(t) &#x3D; \frac{1}{2\pi} \left[ \frac{e^{j\nu t}}{jt} \right]_{-1}^{1} &#x3D; \frac{1}{2\pi jt} (e^{jt} - e^{-jt})$$</p>
+<p>利用欧拉公式 $\sin(t) &#x3D; \frac{e^{jt} - e^{-jt}}{2j}$，得到：<br>$$x(t) &#x3D; \frac{1}{\pi t} \sin(t) &#x3D; \frac{\sin(t)}{\pi t}$$</p>
+<p><strong>3. 利用变换对的数值关系</strong><br>现在我们有了变换对：<br>$$\mathcal{F}^{-1} [ \text{Rect}(\nu) ] &#x3D; \frac{\sin(t)}{\pi t}$$</p>
+<p><strong>关键一步：</strong> 傅立叶逆变换的定义公式在 $t&#x3D;0$ 时也成立。<br>根据上一步算出的 $x(t)$，在 $t&#x3D;0$ 时（取极限），$x(0) &#x3D; \frac{1}{\pi} \cdot 1 &#x3D; \frac{1}{\pi}$。</p>
+<p>另一方面，直接用积分定义式算 $t&#x3D;0$ 时的 $x(0)$：<br>$$x(0) &#x3D; \frac{1}{2\pi} \int_{-\infty}^{\infty} X(j\nu) e^{j\nu \cdot 0} , d\nu &#x3D; \frac{1}{2\pi} \int_{-1}^{1} 1 , d\nu &#x3D; \frac{1}{2\pi} \cdot 2 &#x3D; \frac{1}{\pi}$$<br>这一步只是验证了定义没问题。</p>
+<p>现在，我们回顾傅立叶变换对的积分等式：<br>$$\frac{\sin(t)}{\pi t} &#x3D; \frac{1}{2\pi} \int_{-\infty}^{\infty} X(j\nu) e^{j\nu t} d\nu$$<br>这看起来稍微绕了点，我们换个更直接的<strong>对偶性质</strong>思路：</p>
+<p>已知：$\delta(t)$ 的傅立叶变换是 $1$。<br>这不是最好的路。</p>
+<p><strong>最简单的物理思路：</strong><br>已知 $f(t) &#x3D; \frac{\sin(at)}{\pi t}$ 的傅立叶变换是 $F(\omega) &#x3D; \text{rect}(\omega&#x2F;2a)$ (幅度为1)。<br>令 $a&#x3D;1$，则 $f(t) &#x3D; \frac{\sin(t)}{\pi t}$。<br>其傅立叶变换 $F(\omega)$ 在 $\omega&#x3D;0$ 处的值就是 $\int_{-\infty}^{\infty} f(t) e^{-j0t} dt$。<br>即：<br>$$F(0) &#x3D; \int_{-\infty}^{\infty} \frac{\sin(t)}{\pi t} dt$$<br>对于 $f(t) &#x3D; \frac{\sin(t)}{\pi t}$，其频谱是 $\omega \in [-1, 1]$ 范围内的矩形，高度为 $1$。<br>所以 $F(0) &#x3D; 1$。<br>$$1 &#x3D; \int_{-\infty}^{\infty} \frac{\sin(t)}{\pi t} dt \implies \int_{-\infty}^{\infty} \frac{\sin(t)}{t} dt &#x3D; \pi$$</p>
+<hr>
+<p>方法二：利用复变函数留数定理</p>
+<p><strong>1. 构造复函数</strong><br>构造函数 $f(z) &#x3D; \frac{e^{iz}}{z}$。<br>我们积分 $\frac{\sin x}{x}$ 其实是取 $\text{Im} \left( \int \frac{e^{ix}}{x} dx \right)$。</p>
+<p><strong>2. 选取积分路径</strong><br>由于 $z&#x3D;0$ 是奇点（极点），我们不能直接穿过原点。我们要选一个<strong>避开原点的闭合回路</strong>：</p>
+<ul>
+<li>$C_R$：上半平面的大半圆（半径 $R \to \infty$）。</li>
+<li>$C_r$：避开原点的小半圆（半径 $r \to 0$），顺时针方向。</li>
+<li>实轴上的两段：$[-R, -r]$ 和 $[r, R]$。</li>
+</ul>
+<p><strong>3. 柯西积分定理</strong><br>在围成的区域内没有奇点，所以环路积分总和为 0：<br>$$\oint_C f(z) dz &#x3D; \int_{-R}^{-r} \frac{e^{ix}}{x} dx + \int_{C_r} \frac{e^{iz}}{z} dz + \int_{r}^{R} \frac{e^{ix}}{x} dx + \int_{C_R} \frac{e^{iz}}{z} dz &#x3D; 0$$</p>
+<p><strong>4. 逐项分析</strong></p>
+<ul>
+<li><strong>大半圆 $C_R$：</strong> 当 $R \to \infty$ 时，根据约当引理 (Jordan’s Lemma)，因为 $e^{iz}$ 在上半平面有衰减因子，积分值为 <strong>0</strong>。</li>
+<li><strong>小半圆 $C_r$：</strong> 当 $r \to 0$ 时，利用小圆弧引理：<br>  $$\lim_{r \to 0} \int_{C_r} \frac{e^{iz}}{z} dz &#x3D; -j \pi \cdot \text{Res}(f, 0)$$<br>  (注意：是顺时针绕行，所以有负号；绕了半圈，所以是 $\pi$ 而不是 $2\pi$)。<br>  $z&#x3D;0$ 处残数 $\text{Res} &#x3D; \lim_{z \to 0} z \cdot \frac{e^{iz}}{z} &#x3D; 1$。<br>  所以此项为 $-j\pi$。</li>
+</ul>
+<p><strong>5. 合并结果</strong><br>$$\left( \int_{-\infty}^{0} + \int_{0}^{\infty} \right) \frac{e^{ix}}{x} dx - j\pi &#x3D; 0$$<br>$$\text{PV} \int_{-\infty}^{\infty} \frac{e^{ix}}{x} dx &#x3D; j\pi$$</p>
+<p><strong>6. 取虚部</strong><br>利用欧拉公式 $e^{ix} &#x3D; \cos x + j\sin x$：<br>$$\int_{-\infty}^{\infty} \frac{\cos x}{x} dx + j \int_{-\infty}^{\infty} \frac{\sin x}{x} dx &#x3D; 0 + j\pi$$</p>
+<p>比较等式两边的虚部：<br>$$\int_{-\infty}^{\infty} \frac{\sin x}{x} dx &#x3D; \pi$$</p>
+<p>得证。</p>
+<hr>
+<p>结论<br>$$\int_{-\infty}^{\infty} \frac{\sin(\omega t)}{t} dt &#x3D; \begin{cases} \pi &amp; (\omega &gt; 0) \\ -\pi &amp; (\omega &lt; 0) \\ 0 &amp; (\omega &#x3D; 0) \end{cases}$$</p>
 
                 
               </div>
