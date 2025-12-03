@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-02T07:00:42.697Z">
+<meta property="article:modified_time" content="2025-12-03T07:34:55.871Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          22k words
+          23k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          184 mins
+          191 mins
         
       </span>
     
@@ -1968,6 +1968,52 @@
 <p>得证。</p>
 <hr>
 <p>结论<br>$$\int_{-\infty}^{\infty} \frac{\sin(\omega t)}{t} dt &#x3D; \begin{cases} \pi &amp; (\omega &gt; 0) \\ -\pi &amp; (\omega &lt; 0) \\ 0 &amp; (\omega &#x3D; 0) \end{cases}$$</p>
+<hr>
+<p>公式 $\lim_{\omega \to \infty} \frac{\sin(\omega t)}{t} &#x3D; \pi \delta(t)$ 描述的是<strong>狄拉克冲激函数（Dirac delta function）</strong> 的一种极限表示形式。</p>
+<p>要理解这个等式为什么成立，我们需要从以下三个角度来分析：<strong>波形几何形状的变化</strong>、<strong>积分面积守恒</strong>以及<strong>广义函数的定义</strong>。</p>
+<hr>
+<blockquote>
+<p>直观理解：波形的几何形状</p>
+</blockquote>
+<p>让我们定义函数 $f_\omega(t) &#x3D; \frac{\sin(\omega t)}{t}$。<br>随着参数 $\omega$（频率）变得越来越大，这个函数的图像会发生如下变化：</p>
+<ul>
+<li><p><strong>中心峰值（$t&#x3D;0$）：</strong><br>  当 $t \to 0$ 时，根据洛必达法则（L’Hôpital’s rule）：<br>  $$\lim_{t \to 0} \frac{\sin(\omega t)}{t} &#x3D; \lim_{t \to 0} \frac{\omega \cos(\omega t)}{1} &#x3D; \omega$$<br>  这意味着，随着 $\omega \to \infty$，函数在 $t&#x3D;0$ 处的高度趋向于<strong>无穷大</strong>。</p>
+</li>
+<li><p><strong>零点位置（宽度）：</strong><br>  $\sin(\omega t) &#x3D; 0$ 的第一个零点发生在 $\omega t &#x3D; \pi$，即 $t &#x3D; \frac{\pi}{\omega}$。<br>  随着 $\omega \to \infty$，第一个零点 $t &#x3D; \frac{\pi}{\omega}$ 会无限趋近于 0。这意味着主瓣（main lobe）的宽度变得<strong>无穷窄</strong>。</p>
+</li>
+<li><p><strong>震荡衰减：</strong><br>  在 $t \neq 0$ 的地方，随着 $\omega$ 增大，正弦函数震荡得极快。在广义函数的积分意义下，这些极快的正负震荡会相互抵消（Riemann-Lebesgue引理），使得除 0 点以外的值在积分作用下趋近于 0。</p>
+</li>
+</ul>
+<p><strong>总结：</strong> 这是一个在 $t&#x3D;0$ 处无限高、无限窄，而在其他地方趋于 0 的函数，这完全符合 $\delta(t)$ 的形态特征。</p>
+<hr>
+<blockquote>
+<p>核心验证：面积（积分）守恒</p>
+</blockquote>
+<p>仅有“无限高、无限窄”是不够的，$\delta(t)$ 函数的核心定义是其积分为 1。我们需要检查 $\frac{\sin(\omega t)}{t}$ 的总面积是多少。</p>
+<p>计算该函数在全实数轴上的积分：<br>$$I &#x3D; \int_{-\infty}^{\infty} \frac{\sin(\omega t)}{t} dt$$</p>
+<p>做一个变量代换，令 $x &#x3D; \omega t$，则 $dt &#x3D; \frac{1}{\omega} dx$。<br>$$I &#x3D; \int_{-\infty}^{\infty} \frac{\sin(x)}{x &#x2F; \omega} \cdot \frac{1}{\omega} dx &#x3D; \int_{-\infty}^{\infty} \frac{\sin(x)}{x} dx$$</p>
+<p>这是一个著名的积分，称为<strong>迪利克雷积分（Dirichlet Integral）</strong>，其值为 $\pi$。<br>$$\int_{-\infty}^{\infty} \frac{\sin(x)}{x} dx &#x3D; \pi$$</p>
+<p><strong>结论：</strong><br>无论 $\omega$ 有多大，该函数的曲线下面积始终恒定为 $\pi$。<br>因为标准 $\delta(t)$ 的面积是 1，而这个极限函数的面积是 $\pi$，且能量全部集中在 $t&#x3D;0$ 处，所以：<br>$$\lim_{\omega \to \infty} \frac{\sin(\omega t)}{t} &#x3D; \pi \delta(t)$$</p>
+<hr>
+<blockquote>
+<p>频域角度（傅里叶变换）</p>
+</blockquote>
+<p>在信号处理中，用频域解释最为直观。</p>
+<p>我们考察一个频域为矩形窗函数（Rectangular function）的信号。<br>假设频域信号 $X(f)$ 是一个低通滤波器，通带宽度为 $\omega$（或者说截止频率与 $\omega$ 相关）：<br>$$X(f) &#x3D; \begin{cases} \pi, &amp; \text{for } |2\pi f| &lt; \omega \\  0, &amp; \text{otherwise} \end{cases}$$<br>（<em>注：这里为了对应结果，幅值设为常数</em>）</p>
+<p>对其进行傅里叶逆变换，得到的时域信号正是 Sinc 函数形式：$\frac{\sin(\omega t)}{t}$。</p>
+<ul>
+<li>当 $\omega$（带宽）趋向于无穷大时，频域变成了一个覆盖全频率、值为常数的直线（即白噪声谱）。</li>
+<li>根据傅里叶变换对：<strong>常数的傅里叶逆变换是冲激函数</strong>。<br>  $$\mathcal{F}^{-1}[\text{Constant}] \propto \delta(t)$$</li>
+</ul>
+<hr>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<p>这个公式说明了 $\delta$ 函数不仅仅是一个抽象的数学定义，它可以通过让 Sinc 函数（$\frac{\sin x}{x}$）变得“更高、更瘦”来物理逼近。</p>
+<ul>
+<li><strong>为什么有 $\delta(t)$？</strong> 因为函数集中在 $t&#x3D;0$ 且无限窄。</li>
+<li><strong>为什么有系数 $\pi$？</strong> 因为 $\frac{\sin(\omega t)}{t}$ 的总积分面积是 $\pi$，而不是 1。</li>
+</ul>
 <hr>
 <h3 id="3-6-傅立叶变换以及反变换"><a href="#3-6-傅立叶变换以及反变换" class="headerlink" title="3.6 傅立叶变换以及反变换"></a>3.6 傅立叶变换以及反变换</h3><p>这是一对互为<strong>镜像</strong>的数学工具，是连接时域（Time Domain）和频域（Frequency Domain）的桥梁。</p>
 <ul>
