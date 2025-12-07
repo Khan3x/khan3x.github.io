@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-07T04:49:33.785Z">
+<meta property="article:modified_time" content="2025-12-07T05:06:06.656Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          24k words
+          25k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          199 mins
+          207 mins
         
       </span>
     
@@ -2392,7 +2392,7 @@
 <p>或者写作：<br>$$X(t) \stackrel{\mathcal{F}}{\longleftrightarrow} 2\pi x(-\omega)$$</p>
 <p><strong>这里有两个细节要注意：</strong></p>
 <ol>
-<li>出现了一个常数因子 **$2\pi$**。</li>
+<li>出现了一个常数因子 $2\pi$。</li>
 <li>原来的函数 $x$ 发生了<strong>时间反转</strong>（变成了 $x(-\omega)$）。如果是偶函数（Even function），负号可以忽略。</li>
 </ol>
 <p>最经典的例子：矩形脉冲与 Sinc 函数</p>
@@ -2429,6 +2429,84 @@
 <li>将变量 $t$ 替换为 $-t$：<br>$$2\pi x(-t) &#x3D; \int_{-\infty}^{\infty} X(j\omega) e^{-j\omega t} d\omega$$</li>
 <li>现在的右边，是不是长得很像傅立叶正变换的定义式？我们把积分变量的名字 $\omega$ 改写成 $t$，把外面的参数 $-t$ 改写成 $\omega$（只是换个名字，数学本质不变）：<br>$$2\pi x(-\omega) &#x3D; \int_{-\infty}^{\infty} X(t) e^{-j\omega t} dt$$</li>
 <li>右边正是 $X(t)$ 的傅立叶变换！所以：<br>$$\mathcal{F}{X(t)} &#x3D; 2\pi x(-\omega)$$</li>
+</ol>
+<hr>
+<h3 id="3-9-调制与解调"><a href="#3-9-调制与解调" class="headerlink" title="3.9 调制与解调"></a>3.9 调制与解调</h3><p>在信号与系统（Signals and Systems）中，调制（Modulation）与解调（Demodulation）是通信系统的核心基石。</p>
+<p>一句话概括：<strong>调制就是把信号“搬”到高频段传输，解调就是把信号从高频段“搬”回来。</strong></p>
+<p>我们可以从<strong>物理直觉</strong>和<strong>数学原理</strong>两个层面来理解。</p>
+<hr>
+<blockquote>
+<p>为什么要调制？ (Motivation)</p>
+</blockquote>
+<p>你可能会问：我有声音信号（比如 20Hz - 20kHz），直接通过天线发出去不行吗？为什么要搞这么复杂？</p>
+<p>主要有两个原因：</p>
+<ol>
+<li><p><strong>天线尺寸限制</strong>：<br>天线的最佳长度通常是电磁波波长的 $1&#x2F;4$ ($\lambda&#x2F;4$)。</p>
+<ul>
+<li>声音信号频率低（如 3kHz），波长 $\lambda &#x3D; c&#x2F;f &#x3D; 3\times 10^8 &#x2F; 3000 &#x3D; 100 \text{km}$。</li>
+<li>如果不调制，你需要一根 <strong>25公里长</strong> 的天线，这显然是不可能的。</li>
+<li>调制到高频（如 100MHz），波长变为 3米，天线只需 <strong>0.75米</strong>，这就是手机和收音机天线能做得很小的原因。</li>
+</ul>
+</li>
+<li><p>**频分复用 (FDM)**：<br>空气是共享介质。如果大家都直接发低频信号，所有人的声音都会混在一起互相干扰。<br>通过调制，我们可以把你的信号搬到 100MHz，把他的信号搬到 101MHz，大家在不同的车道上跑，互不干扰。</p>
+</li>
+</ol>
+<hr>
+<p>调制的数学原理 (Modulation)</p>
+<p>最基础的调制方式是 **幅度调制 (Amplitude Modulation, AM)**。</p>
+<blockquote>
+<p>时域操作</p>
+</blockquote>
+<p>假设我们有：</p>
+<ul>
+<li><strong>基带信号 (Baseband Signal)</strong> $x(t)$：这是我们要发送的有用信息（如语音），频谱集中在低频。</li>
+<li><strong>载波信号 (Carrier Signal)</strong> $c(t) &#x3D; \cos(\omega_c t)$：这是一个高频的正弦波。</li>
+</ul>
+<p><strong>调制</strong>的过程，在时域上就是简单的<strong>相乘</strong>：<br>$$y(t) &#x3D; x(t) \cdot \cos(\omega_c t)$$</p>
+<blockquote>
+<p>频域操作（核心魔法）</p>
+</blockquote>
+<p>根据傅立叶变换的<strong>调制性质（Frequency Shifting Property）</strong>：<br>时域的乘积，对应频域的卷积。</p>
+<p>若 $x(t) \leftrightarrow X(j\omega)$，且 $\cos(\omega_c t) \leftrightarrow \pi[\delta(\omega - \omega_c) + \delta(\omega + \omega_c)]$。</p>
+<p>那么调制后的信号 $Y(j\omega)$ 为：<br>$$Y(j\omega) &#x3D; \frac{1}{2\pi} [X(j\omega) * C(j\omega)]$$<br>$$Y(j\omega) &#x3D; \frac{1}{2} [X(j(\omega - \omega_c)) + X(j(\omega + \omega_c))]$$</p>
+<p><strong>直观解释：</strong><br>原本位于 $\omega&#x3D;0$ 附近的频谱 $X(j\omega)$，被一分为二，左右各搬移到了 $+\omega_c$ 和 $-\omega_c$ 的位置，幅度减半。<br><strong>这就是“搬运”的本质：频谱的平移。</strong></p>
+<hr>
+<blockquote>
+<p>解调的数学原理 (Demodulation)</p>
+</blockquote>
+<p>现在信号 $y(t)$ 已经在高频段 $\omega_c$ 处了，接收端如何把它还原回 $x(t)$？</p>
+<p>最常用的方法是**同步解调 (Synchronous Demodulation)**。</p>
+<blockquote>
+<p>第一步：再次相乘</p>
+</blockquote>
+<p>我们在接收端把接收到的信号 $y(t)$ <strong>再次</strong>乘以同频率的载波 $\cos(\omega_c t)$：</p>
+<p>$$z(t) &#x3D; y(t) \cdot \cos(\omega_c t)$$<br>$$z(t) &#x3D; [x(t) \cos(\omega_c t)] \cdot \cos(\omega_c t) &#x3D; x(t) \cos^2(\omega_c t)$$</p>
+<p>利用三角恒等式 $\cos^2\theta &#x3D; \frac{1}{2}(1 + \cos 2\theta)$：</p>
+<p>$$z(t) &#x3D; x(t) \left[ \frac{1}{2} + \frac{1}{2}\cos(2\omega_c t) \right]$$<br>$$z(t) &#x3D; \frac{1}{2}x(t) + \frac{1}{2}x(t)\cos(2\omega_c t)$$</p>
+<blockquote>
+<p>第二步：频谱分析</p>
+</blockquote>
+<p>看看 $z(t)$ 里有什么：</p>
+<ol>
+<li>**$\frac{1}{2}x(t)$**：这正是我们要的原始信号！它位于低频（基带）。</li>
+<li>**$\frac{1}{2}x(t)\cos(2\omega_c t)$**：这是一个被搬移到 **$2\omega_c$**（两倍载波频率）的高频信号。</li>
+</ol>
+<blockquote>
+<p>第三步：低通滤波 (Low Pass Filter)</p>
+</blockquote>
+<p>我们只需要低频部分。所以，让 $z(t)$ 通过一个**低通滤波器 (LPF)**，滤掉 $2\omega_c$ 的高频分量。</p>
+<p><strong>结果：</strong> 剩下的就是 $\frac{1}{2}x(t)$。解调成功！</p>
+<hr>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<ol>
+<li><strong>调制</strong>：$x(t) \cdot \cos(\omega_c t)$。作用是将频谱 $X(j\omega)$ 从零频<strong>搬移</strong>到 $\pm \omega_c$。</li>
+<li><strong>解调</strong>：再乘一次 $\cos(\omega_c t)$。作用是将频谱从 $\pm \omega_c$ 再次搬移：<ul>
+<li>一部分搬回零频（复原）。</li>
+<li>一部分搬到更远的 $\pm 2\omega_c$（通过低通滤波器滤除）。</li>
+</ul>
+</li>
 </ol>
 
                 
