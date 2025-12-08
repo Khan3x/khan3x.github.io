@@ -19,12 +19,12 @@
   <meta name="author" content="toutou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys to va">
+    <meta name="description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS Concepts">
 <meta property="og:url" content="http://toutou.zeabur.app/2025/02/09/CS-Concepts/index.html">
 <meta property="og:site_name" content="偷偷星球">
-<meta property="og:description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys to va">
+<meta property="og:description" content="CS Concepts本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。 1. Data Stucture &amp; AlgorithmsHash TableA Hash Table is a data structure that maps keys">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/hash.jpg">
 <meta property="og:image" content="http://toutou.zeabur.app/img/concepts/hash2.jpg">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.1k words
+          7.2k words
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          60 mins
+          61 mins
         
       </span>
     
@@ -304,18 +304,20 @@
             
               <div class="markdown-body">
                 
-                <h1 id="CS-Concepts"><a href="#CS-Concepts" class="headerlink" title="CS Concepts"></a>CS Concepts</h1><p>本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中/英）。</p>
-<h2 id="1-Data-Stucture-amp-Algorithms"><a href="#1-Data-Stucture-amp-Algorithms" class="headerlink" title="1. Data Stucture &amp; Algorithms"></a>1. Data Stucture &amp; Algorithms</h2><h3 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h3><p>A Hash Table is a data structure that maps keys to values using a hash function. It stores data in an array-like structure, where each key is hashed to an index. Collisions (when different keys map to the same index) are handled using techniques like chaining or open addressing. Hash tables provide average O(1) time complexity for insertion, deletion, and lookup. They are widely used in databases, caching, and symbol tables.<br><img src="/img/concepts/hash.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 70%; height: auto;" /></p>
+                <h1 id="CS-Concepts"><a href="#CS-Concepts" class="headerlink" title="CS Concepts"></a>CS Concepts</h1><p>本章笔记着重对CS相关专业科目的名词进行解释，在修考问答题和面试八股文场景下适用。这些名词都来源于CS相关学科。本篇笔记内容按科目划分，每个科目下面有对应的常见高频名词解释（中&#x2F;英）。</p>
+<h2 id="1-Data-Stucture-Algorithms"><a href="#1-Data-Stucture-Algorithms" class="headerlink" title="1. Data Stucture &amp; Algorithms"></a>1. Data Stucture &amp; Algorithms</h2><h3 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h3><p>A Hash Table is a data structure that maps keys to values using a hash function. It stores data in an array-like structure, where each key is hashed to an index. Collisions (when different keys map to the same index) are handled using techniques like chaining or open addressing. Hash tables provide average O(1) time complexity for insertion, deletion, and lookup. They are widely used in databases, caching, and symbol tables.<br><img src="/img/concepts/hash.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 70%; height: auto;" /></p>
 <hr>
-<h3 id="Hash-Collision-Hash-Clash"><a href="#Hash-Collision-Hash-Clash" class="headerlink" title="Hash Collision / Hash Clash"></a>Hash Collision / Hash Clash</h3><p>A <strong>hash collision (hash clash)</strong> occurs when two different inputs produce the same hash value in a hash function. Since hash functions map a large input space to a smaller output space, collisions are inevitable due to the <strong>pigeonhole principle</strong>. Collisions can weaken security in cryptographic hashes (e.g., MD5, SHA-1) and reduce efficiency in hash tables. Techniques like <strong>chaining, open addressing, and better hash functions</strong> help mitigate collisions. Stronger cryptographic hashes (e.g., SHA-256) minimize the risk of intentional hash clashes (collision attacks).</p>
+<h3 id="Hash-Collision-Hash-Clash"><a href="#Hash-Collision-Hash-Clash" class="headerlink" title="Hash Collision &#x2F; Hash Clash"></a>Hash Collision &#x2F; Hash Clash</h3><p>A <strong>hash collision (hash clash)</strong> occurs when two different inputs produce the same hash value in a hash function. Since hash functions map a large input space to a smaller output space, collisions are inevitable due to the <strong>pigeonhole principle</strong>. Collisions can weaken security in cryptographic hashes (e.g., MD5, SHA-1) and reduce efficiency in hash tables. Techniques like <strong>chaining, open addressing, and better hash functions</strong> help mitigate collisions. Stronger cryptographic hashes (e.g., SHA-256) minimize the risk of intentional hash clashes (collision attacks).</p>
 <hr>
-<h3 id="Open-Addressing-Closed-Hashing"><a href="#Open-Addressing-Closed-Hashing" class="headerlink" title="Open Addressing / Closed Hashing"></a>Open Addressing / Closed Hashing</h3><p><strong>Open addressing</strong> is a collision resolution technique in hash tables where all elements are stored directly in the table without external chaining. When a collision occurs, the algorithm searches for the next available slot using a probing sequence (e.g., <strong>linear probing, quadratic probing, or double hashing</strong>). <strong>Linear probing</strong> checks the next slot sequentially, <strong>quadratic probing</strong> uses a quadratic function to find slots, and <strong>double hashing</strong> applies a second hash function for probing. Open addressing avoids linked lists, reducing memory overhead but may suffer from clustering. It works best when the load factor is kept low to maintain efficient lookups.</p>
+<h3 id="Open-Addressing-Closed-Hashing"><a href="#Open-Addressing-Closed-Hashing" class="headerlink" title="Open Addressing &#x2F; Closed Hashing"></a>Open Addressing &#x2F; Closed Hashing</h3><p><strong>Open addressing</strong> is a collision resolution technique in hash tables where all elements are stored directly in the table without external chaining. When a collision occurs, the algorithm searches for the next available slot using a probing sequence (e.g., <strong>linear probing, quadratic probing, or double hashing</strong>). <strong>Linear probing</strong> checks the next slot sequentially, <strong>quadratic probing</strong> uses a quadratic function to find slots, and <strong>double hashing</strong> applies a second hash function for probing. Open addressing avoids linked lists, reducing memory overhead but may suffer from clustering. It works best when the load factor is kept low to maintain efficient lookups.</p>
 <hr>
 <h3 id="Seperate-Chaining"><a href="#Seperate-Chaining" class="headerlink" title="Seperate Chaining"></a>Seperate Chaining</h3><p><strong>Separate chaining</strong> is a collision resolution technique in hash tables where each bucket stores multiple values using a linked list (or another data structure like a BST). When a collision occurs, the new element is simply added to the linked list at that index. This method allows the table to handle an unlimited number of collisions but increases memory usage. Performance depends on the length of the chains; with a well-distributed hash function, the average lookup time remains <strong>O(1) in best case</strong> and <strong>O(n) in worst case</strong>. <strong>Rehashing</strong> or using a larger table can help maintain efficiency.</p>
-<p><img src="/img/concepts/hash2.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/hash2.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="P-≠-NP"><a href="#P-≠-NP" class="headerlink" title="P ≠ NP"></a>P ≠ NP</h3><p><strong>P ≠ NP</strong> means that not all problems whose solutions can be <em>verified quickly</em> (in polynomial time) can also be <em>solved quickly</em>.<br><strong>P</strong> is the class of problems that can be <strong>solved</strong> in polynomial time.<br><strong>NP</strong> is the class of problems whose solutions can be <strong>verified</strong> in polynomial time.<br>The question is: if a problem’s solution can be verified quickly, can it also be found quickly?<br>Most experts believe <strong>P ≠ NP</strong>, but it has not been proven yet.</p>
-<p><img src="/img/concepts/pnp.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/pnp.jpg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="NP-Hard-Problems"><a href="#NP-Hard-Problems" class="headerlink" title="NP Hard Problems"></a>NP Hard Problems</h3><p>NP-Hard problems are computational problems that are at least as difficult as the hardest problems in NP (nondeterministic polynomial time). Solving an NP-Hard problem quickly would mean we could solve every NP problem quickly too, but no such efficient solution is known. These problems may not even have verifiable solutions in polynomial time. They often involve optimization or decision-making with many possibilities, like scheduling, routing, or packing.Examples include the Traveling Salesman Problem and Knapsack Problem.</p>
 <hr>
@@ -327,11 +329,12 @@
 <p>If you can solve any NP-Complete problem quickly (in polynomial time), you can solve <em>all</em> NP problems quickly. Famous examples include the <strong>Boolean Satisfiability Problem (SAT)</strong> and <strong>Traveling Salesman Problem (decision version)</strong>.</p>
 <hr>
 <h3 id="The-Travelling-Salesman-Problem"><a href="#The-Travelling-Salesman-Problem" class="headerlink" title="The Travelling Salesman Problem"></a>The Travelling Salesman Problem</h3><p>The <strong>Travelling Salesman Problem (TSP)</strong> asks for the shortest possible route that visits each city once and returns to the starting city.<br>It is a classic <strong>combinatorial optimization</strong> problem in computer science and operations research.<br>TSP is <strong>NP-hard</strong>, meaning there’s no known efficient algorithm to solve all cases quickly.<br>Exact solutions use methods like <strong>brute force</strong>, <strong>dynamic programming</strong>, or <strong>branch and bound</strong>.<br>Approximation and heuristic algorithms (e.g. genetic algorithms, simulated annealing) are used for large instances.</p>
-<p><img src="/img/concepts/tsp.svg" srcset="/img/loading.gif" lazyload alt="TSP" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/tsp.svg" srcset="/img/loading.gif" lazyload alt="TSP" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="The-Knapsack-Problem"><a href="#The-Knapsack-Problem" class="headerlink" title="The Knapsack Problem"></a>The Knapsack Problem</h3><p>The <strong>Knapsack Problem</strong> asks how to choose items with given weights and values to maximize total value without exceeding a weight limit.<br>Each item can be either included or excluded (0-1 Knapsack).<br>It’s a classic <strong>NP-hard</strong> optimization problem.<br>Dynamic programming is commonly used for exact solutions.<br>Greedy or approximation methods are used for large instances.</p>
 <hr>
-<h3 id="The-SAT-Boolean-Satisfiability-problem"><a href="#The-SAT-Boolean-Satisfiability-problem" class="headerlink" title="The SAT (Boolean Satisfiability) problem"></a>The SAT (Boolean Satisfiability) problem</h3><p>The <strong>SAT (Boolean Satisfiability)</strong> problem asks whether there exists an assignment of true/false values to variables that makes a Boolean formula true.<br>It’s the <strong>first problem proven to be NP-complete</strong>.<br>The formula is usually given in <strong>CNF (Conjunctive Normal Form)</strong>.<br>SAT solvers use techniques like backtracking and clause learning.<br>Many real-world problems (e.g. planning, verification) can be reduced to SAT.</p>
+<h3 id="The-SAT-Boolean-Satisfiability-problem"><a href="#The-SAT-Boolean-Satisfiability-problem" class="headerlink" title="The SAT (Boolean Satisfiability) problem"></a>The SAT (Boolean Satisfiability) problem</h3><p>The <strong>SAT (Boolean Satisfiability)</strong> problem asks whether there exists an assignment of true&#x2F;false values to variables that makes a Boolean formula true.<br>It’s the <strong>first problem proven to be NP-complete</strong>.<br>The formula is usually given in <strong>CNF (Conjunctive Normal Form)</strong>.<br>SAT solvers use techniques like backtracking and clause learning.<br>Many real-world problems (e.g. planning, verification) can be reduced to SAT.</p>
 <hr>
 <h3 id="Divide-and-Conquer"><a href="#Divide-and-Conquer" class="headerlink" title="Divide and Conquer"></a>Divide and Conquer</h3><p><strong>Divide and Conquer</strong> is a problem-solving strategy that works in three main steps:</p>
 <ol>
@@ -342,10 +345,12 @@
 <p>Classic examples include <strong>Merge Sort</strong>, <strong>Quick Sort</strong>, and <strong>Binary Search</strong>.</p>
 <hr>
 <h3 id="Branch-and-Bound"><a href="#Branch-and-Bound" class="headerlink" title="Branch and Bound"></a>Branch and Bound</h3><p>Branch and Bound is an algorithmic paradigm for solving combinatorial optimization problems efficiently. It systematically divides the solution space into smaller subproblems (branching) and computes bounds to eliminate unpromising branches early (pruning). The method maintains an upper bound from feasible solutions and a lower bound from relaxed problems, allowing it to discard branches that cannot contain the optimal solution. This approach significantly reduces the search space compared to exhaustive enumeration, making it effective for problems like integer programming, traveling salesman, and knapsack problems.</p>
-<p><img src="/img/concepts/bnb.svg" srcset="/img/loading.gif" lazyload alt="Branch and Bound" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/bnb.svg" srcset="/img/loading.gif" lazyload alt="Branch and Bound" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="B-tree"><a href="#B-tree" class="headerlink" title="B-tree"></a>B-tree</h3><p>A <strong>B-tree</strong> is a self-balancing search tree that maintains sorted data for efficient insertion, deletion, and search in <strong>O(log n)</strong> time.<br>It allows each node to have <strong>multiple keys and children</strong>, making it wider and shallower than binary trees.<br>All leaf nodes are at the same level, ensuring the tree stays balanced.<br>It’s widely used in <strong>databases and file systems</strong> for fast disk-based access.</p>
-<p><img src="/img/concepts/btree.svg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/btree.svg" srcset="/img/loading.gif" lazyload alt="Hash Table" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h3><p><strong>Heap Sort</strong> is a comparison-based sorting algorithm that uses a <strong>binary heap</strong> data structure. It works in two main steps:</p>
 <ol>
@@ -398,10 +403,12 @@
 </ul>
 <hr>
 <h3 id="A-Algorithm"><a href="#A-Algorithm" class="headerlink" title="A* Algorithm"></a>A* Algorithm</h3><p>The A* algorithm finds the shortest path by combining actual cost from the start (g) and estimated cost to the goal (h).<br>It selects nodes with the lowest total cost <code>f(n) = g(n) + h(n)</code>.<br>It uses a priority queue to explore the most promising paths first.<br>The heuristic <code>h(n)</code> must not overestimate to ensure optimality.<br>It’s widely used in games, maps, and AI for efficient pathfinding.</p>
-<p><img src="/img/concepts/astar.svg" srcset="/img/loading.gif" lazyload alt="A* Algorithm" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/astar.svg" srcset="/img/loading.gif" lazyload alt="A* Algorithm" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Minimax-Algorithm"><a href="#Minimax-Algorithm" class="headerlink" title="Minimax Algorithm"></a>Minimax Algorithm</h3><p>The <strong>Minimax algorithm</strong> is used in two-player games to find the optimal move by assuming both players play optimally.<br>It recursively explores all possible moves, maximizing the player’s score and minimizing the opponent’s.<br>“Max” tries to get the highest score; “Min” tries to get the lowest.<br>The game tree is evaluated using a scoring function at terminal states.<br>It’s often optimized with <strong>alpha-beta pruning</strong> to skip unnecessary branches.</p>
-<p><img src="/img/concepts/minimax.svg" srcset="/img/loading.gif" lazyload alt="Minimax Algorithm" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/minimax.svg" srcset="/img/loading.gif" lazyload alt="Minimax Algorithm" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="🤖-Alpha-Beta-Pruning"><a href="#🤖-Alpha-Beta-Pruning" class="headerlink" title="🤖 Alpha-Beta Pruning"></a>🤖 Alpha-Beta Pruning</h3><p><strong>Alpha-Beta Pruning</strong> is an <strong>optimization technique</strong> for the <strong>Minimax algorithm</strong> used in <strong>two-player games</strong> (like chess or tic-tac-toe).<br>It <strong>reduces the number of nodes</strong> evaluated in the game tree <strong>without affecting the final result</strong>.</p>
 <p><strong>🧠 How It Works</strong></p>
@@ -416,7 +423,7 @@
 <p><strong>✅ Benefits</strong></p>
 <ul>
 <li>Same result as Minimax, but faster</li>
-<li>Reduces time complexity from <strong>O(b^d)</strong> to <strong>O(b^(d/2))</strong> in the best case<br>(where <code>b</code> is branching factor, <code>d</code> is depth)</li>
+<li>Reduces time complexity from <strong>O(b^d)</strong> to <strong>O(b^(d&#x2F;2))</strong> in the best case<br>(where <code>b</code> is branching factor, <code>d</code> is depth)</li>
 </ul>
 <p><strong>📌 Example</strong></p>
 <p>In a minimax tree:</p>
@@ -430,13 +437,15 @@
 <li>Decision-making in adversarial environments</li>
 <li>Game tree search optimization</li>
 </ul>
-<h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h3 id="Procss-amp-Thread"><a href="#Procss-amp-Thread" class="headerlink" title="Procss &amp; Thread"></a>Procss &amp; Thread</h3><p>A process is the basic unit of resource allocation and scheduling in an operating system, with its own independent address space and resources. A thread is the basic unit of CPU scheduling, and a process can contain multiple threads that share the process’s memory and resources. Threads switch faster and have lower overhead, making them suitable for concurrent execution. In contrast, processes are independent of each other, with higher switching overhead but greater stability. While multithreading improves execution efficiency, it also introduces challenges such as synchronization and mutual exclusion.</p>
-<p><img src="/img/concepts/process.svg" srcset="/img/loading.gif" lazyload alt="Process & Thread" style="max-width: 100%; height: auto;" /></p>
+<h2 id="2-Operating-System"><a href="#2-Operating-System" class="headerlink" title="2. Operating System"></a>2. Operating System</h2><h3 id="Procss-Thread"><a href="#Procss-Thread" class="headerlink" title="Procss &amp; Thread"></a>Procss &amp; Thread</h3><p>A process is the basic unit of resource allocation and scheduling in an operating system, with its own independent address space and resources. A thread is the basic unit of CPU scheduling, and a process can contain multiple threads that share the process’s memory and resources. Threads switch faster and have lower overhead, making them suitable for concurrent execution. In contrast, processes are independent of each other, with higher switching overhead but greater stability. While multithreading improves execution efficiency, it also introduces challenges such as synchronization and mutual exclusion.</p>
+<img src="/img/concepts/process.svg" srcset="/img/loading.gif" lazyload alt="Process & Thread" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h3><p>A <strong>semaphore</strong> in an operating system is a synchronization tool used to manage <strong>concurrent access to shared resources</strong> by multiple processes or threads.</p>
 <p><strong>Key Points:</strong></p>
 <ul>
-<li>It is an <strong>integer variable</strong> that controls access based on its value.</li>
+<li><p>It is an <strong>integer variable</strong> that controls access based on its value.</p>
+</li>
 <li><p>There are two main operations:</p>
 <ul>
 <li><strong>wait (P)</strong>: Decreases the semaphore value. If the result is negative, the process is blocked.</li>
@@ -524,6 +533,7 @@ SUB R4, R1, R5  ← needs R1 before it&#39;s written<span aria-hidden="true" cla
 <p><strong>Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">BEQ R1, R2, LABEL   ; Branch if R1 &#x3D;&#x3D; R2
 ADD R3, R4, R5      ; May be wrongly fetched if branch is taken<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>Solutions:</strong></p>
 <ul>
 <li><strong>Branch Prediction</strong> – Guess whether the branch will be taken.</li>
@@ -538,7 +548,7 @@ ADD R3, R4, R5      ; May be wrongly fetched if branch is taken<span aria-hidden
 <p>If the CPU has <strong>one memory unit</strong> shared for both <strong>instruction fetch</strong> and <strong>data access</strong>, a conflict arises when:</p>
 <ul>
 <li>One instruction is being <strong>fetched</strong>, and</li>
-<li>Another instruction needs to <strong>read/write data</strong> from memory at the same time.</li>
+<li>Another instruction needs to <strong>read&#x2F;write data</strong> from memory at the same time.</li>
 </ul>
 <p><strong>Solution:</strong></p>
 <ul>
@@ -552,7 +562,7 @@ ADD R3, R4, R5      ; May be wrongly fetched if branch is taken<span aria-hidden
 <ul>
 <li><strong>Learns from past behavior</strong> of branches.</li>
 <li><strong>Updates prediction</strong> as the program runs.</li>
-<li>More accurate than static prediction (which always predicts taken/not taken).</li>
+<li>More accurate than static prediction (which always predicts taken&#x2F;not taken).</li>
 </ul>
 <p><strong>Common Methods:</strong></p>
 <ol>
@@ -567,8 +577,9 @@ ADD R3, R4, R5      ; May be wrongly fetched if branch is taken<span aria-hidden
 </ol>
 <p><strong>Benefit:</strong></p>
 <p>Improves <strong>pipeline efficiency</strong> by reducing <strong>control hazards</strong> and minimizing <strong>stall cycles</strong> caused by branch mispredictions.</p>
-<p><img src="/img/concepts/dynamic_branch.svg" srcset="/img/loading.gif" lazyload alt="Dynamic Branch Prediction" style="max-width: 100%; height: auto;" /></p>
-<p>—</p>
+<img src="/img/concepts/dynamic_branch.svg" srcset="/img/loading.gif" lazyload alt="Dynamic Branch Prediction" style="max-width: 100%; height: auto;" />
+
+<p>–</p>
 <h3 id="Instruction-level-Parallelsim"><a href="#Instruction-level-Parallelsim" class="headerlink" title="Instruction-level Parallelsim"></a>Instruction-level Parallelsim</h3><p><strong>Instruction-Level Parallelism (ILP)</strong> refers to the ability of a CPU to <strong>execute multiple instructions simultaneously</strong> during a single clock cycle.</p>
 <p><strong>Key Idea:</strong></p>
 <p>Many instructions in a program are <strong>independent</strong> and can be executed in <strong>parallel</strong>, rather than strictly one after another.</p>
@@ -588,6 +599,7 @@ ADD R3, R4, R5      ; May be wrongly fetched if branch is taken<span aria-hidden
 <p><strong>Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">ADD R1, R2, R3  
 MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>Benefits:</strong></p>
 <ul>
 <li>Increases CPU performance <strong>without increasing clock speed</strong></li>
@@ -599,12 +611,13 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li><strong>Dependence between instructions</strong> reduces parallelism</li>
 </ul>
 <p>Modern processors heavily rely on ILP for high-speed performance.</p>
-<p><img src="/img/concepts/parallelism.svg" srcset="/img/loading.gif" lazyload alt="Instruction-level Parallelsim" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/parallelism.svg" srcset="/img/loading.gif" lazyload alt="Instruction-level Parallelsim" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Clock-frequency"><a href="#Clock-frequency" class="headerlink" title="Clock frequency"></a>Clock frequency</h3><p><strong>Clock frequency</strong> (also called <strong>clock speed</strong>) is the rate at which a processor executes instructions, measured in <strong>Hertz (Hz)</strong> — typically in <strong>gigahertz (GHz)</strong> for modern CPUs.</p>
 <p><strong>Key Points:</strong></p>
 <ul>
-<li><strong>1 GHz = 1 billion cycles per second</strong></li>
+<li><strong>1 GHz &#x3D; 1 billion cycles per second</strong></li>
 <li>Each <strong>clock cycle</strong> is a tick of the CPU’s internal clock, during which it can perform basic operations (like fetch, decode, execute).</li>
 <li>A <strong>higher clock frequency</strong> generally means the CPU can <strong>perform more operations per second</strong>.</li>
 </ul>
@@ -616,7 +629,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li>Other factors like <strong>Instruction-Level Parallelism (ILP)</strong>, <strong>number of cores</strong>, <strong>cache</strong>, and <strong>architecture efficiency</strong> also matter.</li>
 <li>Very high clock speeds can cause <strong>more heat and power consumption</strong>.</li>
 </ul>
-<p><strong>Clock frequency = speed of instruction processing</strong>, but <strong>not the only factor</strong> in CPU performance.</p>
+<p><strong>Clock frequency &#x3D; speed of instruction processing</strong>, but <strong>not the only factor</strong> in CPU performance.</p>
 <hr>
 <h3 id="Register-renaming"><a href="#Register-renaming" class="headerlink" title="Register renaming"></a>Register renaming</h3><p><strong>Register renaming</strong> is a technique used in modern CPUs to <strong>eliminate false data dependencies</strong> (also called <em>name dependencies</em>) between instructions, allowing for more <strong>instruction-level parallelism (ILP)</strong> and better performance.</p>
 <blockquote>
@@ -631,6 +644,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <p><strong>Example (with false dependency):</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">1. ADD R1, R2, R3  
 2. SUB R1, R4, R5  ← falsely depends on instruction 1 (WAW)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p>Both write to <code>R1</code>, but they’re unrelated operations. Register renaming removes this conflict.</p>
 <blockquote>
 <p>How It Works:</p>
@@ -725,7 +739,6 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <h3 id="Big-endian"><a href="#Big-endian" class="headerlink" title="Big-endian"></a>Big-endian</h3><p><strong>Big-endian</strong> is a type of <strong>byte order</strong> where the <strong>most significant byte (MSB)</strong> is stored at the <strong>lowest memory address</strong>, and the least significant byte is stored at the highest address.</p>
 <p>Suppose we have a 32-bit hexadecimal number: <code>0x12345678</code></p>
 <p>In <strong>Big-endian</strong> format, it would be stored in memory like this (from low to high address):</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -733,8 +746,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Byte Value</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0x00</td>
 <td>0x12</td>
 </tr>
@@ -750,19 +762,16 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>0x03</td>
 <td>0x78</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>Characteristics:</strong></p>
 <ul>
-<li>Commonly used in <strong>network protocols</strong> (e.g., TCP/IP), hence also known as <strong>network byte order</strong>.</li>
+<li>Commonly used in <strong>network protocols</strong> (e.g., TCP&#x2F;IP), hence also known as <strong>network byte order</strong>.</li>
 <li>The opposite of Big-endian is <strong>Little-endian</strong>, where the least significant byte comes first.</li>
 </ul>
 <hr>
 <h3 id="Little-endian-Brief-Explanation"><a href="#Little-endian-Brief-Explanation" class="headerlink" title="Little-endian (Brief Explanation)"></a>Little-endian (Brief Explanation)</h3><p><strong>Little-endian</strong> is a type of <strong>byte order</strong> where the <strong>least significant byte (LSB)</strong> is stored at the <strong>lowest memory address</strong>, and the most significant byte is stored at the highest address.</p>
 <p>Suppose we have a 32-bit hexadecimal number: <code>0x12345678</code></p>
 <p>In <strong>Little-endian</strong> format, it would be stored in memory like this (from low to high address):</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -770,8 +779,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Byte Value</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0x00</td>
 <td>0x78</td>
 </tr>
@@ -787,9 +795,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>0x03</td>
 <td>0x12</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>Characteristics:</strong></p>
 <ul>
 <li>Commonly used in <strong>x86 architecture</strong> (Intel and AMD CPUs).</li>
@@ -805,6 +811,8 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     sum <span class="token operator">+=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+
 <ul>
 <li>When <code>array[0]</code> is accessed, the program will soon access <code>array[1]</code>, <code>array[2]</code>, etc.</li>
 <li>The variable <code>sum</code> is also accessed repeatedly.</li>
@@ -812,7 +820,8 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>Additional Notes:</strong></p>
 <ul>
-<li><strong>Caches</strong> take advantage of temporal locality to improve performance.</li>
+<li><p><strong>Caches</strong> take advantage of temporal locality to improve performance.</p>
+</li>
 <li><p>Temporal locality commonly appears in:</p>
 <ul>
 <li>Loop variables</li>
@@ -830,13 +839,15 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     sum <span class="token operator">+=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <ul>
 <li>When <code>array[0]</code> is accessed, the program will likely access <code>array[1]</code>, <code>array[2]</code>, …, <code>array[99]</code> shortly after.</li>
 <li>These elements are stored in <strong>adjacent memory locations</strong>, so this illustrates <strong>spatial locality</strong>.</li>
 </ul>
 <p><strong>Additional Notes:</strong></p>
 <ul>
-<li><strong>Caches</strong> use spatial locality by loading not just a single data item but also <strong>nearby memory blocks</strong> (called a cache line).</li>
+<li><p><strong>Caches</strong> use spatial locality by loading not just a single data item but also <strong>nearby memory blocks</strong> (called a cache line).</p>
+</li>
 <li><p>Spatial locality commonly appears in:</p>
 <ul>
 <li>Sequential array access</li>
@@ -893,8 +904,9 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li>Compare with <strong>Write Through</strong>, where every write updates both the cache and main memory <strong>simultaneously</strong>.</li>
 </ul>
 <p><strong>Summary:</strong><br>Write Back improves <strong>write efficiency and performance</strong>, but introduces <strong>complexity and consistency challenges</strong>.</p>
-<p><img src="/img/concepts/wb.svg" srcset="/img/loading.gif" lazyload alt="Write Back VS Write Through" style="max-width: 100%; height: auto;" /></p>
-<div class="table-container">
+<img src="/img/concepts/wb.svg" srcset="/img/loading.gif" lazyload alt="Write Back VS Write Through" style="max-width: 100%; height: auto;" />
+
+
 <table>
 <thead>
 <tr>
@@ -903,8 +915,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>写直达（Write Through）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>写入位置</td>
 <td>只写缓存（先缓存，后主存）</td>
 <td>同时写入缓存和主存</td>
@@ -939,9 +950,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>写操作频繁、对性能要求高的系统</td>
 <td>对一致性要求高、系统结构简单的场景</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <h3 id="Multicache-Multi-level-Cache"><a href="#Multicache-Multi-level-Cache" class="headerlink" title="Multicache (Multi-level Cache)"></a>Multicache (Multi-level Cache)</h3><p><strong>Multicache</strong>, or <strong>Multi-level Cache</strong>, refers to a hierarchical(分层的) caching system used in modern CPUs to bridge the speed gap between the fast processor and the slower main memory. It typically consists of <strong>multiple levels of cache</strong>, such as <strong>L1</strong>, <strong>L2</strong>, and <strong>L3</strong>, each with different sizes, speeds, and purposes.</p>
 <p><strong>🔧 Definition:</strong> A <strong>multi-level cache</strong> system includes:</p>
@@ -952,7 +961,6 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p>This layered structure allows faster access to frequently used data while reducing latency and improving CPU efficiency.</p>
 <p><strong>🏗️ Structure Example:</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -963,8 +971,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Purpose</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>L1</td>
 <td>~32KB</td>
 <td>Very fast</td>
@@ -985,9 +992,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>Yes</td>
 <td>Shared cache for all cores</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>✅ Advantages:</strong></p>
 <ul>
 <li><strong>Improved performance</strong>: Reduces average memory access time.</li>
@@ -1007,11 +1012,13 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>📌 Summary</strong></p>
 <p><strong>Multicache systems</strong> provide a hierarchical buffer between the CPU and main memory, optimizing performance and efficiency by leveraging fast, small caches for frequently accessed data and larger, slower caches for broader access.</p>
-<p><img src="/img/concepts/multicache.svg" srcset="/img/loading.gif" lazyload alt="multicache" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/multicache.svg" srcset="/img/loading.gif" lazyload alt="multicache" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Direct-Mapping（直接映射）"><a href="#Direct-Mapping（直接映射）" class="headerlink" title="Direct Mapping（直接映射）"></a>Direct Mapping（直接映射）</h3><p><strong>Direct Mapping</strong> is a simple cache mapping technique used in computer architecture to determine where a memory block will be placed in the cache.</p>
 <p><strong>🔧 Definition:</strong><br>In <strong>Direct Mapping</strong>, each block of main memory maps to <strong>exactly one</strong> cache line. The mapping is usually done using:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Cache Line Index &#x3D; (Main Memory Block Address) mod (Number of Cache Lines)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>This makes it easy and fast to locate data in the cache, but can lead to many <strong>conflicts</strong> if multiple blocks map to the same cache line.</p>
 <p><strong>✅ Advantages:</strong></p>
 <ul>
@@ -1025,6 +1032,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>🧠 Example:</strong><br>If a cache has 8 lines (0 to 7), and a block from main memory has address 24:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Cache Line &#x3D; 24 mod 8 &#x3D; 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>So this block will always be placed in cache line 0.</p>
 <p><strong>Summary:</strong><br>Direct Mapping provides fast and simple cache access, but is prone to frequent conflicts.</p>
 <hr>
@@ -1032,6 +1040,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <p><strong>🔧 Definition:</strong><br>In <strong>Set-Associative Mapping</strong>, the cache is divided into multiple <strong>sets</strong>, and each set contains <strong>multiple cache lines (ways)</strong>. A block from main memory maps to <strong>exactly one set</strong>, but <strong>can be placed in any line (way) within that set</strong>.</p>
 <p>The set is selected using:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Set Index &#x3D; (Main Memory Block Address) mod (Number of Sets)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>Within the set, placement and replacement follow policies like <strong>Least Recently Used (LRU)</strong> or <strong>Random</strong>.</p>
 <p><strong>✅ Advantages:</strong></p>
 <ul>
@@ -1046,6 +1055,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>🧠 Example:</strong><br>If a cache has <strong>4 sets</strong>, each with <strong>2 lines (2-way set-associative)</strong>, and a memory block with address 12:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Set Index &#x3D; 12 mod 4 &#x3D; 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>The block can be placed in <strong>either of the 2 lines in Set 0</strong>.</p>
 <p><strong>Summary:</strong><br>Set-Associative Mapping provides a <strong>balanced approach</strong> with better conflict resolution than Direct Mapping and <strong>less complexity</strong> than Fully Associative Mapping.</p>
 <hr>
@@ -1067,8 +1077,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <p><strong>🧠 Example:</strong><br>If a cache has <strong>8 lines</strong>, and a block from memory has address <code>0x2F</code>, it can be placed in <strong>any one</strong> of the 8 lines. When checking for a hit, the cache must compare the block’s tag with the tags of <strong>all 8 lines</strong>.</p>
 <p><strong>Summary:</strong><br>Full Associative Mapping provides <strong>maximum flexibility</strong> and <strong>minimal conflict</strong>, but comes with <strong>higher hardware cost</strong> and <strong>slower lookup times</strong>.</p>
 <hr>
-<h3 id="Comparison-of-Cache-Mapping-Techniques"><a href="#Comparison-of-Cache-Mapping-Techniques" class="headerlink" title="Comparison of Cache Mapping Techniques"></a>Comparison of Cache Mapping Techniques</h3><div class="table-container">
-<table>
+<h3 id="Comparison-of-Cache-Mapping-Techniques"><a href="#Comparison-of-Cache-Mapping-Techniques" class="headerlink" title="Comparison of Cache Mapping Techniques"></a>Comparison of Cache Mapping Techniques</h3><table>
 <thead>
 <tr>
 <th>Feature</th>
@@ -1077,8 +1086,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Full Associative Mapping</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Placement Rule</td>
 <td>Each block maps to <strong>one line</strong></td>
 <td>Each block maps to <strong>one set</strong>, can go into <strong>any line</strong> in that set</td>
@@ -1115,7 +1123,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>Needed for the entire cache (e.g., LRU)</td>
 </tr>
 <tr>
-<td>Cost (Power/Area)</td>
+<td>Cost (Power&#x2F;Area)</td>
 <td>Low</td>
 <td>Moderate</td>
 <td>High</td>
@@ -1126,10 +1134,11 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>General-purpose CPUs</td>
 <td>High-performance or critical systems</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p><img src="/img/concepts/cache3.jpg" srcset="/img/loading.gif" lazyload alt="三种cache映射" style="max-width: 100%; height: auto;" /></p>
+</tbody></table>
+<img src="/img/concepts/cache3.jpg" srcset="/img/loading.gif" lazyload alt="三种cache映射" style="max-width: 100%; height: auto;" />
+
+
+
 <hr>
 <h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><p><strong>Cache</strong> is a small, high-speed memory that stores frequently used data to speed up access. It sits between the CPU and main memory to reduce latency. It enables fast program access to frequently used addresses.</p>
 <hr>
@@ -1137,7 +1146,13 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <p><strong>非阻塞缓存</strong>允许 CPU 在<strong>等待缓存未命中（Cache Miss）处理完成的同时继续执行其他指令</strong>。<br>它支持<strong>多个未完成的内存请求</strong>同时存在。<br>这通过减少 CPU 空闲时间来提升系统整体性能。<br>非阻塞缓存在<strong>乱序执行</strong>和<strong>超标量处理器</strong>中尤为重要。<br>它通常使用如 <strong>未命中状态处理寄存器（Miss Status Handling Registers, MSHRs）</strong> 的结构来追踪未完成的请求。</p>
 <hr>
 <h3 id="Superscalar-Architecture（超标量架构）"><a href="#Superscalar-Architecture（超标量架构）" class="headerlink" title="Superscalar Architecture（超标量架构）"></a>Superscalar Architecture（超标量架构）</h3><p><strong>Superscalar Architecture</strong> is a CPU design that allows the processor to <strong>fetch, decode, and execute multiple instructions simultaneously</strong> during each clock cycle.<br>It achieves this by using <strong>multiple pipelines</strong> and <strong>parallel execution units</strong> (e.g., ALUs, FPUs).<br>This architecture increases <strong>instruction-level parallelism (ILP)</strong>, boosting performance without raising the clock speed.<br>Superscalar CPUs include features like <strong>out-of-order execution</strong>, <strong>register renaming</strong>, and <strong>branch prediction</strong> to handle dependencies and control flow efficiently.<br>Examples of superscalar processors include modern Intel and AMD CPUs.</p>
-<p><img src="/img/concepts/superscalar.svg" srcset="/img/loading.gif" lazyload alt="超标量架构" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/superscalar.svg" srcset="/img/loading.gif" lazyload alt="超标量架构" style="max-width: 100%; height: auto;" />
+
+
+
+
+
+
 <hr>
 <h3 id="🔍-TLB-Translation-Lookaside-Buffer"><a href="#🔍-TLB-Translation-Lookaside-Buffer" class="headerlink" title="🔍 TLB (Translation Lookaside Buffer)"></a>🔍 TLB (Translation Lookaside Buffer)</h3><p><strong>TLB</strong> stands for <strong>Translation Lookaside Buffer</strong>. It is a small, fast cache used in the memory management unit (MMU) of a computer’s CPU to improve the speed of <strong>virtual-to-physical address translation</strong>.</p>
 <p><strong>📌 Why is TLB needed?</strong></p>
@@ -1157,7 +1172,6 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li>If not found (<strong>TLB miss</strong>): access the page table, then update the TLB</li>
 </ol>
 <p><strong>🧠 TLB Hit vs TLB Miss</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1165,8 +1179,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>TLB Hit</td>
 <td>The virtual address is found in the TLB → Fast address translation</td>
 </tr>
@@ -1174,13 +1187,11 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>TLB Miss</td>
 <td>The virtual address is not found in the TLB → Page table lookup is required</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🧮 Example</strong></p>
 <p>Let’s say the CPU wants to access virtual address <code>0x00403ABC</code>:</p>
 <ul>
-<li>VPN = top bits of address → check if TLB has entry</li>
+<li>VPN &#x3D; top bits of address → check if TLB has entry</li>
 <li>If yes → get PPN and combine with offset → access physical memory</li>
 <li>If no → consult page table → update TLB → then access memory</li>
 </ul>
@@ -1204,13 +1215,12 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <p>A <strong>Page Table</strong> stores the mapping between <strong>virtual pages</strong> and <strong>physical frames</strong>. Each entry in the page table is called a <strong>Page Table Entry (PTE)</strong> and contains information such as:</p>
 <ul>
 <li><strong>Frame Number</strong>: the physical frame corresponding to the virtual page.</li>
-<li><strong>Valid/Invalid Bit</strong>: indicates if the mapping is valid.</li>
-<li><strong>Protection Bits</strong>: control read/write permissions.</li>
+<li><strong>Valid&#x2F;Invalid Bit</strong>: indicates if the mapping is valid.</li>
+<li><strong>Protection Bits</strong>: control read&#x2F;write permissions.</li>
 <li><strong>Dirty Bit</strong>: indicates if the page has been modified.</li>
 <li><strong>Accessed Bit</strong>: indicates if the page has been accessed recently.</li>
 </ul>
 <p><strong>🧾 Example Structure</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1220,12 +1230,11 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Protection</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>5</td>
 <td>1</td>
-<td>Read/Write</td>
+<td>Read&#x2F;Write</td>
 </tr>
 <tr>
 <td>1</td>
@@ -1239,21 +1248,23 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>0</td>
 <td>-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🧮 Address Translation Steps</strong></p>
 <ol>
-<li>The CPU generates a <strong>virtual address</strong>.</li>
+<li><p>The CPU generates a <strong>virtual address</strong>.</p>
+</li>
 <li><p>The virtual address is divided into:</p>
 <ul>
 <li><strong>Page Number</strong></li>
 <li><strong>Offset</strong></li>
 </ul>
 </li>
-<li>The <strong>Page Number</strong> is used to index into the Page Table.</li>
-<li>The Page Table Entry provides the <strong>Frame Number</strong>.</li>
-<li>The <strong>Physical Address</strong> is formed by combining the Frame Number and the Offset.</li>
+<li><p>The <strong>Page Number</strong> is used to index into the Page Table.</p>
+</li>
+<li><p>The Page Table Entry provides the <strong>Frame Number</strong>.</p>
+</li>
+<li><p>The <strong>Physical Address</strong> is formed by combining the Frame Number and the Offset.</p>
+</li>
 </ol>
 <p><strong>🛑 Page Fault</strong></p>
 <p>If the <strong>Valid Bit</strong> is 0, the page is not currently in memory. This triggers a <strong>Page Fault</strong>, and the operating system must load the page from disk into RAM.</p>
@@ -1270,11 +1281,11 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <li>They enable <strong>memory protection</strong>, <strong>process isolation</strong>, and <strong>efficient memory use</strong>.</li>
 <li>Optimized with techniques like <strong>TLB</strong> (Translation Lookaside Buffer) to speed up address translation.</li>
 </ul>
-<p><img src="/img/concepts/tlb.svg" srcset="/img/loading.gif" lazyload alt="虚实地址转换" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/tlb.svg" srcset="/img/loading.gif" lazyload alt="虚实地址转换" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="🧩-3-Types-of-Cache-Misses"><a href="#🧩-3-Types-of-Cache-Misses" class="headerlink" title="🧩 3 Types of Cache Misses"></a>🧩 3 Types of Cache Misses</h3><p>In computer architecture, a <strong>cache miss</strong> occurs when the data requested by the CPU is <strong>not found in the cache</strong>, requiring access to a slower memory level (like RAM). There are <strong>three main types</strong> of cache misses:</p>
 <p><strong>🧠 Summary Table</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1283,8 +1294,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Possible Solution</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Compulsory Miss</td>
 <td>First-time access to a block</td>
 <td>Prefetching, larger block size</td>
@@ -1299,9 +1309,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>Blocks map to the same cache location</td>
 <td>Higher associativity, alignment</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <h3 id="1-Compulsory-Miss-a-k-a-Cold-Miss"><a href="#1-Compulsory-Miss-a-k-a-Cold-Miss" class="headerlink" title="1. Compulsory Miss (a.k.a. Cold Miss)"></a>1. <strong>Compulsory Miss</strong> (a.k.a. Cold Miss)</h3><p><strong>🔹 What is it?</strong></p>
 <p>Occurs the <strong>first time</strong> a block is accessed and <strong>has never been loaded into the cache</strong> before.</p>
@@ -1311,6 +1319,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">Accessing array A[0] for the first time → not in cache → compulsory miss<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
 <li>Prefetching</li>
@@ -1325,6 +1334,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">Looping through a large dataset that exceeds cache size → older blocks are evicted → miss<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
 <li>Increase cache size</li>
@@ -1340,6 +1350,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 </ul>
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">Accessing addresses A and B that both map to cache set 3 → one evicts the other → conflict miss<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
 <li>Increase associativity</li>
@@ -1350,7 +1361,6 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <h3 id="🔗-Four-Types-of-Data-Dependencies-in-Computer-Architecture"><a href="#🔗-Four-Types-of-Data-Dependencies-in-Computer-Architecture" class="headerlink" title="🔗 Four Types of Data Dependencies in Computer Architecture"></a>🔗 Four Types of Data Dependencies in Computer Architecture</h3><p>In pipelined processors, <strong>data dependencies</strong> occur when instructions depend on the results of previous instructions. These dependencies can cause <strong>pipeline hazards</strong> and impact instruction-level parallelism.</p>
 <p>There are <strong>four types</strong> of data dependencies:</p>
 <p><strong>📊 Summary Table</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1360,8 +1370,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <th>Solution</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Flow Dependency</td>
 <td>RAW</td>
 <td>Read after write</td>
@@ -1385,9 +1394,7 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <td>Depends on branch outcome</td>
 <td>Branch prediction, speculation</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <h3 id="1-Flow-Dependency-Read-After-Write-RAW"><a href="#1-Flow-Dependency-Read-After-Write-RAW" class="headerlink" title="1. Flow Dependency (Read After Write, RAW)"></a>1. <strong>Flow Dependency</strong> (Read After Write, <strong>RAW</strong>)</h3><p><strong>🔹 What is it?</strong></p>
 <p>Occurs when an instruction needs to <strong>read a value</strong> that has not yet been <strong>written</strong> by a previous instruction.</p>
@@ -1398,9 +1405,10 @@ MUL R4, R5, R6   ; Independent → can run in parallel with ADD<span aria-hidden
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">I1: R1 ← R2 + R3
 I2: R4 ← R1 + R5   ; RAW: I2 reads R1 before I1 writes it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
-<li><strong>Forwarding/Bypassing</strong></li>
+<li><strong>Forwarding&#x2F;Bypassing</strong></li>
 <li><strong>Stalling</strong> the pipeline</li>
 </ul>
 <hr>
@@ -1413,6 +1421,7 @@ I2: R4 ← R1 + R5   ; RAW: I2 reads R1 before I1 writes it<span aria-hidden="tr
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">I1: R4 ← R1 + R2   ; Reads R1
 I2: R1 ← R3 + R5   ; WAR: I2 writes R1 before I1 finishes reading<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
 <li><strong>Register renaming</strong></li>
@@ -1427,6 +1436,7 @@ I2: R1 ← R3 + R5   ; WAR: I2 writes R1 before I1 finishes reading<span aria-hi
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">I1: R1 ← R2 + R3
 I2: R1 ← R4 + R5   ; WAW: I2 writes R1 before I1 completes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
 <li><strong>Register renaming</strong></li>
@@ -1442,13 +1452,14 @@ I2: R1 ← R4 + R5   ; WAW: I2 writes R1 before I1 completes<span aria-hidden="t
 <p><strong>📌 Example:</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">I1: if (R1 &#x3D;&#x3D; 0) goto LABEL
 I2: R2 ← R3 + R4   ; Control dependent on I1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>✅ Solution:</strong></p>
 <ul>
 <li><strong>Branch prediction</strong></li>
 <li><strong>Speculative execution</strong></li>
 </ul>
 <hr>
-<h3 id="Microprogramming（微程序设计）"><a href="#Microprogramming（微程序设计）" class="headerlink" title="Microprogramming（微程序设计）"></a>Microprogramming（微程序设计）</h3><p><strong>Microprogramming</strong> is a method of implementing a CPU’s control unit using <strong>a sequence of microinstructions</strong> stored in a special memory called <strong>control memory</strong>.<br>Each <strong>microinstruction</strong> specifies low-level operations like setting control signals, reading/writing registers, or ALU actions.<br>It acts as an intermediate layer between machine instructions and hardware control signals.<br>There are two types of control units: <strong>hardwired control</strong> and <strong>microprogrammed control</strong> — the latter is easier to modify and extend.<br>Microprogramming was widely used in classic CISC architectures like IBM System/360.</p>
+<h3 id="Microprogramming（微程序设计）"><a href="#Microprogramming（微程序设计）" class="headerlink" title="Microprogramming（微程序设计）"></a>Microprogramming（微程序设计）</h3><p><strong>Microprogramming</strong> is a method of implementing a CPU’s control unit using <strong>a sequence of microinstructions</strong> stored in a special memory called <strong>control memory</strong>.<br>Each <strong>microinstruction</strong> specifies low-level operations like setting control signals, reading&#x2F;writing registers, or ALU actions.<br>It acts as an intermediate layer between machine instructions and hardware control signals.<br>There are two types of control units: <strong>hardwired control</strong> and <strong>microprogrammed control</strong> — the latter is easier to modify and extend.<br>Microprogramming was widely used in classic CISC architectures like IBM System&#x2F;360.</p>
 <hr>
 <h3 id="Snoopy-Cache（监听式缓存）"><a href="#Snoopy-Cache（监听式缓存）" class="headerlink" title="Snoopy Cache（监听式缓存）"></a>Snoopy Cache（监听式缓存）</h3><p><strong>Snoopy Cache</strong> is a cache coherence protocol used in <strong>multiprocessor systems</strong> to maintain data consistency among multiple caches.<br>Each cache monitors (or “snoops”) a shared communication bus to detect if other processors are reading or writing a memory block it has cached.<br>If a write is detected, the snooping cache can <strong>invalidate</strong> or <strong>update</strong> its own copy to keep data coherent.<br>This ensures that all processors work with the <strong>most recent version</strong> of data.<br>Common snoopy-based protocols include <strong>MSI</strong>, <strong>MESI</strong>, and <strong>MOESI</strong>.</p>
 <p><strong>Snoopy Cache（监听式缓存）</strong>是一种用于<strong>多处理器系统</strong>的缓存一致性协议，用于保持多个缓存之间的数据一致性。<br>每个缓存会监听（snoop）共享总线，检测其他处理器是否在读取或写入它缓存中的数据块。<br>当检测到写操作时，监听缓存会<strong>更新</strong>或<strong>无效化</strong>自己的副本，以保持数据的一致性。<br>这样可以确保所有处理器使用的都是<strong>最新版本的数据</strong>。<br>常见的监听式协议包括 <strong>MSI</strong>、<strong>MESI</strong> 和 <strong>MOESI</strong> 协议。</p>
@@ -1456,18 +1467,18 @@ I2: R2 ← R3 + R4   ; Control dependent on I1<span aria-hidden="true" class="li
 <h3 id="Out-of-order-Execution-乱序执行"><a href="#Out-of-order-Execution-乱序执行" class="headerlink" title="Out-of-order Execution (乱序执行)"></a>Out-of-order Execution (乱序执行)</h3><p><strong>Out-of-order execution</strong> is a technique used in modern processors to improve performance by allowing instructions to be executed <strong>out of the order they appear</strong> in the program.<br>Instead of waiting for earlier instructions to complete (which might be delayed due to data hazards or memory stalls), the CPU executes instructions that are ready and independent of others.<br>This reduces <strong>idle CPU time</strong> and <strong>increases throughput</strong> by utilizing all available execution units.<br>Dependencies between instructions are tracked, and results are committed in the correct order.<br>Out-of-order execution is common in <strong>superscalar processors</strong> and is part of <strong>dynamic instruction scheduling</strong>.</p>
 <p><strong>乱序执行</strong>是一种现代处理器中常用的技术，通过允许指令<strong>按非顺序</strong>的方式执行来提升性能。<br>CPU 不必等待前面的指令完成（这些指令可能因为数据依赖或内存延迟而被拖慢），而是执行那些准备好且相互独立的指令。<br>这样可以减少<strong>CPU空闲时间</strong>并<strong>增加吞吐量</strong>，充分利用所有可用的执行单元。<br>指令之间的依赖关系会被追踪，结果会按正确的顺序提交。<br>乱序执行在<strong>超标量处理器</strong>中很常见，并且是<strong>动态指令调度</strong>的一部分。</p>
 <hr>
-<h3 id="DMA-Direct-Memory-Access"><a href="#DMA-Direct-Memory-Access" class="headerlink" title="DMA (Direct Memory Access)"></a>DMA (Direct Memory Access)</h3><p><strong>DMA</strong> stands for <strong>Direct Memory Access</strong>, a feature that allows certain hardware components (like disk controllers or network cards) to <strong>transfer data directly to/from main memory</strong> without involving the CPU.<br>This improves system efficiency by <strong>freeing the CPU</strong> from managing large or repetitive data transfers.<br>A <strong>DMA controller</strong> handles the data movement and signals the CPU when the transfer is complete.<br>DMA is commonly used for tasks like <strong>disk I/O</strong>, <strong>audio/video streaming</strong>, and <strong>network communication</strong>.<br>It helps achieve <strong>high-speed data transfer</strong> with minimal CPU overhead.</p>
-<p><strong>DMA</strong> 是 <strong>直接内存访问（Direct Memory Access）</strong> 的缩写，是一种允许某些硬件组件（如磁盘控制器或网卡）<strong>在不经过 CPU 的情况下直接与主存进行数据传输</strong>的技术。<br>它通过<strong>减轻 CPU 的数据搬运负担</strong>，提高了系统效率。<br>数据传输由一个 <strong>DMA 控制器</strong>负责，传输完成后会通知 CPU。<br>DMA 广泛应用于 <strong>磁盘 I/O</strong>、<strong>音视频流处理</strong> 和 <strong>网络通信</strong> 等领域。<br>它能以<strong>极低的 CPU 开销实现高速数据传输</strong>。</p>
+<h3 id="DMA-Direct-Memory-Access"><a href="#DMA-Direct-Memory-Access" class="headerlink" title="DMA (Direct Memory Access)"></a>DMA (Direct Memory Access)</h3><p><strong>DMA</strong> stands for <strong>Direct Memory Access</strong>, a feature that allows certain hardware components (like disk controllers or network cards) to <strong>transfer data directly to&#x2F;from main memory</strong> without involving the CPU.<br>This improves system efficiency by <strong>freeing the CPU</strong> from managing large or repetitive data transfers.<br>A <strong>DMA controller</strong> handles the data movement and signals the CPU when the transfer is complete.<br>DMA is commonly used for tasks like <strong>disk I&#x2F;O</strong>, <strong>audio&#x2F;video streaming</strong>, and <strong>network communication</strong>.<br>It helps achieve <strong>high-speed data transfer</strong> with minimal CPU overhead.</p>
+<p><strong>DMA</strong> 是 <strong>直接内存访问（Direct Memory Access）</strong> 的缩写，是一种允许某些硬件组件（如磁盘控制器或网卡）<strong>在不经过 CPU 的情况下直接与主存进行数据传输</strong>的技术。<br>它通过<strong>减轻 CPU 的数据搬运负担</strong>，提高了系统效率。<br>数据传输由一个 <strong>DMA 控制器</strong>负责，传输完成后会通知 CPU。<br>DMA 广泛应用于 <strong>磁盘 I&#x2F;O</strong>、<strong>音视频流处理</strong> 和 <strong>网络通信</strong> 等领域。<br>它能以<strong>极低的 CPU 开销实现高速数据传输</strong>。</p>
 <hr>
-<h3 id="RISC-Reduced-Instruction-Set-Computing"><a href="#RISC-Reduced-Instruction-Set-Computing" class="headerlink" title="RISC (Reduced Instruction Set Computing)"></a>RISC (Reduced Instruction Set Computing)</h3><p><strong>RISC</strong> stands for <strong>Reduced Instruction Set Computing</strong>, a CPU design strategy that uses a <strong>small set of simple and fast instructions</strong>.<br>Each instruction typically executes in <strong>one clock cycle</strong>, allowing efficient pipelining and parallelism.<br>RISC emphasizes <strong>hardware simplicity</strong>, <strong>fixed instruction length</strong>, and <strong>a load/store architecture</strong>.<br>It is well-suited for modern compilers and high-performance applications.<br>Examples: <strong>ARM</strong>, <strong>RISC-V</strong>, <strong>MIPS</strong>.</p>
-<p><strong>RISC</strong> 是 <strong>精简指令集计算（Reduced Instruction Set Computing）</strong> 的缩写，是一种使用<strong>少量简单指令</strong>的 CPU 设计理念。<br>每条指令通常在<strong>一个时钟周期内完成</strong>，便于实现流水线和并行处理。<br>RISC 强调<strong>硬件简化</strong>、<strong>固定长度指令</strong>以及<strong>Load/Store 架构</strong>。<br>这种架构非常适合现代编译器和高性能应用。<br>代表架构：<strong>ARM</strong>、<strong>RISC-V</strong>、<strong>MIPS</strong>。</p>
+<h3 id="RISC-Reduced-Instruction-Set-Computing"><a href="#RISC-Reduced-Instruction-Set-Computing" class="headerlink" title="RISC (Reduced Instruction Set Computing)"></a>RISC (Reduced Instruction Set Computing)</h3><p><strong>RISC</strong> stands for <strong>Reduced Instruction Set Computing</strong>, a CPU design strategy that uses a <strong>small set of simple and fast instructions</strong>.<br>Each instruction typically executes in <strong>one clock cycle</strong>, allowing efficient pipelining and parallelism.<br>RISC emphasizes <strong>hardware simplicity</strong>, <strong>fixed instruction length</strong>, and <strong>a load&#x2F;store architecture</strong>.<br>It is well-suited for modern compilers and high-performance applications.<br>Examples: <strong>ARM</strong>, <strong>RISC-V</strong>, <strong>MIPS</strong>.</p>
+<p><strong>RISC</strong> 是 <strong>精简指令集计算（Reduced Instruction Set Computing）</strong> 的缩写，是一种使用<strong>少量简单指令</strong>的 CPU 设计理念。<br>每条指令通常在<strong>一个时钟周期内完成</strong>，便于实现流水线和并行处理。<br>RISC 强调<strong>硬件简化</strong>、<strong>固定长度指令</strong>以及<strong>Load&#x2F;Store 架构</strong>。<br>这种架构非常适合现代编译器和高性能应用。<br>代表架构：<strong>ARM</strong>、<strong>RISC-V</strong>、<strong>MIPS</strong>。</p>
 <hr>
 <h3 id="CISC-Complex-Instruction-Set-Computing"><a href="#CISC-Complex-Instruction-Set-Computing" class="headerlink" title="CISC (Complex Instruction Set Computing)"></a>CISC (Complex Instruction Set Computing)</h3><p><strong>CISC</strong> stands for <strong>Complex Instruction Set Computing</strong>, which uses a <strong>large and versatile set of instructions</strong>, where some instructions perform <strong>multi-step operations</strong>.<br>This design reduces the number of instructions per program but increases the complexity of the CPU.<br>CISC instructions often have <strong>variable lengths</strong> and require <strong>multiple clock cycles</strong> to execute.<br>It was originally designed to minimize memory usage and support simpler compilers.<br>Example: <strong>x86 architecture</strong> (Intel, AMD).</p>
 <p><strong>CISC</strong> 是 <strong>复杂指令集计算（Complex Instruction Set Computing）</strong> 的缩写，采用<strong>数量多、功能强的指令集</strong>，其中一些指令能完成<strong>多个低层次操作</strong>。<br>这种设计可以减少程序中所需的指令数量，但会增加 CPU 的实现复杂度。<br>CISC 指令通常是<strong>不固定长度</strong>，并且执行时<strong>可能需要多个时钟周期</strong>。<br>它最初为了减少内存使用、便于早期编译器设计而提出。<br>代表架构：<strong>x86 架构</strong>（如 Intel 和 AMD 处理器）。</p>
 <hr>
-<h3 id="SIMD-Single-Instruction-Multiple-Data"><a href="#SIMD-Single-Instruction-Multiple-Data" class="headerlink" title="SIMD (Single Instruction, Multiple Data)"></a>SIMD (Single Instruction, Multiple Data)</h3><p><strong>SIMD</strong> stands for <strong>Single Instruction, Multiple Data</strong>, a parallel computing model where <strong>one instruction</strong> operates on <strong>multiple data elements simultaneously</strong>.<br>It is especially useful for tasks like <strong>image processing</strong>, <strong>audio/video encoding</strong>, <strong>machine learning</strong>, and <strong>scientific computing</strong>.<br>SIMD improves performance by exploiting <strong>data-level parallelism</strong>.<br>Modern CPUs include SIMD instruction sets such as <strong>SSE</strong>, <strong>AVX</strong> (Intel/AMD), and <strong>NEON</strong> (ARM).<br>It is a core concept in <strong>vector processing</strong> and used in <strong>GPUs</strong> as well.</p>
-<p><strong>SIMD</strong> 是 <strong>单指令多数据流（Single Instruction, Multiple Data）</strong> 的缩写，是一种并行计算模型，其中<strong>一条指令</strong>可以同时作用于<strong>多个数据元素</strong>。<br>它非常适用于图像处理、音视频编解码、机器学习和科学计算等场景。<br>SIMD 通过挖掘数据级并行性（Data-level Parallelism）来提升性能。<br>现代 CPU 提供了 SIMD 指令集，如 <strong>SSE</strong>、<strong>AVX</strong>（Intel/AMD）和 <strong>NEON</strong>（ARM）。<br>它是向量处理（Vector Processing）的核心思想，并广泛用于 <strong>GPU</strong> 中。</p>
-<h2 id="4-Formal-Language-amp-Automata"><a href="#4-Formal-Language-amp-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h3 id="Regular-Grammar"><a href="#Regular-Grammar" class="headerlink" title="Regular Grammar"></a>Regular Grammar</h3><p>A <strong>Regular Grammar</strong> is the simplest type of grammar in the Chomsky hierarchy. It is used to define <strong>regular languages</strong>, which can also be recognized by <strong>finite automata</strong>. Regular grammars are widely used in lexical analysis, pattern matching, and simple parsing tasks.</p>
+<h3 id="SIMD-Single-Instruction-Multiple-Data"><a href="#SIMD-Single-Instruction-Multiple-Data" class="headerlink" title="SIMD (Single Instruction, Multiple Data)"></a>SIMD (Single Instruction, Multiple Data)</h3><p><strong>SIMD</strong> stands for <strong>Single Instruction, Multiple Data</strong>, a parallel computing model where <strong>one instruction</strong> operates on <strong>multiple data elements simultaneously</strong>.<br>It is especially useful for tasks like <strong>image processing</strong>, <strong>audio&#x2F;video encoding</strong>, <strong>machine learning</strong>, and <strong>scientific computing</strong>.<br>SIMD improves performance by exploiting <strong>data-level parallelism</strong>.<br>Modern CPUs include SIMD instruction sets such as <strong>SSE</strong>, <strong>AVX</strong> (Intel&#x2F;AMD), and <strong>NEON</strong> (ARM).<br>It is a core concept in <strong>vector processing</strong> and used in <strong>GPUs</strong> as well.</p>
+<p><strong>SIMD</strong> 是 <strong>单指令多数据流（Single Instruction, Multiple Data）</strong> 的缩写，是一种并行计算模型，其中<strong>一条指令</strong>可以同时作用于<strong>多个数据元素</strong>。<br>它非常适用于图像处理、音视频编解码、机器学习和科学计算等场景。<br>SIMD 通过挖掘数据级并行性（Data-level Parallelism）来提升性能。<br>现代 CPU 提供了 SIMD 指令集，如 <strong>SSE</strong>、<strong>AVX</strong>（Intel&#x2F;AMD）和 <strong>NEON</strong>（ARM）。<br>它是向量处理（Vector Processing）的核心思想，并广泛用于 <strong>GPU</strong> 中。</p>
+<h2 id="4-Formal-Language-Automata"><a href="#4-Formal-Language-Automata" class="headerlink" title="4. Formal Language &amp; Automata"></a>4. Formal Language &amp; Automata</h2><h3 id="Regular-Grammar"><a href="#Regular-Grammar" class="headerlink" title="Regular Grammar"></a>Regular Grammar</h3><p>A <strong>Regular Grammar</strong> is the simplest type of grammar in the Chomsky hierarchy. It is used to define <strong>regular languages</strong>, which can also be recognized by <strong>finite automata</strong>. Regular grammars are widely used in lexical analysis, pattern matching, and simple parsing tasks.</p>
 <p><strong>📘 Definition</strong></p>
 <p>A <strong>Regular Grammar</strong> is a type of <strong>context-free grammar (CFG)</strong> with special restrictions on its production rules. It consists of:</p>
 <ul>
@@ -1493,7 +1504,7 @@ I2: R2 ← R3 + R4   ; Control dependent on I1<span aria-hidden="true" class="li
 <li>$a$ is a terminal symbol</li>
 </ul>
 <p>✅ This is the <strong>most common</strong> form used to generate regular languages.</p>
-<ol>
+<ol start="2">
 <li><strong>Left-Linear Grammar</strong></li>
 </ol>
 <p>All production rules are of the form:</p>
@@ -1504,10 +1515,11 @@ I2: R2 ← R3 + R4   ; Control dependent on I1<span aria-hidden="true" class="li
 </ul>
 <p>Both right-linear and left-linear grammars generate <strong>regular languages</strong>, but <strong>mixing them is not allowed</strong> in regular grammar.</p>
 <p><strong>🧮 Example of a Right-Linear Grammar</strong></p>
-<p>Let’s define a grammar for the regular language $L = { a^n b \mid n \geq 0 }$:</p>
+<p>Let’s define a grammar for the regular language $L &#x3D; { a^n b \mid n \geq 0 }$:</p>
 <p><strong>Non-terminals</strong>: ${S, A}$<br><strong>Terminals</strong>: ${a, b}$<br><strong>Start symbol</strong>: $S$<br><strong>Production rules</strong>:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">S → aS  
 S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p>This generates strings like:</p>
 <ul>
 <li><code>b</code></li>
@@ -1517,7 +1529,6 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 </ul>
 <p><strong>🤖 Equivalent Automata</strong></p>
 <p>Every regular grammar corresponds to a <strong>finite automaton</strong>, and vice versa:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1525,8 +1536,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Regular Grammar</td>
 <td>Generates strings by rules</td>
 </tr>
@@ -1534,9 +1544,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <td>Finite Automaton</td>
 <td>Accepts strings by state transitions</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>So, regular grammar and finite automaton are <strong>equivalent in expressive power</strong>.</p>
 <p><strong>📊 Closure Properties</strong></p>
 <p>Regular grammars inherit all the closure properties of regular languages:</p>
@@ -1553,7 +1561,6 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li>Cannot count or match multiple dependencies (e.g., $a^n b^n$)</li>
 </ul>
 <p><strong>✅ Summary</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1561,8 +1568,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>Regular Grammar</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Structure</td>
 <td>Right- or left-linear rules</td>
 </tr>
@@ -1586,9 +1592,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <td>Can generate $a^n b^n$</td>
 <td>❌ No</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <h3 id="Regular-Language"><a href="#Regular-Language" class="headerlink" title="Regular Language"></a>Regular Language</h3><p>A <strong>Regular Language</strong> is a class of formal languages that can be <strong>recognized by finite automata</strong>. It can be described by:</p>
 <ul>
@@ -1613,12 +1617,12 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 </ol>
 <ul>
 <li><p>They can be <strong>expressed using regular expressions</strong>, and there is an equivalence between:</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">DFA ⇄ NFA ⇄ Regular Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-</li>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">DFA ⇄ NFA ⇄ Regular Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure></li>
 </ul>
 <hr>
 <h3 id="Non-Regular-Languages"><a href="#Non-Regular-Languages" class="headerlink" title="Non-Regular Languages"></a>Non-Regular Languages</h3><p>Some languages <strong>cannot</strong> be described by regular expressions or finite automata. For example:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">L &#x3D; &#123; aⁿbⁿ | n ≥ 0 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>This language requires memory to keep track of the number of <code>a</code>s and <code>b</code>s, which finite automata do not have.</p>
 <p>To prove that a language is <strong>not regular</strong>, we can use the <strong>Pumping Lemma</strong>, which states:</p>
 <p>If a language <code>L</code> is regular, there exists an integer <code>p &gt; 0</code> (pumping length) such that any string <code>s ∈ L</code> with length ≥ <code>p</code> can be split into <code>s = xyz</code> such that:</p>
@@ -1637,7 +1641,6 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <blockquote>
 <p>🔹 Closure Under Common Operations</p>
 </blockquote>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1646,8 +1649,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>Result</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Union</strong></td>
 <td>If L₁ and L₂ are regular, then L₁ ∪ L₂ is also regular.</td>
 <td>✅ Regular</td>
@@ -1697,20 +1699,18 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <td>Regular languages are closed under substitution with regular languages.</td>
 <td>✅ Regular</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <blockquote>
 <p>🔹 Example: Union Closure</p>
 </blockquote>
 <p>Let:</p>
 <ul>
-<li>L₁ = { w | w contains only a’s } = <code>a*</code></li>
-<li>L₂ = { w | w contains only b’s } = <code>b*</code></li>
+<li>L₁ &#x3D; { w | w contains only a’s } &#x3D; <code>a*</code></li>
+<li>L₂ &#x3D; { w | w contains only b’s } &#x3D; <code>b*</code></li>
 </ul>
 <p>Then:</p>
 <ul>
-<li>L₁ ∪ L₂ = { w | w contains only a’s or only b’s } = <code>a* ∪ b*</code></li>
+<li>L₁ ∪ L₂ &#x3D; { w | w contains only a’s or only b’s } &#x3D; <code>a* ∪ b*</code></li>
 <li>This is still a regular language.</li>
 </ul>
 <blockquote>
@@ -1726,17 +1726,18 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <p>A <strong>DFA</strong> is a type of <strong>finite automaton</strong> used to <strong>recognize regular languages</strong>. It reads an input string <strong>symbol by symbol</strong>, and <strong>at any point</strong> in time, it is in <strong>exactly one state</strong>.</p>
 <p>A DFA is defined as a <strong>5-tuple</strong>:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">DFA &#x3D; (Q, Σ, δ, q₀, F)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>Where:</p>
 <ul>
 <li><code>Q</code> → Finite set of <strong>states</strong></li>
 <li><code>Σ</code> → Finite set of <strong>input symbols</strong> (alphabet)</li>
 <li><code>δ</code> → <strong>Transition function</strong>: δ : Q × Σ → Q</li>
 <li><code>q₀</code> → <strong>Start state</strong>, where the computation begins (<code>q₀ ∈ Q</code>)</li>
-<li><code>F</code> → Set of <strong>accepting/final states</strong> (<code>F ⊆ Q</code>)</li>
+<li><code>F</code> → Set of <strong>accepting&#x2F;final states</strong> (<code>F ⊆ Q</code>)</li>
 </ul>
 <p><strong>🔹 Characteristics</strong></p>
 <ul>
-<li><strong>Deterministic</strong>: For every state <code>q ∈ Q</code> and every input symbol <code>a ∈ Σ</code>, <strong>there is exactly one transition</strong> defined:<br>δ(q, a) = q’</li>
+<li><strong>Deterministic</strong>: For every state <code>q ∈ Q</code> and every input symbol <code>a ∈ Σ</code>, <strong>there is exactly one transition</strong> defined:<br>δ(q, a) &#x3D; q’</li>
 <li><strong>No epsilon (ε) transitions</strong>: Input must be read <strong>one symbol at a time</strong></li>
 <li>DFA <strong>always knows</strong> what to do next</li>
 </ul>
@@ -1749,7 +1750,6 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li><code>F = &#123;q2&#125;</code></li>
 </ul>
 <p>Transition table:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1758,8 +1758,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>Next State</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>q0</td>
 <td>0</td>
 <td>q1</td>
@@ -1789,12 +1788,9 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <td>1</td>
 <td>q0</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>This DFA accepts strings like: <code>01</code>, <code>1001</code>, <code>1101</code>, etc.</p>
 <p><strong>🔹 DFA vs NFA</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1803,8 +1799,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>NFA</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Transition</td>
 <td>One unique next state</td>
 <td>May have multiple next states</td>
@@ -1822,10 +1817,9 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <tr>
 <td>Power</td>
 <td><strong>Same (both recognize regular languages)</strong></td>
+<td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🔹 Applications</strong></p>
 <ul>
 <li>Lexical analysis (token recognition)</li>
@@ -1838,13 +1832,14 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <p>An <strong>NFA</strong> is a type of <strong>finite automaton</strong> used to recognize <strong>regular languages</strong>, just like a DFA. The key difference is that <strong>multiple transitions</strong> are allowed for the <strong>same input</strong> from a single state, and <strong>ε-transitions</strong> (transitions without consuming input) are permitted.</p>
 <p>An NFA is formally defined as a <strong>5-tuple</strong>:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">NFA &#x3D; (Q, Σ, δ, q₀, F)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>Where:</p>
 <ul>
 <li><code>Q</code> → Finite set of <strong>states</strong></li>
 <li><code>Σ</code> → Finite set of <strong>input symbols</strong> (alphabet)</li>
 <li><code>δ</code> → <strong>Transition function</strong>: δ : Q × (Σ ∪ {ε}) → 2^Q</li>
 <li><code>q₀</code> → <strong>Start state</strong>, <code>q₀ ∈ Q</code></li>
-<li><code>F</code> → Set of <strong>accepting/final states</strong>, <code>F ⊆ Q</code></li>
+<li><code>F</code> → Set of <strong>accepting&#x2F;final states</strong>, <code>F ⊆ Q</code></li>
 </ul>
 <p><strong>🔹 Characteristics</strong></p>
 <ul>
@@ -1854,8 +1849,10 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li>The NFA <strong>accepts</strong> an input string if <strong>at least one possible path</strong> leads to an accepting state.</li>
 </ul>
 </li>
-<li><strong>ε-transitions allowed</strong>: The machine can move <strong>without reading input</strong>.</li>
-<li><strong>Can be in multiple states</strong> at once during computation.</li>
+<li><p><strong>ε-transitions allowed</strong>: The machine can move <strong>without reading input</strong>.</p>
+</li>
+<li><p><strong>Can be in multiple states</strong> at once during computation.</p>
+</li>
 </ul>
 <p><strong>🔹 Example NFA</strong></p>
 <p>Let’s define an NFA that accepts strings over <code>&#123;0,1&#125;</code> ending in <code>01</code>.</p>
@@ -1866,7 +1863,6 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li><code>F = &#123;q2&#125;</code></li>
 </ul>
 <p>Transition table:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1875,8 +1871,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>Next States</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>q0</td>
 <td>0</td>
 <td>{q0, q1}</td>
@@ -1896,12 +1891,9 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <td>0,1</td>
 <td>∅</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>In this NFA, from <code>q0</code>, if we read <code>0</code>, we can <strong>either</strong> stay in <code>q0</code> or go to <code>q1</code>.</p>
 <p><strong>🔹 NFA vs DFA</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1910,8 +1902,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>DFA</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Transitions</td>
 <td>Can go to <strong>multiple</strong> states</td>
 <td>Only <strong>one</strong> next state</td>
@@ -1934,10 +1925,9 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <tr>
 <td>Expressive Power</td>
 <td><strong>Same</strong> – both recognize regular languages</td>
+<td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <blockquote>
 <p>💡 Every NFA can be converted into an equivalent DFA (subset construction), though the DFA may have exponentially more states.</p>
 </blockquote>
@@ -1950,7 +1940,6 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <hr>
 <h3 id="Finite-State-Machine-FSM"><a href="#Finite-State-Machine-FSM" class="headerlink" title="Finite-State Machine (FSM)"></a>Finite-State Machine (FSM)</h3><p>A <strong>Finite-State Machine (FSM)</strong> is a computational model used to design and describe the behavior of digital systems, software, or processes that are dependent on a sequence of inputs and a finite number of internal states.</p>
 <p><strong>🧠 Key Concepts</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1958,8 +1947,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>State</strong></td>
 <td>A unique configuration or condition of the system at a given time.</td>
 </tr>
@@ -1979,9 +1967,7 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <td><strong>Final State(s)</strong></td>
 <td>Some FSMs may have one or more accepting states that signify a successful process.</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🛠 Types of FSM</strong></p>
 <ol>
 <li><p><strong>Deterministic Finite Automaton (DFA)</strong></p>
@@ -1999,12 +1985,14 @@ S → b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 </ol>
 <p><strong>⚙️ Components of an FSM</strong></p>
 <p>An FSM is formally defined as a 5-tuple:</p>
-<script type="math/tex; mode=display">
-M = (Q, \Sigma, \delta, q_0, F)</script><p><strong>🧭 How It Works (Example)</strong></p>
+<p>$$<br>M &#x3D; (Q, \Sigma, \delta, q_0, F)<br>$$</p>
+<p><strong>🧭 How It Works (Example)</strong></p>
 <p>Suppose we have an FSM that accepts binary strings ending in <code>01</code>.</p>
 <ul>
-<li><strong>States</strong>: <code>S0</code> (start), <code>S1</code> (seen 0), <code>S2</code> (accepting, seen 01)</li>
-<li><strong>Input</strong>: <code>0</code>, <code>1</code></li>
+<li><p><strong>States</strong>: <code>S0</code> (start), <code>S1</code> (seen 0), <code>S2</code> (accepting, seen 01)</p>
+</li>
+<li><p><strong>Input</strong>: <code>0</code>, <code>1</code></p>
+</li>
 <li><p><strong>Transitions</strong>:</p>
 <ul>
 <li>From <code>S0</code>, on <code>0</code> → <code>S1</code></li>
@@ -2025,7 +2013,7 @@ M = (Q, \Sigma, \delta, q_0, F)</script><p><strong>🧭 How It Works (Example)</
 <h3 id="Pumping-Lemma-for-regular-languages"><a href="#Pumping-Lemma-for-regular-languages" class="headerlink" title="Pumping Lemma for regular languages"></a>Pumping Lemma for regular languages</h3><p>The <strong>Pumping Lemma</strong> for regular languages is an important tool in formal language and automata theory, used to prove that a given language is <strong>not</strong> regular. The pumping lemma provides a “pumping” property, which means that certain strings in a regular language can be repeated (or “pumped”) under specific conditions without changing whether the string belongs to the language.</p>
 <p>The pumping lemma mainly applies to regular languages. It states:<br>If a language is regular, then there exists a constant $p$ (called the pumping length), such that for any string $s \in L$ (where $s$ belongs to language $L$) with length greater than or equal to $p$, it is possible to divide $s$ into the following three parts:</p>
 <ul>
-<li><p>$s = xyz$, where:</p>
+<li><p>$s &#x3D; xyz$, where:</p>
 <ul>
 <li>$x$ is a prefix of $s$ (possibly empty).</li>
 <li>$y$ is the part that can be “pumped”, and $|y| &gt; 0$.</li>
@@ -2035,21 +2023,22 @@ M = (Q, \Sigma, \delta, q_0, F)</script><p><strong>🧭 How It Works (Example)</
 </ul>
 <p>Moreover, for any $i \geq 0$, the string $xy^i z$ must also belong to the language $L$. That is, the substring $y$ can be repeated any number of times without affecting whether $s$ belongs to $L$.</p>
 <hr>
-<h3 id="Pumping-Lemma-for-CFLs"><a href="#Pumping-Lemma-for-CFLs" class="headerlink" title="Pumping Lemma for CFLs"></a>Pumping Lemma for CFLs</h3><p>The Pumping Lemma for Context-Free Languages (CFLs) states that for any context-free language $L$, if $L$ is infinite, then there exists a constant $p$ (pumping length), such that for every string $s \in L$ with length greater than or equal to $p$, the string $s$ can be divided into five parts $s = uvwxy$, satisfying the following conditions:</p>
+<h3 id="Pumping-Lemma-for-CFLs"><a href="#Pumping-Lemma-for-CFLs" class="headerlink" title="Pumping Lemma for CFLs"></a>Pumping Lemma for CFLs</h3><p>The Pumping Lemma for Context-Free Languages (CFLs) states that for any context-free language $L$, if $L$ is infinite, then there exists a constant $p$ (pumping length), such that for every string $s \in L$ with length greater than or equal to $p$, the string $s$ can be divided into five parts $s &#x3D; uvwxy$, satisfying the following conditions:</p>
 <ol>
 <li>For all $i \geq 0$, $uv^i w x^i y \in L$.</li>
 <li>$|v| + |x| &gt; 0$ (i.e., $v$ and $x$ are not both empty).</li>
 <li>$|vwx| \leq p$ (the total length of $v$, $w$, and $x$ does not exceed the pumping length $p$).</li>
 </ol>
 <p>We assume that $L$ is an infinite context-free language. Since $L$ is a context-free language, based on the structural properties of context-free grammars, it corresponds to a pushdown automaton (PDA). This PDA must satisfy one condition: it can “pump” strings, i.e., repeat certain parts of the string while keeping the resulting string within the language $L$.</p>
-<p>According to the pumping lemma assumption, there exists a pumping length $p$, such that for all strings $s \in L$ with length greater than or equal to $p$, the string $s$ can be decomposed as $s = uvwxy$, satisfying the following conditions:</p>
+<p>According to the pumping lemma assumption, there exists a pumping length $p$, such that for all strings $s \in L$ with length greater than or equal to $p$, the string $s$ can be decomposed as $s &#x3D; uvwxy$, satisfying the following conditions:</p>
 <ul>
 <li>$|vwx| \leq p$</li>
 <li>$|v| + |x| &gt; 0$</li>
 </ul>
 <p>Context-free languages can be generated by context-free grammars (CFGs) or recognized by pushdown automata (PDAs). We use these structures to demonstrate the pumping lemma.</p>
 <ul>
-<li>For any string $s \in L$ with length greater than or equal to $p$, it must be generated by derivation using a context-free grammar.</li>
+<li><p>For any string $s \in L$ with length greater than or equal to $p$, it must be generated by derivation using a context-free grammar.</p>
+</li>
 <li><p>Since $L$ is infinite, there exists a derivation tree for some parts that can be broken down into five parts $uvwxy$, where:</p>
 <ul>
 <li>$v$ and $x$ are the parts that can be “pumped” or repeated.</li>
@@ -2061,7 +2050,7 @@ M = (Q, \Sigma, \delta, q_0, F)</script><p><strong>🧭 How It Works (Example)</
 <blockquote>
 <p>The proof here also involves the Pigeonhole Principle, which is not elaborated on in detail.</p>
 </blockquote>
-<p>Based on the structure of context-free languages, the string $s$ can be decomposed as $s = uvwxy$, satisfying the following conditions:</p>
+<p>Based on the structure of context-free languages, the string $s$ can be decomposed as $s &#x3D; uvwxy$, satisfying the following conditions:</p>
 <ul>
 <li>$|vwx| \leq p$, which means the total length of $v$ and $x$ does not exceed the pumping length $p$; their lengths are finite.</li>
 <li>$|v| + |x| &gt; 0$, which means $v$ and $x$ cannot both be empty.</li>
@@ -2074,18 +2063,18 @@ M = (Q, \Sigma, \delta, q_0, F)</script><p><strong>🧭 How It Works (Example)</
 <p>Using the pumping lemma, we can prove that certain languages are not context-free by contradiction. Suppose we want to prove that a language $L$ is not context-free. The process usually involves the following steps:</p>
 <ol>
 <li>Assume that $L$ is a context-free language and that it satisfies the pumping lemma.</li>
-<li>Choose a string $s \in L$ with length greater than or equal to the pumping length $p$, then decompose it as $s = uvwxy$ and apply the pumping lemma.</li>
+<li>Choose a string $s \in L$ with length greater than or equal to the pumping length $p$, then decompose it as $s &#x3D; uvwxy$ and apply the pumping lemma.</li>
 <li>Expand $uv^i w x^i y$ and prove that for some values of $i$, $uv^i w x^i y \notin L$, thus leading to a contradiction.</li>
 <li>Conclude that $L$ is not a context-free language.</li>
 </ol>
-<p>Example: Prove that $L = { a^n b^n c^n \mid n \geq 0 }$ is not a context-free language.</p>
-<p>We use the pumping lemma for context-free languages to prove that $L = { a^n b^n c^n \mid n \geq 0 }$ is not context-free.</p>
+<p>Example: Prove that $L &#x3D; { a^n b^n c^n \mid n \geq 0 }$ is not a context-free language.</p>
+<p>We use the pumping lemma for context-free languages to prove that $L &#x3D; { a^n b^n c^n \mid n \geq 0 }$ is not context-free.</p>
 <ol>
-<li><p><strong>Assume $L$ is a context-free language:</strong><br>Assume that $L$ is a context-free language and that a pumping length $p$ exists. According to the pumping lemma, any string $s$ with length greater than or equal to $p$ can be decomposed as $s = uvwxy$, where $|vwx| \leq p$ and $|v| + |x| &gt; 0$.</p>
+<li><p><strong>Assume $L$ is a context-free language:</strong><br>Assume that $L$ is a context-free language and that a pumping length $p$ exists. According to the pumping lemma, any string $s$ with length greater than or equal to $p$ can be decomposed as $s &#x3D; uvwxy$, where $|vwx| \leq p$ and $|v| + |x| &gt; 0$.</p>
 </li>
-<li><p><strong>Choose the string $s = a^p b^p c^p$:</strong><br>Choose the string $s = a^p b^p c^p$, which clearly belongs to $L$, and its length $|s| = 3p \geq p$.</p>
+<li><p><strong>Choose the string $s &#x3D; a^p b^p c^p$:</strong><br>Choose the string $s &#x3D; a^p b^p c^p$, which clearly belongs to $L$, and its length $|s| &#x3D; 3p \geq p$.</p>
 </li>
-<li><p><strong>Decompose the string $s$:</strong><br>According to the pumping lemma, $s = uvwxy$, where $|vwx| \leq p$ and $|v| + |x| &gt; 0$. Since $|vwx| \leq p$, it can only span one portion of the string (i.e., the $a^n$, $b^n$, or $c^n$ part). Also, since $|v| + |x| &gt; 0$, $v$ and $x$ must include some repeating characters.</p>
+<li><p><strong>Decompose the string $s$:</strong><br>According to the pumping lemma, $s &#x3D; uvwxy$, where $|vwx| \leq p$ and $|v| + |x| &gt; 0$. Since $|vwx| \leq p$, it can only span one portion of the string (i.e., the $a^n$, $b^n$, or $c^n$ part). Also, since $|v| + |x| &gt; 0$, $v$ and $x$ must include some repeating characters.</p>
 </li>
 <li><p><strong>Apply the pumping lemma:</strong><br>According to the pumping lemma, for all $i \geq 0$, $uv^i w x^i y$ should still belong to $L$. However, if we choose $i &gt; 1$, we get a mismatched string such as $uv^2 w x^2 y$. This string would no longer maintain the same number of <code>a</code>s, <code>b</code>s, and <code>c</code>s, and thus would not belong to $L$.</p>
 </li>
@@ -2097,8 +2086,8 @@ M = (Q, \Sigma, \delta, q_0, F)</script><p><strong>🧭 How It Works (Example)</
 <h3 id="Context-Free-Language-CFL"><a href="#Context-Free-Language-CFL" class="headerlink" title="Context-Free Language (CFL)"></a>Context-Free Language (CFL)</h3><p>A <strong>Context-Free Language (CFL)</strong> is a type of formal language that can be generated by a <strong>Context-Free Grammar (CFG)</strong>. It is an essential concept in the theory of computation and plays a major role in compiler design and parsing.</p>
 <p><strong>📘 What is a Context-Free Grammar (CFG)?</strong></p>
 <p>A <strong>Context-Free Grammar</strong> is a set of recursive rewriting rules (productions) used to generate strings in a language. A CFG is formally defined as a 4-tuple:</p>
-<script type="math/tex; mode=display">
-G = (V, \Sigma, R, S)</script><p>Where:</p>
+<p>$$<br>G &#x3D; (V, \Sigma, R, S)<br>$$</p>
+<p>Where:</p>
 <ul>
 <li>$V$: A finite set of <strong>variables</strong> (non-terminal symbols)</li>
 <li>$\Sigma$: A finite set of <strong>terminal symbols</strong> (alphabet of the language)</li>
@@ -2112,18 +2101,21 @@ G = (V, \Sigma, R, S)</script><p>Where:</p>
 <li>CFLs are more powerful than <strong>regular languages</strong>, but less powerful than <strong>context-sensitive languages</strong>.</li>
 </ul>
 <p><strong>🧮 Example of a Context-Free Grammar</strong></p>
-<p>Let’s define a CFG for the language $L = { a^n b^n \mid n \geq 0 }$:</p>
+<p>Let’s define a CFG for the language $L &#x3D; { a^n b^n \mid n \geq 0 }$:</p>
 <p><strong>Grammar:</strong></p>
 <ul>
-<li>$V = { S }$</li>
-<li>$\Sigma = { a, b }$</li>
+<li><p>$V &#x3D; { S }$</p>
+</li>
+<li><p>$\Sigma &#x3D; { a, b }$</p>
+</li>
 <li><p><strong>Production Rules</strong>:</p>
 <ul>
 <li>$S \rightarrow aSb$</li>
 <li>$S \rightarrow \varepsilon$ <em>(epsilon, the empty string)</em></li>
 </ul>
 </li>
-<li>$S$: start symbol</li>
+<li><p>$S$: start symbol</p>
+</li>
 </ul>
 <p>This grammar generates:</p>
 <ul>
@@ -2133,7 +2125,6 @@ G = (V, \Sigma, R, S)</script><p>Where:</p>
 <li>$aaabbb$, etc.</li>
 </ul>
 <p><strong>📊 Closure Properties of CFLs</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2141,8 +2132,7 @@ G = (V, \Sigma, R, S)</script><p>Where:</p>
 <th>Closed under?</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Union</td>
 <td>✅ Yes</td>
 </tr>
@@ -2162,9 +2152,7 @@ G = (V, \Sigma, R, S)</script><p>Where:</p>
 <td>Complement</td>
 <td>❌ No</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🖥 Recognizing CFLs with Pushdown Automata (PDA)</strong></p>
 <p>A <strong>Pushdown Automaton (PDA)</strong> is a computational model that recognizes context-free languages.<br>It is similar to a finite automaton but with an added <strong>stack</strong>, which allows it to store an unbounded amount of information.</p>
 <blockquote>
@@ -2172,8 +2160,8 @@ G = (V, \Sigma, R, S)</script><p>Where:</p>
 </blockquote>
 <p><strong>🚫 Not All Languages Are CFLs</strong></p>
 <p>Some languages are <strong>not</strong> context-free, for example:</p>
-<script type="math/tex; mode=display">
-L = \{ a^n b^n c^n \mid n \geq 0 \}</script><p>No CFG can generate this language because it requires <strong>three-way balancing</strong>, which CFGs cannot handle.</p>
+<p>$$<br>L &#x3D; { a^n b^n c^n \mid n \geq 0 }<br>$$</p>
+<p>No CFG can generate this language because it requires <strong>three-way balancing</strong>, which CFGs cannot handle.</p>
 <p><strong>🧪 Applications of CFLs</strong></p>
 <ul>
 <li><strong>Programming languages</strong> (syntax parsing)</li>
@@ -2191,9 +2179,8 @@ L = \{ a^n b^n c^n \mid n \geq 0 \}</script><p>No CFG can generate this language
 </ul>
 <p><strong>🧱 Formal Definition</strong></p>
 <p>A <strong>PDA</strong> is a 7-tuple:</p>
-<script type="math/tex; mode=display">
-M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
-<div class="table-container">
+<p>$$<br>M &#x3D; (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)<br>$$</p>
+<p>Where:</p>
 <table>
 <thead>
 <tr>
@@ -2201,8 +2188,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>$Q$</td>
 <td>A finite set of <strong>states</strong></td>
 </tr>
@@ -2230,15 +2216,14 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <td>$F$</td>
 <td>A set of <strong>accepting (final) states</strong>, $F \subseteq Q$</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🔁 Transition Function Explanation</strong></p>
 <p>The transition function:</p>
-<script type="math/tex; mode=display">
-\delta(q, a, X) = \{ (q', \gamma) \}</script><p>Means:</p>
+<p>$$<br>\delta(q, a, X) &#x3D; { (q’, \gamma) }<br>$$</p>
+<p>Means:</p>
 <ul>
-<li>In state $q$, if the input symbol is $a$ (or $\varepsilon$), and the <strong>top of the stack</strong> is $X$,</li>
+<li><p>In state $q$, if the input symbol is $a$ (or $\varepsilon$), and the <strong>top of the stack</strong> is $X$,</p>
+</li>
 <li><p>Then the machine can:</p>
 <ul>
 <li><strong>Move</strong> to state $q’$</li>
@@ -2246,7 +2231,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 </ul>
 </li>
 </ul>
-<p>🧮 Example: PDA for $L = { a^n b^n \mid n \geq 0 }$</p>
+<p>🧮 Example: PDA for $L &#x3D; { a^n b^n \mid n \geq 0 }$</p>
 <p>We want to accept strings where the number of <code>a</code>s equals the number of <code>b</code>s.</p>
 <p><strong>Idea</strong>:</p>
 <ul>
@@ -2254,7 +2239,6 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <li>Pop <code>A</code> from the stack for each <code>b</code>.</li>
 <li>Accept if the stack is empty at the end.</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2262,8 +2246,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <th>Stack Operation</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Read <code>a</code></td>
 <td>Push <code>A</code></td>
 </tr>
@@ -2275,9 +2258,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <td>Input done</td>
 <td>Accept if stack empty</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>✅ Acceptance Criteria</strong></p>
 <p>There are <strong>two common acceptance methods</strong> for PDAs:</p>
 <ol>
@@ -2288,7 +2269,6 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <p>Both methods define the same class of languages: <strong>context-free languages</strong>.</p>
 </blockquote>
 <p><strong>⚠️ Deterministic vs Nondeterministic PDA</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2296,8 +2276,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>NPDA</strong></td>
 <td>Nondeterministic PDA — accepts all CFLs</td>
 </tr>
@@ -2305,9 +2284,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 <td><strong>DPDA</strong></td>
 <td>Deterministic PDA — accepts only some CFLs</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>Not all context-free languages can be recognized by a deterministic PDA.</p>
 <p>🔬 <strong>Applications</strong></p>
 <ul>
@@ -2335,6 +2312,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)</script><p>Where:</p>
 E → E * E  
 E → (E)  
 E → id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>This grammar generates expressions like <code>id + id * id</code>, but it is <strong>ambiguous</strong> because:</p>
 <ul>
 <li>It can be parsed as <code>(id + id) * id</code></li>
@@ -2358,6 +2336,7 @@ id   E * E
    E + E id
   |   |
 id  id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>This shows <strong>ambiguity</strong> in structure and meaning.</p>
 <p><strong>🛠 Disambiguating a Grammar</strong></p>
 <p>To <strong>remove ambiguity</strong>, you can:</p>
@@ -2369,6 +2348,7 @@ id  id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">E  → E + T | T  
 T  → T * F | F  
 F  → (E) | id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>Now:</p>
 <ul>
 <li><code>*</code> has higher precedence than <code>+</code></li>
@@ -2378,10 +2358,9 @@ F  → (E) | id<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <p><strong>🔥 Inherently Ambiguous Languages</strong></p>
 <p>Some CFLs are <strong>inherently ambiguous</strong>, meaning <strong>no matter how you write the grammar</strong>, some strings will always have multiple parse trees.</p>
 <p>Example language:</p>
-<script type="math/tex; mode=display">
-L = \{ a^i b^j c^k \mid i = j \text{ or } j = k \}</script><p>This language is <strong>not inherently unambiguous</strong> because you can’t write a CFG for it that avoids ambiguity in all cases.</p>
+<p>$$<br>L &#x3D; { a^i b^j c^k \mid i &#x3D; j \text{ or } j &#x3D; k }<br>$$</p>
+<p>This language is <strong>not inherently unambiguous</strong> because you can’t write a CFG for it that avoids ambiguity in all cases.</p>
 <p><strong>✅ Summary</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2389,8 +2368,7 @@ L = \{ a^i b^j c^k \mid i = j \text{ or } j = k \}</script><p>This language is <
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Ambiguity</strong></td>
 <td>A string has multiple parse trees or derivations in a grammar</td>
 </tr>
@@ -2404,18 +2382,15 @@ L = \{ a^i b^j c^k \mid i = j \text{ or } j = k \}</script><p>This language is <
 </tr>
 <tr>
 <td><strong>Solution</strong></td>
-<td>Rewrite grammar with precedence/associativity or restructure rules</td>
+<td>Rewrite grammar with precedence&#x2F;associativity or restructure rules</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <h3 id="Turing-Machine"><a href="#Turing-Machine" class="headerlink" title="Turing Machine"></a>Turing Machine</h3><p>A <strong>Turing Machine</strong> is a powerful abstract computational model introduced by <strong>Alan Turing</strong> in 1936. It forms the foundation of modern computer science and helps define the limits of what can be computed.</p>
 <p><strong>🧱 Definition</strong></p>
 <p>A <strong>Turing Machine (TM)</strong> is a 7-tuple:</p>
-<script type="math/tex; mode=display">
-M = (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})</script><p>Where:</p>
-<div class="table-container">
+<p>$$<br>M &#x3D; (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})<br>$$</p>
+<p>Where:</p>
 <table>
 <thead>
 <tr>
@@ -2423,8 +2398,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})</scri
 <th>Meaning</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>$Q$</td>
 <td>A finite set of <strong>states</strong></td>
 </tr>
@@ -2452,9 +2426,7 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})</scri
 <td>$q_{\text{reject}}$</td>
 <td>The <strong>rejecting state</strong> (≠ $q_{\text{accept}}$)</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🧠 How It Works</strong></p>
 <ol>
 <li><p>The machine has an <strong>infinite tape</strong> divided into cells, each holding one symbol from $\Gamma$.</p>
@@ -2475,8 +2447,8 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})</scri
 </ol>
 <p><strong>📋 Example Transition</strong></p>
 <p>If:</p>
-<script type="math/tex; mode=display">
-\delta(q_1, 1) = (q_2, 0, R)</script><p>It means:</p>
+<p>$$<br>\delta(q_1, 1) &#x3D; (q_2, 0, R)<br>$$</p>
+<p>It means:</p>
 <ul>
 <li>In state $q_1$, if reading symbol <code>1</code></li>
 <li>Write <code>0</code>, move <strong>right</strong>, and go to state $q_2$</li>
@@ -2485,15 +2457,14 @@ M = (Q, \Sigma, \Gamma, \delta, q_0, q_{\text{accept}}, q_{\text{reject}})</scri
 <p>A string is <strong>accepted</strong> by the Turing Machine if, starting from the initial configuration, the machine <strong>eventually reaches the accept state</strong>.</p>
 <p><strong>🧮 Example Language</strong></p>
 <p>Language:</p>
-<script type="math/tex; mode=display">
-L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A Turing Machine for this language could:</p>
+<p>$$<br>L &#x3D; { w \in {0,1}^* \mid w \text{ has an even number of 0s} }<br>$$</p>
+<p>A Turing Machine for this language could:</p>
 <ul>
-<li>Track even/odd count using states</li>
+<li>Track even&#x2F;odd count using states</li>
 <li>Scan the tape and change state upon reading <code>0</code></li>
 <li>Halt in the accept state if the final state indicates even count</li>
 </ul>
 <p><strong>🧰 Types of Turing Machines</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2501,8 +2472,7 @@ L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A T
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Deterministic TM (DTM)</strong></td>
 <td>One possible action per state-symbol pair</td>
 </tr>
@@ -2518,9 +2488,7 @@ L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A T
 <td><strong>Universal TM</strong></td>
 <td>Simulates any other Turing Machine (like real computers!)</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>🔬 Power of Turing Machines</strong></p>
 <p>Turing Machines can simulate:</p>
 <ul>
@@ -2535,7 +2503,6 @@ L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A T
 <li><strong>Undecidable problems</strong> exist (e.g., Halting Problem, Post Correspondence Problem)</li>
 </ul>
 <p><strong>✅ Summary</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2543,8 +2510,7 @@ L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A T
 <th>Turing Machine</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Memory</td>
 <td>Infinite tape</td>
 </tr>
@@ -2564,9 +2530,7 @@ L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A T
 <td>Can solve all problems</td>
 <td>❌ No (some problems are undecidable)</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="5-Programming-Language"><a href="#5-Programming-Language" class="headerlink" title="5. Programming Language"></a>5. Programming Language</h2><h2 id="6-Machine-Learning"><a href="#6-Machine-Learning" class="headerlink" title="6. Machine Learning"></a>6. Machine Learning</h2><h3 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h3><p><strong>Random Forest</strong> 是一种基于 <strong>集成学习（Ensemble Learning）</strong> 的分类或回归算法，它将多个 <strong>决策树（Decision Tree）</strong> 组合在一起，通过“投票”或“平均”的方式得到最终结果。</p>
 <blockquote>
 <p>它是一种 <strong>Bagging（Bootstrap Aggregation）</strong> 方法，用于减少过拟合、提升泛化能力。</p>
@@ -2584,9 +2548,11 @@ L = \{ w \in \{0,1\}^* \mid w \text{ has an even number of 0s} \}</script><p>A T
 <p>从训练数据集中<strong>有放回地随机抽样</strong> $N$ 次，构成若干个训练子集（每棵树用一份）</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">原始数据 D = &#123;x1, x2, ..., xn&#125;
 → 样本子集 D1, D2, ..., Dk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p>Step 2️⃣：训练多棵决策树（树的多样性来源之一）</p>
 <p>对每个子集 $D_i$ 训练一棵<strong>决策树</strong>，但每个节点划分时只使用<strong>随机选择的部分特征</strong>（通常 $\sqrt{M}$ 个特征）</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">例如：总共有 100 个特征，每个节点只从随机选出的 10 个特征中选择最佳划分<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>Step 3️⃣：集成预测结果</p>
 <ul>
 <li><strong>分类任务</strong>：采用<strong>多数投票</strong>（majority vote）</li>
@@ -2597,6 +2563,7 @@ final_class <span class="token operator">=</span> most_common<span class="token 
 
 <span class="token comment"># 回归平均</span>
 final_value <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> tree <span class="token keyword">in</span> forest<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token builtin">len</span><span class="token punctuation">(</span>forest<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>🧩 为什么 Random Forest 有效？</p>
 <p>🎯 降低过拟合</p>
 <ul>
@@ -2618,7 +2585,6 @@ final_value <span class="token operator">=</span> <span class="token builtin">su
 <li>$k$：树的数量</li>
 <li>$d$：树的平均深度</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2626,8 +2592,7 @@ final_value <span class="token operator">=</span> <span class="token builtin">su
 <th>复杂度</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>训练时间</td>
 <td>$O(k \cdot n \cdot \log n \cdot m’)$（$m’ \ll m$）</td>
 </tr>
@@ -2639,9 +2604,7 @@ final_value <span class="token operator">=</span> <span class="token builtin">su
 <td>空间复杂度</td>
 <td>$O(k \cdot n)$（每棵树存储路径）</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p> ✅ 优点总结</p>
 <ul>
 <li>不容易过拟合</li>
@@ -2671,8 +2634,8 @@ clf<span class="token punctuation">.</span>fit<span class="token punctuation">(<
 
 <span class="token comment"># 预测</span>
 y_pred <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>📖 总结表格</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2680,8 +2643,7 @@ y_pred <span class="token operator">=</span> clf<span class="token punctuation">
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>模型类型</td>
 <td>集成学习（Bagging）</td>
 </tr>
@@ -2695,7 +2657,7 @@ y_pred <span class="token operator">=</span> clf<span class="token punctuation">
 </tr>
 <tr>
 <td>聚合方式</td>
-<td>多数投票（分类） / 平均（回归）</td>
+<td>多数投票（分类） &#x2F; 平均（回归）</td>
 </tr>
 <tr>
 <td>优点</td>
@@ -2705,14 +2667,14 @@ y_pred <span class="token operator">=</span> clf<span class="token punctuation">
 <td>常用库</td>
 <td><code>scikit-learn</code>、<code>xgboost</code>、<code>lightgbm</code>（变种）</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p><img src="/img/concepts/random.svg" srcset="/img/loading.gif" lazyload alt="随机森林" style="max-width: 100%; height: auto;" /></p>
+</tbody></table>
+<img src="/img/concepts/random.svg" srcset="/img/loading.gif" lazyload alt="随机森林" style="max-width: 100%; height: auto;" />
+
+
 <hr>
 <h3 id="线性回归（Linear-Regression）"><a href="#线性回归（Linear-Regression）" class="headerlink" title="线性回归（Linear Regression）"></a>线性回归（Linear Regression）</h3><p><strong>线性回归</strong>是一种基础的监督学习算法，用于建立<strong>特征变量（自变量）</strong> 与 <strong>目标变量（因变量）</strong> 之间的<strong>线性关系</strong>模型：</p>
-<script type="math/tex; mode=display">
-\hat{y} = w_1x_1 + w_2x_2 + \dots + w_nx_n + b = \mathbf{w}^\top \mathbf{x} + b</script><ul>
+<p>$$<br>\hat{y} &#x3D; w_1x_1 + w_2x_2 + \dots + w_nx_n + b &#x3D; \mathbf{w}^\top \mathbf{x} + b<br>$$</p>
+<ul>
 <li>$\hat{y}$：预测值</li>
 <li>$\mathbf{x}$：输入特征向量（如 $[x_1, x_2, …, x_n]$）</li>
 <li>$\mathbf{w}$：权重向量（参数）</li>
@@ -2722,17 +2684,16 @@ y_pred <span class="token operator">=</span> clf<span class="token punctuation">
 <p>找到一组参数 $(\mathbf{w}, b)$，使得预测值 $\hat{y}$ <strong>尽可能接近真实值 $y$</strong>。</p>
 <p>📐 损失函数（Loss Function）</p>
 <p>我们最常用的是<strong>均方误差（Mean Squared Error, MSE）</strong>：</p>
-<script type="math/tex; mode=display">
-J(\mathbf{w}, b) = \frac{1}{m} \sum_{i=1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)^2
-= \frac{1}{m} \sum_{i=1}^{m} \left( \mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)} \right)^2</script><ul>
+<p>$$<br>J(\mathbf{w}, b) &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)^2<br>&#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} \left( \mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)} \right)^2<br>$$</p>
+<ul>
 <li>$m$：样本数</li>
 <li>最小化 $J(\mathbf{w}, b)$ 就是训练过程的目标</li>
 </ul>
 <p>⚙️ 求解方法</p>
 <p>1️⃣ <strong>正规方程法（Normal Equation）</strong> —— 精确解法</p>
 <p>直接对损失函数求导并解方程：</p>
-<script type="math/tex; mode=display">
-\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}</script><ul>
+<p>$$<br>\mathbf{w} &#x3D; (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}<br>$$</p>
+<ul>
 <li>$\mathbf{X}$：$m \times n$ 的特征矩阵</li>
 <li>$\mathbf{y}$：$m \times 1$ 的目标值向量</li>
 <li>要求 $\mathbf{X}^\top \mathbf{X}$ 可逆（数值稳定性差时需用伪逆）</li>
@@ -2745,24 +2706,24 @@ J(\mathbf{w}, b) = \frac{1}{m} \sum_{i=1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \ri
 <p>参数更新公式：</p>
 <ul>
 <li><p>对权重：</p>
-<script type="math/tex; mode=display">
-w_j \leftarrow w_j - \alpha \cdot \frac{\partial J}{\partial w_j}</script></li>
+<p>$$<br>w_j \leftarrow w_j - \alpha \cdot \frac{\partial J}{\partial w_j}<br>$$</p>
+</li>
 <li><p>对偏置：</p>
-<script type="math/tex; mode=display">
-b \leftarrow b - \alpha \cdot \frac{\partial J}{\partial b}</script></li>
+<p>$$<br>b \leftarrow b - \alpha \cdot \frac{\partial J}{\partial b}<br>$$</p>
+</li>
 </ul>
 <p>导数计算结果：</p>
-<script type="math/tex; mode=display">
-\frac{\partial J}{\partial w_j} = \frac{2}{m} \sum_{i=1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right) x_j^{(i)}</script><script type="math/tex; mode=display">
-\frac{\partial J}{\partial b} = \frac{2}{m} \sum_{i=1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)</script><p>梯度下降伪代码：</p>
+<p>$$<br>\frac{\partial J}{\partial w_j} &#x3D; \frac{2}{m} \sum_{i&#x3D;1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right) x_j^{(i)}<br>$$</p>
+<p>$$<br>\frac{\partial J}{\partial b} &#x3D; \frac{2}{m} \sum_{i&#x3D;1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)<br>$$</p>
+<p>梯度下降伪代码：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">repeat until converge<span class="token punctuation">:</span>
     w <span class="token operator">-=</span> alpha <span class="token operator">*</span> gradient_w
     b <span class="token operator">-=</span> alpha <span class="token operator">*</span> gradient_b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <blockquote>
 <p>优点：适用于大数据集；可在线学习<br>缺点：需调学习率 $\alpha$，收敛较慢</p>
 </blockquote>
 <p>📊 时间复杂度对比</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2771,8 +2732,7 @@ b \leftarrow b - \alpha \cdot \frac{\partial J}{\partial b}</script></li>
 <th>特点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>正规方程法</td>
 <td>$O(n^3)$</td>
 <td>精确但慢</td>
@@ -2782,9 +2742,7 @@ b \leftarrow b - \alpha \cdot \frac{\partial J}{\partial b}</script></li>
 <td>$O(knm)$（$k$ 次迭代）</td>
 <td>可调，适合大数据</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>📚 Python 示例代码（使用 sklearn）</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LinearRegression
 <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> make_regression
@@ -2795,14 +2753,15 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"权重:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>coef_<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"偏置:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>intercept_<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>📈 可视化例子</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">房价预测：
 x = 面积（㎡），y = 房价（万）
 训练后模型为：y = 1.5x + 20
 
 → 当输入 x = 100㎡，预测 y = 170万<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p> ✅ 总结</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2810,8 +2769,7 @@ x = 面积（㎡），y = 房价（万）
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>输入</td>
 <td>多维特征 $\mathbf{x}$</td>
 </tr>
@@ -2821,7 +2779,7 @@ x = 面积（㎡），y = 房价（万）
 </tr>
 <tr>
 <td>模型形式</td>
-<td>线性函数：$\hat{y} = \mathbf{w}^\top \mathbf{x} + b$</td>
+<td>线性函数：$\hat{y} &#x3D; \mathbf{w}^\top \mathbf{x} + b$</td>
 </tr>
 <tr>
 <td>损失函数</td>
@@ -2835,19 +2793,19 @@ x = 面积（㎡），y = 房价（万）
 <td>适用场景</td>
 <td>预测问题（价格、评分、趋势）</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p><img src="/img/concepts/linear.svg" srcset="/img/loading.gif" lazyload alt="线性回归" style="max-width: 100%; height: auto;" /></p>
+</tbody></table>
+<img src="/img/concepts/linear.svg" srcset="/img/loading.gif" lazyload alt="线性回归" style="max-width: 100%; height: auto;" />
+
+
 <hr>
 <h3 id="逻辑回归（Logistic-Regression）"><a href="#逻辑回归（Logistic-Regression）" class="headerlink" title="逻辑回归（Logistic Regression）"></a>逻辑回归（Logistic Regression）</h3><p>逻辑回归用于预测事件发生的<strong>概率</strong>，并将其映射为 0 或 1 等类别。</p>
 <blockquote>
-<p><strong>目标</strong>：学习一个模型，输入特征 $\mathbf{x}$，输出 $\mathbb{P}(y = 1 \mid \mathbf{x})$。</p>
+<p><strong>目标</strong>：学习一个模型，输入特征 $\mathbf{x}$，输出 $\mathbb{P}(y &#x3D; 1 \mid \mathbf{x})$。</p>
 </blockquote>
 <p>⚙️ 模型结构</p>
 <p>逻辑回归的基本模型是：</p>
-<script type="math/tex; mode=display">
-\hat{y} = \sigma(\mathbf{w}^\top \mathbf{x} + b)</script><p>其中：</p>
+<p>$$<br>\hat{y} &#x3D; \sigma(\mathbf{w}^\top \mathbf{x} + b)<br>$$</p>
+<p>其中：</p>
 <ul>
 <li>$\mathbf{x}$ 是输入特征向量</li>
 <li>$\mathbf{w}$ 是权重向量</li>
@@ -2855,26 +2813,27 @@ x = 面积（㎡），y = 房价（万）
 <li>$\sigma(z)$ 是<strong>sigmoid 激活函数</strong>，将任意实数压缩到 $(0,1)$ 区间</li>
 </ul>
 <p>🔁 Sigmoid 函数定义：</p>
-<script type="math/tex; mode=display">
-\sigma(z) = \frac{1}{1 + e^{-z}}</script><p>图像如下：</p>
+<p>$$<br>\sigma(z) &#x3D; \frac{1}{1 + e^{-z}}<br>$$</p>
+<p>图像如下：</p>
 <ul>
 <li>当 $z \gg 0$，$\sigma(z) \approx 1$</li>
 <li>当 $z \ll 0$，$\sigma(z) \approx 0$</li>
-<li>当 $z = 0$，$\sigma(z) = 0.5$</li>
+<li>当 $z &#x3D; 0$，$\sigma(z) &#x3D; 0.5$</li>
 </ul>
 <p>🎯 输出解释</p>
 <p>逻辑回归输出的是一个<strong>概率</strong>：</p>
-<script type="math/tex; mode=display">
-\hat{y} = \mathbb{P}(y = 1 \mid \mathbf{x})</script><p>决策规则（threshold）：</p>
+<p>$$<br>\hat{y} &#x3D; \mathbb{P}(y &#x3D; 1 \mid \mathbf{x})<br>$$</p>
+<p>决策规则（threshold）：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">if 𝑃(y=1 | x) ≥ 0.5 → 预测为类1
 else → 预测为类0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<p><img src="/img/concepts/logistic.svg" srcset="/img/loading.gif" lazyload alt="逻辑回归" style="max-width: 100%; height: auto;" /></p>
+
+
+<img src="/img/concepts/logistic.svg" srcset="/img/loading.gif" lazyload alt="逻辑回归" style="max-width: 100%; height: auto;" />
+
 <p>📉 损失函数（对数似然损失）</p>
 <p>使用的是<strong>对数损失函数（Log Loss）</strong>，源自最大似然估计：</p>
-<script type="math/tex; mode=display">
-\mathcal{L}(\mathbf{w}, b) = -\frac{1}{m} \sum_{i=1}^{m} \left[
-y^{(i)} \log \hat{y}^{(i)} + (1 - y^{(i)}) \log (1 - \hat{y}^{(i)})
-\right]</script><blockquote>
+<p>$$<br>\mathcal{L}(\mathbf{w}, b) &#x3D; -\frac{1}{m} \sum_{i&#x3D;1}^{m} \left[<br>y^{(i)} \log \hat{y}^{(i)} + (1 - y^{(i)}) \log (1 - \hat{y}^{(i)})<br>\right]<br>$$</p>
+<blockquote>
 <ul>
 <li>如果预测 $\hat{y} \to y$，损失很小；</li>
 <li>如果预测相反，损失急剧上升（比如预测为 0.01 实际为 1）</li>
@@ -2886,24 +2845,24 @@ y^{(i)} \log \hat{y}^{(i)} + (1 - y^{(i)}) \log (1 - \hat{y}^{(i)})
 <ul>
 <li>对 $w_j$ 的梯度：</li>
 </ul>
-<script type="math/tex; mode=display">
-\frac{\partial \mathcal{L}}{\partial w_j} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)}) x_j^{(i)}</script><ul>
+<p>$$<br>\frac{\partial \mathcal{L}}{\partial w_j} &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (\hat{y}^{(i)} - y^{(i)}) x_j^{(i)}<br>$$</p>
+<ul>
 <li>对 $b$ 的梯度：</li>
 </ul>
-<script type="math/tex; mode=display">
-\frac{\partial \mathcal{L}}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})</script><p>更新方法：</p>
+<p>$$<br>\frac{\partial \mathcal{L}}{\partial b} &#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} (\hat{y}^{(i)} - y^{(i)})<br>$$</p>
+<p>更新方法：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">w <span class="token operator">-=</span> alpha <span class="token operator">*</span> grad_w
 b <span class="token operator">-=</span> alpha <span class="token operator">*</span> grad_b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <p>📊 举例</p>
 <p>假设我们要预测一个人是否患糖尿病：</p>
 <ul>
-<li>$x_1$ = 年龄，$x_2$ = BMI</li>
+<li>$x_1$ &#x3D; 年龄，$x_2$ &#x3D; BMI</li>
 <li>$y \in {0, 1}$ 表示是否患病</li>
 </ul>
 <p>训练后模型为：</p>
-<script type="math/tex; mode=display">
-\hat{y} = \sigma(0.8x_1 + 1.2x_2 - 15)</script><p>✅ 优点</p>
-<div class="table-container">
+<p>$$<br>\hat{y} &#x3D; \sigma(0.8x_1 + 1.2x_2 - 15)<br>$$</p>
+<p>✅ 优点</p>
 <table>
 <thead>
 <tr>
@@ -2911,8 +2870,7 @@ b <span class="token operator">-=</span> alpha <span class="token operator">*</s
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>简单高效</td>
 <td>算法易于实现，计算代价低</td>
 </tr>
@@ -2928,11 +2886,8 @@ b <span class="token operator">-=</span> alpha <span class="token operator">*</s
 <td>可扩展为多分类 Softmax</td>
 <td>支持逻辑回归的多类扩展</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>⚠️ 缺点</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2940,8 +2895,7 @@ b <span class="token operator">-=</span> alpha <span class="token operator">*</s
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>线性可分性假设</td>
 <td>不能处理复杂非线性关系</td>
 </tr>
@@ -2953,9 +2907,7 @@ b <span class="token operator">-=</span> alpha <span class="token operator">*</s
 <td>容易欠拟合</td>
 <td>如果数据不是线性可分，拟合效果差</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>📚 Python 示例代码（<code>sklearn</code>）</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LogisticRegression
 <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
@@ -2972,8 +2924,8 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"预测概率:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"预测结果:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>🔄 与线性回归的区别</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -2982,8 +2934,7 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 <th>逻辑回归</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>输出</td>
 <td>实数</td>
 <td>概率值 $\in (0, 1)$</td>
@@ -2991,12 +2942,12 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 <tr>
 <td>用途</td>
 <td>回归问题（连续值）</td>
-<td>分类问题（二分类/多分类）</td>
+<td>分类问题（二分类&#x2F;多分类）</td>
 </tr>
 <tr>
 <td>激活函数</td>
 <td>无</td>
-<td>Sigmoid / Softmax</td>
+<td>Sigmoid &#x2F; Softmax</td>
 </tr>
 <tr>
 <td>损失函数</td>
@@ -3008,9 +2959,7 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 <td>最小二乘或梯度下降</td>
 <td>最大似然估计（MLE） + 梯度下降</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <h3 id="Reinforcement-Learning-RL"><a href="#Reinforcement-Learning-RL" class="headerlink" title="Reinforcement Learning (RL)"></a>Reinforcement Learning (RL)</h3><p>Reinforcement Learning (RL) is a type of machine learning method whose core idea is <strong>learning the optimal policy through interaction with the environment</strong>. In simple terms, an agent interacts with an environment by taking actions, receives rewards or penalties based on the outcomes, and continuously adjusts its behavior to maximize the long-term cumulative reward.</p>
 <p>Key components include:</p>
@@ -3031,8 +2980,8 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 <li><p><strong>Q-function (Q(s, a))</strong>: Represents the <strong>expected cumulative reward</strong> of taking action <code>a</code> in state <code>s</code>.</p>
 </li>
 <li><p><strong>Update formula (Bellman equation)</strong>:</p>
-<script type="math/tex; mode=display">
-Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \big]</script><ul>
+<p>$$<br>Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a’} Q(s’, a’) - Q(s, a) \big]<br>$$</p>
+<ul>
 <li>$\alpha$: learning rate, controlling the update step</li>
 <li>$\gamma$: discount factor, balancing immediate and future rewards</li>
 <li>$r$: immediate reward received from the action</li>
@@ -3047,15 +2996,18 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <h3 id="Cross-Validation"><a href="#Cross-Validation" class="headerlink" title="Cross Validation"></a>Cross Validation</h3><p>Cross validation is a method in machine learning used to <strong>evaluate model performance and prevent overfitting</strong>. It works by <strong>splitting the dataset into multiple parts, training the model on some parts, and validating it on the remaining parts</strong>, providing a more reliable estimate of how the model will perform on unseen data.</p>
 <p>Core ideas:</p>
 <ol>
-<li><strong>Data splitting</strong>: Divide the dataset into $k$ parts (folds), commonly called <strong>k-fold cross validation</strong>.</li>
+<li><p><strong>Data splitting</strong>: Divide the dataset into $k$ parts (folds), commonly called <strong>k-fold cross validation</strong>.</p>
+</li>
 <li><p><strong>Training and validation</strong>:</p>
 <ul>
 <li>In each iteration, use $k-1$ folds as the training set and the remaining fold as the validation set.</li>
 <li>Train the model and evaluate its performance on the validation set (e.g., accuracy, mean squared error).</li>
 </ul>
 </li>
-<li><strong>Repeat $k$ times</strong>: Each fold serves as the validation set once.</li>
-<li><strong>Aggregate results</strong>: Average the performance metrics over the $k$ iterations to get a reliable estimate of the model’s overall performance.</li>
+<li><p><strong>Repeat $k$ times</strong>: Each fold serves as the validation set once.</p>
+</li>
+<li><p><strong>Aggregate results</strong>: Average the performance metrics over the $k$ iterations to get a reliable estimate of the model’s overall performance.</p>
+</li>
 </ol>
 <p>Advantages:</p>
 <ul>
@@ -3088,9 +3040,10 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <li><p><strong>Characteristics</strong>:</p>
 <ul>
 <li><p>Does not directly output a policy. The policy is obtained by selecting the action with the highest value in each state:</p>
-<script type="math/tex; mode=display">
-\pi(s) = \arg\max_a Q(s, a)</script></li>
-<li>Better suited for discrete action spaces.</li>
+<p>$$<br>\pi(s) &#x3D; \arg\max_a Q(s, a)<br>$$</p>
+</li>
+<li><p>Better suited for discrete action spaces.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -3100,11 +3053,13 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <ul>
 <li><p><strong>Characteristics</strong>:</p>
 <ul>
-<li>Optimizes the policy directly without first learning a value function.</li>
-<li>Naturally handles continuous action spaces.</li>
+<li><p>Optimizes the policy directly without first learning a value function.</p>
+</li>
+<li><p>Naturally handles continuous action spaces.</p>
+</li>
 <li><p>Often uses gradient-based methods to optimize the policy:</p>
-<script type="math/tex; mode=display">
-\nabla_\theta J(\theta) = \mathbb{E}_{s,a \sim \pi_\theta} \Big[ \nabla_\theta \log \pi_\theta(a|s) \, Q^{\pi_\theta}(s, a) \Big]</script></li>
+<p>$$<br>\nabla_\theta J(\theta) &#x3D; \mathbb{E}_{s,a \sim \pi_\theta} \Big[ \nabla_\theta \log \pi_\theta(a|s) , Q^{\pi_\theta}(s, a) \Big]<br>$$</p>
+</li>
 </ul>
 </li>
 <li><p><strong>Typical algorithms</strong>:</p>
@@ -3116,7 +3071,6 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 </ul>
 <hr>
 <p>Summary Comparison</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3126,8 +3080,7 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Learning target</td>
 <td>Value function $V$ or $Q$</td>
 <td>Policy (\pi(a</td>
@@ -3155,10 +3108,9 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <td>Disadvantages</td>
 <td>Hard to handle continuous actions</td>
 <td>Slower convergence, higher variance</td>
+<td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <p>In short:</p>
 <ul>
@@ -3177,7 +3129,7 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 </ul>
 <p><strong>Common tasks:</strong></p>
 <ul>
-<li><strong>Classification</strong>: Output is a discrete label, e.g., spam detection (spam/ham), sentiment analysis (positive/negative)</li>
+<li><strong>Classification</strong>: Output is a discrete label, e.g., spam detection (spam&#x2F;ham), sentiment analysis (positive&#x2F;negative)</li>
 <li><strong>Regression</strong>: Output is a continuous value, e.g., house price prediction, stock price forecasting</li>
 </ul>
 <p><strong>Typical algorithms:</strong></p>
@@ -3210,7 +3162,6 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 </ul>
 <hr>
 <p>Summary Comparison</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3219,8 +3170,7 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <th>Unsupervised Learning</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Data type</td>
 <td>Labeled data</td>
 <td>Unlabeled data</td>
@@ -3240,9 +3190,7 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <td>Spam detection, house price prediction</td>
 <td>Customer segmentation, dimensionality reduction</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
 <p>Simple intuition:</p>
 <ul>
@@ -3257,13 +3205,14 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <li><strong>Efficient</strong>: Most DHTs (like Chord or Kademlia) can find data in <strong>O(log n)</strong> time.</li>
 </ul>
 <p>DHTs are often used in applications like <strong>BitTorrent</strong> and <strong>distributed file systems</strong>, and are relevant in wireless and digital communication contexts, which aligns well with your research interests in IoT.</p>
-<p><img src="/img/concepts/dht.svg" srcset="/img/loading.gif" lazyload alt="DHT" style="max-width: 100%; height: auto;" /></p>
+<img src="/img/concepts/dht.svg" srcset="/img/loading.gif" lazyload alt="DHT" style="max-width: 100%; height: auto;" />
+
 <hr>
 <h3 id="Ethernet"><a href="#Ethernet" class="headerlink" title="Ethernet"></a>Ethernet</h3><p>Ethernet is a communication technology used for local area networks (LANs). It defines how computers and network devices send and receive data over a wired medium, typically twisted-pair cables or fiber optics. In brief:</p>
 <ol>
 <li><p><strong>Basic Principle</strong>: Ethernet uses <strong>frames</strong> as the basic unit of data transmission. Each frame contains the destination address, source address, data, and a checksum (CRC) for error detection.</p>
 </li>
-<li><p><strong>Communication Method</strong>: Traditional Ethernet uses <strong>CSMA/CD (Carrier Sense Multiple Access with Collision Detection)</strong> to avoid data collisions. Modern switched Ethernet largely eliminates the need for collision detection, as each port has a dedicated communication channel.</p>
+<li><p><strong>Communication Method</strong>: Traditional Ethernet uses <strong>CSMA&#x2F;CD (Carrier Sense Multiple Access with Collision Detection)</strong> to avoid data collisions. Modern switched Ethernet largely eliminates the need for collision detection, as each port has a dedicated communication channel.</p>
 </li>
 <li><p><strong>Speed and Evolution</strong>: The original Ethernet speed was <strong>10 Mbps</strong>, later evolving to <strong>100 Mbps (Fast Ethernet), 1 Gbps (Gigabit Ethernet), 10 Gbps</strong>, and even higher.</p>
 </li>
@@ -3350,7 +3299,7 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <p><strong>Applications</strong></p>
 <ul>
 <li><strong>GSM cellular networks</strong>: Each user occupies a different time slot for voice or data transmission.</li>
-<li><strong>Satellite communication</strong>: Multiple users share the same uplink/downlink frequency channel.</li>
+<li><strong>Satellite communication</strong>: Multiple users share the same uplink&#x2F;downlink frequency channel.</li>
 <li><strong>Industrial control networks</strong>: Periodic data collection and transmission.</li>
 </ul>
 <hr>
@@ -3397,8 +3346,10 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <h2 id="9-Cryptography"><a href="#9-Cryptography" class="headerlink" title="9. Cryptography"></a>9. Cryptography</h2><h3 id="🔐-Digital-Signatures"><a href="#🔐-Digital-Signatures" class="headerlink" title="🔐 Digital Signatures"></a>🔐 Digital Signatures</h3><p>A <strong>digital signature</strong> is a <strong>cryptographic technique</strong> used to <strong>verify the authenticity and integrity</strong> of a digital message or document.<br>It is a <strong>secure form of electronic signature</strong> based on <strong>public-key cryptography</strong>.</p>
 <p><strong>🛠️ How It Works</strong></p>
 <ol>
-<li>The sender signs the document using a <strong>private key</strong>.</li>
-<li>The recipient verifies the signature using the sender’s <strong>public key</strong>.</li>
+<li><p>The sender signs the document using a <strong>private key</strong>.</p>
+</li>
+<li><p>The recipient verifies the signature using the sender’s <strong>public key</strong>.</p>
+</li>
 <li><p>If the verification succeeds, the document:</p>
 <ul>
 <li><strong>Came from the sender</strong></li>
@@ -3415,7 +3366,7 @@ Q(s, a) \gets Q(s, a) + \alpha \big[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \b
 <p><strong>📌 Common Use Cases</strong></p>
 <ul>
 <li>Signing software and updates</li>
-<li>Securing emails (e.g., with S/MIME or PGP)</li>
+<li>Securing emails (e.g., with S&#x2F;MIME or PGP)</li>
 <li>Digital contracts and government forms</li>
 <li>Blockchain and cryptocurrencies (e.g., Bitcoin transactions)</li>
 </ul>
@@ -3430,6 +3381,7 @@ However, in floating-point representation (with limited digits):
     b ≈ 1.2345671 × 10^5
 
 The subtraction may cause significant digit loss!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>Why it matters</strong>:</p>
 <ul>
 <li>It reduces <strong>numerical accuracy</strong>.</li>
@@ -3437,6 +3389,7 @@ The subtraction may cause significant digit loss!<span aria-hidden="true" class=
 </ul>
 <p><strong>Typical scenario</strong>:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">f(x) = (1 - cos(x)) / x^2, when x → 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>This can lead to significant errors because <code>1 - cos(x)</code> is a subtraction of two nearly equal numbers.</p>
 <hr>
 <h3 id="🧮-Loss-of-Trailing-Digits"><a href="#🧮-Loss-of-Trailing-Digits" class="headerlink" title="🧮 Loss of Trailing Digits"></a>🧮 Loss of Trailing Digits</h3><p><strong>Definition</strong>:<br>Loss of trailing digits occurs when a <strong>large and a small number are added together</strong>, and the <strong>small number is too small to affect the sum</strong> due to the limits of floating-point precision.</p>
@@ -3446,6 +3399,7 @@ The subtraction may cause significant digit loss!<span aria-hidden="true" class=
 
 In floating-point (double precision), a + b ≈ 1.000000000000000
 The small value of b is 'lost' — this is loss of trailing digits.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p><strong>Why it matters</strong>:</p>
 <ul>
 <li>It causes <strong>rounding errors</strong> in accumulation.</li>
@@ -3453,7 +3407,6 @@ The small value of b is 'lost' — this is loss of trailing digits.<span aria-hi
 </ul>
 <hr>
 <p><strong>🧠 Summary Table</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3463,8 +3416,7 @@ The small value of b is 'lost' — this is loss of trailing digits.<span aria-hi
 <th>Example</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Loss of Significance</strong></td>
 <td>Subtraction of close numbers</td>
 <td>Large <strong>relative error</strong></td>
@@ -3476,9 +3428,7 @@ The small value of b is 'lost' — this is loss of trailing digits.<span aria-hi
 <td>Small number gets ignored</td>
 <td><code>1.0 + 1e-15 = 1.0</code></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="15-Information-Theory"><a href="#15-Information-Theory" class="headerlink" title="15. Information Theory"></a>15. Information Theory</h2><h3 id="📦-Run-Length-Encoding-RLE"><a href="#📦-Run-Length-Encoding-RLE" class="headerlink" title="📦 Run-Length Encoding (RLE)"></a>📦 Run-Length Encoding (RLE)</h3><p><strong>🧠 What is it?</strong></p>
 <p><strong>Run-Length Encoding</strong> is a <strong>lossless compression algorithm</strong> that works by compressing sequences of repeated data elements (called <strong>runs</strong>) into a single value and a count.</p>
 <p><strong>⚙️ How it works</strong></p>
@@ -3486,8 +3436,10 @@ The small value of b is 'lost' — this is loss of trailing digits.<span aria-hi
 <p><strong>✅ Example</strong></p>
 <p>Original data:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">AAAAABBBCCDAA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>RLE encoded:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">5A3B2C1D2A<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>This means:</p>
 <ul>
 <li>5 A’s</li>
@@ -3518,12 +3470,14 @@ The small value of b is 'lost' — this is loss of trailing digits.<span aria-hi
 <p><strong>✅ Example</strong></p>
 <p>Given character frequencies:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">A: 45%, B: 13%, C: 12%, D: 16%, E: 14%<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
 <p>Possible Huffman codes:</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">A: 0
 B: 101
 C: 100
 D: 111
 E: 110<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
 <p>More frequent characters like <code>A</code> get shorter codes.</p>
 <p><strong>📌 Use Cases</strong></p>
 <ul>
@@ -3538,7 +3492,6 @@ E: 110<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li>Slightly more complex to implement than RLE.</li>
 </ul>
 <p><strong>🧾 Comparison Table</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -3547,8 +3500,7 @@ E: 110<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <th>Huffman Encoding</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Type</td>
 <td>Lossless</td>
 <td>Lossless</td>
@@ -3573,9 +3525,7 @@ E: 110<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <td>Ineffective for random data</td>
 <td>Tree must be constructed</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 
                 
               </div>
