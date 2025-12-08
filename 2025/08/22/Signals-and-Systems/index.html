@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-08T05:15:34.922Z">
+<meta property="article:modified_time" content="2025-12-08T07:26:03.513Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          25k words
+          26k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          207 mins
+          214 mins
         
       </span>
     
@@ -1921,6 +1921,47 @@
 <li>如果只要求画<strong>幅度谱</strong>，通常算 $C_k$ 更快；如果要求写出具体的 $\sin&#x2F;\cos$ 表达式，算 $a_k, B_k$ 更直观。</li>
 </ol>
 <hr>
+<p><strong>帕塞瓦尔定理（Parseval’s Relation）</strong>在信号与系统中的核心含义就是：<strong>能量（或功率）守恒</strong>。</p>
+<p>无论你在<strong>时域（Time Domain）</strong>看一个信号，还是在<strong>频域（Frequency Domain）</strong>看同一个信号，它的<strong>总能量（或总平均功率）是不会变的</strong>。</p>
+<p>我们可以把这个公式拆开，从物理意义上来理解每一部分的含义：</p>
+<p>$$\frac{1}{T} \int_{0}^{T} |x(t)|^2 dt &#x3D; \sum_{k&#x3D;-\infty}^{\infty} |a_k|^2$$</p>
+<hr>
+<p>等式左边：时域角度 (Time Domain)</p>
+<p>$$P_{avg} &#x3D; \frac{1}{T} \int_{0}^{T} |x(t)|^2 dt$$</p>
+<ul>
+<li><strong>物理背景</strong>：假设 $x(t)$ 是加在一个 $1\Omega$ 电阻上的电压（或电流）。</li>
+<li><strong>$|x(t)|^2$<strong>：这是</strong>瞬时功率</strong>（Instantaneous Power）。</li>
+<li><strong>积分 $\int_0^T$<strong>：这是算出在一个周期内电阻产生的</strong>总热量（能量）</strong>。</li>
+<li><strong>除以 $T$<strong>：这是把总能量平摊到时间上，求出</strong>平均功率</strong>。</li>
+<li><strong>直观理解</strong>：这就像是你直接看波形的“整体强度”。不管波形长什么样（方波、三角波、正弦波），你通过积分算出了它实际做功的能力。</li>
+</ul>
+<p>等式右边：频域角度 (Frequency Domain)</p>
+<p>$$P_{avg} &#x3D; \sum_{k&#x3D;-\infty}^{\infty} |a_k|^2$$</p>
+<ul>
+<li><strong>傅里叶级数的本质</strong>：它告诉我们，任意周期信号都是由许许多多不同频率的“纯正弦波&#x2F;复指数波”叠加而成的。</li>
+<li><strong>$a_k$<strong>：这是第 $k$ 次谐波的</strong>幅度</strong>（复数系数）。</li>
+<li><strong>$|a_k|^2$<strong>：这是第 $k$ 次谐波分量独自贡献的</strong>功率</strong>。</li>
+<li><strong>求和 $\sum$<strong>：这是说，信号的总功率等于</strong>所有谐波分量功率的简单相加</strong>。</li>
+<li><strong>直观理解</strong>：这就像做菜。一道菜的总卡路里（时域总能量），等于它包含的面粉、糖、黄油等每一样食材的卡路里之和（频域各分量能量之和）。</li>
+</ul>
+<hr>
+<p>为什么这个定理很牛？（应用价值）</p>
+<p>在实际解题和工程中，帕塞瓦尔定理提供了一条<strong>捷径</strong>。</p>
+<p><strong>场景一：避开复杂的积分</strong><br>有时候，$x(t)$ 的表达式很复杂，或者分很多段，直接算 $\int |x(t)|^2 dt$ 非常痛苦。<br>但如果你知道它的傅里叶系数 $a_k$ 很简单（比如只有寥寥几项非零），你只需要把这几个 $|a_k|^2$ 加起来，就能瞬间得到总功率，完全不需要做积分！</p>
+<p><strong>场景二：滤波器分析</strong><br>如果你设计一个低通滤波器，滤掉了高频分量（即把高频的 $a_k$ 变成了 0）。<br>利用帕塞瓦尔定理，你可以很容易地计算出<strong>失去了多少能量</strong>，或者<strong>还剩下多少能量</strong>。只需要把被滤掉的那些 $|a_k|^2$ 减去即可。</p>
+<p>举个简单的例子</p>
+<p>假设信号是简单的正弦波：$x(t) &#x3D; 2\cos(\omega_0 t)$。</p>
+<p><strong>A. 时域算功率：</strong><br>正弦波的功率我们很熟悉，幅度的平方除以 2。<br>$$P &#x3D; \frac{2^2}{2} &#x3D; 2$$</p>
+<p><strong>B. 频域算功率（帕塞瓦尔定理）：</strong><br>利用欧拉公式展开：<br>$$2\cos(\omega_0 t) &#x3D; e^{j\omega_0 t} + e^{-j\omega_0 t}$$<br>这意味着它的傅里叶系数只有两项非零：</p>
+<ul>
+<li>$k&#x3D;1$ 时，$a_1 &#x3D; 1$</li>
+<li>$k&#x3D;-1$ 时，$a_{-1} &#x3D; 1$</li>
+<li>其余 $a_k &#x3D; 0$</li>
+</ul>
+<p>利用帕塞瓦尔定理求和：<br>$$\sum |a_k|^2 &#x3D; |a_1|^2 + |a_{-1}|^2 &#x3D; 1^2 + 1^2 &#x3D; 2$$</p>
+<p><strong>结论</strong>：A 和 B 的结果完全一致。这就是帕塞瓦尔定理的魔力！</p>
+<hr>
+<p>帕塞瓦尔定理告诉我们：<strong>变换不会改变能量。</strong> 无论你用什么数学工具去描述一个信号（是描述它随时间的变化，还是描述它包含的频率成分），它蕴含的物理能量是恒定不变的。</p>
 <h3 id="3-5-快速计算小工具"><a href="#3-5-快速计算小工具" class="headerlink" title="3.5 快速计算小工具"></a>3.5 快速计算小工具</h3><p>黎曼-勒贝格引理 (Riemann-Lebesgue Lemma)：</p>
 <p><strong>内容：</strong> 如果 $f(x)$ 绝对可积，那么当 $n \rightarrow \infty$ 时，其傅立叶系数 $a_n, b_n$ 趋于 0。<br>$$\lim_{n \to \infty} \int_{-\pi}^{\pi} f(x) \cos(nx) dx &#x3D; 0$$</p>
 <ul>
