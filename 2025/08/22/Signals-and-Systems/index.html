@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-08T07:26:03.513Z">
+<meta property="article:modified_time" content="2025-12-09T09:08:08.063Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -243,7 +243,7 @@
         
         
         
-          214 mins
+          221 mins
         
       </span>
     
@@ -1661,6 +1661,53 @@
 <li><strong>解微分方程（热传导）：</strong> 它可以把复杂的微积分问题，转换成简单的代数问题来求解。</li>
 </ul>
 <hr>
+<p>离散傅立叶级数（Discrete-Time Fourier Series，简称 <strong>DTFS</strong>）是信号处理中非常核心的概念，特别是对于现代数字信号处理（DSP）而言，它是理解 FFT（快速傅立叶变换）的基础。</p>
+<p>在连续时间（CTFS）中，我们把一个周期波形分解成无数个正弦波。<br>但在<strong>离散时间</strong>（即数字信号）中，有两个关键限制：</p>
+<ol>
+<li><strong>时间是离散的</strong>：$n$ 只能取整数（0, 1, 2…）。</li>
+<li><strong>信号是周期的</strong>：我们需要信号每隔 $N$ 个点重复一次，即 $x[n] &#x3D; x[n+N]$。</li>
+</ol>
+<p><strong>DTFS 的本质</strong>：<br>它告诉我们，任何一个周期为 $N$ 的离散序列，都可以由 <strong>$N$ 个特定的复指数信号</strong>（也就是正弦&#x2F;余弦波）加权合成。</p>
+<p><strong>注意</strong>：这里不再是无穷多个波，而是<strong>只有 $N$ 个波</strong>就能完美复刻原信号。</p>
+<p>DTFS 由两个互逆的公式组成，这和我们在做题时用到的逻辑是一样的。</p>
+<blockquote>
+<p>(1) 综合公式 (Synthesis Equation) - “还原”</p>
+</blockquote>
+<p>怎么把一堆频率分量拼回成原来的波形？</p>
+<p>$$x[n]&#x3D;\sum_{k&#x3D;\langle N \rangle}a_ke^{jk(\frac{2\pi}{N})n}$$</p>
+<ul>
+<li><strong>含义</strong>：把不同频率 $k$ 的波叠加起来。</li>
+<li>求和范围：$\sum_{k&#x3D;\langle N \rangle}$ 表示只需要加任意 <strong>连续的 $N$ 个</strong> $k$ 值（通常取 $k&#x3D;0$ 到 $N-1$）。</li>
+</ul>
+<blockquote>
+<p>(2) 分析公式 (Analysis Equation) - “拆解”</p>
+</blockquote>
+<p>怎么求出每个频率分量的权重（系数 $a_k$）？</p>
+<p>$$a_k &#x3D;\frac{1}{N}\sum_{n&#x3D;\langle N \rangle}x[n]e^{-jk(\frac{2\pi}{N})n}$$</p>
+<ul>
+<li><strong>含义</strong>：这是在计算原信号 $x[n]$ 和第 $k$ 个频率的基波之间的<strong>相关性</strong>（内积）。</li>
+<li>系数 $1&#x2F;N$ ：这是一个归一化因子（平均作用）。</li>
+</ul>
+<blockquote>
+<p>最关键的性质：频谱的“周期性”</p>
+</blockquote>
+<p>这是离散傅立叶级数与连续傅立叶级数<strong>最大的不同</strong>，也是最容易混淆的地方。</p>
+<p>在连续世界里，频率 $k$ 可以无限增加，频率越高，震荡越快。<br>但在离散世界里，<strong>频率是会“轮回”的</strong>。</p>
+<p><strong>数学推导</strong>：</p>
+<p>$$e^{j(k+N)\frac{2\pi}{N}n} &#x3D; e^{jk\frac{2\pi}{N}n} \cdot \underbrace{e^{jN\frac{2\pi}{N}n}}_{e^{j2\pi n} &#x3D; 1} &#x3D; e^{jk\frac{2\pi}{N}n}$$</p>
+<p><strong>物理意义</strong>：</p>
+<ul>
+<li>第 $k$ 次谐波 和 第 $k+N$ 次谐波，在离散采样点上看起来是<strong>一模一样</strong>的。</li>
+<li>这导致了 <strong>系数 $a_k$ 也是周期的</strong>，即 $a_k &#x3D; a_{k+N}$。</li>
+<li><strong>直观比喻</strong>：想象一个时钟。13 点和 1 点，指针指向的位置是一样的。离散频率就像时钟，转一圈（$N$）后又回到了原点。</li>
+</ul>
+<p>因此，我们只需要计算 $N$ 个系数（例如 $a_0, a_1, …, a_{N-1}$）就足够描述整个信号了。</p>
+<p>总结</p>
+<ol>
+<li><strong>离散性</strong>：处理的是序列 $x[n]$。</li>
+<li><strong>有限性</strong>：只需要 $N$ 个复指数波就能合成信号。</li>
+<li><strong>周期性</strong>：频域系数 $a_k$ 也是周期的，即 $a_k &#x3D; a_{k+N}$（这是做题时经常用到的隐藏条件）。</li>
+</ol>
 <h3 id="3-2-常用计算公式总结"><a href="#3-2-常用计算公式总结" class="headerlink" title="3.2 常用计算公式总结"></a>3.2 常用计算公式总结</h3><p>以下是定义在周期 $T_0$（或 $[-\frac{T_0}{2}, \frac{T_0}{2}]$）上的常用积分总结。</p>
 <p>这里假设 $\omega_0 &#x3D; \frac{2\pi}{T_0}$，且 $m, n$ 均为非负整数。</p>
 <hr>
