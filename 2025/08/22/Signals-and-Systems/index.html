@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-09T09:08:08.063Z">
+<meta property="article:modified_time" content="2025-12-09T10:23:57.697Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          26k words
+          27k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          221 mins
+          222 mins
         
       </span>
     
@@ -1708,6 +1708,12 @@
 <li><strong>有限性</strong>：只需要 $N$ 个复指数波就能合成信号。</li>
 <li><strong>周期性</strong>：频域系数 $a_k$ 也是周期的，即 $a_k &#x3D; a_{k+N}$（这是做题时经常用到的隐藏条件）。</li>
 </ol>
+<hr>
+<p>离散傅里叶级数（DTFS）中有个非常重要的<strong>相乘性质（Multiplication Property）</strong>。</p>
+<p>简单来说：<strong>时域上的相乘，对应频域上的周期卷积。</strong></p>
+<p>根据离散傅里叶级数的性质，如果时域信号是 $g[n] &#x3D; x_1[n]x_2[n]$，那么其频域系数 $c_k$ 是 $a_k$ 和 $b_k$ 的<strong>周期卷积</strong>：</p>
+<p>$$c_k &#x3D; \sum_{l&#x3D;0}^{N-1} a_l b_{k-l}$$</p>
+<p><em>(注：这里的下标 $k-l$ 是模 $N$ 运算，即如果 $k-l$ 是负数，要加上 $N$ 找对应的值)</em></p>
 <h3 id="3-2-常用计算公式总结"><a href="#3-2-常用计算公式总结" class="headerlink" title="3.2 常用计算公式总结"></a>3.2 常用计算公式总结</h3><p>以下是定义在周期 $T_0$（或 $[-\frac{T_0}{2}, \frac{T_0}{2}]$）上的常用积分总结。</p>
 <p>这里假设 $\omega_0 &#x3D; \frac{2\pi}{T_0}$，且 $m, n$ 均为非负整数。</p>
 <hr>
