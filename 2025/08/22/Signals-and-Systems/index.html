@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://toutou.zeabur.app/img/signals/signal_comparison.svg">
 <meta property="article:published_time" content="2025-08-22T04:38:46.000Z">
-<meta property="article:modified_time" content="2025-12-10T13:22:16.002Z">
+<meta property="article:modified_time" content="2025-12-11T04:54:35.152Z">
 <meta property="article:author" content="toutou">
 <meta property="article:tag" content="修考">
 <meta property="article:tag" content="Signals and Systems">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          28k words
+          29k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          237 mins
+          243 mins
         
       </span>
     
@@ -2754,6 +2754,75 @@
 <li><p><strong>结论 (d)：</strong><br>  (i) 实信号；<br>  (ii) 偶函数。</p>
 </li>
 </ul>
+<hr>
+<p>对于一个<strong>实值信号（Real-valued Signal）</strong> $x(t)$：</p>
+<table>
+<thead>
+<tr>
+<th align="left">时域分量</th>
+<th align="left">频域对应部分</th>
+<th align="left">性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>偶部 $x_e(t)$</strong></td>
+<td align="left"><strong>实部 $\mathcal{Re}{X(j\omega)}$</strong></td>
+<td align="left">也是关于 $\omega$ 的偶函数</td>
+</tr>
+<tr>
+<td align="left"><strong>奇部 $x_o(t)$</strong></td>
+<td align="left"><strong>虚部 $j\mathcal{Im}{X(j\omega)}$</strong></td>
+<td align="left">也是关于 $\omega$ 的奇函数</td>
+</tr>
+</tbody></table>
+<p><strong>简单来说：</strong> 实偶对应实偶，实奇对应纯虚奇。</p>
+<blockquote>
+<p>数学推导（理解“为什么”）</p>
+</blockquote>
+<p>我们要证明：$\mathcal{F}{x_e(t)} &#x3D; \mathcal{Re}{X(j\omega)}$。</p>
+<p><strong>步骤一：信号分解</strong><br>任何实信号 $x(t)$ 都可以分解为偶部和奇部之和：<br>$$x(t) &#x3D; x_e(t) + x_o(t)$$</p>
+<p><strong>步骤二：代入傅里叶变换定义</strong><br>$$X(j\omega) &#x3D; \int_{-\infty}^{\infty} [x_e(t) + x_o(t)] e^{-j\omega t} dt$$</p>
+<p><strong>步骤三：利用欧拉公式展开</strong><br>根据欧拉公式 $e^{-j\omega t} &#x3D; \cos(\omega t) - j\sin(\omega t)$，将其代入积分中展开：<br>$$X(j\omega) &#x3D; \int_{-\infty}^{\infty} [x_e(t) + x_o(t)] [\cos(\omega t) - j\sin(\omega t)] dt$$</p>
+<p>我们将这个乘积展开成四项积分：</p>
+<ol>
+<li>$\int x_e(t) \cos(\omega t) dt$</li>
+<li>$-j \int x_e(t) \sin(\omega t) dt$</li>
+<li>$\int x_o(t) \cos(\omega t) dt$</li>
+<li>$-j \int x_o(t) \sin(\omega t) dt$</li>
+</ol>
+<p><strong>步骤四：利用奇偶函数的积分性质（消去项）</strong><br>在对称区间 $(-\infty, \infty)$ 上积分时：</p>
+<ul>
+<li><strong>奇函数</strong>的积分等于 0。</li>
+<li><strong>偶函数</strong>的积分不为 0（是半区间积分的 2 倍）。</li>
+</ul>
+<p>让我们分析上面四项的奇偶性（注意 $t$ 是变量）：</p>
+<ol>
+<li>**$x_e(t) \cos(\omega t)$**：偶 $\times$ 偶 &#x3D; <strong>偶函数</strong>。 $\to$ <strong>保留</strong></li>
+<li>**$x_e(t) \sin(\omega t)$**：偶 $\times$ 奇 &#x3D; <strong>奇函数</strong>。 $\to$ <strong>积分为 0</strong></li>
+<li>**$x_o(t) \cos(\omega t)$**：奇 $\times$ 偶 &#x3D; <strong>奇函数</strong>。 $\to$ <strong>积分为 0</strong></li>
+<li>**$x_o(t) \sin(\omega t)$**：奇 $\times$ 奇 &#x3D; <strong>偶函数</strong>。 $\to$ <strong>保留</strong></li>
+</ol>
+<p><strong>步骤五：整理结果</strong><br>剩下的只有第 1 项和第 4 项：</p>
+<p>$$<br>X(j\omega) &#x3D; \int_{-\infty}^{\infty} x_e(t) \cos(\omega t) dt - j \int_{-\infty}^{\infty} x_o(t) \sin(\omega t) dt<br>$$<br>其中：</p>
+<ul>
+<li>第一项是实数（对应 $x_e(t)$ 的变换）</li>
+<li>第二项是实数（对应 $x_o(t)$ 的变换）</li>
+</ul>
+<p>观察上式：</p>
+<ul>
+<li><strong>实部</strong> $\mathcal{Re}{X(j\omega)}$ 正好等于 $\int_{-\infty}^{\infty} x_e(t) \cos(\omega t) dt$。这就是 $x_e(t)$ 的傅里叶变换（因为 $x_e(t)$ 乘以 $e^{-j\omega t}$ 积分时，虚部 $\sin$ 项也会因为奇偶性消失，只剩下 $\cos$ 项）。</li>
+<li><strong>虚部</strong> $j\mathcal{Im}{X(j\omega)}$ 对应剩下那一项，即 $x_o(t)$ 的变换。</li>
+</ul>
+<p><strong>结论：</strong><br>$$x_e(t) \stackrel{\mathcal{F}}{\longleftrightarrow} \mathcal{Re}{X(j\omega)}$$</p>
+<blockquote>
+<p>这个性质有什么用？</p>
+</blockquote>
+<p>题目给了这样一个积分：<br>$$\frac{1}{2\pi} \int_{-\infty}^{\infty} \mathcal{Re}{X(j\omega)} e^{j\omega t} d\omega$$</p>
+<p>如果不利用这个性质，你可能会试图去把 $\mathcal{Re}{X(j\omega)}$ 算出来或者强行积分，非常困难。<br>但如果利用这个性质，你一眼就能看出：</p>
+<blockquote>
+<p>“哦，这就是对<strong>频谱的实部</strong>做反变换。既然实部对应偶部，那么这个积分的结果直接就是 **$x_e(t)$**。”</p>
+</blockquote>
+<p>这样就直接建立了 $x_e(t)$ 和题目给出的 $|t|e^{-|t|}$ 之间的等号关系。</p>
 
                 
               </div>
